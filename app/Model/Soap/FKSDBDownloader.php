@@ -49,14 +49,17 @@ class FKSDBDownloader {
         $this->client->__setSoapHeaders($headers);
     }
 
-    /**
-     * @param int $eventId
-     * @return string
-     */
     public function createTeamList(int $eventId): string {
         return $this->download('teamList.' . $eventId, 'GetEvent', [
             'teamList' => '',
             'eventId' => $eventId,
+        ]);
+    }
+
+    public function createEventList(): string {
+        return $this->download('eventList', 'GetEvent', [
+            'eventList' => '',
+            'eventTypeId' => 9,
         ]);
     }
 
