@@ -2,14 +2,10 @@
 
 namespace App\Model\ORM;
 
-use App\Model\Soap\FKSDBDownloader;
 use Exception;
-use Tracy\Debugger;
 
 class ServiceEvent extends AbstractSOAPService {
-
-    protected FKSDBDownloader $downloader;
-
+    /** @var ModelEvent[] */
     private array $events;
 
     /**
@@ -23,12 +19,26 @@ class ServiceEvent extends AbstractSOAPService {
             foreach ($doc->getElementsByTagName('event') as $eventNode) {
                 $event = ModelEvent::createFromXMLNode($eventNode);
                 $this->events[] = $event;
-                Debugger::barDump(isset($event->begin));;
             }
             usort($this->events, function (ModelEvent $a, ModelEvent $b) {
                 return $a->begin <=> $b->begin;
             });
         }
+    }
+
+    /**
+     * @param int $year
+     * @return ModelEvent|null
+     * @throws Exception
+     */
+    public function getEventByYear(int $year): ?ModelEvent {
+        $this->loadEvents();
+        foreach ($this->events as $event) {
+            if ($event->eventYear === $year) {
+                return $event;
+            }
+        }
+        return null;
     }
 
     /**

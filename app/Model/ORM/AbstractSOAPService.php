@@ -18,5 +18,4 @@ abstract class AbstractSOAPService {
     public function __construct(FKSDBDownloader $downloader) {
         $this->downloader = $downloader;
     }
-
 }

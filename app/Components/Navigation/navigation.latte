@@ -1,0 +1,45 @@
+{varType string $basePath}
+{varType \App\Components\Navigation\Navigation $control}
+{varType array $items}
+{varType string $lang}
+{block content}
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" role="navigation">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            {*<a class="navbar-brand" href="{plink :Public:Default:default}">{_'Fyziklání online'}</a>*}
+            <a class="navbar-brand"
+               href="{plink :Default:Default:default}">{_'Home'}</a>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    {foreach $items as $item}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{plink $item->destination,(expand)$item->linkParams}"
+                               title="{$item->title}">
+                                <span class="hidden-sm">{$item->title}</span>
+                                <span class="{$item->icon}" title="{$item->title}"/>
+                            </a>
+                        </li>
+                    {/foreach}
+                </ul>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="navbar-text real-clock" data-timestamp="{1000 * time()}"></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span><i class="{$control::mapLangToIcon($lang)}"></i></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {foreach $supportedLangs as $supportedLang}
+                                <a class="dropdown-item {$lang == $supportedLang?'active':''}" href="{plink this, lang => $supportedLang}">
+                                    <i class="{$control::mapLangToIcon($supportedLang)}"></i>
+                                </a>
+                            {/foreach}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{/block}

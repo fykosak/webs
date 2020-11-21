@@ -2,15 +2,11 @@
 
 namespace App\Model\ORM;
 
-use DOMNode;
-use Nette\SmartObject;
-use Tracy\Debugger;
-
-class ModelEvent {
-    use SmartObject;
+class ModelEvent extends AbstractSOAPModel {
 
     public int $eventId;
     public string $name;
+    public int $eventYear;
     public \DateTimeInterface $begin;
     public \DateTimeInterface $end;
     public \DateTimeInterface $registrationBegin;
