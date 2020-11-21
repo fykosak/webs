@@ -1,1 +1,6 @@
-app/config/local.neon
+/nbproject/
+app/config/config.local.neon
+www/.htaccess
+www/adminer/.htaccess
+vendor/*
+!vendor/others
