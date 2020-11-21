@@ -1,0 +1,41 @@
+{layout '../@layout.latte'}
+{block content}
+        {foreach $teams AS $category => $teamsForCategory}
+            <h2 id="{$category}">{$category}</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{_'Team'}</th>
+                    <th>{_'Points'}</th>
+                    <th>{_'Rank in category'}</th>
+                    <th>{_'Rank total'}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach $teamsForCategory AS $team}
+                    <tr>
+                        {varType App\Model\ORM\ModelTeam $team}
+                        <td><strong>{$team->name}</strong>
+                            {var $prevIso = null}
+                            {var $fromCountry = 0}
+                            {if count($team->participants)}<span class="text-muted">(
+                                {foreach $team->participants as $participant}
+                                    {varType App\Model\ORM\ModelParticipant $participant}
+                                    {do $fromCountry++}
+                                    {if $iterator->isLast() || (!is_null($prevIso) && $participant->countryIso != $prevIso)}
+                                        {$fromCountry}&times; <span class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>
+                                        {do $fromCountry = 0}
+                                    {/if}
+                                    {do $prevIso = $participant->countryIso}
+                                {/foreach})</span>
+                            {/if}
+                        </td>
+                        <td>{$team->points}</td>
+                        <td>{$team->rankCategory}</td>
+                        <td>{$team->rankTotal}</td>
+                    </tr>
+                {/foreach}
+                </tbody>
+            </table>
+        {/foreach}
+{/block}

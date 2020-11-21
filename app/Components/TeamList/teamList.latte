@@ -15,14 +15,13 @@
                         {foreach $team->participants as $participant}
                             {varType App\Model\ORM\ModelParticipant $participant}
                             {$participant->name}
-                            {if $participant->schoolId != $prevSchool || $iterator->isLast()}
+                            {do $inSchool++}
+                            {if $iterator->isLast() || (!is_null($prevSchool)&&$participant->schoolId != $prevSchool) }
                                 <span class="text-muted">({if $inSchool > 1}{$inSchool}&times; {/if}{$participant->schoolName} <span
                                             class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>)</span>
-                                {do $inSchool = 1}
-                                {do $prevSchool = $participant->schoolId}
-                            {else}
-                                {do $inSchool++}
+                                {do $inSchool = 0}
                             {/if}
+                            {do $prevSchool = $participant->schoolId}
                             {if !$iterator->isLast()}, {/if}
                         {/foreach}
                     {else}
