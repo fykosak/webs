@@ -1,0 +1,25 @@
+tracy:
+    email: webmaster@fykos.cz
+
+php:
+    date.timezone: Europe/Prague
+
+application:
+    errorPresenter: Default:Error
+    mapping:
+        *: App\Modules\*Module\*Presenter
+
+session:
+    expiration: 14 days
+    #cookie_secure: true
+
+services:
+    - App\Model\Translator\GettextTranslator
+    - App\Model\Soap\FKSDBDownloader('http://db.fykos.local/FKSDBWebServices.wsdl',%fksdbDownloader.login%,%fksdbDownloader.password%)
+    - App\Model\ORM\ServiceEvent
+    - App\Model\ORM\ServiceTeam
+
+    router: App\Router::createRouter
+
+database:
+    conventions: 'discovered'

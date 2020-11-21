@@ -1,0 +1,28 @@
+database:
+    dsn: 'mysql:host=localhost;dbname='
+    user:
+    password:
+parameters:
+    fksdbDownloader:
+        login:
+        password:
+
+    i18n:
+        # path to gettext dir structure
+        dir: %appDir%/i18n/locale
+        # language used when no or unknown language is requested
+        defaultLang: cs
+
+    registration:
+        # Specifying non-null URL, means registration will be redirected to FKSDB
+        url: null
+        # Specifies URL mask to team's application edit (only team ID will be substituted)
+        editUrl: "https://db.fykos.local/fykos28/application/default/%s?eventId=8"
+
+    reports:
+        # path to report images relative to wwwDir
+        imagePath: /images/report
+        thumbnailPath: /images/report/thumb
+        imageHeight: 1024
+        thumbnailHeight: 256
+        jpgQuality: 80
