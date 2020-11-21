@@ -1,0 +1,36 @@
+{layout '../@layout.latte'}
+{block content}
+<div id="teams" class="list">
+    {foreach $teams AS $category => $teamsForCategory}
+        <h2 id="{$category}">{$category}</h2>
+        <ol>
+            {foreach $teamsForCategory AS $team}
+                {varType App\Model\ORM\ModelTeam $team}
+                <li>
+                    <strong>{$team->name}</strong>:
+                    {var $prevSchool = null}
+                {var $inSchool = 0}
+
+                {if count($team->participants)}
+                        {foreach $team->participants as $participant}
+                            {varType App\Model\ORM\ModelParticipant $participant}
+                            {$participant->name}
+                            {if $participant->schoolId != $prevSchool || $iterator->isLast()}
+                                <span class="text-muted">({if $inSchool > 1}{$inSchool}&times; {/if}{$participant->schoolName} <span
+                                            class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>)</span>
+                                {do $inSchool = 1}
+                                {do $prevSchool = $participant->schoolId}
+                            {else}
+                                {do $inSchool++}
+                            {/if}
+                            {if !$iterator->isLast()}, {/if}
+                        {/foreach}
+                    {else}
+                        {_'informace o členech týmu nejsou dostupné'}
+                    {/if}
+                </li>
+            {/foreach}
+        </ol>
+    {/foreach}
+</div>
+{/block}
