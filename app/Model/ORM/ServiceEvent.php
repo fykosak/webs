@@ -2,7 +2,9 @@
 
 namespace App\Model\ORM;
 
+use DOMDocument;
 use Exception;
+use Fykosak\FKSDBDownloader\Downloader\AbstractSOAPService;
 
 class ServiceEvent extends AbstractSOAPService {
     /** @var ModelEvent[] */
@@ -14,7 +16,7 @@ class ServiceEvent extends AbstractSOAPService {
     public function loadEvents(): void {
         if (!isset($this->events)) {
             $xml = $this->downloader->createEventList();
-            $doc = new \DOMDocument();
+            $doc = new DOMDocument();
             $doc->loadXML($xml);
             foreach ($doc->getElementsByTagName('event') as $eventNode) {
                 $event = ModelEvent::createFromXMLNode($eventNode);

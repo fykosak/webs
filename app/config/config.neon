@@ -15,7 +15,7 @@ session:
 
 services:
     - App\Model\Translator\GettextTranslator
-    - App\Model\Soap\FKSDBDownloader('http://db.fykos.local/FKSDBWebServices.wsdl',%fksdbDownloader.login%,%fksdbDownloader.password%)
+    - Fykosak\FKSDBDownloader\Downloader\Downloader('http://db.fykos.local/FKSDBWebServices.wsdl',%fksdbDownloader.login%,%fksdbDownloader.password%,9)
     - App\Model\ORM\ServiceEvent
     - App\Model\ORM\ServiceTeam
 

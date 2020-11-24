@@ -4,20 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f20604f6bf82e6ec224b6c577c9fb605",
+    "content-hash": "e1491fa1ce94213807fc8eec0aef0cc0",
     "packages": [
         {
-            "name": "latte/latte",
-            "version": "v2.9.0",
+            "name": "fykosak/fksdb-downloader",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nette/latte.git",
-                "reference": "21861cfee4ba19f853a34bcaab15d6ec332d8fa0"
+                "url": "https://github.com/fykosak/fksdb-downloader.git",
+                "reference": "fb45831f673dc823ddbe57a259be9da58a1c71d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/21861cfee4ba19f853a34bcaab15d6ec332d8fa0",
-                "reference": "21861cfee4ba19f853a34bcaab15d6ec332d8fa0",
+                "url": "https://api.github.com/repos/fykosak/fksdb-downloader/zipball/fb45831f673dc823ddbe57a259be9da58a1c71d2",
+                "reference": "fb45831f673dc823ddbe57a259be9da58a1c71d2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-soap": "*",
+                "nette/caching": "^3.0",
+                "nette/utils": "^3.1",
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Michal Mišo Červeňák",
+                    "email": "miso@fykos.cz"
+                }
+            ],
+            "time": "2020-11-24T20:21:59+00:00"
+        },
+        {
+            "name": "latte/latte",
+            "version": "v2.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/latte.git",
+                "reference": "fa7bc18569d716d1efffde14ac4ff65ddf1dc132"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/latte/zipball/fa7bc18569d716d1efffde14ac4ff65ddf1dc132",
+                "reference": "fa7bc18569d716d1efffde14ac4ff65ddf1dc132",
                 "shasum": ""
             },
             "require": {
@@ -81,7 +112,7 @@
                 "template",
                 "twig"
             ],
-            "time": "2020-11-15T23:01:29+00:00"
+            "time": "2020-11-24T00:57:37+00:00"
         },
         {
             "name": "nette/application",
@@ -1376,13 +1407,16 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "fykosak/fksdb-downloader": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">= 7.4",
         "ext-soap": "*",
-        "ext-dom": "*"
+        "ext-dom": "*",
+        "ext-gettext": "*"
     },
     "platform-dev": []
 }

@@ -2,15 +2,17 @@
 
 namespace App\Model\ORM;
 
+use DateTimeInterface;
 use DOMNode;
 use Exception;
+use Fykosak\FKSDBDownloader\Downloader\AbstractSOAPModel;
 
 class ModelTeam extends AbstractSOAPModel {
     public int $teamId;
     public string $name;
     public string $status;
     public string $category;
-    public \DateTimeInterface $created;
+    public DateTimeInterface $created;
     public ?string $phone = null;
     public ?string $password = null;
     public ?int $points = null;
@@ -39,7 +41,7 @@ class ModelTeam extends AbstractSOAPModel {
      * @return bool
      * @throws Exception
      */
-    protected static function handleAccessProperty(\DOMNode $node, AbstractSOAPModel $model): bool {
+    protected static function handleAccessProperty(DOMNode $node, AbstractSOAPModel $model): bool {
         switch ($node->nodeName) {
             case 'participant':
                 $model->participants[] = ModelParticipant::createFromXMLNode($node);
