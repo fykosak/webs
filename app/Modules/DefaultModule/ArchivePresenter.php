@@ -2,10 +2,11 @@
 
 namespace App\Modules\DefaultModule;
 
-use App\Components\TeamListComponent;
-use App\Components\TeamResultsComponent;
-use App\Model\ORM\ModelEvent;
-use App\Model\ORM\ServiceEvent;
+use App\Components\TeamList\TeamListComponent;
+use App\Components\TeamResults\TeamResultsComponent;
+use Exception;
+use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
+use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEvent;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
 
@@ -26,6 +27,7 @@ class ArchivePresenter extends BasePresenter {
 
     /**
      * @throws BadRequestException
+     * @throws Exception
      */
     protected function startUp(): void {
         parent::startUp();

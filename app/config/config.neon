@@ -11,15 +11,25 @@ application:
 
 session:
     expiration: 14 days
-    #cookie_secure: true
+    cookie_secure: true
 
 services:
-    - App\Model\Translator\GettextTranslator
-    - Fykosak\FKSDBDownloader\Downloader\Downloader('http://db.fykos.local/FKSDBWebServices.wsdl',%fksdbDownloader.login%,%fksdbDownloader.password%,9)
-    - App\Model\ORM\ServiceEvent
-    - App\Model\ORM\ServiceTeam
+    - Fykosak\Utils\Localization\GettextTranslator(%i18n.locales%,%i18n.dir%)
+    - Fykosak\NetteFKSDBDownloader\NetteFKSDBDownloader('https://db.fykos.cz/FKSDBWebServices.wsdl',%fksdbDownloader.login%,%fksdbDownloader.password%)
+    - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEvent
+    - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceTeam
 
     router: App\Router::createRouter
 
 database:
     conventions: 'discovered'
+
+parameters:
+    i18n:
+        locales:
+            cs: cs_CZ.utf-8
+            en: en_US.utf-8
+        # path to gettext dir structure
+        dir: %appDir%/i18n/locale
+        # language used when no or unknown language is requested
+        defaultLang: cs

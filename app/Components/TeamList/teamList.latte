@@ -5,7 +5,7 @@
         <h2 id="{$category}">{$category}</h2>
         <ol>
             {foreach $teamsForCategory AS $team}
-                {varType App\Model\ORM\ModelTeam $team}
+                {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
                 <li>
                     <strong>{$team->name}</strong>:
                     {var $prevSchool = null}
@@ -13,7 +13,7 @@
 
                 {if count($team->participants)}
                         {foreach $team->participants as $participant}
-                            {varType App\Model\ORM\ModelParticipant $participant}
+                            {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
                             {$participant->name}
                             {do $inSchool++}
                             {if $iterator->isLast() || (!is_null($prevSchool)&&$participant->schoolId != $prevSchool) }

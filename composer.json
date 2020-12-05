@@ -26,8 +26,10 @@
     "nette/security": "^3.0",
     "nette/utils": "^3.1",
     "latte/latte": "^2.5",
-    "tracy/tracy": "2.6.8",
-    "fykosak/fksdb-downloader": "dev-master",
+    "tracy/tracy": "^2.6.8",
+    "fykosak/nette-fksdb-downloader": "dev-master",
+    "fykosak/fksdb-downloader-core": "dev-master",
+    "fykosak/nette-fks-utils": "dev-master",
     "ext-soap": "*",
     "ext-dom": "*",
     "ext-gettext": "*"
@@ -36,6 +38,8 @@
     "nette/tester": "^2.0"
   },
   "autoload": {
-  },
-  "minimum-stability": "stable"
+    "psr-4": {
+      "App\\": "app/"
+    }
+  }
 }

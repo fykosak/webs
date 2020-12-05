@@ -31,8 +31,6 @@ class Router {
             'presenter' => 'Default',
             'action' => 'default',
         ]);
-
-
         return $router;
     }
 }

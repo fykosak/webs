@@ -4,22 +4,22 @@ namespace App\Modules\DefaultModule;
 
 use App\Components\Navigation\Navigation;
 use App\Components\Navigation\NavItem;
-use App\Model\Translator\GettextTranslator;
+use Exception;
+use Fykosak\Utils\Localization\GettextTranslator;
+use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Nette\Application\UI\ITemplate;
 use Nette\Application\UI\Presenter;
-use Nette\Localization\ITranslator;
 
 abstract class BasePresenter extends Presenter {
-
 
     /** @persistent */
     public $lang; // = 'cs';
 
     private string $customScript = '';
 
-    protected ITranslator $translator;
+    protected GettextTranslator $translator;
 
-    public function injectServices(ITranslator $translator): void {
+    public function injectServices(GettextTranslator $translator): void {
         $this->translator = $translator;
     }
 
@@ -30,7 +30,7 @@ abstract class BasePresenter extends Presenter {
 
     /**
      * @return Navigation
-     * @throws \Exception
+     * @throws Exception
      */
     protected function createComponentNavigation(): Navigation {
         $navigation = new Navigation($this->getContext());
@@ -87,27 +87,21 @@ abstract class BasePresenter extends Presenter {
 
     /* temporary hack for DI */
 
-
 // -------------- l12n ------------------
-
+    /**
+     * @throws UnsupportedLanguageException
+     */
     protected function localize(): void {
         $i18nConf = $this->context->parameters['i18n'];
         $this->detectLang($i18nConf);
-        $locale = isset(GettextTranslator::$locales[$this->lang]) ? GettextTranslator::$locales[$this->lang] : 'cs_CZ.utf-8';
-
-        putenv("LANGUAGE=$locale");
-        setlocale(LC_MESSAGES, $locale);
-        setlocale(LC_TIME, $locale);
-        bindtextdomain('messages', $i18nConf['dir']);
-        bind_textdomain_codeset('messages', "utf-8");
-        textdomain('messages');
+        $this->translator->setLang($this->lang);
     }
 
     protected function detectLang($i18nConf): void {
         if (!isset($this->lang)) {
-            $this->lang = $this->getHttpRequest()->detectLanguage(GettextTranslator::getSupportedLangs());
+            $this->lang = $this->getHttpRequest()->detectLanguage($this->translator->getSupportedLanguages());
         }
-        if (array_search($this->lang, GettextTranslator::getSupportedLangs()) === false) {
+        if (array_search($this->lang, $this->translator->getSupportedLanguages()) === false) {
             $this->lang = $i18nConf['defaultLang'];
         }
     }

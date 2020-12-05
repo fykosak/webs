@@ -2,12 +2,13 @@
 
 namespace App\Components\Navigation;
 
-use App\Components\BaseComponent;
-use App\Model\Translator\GettextTranslator;
+use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Localization\GettextTranslator;
 
 /**
  * Class Navigation
  * @author Michal Červeňák <miso@fykos.cz>
+ * @property GettextTranslator $translator
  */
 class Navigation extends BaseComponent {
     private array $items = [];
@@ -16,7 +17,7 @@ class Navigation extends BaseComponent {
         $this->getTemplate()->setFile(__DIR__ . DIRECTORY_SEPARATOR . 'navigation.latte');
         $this->template->items = $this->items;
         $this->template->lang = $this->getPresenter()->lang;
-        $this->template->supportedLangs = GettextTranslator::getSupportedLangs();
+        $this->template->supportedLangs = $this->translator->getSupportedLanguages();
         parent::render();
     }
 

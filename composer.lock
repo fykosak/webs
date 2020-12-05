@@ -4,30 +4,33 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e1491fa1ce94213807fc8eec0aef0cc0",
+    "content-hash": "2ed07ef241365b4e7ab606e09572b2c8",
     "packages": [
         {
-            "name": "fykosak/fksdb-downloader",
+            "name": "fykosak/fksdb-downloader-core",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fykosak/fksdb-downloader.git",
-                "reference": "fb45831f673dc823ddbe57a259be9da58a1c71d2"
+                "url": "https://github.com/fykosak/fksdb-downloader-core.git",
+                "reference": "d5a745ade1391650a6064b5f886afdedb17be019"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/fksdb-downloader/zipball/fb45831f673dc823ddbe57a259be9da58a1c71d2",
-                "reference": "fb45831f673dc823ddbe57a259be9da58a1c71d2",
+                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/d5a745ade1391650a6064b5f886afdedb17be019",
+                "reference": "d5a745ade1391650a6064b5f886afdedb17be019",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-soap": "*",
-                "nette/caching": "^3.0",
-                "nette/utils": "^3.1",
                 "php": ">=7.4"
             },
             "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Fykosak\\FKSDBDownloaderCore\\": "src/"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
@@ -35,7 +38,85 @@
                     "email": "miso@fykos.cz"
                 }
             ],
-            "time": "2020-11-24T20:21:59+00:00"
+            "time": "2020-11-28T17:27:51+00:00"
+        },
+        {
+            "name": "fykosak/nette-fks-utils",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fykosak/nette-fks-utils.git",
+                "reference": "0998e9f5768af9cdd6ec15f1a4d73cf85e7f7ccc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fykosak/nette-fks-utils/zipball/0998e9f5768af9cdd6ec15f1a4d73cf85e7f7ccc",
+                "reference": "0998e9f5768af9cdd6ec15f1a4d73cf85e7f7ccc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gettext": "*",
+                "ext-json": "*",
+                "ext-pdo": "*",
+                "latte/latte": "^v2.8.0",
+                "nette/application": "^3.0.0",
+                "nette/database": "^3.0.0",
+                "nette/di": "^3.0.0",
+                "nette/forms": "^v3.0.0",
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Fykosak\\Utils\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "FYKOS",
+                    "email": "webmaster@fykos.cz"
+                }
+            ],
+            "time": "2020-12-05T21:46:09+00:00"
+        },
+        {
+            "name": "fykosak/nette-fksdb-downloader",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fykosak/nette-fksdb-downloader.git",
+                "reference": "4611079d1c21eee370946d0645303964bf6d090e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/4611079d1c21eee370946d0645303964bf6d090e",
+                "reference": "4611079d1c21eee370946d0645303964bf6d090e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-soap": "*",
+                "fykosak/fksdb-downloader-core": "dev-master",
+                "nette/caching": "^3.0",
+                "nette/utils": "^3.1",
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Fykosak\\NetteFKSDBDownloader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Michal Mišo Červeňák",
+                    "email": "miso@fykos.cz"
+                }
+            ],
+            "description": "FKSDB Downloader for nette web applications",
+            "time": "2020-11-28T17:59:49+00:00"
         },
         {
             "name": "latte/latte",
@@ -476,16 +557,16 @@
         },
         {
             "name": "nette/di",
-            "version": "v3.0.5",
+            "version": "v3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/di.git",
-                "reference": "766e8185196a97ded4f9128db6d79a3a124b7eb6"
+                "reference": "e639ccfbc0230e022ca08bf59c6b07df7caf2007"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/di/zipball/766e8185196a97ded4f9128db6d79a3a124b7eb6",
-                "reference": "766e8185196a97ded4f9128db6d79a3a124b7eb6",
+                "url": "https://api.github.com/repos/nette/di/zipball/e639ccfbc0230e022ca08bf59c6b07df7caf2007",
+                "reference": "e639ccfbc0230e022ca08bf59c6b07df7caf2007",
                 "shasum": ""
             },
             "require": {
@@ -494,8 +575,8 @@
                 "nette/php-generator": "^3.3.3",
                 "nette/robot-loader": "^3.2",
                 "nette/schema": "^1.0",
-                "nette/utils": "^3.1",
-                "php": ">=7.1"
+                "nette/utils": "^3.1.4",
+                "php": ">=7.1 <8.1"
             },
             "conflict": {
                 "nette/bootstrap": "<3.0"
@@ -543,7 +624,7 @@
                 "nette",
                 "static"
             ],
-            "time": "2020-08-13T13:04:23+00:00"
+            "time": "2020-11-25T22:42:55+00:00"
         },
         {
             "name": "nette/finder",
@@ -1071,21 +1152,21 @@
         },
         {
             "name": "nette/schema",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/schema.git",
-                "reference": "febf71fb4052c824046f5a33f4f769a6e7fa0cb4"
+                "reference": "34baf9eca75eccdad3d04306c5d6bec0f6b252ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/schema/zipball/febf71fb4052c824046f5a33f4f769a6e7fa0cb4",
-                "reference": "febf71fb4052c824046f5a33f4f769a6e7fa0cb4",
+                "url": "https://api.github.com/repos/nette/schema/zipball/34baf9eca75eccdad3d04306c5d6bec0f6b252ad",
+                "reference": "34baf9eca75eccdad3d04306c5d6bec0f6b252ad",
                 "shasum": ""
             },
             "require": {
-                "nette/utils": "^3.1",
-                "php": ">=7.1"
+                "nette/utils": "^3.1.4",
+                "php": ">=7.1 <8.1"
             },
             "require-dev": {
                 "nette/tester": "^2.2",
@@ -1094,7 +1175,9 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": []
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
             },
             "autoload": {
                 "classmap": [
@@ -1104,8 +1187,8 @@
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
+                "GPL-2.0-only",
+                "GPL-3.0-only"
             ],
             "authors": [
                 {
@@ -1123,7 +1206,7 @@
                 "config",
                 "nette"
             ],
-            "time": "2020-01-06T22:52:48+00:00"
+            "time": "2020-11-25T21:54:59+00:00"
         },
         {
             "name": "nette/security",
@@ -1192,20 +1275,23 @@
         },
         {
             "name": "nette/utils",
-            "version": "v3.1.3",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "c09937fbb24987b2a41c6022ebe84f4f1b8eec0f"
+                "reference": "d0427c1811462dbb6c503143eabe5478b26685f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/c09937fbb24987b2a41c6022ebe84f4f1b8eec0f",
-                "reference": "c09937fbb24987b2a41c6022ebe84f4f1b8eec0f",
+                "url": "https://api.github.com/repos/nette/utils/zipball/d0427c1811462dbb6c503143eabe5478b26685f7",
+                "reference": "d0427c1811462dbb6c503143eabe5478b26685f7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": ">=7.2 <8.1"
+            },
+            "conflict": {
+                "nette/di": "<3.0.6"
             },
             "require-dev": {
                 "nette/tester": "~2.0",
@@ -1224,7 +1310,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
@@ -1248,7 +1334,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🛠 Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
+            "description": "🛠  Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
             "homepage": "https://nette.org",
             "keywords": [
                 "array",
@@ -1266,20 +1352,20 @@
                 "utility",
                 "validation"
             ],
-            "time": "2020-08-05T18:40:56+00:00"
+            "time": "2020-11-25T23:47:50+00:00"
         },
         {
             "name": "tracy/tracy",
-            "version": "v2.6.8",
+            "version": "v2.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tracy.git",
-                "reference": "d3bb9f43692df5e3b83ab8004d3e6208034ac0ca"
+                "reference": "7e7e73d52c7e9ff0fd29dbd5b1cfdc03f3947942"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tracy/zipball/d3bb9f43692df5e3b83ab8004d3e6208034ac0ca",
-                "reference": "d3bb9f43692df5e3b83ab8004d3e6208034ac0ca",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/7e7e73d52c7e9ff0fd29dbd5b1cfdc03f3947942",
+                "reference": "7e7e73d52c7e9ff0fd29dbd5b1cfdc03f3947942",
                 "shasum": ""
             },
             "require": {
@@ -1287,10 +1373,16 @@
                 "ext-session": "*",
                 "php": ">=7.1"
             },
+            "conflict": {
+                "nette/di": "<3.0"
+            },
             "require-dev": {
-                "nette/di": "^2.4 || ~3.0.0",
+                "latte/latte": "^2.5",
+                "nette/di": "^3.0",
+                "nette/mail": "^3.0",
                 "nette/tester": "^2.2",
-                "nette/utils": "^2.4 || ^3.0",
+                "nette/utils": "^3.0",
+                "phpstan/phpstan": "^0.12",
                 "psr/log": "^1.0"
             },
             "suggest": {
@@ -1299,7 +1391,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -1333,7 +1425,7 @@
                 "nette",
                 "profiler"
             ],
-            "time": "2020-05-17T09:37:45+00:00"
+            "time": "2020-11-02T17:06:27+00:00"
         }
     ],
     "packages-dev": [
@@ -1408,7 +1500,9 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "fykosak/fksdb-downloader": 20
+        "fykosak/nette-fksdb-downloader": 20,
+        "fykosak/fksdb-downloader-core": 20,
+        "fykosak/nette-fks-utils": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

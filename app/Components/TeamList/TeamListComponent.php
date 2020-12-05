@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Components;
+namespace App\Components\TeamList;
 
-use App\Model\ORM\ServiceTeam;
+use Fykosak\Utils\BaseComponent\BaseComponent;
 use Exception;
+use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceTeam;
 use Nette\DI\Container;
 
 class TeamListComponent extends BaseComponent {

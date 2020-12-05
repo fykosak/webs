@@ -2,8 +2,7 @@
 
 namespace App\Modules\DefaultModule;
 
-use App\Modules\PublicModule\BasePresenter;
-use App\Components\TeamListComponent;
+use App\Components\TeamList\TeamListComponent;
 
 class TeamPresenter extends BasePresenter {
 
