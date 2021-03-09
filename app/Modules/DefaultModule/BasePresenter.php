@@ -6,7 +6,6 @@ use App\Components\Navigation\Navigation;
 use App\Components\Navigation\NavItem;
 use Exception;
 use Fykosak\Utils\Localization\GettextTranslator;
-use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Nette\Application\UI\ITemplate;
 use Nette\Application\UI\Presenter;
 
@@ -89,7 +88,7 @@ abstract class BasePresenter extends Presenter {
 
 // -------------- l12n ------------------
     /**
-     * @throws UnsupportedLanguageException
+     * @throws \Fykosak\Utils\Localization\UnsupportedLanguageException
      */
     protected function localize(): void {
         $i18nConf = $this->context->parameters['i18n'];
