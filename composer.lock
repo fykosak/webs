@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "36433b7b7e642916fd6b3c0771c20301",
+    "content-hash": "a8934360ca87f3da775a26974e927bc9",
     "packages": [
         {
             "name": "fykosak/fksdb-downloader-core",
@@ -126,19 +126,20 @@
         },
         {
             "name": "fykosak/nette-orm",
-            "version": "0.1.0-beta",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/nette-orm.git",
-                "reference": "354f1903018856820eaa8a5d82f00fdbc2867b09"
+                "reference": "42cef6b579b668b9bb02d57f14460e21af93f95e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/nette-orm/zipball/354f1903018856820eaa8a5d82f00fdbc2867b09",
-                "reference": "354f1903018856820eaa8a5d82f00fdbc2867b09",
+                "url": "https://api.github.com/repos/fykosak/nette-orm/zipball/42cef6b579b668b9bb02d57f14460e21af93f95e",
+                "reference": "42cef6b579b668b9bb02d57f14460e21af93f95e",
                 "shasum": ""
             },
             "require": {
+                "ext-pdo": "*",
                 "nette/database": "^3.1",
                 "nette/di": "^3.0.8",
                 "php": ">=7.4"
@@ -150,13 +151,16 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
             "authors": [
                 {
                     "name": "Michal Mišo Červeňák",
                     "email": "miso@fykos.cz"
                 }
             ],
-            "time": "2021-03-09T19:05:23+00:00"
+            "time": "2021-03-13T00:53:33+00:00"
         },
         {
             "name": "latte/latte",
@@ -1719,7 +1723,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "fykosak/nette-orm": 10,
         "fykosak/nette-fksdb-downloader": 10,
         "fykosak/nette-fks-utils": 20
     },

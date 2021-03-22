@@ -11,6 +11,7 @@ use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
 
 class ArchivePresenter extends BasePresenter {
+
     /**
      * @var int
      * @persistent
@@ -31,7 +32,7 @@ class ArchivePresenter extends BasePresenter {
      */
     protected function startUp(): void {
         parent::startUp();
-        $event = $this->serviceEvent->getEventByYear($this->year);
+        $event = $this->serviceEvent->getEventByYear([9], $this->year);
         if (is_null($event)) {
             throw new BadRequestException(_('Event not found'), IResponse::S404_NOT_FOUND);
         }

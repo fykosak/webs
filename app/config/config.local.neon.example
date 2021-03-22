@@ -16,7 +16,7 @@ parameters:
     registration:
         # Specifying non-null URL, means registration will be redirected to FKSDB
         url: null
-        # Specifies URL mask to team's application edit (only team ID will be substituted)
+        # Specifies URL mask to team's application edit (only team ID will be substituted)
         editUrl: "https://db.fykos.local/fykos28/application/default/%s?eventId=8"
 
     reports:

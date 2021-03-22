@@ -6,13 +6,14 @@ use App\Components\Navigation\Navigation;
 use App\Components\Navigation\NavItem;
 use Exception;
 use Fykosak\Utils\Localization\GettextTranslator;
-use Nette\Application\UI\ITemplate;
+use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Nette\Application\UI\Presenter;
+use Nette\Application\UI\Template;
 
 abstract class BasePresenter extends Presenter {
 
     /** @persistent */
-    public $lang; // = 'cs';
+    public ?string $lang = null; // = 'cs';
 
     private string $customScript = '';
 
@@ -65,8 +66,7 @@ abstract class BasePresenter extends Presenter {
 
 // ----- PROTECTED METHODS
 
-    protected function createTemplate(): ITemplate {
-
+    protected function createTemplate(): Template {
         $template = parent::createTemplate();
         $template->today = date("Y-m-d H:i:s");
         $template->lang = $this->lang;
@@ -88,7 +88,7 @@ abstract class BasePresenter extends Presenter {
 
 // -------------- l12n ------------------
     /**
-     * @throws \Fykosak\Utils\Localization\UnsupportedLanguageException
+     * @throws UnsupportedLanguageException
      */
     protected function localize(): void {
         $i18nConf = $this->context->parameters['i18n'];

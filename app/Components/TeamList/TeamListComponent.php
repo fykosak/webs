@@ -6,6 +6,8 @@ use Fykosak\Utils\BaseComponent\BaseComponent;
 use Exception;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceTeam;
 use Nette\DI\Container;
+use Throwable;
+use Tracy\Debugger;
 
 class TeamListComponent extends BaseComponent {
 
@@ -23,10 +25,12 @@ class TeamListComponent extends BaseComponent {
 
     /**
      * @throws Exception
+     * @throws Throwable
      */
     public function render(): void {
         $teams = [];
         foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
+            Debugger::barDump($team);
             $category = $team->category;
             if (!isset($teams[$category])) {
                 $teams[$category] = [];
@@ -34,7 +38,6 @@ class TeamListComponent extends BaseComponent {
             $teams[$category][] = $team;
         }
         $this->template->teams = $teams;
-        $this->template->setFile(__DIR__ . DIRECTORY_SEPARATOR . 'teamList.latte');
-        parent::render();
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamList.latte');
     }
 }

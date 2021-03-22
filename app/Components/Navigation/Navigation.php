@@ -14,11 +14,11 @@ class Navigation extends BaseComponent {
     private array $items = [];
 
     public function render(): void {
-        $this->getTemplate()->setFile(__DIR__ . DIRECTORY_SEPARATOR . 'navigation.latte');
+
         $this->template->items = $this->items;
         $this->template->lang = $this->getPresenter()->lang;
         $this->template->supportedLangs = $this->translator->getSupportedLanguages();
-        parent::render();
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'navigation.latte');
     }
 
     public function addNavItem(NavItem $item): void {
