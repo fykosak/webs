@@ -2,13 +2,12 @@
 
 namespace App;
 
-use Nette\Application\IRouter;
 use Nette\Application\Routers\Route;
 use Nette\Application\Routers\RouteList;
 
 class Router {
 
-    public static function createRouter(): IRouter {
+    public static function createRouter(): \Nette\Routing\Router {
         $router = new RouteList();
 
         $router[] = new Route('index.php', [

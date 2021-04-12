@@ -9,14 +9,14 @@ use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEvent;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
+use Throwable;
 
 class ArchivePresenter extends BasePresenter {
 
     /**
-     * @var int
      * @persistent
      */
-    public $year;
+    public ?int $year;
 
     protected ModelEvent $event;
 
@@ -28,7 +28,7 @@ class ArchivePresenter extends BasePresenter {
 
     /**
      * @throws BadRequestException
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     protected function startUp(): void {
         parent::startUp();

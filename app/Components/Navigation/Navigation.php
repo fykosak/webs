@@ -6,8 +6,6 @@ use Fykosak\Utils\BaseComponent\BaseComponent;
 use Fykosak\Utils\Localization\GettextTranslator;
 
 /**
- * Class Navigation
- * @author Michal Červeňák <miso@fykos.cz>
  * @property GettextTranslator $translator
  */
 class Navigation extends BaseComponent {

@@ -4,10 +4,6 @@ namespace App\Components\Navigation;
 
 use Nette\SmartObject;
 
-/**
- * Class NavItem
- * @author Michal Červeňák <miso@fykos.cz>
- */
 class NavItem {
     use SmartObject;
 

@@ -4,46 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8934360ca87f3da775a26974e927bc9",
+    "content-hash": "d694c794fd931bd3d91beb06881cb2de",
     "packages": [
         {
             "name": "fykosak/fksdb-downloader-core",
-            "version": "1.0.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/fksdb-downloader-core.git",
-                "reference": "834efde69b8797e594e28209a9d490f4dd27fc52"
+                "reference": "9fd486b6bf36f9350a619189feff2452c9d43fc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/834efde69b8797e594e28209a9d490f4dd27fc52",
-                "reference": "834efde69b8797e594e28209a9d490f4dd27fc52",
+                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/9fd486b6bf36f9350a619189feff2452c9d43fc4",
+                "reference": "9fd486b6bf36f9350a619189feff2452c9d43fc4",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-soap": "*",
-                "php": ">=7.4"
+                "php": "7.4.*"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Fykosak\\FKSDBDownloaderCore\\": "src/"
+                    "Fykosak\\FKSDBDownloaderCore\\": "src/",
+                    "Fykosak\\FKSDBDownloaderCore\\Tools\\": "tools/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
             "authors": [
-                {
-                    "name": "Michal Mišo Červeňák",
-                    "email": "miso@fykos.cz"
-                },
                 {
                     "name": "fykos.cz",
                     "email": "webmaster@fykos.cz"
                 }
             ],
             "description": "Interface for downloading data from FKSDB by SOAP-client",
-            "time": "2021-03-09T01:51:30+00:00"
+            "time": "2021-04-12T11:01:55+00:00"
         },
         {
             "name": "fykosak/nette-fks-utils",
@@ -88,22 +88,22 @@
         },
         {
             "name": "fykosak/nette-fksdb-downloader",
-            "version": "1.0.0-beta",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/nette-fksdb-downloader.git",
-                "reference": "1305ea12b05791ce970d567393aa751a7d118271"
+                "reference": "93114bcb5905922d8ae332a9f08f0f62c906d72f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/1305ea12b05791ce970d567393aa751a7d118271",
-                "reference": "1305ea12b05791ce970d567393aa751a7d118271",
+                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/93114bcb5905922d8ae332a9f08f0f62c906d72f",
+                "reference": "93114bcb5905922d8ae332a9f08f0f62c906d72f",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-soap": "*",
-                "fykosak/fksdb-downloader-core": "1.0.0",
+                "fykosak/fksdb-downloader-core": "1.1.1",
                 "nette/caching": "^3.1",
                 "nette/utils": "^3.2",
                 "php": ">=7.4"
@@ -117,37 +117,42 @@
             "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
-                    "name": "Michal Mišo Červeňák",
-                    "email": "miso@fykos.cz"
+                    "name": "FYKOS",
+                    "email": "webmaster@fykos.cz"
                 }
             ],
             "description": "FKSDB Downloader for nette web applications",
-            "time": "2021-03-09T15:27:28+00:00"
+            "time": "2021-04-12T17:16:04+00:00"
         },
         {
             "name": "fykosak/nette-orm",
-            "version": "0.1.2",
+            "version": "dev-dev-0.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/nette-orm.git",
-                "reference": "42cef6b579b668b9bb02d57f14460e21af93f95e"
+                "reference": "dc129251766cf4b590dae30678273a9017507d91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/nette-orm/zipball/42cef6b579b668b9bb02d57f14460e21af93f95e",
-                "reference": "42cef6b579b668b9bb02d57f14460e21af93f95e",
+                "url": "https://api.github.com/repos/fykosak/nette-orm/zipball/dc129251766cf4b590dae30678273a9017507d91",
+                "reference": "dc129251766cf4b590dae30678273a9017507d91",
                 "shasum": ""
             },
             "require": {
+                "ext-gettext": "*",
                 "ext-pdo": "*",
                 "nette/database": "^3.1",
-                "nette/di": "^3.0.8",
+                "nette/di": "^3.0",
                 "php": ">=7.4"
+            },
+            "require-dev": {
+                "nette/tester": "^2.4.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Fykosak\\NetteORM\\": "src/"
+                    "Fykosak\\NetteORM\\": "src/",
+                    "Fykosak\\NetteORM\\Tests\\": "tests/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -156,11 +161,19 @@
             ],
             "authors": [
                 {
+                    "name": "Michal Koutny",
+                    "email": "michal@fykos.cz"
+                },
+                {
                     "name": "Michal Mišo Červeňák",
                     "email": "miso@fykos.cz"
+                },
+                {
+                    "name": "Lukáš Timo",
+                    "email": "lukast@fykos.cz"
                 }
             ],
-            "time": "2021-03-13T00:53:33+00:00"
+            "time": "2021-03-27T00:18:53+00:00"
         },
         {
             "name": "latte/latte",
@@ -1723,7 +1736,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "fykosak/nette-fksdb-downloader": 10,
+        "fykosak/nette-orm": 20,
         "fykosak/nette-fks-utils": 20
     },
     "prefer-stable": false,
