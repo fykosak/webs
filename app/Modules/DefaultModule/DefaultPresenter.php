@@ -21,7 +21,6 @@ class DefaultPresenter extends BasePresenter {
         $this->changeViewByLang();
     }
 
-
     public function renderRules(): void {
         $this->setPagetitle(_('Pravidla'));
         $this->changeViewByLang();
@@ -34,6 +33,11 @@ class DefaultPresenter extends BasePresenter {
 
     public function renderHowto(): void {
         $this->setPagetitle(_('Rychlý grafický návod ke hře'));
+        $this->changeViewByLang();
+    }
+
+    public function renderList(): void {
+        $this->setPageTitle(_('Přihlášené týmy'));
         $this->changeViewByLang();
     }
 

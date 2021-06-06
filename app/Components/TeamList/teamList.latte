@@ -9,9 +9,9 @@
                 <li>
                     <strong>{$team->name}</strong>:
                     {var $prevSchool = null}
-                {var $inSchool = 0}
+                    {var $inSchool = 0}
 
-                {if count($team->participants)}
+                    {if count($team->participants)}
                         {foreach $team->participants as $participant}
                             {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
                             {$participant->name}
