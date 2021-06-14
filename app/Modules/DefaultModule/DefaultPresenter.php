@@ -3,6 +3,7 @@
 namespace App\Modules\DefaultModule;
 
 use Exception;
+use Nette;
 
 class DefaultPresenter extends BasePresenter {
 
@@ -21,14 +22,8 @@ class DefaultPresenter extends BasePresenter {
         $this->changeViewByLang();
     }
 
-
     public function renderRules(): void {
         $this->setPagetitle(_('Pravidla'));
-        $this->changeViewByLang();
-    }
-
-    public function renderFaq(): void {
-        $this->setPagetitle(_('FAQ'));
         $this->changeViewByLang();
     }
 
@@ -45,4 +40,43 @@ class DefaultPresenter extends BasePresenter {
         $this->setPagetitle(_('Další akce'));
         $this->changeViewByLang();
     }
+
+
+
+
+    /**** FAQ part -- possibly move to a separate presenter when routing is rewritten ****/
+
+    private Nette\Database\Explorer $database;
+
+    public function __construct(Nette\Database\Explorer $database)
+    {
+        $this->database = $database;
+    }
+
+    public function renderFaq(): void {
+        $this->loadQuestions();
+
+        $this->setPagetitle(_('FAQ'));
+        $this->changeViewByLang();
+    }
+
+    private function loadQuestions(){
+        
+        $questions = [];
+
+        foreach ($this->database->table('faq') as $question){
+            $category = $question->category;
+            if (is_null($category)){
+                $category = 'Other'; // TODO: correct for language
+            }
+            if (!isset($questions[$category])) {
+                $questions[$category] = [];
+            }
+            $questions[$category][] = $question;
+        }
+        $this->template->questions = $questions;
+    }
+
+    /* end stuff for faq */
+
 }

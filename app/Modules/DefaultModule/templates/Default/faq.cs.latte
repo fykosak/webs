@@ -18,11 +18,28 @@
 {/capture}
 {$presenter->addCustomScript($script)}
 
+
+
 {block content}
 
-    <button class="collapseAll btn btn-default btn-secondary">Zobrazit vše</button>
+    {* <button class="collapseAll btn btn-default btn-secondary">Zobrazit vše</button> *}
 
-    {var $i = 1}
+    {foreach $questions AS $category => $questionsForCategory}
+        <h2>{$category}</h2>
+        {var $i = 1}
+        {foreach $questionsForCategory as $question}
+            <a href="javascript:void(0)" data-toggle="collapse" data-target="#faq{$i}">
+                {$question->question}
+            </a>
+            <div id="faq{$i++}" class="collapse">
+                {$question->answer}
+            </div><br/>
+        </a>
+
+        {/foreach}    
+    {/foreach}
+
+{*
     <h2 id="registration">Registrace</h2>
 
     <a href="javascript:void(0)" data-toggle="collapse" data-target="#faq{$i}">
@@ -344,6 +361,7 @@
         pak v oddílu věnovanému pravidlům
         <a href='{link Default:rules}'>online.fyziklani.cz/cs/default/rules</a>.
     </div><br/>
+*}
 {/block}
 
 {block #subnavigation}
