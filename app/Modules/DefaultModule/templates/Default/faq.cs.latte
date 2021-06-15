@@ -24,9 +24,9 @@
 
     {* <button class="collapseAll btn btn-default btn-secondary">Zobrazit vše</button> *}
 
+    {var $i = 1}
     {foreach $questions AS $category => $questionsForCategory}
         <h2>{$category}</h2>
-        {var $i = 1}
         {foreach $questionsForCategory as $question}
             <a href="javascript:void(0)" data-toggle="collapse" data-target="#faq{$i}">
                 {$question->question}

@@ -7,6 +7,45 @@ use Nette;
 
 class DefaultPresenter extends BasePresenter {
 
+
+
+    /**** FAQ part -- possibly move to a separate presenter when routing is rewritten ****/
+
+    private Nette\Database\Explorer $database;
+
+    public function injectDatabase(Nette\Database\Explorer $database){
+        $this->database = $database;
+    }
+
+    public function renderFaq(): void {
+        $this->loadQuestions();
+
+        $this->setPagetitle(_('FAQ'));
+        $this->changeViewByLang();
+    }
+
+    private function loadQuestions(){
+        
+        $questions = [];
+
+        foreach ($this->database->table('faq') as $question){
+            $category = $question->category;
+            if (is_null($category)){
+                $category = 'Other'; // TODO: correct for language
+            }
+            if (!isset($questions[$category])) {
+                $questions[$category] = [];
+            }
+            $questions[$category][] = $question;
+        }
+        $this->template->questions = $questions;
+    }
+
+    /* end stuff for faq */
+
+
+
+
     /**
      * @return void
      * @throws Exception
@@ -41,42 +80,5 @@ class DefaultPresenter extends BasePresenter {
         $this->changeViewByLang();
     }
 
-
-
-
-    /**** FAQ part -- possibly move to a separate presenter when routing is rewritten ****/
-
-    private Nette\Database\Explorer $database;
-
-    public function __construct(Nette\Database\Explorer $database)
-    {
-        $this->database = $database;
-    }
-
-    public function renderFaq(): void {
-        $this->loadQuestions();
-
-        $this->setPagetitle(_('FAQ'));
-        $this->changeViewByLang();
-    }
-
-    private function loadQuestions(){
-        
-        $questions = [];
-
-        foreach ($this->database->table('faq') as $question){
-            $category = $question->category;
-            if (is_null($category)){
-                $category = 'Other'; // TODO: correct for language
-            }
-            if (!isset($questions[$category])) {
-                $questions[$category] = [];
-            }
-            $questions[$category][] = $question;
-        }
-        $this->template->questions = $questions;
-    }
-
-    /* end stuff for faq */
 
 }
