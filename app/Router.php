@@ -10,9 +10,16 @@ class Router {
     public static function createRouter(): \Nette\Routing\Router {
         $router = new RouteList();
 
+
+
         $router->addRoute('<presenter>[/<action>]', [
             'module' => 'Default',
-            'presenter' => 'Default',
+            'presenter' => [
+                Route::VALUE => 'Default',
+                Route::FILTER_TABLE => [
+                    'about' => 'AboutTheCompetition'
+                ]
+            ],
             'action' => 'default'
         ]);
 
