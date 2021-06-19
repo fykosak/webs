@@ -11,7 +11,7 @@ class TeamsPresenter extends BasePresenter {
      * @throws \Exception
      */
     public function renderList(): void {
-        $this->setPageTitle(_('Team list'));
+        $this->setPageTitle(_('Team List'));
     }
 
     protected function createComponentTeamList(): TeamListComponent {
