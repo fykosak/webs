@@ -11,7 +11,7 @@ class Router {
         $router = new RouteList();
 
         $router->withModule('Archive')
-            ->addRoute('<eventYear ([0-9]{4})(-.*)?>/<presenter>[/<action>]', 'Team:default');
+            ->addRoute('<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]', 'Default:default');
 
         $router->withModule('Default')
             ->addRoute('index.php', 'Default:default', $router::ONE_WAY)

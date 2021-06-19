@@ -2,4 +2,6 @@
 app/config/config.local.neon
 www/adminer/.htaccess
 vendor/*
+log/*
+temp/*
 !vendor/others

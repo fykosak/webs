@@ -8,6 +8,10 @@ use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
+use Tracy\Debugger;
+
+use App\Components\Navigation\Navigation;
+use App\Components\Navigation\NavItem;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
 
@@ -62,11 +66,28 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
         return new TeamResultsComponent($this->getContext(), $this->event->eventId);
     }
 
-    protected function changeViewYear(): void {
-        parent::changeViewByLang();
+    protected function getNavItems(): array {
+        $items = [];
+
+        $items[] = new NavItem(':Archive:Default:default', [], _('Archive Home'), 'visible-sm-inline glyphicon glyphicon-info-sign');
+        $items[] = new NavItem(':Archive:Teams:default', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-info-sign');
+        $items[] = new NavItem(':Archive:Results:default', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed');
+        $items[] = new NavItem(':Archive:DetailedResults:default', [], _('Podrobné výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed');
+        $items[] = new NavItem(':Archive:Report:default', [], _('Reporty'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign');
+
+        return $items;
     }
 
-    protected function getNavItems(): array {
-        return [];
+    public function formatTemplateFiles(): array {
+        $files = parent::formatTemplateFiles();
+        $year = $this->getEvent()->begin->format('Y');
+        $month = $this->getEvent()->begin->format('m');
+        $monthName = strtolower($this->getEvent()->begin->format('M'));
+        $key = $month < 10 ? ($year . '-' . $monthName) : $year;
+        return [
+            str_replace('/templates/', '/templates/' . $key . '/', $files[0]),
+            str_replace('/templates/', '/templates/' . $key . '/', $files[1]),
+            ...$files,
+        ];
     }
 }
