@@ -3,11 +3,11 @@
 namespace App\Modules\DefaultModule;
 use \App\Models\ORM\FaqService;
 
-class HowToPresenter extends BasePresenter {
+class OrganisersPresenter extends BasePresenter {
 
     public function renderDefault(): void
     {
-        $this->setPagetitle(_('How to play'));
+        $this->setPagetitle(_('List of Organisers'));
         $this->changeViewByLang();
     }
 
