@@ -13,7 +13,15 @@ class Router {
         $router
             ->withModule('Default')
                 ->addRoute('index.php', 'Default:default', $router::ONE_WAY)
-                ->addRoute('<presenter>[/<action>]', 'Default:default')
+                ->addRoute('<presenter>[/<action>]', [
+                    'presenter' => [
+                        Route::VALUE => 'Default',
+                        Route::FILTER_TABLE => [
+                            'about' => 'AboutTheCompetition'
+                        ]
+                    ],
+                    'action' => 'default'
+                ])
                 ->addRoute('team/[<action>/[<id>]]', 'Team:default')
             ->withModule('Archive')
                 ->addRoute('<eventYear [0-9]+>[/<presenter>[/<action>]]', 'Default:default');
