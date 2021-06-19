@@ -2,15 +2,13 @@
 
 namespace App\Components\TeamResults;
 
+use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
-use Exception;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceTeam;
 use Nette\DI\Container;
-use Throwable;
 
 class TeamResultsComponent extends BaseComponent {
 
-    protected ServiceTeam $serviceTeam;
+    protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
 
     public function __construct(Container $container, int $eventId) {
@@ -18,13 +16,13 @@ class TeamResultsComponent extends BaseComponent {
         $this->eventId = $eventId;
     }
 
-    public function injectServiceTeam(ServiceTeam $serviceTeam): void {
+    public function injectServiceTeam(ServiceEventDetail $serviceTeam): void {
         $this->serviceTeam = $serviceTeam;
     }
 
     /**
-     * @throws Exception
-     * @throws Throwable
+     * @throws \Exception
+     * @throws \Throwable
      */
     public function render(): void {
         $teams = [];
