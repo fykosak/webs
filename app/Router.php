@@ -10,7 +10,11 @@ class Router {
     public static function createRouter(): \Nette\Routing\Router {
         $router = new RouteList();
 
-
+        $router[] = new Route('rules[/<action>]', [
+            'module' => 'Default',
+            'presenter' => 'Rules',
+            'action' => 'default',
+        ]);
         $router[] = new Route('how-to', [
             'module' => 'Default',
             'presenter' => 'HowTo',
