@@ -11,10 +11,10 @@ class TeamPresenter extends BasePresenter {
      * @throws \Exception
      */
     public function renderList(): void {
-        $this->setPageTitle(_('Seznam týmů'));
+        $this->setPageTitle(_('Team list'));
     }
 
     protected function createComponentTeamList(): TeamListComponent {
-        return new TeamListComponent($this->getContext(), $this->getEvent()->eventId);
+        return new TeamListComponent($this->getContext(), $this->getEvent()->eventId, "A");
     }
 }
