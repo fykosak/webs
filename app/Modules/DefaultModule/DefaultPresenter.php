@@ -32,6 +32,11 @@ class DefaultPresenter extends BasePresenter {
         $this->changeViewByLang();
     }
 
+    public function renderList(): void {
+        $this->setPageTitle(_('Přihlášené týmy'));
+        $this->changeViewByLang();
+    }
+
     public function renderTaskExamples(): void {
         $this->setPagetitle(_('Rozcvička'));
     }

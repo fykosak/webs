@@ -42,7 +42,7 @@ abstract class BasePresenter extends Presenter {
 
         //if ($this->yearsService->isRegistrationStarted()) {
         $navigation->addNavItem(new NavItem(':Default:Default:chat', [], _('Fórum'), 'visible-sm-inline glyphicon glyphicon-comment'));
-        $navigation->addNavItem(new NavItem(':Default:Default:list', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-list'));
+        $navigation->addNavItem(new NavItem(':Default:Team:list', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-list'));
         //  if ($this->yearsService->isGameStarted()) {
         $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-stats'));
         $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Nástěnka'), 'visible-sm-inline glyphicon glyphicon-pushpin'));

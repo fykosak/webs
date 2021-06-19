@@ -14,6 +14,10 @@ class Router {
             'module' => 'Default',
             'presenter' => 'Faq',
             'action' => 'default',
+        $router[] = new Route('report', [
+            'module' => 'Default',
+            'presenter' => 'Report'
+
         ]);
         $router[] = new Route('index.php', [
             'module' => 'Frontend',
