@@ -17,7 +17,7 @@ class ReportPresenter extends BasePresenter
     public function renderDefault(): void
     {
         $this->template->reports = $this->reportService->getTable()->where('lang', $this->lang);
-        $this->setPageTitle('Ohlasy účastníků');
+        $this->setPageTitle(_('Ohlasy účastníků'));
         $this->changeViewByLang();
     }
 

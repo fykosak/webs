@@ -3,9 +3,25 @@
     <div id="reports" class="list">
     {foreach $reports as $report}
         {dump $report}
-        <h2>{$report->team_id}</h2>
-        {$report->text}
+        <h2>{foreach ($report->related('report_team')) as $reportTeam}{$reportTeam->team_id}{if !$iterator->isLast()}, {/if}{/foreach}</h2>
+
+        {$report->text|noescape}
+{* starý web:
+<div class="row">*}
+{*            {foreach $report->related('report_image') as $reportImage}*}
+{*                <div class="col-sm-6 col-md-4">*}
+{*                    <div class="img-thumbnail">*}
+{*                        <a href="{$image['img-url']}">*}
+{*                            <img src="{$image['thumb-url']}" class="img-responsive">*}
+{*                        </a>*}
+{*                        <div class="caption">{$image['caption']}</div>*}
+{*                    </div>*}
+{*                </div>*}
+
+{*                <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" />*}
+{*           {/foreach}*}
         <br>
         <br>
+        </div>
     {/foreach}
 {/block}

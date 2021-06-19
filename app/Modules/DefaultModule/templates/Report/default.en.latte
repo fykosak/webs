@@ -3,9 +3,10 @@
     <div id="reports" class="list">
     {foreach $reports as $report}
         {dump $report}
-        <h2>{$report->team_id}</h2>
-        {$report->text}
+        <h2>{foreach ($report->related('report_team')) as $reportTeam}{$reportTeam->team_id}{if !$iterator->isLast()}, {/if}{/foreach}</h2>
+        {$report->text|noescape}
         <br>
         <br>
+        </div>
     {/foreach}
 {/block}
