@@ -18,10 +18,8 @@ class FaqPresenter extends BasePresenter {
         $questions = [];
 
         foreach ($query as $question){
-            $category = $question->category;
-            if (is_null($category)){
-                $category = 'Other'; // TODO: correct for language
-            }
+            $category = $question->getCategory();
+
             if (!isset($questions[$category])) {
                 $questions[$category] = [];
             }
@@ -37,6 +35,5 @@ class FaqPresenter extends BasePresenter {
 
         $this->loadQuestions();
     }
-
 
 }
