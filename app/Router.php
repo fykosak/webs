@@ -10,13 +10,12 @@ class Router {
     public static function createRouter(): \Nette\Routing\Router {
         $router = new RouteList();
 
-
-        $router[] = new Route('<presenter>[/<action>]', [
+        $router->addRoute('<presenter>[/<action>]', [
             'module' => 'Default',
             'presenter' => 'Default',
-            'action' => 'default',
+            'action' => 'default'
         ]);
-        
+
         $router[] = new Route('index.php', [
             'module' => 'Frontend',
             'presenter' => 'Default',
