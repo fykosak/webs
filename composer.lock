@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d694c794fd931bd3d91beb06881cb2de",
+    "content-hash": "3d8bfdfcae879594180d01bae6b8daa9",
     "packages": [
         {
             "name": "fykosak/fksdb-downloader-core",
-            "version": "1.1.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/fksdb-downloader-core.git",
-                "reference": "9fd486b6bf36f9350a619189feff2452c9d43fc4"
+                "reference": "c10cdcef1c5fd3e0284b96e33235642c3da170e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/9fd486b6bf36f9350a619189feff2452c9d43fc4",
-                "reference": "9fd486b6bf36f9350a619189feff2452c9d43fc4",
+                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/c10cdcef1c5fd3e0284b96e33235642c3da170e2",
+                "reference": "c10cdcef1c5fd3e0284b96e33235642c3da170e2",
                 "shasum": ""
             },
             "require": {
@@ -43,7 +43,7 @@
                 }
             ],
             "description": "Interface for downloading data from FKSDB by SOAP-client",
-            "time": "2021-04-12T11:01:55+00:00"
+            "time": "2021-04-26T18:30:53+00:00"
         },
         {
             "name": "fykosak/nette-fks-utils",
@@ -88,22 +88,22 @@
         },
         {
             "name": "fykosak/nette-fksdb-downloader",
-            "version": "1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/nette-fksdb-downloader.git",
-                "reference": "93114bcb5905922d8ae332a9f08f0f62c906d72f"
+                "reference": "5e3fb30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/93114bcb5905922d8ae332a9f08f0f62c906d72f",
-                "reference": "93114bcb5905922d8ae332a9f08f0f62c906d72f",
+                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/5e3fb30",
+                "reference": "5e3fb30",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-soap": "*",
-                "fykosak/fksdb-downloader-core": "1.1.1",
+                "fykosak/fksdb-downloader-core": "1.2.0",
                 "nette/caching": "^3.1",
                 "nette/utils": "^3.2",
                 "php": ">=7.4"
@@ -122,7 +122,7 @@
                 }
             ],
             "description": "FKSDB Downloader for nette web applications",
-            "time": "2021-04-12T17:16:04+00:00"
+            "time": "2021-04-27T15:28:30+00:00"
         },
         {
             "name": "fykosak/nette-orm",
@@ -543,16 +543,16 @@
         },
         {
             "name": "nette/database",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/database.git",
-                "reference": "17bc9b2b5a5cd57ab089bc1a5982bc6c3b3790e3"
+                "reference": "8caf46857ea50784734e0d53e4accf3833d236ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/database/zipball/17bc9b2b5a5cd57ab089bc1a5982bc6c3b3790e3",
-                "reference": "17bc9b2b5a5cd57ab089bc1a5982bc6c3b3790e3",
+                "url": "https://api.github.com/repos/nette/database/zipball/8caf46857ea50784734e0d53e4accf3833d236ff",
+                "reference": "8caf46857ea50784734e0d53e4accf3833d236ff",
                 "shasum": ""
             },
             "require": {
@@ -612,7 +612,7 @@
                 "queries",
                 "sqlite"
             ],
-            "time": "2021-01-12T12:24:12+00:00"
+            "time": "2021-04-22T21:40:46+00:00"
         },
         {
             "name": "nette/di",
@@ -1737,6 +1737,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "fykosak/nette-orm": 20,
+        "fykosak/nette-fksdb-downloader": 20,
         "fykosak/nette-fks-utils": 20
     },
     "prefer-stable": false,

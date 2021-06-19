@@ -15,9 +15,9 @@ class Router {
             'presenter' => 'Default',
             'action' => 'default',
         ], Route::ONE_WAY);
-        $router[] = new Route('year<year [0-9]+>/<action>', [
-            'module' => 'Default',
-            'presenter' => 'Archive',
+        $router[] = new Route('<eventYear [0-9]+>[/<presenter>[/<action>]]', [
+            'module' => 'Archive',
+            'presenter' => 'Default',
             'action' => 'default',
         ]);
         $router[] = new Route('team/[<action>/[<id>]]', [

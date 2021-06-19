@@ -2,16 +2,16 @@
 
 namespace App\Components\TeamList;
 
+use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Exception;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceTeam;
 use Nette\DI\Container;
 use Throwable;
 use Tracy\Debugger;
 
 class TeamListComponent extends BaseComponent {
 
-    protected ServiceTeam $serviceTeam;
+    protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
 
     public function __construct(Container $container, int $eventId) {
@@ -19,7 +19,7 @@ class TeamListComponent extends BaseComponent {
         $this->eventId = $eventId;
     }
 
-    public function injectServiceTeam(ServiceTeam $serviceTeam): void {
+    public function injectServiceTeam(ServiceEventDetail $serviceTeam): void {
         $this->serviceTeam = $serviceTeam;
     }
 
@@ -30,7 +30,7 @@ class TeamListComponent extends BaseComponent {
     public function render(): void {
         $teams = [];
         foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
-            Debugger::barDump($team);
+            //Debugger::barDump($team);
             $category = $team->category;
             if (!isset($teams[$category])) {
                 $teams[$category] = [];
