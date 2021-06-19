@@ -7,7 +7,6 @@ use Fykosak\Utils\BaseComponent\BaseComponent;
 use Exception;
 use Nette\DI\Container;
 use Throwable;
-use Tracy\Debugger;
 
 class TeamListComponent extends BaseComponent {
 
