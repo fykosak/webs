@@ -4,14 +4,14 @@ namespace App\Modules\ArchiveModule;
 
 use App\Components\TeamList\TeamListComponent;
 
-class TeamPresenter extends BasePresenter {
+class TeamsPresenter extends BasePresenter {
 
     /**
      * @return void
      * @throws \Exception
      */
     public function renderList(): void {
-        $this->setPageTitle(_('Seznam týmů'));
+        $this->setPageTitle(_('Team list'));
     }
 
     protected function createComponentTeamList(): TeamListComponent {

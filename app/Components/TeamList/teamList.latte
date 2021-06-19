@@ -1,4 +1,11 @@
 {layout '../@layout.latte'}
+{block subnavigation}
+    <ul class="nav">
+        {foreach $categories AS $category => $name}
+            <li><a href="#{$category}" title="{$name}">{$name}</a></li>
+        {/foreach}
+    </ul>
+{/block}
 {block content}
 
     <div id="teams" class="list">
@@ -16,7 +23,6 @@
                                 {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
                                 {$participant->name}
                                 {control flags:flag $participant}
-{*                                {$participant->countryIso}*}
                                 {do $inSchool++}
                                 {if $iterator->isLast() || (!is_null($prevSchool) && $participant->schoolId != $prevSchool)}
                                     <span class="text-muted">({if $inSchool > 1}{$inSchool}&times; {/if}{$participant->schoolName} <span
@@ -35,3 +41,4 @@
         {/foreach}
     </div>
 {/block}
+

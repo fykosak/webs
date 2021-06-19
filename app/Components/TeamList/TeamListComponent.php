@@ -15,13 +15,13 @@ class TeamListComponent extends BaseComponent {
 
     protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
+
     protected string $category;
     protected array $teams;
 
-    public function __construct(Container $container, int $eventId, string $category) {
+    public function __construct(Container $container, int $eventId) {
         parent::__construct($container);
         $this->eventId = $eventId;
-        $this->category = $category;
     }
 
     public function injectServiceTeam(ServiceEventDetail $serviceTeam): void {
@@ -52,17 +52,6 @@ class TeamListComponent extends BaseComponent {
      */
     public function render(): void {
         $this->loadTeams();
-//        foreach ($this->teams as $team){
-            //            $this->getFlags($team);
-//        }
-//
-//        $adHocTeam = end($this->teams["A"]);
-//
-//        foreach ($adHocTeam->participants as $participant){
-//            $participant->countryIso
-//        }
-
-//        $this->template->adHocTeam = $adHocTeam;
 
         $this->template->teams = $this->teams;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamList.latte');
