@@ -10,6 +10,12 @@ class Router {
     public static function createRouter(): \Nette\Routing\Router {
         $router = new RouteList();
 
+
+        $router[] = new Route('about-the-competition', [
+            'module' => 'Default',
+            'presenter' => 'AboutTheCompetition',
+            'action' => 'default',
+        ]);
         $router[] = new Route('Faq', [
             'module' => 'Default',
             'presenter' => 'Faq',
