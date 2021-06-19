@@ -5,7 +5,7 @@ namespace App\Modules\ArchiveModule;
 use App\Models\ORM\ReportService;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam;
 
-class ReportPresenter extends BasePresenter {
+class ReportsPresenter extends BasePresenter {
 
     private ReportService $reportService;
 

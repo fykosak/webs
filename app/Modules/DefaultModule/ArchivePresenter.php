@@ -2,7 +2,7 @@
 
 namespace App\Modules\DefaultModule;
 use \App\Models\ORM\FaqService;
-
+use App\Components\EventList\EventListComponent;
 
 class ArchivePresenter extends BasePresenter {
 
@@ -12,4 +12,7 @@ class ArchivePresenter extends BasePresenter {
         $this->changeViewByLang();
     }
     
+    protected function createComponentEventList(): EventListComponent {
+        return new EventListComponent($this->getContext());
+    }
 }

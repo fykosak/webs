@@ -29,7 +29,7 @@ class TeamListComponent extends BaseComponent {
     public function render(): void {
         $teams = [];
         foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
-            //Debugger::barDump($team);
+            \Tracy\Debugger::barDump($team);
             $category = $team->category;
             if (!isset($teams[$category])) {
                 $teams[$category] = [];

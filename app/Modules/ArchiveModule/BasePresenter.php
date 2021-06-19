@@ -58,14 +58,6 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
         return $this->event;
     }
 
-    protected function createComponentTeamList(): TeamListComponent {
-        return new TeamListComponent($this->getContext(), $this->event->eventId);
-    }
-
-    protected function createComponentTeamResults(): TeamResultsComponent {
-        return new TeamResultsComponent($this->getContext(), $this->event->eventId);
-    }
-
     protected function getNavItems(): array {
         $items = [];
 
@@ -73,17 +65,14 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
         $items[] = new NavItem(':Archive:Teams:default', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-info-sign');
         $items[] = new NavItem(':Archive:Results:default', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed');
         $items[] = new NavItem(':Archive:DetailedResults:default', [], _('Podrobné výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed');
-        $items[] = new NavItem(':Archive:Report:default', [], _('Reporty'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign');
+        $items[] = new NavItem(':Archive:Reports:default', [], _('Reporty'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign');
 
         return $items;
     }
 
     public function formatTemplateFiles(): array {
         $files = parent::formatTemplateFiles();
-        $year = $this->getEvent()->begin->format('Y');
-        $month = $this->getEvent()->begin->format('m');
-        $monthName = strtolower($this->getEvent()->begin->format('M'));
-        $key = $month < 10 ? ($year . '-' . $monthName) : $year;
+        $key = parent::createEventKey($this->getEvent());
         return [
             str_replace('/templates/', '/templates/' . $key . '/', $files[0]),
             str_replace('/templates/', '/templates/' . $key . '/', $files[1]),

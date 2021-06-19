@@ -16,17 +16,19 @@
                     <tr>
                         {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
                         <td><strong>{$team->name}</strong>
-                            {var $prevIso = null}
                             {var $fromCountry = 0}
-                            {if count($team->participants)}<span class="text-muted">(
-                                {foreach $team->participants as $participant}
+                            {if $team->participants && count($team->participants)}<span class="text-muted">(
+                                {do
+                                    $participants = $team->participants;
+                                    usort($participants, fn($a, $b) => $a->countryIso <=> $b->countryIso)
+                                }
+                                {foreach $participants as $key => $participant}
                                     {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
                                     {do $fromCountry++}
-                                    {if $iterator->isLast() || (!is_null($prevIso) && $participant->countryIso != $prevIso)}
+                                    {if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->countryIso != $participants[$key + 1]->countryIso)}
                                         {$fromCountry}&times; <span class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>
                                         {do $fromCountry = 0}
                                     {/if}
-                                    {do $prevIso = $participant->countryIso}
                                 {/foreach})</span>
                             {/if}
                         </td>

@@ -23,8 +23,7 @@ class Router {
                     ],
                 ],
                 'action' => 'default',
-            ])
-            ->addRoute('team/[<action>/[<id>]]', 'Team:default');
+            ]);
 
         return $router;
     }
