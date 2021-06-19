@@ -33,6 +33,7 @@ abstract class BasePresenter extends Presenter {
      * @return Navigation
      * @throws Exception
      */
+    /*
     protected function createComponentNavigation(): Navigation {
         $navigation = new Navigation($this->getContext());
         foreach ($this->getNavItems() as $navItem) {
@@ -40,7 +41,8 @@ abstract class BasePresenter extends Presenter {
         }
         return $navigation;
     }
-
+    */
+    /*
     protected function getNavItems(): array {
         return [
             new NavItem(':Default:Default:default', [], _('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'),
@@ -59,6 +61,7 @@ abstract class BasePresenter extends Presenter {
             new NavItem(':Default:Default:default', [], _('Registrace'), 'visible - sm - inline glyphicon glyphicon-edit'),
         ];
     }
+    */
 
     public function setPageTitle(string $pageTitle): void {
         $this->getTemplate()->pageTitle = $pageTitle;

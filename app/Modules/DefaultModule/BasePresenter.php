@@ -36,7 +36,7 @@ abstract class BasePresenter extends Presenter {
         $navigation = new Navigation($this->getContext());
 
         $navigation->addNavItem(new NavItem(':Default:AboutTheCompetition:default', [], _('O soutěži'), 'visible-sm-inline glyphicon glyphicon-info-sign'));
-        $navigation->addNavItem(new NavItem(':Default:Archive:list', [], _('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'));
+        $navigation->addNavItem(new NavItem(':Default:Archive:default', [], _('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'));
         $navigation->addNavItem(new NavItem(':Default:Organisers:default', [], _('Organizátoři'), 'visible-sm-inline glyphicon glyphicon-compressed'));
         $navigation->addNavItem(new NavItem(':Default:Rules:default', [], _('Pravidla'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'));
         $navigation->addNavItem(new NavItem(':Default:Faq:default', [], _('FAQ'), 'visible-sm-inline glyphicon glyphicon-question-sign'));
