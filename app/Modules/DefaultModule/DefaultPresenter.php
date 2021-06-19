@@ -3,7 +3,6 @@
 namespace App\Modules\DefaultModule;
 
 use Exception;
-use Nette;
 
 class DefaultPresenter extends BasePresenter {
 

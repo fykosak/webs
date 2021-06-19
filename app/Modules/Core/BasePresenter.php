@@ -5,6 +5,7 @@ namespace App\Modules\Core;
 use App\Components\Navigation\Navigation;
 use App\Components\Navigation\NavItem;
 use Exception;
+use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Nette\Application\UI\Presenter;
@@ -16,9 +17,11 @@ abstract class BasePresenter extends Presenter {
     public ?string $lang = null; // = 'cs';
 
     protected GettextTranslator $translator;
+    protected ServiceEventDetail $serviceEventDetail;
 
-    public function injectServices(GettextTranslator $translator): void {
+    public function injectServices(GettextTranslator $translator, ServiceEventDetail $serviceEventDetail): void {
         $this->translator = $translator;
+        $this->serviceEventDetail = $serviceEventDetail;
     }
 
     /**

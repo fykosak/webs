@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Modules\DefaultModule;
-use \App\Models\ORM\FaqService;
 
 class SchedulePresenter extends BasePresenter {
 
