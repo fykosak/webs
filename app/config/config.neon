@@ -19,7 +19,7 @@ services:
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList
 
-    router: App\Router::createRouter
+    router: App\Router::createRouter(%domains%, %router-mapping%)
 
 database:
     conventions: 'discovered'
@@ -36,6 +36,9 @@ parameters:
         dir: %appDir%/i18n/locale
         # language used when no or unknown language is requested
         defaultLang: cs
+    # Contains mapping from domain to language. If empty, ?lang is used
+    domains:
+        # domain: lang
 
 orm:
     faq:
@@ -44,3 +47,6 @@ orm:
     report:
         service: App\Models\ORM\ReportService
         model: App\Models\ORM\ReportModel
+
+includes:
+    - router-mapping.neon

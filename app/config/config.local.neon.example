@@ -13,6 +13,10 @@ parameters:
         # language used when no or unknown language is requested
         defaultLang: cs
 
+    # Contains mapping from domain to language. If empty, ?lang is used
+    domains:
+        # domain: lang
+
     registration:
         # Specifying non-null URL, means registration will be redirected to FKSDB
         url: null

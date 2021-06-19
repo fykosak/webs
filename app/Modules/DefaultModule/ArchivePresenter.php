@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Modules\DefaultModule;
+
 use \App\Models\ORM\FaqService;
 use App\Components\EventList\EventListComponent;
 
@@ -15,4 +16,5 @@ class ArchivePresenter extends BasePresenter {
     protected function createComponentEventList(): EventListComponent {
         return new EventListComponent($this->getContext());
     }
+    
 }

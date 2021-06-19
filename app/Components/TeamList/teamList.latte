@@ -1,12 +1,13 @@
 {layout '../@layout.latte'}
-{block subnavigation}
-    <ul class="nav">
-        {foreach $categories AS $category => $name}
-            <li><a href="#{$category}" title="{$name}">{$name}</a></li>
-        {/foreach}
-    </ul>
-{/block}
 {block content}
+    <div class="sidebar-toc">
+        <ul>
+            <a href="#A">Kategorie A</a><br>
+            <a href="#B">Kategorie B</a><br>
+            <a href="#C">Kategorie C</a><br>
+            <a href="#O">Kategorie Open</a><br>
+        </ul>
+    </div>
     <div id="teams" class="list">
         {foreach $teams AS $category => $teamsForCategory}
             <h2 id="{$category}">{$category}</h2>

@@ -1,0 +1,5 @@
+parameters:
+    router-mapping:
+        cs:
+            OSoutezi: AboutTheCompetition
+            Default: Default

@@ -4,14 +4,16 @@ namespace App\Components\TeamList;
 
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
-use Exception;
 use Nette\DI\Container;
-use Throwable;
+use App\Components\Flags\FlagsComponent;
 
 class TeamListComponent extends BaseComponent {
 
     protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
+
+    protected string $category;
+    protected array $teams;
 
     public function __construct(Container $container, int $eventId) {
         parent::__construct($container);
@@ -22,21 +24,34 @@ class TeamListComponent extends BaseComponent {
         $this->serviceTeam = $serviceTeam;
     }
 
+    protected function createComponentFlags(): FlagsComponent
+    {
+        return new FlagsComponent($this->getContext());
+    }
+
     /**
-     * @throws Exception
-     * @throws Throwable
+     * @throws \Throwable
      */
-    public function render(): void {
+    public function loadTeams(){
         $teams = [];
-        foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
-            \Tracy\Debugger::barDump($team);
+        foreach ($this->serviceTeam->getAll($this->eventId) as $team) {
             $category = $team->category;
             if (!isset($teams[$category])) {
                 $teams[$category] = [];
             }
             $teams[$category][] = $team;
         }
-        $this->template->teams = $teams;
+        $this->teams = $teams;
+    }
+
+    /**
+     * @throws \Exception
+     * @throws \Throwable
+     */
+    public function render(): void {
+        $this->loadTeams();
+
+        $this->template->teams = $this->teams;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamList.latte');
     }
 }

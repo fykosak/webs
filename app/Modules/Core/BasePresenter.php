@@ -3,8 +3,6 @@
 namespace App\Modules\Core;
 
 use App\Components\Navigation\Navigation;
-use App\Components\Navigation\NavItem;
-use Exception;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\Utils\Localization\GettextTranslator;
@@ -35,7 +33,7 @@ abstract class BasePresenter extends Presenter {
 
     /**
      * @return Navigation
-     * @throws Exception
+     * @throws \Exception
      */
 
     protected function createComponentNavigation(): Navigation {

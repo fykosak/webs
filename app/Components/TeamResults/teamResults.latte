@@ -12,7 +12,9 @@
                 </tr>
                 </thead>
                 <tbody>
+                {do usort($teamsForCategory, fn($a, $b) => $a->rankCategory <=> $b->rankCategory)}
                 {foreach $teamsForCategory AS $team}
+                {continueIf $team->status != 'participated'}
                     <tr>
                         {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
                         <td><strong>{$team->name}</strong>

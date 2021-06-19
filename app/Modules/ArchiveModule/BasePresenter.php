@@ -8,9 +8,7 @@ use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
-use Tracy\Debugger;
 
-use App\Components\Navigation\Navigation;
 use App\Components\Navigation\NavItem;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
@@ -70,6 +68,11 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
         return $items;
     }
 
+    /**
+     * @return array
+     * @throws BadRequestException
+     * @throws \Throwable
+     */
     public function formatTemplateFiles(): array {
         $files = parent::formatTemplateFiles();
         $key = parent::createEventKey($this->getEvent());
