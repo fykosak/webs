@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\DefaultModule;
+namespace App\Modules\ArchiveModule;
 
 use App\Components\TeamList\TeamListComponent;
 
@@ -15,6 +15,6 @@ class TeamPresenter extends BasePresenter {
     }
 
     protected function createComponentTeamList(): TeamListComponent {
-        return new TeamListComponent($this->getContext(), 150, "A");
+        return new TeamListComponent($this->getContext(), $this->getEvent()->eventId);
     }
 }

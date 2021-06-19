@@ -2,7 +2,6 @@
 
 namespace App\Modules\DefaultModule;
 
-use Exception;
 use Nette\Application\AbortException;
 use Tracy\ILogger;
 use Nette\Application\BadRequestException;
