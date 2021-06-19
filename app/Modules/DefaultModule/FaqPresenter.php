@@ -25,6 +25,7 @@ class FaqPresenter extends BasePresenter {
             }
             $questions[$category][] = $question;
         }
+
         $this->template->questions = $questions;
     }
 
