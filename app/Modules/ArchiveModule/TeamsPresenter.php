@@ -4,7 +4,7 @@ namespace App\Modules\ArchiveModule;
 
 use App\Components\TeamList\TeamListComponent;
 
-class TeamPresenter extends BasePresenter {
+class TeamsPresenter extends BasePresenter {
 
     /**
      * @return void
