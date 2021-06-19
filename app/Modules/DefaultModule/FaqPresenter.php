@@ -32,7 +32,6 @@ class FaqPresenter extends BasePresenter {
     public function renderDefault(): void
     {
         $this->setPagetitle(_('FAQ'));
-        $this->changeViewByLang();
 
         $this->loadQuestions();
     }
