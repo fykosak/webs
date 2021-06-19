@@ -1,0 +1,16 @@
+{block content}
+
+    {var $i = 1}
+
+    {foreach $questions AS $category => $questionsForCategory}
+        <h2>{$category}</h2>
+        {foreach $questionsForCategory AS $question}
+            <a href="javascript:void(0)" data-toggle="collapse" data-target="#faq{$i}">
+                {$question->question}
+            </a>
+            <div id="faq{$i++}" class="collapse">
+                {$question->answer}
+            </div><br/>
+        {/foreach}
+    {/foreach}
+{/block}
