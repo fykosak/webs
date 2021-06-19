@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Models\ORM;
-
 
 use Fykosak\NetteORM\AbstractService;
 

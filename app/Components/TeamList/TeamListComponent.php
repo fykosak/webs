@@ -2,13 +2,9 @@
 
 namespace App\Components\TeamList;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
-use Exception;
-use Nette;
 use Nette\DI\Container;
-use Throwable;
 use App\Components\Flags\FlagsComponent;
 
 class TeamListComponent extends BaseComponent {
@@ -33,6 +29,9 @@ class TeamListComponent extends BaseComponent {
         return new FlagsComponent($this->getContext());
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function loadTeams(){
         $teams = [];
         foreach ($this->serviceTeam->getAll($this->eventId) as $team) {
@@ -46,8 +45,8 @@ class TeamListComponent extends BaseComponent {
     }
 
     /**
-     * @throws Exception
-     * @throws Throwable
+     * @throws \Exception
+     * @throws \Throwable
      */
     public function render(): void {
         $this->loadTeams();

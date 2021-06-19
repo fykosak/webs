@@ -3,11 +3,7 @@
 namespace App\Components\Navigation;
 
 use Fykosak\Utils\BaseComponent\BaseComponent;
-use Fykosak\Utils\Localization\GettextTranslator;
 
-/**
- * @property GettextTranslator $translator
- */
 class Navigation extends BaseComponent {
     private array $items = [];
 

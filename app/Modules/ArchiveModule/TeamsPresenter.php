@@ -3,6 +3,7 @@
 namespace App\Modules\ArchiveModule;
 
 use App\Components\TeamList\TeamListComponent;
+use Nette\Application\BadRequestException;
 
 class TeamsPresenter extends BasePresenter {
 
@@ -14,6 +15,11 @@ class TeamsPresenter extends BasePresenter {
         $this->setPageTitle(_('Team List'));
     }
 
+    /**
+     * @return TeamListComponent
+     * @throws BadRequestException
+     * @throws \Throwable
+     */
     protected function createComponentTeamList(): TeamListComponent {
         return new TeamListComponent($this->getContext(), $this->getEvent()->eventId);
     }
