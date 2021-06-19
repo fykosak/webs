@@ -9,6 +9,9 @@ use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
 
+use App\Components\Navigation\Navigation;
+use App\Components\Navigation\NavItem;
+
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
 
     /**
@@ -63,7 +66,15 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
     }
 
     protected function getNavItems(): array {
-        return [];
+        $items = [];
+
+        $items[] = new NavItem(':Archive:Default:default', [], _('Archive Home'), 'visible-sm-inline glyphicon glyphicon-info-sign');
+        $items[] = new NavItem(':Archive:Teams:default', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-info-sign');
+        $items[] = new NavItem(':Archive:Results:default', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed');
+        $items[] = new NavItem(':Archive:DetailedResults:default', [], _('Podrobné výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed');
+        $items[] = new NavItem(':Archive:Report:default', [], _('Reporty'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign');
+
+        return $items;
     }
 
     public function formatTemplateFiles(): array {
