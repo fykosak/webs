@@ -35,20 +35,17 @@ abstract class BasePresenter extends Presenter {
     protected function createComponentNavigation(): Navigation {
         $navigation = new Navigation($this->getContext());
 
+        $navigation->addNavItem(new NavItem(':Default:AboutTheCompetition:default', [], _('O soutěži'), 'visible-sm-inline glyphicon glyphicon-info-sign'));
         $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'));
-        $navigation->addNavItem(new NavItem(':Default:Default:rules', [], _('Pravidla'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'));
-        $navigation->addNavItem(new NavItem(':Default:Default:faq', [], _('FAQ'), 'visible-sm-inline glyphicon glyphicon-question-sign'));
-        $navigation->addNavItem(new NavItem(':Default:Default:howto', [], _('Návod'), 'visible-sm-inline glyphicon glyphicon-info-sign'));
+        $navigation->addNavItem(new NavItem(':Default:Rules:default', [], _('Pravidla'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'));
+        $navigation->addNavItem(new NavItem(':Default:Faq:default', [], _('FAQ'), 'visible-sm-inline glyphicon glyphicon-question-sign'));
+        $navigation->addNavItem(new NavItem(':Default:HowToPlay:default', [], _('Návod'), 'visible-sm-inline glyphicon glyphicon-info-sign'));
+
 
         //if ($this->yearsService->isRegistrationStarted()) {
-        $navigation->addNavItem(new NavItem(':Default:Default:chat', [], _('Fórum'), 'visible-sm-inline glyphicon glyphicon-comment'));
         $navigation->addNavItem(new NavItem(':Default:Team:list', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-list'));
         //  if ($this->yearsService->isGameStarted()) {
-        $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-stats'));
-        $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Nástěnka'), 'visible-sm-inline glyphicon glyphicon-pushpin'));
-        //    if ($this->getUser()->isLoggedIn()) {
-        $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Hra'), 'visible-sm-inline glyphicon glyphicon-tower'));
-        //    }
+//        $navigation->addNavItem(new NavItem(':Archive:Archive:results', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-stats'));
         // }
         //}
 
