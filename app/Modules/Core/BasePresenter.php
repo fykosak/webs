@@ -21,6 +21,9 @@ abstract class BasePresenter extends Presenter {
         $this->translator = $translator;
     }
 
+    /**
+     * @throws UnsupportedLanguageException
+     */
     protected function startUp(): void {
         parent::startup();
         $this->localize();
@@ -32,49 +35,28 @@ abstract class BasePresenter extends Presenter {
      */
     protected function createComponentNavigation(): Navigation {
         $navigation = new Navigation($this->getContext());
-        foreach ($this->getNavItems() as $navsItem) {
-            $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'));
+        foreach ($this->getNavItems() as $navItem) {
+            $navigation->addNavItem($navItem);
         }
-        $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'));
-        $navigation->addNavItem(new NavItem(':Default:Default:rules', [], _('Pravidla'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'));
-        $navigation->addNavItem(new NavItem(':Default:Default:faq', [], _('FAQ'), 'visible-sm-inline glyphicon glyphicon-question-sign'));
-        $navigation->addNavItem(new NavItem(':Default:Default:howto', [], _('Návod'), 'visible-sm-inline glyphicon glyphicon-info-sign'));
-
-        //if ($this->yearsService->isRegistrationStarted()) {
-        $navigation->addNavItem(new NavItem(':Default:Default:chat', [], _('Fórum'), 'visible-sm-inline glyphicon glyphicon-comment'));
-        $navigation->addNavItem(new NavItem(':Default:Default:list', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-list'));
-        //  if ($this->yearsService->isGameStarted()) {
-        $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-stats'));
-        $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Nástěnka'), 'visible-sm-inline glyphicon glyphicon-pushpin'));
-        //    if ($this->getUser()->isLoggedIn()) {
-        $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Hra'), 'visible-sm-inline glyphicon glyphicon-tower'));
-        //    }
-        // }
-        //}
-
-        // if ($this->yearsService->isRegistrationActive()) {
-        //    if (!$this->getUser()->isLoggedIn()) {
-        $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Registrace'), 'visible - sm - inline glyphicon glyphicon-edit'));
-        //    }
-        // }
         return $navigation;
     }
 
     protected function getNavItems(): array {
         return [
-            [':Default:Default:default', [], _('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'],
-            [':Default:Default:rules', [], _('Pravidla'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'],
-            [':Default:Default:faq', [], _('FAQ'), 'visible-sm-inline glyphicon glyphicon-question-sign'],
-            [':Default:Default:howto', [], _('Návod'), 'visible-sm-inline glyphicon glyphicon-info-sign'],
+            new NavItem(':Default:Default:default', [], _('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'),
+            new NavItem(':Default:Default:rules', [], _('Pravidla'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'),
+            new NavItem(':Default:Default:faq', [], _('FAQ'), 'visible-sm-inline glyphicon glyphicon-question-sign'),
+            new NavItem(':Default:Default:howto', [], _('Návod'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
 
             //if ($this->yearsService->isRegistrationStarted()) {
-            [':Default:Default:chat', [], _('Fórum'), 'visible-sm-inline glyphicon glyphicon-comment'],
-            [':Default:Default:list', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-list'],
+            new NavItem(':Default:Default:chat', [], _('Fórum'), 'visible-sm-inline glyphicon glyphicon-comment'),
+            new NavItem(':Default:Default:list', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-list'),
             //  if ($this->yearsService->isGameStarted()) {
-            [':Default:Default:default', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-stats'],
-            [':Default:Default:default', [], _('Nástěnka'), 'visible-sm-inline glyphicon glyphicon-pushpin'],
+            new NavItem(':Default:Default:default', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-stats'),
+            new NavItem(':Default:Default:default', [], _('Nástěnka'), 'visible-sm-inline glyphicon glyphicon-pushpin'),
             //    if ($this->getUser()->isLoggedIn()) {
-            [':Default:Default:default', [], _('Hra'), 'visible-sm-inline glyphicon glyphicon-tower'],
+            new NavItem(':Default:Default:default', [], _('Hra'), 'visible-sm-inline glyphicon glyphicon-tower'),
+            new NavItem(':Default:Default:default', [], _('Registrace'), 'visible - sm - inline glyphicon glyphicon-edit'),
         ];
     }
 
