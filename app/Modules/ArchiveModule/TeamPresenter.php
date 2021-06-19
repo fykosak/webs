@@ -15,6 +15,6 @@ class TeamPresenter extends BasePresenter {
     }
 
     protected function createComponentTeamList(): TeamListComponent {
-        return new TeamListComponent($this->getContext(), $this->getEvent()->eventId, 'a');
+        return new TeamListComponent($this->getContext(), $this->getEvent()->eventId);
     }
 }

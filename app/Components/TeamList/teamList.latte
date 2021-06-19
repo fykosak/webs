@@ -1,4 +1,11 @@
 {layout '../@layout.latte'}
+{block subnavigation}
+    <ul class="nav">
+        {foreach $categories AS $category => $name}
+            <li><a href="#{$category}" title="{$name}">{$name}</a></li>
+        {/foreach}
+    </ul>
+{/block}
 {block content}
     <div id="teams" class="list">
         {foreach $teams AS $category => $teamsForCategory}
@@ -32,3 +39,4 @@
         {/foreach}
     </div>
 {/block}
+
