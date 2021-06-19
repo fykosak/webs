@@ -1,0 +1,11 @@
+{block content}
+    {dump $reports}
+    <div id="reports" class="list">
+    {foreach $reports as $report}
+        {dump $report}
+        <h2>{$report->team_id}</h2>
+        {$report->text}
+        <br>
+        <br>
+    {/foreach}
+{/block}
