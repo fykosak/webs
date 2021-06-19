@@ -36,9 +36,9 @@ abstract class BasePresenter extends Presenter {
         $navigation = new Navigation($this->getContext());
 
         $navigation->addNavItem(new NavItem(':Default:Default:default', [], _('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'));
-        $navigation->addNavItem(new NavItem(':Default:Default:rules', [], _('Pravidla'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'));
-        $navigation->addNavItem(new NavItem(':Default:Default:faq', [], _('FAQ'), 'visible-sm-inline glyphicon glyphicon-question-sign'));
-        $navigation->addNavItem(new NavItem(':Default:Default:howto', [], _('Návod'), 'visible-sm-inline glyphicon glyphicon-info-sign'));
+        $navigation->addNavItem(new NavItem(':Default:Rules:default', [], _('Pravidla'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'));
+        $navigation->addNavItem(new NavItem(':Default:Faq:default', [], _('FAQ'), 'visible-sm-inline glyphicon glyphicon-question-sign'));
+        $navigation->addNavItem(new NavItem(':Default:HowTo:default', [], _('Návod'), 'visible-sm-inline glyphicon glyphicon-info-sign'));
 
         //if ($this->yearsService->isRegistrationStarted()) {
         $navigation->addNavItem(new NavItem(':Default:Default:chat', [], _('Fórum'), 'visible-sm-inline glyphicon glyphicon-comment'));
