@@ -16,14 +16,14 @@
                     Tříhodinová&hellip;<br/>
                     Soutěž pořádaná <a href="http://fykos.cz/" title="Fyzikální korespondenční seminář">Fyzikálním korespondenčním seminářem</a> <a href="http://www.mff.cuni.cz/">MFF UK</a>.
                 </p>
-                {if !$control->yearsService->isRegistrationStarted()}
-                <p>Pokud si přejete být informováni, až bude registrace otevřena, <a href="https://forms.gle/WQM2YNsriA6D67sv6">vyplňte nám svůj e-mail</a>.</p>
-                {/if}
-                {if $control->yearsService->isRegistrationActive() && !$user->isLoggedIn()}
-                <p><a class="btn btn-primary btn-warning btn-lg" href="{link :Default:Team:registration}" role="button">Registrace &raquo;</a></p>
-                {/if}
-                <p>Líbilo se vám Fyziklání online? Pak zkuste <a class="btn btn-primary btn-warning btn-lg" href="{link otherEvents}" role="button">Další akce &raquo;</a></p>
-                <p><a class="btn btn-primary btn-lg" href="{link :Default:Archive:reports 'year'=> 2019}" role="button">Ohlasy účastníků z minulého ročníku &raquo;</a></p>
+{*                {if !$control->yearsService->isRegistrationStarted()}*}
+{*                <p>Pokud si přejete být informováni, až bude registrace otevřena, <a href="https://forms.gle/WQM2YNsriA6D67sv6">vyplňte nám svůj e-mail</a>.</p>*}
+{*                {/if}*}
+{*                {if $control->yearsService->isRegistrationActive() && !$user->isLoggedIn()}*}
+{*                <p><a class="btn btn-primary btn-warning btn-lg" href="{link :Default:Team:registration}" role="button">Registrace &raquo;</a></p>*}
+{*                {/if}*}
+{*                <p>Líbilo se vám Fyziklání online? Pak zkuste <a class="btn btn-primary btn-warning btn-lg" href="{link otherEvents}" role="button">Další akce &raquo;</a></p>*}
+{*                <p><a class="btn btn-primary btn-lg" href="{link :Default:Archive:reports 'year'=> 2019}" role="button">Ohlasy účastníků z minulého ročníku &raquo;</a></p>*}
             </div>
         </div>
 
@@ -36,19 +36,19 @@
 <div class="row">
     <div class="col-md-4">
         <h2>Kdy</h2>
-        {if $control->yearsService->isGameEnd()}
-        <p>Proběhla ve <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Online+Physics+Brawl&iso={$year->game_start|date:'%Y%m%d'}T{$year->game_start|date:'%H%M'}&p1=204&ah=3" n:block='game_period'>{$year->game_start|date:'%A %e. %#m. %Y'|lower} od {$year->game_start|date:'%k.%M'} do {$year->game_end|date:'%k.%M'}</a>.</p>
-        {else}
-        <p>Proběhne ve {include #game_period}.</p>
-        {if $control->yearsService->isRegistrationEnd()}
-        <p>Registrace <strong>skončila</strong> {$year->registration_end|date:'%d. %#m. %Y %k.%M'}.</p>
-        {else}
-        <p>Registrace otevřena {if !$control->yearsService->isRegistrationStarted()}od {$year->registration_start|date:'%d. %#m. %Y'} {/if}do <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Online+Physics+Brawl+-+end+of+registration&iso={$year->registration_end|date:'%Y%m%d'}T{$year->registration_end|date:'%H%M'}&p1=204">{$year->registration_end|date:'%d. %#m. %Y %k.%M'}</a>.</p>
-        {*<p>Pomozte nám propagovat šířením letáku.<br>
-            <a href="{$basePath}/download/2018-1/fol_2018.pdf"><img src="{$basePath}/download/2018-1/fol_2018.png" width="100px"></a>
-        </p>*}
-        {/if}
-        {/if}
+{*        {if $control->yearsService->isGameEnd()}*}
+{*        <p>Proběhla ve <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Online+Physics+Brawl&iso={$year->game_start|date:'%Y%m%d'}T{$year->game_start|date:'%H%M'}&p1=204&ah=3" n:block='game_period'>{$year->game_start|date:'%A %e. %#m. %Y'|lower} od {$year->game_start|date:'%k.%M'} do {$year->game_end|date:'%k.%M'}</a>.</p>*}
+{*        {else}*}
+{*        <p>Proběhne ve {include #game_period}.</p>*}
+{*        {if $control->yearsService->isRegistrationEnd()}*}
+{*        <p>Registrace <strong>skončila</strong> {$year->registration_end|date:'%d. %#m. %Y %k.%M'}.</p>*}
+{*        {else}*}
+{*        <p>Registrace otevřena {if !$control->yearsService->isRegistrationStarted()}od {$year->registration_start|date:'%d. %#m. %Y'} {/if}do <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Online+Physics+Brawl+-+end+of+registration&iso={$year->registration_end|date:'%Y%m%d'}T{$year->registration_end|date:'%H%M'}&p1=204">{$year->registration_end|date:'%d. %#m. %Y %k.%M'}</a>.</p>*}
+{*        *}{*<p>Pomozte nám propagovat šířením letáku.<br>*}
+{*            <a href="{$basePath}/download/2018-1/fol_2018.pdf"><img src="{$basePath}/download/2018-1/fol_2018.png" width="100px"></a>*}
+{*        </p>*}
+{*        {/if}*}
+{*        {/if}*}
     </div>
     <div class="col-md-4">
         <h2>Jak</h2>
