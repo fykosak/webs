@@ -12,12 +12,10 @@ class TeamListComponent extends BaseComponent {
 
     protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
-    protected string $category;
 
-    public function __construct(Container $container, int $eventId, string $category) {
+    public function __construct(Container $container, int $eventId) {
         parent::__construct($container);
         $this->eventId = $eventId;
-        $this->category = $category;
     }
 
     public function injectServiceTeam(ServiceEventDetail $serviceTeam): void {
