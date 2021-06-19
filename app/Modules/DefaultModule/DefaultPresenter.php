@@ -3,6 +3,7 @@
 namespace App\Modules\DefaultModule;
 
 use Exception;
+use Nette;
 
 class DefaultPresenter extends BasePresenter {
 
@@ -21,19 +22,18 @@ class DefaultPresenter extends BasePresenter {
         $this->changeViewByLang();
     }
 
-
     public function renderRules(): void {
         $this->setPagetitle(_('Pravidla'));
         $this->changeViewByLang();
     }
 
-    public function renderFaq(): void {
-        $this->setPagetitle(_('FAQ'));
+    public function renderHowto(): void {
+        $this->setPagetitle(_('Rychlý grafický návod ke hře'));
         $this->changeViewByLang();
     }
 
-    public function renderHowto(): void {
-        $this->setPagetitle(_('Rychlý grafický návod ke hře'));
+    public function renderList(): void {
+        $this->setPageTitle(_('Přihlášené týmy'));
         $this->changeViewByLang();
     }
 
@@ -45,4 +45,6 @@ class DefaultPresenter extends BasePresenter {
         $this->setPagetitle(_('Další akce'));
         $this->changeViewByLang();
     }
+
+
 }

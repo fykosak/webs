@@ -24,6 +24,9 @@ services:
 database:
     conventions: 'discovered'
 
+extensions:
+    orm: Fykosak\NetteORM\ORMExtension
+
 parameters:
     i18n:
         locales:
@@ -33,3 +36,11 @@ parameters:
         dir: %appDir%/i18n/locale
         # language used when no or unknown language is requested
         defaultLang: cs
+
+orm:
+    faq:
+        service: App\Models\ORM\FaqService
+        model: App\Models\ORM\FaqModel
+    report:
+        service: App\Models\ORM\ReportService
+        model: App\Models\ORM\ReportModel

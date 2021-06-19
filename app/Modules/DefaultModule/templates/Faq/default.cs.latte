@@ -1,28 +1,22 @@
-{capture $script}
-    <script n:syntax="off">
-        var hideText = 'Skrýt vše';
-        var showText = 'Zobrazit vše';
-
-        $(document).ready(function () {
-            $('.collapseAll').click(function () {
-                if ($(this).text() === hideText) {
-                    $('.collapse.in').collapse('hide');
-                    $(this).text(showText);
-                } else {
-                    $('.collapse:not(".in")').collapse('show');
-                    $(this).text(hideText);
-                }
-            });
-        });
-    </script>
-{/capture}
-{$presenter->addCustomScript($script)}
-
 {block content}
 
-    <button class="collapseAll btn btn-default btn-secondary">Zobrazit vše</button>
-
     {var $i = 1}
+
+    {foreach $questions AS $category => $questionsForCategory}
+        <h2>{$category}</h2>
+        {foreach $questionsForCategory AS $question}
+            <a href="javascript:void(0)" data-toggle="collapse" data-target="#faq{$i}">
+                {$question->question}
+            </a>
+            <div id="faq{$i++}" class="collapse">
+                {$question->answer}
+            </div><br/>
+        {/foreach}
+    {/foreach}
+{/block}
+
+
+{*
     <h2 id="registration">Registrace</h2>
 
     <a href="javascript:void(0)" data-toggle="collapse" data-target="#faq{$i}">
@@ -344,17 +338,4 @@
         pak v oddílu věnovanému pravidlům
         <a href='{link Default:rules}'>online.fyziklani.cz/cs/default/rules</a>.
     </div><br/>
-{/block}
-
-{block #subnavigation}
-    <ul class="nav">
-        <li><a href="#registration">Registrace</a></li>
-        <li><a href="#game">Průběh soutěže</a></li>
-        <li><a href="#tasks">Zadání úloh</a></li>
-        <li><a href="#submits">Odevzdávání řešení</a></li>
-        <li><a href="#skipping">Přeskakování úloh</a></li>
-        <li><a href="#scoring">Bodování</a></li>
-        <li><a href="#hurry-up">Hurry-up</a></li>
-        <li><a href="#otherFAQ">Ostatní</a></li>
-    </ul>
-{/block}
+*}
