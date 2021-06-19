@@ -61,4 +61,12 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
     protected function createComponentTeamResults(): TeamResultsComponent {
         return new TeamResultsComponent($this->getContext(), $this->event->eventId);
     }
+
+    protected function changeViewYear(): void {
+        parent::changeViewByLang();
+    }
+
+    protected function getNavItems(): array {
+        return [];
+    }
 }

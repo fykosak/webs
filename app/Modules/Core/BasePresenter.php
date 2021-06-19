@@ -36,7 +36,7 @@ abstract class BasePresenter extends Presenter {
      * @return Navigation
      * @throws Exception
      */
-    /*
+
     protected function createComponentNavigation(): Navigation {
         $navigation = new Navigation($this->getContext());
         foreach ($this->getNavItems() as $navItem) {
@@ -44,27 +44,8 @@ abstract class BasePresenter extends Presenter {
         }
         return $navigation;
     }
-    */
-    /*
-    protected function getNavItems(): array {
-        return [
-            new NavItem(':Default:Default:default', [], _('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'),
-            new NavItem(':Default:Default:rules', [], _('Pravidla'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'),
-            new NavItem(':Default:Default:faq', [], _('FAQ'), 'visible-sm-inline glyphicon glyphicon-question-sign'),
-            new NavItem(':Default:Default:howto', [], _('Návod'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
 
-            //if ($this->yearsService->isRegistrationStarted()) {
-            new NavItem(':Default:Default:chat', [], _('Fórum'), 'visible-sm-inline glyphicon glyphicon-comment'),
-            new NavItem(':Default:Default:list', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-list'),
-            //  if ($this->yearsService->isGameStarted()) {
-            new NavItem(':Default:Default:default', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-stats'),
-            new NavItem(':Default:Default:default', [], _('Nástěnka'), 'visible-sm-inline glyphicon glyphicon-pushpin'),
-            //    if ($this->getUser()->isLoggedIn()) {
-            new NavItem(':Default:Default:default', [], _('Hra'), 'visible-sm-inline glyphicon glyphicon-tower'),
-            new NavItem(':Default:Default:default', [], _('Registrace'), 'visible - sm - inline glyphicon glyphicon-edit'),
-        ];
-    }
-    */
+    abstract protected function getNavItems(): array;
 
     public function setPageTitle(string $pageTitle): void {
         $this->getTemplate()->pageTitle = $pageTitle;
