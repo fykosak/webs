@@ -20,7 +20,7 @@ class ReportPresenter extends BasePresenter {
 
     public function getTeams(array $teamIds): array {
         return \array_filter(
-            $this->serviceEventDetail->getTeams($this->getEvent()->eventId),
+            $this->serviceEventDetail->getAll($this->getEvent()->eventId),
             fn(ModelTeam $team) => in_array($team->teamId, $teamIds));
     }
 }

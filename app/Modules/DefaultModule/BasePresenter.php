@@ -2,7 +2,6 @@
 
 namespace App\Modules\DefaultModule;
 
-use App\Components\Navigation\Navigation;
 use App\Components\Navigation\NavItem;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter {

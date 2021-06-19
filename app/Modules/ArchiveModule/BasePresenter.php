@@ -8,7 +8,6 @@ use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
-use Tracy\Debugger;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
 

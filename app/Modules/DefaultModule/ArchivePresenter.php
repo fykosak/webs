@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Modules\DefaultModule;
-use \App\Models\ORM\FaqService;
-
 
 class ArchivePresenter extends BasePresenter {
 
@@ -11,5 +9,5 @@ class ArchivePresenter extends BasePresenter {
         $this->setPagetitle(_('Competition archive'));
         $this->changeViewByLang();
     }
-    
+
 }
