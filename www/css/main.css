@@ -1,10 +1,6 @@
 
 .bg-fol {
-    background-image: -webkit-linear-gradient(top, #6fa8e2 0, #448fda 100%);
-    background-image: -o-linear-gradient(top, #6fa8e2 0, #448fda 100%);
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#6fa8e2), to(#448fda));
-    background-image: linear-gradient(to bottom, #6fa8e2 0, #448fda 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6fa8e2', endColorstr='#ff448fda', GradientType=0);
+    background-color: #00CED1;
 }
 
 html, body {
