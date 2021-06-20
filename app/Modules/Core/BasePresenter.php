@@ -4,6 +4,7 @@ namespace App\Modules\Core;
 
 use App\Components\Navigation\Navigation;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Nette\Application\UI\Presenter;
@@ -86,5 +87,14 @@ abstract class BasePresenter extends Presenter {
 
     protected function changeViewByLang(): void {
         $this->setView($this->getView() . '.' . $this->lang);
+    }
+
+    public static function createEventKey(ModelEvent $event): string {
+        $year = $event->begin->format('Y');
+        $month = $event->begin->format('m');
+        $monthName = strtolower($event->begin->format('M'));
+        $key = $month < 10 ? ($year . '-' . $monthName) : $year;
+
+        return $key;
     }
 }

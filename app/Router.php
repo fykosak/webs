@@ -78,8 +78,7 @@ class Router {
                 ],
                 'action' => 'default',
                 null => self::useTranslateFilter($domainList, $routerMapping, "presenter")
-            ])
-            ->addRoute('team/[<action>/[<id>]]', 'Team:default');
+            ]);
 
         return $router;
     }

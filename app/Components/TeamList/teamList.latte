@@ -16,19 +16,21 @@
                     {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
                     <li>
                         <strong>{$team->name}</strong>:
-                        {var $prevSchool = null}
                     {var $inSchool = 0}
                     {if $team->participants && count($team->participants)}
-                            {foreach $team->participants as $participant}
+                        {do
+                            $participants = $team->participants;
+                            usort($participants, fn($a, $b) => $a->schoolId <=> $b->schoolId)
+                        }
+                            {foreach $participants as $key => $participant}
                                 {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
                                 {$participant->name}
                                 {do $inSchool++}
-                                {if $iterator->isLast() || (!is_null($prevSchool) && $participant->schoolId != $prevSchool)}
+                                {if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->schoolId != $participants[$key + 1]->schoolId)}
                                     <span class="text-muted">({if $inSchool > 1}{$inSchool}&times; {/if}{$participant->schoolName} <span
                                                 class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>)</span>
                                     {do $inSchool = 0}
                                 {/if}
-                                {do $prevSchool = $participant->schoolId}
                                 {if !$iterator->isLast()}, {/if}
                             {/foreach}
                         {else}

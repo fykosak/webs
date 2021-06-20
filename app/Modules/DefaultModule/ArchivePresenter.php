@@ -2,6 +2,9 @@
 
 namespace App\Modules\DefaultModule;
 
+use \App\Models\ORM\FaqService;
+use App\Components\EventList\EventListComponent;
+
 class ArchivePresenter extends BasePresenter {
 
     public function renderDefault(): void
@@ -9,5 +12,9 @@ class ArchivePresenter extends BasePresenter {
         $this->setPagetitle(_('Competition archive'));
         $this->changeViewByLang();
     }
-
+    
+    protected function createComponentEventList(): EventListComponent {
+        return new EventListComponent($this->getContext());
+    }
+    
 }

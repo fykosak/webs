@@ -6,7 +6,7 @@ use App\Models\ORM\ReportService;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam;
 use Nette\Application\BadRequestException;
 
-class ReportPresenter extends BasePresenter {
+class ReportsPresenter extends BasePresenter {
 
     private ReportService $reportService;
 

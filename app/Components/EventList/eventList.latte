@@ -1,0 +1,13 @@
+{layout '../@layout.latte'}
+{block content}
+    <div id="events" class="list">
+        <ul>
+            {foreach $eventKeys AS $eventKey}
+                <li>
+                    <a href="{plink :Archive:Default:default eventYear => $eventKey['key']}">{$eventKey['event']->eventYear} ročník</a>
+                </li>
+            {/foreach}
+        </ul>
+    </div>
+{/block}
+
