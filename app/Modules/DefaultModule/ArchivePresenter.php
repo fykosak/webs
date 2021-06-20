@@ -9,7 +9,7 @@ class ArchivePresenter extends BasePresenter {
 
     public function renderDefault(): void
     {
-        $this->setPagetitle(_('Competition archive'));
+        $this->setPagetitle(_('Archive'));
         $this->changeViewByLang();
     }
     

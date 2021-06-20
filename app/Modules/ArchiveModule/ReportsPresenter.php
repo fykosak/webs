@@ -14,6 +14,10 @@ class ReportsPresenter extends BasePresenter {
         $this->reportService = $reportService;
     }
 
+    /**
+     * @return void
+     * @throws \Exception
+     */
     public function renderDefault(): void {
         $this->template->reports = $this->reportService->getTable()->where('lang', $this->lang);
         $this->setPageTitle(_('Contestants\' reports'));

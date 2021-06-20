@@ -10,10 +10,15 @@ class ResultsPresenter extends BasePresenter {
      * @return void
      * @throws \Exception
      */
-    public function renderList(): void {
-        $this->setPageTitle(_('Team results'));
+    public function renderDefault(): void {
+        $this->setPageTitle(_('Results'));
     }
 
+    /**
+     * @return TeamResultsComponent
+     * @throws BadRequestException
+     * @throws \Throwable
+     */
     protected function createComponentTeamResults(): TeamResultsComponent {
         return new TeamResultsComponent($this->getContext(), $this->getEvent()->eventId);
     }

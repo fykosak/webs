@@ -25,7 +25,7 @@ class EventListComponent extends BaseComponent {
      * @throws Throwable
      */
     public function render(): void {
-        $events = array_reverse($this->serviceEvent->getAll([9]));
+        $events = array_reverse($this->serviceEvent->getEvents([9]));
         $eventKeys = [];
         foreach ($events as $event)
             $eventKeys[] = [
