@@ -3,3 +3,8 @@ parameters:
         cs:
             OSoutezi: AboutTheCompetition
             Default: Default
+            Archiv: Archive
+            Faq: Faq
+            Navod: HowToPlay
+            Program: Schedule
+            Pravidla: Rules
