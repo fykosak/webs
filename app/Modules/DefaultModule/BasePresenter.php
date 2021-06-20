@@ -16,7 +16,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
         $items[] = new NavItem(':Default:Faq:default', [], _('FAQ'), 'visible-sm-inline glyphicon glyphicon-question-sign');
         $items[] = new NavItem(':Default:HowToPlay:default', [], _('Návod'), 'visible-sm-inline glyphicon glyphicon-info-sign');
         $items[] = new NavItem(':Default:Schedule:default', [], _('Program'), 'visible-sm-inline glyphicon glyphicon-info-sign');
-        $items[] = new NavItem(':Default:Report:default', [], _('Reporty'), 'visible-sm-inline glyphicon glyphicon-info-sign');
+        $items[] = new NavItem(':Default:Reports:default', [], _('Reporty'), 'visible-sm-inline glyphicon glyphicon-info-sign');
 
         //if ($this->yearsService->isRegistrationStarted()) {
         //$items[] = new NavItem(':Default:Team:list', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-list');
