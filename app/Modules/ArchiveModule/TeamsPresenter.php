@@ -11,8 +11,8 @@ class TeamsPresenter extends BasePresenter {
      * @return void
      * @throws \Exception
      */
-    public function renderList(): void {
-        $this->setPageTitle(_('Team List'));
+    public function renderDefault(): void {
+        $this->setPageTitle(_('Teams'));
     }
 
     /**

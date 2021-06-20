@@ -2,7 +2,7 @@
 
 namespace App\Modules\DefaultModule;
 
-class ReportPresenter extends BasePresenter {
+class ReportsPresenter extends BasePresenter {
 
     public function renderDefault(): void
     {

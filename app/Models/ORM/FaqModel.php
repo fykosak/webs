@@ -15,10 +15,15 @@ class FaqModel extends AbstractModel {
 
     public function getCategory(): string {
         switch ($this->category) {
-            case 'game' :
-                return _('Game');
-            default :
-                return _('Other');
+            case 'game' : return _('game');
+            case 'hurry-up' : return _('hurry-up');
+            case 'registration' : return _('registration');
+            case 'scoring' : return _('scoring');
+            case 'skipping' : return _('skipping');
+            case 'submits' : return _('submits');
+            case 'tasks' : return _('tasks');
+            case 'otherFAQ' : return _('otherFAQ');
+            default : return _('OtherFAQ');
         }
     }
 }
