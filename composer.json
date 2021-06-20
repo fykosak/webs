@@ -16,7 +16,7 @@
     "nette/nette": "^v3.1.0",
     "fykosak/nette-orm": "dev-dev-0.2.3",
     "fykosak/nette-fksdb-downloader": "1.1.0",
-    "fykosak/nette-fks-utils": "v0.0.2",
+    "fykosak/nette-fks-utils": "dev-master",
     "ext-soap": "*",
     "ext-dom": "*",
     "ext-gettext": "*"
