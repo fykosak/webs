@@ -5,3 +5,4 @@ vendor/*
 log/*
 temp/*
 !vendor/others
+www/images/reports/
