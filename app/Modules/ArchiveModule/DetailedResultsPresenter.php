@@ -9,6 +9,6 @@ class DetailedResultsPresenter extends BasePresenter {
      * @throws \Exception
      */
     public function renderDefault(): void {
-        $this->setPageTitle(_('Detailded results'));
+        $this->setPageTitle(_('Detailed results'));
     }
 }
