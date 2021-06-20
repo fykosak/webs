@@ -8,7 +8,7 @@
         <h2>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h2>
 
     {$report->text|noescape}
-        {* starý web:
+        {* starý web obrázky:
         <div class="row">*}
         {*            {foreach $report->related('report_image') as $reportImage}*}
         {*                <div class="col-sm-6 col-md-4">*}
