@@ -66,7 +66,7 @@ class Router {
 
         $router->withModule('Archive')
             /*->addRoute('<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]', 'Default:default');*/
-            ->addRoute('<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]', [
+            ->addRoute('//<domain>/<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]', [
                 'presenter' => 'Default',
                 'action' => 'default',
                 null => self::useTranslateFilter($domainList, $routerMapping['archive'], "presenter")
