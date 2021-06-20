@@ -34,7 +34,7 @@ class TeamListComponent extends BaseComponent {
      */
     public function loadTeams(){
         $teams = [];
-        foreach ($this->serviceTeam->getAll($this->eventId) as $team) {
+        foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
             $category = $team->category;
             if (!isset($teams[$category])) {
                 $teams[$category] = [];
