@@ -2,8 +2,6 @@
 
 namespace App\Modules\ArchiveModule;
 
-use App\Components\TeamList\TeamListComponent;
-use App\Components\TeamResults\TeamResultsComponent;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Nette\Application\BadRequestException;

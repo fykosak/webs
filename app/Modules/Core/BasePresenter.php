@@ -15,7 +15,7 @@ abstract class BasePresenter extends Presenter {
     /** @persistent */
     public ?string $lang = null; // = 'cs';
 
-    protected GettextTranslator $translator;
+    public GettextTranslator $translator;
     protected ServiceEventDetail $serviceEventDetail;
 
     public function injectServices(GettextTranslator $translator, ServiceEventDetail $serviceEventDetail): void {
@@ -35,7 +35,6 @@ abstract class BasePresenter extends Presenter {
      * @return Navigation
      * @throws \Exception
      */
-
     protected function createComponentNavigation(): Navigation {
         $navigation = new Navigation($this->getContext());
         foreach ($this->getNavItems() as $navItem) {
@@ -50,8 +49,6 @@ abstract class BasePresenter extends Presenter {
         $this->getTemplate()->pageTitle = $pageTitle;
     }
 
-// ----- PROTECTED METHODS
-
     protected function createTemplate(): Template {
         $template = parent::createTemplate();
         $template->lang = $this->lang;
@@ -60,9 +57,9 @@ abstract class BasePresenter extends Presenter {
         return $template;
     }
 
-    /* temporary hack for DI */
 
-// -------------- l12n ------------------
+// -------------- i18n ------------------
+
     /**
      * @throws UnsupportedLanguageException
      */
@@ -81,10 +78,6 @@ abstract class BasePresenter extends Presenter {
         }
     }
 
-    public function getOpenGraphLang(): ?string {
-        return $this->getHttpRequest()->getHeader('X-Facebook-Locale');
-    }
-
     protected function changeViewByLang(): void {
         $this->setView($this->getView() . '.' . $this->lang);
     }
@@ -93,8 +86,6 @@ abstract class BasePresenter extends Presenter {
         $year = $event->begin->format('Y');
         $month = $event->begin->format('m');
         $monthName = strtolower($event->begin->format('M'));
-        $key = $month < 10 ? ($year . '-' . $monthName) : $year;
-
-        return $key;
+        return $month < 10 ? ($year . '-' . $monthName) : $year;
     }
 }

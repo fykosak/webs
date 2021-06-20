@@ -1,45 +1,47 @@
 {layout '../@layout.latte'}
 {block content}
-        {foreach $teams AS $category => $teamsForCategory}
-            <h2 id="{$category}">{$category}</h2>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>{_'Team'}</th>
-                    <th>{_'Points'}</th>
-                    <th>{_'Rank in category'}</th>
-                    <th>{_'Rank total'}</th>
-                </tr>
-                </thead>
-                <tbody>
-                {do usort($teamsForCategory, fn($a, $b) => $a->rankCategory <=> $b->rankCategory)}
+    {*control filterForm*}
+    {foreach $teams AS $category => $teamsForCategory}
+        <h2 id="{$category}">{$category}</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{_'Team'}</th>
+                <th>{_'Points'}</th>
+                <th>{_'Rank in category'}</th>
+                <th>{_'Rank total'}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {do usort($teamsForCategory, fn($a, $b) => $a->rankCategory <=> $b->rankCategory)}
                 {foreach $teamsForCategory AS $team}
                 {continueIf $team->status != 'participated'}
-                    <tr>
-                        {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
-                        <td><strong>{$team->name}</strong>
-                            {var $fromCountry = 0}
+                <tr>
+                    {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
+                    <td><strong>{$team->name}</strong>
+                        {var $fromCountry = 0}
                             {if $team->participants && count($team->participants)}<span class="text-muted">(
                                 {do
                                     $participants = $team->participants;
                                     usort($participants, fn($a, $b) => $a->countryIso <=> $b->countryIso)
                                 }
                                 {foreach $participants as $key => $participant}
-                                    {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
-                                    {do $fromCountry++}
-                                    {if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->countryIso != $participants[$key + 1]->countryIso)}
-                                        {$fromCountry}&times; <span class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>
-                                        {do $fromCountry = 0}
-                                    {/if}
-                                {/foreach})</span>
+                            {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
+                            {do $fromCountry++}
+                            {if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->countryIso != $participants[$key + 1]->countryIso)}
+                            {$fromCountry}&times; <span
+                                    class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>
+                                {do $fromCountry = 0}
                             {/if}
-                        </td>
-                        <td>{$team->points}</td>
-                        <td>{$team->rankCategory}</td>
-                        <td>{$team->rankTotal}</td>
-                    </tr>
-                {/foreach}
-                </tbody>
-            </table>
-        {/foreach}
+                            {/foreach})</span>
+                        {/if}
+                    </td>
+                    <td>{$team->points}</td>
+                    <td>{$team->rankCategory}</td>
+                    <td>{$team->rankTotal}</td>
+                </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    {/foreach}
 {/block}

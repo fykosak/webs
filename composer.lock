@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b3ec2a41dd6b937849d6872607ed90f0",
+    "content-hash": "c94c243a3d2a8a0a7496f53db0dd320e",
     "packages": [
         {
             "name": "fykosak/fksdb-downloader-core",
@@ -88,16 +88,16 @@
         },
         {
             "name": "fykosak/nette-fksdb-downloader",
-            "version": "v1.0.4",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/nette-fksdb-downloader.git",
-                "reference": "b080b48ec36dbd725834dc23031d9df2409f6b53"
+                "reference": "4cab891cd6b049adbeb7656c855d281c6821da24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/b080b48ec36dbd725834dc23031d9df2409f6b53",
-                "reference": "b080b48ec36dbd725834dc23031d9df2409f6b53",
+                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/4cab891cd6b049adbeb7656c855d281c6821da24",
+                "reference": "4cab891cd6b049adbeb7656c855d281c6821da24",
                 "shasum": ""
             },
             "require": {
@@ -122,7 +122,7 @@
                 }
             ],
             "description": "FKSDB Downloader for nette web applications",
-            "time": "2021-06-20T09:14:12+00:00"
+            "time": "2021-06-20T12:20:09+00:00"
         },
         {
             "name": "fykosak/nette-orm",

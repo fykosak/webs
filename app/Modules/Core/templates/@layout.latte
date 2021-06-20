@@ -1,0 +1,82 @@
+{varType App\Modules\Core\BasePresenter $presenter}
+{varType string $pageTitle}
+<!DOCTYPE html>
+<html lang="{$presenter->lang}">
+<head>
+    <title>{_'Fyziklání online'}{ifset $pageTitle} &ndash; {$pageTitle}{/ifset}</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="{_'Team competition in solving physics problems'}"/>
+    <meta property="og:image" content="{_'http://physicsbrawl.org/images/fyziklani-logo.png'}"/>
+    <meta property="og:description" content="{_'Online team competition in solving physics problems.'}"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:locale" content="{$presenter->translator->locales[$presenter->lang]}"/>
+    <meta property="og:url" content="{plink //this}"/>
+    <link href="{$basePath}/favicon.png" rel="icon" type="image/png"/>
+
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link href="{$basePath}/css/flag-icon/flag-icon.min.css" rel="stylesheet"/>
+    <link href="{$basePath}/css/main.css" rel="stylesheet"/>
+    <link href="{$basePath}/css/custom.v4.css" rel="stylesheet"/>
+    <link href="{$basePath}/css/flag-icon/flag-icon.min.css" rel="stylesheet"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27814405-2"></script>
+    <script n:syntax="off">
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-27814405-2', {'anonymize_ip': true});
+    </script>
+    {block head}{/block}
+</head>
+
+<body>
+{block body}
+    {control navigation}
+{block main}
+    <main class="container">
+        {block title}
+            <h1 n:ifset="$pageTitle">{$pageTitle}</h1>
+        {/block}
+            {include content}
+        <hr/>
+        <footer>
+            <p class="pull-right small">{_'Pokud máte jakýkoliv dotaz, připomínku, námět apod., napište nám na naši adresu'}
+                <a href="mailto:online@fyziklani.cz">online@fyziklani.cz</a>.
+            </p>
+            <p>
+                <a href="{_'http://fykos.cz/'}">{_'FYKOS.cz'}</a>
+            </p>
+        </footer>
+    </main>
+{/block}
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+    <script src="{$basePath}/js/bootstrap.min.js"></script>
+    <script src="{$basePath}/js/fix-navbar-issue.js"></script>
+    <script src="{$basePath}/js/clock.js"></script>
+    {block scripts}{/block}
+{/block}
+</body>
+</html>

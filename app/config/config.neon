@@ -15,9 +15,9 @@ session:
 
 services:
     - Fykosak\Utils\Localization\GettextTranslator(%i18n.locales%,%i18n.dir%)
-    - Fykosak\NetteFKSDBDownloader\NetteFKSDBDownloader('https://db.fykos.cz/FKSDBWebServices.wsdl',%fksdbDownloader.login%,%fksdbDownloader.password%)
-    - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail
-    - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList
+    - Fykosak\NetteFKSDBDownloader\NetteFKSDBDownloader('https://db.fykos.cz/FKSDBWebServices.wsdl',%fksdbDownloader.login%,%fksdbDownloader.password%,'60 minutes')
+    - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail('60 minutes')
+    - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList('60 minutes')
 
     router: App\Router::createRouter(%domains%, %router-mapping%)
 
