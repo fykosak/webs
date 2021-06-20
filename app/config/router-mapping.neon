@@ -1,10 +1,24 @@
 parameters:
     router-mapping:
-        cs:
-            OSoutezi: AboutTheCompetition
-            Default: Default
-            Archiv: Archive
-            Faq: Faq
-            Navod: HowToPlay
-            Program: Schedule
-            Pravidla: Rules
+        archive:
+            cs:
+                Default: Default
+                Tymy: Teams
+                Vysledky: Results
+                PodrobneVysledky: DetailedResults
+                Reporty: Reports
+
+        default:
+            cs:
+                Default: Default
+                OSoutezi: AboutTheCompetition
+                Archiv: Archive
+                Organizatori: Organisers
+                Pravidla: Rules
+                Faq: Faq
+                Navod: HowToPlay
+                Program: Schedule
+                Reporty: Reports
+
+    
+
