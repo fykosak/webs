@@ -144,10 +144,9 @@ class TeamResultsComponent extends BaseComponent {
             $countryISOContainer->addCheckbox($countryISO, sprintf(_('%s:%s participants'), $countryISO, $count));
         }
 
+        $form->addButton('reset')->setHtmlAttribute('type', 'reset');
 
         $form->addSubmit('applyFilters', 'Apply');
-
-        $form->addButton('reset')->setHtmlAttribute('type', 'reset');
 
         $form->onSuccess[] = [$this, 'filterFormSucceeded'];
 
