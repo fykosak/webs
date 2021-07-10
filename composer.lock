@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c9cca5ba013b1d219deb9e60301ea06",
+    "content-hash": "8e3bb268458cc3b534d9948a5ef57b09",
     "packages": [
         {
             "name": "fykosak/fksdb-downloader-core",
@@ -88,16 +88,16 @@
         },
         {
             "name": "fykosak/nette-fksdb-downloader",
-            "version": "v1.1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/nette-fksdb-downloader.git",
-                "reference": "4cab891cd6b049adbeb7656c855d281c6821da24"
+                "reference": "67929bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/4cab891cd6b049adbeb7656c855d281c6821da24",
-                "reference": "4cab891cd6b049adbeb7656c855d281c6821da24",
+                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/67929bf",
+                "reference": "67929bf",
                 "shasum": ""
             },
             "require": {
@@ -122,7 +122,7 @@
                 }
             ],
             "description": "FKSDB Downloader for nette web applications",
-            "time": "2021-06-20T12:20:09+00:00"
+            "time": "2021-07-10T08:35:34+00:00"
         },
         {
             "name": "fykosak/nette-orm",
@@ -1095,16 +1095,16 @@
         },
         {
             "name": "nette/php-generator",
-            "version": "v3.5.3",
+            "version": "v3.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/php-generator.git",
-                "reference": "119f01a7bd590469cb01b538f20a125a28853626"
+                "reference": "59bb35ed6e8da95854fbf7b7d47dce6156b42915"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/php-generator/zipball/119f01a7bd590469cb01b538f20a125a28853626",
-                "reference": "119f01a7bd590469cb01b538f20a125a28853626",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/59bb35ed6e8da95854fbf7b7d47dce6156b42915",
+                "reference": "59bb35ed6e8da95854fbf7b7d47dce6156b42915",
                 "shasum": ""
             },
             "require": {
@@ -1147,7 +1147,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🐘 Nette PHP Generator: generates neat PHP code for you. Supports new PHP 7.4 features.",
+            "description": "🐘 Nette PHP Generator: generates neat PHP code for you. Supports new PHP 8.0 features.",
             "homepage": "https://nette.org",
             "keywords": [
                 "code",
@@ -1155,7 +1155,7 @@
                 "php",
                 "scaffolding"
             ],
-            "time": "2021-02-24T18:40:21+00:00"
+            "time": "2021-07-05T12:02:42+00:00"
         },
         {
             "name": "nette/robot-loader",
@@ -1737,6 +1737,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "fykosak/nette-orm": 20,
+        "fykosak/nette-fksdb-downloader": 20,
         "fykosak/nette-fks-utils": 20
     },
     "prefer-stable": false,
