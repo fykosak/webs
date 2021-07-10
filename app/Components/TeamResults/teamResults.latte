@@ -1,6 +1,6 @@
 {layout '../@layout.latte'}
 {block content}
-    {*control filterForm*}
+    {control filterForm}
     {foreach $teams AS $category => $teamsForCategory}
         <h2 id="{$category}">{$category}</h2>
         <table class="table table-striped">
@@ -15,7 +15,6 @@
             <tbody>
             {do usort($teamsForCategory, fn($a, $b) => $a->rankCategory <=> $b->rankCategory)}
                 {foreach $teamsForCategory AS $team}
-                {continueIf $team->status != 'participated'}
                 <tr>
                     {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
                     <td><strong>{$team->name}</strong>
