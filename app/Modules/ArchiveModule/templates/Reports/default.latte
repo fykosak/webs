@@ -1,29 +1,100 @@
 {block content}
+    <head>
+    <style>
+        /* The grid: Four equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 5rem;
+            height: 4rem;
+            padding: 2rem;
+        }
+
+        /* Style the images inside the grid */
+        .column img {
+            float: left;
+            opacity: 0.9;
+            cursor: pointer;
+            max-width: 4rem;
+            max-height: 3rem;
+        }
+
+        .column img:hover {
+            opacity: 1;
+        }
+
+        /*!* Clear floats after the columns *!*/
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /*!* The expanding image container (positioning is needed to position the close button and the text) *!*/
+        .box {
+            position: relative;
+            top: 2rem;
+            display: none;
+            width: 50rem;
+        }
+
+        /*!* Expanding image text *!*/
+        #imgtext {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /*!* Closable button inside the image *!*/
+        .closebtn {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            color: white;
+            font-size: 4rem;
+            cursor: pointer;
+        }
+    </style>
+    </head>
     {varType Fykosak\NetteORM\TypedTableSelection $reports}
     {varType App\Modules\ArchiveModule\ReportsPresenter $presenter}
     {dump $reports}
     <div id="reports" class="list">
+
+    <script n:syntax="off">
+        function gallery(imgs) {
+            // Get the expanded image
+            var expandImg = document.getElementById("expandedImg");
+            // Get the image text
+            var imgText = document.getElementById("imgtext");
+            // Use the same src in the expanded image as the image being clicked on from the grid
+            expandImg.src = imgs.src;
+            // Use the value of the alt attribute of the clickable image as text inside the expanded image
+            imgText.innerHTML = imgs.alt;
+            // Show the container element (hidden with CSS)
+            expandImg.parentElement.style.display = "block";
+        }
+    </script>
+
     {foreach $reports as $report}
         {dump $report}
         <h2>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h2>
 
-    {$report->text|noescape}
-        {* starý web obrázky:
-        <div class="row">*}
-        {*            {foreach $report->related('report_image') as $reportImage}*}
-        {*                <div class="col-sm-6 col-md-4">*}
-        {*                    <div class="img-thumbnail">*}
-        {*                        <a href="{$image['img-url']}">*}
-        {*                            <img src="{$image['thumb-url']}" class="img-responsive">*}
-        {*                        </a>*}
-        {*                        <div class="caption">{$image['caption']}</div>*}
-        {*                    </div>*}
-        {*                </div>*}
-
-        {*                <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" />*}
-        {*           {/foreach}*}
-        <br>
-        <br>
+        {$report->text|noescape}
+        <div class="row">
+            {foreach $report->related('report_image') as $reportImage}
+                <div class="column">
+                    <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery(this);">
+                </div>
+            {/foreach}
         </div>
+        <div class="box">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <img id="expandedImg" style="width:100%">
+            <div id="imgtext"></div>
+        </div>
+        <br>
+        <br>
     {/foreach}
 {/block}
