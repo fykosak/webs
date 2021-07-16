@@ -2,12 +2,26 @@
     {*the link doesn't work for some reason :( *}
     <head>
         <link rel="stylesheet" href="{$basePath}/www/css/gallery.css">
+        <script n:syntax="off">
+            function gallery(imgs, imgId, textId) {
+                // Get the expanded image
+                var expandImg = document.getElementById(imgId);
+                // Get the image text
+                var imgText = document.getElementById(textId);
+                // Use the same src in the expanded image as the image being clicked on from the grid
+                expandImg.src = imgs.src;
+                // Use the value of the alt attribute of the clickable image as text inside the expanded image
+                imgText.innerHTML = imgs.alt;
+                // Show the container element (hidden with CSS)
+                expandImg.parentElement.style.display = "block";
+            }
+        </script>
     </head>
     <style>
         /* The grid: Four equal columns that floats next to each other */
         .column {
             float: left;
-            width: 6rem;
+            width: 7rem;
             padding: 1rem;
         }
 
@@ -16,8 +30,8 @@
             float: left;
             opacity: 0.9;
             cursor: pointer;
-            max-width: 5rem;
-            max-height: 5rem;
+            max-width: 6rem;
+            max-height: 6rem;
         }
 
         .column img:hover {
@@ -35,8 +49,8 @@
         .box {
             position: relative;
             top: 2rem;
-            display: none;
-            width: 50rem;
+            display: block;
+            width: 45rem;
         }
 
         /*!* Expanding image text *!*/
@@ -62,21 +76,6 @@
     {varType App\Modules\ArchiveModule\ReportsPresenter $presenter}
     {dump $reports}
     <div id="reports" class="list">
-        <script n:syntax="off">
-            function gallery(imgs) {
-                // Get the expanded image
-                var expandImg = document.getElementById("expandedImg");
-                // Get the image text
-                var imgText = document.getElementById("imgtext");
-                // Use the same src in the expanded image as the image being clicked on from the grid
-                expandImg.src = imgs.src;
-                // Use the value of the alt attribute of the clickable image as text inside the expanded image
-                imgText.innerHTML = imgs.alt;
-                // Show the container element (hidden with CSS)
-                expandImg.parentElement.style.display = "block";
-            }
-        </script>
-
         {foreach $reports as $report}
             {dump $report}
             <h2>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h2>
@@ -85,17 +84,18 @@
             <div class="row">
                 {foreach $report->related('report_image') as $reportImage}
                     <div class="column">
-                        <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery(this);">
+                        <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery(this, '{$report->report_id}-img', '{$report->report_id}-text');">
                     </div>
                 {/foreach}
             </div>
             <div class="box">
                 <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                <img id="expandedImg" style="width:100%">
-                <div id="imgtext"></div>
+                <img id='{$report->report_id}-img' style="width:100%">
+                <div id='{$report->report_id}-text'></div>
             </div>
             <br>
             <br>
         {/foreach}
     </div>
+
 {/block}
