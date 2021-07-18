@@ -1,7 +1,7 @@
 /* The grid: Four equal columns that floats next to each other */
 .column {
     float: left;
-    width: 6rem;
+    width: 7rem;
     padding: 1rem;
 }
 
@@ -10,8 +10,8 @@
     float: left;
     opacity: 0.9;
     cursor: pointer;
-    max-width: 5rem;
-    max-height: 5rem;
+    max-width: 6rem;
+    max-height: 6rem;
 }
 
 .column img:hover {
@@ -29,8 +29,8 @@
 .box {
     position: relative;
     top: 2rem;
-    display: none;
-    width: 50rem;
+    display: block;
+    width: 45rem;
 }
 
 /*!* Expanding image text *!*/
