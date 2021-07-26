@@ -8,3 +8,5 @@ temp/*
 www/images/reports
 www/images/reports/
 www/documents
+www/assets
+node_modules
