@@ -1,0 +1,30 @@
+.title-page {
+  background-color: $primary-color;
+  color: $text-on-primary;
+  .row {
+    max-width: 120rem;
+    margin: 0 auto;
+  }
+  .blocks {
+    align-items: center;
+  }
+  .left-block {
+    padding: 5rem 1rem;
+    h1 {
+      font-size: 6rem;
+      font-weight: 100;
+      margin-bottom: 5rem;
+    }
+    h2 {
+      font-weight: 100;
+    }
+  }
+
+  .right-block {
+    text-align: center;
+    font-size: 5rem;
+    .time {
+      font-weight: 200;
+    }
+  }
+}
