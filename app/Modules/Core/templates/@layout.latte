@@ -18,10 +18,6 @@
     <meta property="og:locale" content="{$presenter->translator->locales[$presenter->lang]}"/>
     <meta property="og:url" content="{plink //this}"/>
     <link href="{$basePath}/favicon.png" rel="icon" type="image/png"/>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
     <link href="{$basePath}/css/main.css" rel="stylesheet"/>
     <link href="{$basePath}/assets/main.css" rel="stylesheet"/>
     <link href="{$basePath}/css/flag-icon/flag-icon.min.css" rel="stylesheet"/>
@@ -42,21 +38,22 @@
 {block body}
     {control navigation}
 {block main}
-    <main class="container">
-        {block title}
-            <h1 n:ifset="$pageTitle">{$pageTitle}</h1>
-        {/block}
+    <div class="inner-container">
+        <main>
+            {block title}
+                <h1 n:ifset="$pageTitle">{$pageTitle}</h1>
+            {/block}
             {include content}
-        <hr/>
-        <footer>
-            <p class="pull-right small">{_'Pokud máte jakýkoliv dotaz, připomínku, námět apod., napište nám na naši adresu'}
-                <a href="mailto:online@fyziklani.cz">online@fyziklani.cz</a>.
-            </p>
-            <p>
-                <a href="{_'http://fykos.cz/'}">{_'FYKOS.cz'}</a>
-            </p>
-        </footer>
-    </main>
+        </main>
+    </div>
+    <footer>
+        <p class="pull-right small">{_'Pokud máte jakýkoliv dotaz, připomínku, námět apod., napište nám na naši adresu'}
+            <a href="mailto:online@fyziklani.cz">online@fyziklani.cz</a>.
+        </p>
+        <p>
+            <a href="{_'http://fykos.cz/'}">{_'FYKOS.cz'}</a>
+        </p>
+    </footer>
 {/block}
 
     <!-- Bootstrap core JavaScript
@@ -65,10 +62,7 @@
     <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-            crossorigin="anonymous"></script>
-
+    <script src="{$basePath}/assets/main.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
     {block scripts}{/block}

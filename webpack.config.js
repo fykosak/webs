@@ -6,6 +6,7 @@ module.exports = {
     entry: path.resolve(__dirname, './app/main.js'),
     output: {
         path: path.resolve(__dirname, './www/assets'),
+        assetModuleFilename: 'media/[name][ext]',
         filename: 'main.js',
     },
     plugins: [new MiniCssExtractPlugin()],
@@ -17,8 +18,8 @@ module.exports = {
             },
             {
                 test: /\.s[ac]ss$/i,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-            },
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+            }
         ],
     },
 };

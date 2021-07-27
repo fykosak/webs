@@ -1,0 +1,11 @@
+// Our theme
+$primary-color: #007C58;
+$primary-color-dimmed: #00C993;
+$text-on-primary: white;
+
+// Override bootstrap variables
+$primary: $primary-color-dimmed;
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+@import "./layout.scss";

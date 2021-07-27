@@ -1,0 +1,56 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: $primary-color;
+}
+
+a:hover {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+header, footer {
+  color: $text-on-primary;
+}
+
+.mode_show .inner-container article {
+  max-width: 45em;
+}
+
+.full-width .inner-container article {
+  max-width: initial;
+}
+
+.inner-container {
+  background: white;
+
+  main {
+    padding: 2em 5%;
+    margin: 0 auto;
+    box-sizing: content-box;
+    font-size: 1.2rem;
+    max-width: 45em;
+
+    h1 {
+      margin-bottom: 2.5rem;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    h2, h3, h4, h5 {
+      font-weight: 600;
+    }
+
+    p {
+      text-align: justify;
+    }
+  }
+
+  main.full-width {
+    max-width: none;
+  }
+}
+
+header {
+  background-image: url("./maze_background.png");
+}
+
