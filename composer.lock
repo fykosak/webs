@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5fe5508d87c92e8673af40eaf736341e",
+    "content-hash": "e86424891c8571b233097d297b16fd15",
     "packages": [
         {
             "name": "fykosak/fksdb-downloader-core",
@@ -130,12 +130,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/nette-orm.git",
-                "reference": "15e4dba"
+                "reference": "588d956"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/nette-orm/zipball/15e4dba",
-                "reference": "15e4dba",
+                "url": "https://api.github.com/repos/fykosak/nette-orm/zipball/588d956",
+                "reference": "588d956",
                 "shasum": ""
             },
             "require": {
@@ -173,7 +173,7 @@
                     "email": "lukast@fykos.cz"
                 }
             ],
-            "time": "2021-07-25T15:09:27+00:00"
+            "time": "2021-07-28T22:17:07+00:00"
         },
         {
             "name": "latte/latte",

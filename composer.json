@@ -14,7 +14,7 @@
   "require": {
     "php": ">= 7.4 <8.1",
     "nette/nette": "^v3.1.0",
-    "fykosak/nette-orm": "dev-master#15e4dba",
+    "fykosak/nette-orm": "dev-master#588d956",
     "fykosak/nette-fksdb-downloader": "dev-master#d45d37d",
     "fykosak/nette-fks-utils": "dev-master#a426eb2",
     "ext-soap": "*",

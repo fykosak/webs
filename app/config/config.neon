@@ -47,13 +47,12 @@ orm:
     report:
         service: App\Models\ORM\ReportService
         model: App\Models\ORM\ReportModel
+    # FSSU
     problem:
         context: @database.problems.context
-        service: App\Models\ORM\Problems\ProblemService
         model: App\Models\ORM\Problems\ProblemsModel
     problem_localized_data:
         context: @database.problems.context
-        service: App\Models\ORM\Problems\ProblemLocalizedDataService
         model: App\Models\ORM\Problems\ProblemLocalizedDataModel
     directory:
         context: @database.problems.context
@@ -61,8 +60,29 @@ orm:
         model: App\Models\ORM\Problems\DirectoryModel
     directory_structure:
         context: @database.problems.context
-        service: App\Models\ORM\Problems\DirectoryStructureService
         model: App\Models\ORM\Problems\DirectoryStructureModel
+    problem_tag:
+        context: @database.problems.context
+    problem_topic:
+        context: @database.problems.context
+    tag:
+         context: @database.problems.context
+         model: App\Models\ORM\Problems\TagModel
+    tag_localized_data:
+         context: @database.problems.context
+         model: App\Models\ORM\Problems\TagLocalizedDataModel
+    tag_structure:
+         context: @database.problems.context
+    topic:
+         context: @database.problems.context
+         model: App\Models\ORM\Problems\TopicModel
+    topic_localized_data:
+        context: @database.problems.context
+        model: App\Models\ORM\Problems\TopicLocalizedDataModel
+    work:
+        context: @database.problems.context
+    work_person:
+        context: @database.problems.context
 
 
 includes:
