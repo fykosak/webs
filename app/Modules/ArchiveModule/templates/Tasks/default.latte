@@ -1,0 +1,6 @@
+{varType App\Models\ORM\Problems\ProblemModel[] $problems}
+{block content}
+    {foreach $problems as $problem}
+        {control problem $problem}
+    {/foreach}
+{/block}

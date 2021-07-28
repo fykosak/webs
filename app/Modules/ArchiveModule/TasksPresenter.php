@@ -2,17 +2,32 @@
 
 namespace App\Modules\ArchiveModule;
 
-use App\Models\ORM\Problems\ProblemService;
+use App\Components\Problem\ProblemComponent;
+use App\Models\ORM\Problems\DirectoryService;
+use App\Models\ORM\Problems\ProblemModel;
 
-class TasksPresenter extends BasePresenter {
+class TasksPresenter extends BasePresenter
+{
 
-    private ProblemService $problemService;
+    private DirectoryService $directoryService;
 
-    public function injectServiceProblem(ProblemService $problemService): void {
-        $this->problemService = $problemService;
+    public function injectServiceProblem(DirectoryService $directoryService): void
+    {
+        $this->directoryService = $directoryService;
     }
 
-    public function renderDefault(): void {
-        $this->template->problems = $this->problemService->getTable()->where('directory_id', 1);
+    public function renderDefault(): void
+    {
+        $this->setPageTitle(_('Tasks'));
+        $problems = [];
+        foreach ($this->directoryService->findByPrimary(15)->getProblems() as $row) {
+            $problems[] = ProblemModel::createFromActiveRow($row);
+        }
+        $this->template->problems = $problems;
+    }
+
+    protected function createComponentProblem(): ProblemComponent
+    {
+        return new ProblemComponent($this->getContext(), $this->lang);
     }
 }

@@ -48,16 +48,20 @@ orm:
         service: App\Models\ORM\ReportService
         model: App\Models\ORM\ReportModel
     problem:
-        service: App\Models\ORM\Problems\ProblemService(...,@database.problems.context)
+        context: @database.problems.context
+        service: App\Models\ORM\Problems\ProblemService
         model: App\Models\ORM\Problems\ProblemsModel
     problem_localized_data:
-        service: App\Models\ORM\Problems\ProblemLocalizedDataService(...,@database.problems.context)
+        context: @database.problems.context
+        service: App\Models\ORM\Problems\ProblemLocalizedDataService
         model: App\Models\ORM\Problems\ProblemLocalizedDataModel
     directory:
-        service: App\Models\ORM\Problems\DirectoryService(...,@database.problems.context)
+        context: @database.problems.context
+        service: App\Models\ORM\Problems\DirectoryService
         model: App\Models\ORM\Problems\DirectoryModel
     directory_structure:
-        service: App\Models\ORM\Problems\DirectoryStructureService(...,@database.problems.context)
+        context: @database.problems.context
+        service: App\Models\ORM\Problems\DirectoryStructureService
         model: App\Models\ORM\Problems\DirectoryStructureModel
 
 
