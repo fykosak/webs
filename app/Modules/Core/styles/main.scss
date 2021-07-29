@@ -3,6 +3,12 @@ $primary-color: #007C58;
 $primary-color-dimmed: #00C993;
 $text-on-primary: white;
 
+// Use the following font weights.
+// To change them you need to modify fonts.googleapis.com link in <head> tag
+$font-weight-light: 100;
+$font-weight-normal: 400;
+$font-weight-bold: 800;
+
 // Override bootstrap variables
 $primary: $primary-color-dimmed;
 

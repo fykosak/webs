@@ -12,11 +12,11 @@
     padding: 5rem 1rem;
     h1 {
       font-size: 6rem;
-      font-weight: 100;
+      font-weight: $font-weight-light;
       margin-bottom: 5rem;
     }
     h2 {
-      font-weight: 100;
+      font-weight: $font-weight-light;
     }
   }
 
@@ -24,7 +24,7 @@
     text-align: center;
     font-size: 5rem;
     .time {
-      font-weight: 200;
+      font-weight: $font-weight-light;
     }
   }
 }
