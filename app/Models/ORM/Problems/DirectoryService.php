@@ -9,24 +9,11 @@ use Fykosak\NetteORM\AbstractService;
  */
 class DirectoryService extends AbstractService
 {
+    public const ROOT_DIR = '_root';
 
-    public function findDirByPath(string $path, string $rootDir = '_root'): ?DirectoryModel
+    public function findRoot(): ?DirectoryModel
     {
-        $parts = explode('/', $path);
-
-        $parentDir = $this->findDirByCode($rootDir);
-        foreach ($parts as $part) {
-            $row = $this->explorer->query('SELECT d.id
-FROM directory_structure
-    JOIN directory d ON d.id = directory_structure.child_directory_id
-WHERE parent_directory_id = ? AND code=?', $parentDir->id, $part)->fetch();
-
-            if (is_null($row)) {
-                return null;
-            }
-            $parentDir = $row;
-        }
-        return $this->findByPrimary($parentDir->id);
+        return $this->findDirByCode(self::ROOT_DIR);
     }
 
     public function findDirByCode(string $code): ?DirectoryModel

@@ -3,6 +3,7 @@
 namespace App\Models\ORM\Problems;
 
 use Fykosak\NetteORM\AbstractModel;
+use Nette\Database\Table\ActiveRow;
 
 /**
  * @property-read int id
@@ -11,6 +12,7 @@ use Fykosak\NetteORM\AbstractModel;
  * @property-read int directory_id
  * @property-read string label
  * @property-read int points
+ * @property-read ActiveRow directory
  */
 class ProblemModel extends AbstractModel
 {
@@ -38,5 +40,10 @@ class ProblemModel extends AbstractModel
             $topics[] = TopicModel::createFromActiveRow($row->topic);
         }
         return $topics;
+    }
+
+    public function getDirectory(): DirectoryModel
+    {
+        return DirectoryModel::createFromActiveRow($this->directory);
     }
 }

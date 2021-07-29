@@ -4,7 +4,6 @@ namespace App\Modules\ArchiveModule;
 
 use App\Components\Problem\ProblemComponent;
 use App\Models\ORM\Problems\DirectoryService;
-use App\Models\ORM\Problems\ProblemModel;
 
 class TasksPresenter extends BasePresenter
 {
@@ -19,11 +18,10 @@ class TasksPresenter extends BasePresenter
     public function renderDefault(): void
     {
         $this->setPageTitle(_('Tasks'));
-        $problems = [];
-        foreach ($this->directoryService->findByPrimary(15)->getProblems() as $row) {
-            $problems[] = ProblemModel::createFromActiveRow($row);
-        }
-        $this->template->problems = $problems;
+
+        $this->template->problems = $this->directoryService->findRoot()
+            ->findChildByPath('fykos/seminar/34/3')
+            ->getProblems(true);
     }
 
     protected function createComponentProblem(): ProblemComponent

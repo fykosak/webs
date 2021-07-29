@@ -13,9 +13,43 @@ use Nette\Database\Table\GroupedSelection;
 class DirectoryModel extends AbstractModel
 {
 
-    public function getProblems(): GroupedSelection
+    /**
+     * @param bool $recursive
+     * @return ProblemModel[]
+     */
+    public function getProblems(bool $recursive = false): array
     {
-        return $this->related('problem');
+        $problems = [];
+        if ($recursive) {
+            foreach ($this->findChilds() as $row) {
+                $structure = DirectoryStructureModel::createFromActiveRow($row);
+                $problems = [...$problems, ... $structure->getChildDirectory()->getProblems(true)];
+            }
+        }
+        foreach ($this->related('problem') as $row) {
+            $problems[] = ProblemModel::createFromActiveRow($row);
+        }
+        return $problems;
     }
 
+    public function findChilds(): GroupedSelection
+    {
+        return $this->related('directory_structure', 'parent_directory_id');
+    }
+
+    public function findChildByPath(string $path): ?DirectoryModel
+    {
+        $parts = explode('/', $path);
+        $parentDir = $this;
+        foreach ($parts as $part) {
+            $row = $parentDir->findChilds()
+                ->where('child_directory.code', $part)
+                ->fetch();
+            if (is_null($row)) {
+                return null;
+            }
+            $parentDir = DirectoryStructureModel::createFromActiveRow($row)->getChildDirectory();
+        }
+        return $parentDir;
+    }
 }
