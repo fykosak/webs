@@ -34,6 +34,7 @@ class FaqPresenter extends BasePresenter {
         $this->setPagetitle(_('FAQ'));
 
         $this->loadQuestions();
+        $this->changeViewByLang();
     }
 
 }
