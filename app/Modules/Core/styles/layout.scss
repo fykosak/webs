@@ -21,8 +21,8 @@ header, footer {
 }
 
 .inner-container {
-  background: black;
-  color: white;
+  background: white;
+  //color: white;
 
   main {
     padding: 2em 5%;
@@ -52,6 +52,7 @@ header, footer {
 }
 
 body {
-  background-image: url("./maze_background.png");
+  //background-image: url("./maze_background.png");
+  background-color: $primary-color;
 }
 
