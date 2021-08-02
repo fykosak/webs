@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Models\ORM;
@@ -18,23 +19,23 @@ class FaqModel extends AbstractModel
     public function getCategory(): string
     {
         switch ($this->category) {
-            case 'game' :
+            case 'game':
                 return _('game');
-            case 'hurry-up' :
+            case 'hurry-up':
                 return _('hurry-up');
-            case 'registration' :
+            case 'registration':
                 return _('registration');
-            case 'scoring' :
+            case 'scoring':
                 return _('scoring');
-            case 'skipping' :
+            case 'skipping':
                 return _('skipping');
-            case 'submits' :
+            case 'submits':
                 return _('submits');
-            case 'tasks' :
+            case 'tasks':
                 return _('tasks');
-            case 'otherFAQ' :
+            case 'otherFAQ':
                 return _('otherFAQ');
-            default :
+            default:
                 return _('OtherFAQ');
         }
     }

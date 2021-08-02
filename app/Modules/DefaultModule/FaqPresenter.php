@@ -43,5 +43,4 @@ class FaqPresenter extends BasePresenter
         $this->loadQuestions();
         $this->changeViewByLang();
     }
-
 }

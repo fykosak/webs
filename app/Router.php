@@ -25,7 +25,10 @@ class Router
                 if ($domainList && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
                     if ($domainLang === null) {
-                        trigger_error('Domain \'' . $params['domain'] . '\' has no language assigned. Fallback to en.', E_USER_WARNING);
+                        trigger_error(
+                            'Domain \'' . $params['domain'] . '\' has no language assigned. Fallback to en.',
+                            E_USER_WARNING
+                        );
                         $domainLang = 'en';
                     }
 
@@ -93,4 +96,3 @@ class Router
         return $router;
     }
 }
-

@@ -18,7 +18,7 @@ class TeamResultsComponent extends BaseComponent
 
     protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
-    protected ?ArrayHash $filterData = Null;
+    protected ?ArrayHash $filterData = null;
 
     public function __construct(Container $container, int $eventId)
     {
@@ -76,12 +76,15 @@ class TeamResultsComponent extends BaseComponent
 
     protected function passesFilters(ModelTeam $team): bool
     {
-        return ($this->passesOneMemberFilter($team) && $this->passesCountryFilter($team) && $this->passesCategoryFilter($team));
+        return $this->passesOneMemberFilter($team)
+            && $this->passesCountryFilter($team)
+            && $this->passesCategoryFilter($team);
     }
 
     protected function passesOneMemberFilter(ModelTeam $team): bool
     {
-        return (!$this->filterData['OneMemberTeams'] || ($this->filterData['OneMemberTeams'] && count($team->participants) == 1));
+        return !$this->filterData['OneMemberTeams']
+            || ($this->filterData['OneMemberTeams'] && count($team->participants) == 1);
     }
 
     protected function passesCountryFilter(ModelTeam $team): bool
@@ -119,7 +122,8 @@ class TeamResultsComponent extends BaseComponent
 
     protected function passesCategoryFilter(ModelTeam $team): bool
     {
-        return (($this->filterData['category'] == self::ALL_CATEGORIES_IDENTIFIER) || ($this->filterData['category'] == $team->category));
+        return ($this->filterData['category'] == self::ALL_CATEGORIES_IDENTIFIER)
+            || ($this->filterData['category'] == $team->category);
     }
 
     /**

@@ -12,5 +12,4 @@ class SchedulePresenter extends BasePresenter
         $this->setPagetitle(_('Schedule of the Competition'));
         $this->changeViewByLang();
     }
-
 }

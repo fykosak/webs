@@ -58,11 +58,36 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     protected function getNavItems(): array
     {
         return [
-            new NavItem(':Archive:Default:default', [], _('Archive Home'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
-            new NavItem(':Archive:Teams:default', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
-            new NavItem(':Archive:Results:default', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed'),
-            new NavItem(':Archive:DetailedResults:default', [], _('Podrobné výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed'),
-            new NavItem(':Archive:Reports:default', [], _('Reporty'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'),
+            new NavItem(
+                ':Archive:Default:default',
+                [],
+                _('Archive Home'),
+                'visible-sm-inline glyphicon glyphicon-info-sign'
+            ),
+            new NavItem(
+                ':Archive:Teams:default',
+                [],
+                _('Týmy'),
+                'visible-sm-inline glyphicon glyphicon-info-sign'
+            ),
+            new NavItem(
+                ':Archive:Results:default',
+                [],
+                _('Výsledky'),
+                'visible-sm-inline glyphicon glyphicon-compressed'
+            ),
+            new NavItem(
+                ':Archive:DetailedResults:default',
+                [],
+                _('Podrobné výsledky'),
+                'visible-sm-inline glyphicon glyphicon-compressed'
+            ),
+            new NavItem(
+                ':Archive:Reports:default',
+                [],
+                _('Reporty'),
+                'visible-sm-inline glyphicon glyphicon-exclamation-sign'
+            ),
         ];
     }
 

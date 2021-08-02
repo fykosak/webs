@@ -25,7 +25,8 @@ class ReportsPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $this->template->reports = $this->reportService->getTable()->where('lang = ? AND event_id = ?', $this->lang, $this->getEvent()->eventId);
+        $this->template->reports = $this->reportService->getTable()
+            ->where('lang = ? AND event_id = ?', $this->lang, $this->getEvent()->eventId);
         $this->setPageTitle(_('Contestants\' reports'));
     }
 
@@ -39,6 +40,7 @@ class ReportsPresenter extends BasePresenter
     {
         return \array_filter(
             $this->serviceEventDetail->getTeams($this->getEvent()->eventId),
-            fn(ModelTeam $team): bool => in_array($team->teamId, $teamIds));
+            fn(ModelTeam $team): bool => in_array($team->teamId, $teamIds)
+        );
     }
 }

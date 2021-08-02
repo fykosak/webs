@@ -12,5 +12,4 @@ class AboutTheCompetitionPresenter extends BasePresenter
         $this->setPagetitle(_('About the Competition'));
         $this->changeViewByLang();
     }
-
 }

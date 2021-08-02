@@ -12,5 +12,4 @@ class OrganisersPresenter extends BasePresenter
         $this->setPagetitle(_('List of Organisers'));
         $this->changeViewByLang();
     }
-
 }

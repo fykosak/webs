@@ -12,5 +12,4 @@ class HowToPlayPresenter extends BasePresenter
         $this->setPagetitle(_('How to play'));
         $this->changeViewByLang();
     }
-
 }

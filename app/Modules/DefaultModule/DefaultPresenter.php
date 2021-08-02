@@ -54,6 +54,4 @@ class DefaultPresenter extends BasePresenter
         $this->setPagetitle(_('Další akce'));
         $this->changeViewByLang();
     }
-
-
 }

@@ -28,5 +28,4 @@ class ResultsPresenter extends BasePresenter
     {
         return new TeamResultsComponent($this->getContext(), $this->getEvent()->eventId);
     }
-
 }
