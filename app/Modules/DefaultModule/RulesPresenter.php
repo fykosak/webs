@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Modules\DefaultModule;
 
-class RulesPresenter extends BasePresenter {
+class RulesPresenter extends BasePresenter
+{
 
     public function renderDefault(): void
     {
@@ -10,12 +13,14 @@ class RulesPresenter extends BasePresenter {
         $this->changeViewByLang();
     }
 
-    public function renderComplete(){
+    public function renderComplete()
+    {
         $this->setPagetitle(_('Full Rules'));
         $this->changeViewByLang();
     }
 
-    public function renderOrganisationalRegulations(){
+    public function renderOrganisationalRegulations()
+    {
         $this->setPagetitle(_('Organisational Regulations'));
         $this->changeViewByLang();
     }

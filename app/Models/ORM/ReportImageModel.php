@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Models\ORM;
 
@@ -10,6 +11,7 @@ use Fykosak\NetteORM\AbstractModel;
  * @property-read string caption
  * @property-read string filename
  */
-class ReportImageModel extends AbstractModel {
+class ReportImageModel extends AbstractModel
+{
 
 }

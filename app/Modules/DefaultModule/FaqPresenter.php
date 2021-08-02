@@ -1,23 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Modules\DefaultModule;
 
+use App\Models\ORM\FaqModel;
 use App\Models\ORM\FaqService;
 
-class FaqPresenter extends BasePresenter {
+class FaqPresenter extends BasePresenter
+{
 
     private FaqService $faqService;
 
-    public function injectFaqService(FaqService $faqService) {
+    public function injectFaqService(FaqService $faqService): void
+    {
         $this->faqService = $faqService;
     }
 
-    private function loadQuestions() {
+    private function loadQuestions(): void
+    {
         $query = $this->faqService->getTable()->where('lang', $this->lang);
 
         // questions sorted by category
         $questions = [];
-
+        /** @var FaqModel $question */
         foreach ($query as $question) {
             $category = $question->getCategory();
 
@@ -30,7 +36,8 @@ class FaqPresenter extends BasePresenter {
         $this->template->questions = $questions;
     }
 
-    public function renderDefault(): void {
+    public function renderDefault(): void
+    {
         $this->setPagetitle(_('FAQ'));
 
         $this->loadQuestions();

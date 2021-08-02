@@ -1,25 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Modules\ArchiveModule;
 
+use App\Components\Navigation\NavItem;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
 
-use App\Components\Navigation\NavItem;
-
-abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
-
-    /**
-     * @persistent
-     */
+abstract class BasePresenter extends \App\Modules\Core\BasePresenter
+{
+    /** @persistent */
     public ?string $eventYear = null;
 
     private ModelEvent $event;
     protected ServiceEventList $serviceEvent;
 
-    public function injectServiceEvent(ServiceEventList $serviceEvent): void {
+    public function injectServiceEvent(ServiceEventList $serviceEvent): void
+    {
         $this->serviceEvent = $serviceEvent;
     }
 
@@ -28,7 +28,8 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
      * @throws BadRequestException
      * @throws \Throwable
      */
-    protected function getEvent(): ModelEvent {
+    protected function getEvent(): ModelEvent
+    {
         if (!isset($this->event)) {
             if (isset($this->eventYear)) {
                 if (is_numeric($this->eventYear)) {
@@ -54,16 +55,15 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
         return $this->event;
     }
 
-    protected function getNavItems(): array {
-        $items = [];
-
-        $items[] = new NavItem(':Archive:Default:default', [], _('Archive Home'), 'visible-sm-inline glyphicon glyphicon-info-sign');
-        $items[] = new NavItem(':Archive:Teams:default', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-info-sign');
-        $items[] = new NavItem(':Archive:Results:default', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed');
-        $items[] = new NavItem(':Archive:DetailedResults:default', [], _('Podrobné výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed');
-        $items[] = new NavItem(':Archive:Reports:default', [], _('Reporty'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign');
-
-        return $items;
+    protected function getNavItems(): array
+    {
+        return [
+            new NavItem(':Archive:Default:default', [], _('Archive Home'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
+            new NavItem(':Archive:Teams:default', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
+            new NavItem(':Archive:Results:default', [], _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed'),
+            new NavItem(':Archive:DetailedResults:default', [], _('Podrobné výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed'),
+            new NavItem(':Archive:Reports:default', [], _('Reporty'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'),
+        ];
     }
 
     /**
@@ -71,7 +71,8 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
      * @throws BadRequestException
      * @throws \Throwable
      */
-    public function formatTemplateFiles(): array {
+    public function formatTemplateFiles(): array
+    {
         $files = parent::formatTemplateFiles();
         $key = parent::createEventKey($this->getEvent());
         return [

@@ -1,12 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Modules\DefaultModule;
 
 use App\Components\Navigation\NavItem;
 
-abstract class BasePresenter extends \App\Modules\Core\BasePresenter {
+abstract class BasePresenter extends \App\Modules\Core\BasePresenter
+{
 
-    protected function getNavItems(): array {
+    protected function getNavItems(): array
+    {
         $items = [];
 
         $items[] = new NavItem(':Default:AboutTheCompetition:default', [], _('O soutěži'), 'visible-sm-inline glyphicon glyphicon-info-sign');

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Components\Problem;
 
 use App\Models\ORM\Problems\ProblemModel;
@@ -16,7 +18,7 @@ class ProblemComponent extends BaseComponent
         $this->lang = $lang;
     }
 
-    public function render(ProblemModel $model)
+    public function render(ProblemModel $model): void
     {
         $this->template->model = $model;
         $this->template->localisedData = $model->getLocalizedData($this->lang);

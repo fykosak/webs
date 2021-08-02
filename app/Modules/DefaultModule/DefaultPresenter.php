@@ -1,46 +1,56 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Modules\DefaultModule;
 
 use Exception;
 
-class DefaultPresenter extends BasePresenter {
+class DefaultPresenter extends BasePresenter
+{
 
     /**
      * @return void
      * @throws Exception
      */
-    public function renderDefault(): void {
+    public function renderDefault(): void
+    {
         $this->setPagetitle(_('Mezinárodní soutež ve fyzice'));
-     //   $this->template->year = $this->yearsService->findCurrent();
+        //   $this->template->year = $this->yearsService->findCurrent();
         $this->changeViewByLang();
     }
 
-    public function renderLastYears(): void {
+    public function renderLastYears(): void
+    {
         $this->setPagetitle(_('Minulé ročníky'));
         $this->changeViewByLang();
     }
 
-    public function renderRules(): void {
+    public function renderRules(): void
+    {
         $this->setPagetitle(_('Pravidla'));
         $this->changeViewByLang();
     }
 
-    public function renderHowto(): void {
+    public function renderHowto(): void
+    {
         $this->setPagetitle(_('Rychlý grafický návod ke hře'));
         $this->changeViewByLang();
     }
 
-    public function renderList(): void {
+    public function renderList(): void
+    {
         $this->setPageTitle(_('Přihlášené týmy'));
         $this->changeViewByLang();
     }
 
-    public function renderTaskExamples(): void {
+    public function renderTaskExamples(): void
+    {
         $this->setPagetitle(_('Rozcvička'));
     }
 
-    public function renderOtherEvents(): void {
+    public function renderOtherEvents(): void
+    {
         $this->setPagetitle(_('Další akce'));
         $this->changeViewByLang();
     }

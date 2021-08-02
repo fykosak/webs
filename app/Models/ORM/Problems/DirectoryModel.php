@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Models\ORM\Problems;
 
@@ -23,7 +24,7 @@ class DirectoryModel extends AbstractModel
         if ($recursive) {
             foreach ($this->findChilds() as $row) {
                 $structure = DirectoryStructureModel::createFromActiveRow($row);
-                $problems = [...$problems, ... $structure->getChildDirectory()->getProblems(true)];
+                $problems = [...$problems, ...$structure->getChildDirectory()->getProblems(true)];
             }
         }
         foreach ($this->related('problem') as $row) {
