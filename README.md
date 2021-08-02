@@ -2,7 +2,7 @@ web-fol
 =======
 
 ## Requirements
- - `PHP 7.4` or higher
+ - `PHP 7.4` or `PHP 8.0`
  - `Apache` with `mod_rewrite`
 
 ## Build instructions
