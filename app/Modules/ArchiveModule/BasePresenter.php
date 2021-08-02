@@ -38,7 +38,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                 } else {
                     [$year, $month] = explode('-', $this->eventYear);
                 }
-                $events = $this->serviceEvent->getEventsByYear([9], $year);
+                $events = $this->serviceEvent->getEventsByYear([9], +$year);
                 if (count($events)) {
                     $event = isset($month) ? reset($events) : end($events);
                 }
