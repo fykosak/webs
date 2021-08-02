@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.9.2",
+    "flag-icon-css": "^3.5.0",
     "bootstrap": "^5.0.2"
   }
 }

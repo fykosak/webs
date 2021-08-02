@@ -1,5 +1,6 @@
+{varType App\Models\ORM\Problems\ProblemModel[] $problems}
 {block content}
-    <div id="problems" class="list">
-
-    </div>
+    {foreach $problems as $problem}
+        {control problem $problem}
+    {/foreach}
 {/block}

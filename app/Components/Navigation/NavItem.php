@@ -15,7 +15,7 @@ class NavItem
     public string $title;
     public string $icon;
 
-    public function __construct(string $destination, array $linkParams, string $title, string $icon = '')
+    public function __construct(string $title, string $icon, string $destination, array $linkParams = [])
     {
         $this->destination = $destination;
         $this->linkParams = $linkParams;

@@ -13,6 +13,9 @@ $font-weight-bold: 800;
 $primary: $primary-color-dimmed;
 
 @import "node_modules/bootstrap/scss/bootstrap";
+$flag-icon-css-path: '/node_modules/flag-icon-css/flags';
+@import '../../../../node_modules/flag-icon-css/sass/flag-icon';
+
 
 // @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 // @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
@@ -20,4 +23,5 @@ $primary: $primary-color-dimmed;
 @import "./layout.scss";
 @import "./titlepage.scss";
 
-@import 'app/Modules/DefaultModule/styles/rules';
+@import '../../DefaultModule/styles/rules';
+@import '../../ArchiveModule/templates/Reports/gallery';

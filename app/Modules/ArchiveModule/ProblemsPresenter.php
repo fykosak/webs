@@ -4,14 +4,30 @@ declare(strict_types=1);
 
 namespace App\Modules\ArchiveModule;
 
+use App\Components\Problem\ProblemComponent;
+use App\Models\ORM\Problems\DirectoryService;
+
 class ProblemsPresenter extends BasePresenter
 {
-    /**
-     * @return void
-     * @throws \Exception
-     */
+
+    private DirectoryService $directoryService;
+
+    public function injectServiceProblem(DirectoryService $directoryService): void
+    {
+        $this->directoryService = $directoryService;
+    }
+
     public function renderDefault(): void
     {
         $this->setPageTitle(_('Problems'));
+
+        $this->template->problems = $this->directoryService->findRoot()
+            ->findChildByPath('fykos/seminar/34/3')
+            ->getProblems(true);
+    }
+
+    protected function createComponentProblem(): ProblemComponent
+    {
+        return new ProblemComponent($this->getContext(), $this->lang);
     }
 }

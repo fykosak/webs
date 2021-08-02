@@ -12,7 +12,6 @@ class ArchivePresenter extends BasePresenter
     public function renderDefault(): void
     {
         $this->setPagetitle(_('Archive'));
-        $this->changeViewByLang();
     }
 
     protected function createComponentEventList(): EventListComponent

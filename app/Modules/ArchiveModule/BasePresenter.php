@@ -59,34 +59,29 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     {
         return [
             new NavItem(
-                ':Archive:Default:default',
-                [],
                 _('Archive Home'),
-                'visible-sm-inline glyphicon glyphicon-info-sign'
+                'visible-sm-inline glyphicon glyphicon-info-sign',
+                ':Archive:Default:default',
             ),
             new NavItem(
-                ':Archive:Teams:default',
-                [],
                 _('Týmy'),
-                'visible-sm-inline glyphicon glyphicon-info-sign'
+                'visible-sm-inline glyphicon glyphicon-info-sign',
+                ':Archive:Teams:default',
             ),
             new NavItem(
-                ':Archive:Results:default',
-                [],
                 _('Výsledky'),
-                'visible-sm-inline glyphicon glyphicon-compressed'
+                'visible-sm-inline glyphicon glyphicon-compressed',
+                ':Archive:Results:default',
             ),
             new NavItem(
-                ':Archive:DetailedResults:default',
-                [],
                 _('Podrobné výsledky'),
-                'visible-sm-inline glyphicon glyphicon-compressed'
+                'visible-sm-inline glyphicon glyphicon-compressed',
+                ':Archive:DetailedResults:default',
             ),
             new NavItem(
-                ':Archive:Reports:default',
-                [],
                 _('Reporty'),
-                'visible-sm-inline glyphicon glyphicon-exclamation-sign'
+                'visible-sm-inline glyphicon glyphicon-exclamation-sign',
+                ':Archive:Reports:default',
             ),
         ];
     }
@@ -100,9 +95,10 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     {
         $files = parent::formatTemplateFiles();
         $key = parent::createEventKey($this->getEvent());
+
         return [
-            str_replace('/templates/', '/templates/' . $key . '/', $files[0]),
-            str_replace('/templates/', '/templates/' . $key . '/', $files[1]),
+            str_replace('.latte', '.' . $key . '.' . $this->lang . '.latte', end($files)),
+            str_replace('.latte', '.' . $key . '.latte', end($files)),
             ...$files,
         ];
     }

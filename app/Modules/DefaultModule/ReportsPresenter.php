@@ -10,6 +10,5 @@ class ReportsPresenter extends BasePresenter
     public function renderDefault(): void
     {
         $this->setPagetitle(_('Reports'));
-        $this->changeViewByLang();
     }
 }

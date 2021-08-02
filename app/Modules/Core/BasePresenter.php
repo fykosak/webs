@@ -88,16 +88,20 @@ abstract class BasePresenter extends Presenter
         }
     }
 
-    protected function changeViewByLang(): void
-    {
-        $this->setView($this->getView() . '.' . $this->lang);
-    }
-
     public static function createEventKey(ModelEvent $event): string
     {
         $year = $event->begin->format('Y');
         $month = $event->begin->format('m');
         $monthName = strtolower($event->begin->format('M'));
         return $month < 10 ? ($year . '-' . $monthName) : $year;
+    }
+
+    public function formatTemplateFiles(): array
+    {
+        $files = parent::formatTemplateFiles();
+        return [
+            str_replace('.latte', '.' . $this->lang . '.latte', $files[0]),
+            $files[0],
+        ];
     }
 }
