@@ -1,16 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Modules\ArchiveModule;
 
 use App\Components\TeamResults\TeamResultsComponent;
+use Nette\Application\BadRequestException;
 
-class ResultsPresenter extends BasePresenter {
-    
-    /**
-     * @return void
-     * @throws \Exception
-     */
-    public function renderDefault(): void {
+class ResultsPresenter extends BasePresenter
+{
+
+    public function renderDefault(): void
+    {
         $this->setPageTitle(_('Results'));
     }
 
@@ -19,8 +20,8 @@ class ResultsPresenter extends BasePresenter {
      * @throws BadRequestException
      * @throws \Throwable
      */
-    protected function createComponentTeamResults(): TeamResultsComponent {
+    protected function createComponentTeamResults(): TeamResultsComponent
+    {
         return new TeamResultsComponent($this->getContext(), $this->getEvent()->eventId);
     }
-
 }

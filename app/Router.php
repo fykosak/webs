@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use Nette\Application\BadRequestException;
 use Nette\Application\Routers\Route;
 use Nette\Application\Routers\RouteList;
 
-class Router {
+class Router
+{
 
     /**
      * Creates a global filter for a route modifying parameters to use domains instead of lang.
@@ -15,13 +18,17 @@ class Router {
      * @param string $key todo replace by an array of keys
      * @return \Closure[]
      */
-    private static function useTranslateFilter(?array $domainList, array $routerMapping, string $key): array {
+    private static function useTranslateFilter(?array $domainList, array $routerMapping, string $key): array
+    {
         return [
-            Route::FILTER_IN => function (array $params) use($routerMapping, $domainList, $key): array {
+            Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList, $key): array {
                 if ($domainList && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
                     if ($domainLang === null) {
-                        trigger_error('Domain \'' . $params['domain'] . '\' has no language assigned. Fallback to en.', E_USER_WARNING);
+                        trigger_error(
+                            'Domain \'' . $params['domain'] . '\' has no language assigned. Fallback to en.',
+                            E_USER_WARNING
+                        );
                         $domainLang = 'en';
                     }
 
@@ -31,7 +38,7 @@ class Router {
                             $params[$key] = $routerMapping[$domainLang][$params[$key]];
                         } else {
                             // 404 because there is no translation
-                            throw new BadRequestException(404);
+                            throw new BadRequestException('', 404);
                         }
                     }
                 }
@@ -39,7 +46,7 @@ class Router {
             },
 
             // From params to URL
-            Route::FILTER_OUT => function (array $params) use($routerMapping, $domainList, $key): array {
+            Route::FILTER_OUT => function (array $params) use ($routerMapping, $domainList, $key): array {
                 if ($domainList && count($domainList)) {
                     if ($params['lang'] !== 'en') {
                         $params[$key] = array_search($params[$key], $routerMapping[$params['lang']]);
@@ -61,7 +68,8 @@ class Router {
         ];
     }
 
-    public static function createRouter(?array $domainList, array $routerMapping): \Nette\Routing\Router {
+    public static function createRouter(?array $domainList, array $routerMapping): \Nette\Routing\Router
+    {
         $router = new RouteList();
 
         $router->withModule('Archive')
@@ -88,4 +96,3 @@ class Router {
         return $router;
     }
 }
-

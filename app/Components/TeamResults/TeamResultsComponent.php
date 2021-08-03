@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Components\TeamResults;
 
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam;
@@ -7,22 +9,24 @@ use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\Application\UI\Form;
 use Nette\DI\Container;
-use Nette\Utils\ArrayHash;
 
-class TeamResultsComponent extends BaseComponent {
+class TeamResultsComponent extends BaseComponent
+{
+
+    protected const ALL_CATEGORIES_IDENTIFIER = 'All';
 
     protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
+    protected ?array $filterData = null;
 
-    protected string $ALL_CATEGORIES_IDENTIFIER = "All";
-    protected  ?ArrayHash $filterData = Null;
-
-    public function __construct(Container $container, int $eventId) {
+    public function __construct(Container $container, int $eventId)
+    {
         parent::__construct($container);
         $this->eventId = $eventId;
     }
 
-    public function injectServiceTeam(ServiceEventDetail $serviceTeam): void {
+    public function injectServiceTeam(ServiceEventDetail $serviceTeam): void
+    {
         $this->serviceTeam = $serviceTeam;
     }
 
@@ -30,23 +34,27 @@ class TeamResultsComponent extends BaseComponent {
      * @throws \Exception
      * @throws \Throwable
      */
-    public function render(): void {
-
+    public function render(): void
+    {
         $this->template->teams = $this->loadTeams();
-
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamResults.latte');
     }
 
-    protected function loadTeams(){
+    /**
+     * @return ModelTeam[][]
+     * @throws \Throwable
+     */
+    protected function loadTeams(): array
+    {
 
         $teams = [];
         foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
-
-            if ($team->status != 'participated') continue;
-
-            if (is_null($this->filterData) || $this->passesFilters($team)){
+            if ($team->status != 'participated') {
+                continue;
+            }
+            if (is_null($this->filterData) || $this->passesFilters($team)) {
                 $category = $team->category;
-                if (!isset($teams[$category])){
+                if (!isset($teams[$category])) {
                     $teams[$category] = [];
                 }
                 $teams[$category][] = $team;
@@ -56,8 +64,8 @@ class TeamResultsComponent extends BaseComponent {
         ksort($teams);
 
 //      remove categories that are empty after the filtering
-        foreach ($teams as $category => $teamsForCategory){
-            if (empty($teamsForCategory)){
+        foreach ($teams as $category => $teamsForCategory) {
+            if (empty($teamsForCategory)) {
                 unset($teams[$category]);
             }
         }
@@ -65,40 +73,45 @@ class TeamResultsComponent extends BaseComponent {
         return $teams;
     }
 
-    protected function passesFilters(ModelTeam $team){
-        return ($this->passesOneMemberFilter($team) && $this->passesCountryFilter($team) && $this->passesCategoryFilter($team)  );
-    }
-
-    protected function passesOneMemberFilter(ModelTeam $team){
-        return (!$this->filterData["OneMemberTeams"] || ($this->filterData["OneMemberTeams"] && count($team->participants)  == 1));
-    }
-
-    protected function passesCountryFilter(ModelTeam $team)
+    protected function passesFilters(ModelTeam $team): bool
     {
-        $ISOsForTeam = [];
+        return $this->passesOneMemberFilter($team)
+            && $this->passesCountryFilter($team)
+            && $this->passesCategoryFilter($team);
+    }
+
+    protected function passesOneMemberFilter(ModelTeam $team): bool
+    {
+        return !$this->filterData['OneMemberTeams']
+            || ($this->filterData['OneMemberTeams'] && count($team->participants) == 1);
+    }
+
+    protected function passesCountryFilter(ModelTeam $team): bool
+    {
+        $isoForTeam = [];
 
         foreach ($team->participants as $participant) {
-            $ISO =  $participant->countryIso;
-            if (!in_array($ISO,$ISOsForTeam)){
-                $ISOsForTeam[] = $ISO;
+            $iso = $participant->countryIso;
+            if (!in_array($iso, $isoForTeam)) {
+                $iSOsForTeam[] = $iso;
             }
         }
 
         // get selected ISOs
         $selectedISOs = [];
-        foreach ($this->filterData["country_iso"] as $ISO => $value){
-            if ($value){
-                $selectedISOs[] = $ISO;
+        foreach ($this->filterData['country_iso'] as $iso => $value) {
+            if ($value) {
+                $selectedISOs[] = $iso;
             }
         }
 
 
-        if (empty($selectedISOs)){
+        if (empty($selectedISOs)) {
             return true;
         }
 
-        foreach ($ISOsForTeam as $ISO){
-            if (in_array($ISO,$selectedISOs)){
+        foreach ($isoForTeam as $iso) {
+            if (in_array($iso, $selectedISOs)) {
                 return true;
             }
         }
@@ -106,12 +119,18 @@ class TeamResultsComponent extends BaseComponent {
         return false;
     }
 
-    protected function passesCategoryFilter(ModelTeam $team){
-        return (($this->filterData["category"] == $this->ALL_CATEGORIES_IDENTIFIER) || ($this->filterData["category"] == $team->category));
+    protected function passesCategoryFilter(ModelTeam $team): bool
+    {
+        return ($this->filterData['category'] == self::ALL_CATEGORIES_IDENTIFIER)
+            || ($this->filterData['category'] == $team->category);
     }
 
-
-    protected function createComponentFilterForm(): Form {
+    /**
+     * @return Form
+     * @throws \Throwable
+     */
+    protected function createComponentFilterForm(): Form
+    {
         $form = new Form();
 
         $countryISOs = [];
@@ -119,7 +138,7 @@ class TeamResultsComponent extends BaseComponent {
         foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
             if ($team->participants) {
                 $category = $team->category;
-                if (!in_array($category,$categories)) {
+                if (!in_array($category, $categories)) {
                     $categories[] = $category;
                 }
                 foreach ($team->participants as $participant) {
@@ -130,12 +149,12 @@ class TeamResultsComponent extends BaseComponent {
         }
 
         // one member teams
-        $form->addCheckbox('OneMemberTeams',"One-member teams");
+        $form->addCheckbox('OneMemberTeams', 'One-member teams');
 
         // categories
         asort($categories);
-        array_unshift($categories,$this->ALL_CATEGORIES_IDENTIFIER);
-        $form->addSelect('category',"category",$categories);
+        array_unshift($categories, self::ALL_CATEGORIES_IDENTIFIER);
+        $form->addSelect('category', 'category', array_combine($categories, $categories));
 
         // countries
         arsort($countryISOs);
@@ -148,16 +167,8 @@ class TeamResultsComponent extends BaseComponent {
 
         $form->addSubmit('applyFilters', 'Apply');
 
-        $form->onSuccess[] = [$this, 'filterFormSucceeded'];
+        $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
 
         return $form;
     }
-
-    public function filterFormSucceeded(Form $form, $data){
-        // redefine data for the chosen category
-        $data["category"] = $form["category"]->getSelectedItem();
-
-        $this->filterData = $data;
-    }
-
 }

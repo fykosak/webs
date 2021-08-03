@@ -1,20 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Modules\DefaultModule;
 
-use \App\Models\ORM\FaqService;
 use App\Components\EventList\EventListComponent;
 
-class ArchivePresenter extends BasePresenter {
+class ArchivePresenter extends BasePresenter
+{
 
     public function renderDefault(): void
     {
-        $this->setPagetitle(_('Archive'));
-        $this->changeViewByLang();
+        $this->setPageTitle(_('Archive'));
     }
-    
-    protected function createComponentEventList(): EventListComponent {
+
+    protected function createComponentEventList(): EventListComponent
+    {
         return new EventListComponent($this->getContext());
     }
-    
 }

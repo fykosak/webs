@@ -1,13 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Components\TeamList;
 
+use App\Components\Flags\FlagsComponent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
-use App\Components\Flags\FlagsComponent;
 
-class TeamListComponent extends BaseComponent {
+class TeamListComponent extends BaseComponent
+{
 
     protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
@@ -15,12 +18,14 @@ class TeamListComponent extends BaseComponent {
     protected string $category;
     protected array $teams;
 
-    public function __construct(Container $container, int $eventId) {
+    public function __construct(Container $container, int $eventId)
+    {
         parent::__construct($container);
         $this->eventId = $eventId;
     }
 
-    public function injectServiceTeam(ServiceEventDetail $serviceTeam): void {
+    public function injectServiceTeam(ServiceEventDetail $serviceTeam): void
+    {
         $this->serviceTeam = $serviceTeam;
     }
 
@@ -32,7 +37,8 @@ class TeamListComponent extends BaseComponent {
     /**
      * @throws \Throwable
      */
-    public function loadTeams(){
+    public function loadTeams(): void
+    {
         $teams = [];
         foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
             $category = $team->category;
@@ -48,7 +54,8 @@ class TeamListComponent extends BaseComponent {
      * @throws \Exception
      * @throws \Throwable
      */
-    public function render(): void {
+    public function render(): void
+    {
         $this->loadTeams();
 
         $this->template->teams = $this->teams;

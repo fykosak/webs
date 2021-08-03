@@ -1,6 +1,5 @@
 {
-  "name": "nette/web-project",
-  "description": "Nette: Standard Web Project",
+  "name": "fykosak/web-fol",
   "keywords": [
     "nette"
   ],
@@ -22,10 +21,15 @@
     "ext-gettext": "*"
   },
   "require-dev": {
-    "nette/tester": "^2.0"
+    "squizlabs/php_codesniffer": "3.6.0",
+    "nette/tester": "^v2.4.0"
+  },
+  "scripts": {
+    "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 app/"
   },
   "autoload": {
     "psr-4": {
+      "Tests\\": "tests/",
       "App\\": "app/"
     }
   }

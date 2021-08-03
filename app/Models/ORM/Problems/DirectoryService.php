@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models\ORM\Problems;
 
 use Fykosak\NetteORM\AbstractService;
@@ -18,6 +20,8 @@ class DirectoryService extends AbstractService
 
     public function findDirByCode(string $code): ?DirectoryModel
     {
-        return $this->getTable()->where('code', $code)->fetch();
+        /** @var DirectoryModel $dir */
+        $dir = $this->getTable()->where('code', $code)->fetch();
+        return $dir;
     }
 }

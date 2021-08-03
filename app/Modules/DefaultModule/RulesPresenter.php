@@ -1,22 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Modules\DefaultModule;
 
-class RulesPresenter extends BasePresenter {
+class RulesPresenter extends BasePresenter
+{
 
     public function renderDefault(): void
     {
-        $this->setPagetitle(_('Brief Rules'));
-        $this->changeViewByLang();
+        $this->setPageTitle(_('Brief Rules'));
     }
 
-    public function renderComplete(){
-        $this->setPagetitle(_('Full Rules'));
-        $this->changeViewByLang();
+    public function renderComplete()
+    {
+        $this->setPageTitle(_('Full Rules'));
     }
 
-    public function renderOrganisationalRegulations(){
-        $this->setPagetitle(_('Organisational Regulations'));
-        $this->changeViewByLang();
+    public function renderOrganisationalRegulations()
+    {
+        $this->setPageTitle(_('Organisational Regulations'));
     }
 }
