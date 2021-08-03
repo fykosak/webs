@@ -24,4 +24,5 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import "./titlepage.scss";
 
 @import '../../DefaultModule/styles/rules';
+@import '../../../Components/styles/navigation';
 @import '../../ArchiveModule/templates/Reports/gallery';
