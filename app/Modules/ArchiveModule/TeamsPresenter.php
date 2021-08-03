@@ -9,11 +9,6 @@ use Nette\Application\BadRequestException;
 
 class TeamsPresenter extends BasePresenter
 {
-
-    /**
-     * @return void
-     * @throws \Exception
-     */
     public function renderDefault(): void
     {
         $this->setPageTitle(_('Teams'));

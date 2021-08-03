@@ -9,7 +9,6 @@ use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\Application\UI\Form;
 use Nette\DI\Container;
-use Nette\Utils\ArrayHash;
 
 class TeamResultsComponent extends BaseComponent
 {
@@ -18,7 +17,7 @@ class TeamResultsComponent extends BaseComponent
 
     protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
-    protected ?ArrayHash $filterData = null;
+    protected ?array $filterData = null;
 
     public function __construct(Container $container, int $eventId)
     {
@@ -155,7 +154,7 @@ class TeamResultsComponent extends BaseComponent
         // categories
         asort($categories);
         array_unshift($categories, self::ALL_CATEGORIES_IDENTIFIER);
-        $form->addSelect('category', 'category', $categories);
+        $form->addSelect('category', 'category', array_combine($categories, $categories));
 
         // countries
         arsort($countryISOs);
@@ -168,16 +167,8 @@ class TeamResultsComponent extends BaseComponent
 
         $form->addSubmit('applyFilters', 'Apply');
 
-        $form->onSuccess[] = fn(Form $form, ?ArrayHash $data) => $this->filterFormSucceeded($form, $data);
+        $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
 
         return $form;
-    }
-
-    public function filterFormSucceeded(Form $form, ?ArrayHash $data): void
-    {
-        // redefine data for the chosen category
-        $data['category'] = $form['category']->getSelectedItem();
-
-        $this->filterData = $data;
     }
 }

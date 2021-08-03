@@ -9,16 +9,16 @@ class RulesPresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPagetitle(_('Brief Rules'));
+        $this->setPageTitle(_('Brief Rules'));
     }
 
     public function renderComplete()
     {
-        $this->setPagetitle(_('Full Rules'));
+        $this->setPageTitle(_('Full Rules'));
     }
 
     public function renderOrganisationalRegulations()
     {
-        $this->setPagetitle(_('Organisational Regulations'));
+        $this->setPageTitle(_('Organisational Regulations'));
     }
 }

@@ -20,7 +20,7 @@ class ReportsPresenter extends BasePresenter
 
     /**
      * @return void
-     * @throws \Exception
+     * @throws BadRequestException
      * @throws \Throwable
      */
     public function renderDefault(): void

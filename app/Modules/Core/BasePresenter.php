@@ -36,10 +36,6 @@ abstract class BasePresenter extends Presenter
         $this->localize();
     }
 
-    /**
-     * @return Navigation
-     * @throws \Exception
-     */
     protected function createComponentNavigation(): Navigation
     {
         $navigation = new Navigation($this->getContext());
@@ -98,10 +94,10 @@ abstract class BasePresenter extends Presenter
 
     public function formatTemplateFiles(): array
     {
-        $files = parent::formatTemplateFiles();
+        [$file,] = parent::formatTemplateFiles();
         return [
-            str_replace('.latte', '.' . $this->lang . '.latte', $files[0]),
-            $files[0],
+            str_replace('.latte', '.' . $this->lang . '.latte', $file),
+            $file,
         ];
     }
 }

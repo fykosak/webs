@@ -10,10 +10,6 @@ use Nette\Application\BadRequestException;
 class ResultsPresenter extends BasePresenter
 {
 
-    /**
-     * @return void
-     * @throws \Exception
-     */
     public function renderDefault(): void
     {
         $this->setPageTitle(_('Results'));

@@ -38,8 +38,7 @@ class FaqPresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPagetitle(_('FAQ'));
-
+        $this->setPageTitle(_('FAQ'));
         $this->loadQuestions();
     }
 }
