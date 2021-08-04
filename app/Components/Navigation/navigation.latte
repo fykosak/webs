@@ -1,5 +1,5 @@
 {varType \App\Components\Navigation\Navigation $control}
-{varType array $items}
+{varType \App\Components\Navigation\NavItem[] $items}
 {varType string $lang}
 {block content}
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" role="navigation">
@@ -16,9 +16,11 @@
                     {foreach $items as $item}
                         <li class="nav-item">
                             <a class="nav-link" href="{plink $item->destination,(expand)$item->linkParams}"
-                               title="{$item->title}">
-                                <span class="hidden-sm">{$item->title}</span>
-                                <span class="{$item->icon}" title="{$item->title}"/>
+                               title="{$item->title->title}">
+                                <span class="hidden-sm">{$item->title->title}</span>
+                                {if $item->title->icon}
+                                    <span class="{$item->title->icon}" title="{$item->title->title}"/>
+                                {/if}
                             </a>
                         </li>
                     {/foreach}

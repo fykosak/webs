@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Modules\ArchiveModule;
 
+use Fykosak\Utils\UI\PageTitle;
+
 class DetailedResultsPresenter extends BasePresenter
 {
     public function renderDefault(): void
     {
-        $this->setPageTitle(_('Detailed results'));
+        $this->setPageTitle(new PageTitle(_('Detailed results')));
     }
 }

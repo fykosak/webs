@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "36fdf4802747c707c480fd079aa13f90",
+    "content-hash": "0e5b1448de48b120bd7312fdb78411ec",
     "packages": [
         {
             "name": "fykosak/fksdb-downloader-core",
@@ -51,12 +51,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/nette-fks-utils.git",
-                "reference": "a426eb2"
+                "reference": "70035d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/nette-fks-utils/zipball/a426eb2",
-                "reference": "a426eb2",
+                "url": "https://api.github.com/repos/fykosak/nette-fks-utils/zipball/70035d5",
+                "reference": "70035d5",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                     "email": "webmaster@fykos.cz"
                 }
             ],
-            "time": "2021-06-20T12:49:29+00:00"
+            "time": "2021-08-04T08:46:48+00:00"
         },
         {
             "name": "fykosak/nette-fksdb-downloader",

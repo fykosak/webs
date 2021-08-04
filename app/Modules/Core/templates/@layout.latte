@@ -1,9 +1,9 @@
 {varType App\Modules\Core\BasePresenter $presenter}
-{varType string $pageTitle}
+{varType Fykosak\Utils\UI\PageTitle $pageTitle}
 <!DOCTYPE html>
 <html lang="{$presenter->lang}">
 <head>
-    <title>{_'Fyziklání online'}{ifset $pageTitle} &ndash; {$pageTitle}{/ifset}</title>
+    <title>{_'Fyziklání online'}{ifset $pageTitle} &ndash; {$pageTitle->title}{/ifset}</title>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -43,7 +43,7 @@
     <div class="inner-container">
         <main>
             {block title}
-                <h1 n:ifset="$pageTitle">{$pageTitle}</h1>
+                <h1 n:ifset="$pageTitle">{$pageTitle->toHtml(false)}</h1>
             {/block}
             {include content}
         </main>

@@ -7,6 +7,7 @@ namespace App\Modules\ArchiveModule;
 use App\Components\Navigation\NavItem;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
+use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
 
@@ -59,28 +60,23 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     {
         return [
             new NavItem(
-                _('Archive Home'),
-                'visible-sm-inline glyphicon glyphicon-info-sign',
+                new PageTitle(_('Archive Home'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Archive:Default:default',
             ),
             new NavItem(
-                _('Týmy'),
-                'visible-sm-inline glyphicon glyphicon-info-sign',
+                new PageTitle(_('Týmy'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Archive:Teams:default',
             ),
             new NavItem(
-                _('Výsledky'),
-                'visible-sm-inline glyphicon glyphicon-compressed',
+                new PageTitle(_('Výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
                 ':Archive:Results:default',
             ),
             new NavItem(
-                _('Podrobné výsledky'),
-                'visible-sm-inline glyphicon glyphicon-compressed',
+                new PageTitle(_('Podrobné výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
                 ':Archive:DetailedResults:default',
             ),
             new NavItem(
-                _('Reporty'),
-                'visible-sm-inline glyphicon glyphicon-exclamation-sign',
+                new PageTitle(_('Reporty'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'), // TODO
                 ':Archive:Reports:default',
             ),
         ];

@@ -9,6 +9,7 @@ use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
+use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Template;
 
@@ -47,9 +48,9 @@ abstract class BasePresenter extends Presenter
 
     abstract protected function getNavItems(): array;
 
-    public function setPageTitle(string $pageTitle): void
+    final public function setPageTitle(PageTitle $pageTitle): void
     {
-        $this->getTemplate()->pageTitle = $pageTitle;
+        $this->template->pageTitle = $pageTitle;
     }
 
     protected function createTemplate(): Template
