@@ -19,14 +19,6 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             ':Default:AboutTheCompetition:default',
         );
         $items[] = new NavItem(
-            new PageTitle(_('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
-            ':Default:Archive:default',
-        );
-        $items[] = new NavItem(
-            new PageTitle(_('Organizátoři'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
-            ':Default:Organisers:default',
-        );
-        $items[] = new NavItem(
             new PageTitle(_('Pravidla'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'), // TODO
             ':Default:Rules:default',
         );
@@ -45,6 +37,10 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         $items[] = new NavItem(
             new PageTitle(_('Reporty'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Reports:default',
+        );
+        $items[] = new NavItem(
+            new PageTitle(_('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
+            ':Default:Archive:default',
         );
 
         //if ($this->yearsService->isRegistrationStarted()) {
