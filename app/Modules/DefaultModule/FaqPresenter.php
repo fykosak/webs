@@ -6,6 +6,7 @@ namespace App\Modules\DefaultModule;
 
 use App\Models\ORM\FaqModel;
 use App\Models\ORM\FaqService;
+use Fykosak\Utils\UI\PageTitle;
 
 class FaqPresenter extends BasePresenter
 {
@@ -38,7 +39,7 @@ class FaqPresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPageTitle(_('FAQ'));
+        $this->setPageTitle(new PageTitle(_('FAQ')));
         $this->loadQuestions();
     }
 }

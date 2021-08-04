@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace App\Modules\ArchiveModule;
 
 use App\Components\TeamList\TeamListComponent;
+use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
 
 class TeamsPresenter extends BasePresenter
 {
     public function renderDefault(): void
     {
-        $this->setPageTitle(_('Teams'));
+        $this->setPageTitle(new PageTitle(_('Teams')));
     }
 
     /**

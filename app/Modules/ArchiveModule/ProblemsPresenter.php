@@ -6,6 +6,7 @@ namespace App\Modules\ArchiveModule;
 
 use App\Components\Problem\ProblemComponent;
 use App\Models\ORM\Problems\DirectoryService;
+use Fykosak\Utils\UI\PageTitle;
 
 class ProblemsPresenter extends BasePresenter
 {
@@ -19,7 +20,7 @@ class ProblemsPresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPageTitle(_('Problems'));
+        $this->setPageTitle(new PageTitle(_('Problems')));
 
         $this->template->problems = $this->directoryService->findRoot()
             ->findChildByPath('fykos/seminar/34/3')

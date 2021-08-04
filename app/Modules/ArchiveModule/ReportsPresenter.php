@@ -6,6 +6,7 @@ namespace App\Modules\ArchiveModule;
 
 use App\Models\ORM\ReportService;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam;
+use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
 
 class ReportsPresenter extends BasePresenter
@@ -27,7 +28,7 @@ class ReportsPresenter extends BasePresenter
     {
         $this->template->reports = $this->reportService->getTable()
             ->where('lang = ? AND event_id = ?', $this->lang, $this->getEvent()->eventId);
-        $this->setPageTitle(_('Contestants\' reports'));
+        $this->setPageTitle(new PageTitle(_('Contestants\' reports')));
     }
 
     /**

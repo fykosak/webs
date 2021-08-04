@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Components\Navigation;
 
+use Fykosak\Utils\UI\PageTitle;
 use Nette\SmartObject;
 
 class NavItem
@@ -12,14 +13,12 @@ class NavItem
 
     public string $destination;
     public array $linkParams;
-    public string $title;
-    public string $icon;
+    public PageTitle $title;
 
-    public function __construct(string $title, string $icon, string $destination, array $linkParams = [])
+    public function __construct(PageTitle $title, string $destination, array $linkParams = [])
     {
         $this->destination = $destination;
         $this->linkParams = $linkParams;
         $this->title = $title;
-        $this->icon = $icon;
     }
 }

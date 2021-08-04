@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Modules\DefaultModule;
 
+use Fykosak\Utils\UI\PageTitle;
+
 class AboutTheCompetitionPresenter extends BasePresenter
 {
 
     public function renderDefault(): void
     {
-        $this->setPageTitle(_('About the Competition'));
+        $this->setPageTitle(new PageTitle(_('About the Competition')));
     }
 }

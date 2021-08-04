@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\DefaultModule;
 
 use App\Components\Navigation\NavItem;
+use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
@@ -14,43 +15,35 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         $items = [];
 
         $items[] = new NavItem(
-            _('O soutěži'),
-            'visible-sm-inline glyphicon glyphicon-info-sign',
+            new PageTitle(_('O soutěži'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:AboutTheCompetition:default',
         );
         $items[] = new NavItem(
-            _('Archiv'),
-            'visible-sm-inline glyphicon glyphicon-compressed',
+            new PageTitle(_('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
             ':Default:Archive:default',
         );
         $items[] = new NavItem(
-            _('Organizátoři'),
-            'visible-sm-inline glyphicon glyphicon-compressed',
+            new PageTitle(_('Organizátoři'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
             ':Default:Organisers:default',
         );
         $items[] = new NavItem(
-            _('Pravidla'),
-            'visible-sm-inline glyphicon glyphicon-exclamation-sign',
+            new PageTitle(_('Pravidla'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'), // TODO
             ':Default:Rules:default',
         );
         $items[] = new NavItem(
-            _('FAQ'),
-            'visible-sm-inline glyphicon glyphicon-question-sign',
+            new PageTitle(_('FAQ'), 'visible-sm-inline glyphicon glyphicon-question-sign'), // TODO
             ':Default:Faq:default',
         );
         $items[] = new NavItem(
-            _('Návod'),
-            'visible-sm-inline glyphicon glyphicon-info-sign',
+            new PageTitle(_('Návod'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:HowToPlay:default',
         );
         $items[] = new NavItem(
-            _('Program'),
-            'visible-sm-inline glyphicon glyphicon-info-sign',
+            new PageTitle(_('Program'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Schedule:default',
         );
         $items[] = new NavItem(
-            _('Reporty'),
-            'visible-sm-inline glyphicon glyphicon-info-sign',
+            new PageTitle(_('Reporty'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Reports:default',
         );
 
@@ -65,8 +58,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         // if ($this->yearsService->isRegistrationActive()) {
         //    if (!$this->getUser()->isLoggedIn()) {
         $items[] = new NavItem(
-            _('Registrace'),
-            'visible-sm-inline glyphicon glyphicon-edit',
+            new PageTitle(_('Registrace'), 'visible-sm-inline glyphicon glyphicon-edit'), // TODO
             ':Default:Default:default',
         );
         //    }

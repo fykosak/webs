@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\ArchiveModule;
 
 use App\Components\TeamResults\TeamResultsComponent;
+use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
 
 class ResultsPresenter extends BasePresenter
@@ -12,7 +13,7 @@ class ResultsPresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPageTitle(_('Results'));
+        $this->setPageTitle(new PageTitle(_('Results')));
     }
 
     /**
