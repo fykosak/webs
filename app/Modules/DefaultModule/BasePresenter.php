@@ -18,30 +18,25 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             'visible-sm-inline glyphicon glyphicon-info-sign',
             ':Default:AboutTheCompetition:default',
         );
-        $items[] = new NavItem(
-            _('Archiv'),
-            'visible-sm-inline glyphicon glyphicon-compressed',
-            ':Default:Archive:default',
-        );
-        $items[] = new NavItem(
-            _('Organizátoři'),
-            'visible-sm-inline glyphicon glyphicon-compressed',
-            ':Default:Organisers:default',
-        );
+//        $items[] = new NavItem(
+//            _('Organizátoři'),
+//            'visible-sm-inline glyphicon glyphicon-compressed',
+//            ':Default:Organisers:default',
+//        );
         $items[] = new NavItem(
             _('Pravidla'),
             'visible-sm-inline glyphicon glyphicon-exclamation-sign',
             ':Default:Rules:default',
         );
         $items[] = new NavItem(
-            _('FAQ'),
-            'visible-sm-inline glyphicon glyphicon-question-sign',
-            ':Default:Faq:default',
-        );
-        $items[] = new NavItem(
             _('Návod'),
             'visible-sm-inline glyphicon glyphicon-info-sign',
             ':Default:HowToPlay:default',
+        );
+        $items[] = new NavItem(
+            _('FAQ'),
+            'visible-sm-inline glyphicon glyphicon-question-sign',
+            ':Default:Faq:default',
         );
         $items[] = new NavItem(
             _('Program'),
@@ -52,6 +47,11 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             _('Reporty'),
             'visible-sm-inline glyphicon glyphicon-info-sign',
             ':Default:Reports:default',
+        );
+        $items[] = new NavItem(
+            _('Archiv'),
+            'visible-sm-inline glyphicon glyphicon-compressed',
+            ':Default:Archive:default',
         );
 
         //if ($this->yearsService->isRegistrationStarted()) {
