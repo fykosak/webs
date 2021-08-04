@@ -1,18 +1,31 @@
 {block content}
 
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse">Show all questions</button>
+    <hr>
+
     {var $i = 1}
 
     {foreach $questions AS $category => $questionsForCategory}
-        <h2>{$category}</h2>
-        {foreach $questionsForCategory AS $question}
-            <a href="javascript:void(0)" data-toggle="collapse" data-target="#faq{$i}">
-                {$question->question}
+        <div class="row question-category-row">
+            <a href="javascript:void(0)" class="btn btn-info rounded-0" data-bs-toggle="collapse" data-bs-target="#{$category}">
+                <div class="col-lg-12">
+                    {$category}
+                </div>
             </a>
-            <div id="faq{$i}" class="collapse">
-                {$question->answer|noescape}
-            </div><br/>
-            {do $i++}
-        {/foreach}
+            <div id="{$category}" class="collapse multi-collapse">
+                {foreach $questionsForCategory AS $question}
+                    <a class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq{$i}">
+                        <div>
+                            {$question->question}
+                        </div>
+                    </a>
+                    <div id="faq{$i}" class="collapse multi-collapse">
+                        {$question->answer|noescape}
+                    </div><br/>
+                    {do $i++}
+                {/foreach}
+            </div>
+        </div>
     {/foreach}
 
 {/block}

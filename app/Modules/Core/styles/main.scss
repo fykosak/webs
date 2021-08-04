@@ -1,6 +1,6 @@
 // Our theme
-$primary-color: #00AE6B;
-$primary-color-dimmed: #00AE6B;
+$primary-color: #007C58;
+$primary-color-dimmed: #00C993;
 $text-on-primary: white;
 
 // Use the following font weights.
@@ -24,4 +24,6 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import "./titlepage.scss";
 
 @import '../../DefaultModule/styles/rules';
+@import '../../DefaultModule/styles/faq';
+@import '../../../Components/styles/navigation';
 @import '../../ArchiveModule/templates/Reports/gallery';
