@@ -31,5 +31,8 @@ $scaling: 1.04;
 
   .picture {
     margin: 1em;
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
   }
 }
