@@ -2,10 +2,6 @@ html, body {
   height: 100%;
 }
 
-body {
-  padding: 5rem 0;
-}
-
 footer {
   height: 5rem;
 }
@@ -68,6 +64,5 @@ header, footer {
 }
 
 body {
-  // background-image: url("./maze_background.png");
   background-color: $primary-color;
 }

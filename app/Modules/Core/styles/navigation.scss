@@ -1,0 +1,29 @@
+nav {
+  .navbar-brand img {
+    height: 1.25em;
+  }
+
+  @include media-breakpoint-up(lg) {
+    // Generate black maze https://keesiemeijer.github.io/maze-generator/#generate
+    // Convert to svg
+    // Change fill to $primary-color-dimmed value
+    background: linear-gradient(to right, $primary, rgb($primary, 0)) no-repeat right, url("./maze_background.svg") no-repeat right;
+    background-size: 70em;
+
+    > div {
+      padding: 3em !important;
+    }
+
+    .navbar-brand {
+      flex-grow: 1;
+
+      img {
+        height: 2em;
+      }
+    }
+
+    .navbar-collapse {
+      flex-grow: 0;
+    }
+  }
+}

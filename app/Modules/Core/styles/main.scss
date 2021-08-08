@@ -1,6 +1,6 @@
 // Our theme
 $primary-color: rgb(0, 174, 107);
-$primary-color-dimmed: rgb(0, 174, 107);
+$primary-color-dimmed: #32be88;
 $text-on-primary: white;
 
 // Use the following font weights.
@@ -10,7 +10,13 @@ $font-weight-normal: 400;
 $font-weight-bold: 800;
 
 // Override bootstrap variables
-$primary: $primary-color-dimmed;
+$primary: $primary-color;
+$secondary: $primary-color-dimmed;
+
+// Navbar
+$navbar-dark-color: $text-on-primary;
+$navbar-dark-hover-color: $text-on-primary;
+
 
 @import "node_modules/bootstrap/scss/bootstrap";
 $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
@@ -22,8 +28,8 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 
 @import "./layout.scss";
 @import "./titlepage.scss";
+@import "./navigation.scss";
 
 @import '../../DefaultModule/styles/rules';
 @import '../../DefaultModule/styles/faq';
-@import '../../../Components/styles/navigation';
 @import '../../ArchiveModule/templates/Reports/gallery';
