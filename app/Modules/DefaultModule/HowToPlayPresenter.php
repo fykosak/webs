@@ -11,6 +11,6 @@ class HowToPlayPresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPageTitle(new PageTitle(_('How to play')));
+        $this->setPageTitle(new PageTitle(_('howToPlay.title')));
     }
 }

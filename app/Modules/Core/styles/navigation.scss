@@ -26,4 +26,13 @@ nav {
       flex-grow: 0;
     }
   }
+
+  .nav-item {
+    //@include media-breakpoint-up(lg) { padding: 0 .1rem; }
+    @include media-breakpoint-up(xl) { padding: 0 .4rem; }
+    @include media-breakpoint-up(xxl) { padding: 0 1rem; }
+
+  }
+
+
 }

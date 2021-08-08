@@ -11,6 +11,6 @@ class SchedulePresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPageTitle(new PageTitle(_('Schedule of the Competition')));
+        $this->setPageTitle(new PageTitle(_('schedule.title')));
     }
 }

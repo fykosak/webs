@@ -15,31 +15,31 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         $items = [];
 
         $items[] = new NavItem(
-            new PageTitle(_('O soutěži'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(_('about.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:AboutTheCompetition:default',
         );
         $items[] = new NavItem(
-            new PageTitle(_('Pravidla'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'), // TODO
+            new PageTitle(_('rules.menu'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'), // TODO
             ':Default:Rules:default',
         );
         $items[] = new NavItem(
-            new PageTitle(_('FAQ'), 'visible-sm-inline glyphicon glyphicon-question-sign'), // TODO
+            new PageTitle(_('faq.menu'), 'visible-sm-inline glyphicon glyphicon-question-sign'), // TODO
             ':Default:Faq:default',
         );
         $items[] = new NavItem(
-            new PageTitle(_('Návod'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(_('howToPlay.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:HowToPlay:default',
         );
         $items[] = new NavItem(
-            new PageTitle(_('Program'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(_('schedule.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Schedule:default',
         );
         $items[] = new NavItem(
-            new PageTitle(_('Reporty'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(_('reports.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Reports:default',
         );
         $items[] = new NavItem(
-            new PageTitle(_('Archiv'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
+            new PageTitle(_('archive.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
             ':Default:Archive:default',
         );
 

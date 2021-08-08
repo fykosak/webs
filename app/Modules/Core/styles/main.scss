@@ -26,10 +26,11 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 // @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 // @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
 
-@import "./layout.scss";
-@import "./titlepage.scss";
-@import "./navigation.scss";
+@import "./layout";
+@import "./titlepage";
+@import "./navigation";
 
 @import '../../DefaultModule/styles/rules';
 @import '../../DefaultModule/styles/faq';
+@import '../../DefaultModule/styles/organisers';
 @import '../../ArchiveModule/templates/Reports/gallery';

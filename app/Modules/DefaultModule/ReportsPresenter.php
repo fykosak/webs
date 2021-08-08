@@ -11,6 +11,6 @@ class ReportsPresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPageTitle(new PageTitle(_('Reports')));
+        $this->setPageTitle(new PageTitle(_('reports.title')));
     }
 }

@@ -1,0 +1,22 @@
+.organiser {
+  padding: 1rem;
+
+  img {
+    width: 80%;
+    display: block;
+    margin: 0 auto 1rem auto;
+    border-radius: 100%;
+  }
+
+  .name {
+    font-weight: bold;
+    font-size: 2rem;
+    small {
+      font-weight: normal;
+    }
+  }
+
+  .about {
+    color: gray;
+  }
+}

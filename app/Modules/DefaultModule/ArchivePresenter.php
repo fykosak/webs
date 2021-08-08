@@ -12,7 +12,7 @@ class ArchivePresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPageTitle(new PageTitle(_('Archive')));
+        $this->setPageTitle(new PageTitle(_('archive.title')));
     }
 
     protected function createComponentEventList(): EventListComponent

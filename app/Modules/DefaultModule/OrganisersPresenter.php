@@ -11,6 +11,6 @@ class OrganisersPresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPageTitle(new PageTitle(_('List of Organisers')));
+        $this->setPageTitle(new PageTitle(_('organisers.title')));
     }
 }

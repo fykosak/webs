@@ -11,6 +11,6 @@ class AboutTheCompetitionPresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPageTitle(new PageTitle(_('About the Competition')));
+        $this->setPageTitle(new PageTitle(_('aboutTheCompetition.title')));
     }
 }
