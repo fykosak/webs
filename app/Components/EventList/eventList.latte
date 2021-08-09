@@ -1,13 +1,18 @@
 {layout '../@layout.latte'}
 {block content}
-    <div id="events" class="list">
-        <ul>
-            {foreach $eventKeys AS $eventKey}
-                <li>
-                    <a href="{plink :Archive:Default:default eventYear => $eventKey['key']}">{$eventKey['event']->eventYear} ročník</a>
-                </li>
-            {/foreach}
-        </ul>
+    <div class="row event-list g-4">
+        {foreach $eventKeys AS $eventKey}
+            <div class="col-md-4 event">
+                <a href="{plink :Archive:Default:default eventYear => $eventKey['key']}" class="inner">
+                    <h2>{$eventKey['event']->begin|date:'Y'} <small>{$eventKey['event']->begin|date:_('format.dayMonth')}</small></h2>
+                    <div>{sprintf(_('nthYear'), $eventKey['event']->eventYear)}</div>
+                </a>
+            </div>
+        {/foreach}
     </div>
 {/block}
+{*  gettext extract script:
+    {_'format.dayMonth'}
+    {_'nthYear'}
+*}
 

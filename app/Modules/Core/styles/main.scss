@@ -2,6 +2,7 @@
 $primary-color: rgb(0, 174, 107);
 $primary-color-dimmed: #32be88;
 $text-on-primary: white;
+$maze-pattern-image-size: 70em;
 
 // Use the following font weights.
 // To change them you need to modify fonts.googleapis.com link in <head> tag
@@ -34,3 +35,4 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import '../../DefaultModule/styles/faq';
 @import '../../DefaultModule/styles/organisers';
 @import '../../ArchiveModule/templates/Reports/gallery';
+@import '../../../Components/EventList/style';

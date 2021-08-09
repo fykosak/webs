@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-08 19:10+0200\n"
+"POT-Creation-Date: 2021-08-10 00:01+0200\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -232,6 +232,14 @@ msgstr ""
 #: ../../app/Modules/Core/templates/@layout.latte.latte2php:65
 msgid "FYKOS.cz"
 msgstr ""
+
+#: ../../app/Components/EventList/eventList.latte.latte2php:15
+msgid "format.dayMonth"
+msgstr "F j"
+
+#: ../../app/Components/EventList/eventList.latte.latte2php:16
+msgid "nthYear"
+msgstr "Year %d"
 
 #: ../../app/Components/Navigation/navigation.latte.latte2php:9
 msgid "Fyziklani online"

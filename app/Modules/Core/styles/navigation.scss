@@ -8,7 +8,7 @@ nav {
     // Convert to svg
     // Change fill to $primary-color-dimmed value
     background: linear-gradient(to right, $primary, rgb($primary, 0)) no-repeat right, url("./maze_background.svg") no-repeat right;
-    background-size: 70em;
+    background-size: $maze-pattern-image-size;
 
     > div {
       padding: 3em !important;
