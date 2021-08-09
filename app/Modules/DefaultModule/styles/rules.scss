@@ -15,8 +15,9 @@ $scaling: 1.04;
 
 .rule-block {
   visibility: visible;
-  background-color: $primary-color-dimmed;
+  background-color: $primary-color;
   display: flex;
+  color: $text-on-primary;
   border: .1em solid $primary-color;
   text-align: center;
   margin-bottom: 2em;

@@ -15,6 +15,11 @@ body {
   background-color: $primary-color;
 }
 
+.btn-primary-FOL-style{
+  @extend .btn-primary;
+  color: $text-on-primary;
+}
+
 a:hover {
   text-decoration: inherit;
   color: inherit;

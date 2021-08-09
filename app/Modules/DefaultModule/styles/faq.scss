@@ -1,8 +1,25 @@
 .question-category-row {
-  margin-bottom: .8em;
+  margin-bottom: 0.3em;
   border: 2px solid $primary-color;
 }
-//
-//.faq-question{
-//  margin: .1em;
-//}
+
+.faq-category-title{
+  font-size: 1.2em;
+  text-align: left;
+}
+
+.faq-question-and-answer{
+  margin: .3em;
+  a{
+    text-decoration: none;
+  }
+}
+
+.faq-question{
+  color: $text-on-primary;
+  border-left: 3px solid white;
+}
+
+.faq-answer{
+  border-left: 3px solid $primary-color;
+}
