@@ -16,10 +16,10 @@
 }
 
 .faq-question{
-  color: $text-on-primary;
   border-left: 3px solid white;
 }
 
 .faq-answer{
   border-left: 3px solid $primary-color;
+  padding: .5rem 1rem;
 }

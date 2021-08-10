@@ -31,10 +31,10 @@
                     {$category}
                 </div>
             </a>
-            <div id="{$category}" class="collapse-faq collapse">
+            <div id="{$category}" class="collapse-faq collapse p-0">
                 {foreach $questionsForCategory AS $question}
                     <div class="card rounded-0 faq-question-and-answer">
-                        <a href="javascript:void(0)" class="btn-primary-FOL-style" data-bs-toggle="collapse" data-bs-target="#faq{$i}">
+                        <a href="javascript:void(0)" class="btn-primary-FOL-style rounded-0" data-bs-toggle="collapse" data-bs-target="#faq{$i}">
                             <div class="card-header faq-question">
                                 {$question->question}
                             </div>
