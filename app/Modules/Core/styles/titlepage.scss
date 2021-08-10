@@ -1,30 +1,88 @@
 .title-page {
-  background-color: $primary-color;
-  color: $text-on-primary;
-  .row {
-    max-width: 120rem;
-    margin: 0 auto;
-  }
-  .blocks {
-    align-items: center;
-  }
-  .left-block {
-    padding: 5rem 1rem;
-    h1 {
-      font-size: 6rem;
-      font-weight: $font-weight-light;
-      margin-bottom: 5rem;
-    }
-    h2 {
-      font-weight: $font-weight-light;
-    }
-  }
+    background-color: $primary-color;
+    color: $text-on-primary;
+    padding-bottom: 10rem;
 
-  .right-block {
-    text-align: center;
-    font-size: 5rem;
-    .time {
-      font-weight: $font-weight-light;
+    .row {
+        max-width: 120rem;
+        margin: 0 auto;
+        @include media-breakpoint-up(md) { padding: 0 5rem; }
     }
-  }
+
+    .blocks {
+        align-items: center;
+        margin-top: 3rem;
+        @include media-breakpoint-up(md) { margin-top: inherit; }
+    }
+
+    .strips {
+        text-align: justify;
+        @extend .gx-5;
+        @extend .gy-2;
+    }
+
+    .left-block {
+        @include media-breakpoint-up(md) { padding: 0 1rem; }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: none;
+            @include media-breakpoint-up(md) { display: block; }
+            @include media-breakpoint-up(l) { font-size: 4rem; margin-bottom: 3rem; }
+            @include media-breakpoint-up(xl) { font-size: 5rem; margin-bottom: 4rem; }
+            @include media-breakpoint-up(xxl) { font-size: 6rem; margin-bottom: 5rem; }
+            font-weight: $font-weight-light;
+        }
+
+        h2 {
+            font-weight: $font-weight-light;
+        }
+    }
+
+    .right-block {
+        text-align: center;
+        font-size: 2rem;
+        @include media-breakpoint-up(l) { font-size: 3rem; }
+        @include media-breakpoint-up(xxl) { font-size: 4rem; }
+
+        .time {
+            font-weight: $font-weight-light;
+        }
+    }
+
+    // Third row
+    .teams {
+        align-items: center;
+        .map svg {
+            width: 100%;
+            height: auto;
+            fill: $primary-color-dimmed;
+            stroke: $primary-color;
+            stroke-width: .1rem;
+        }
+
+        .team-count, .country-count {
+            font-size: 3rem;
+            font-weight: $font-weight-light;
+        }
+    }
+
+    .task {
+        align-items: center;
+        .text {
+            font-size: 3rem;
+            font-weight: $font-weight-light;
+            text-align: right;
+        }
+
+        p {
+            background: $primary-color-dimmed;
+            padding: .5rem 1rem;
+        }
+    }
+
+    .strips, .teams, .task {
+        margin-top: 5rem;
+    }
 }
