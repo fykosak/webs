@@ -1,7 +1,8 @@
 .question-category-row {
-  margin-bottom: 0.3em;
+  margin: 0 0 0.3em;
   border: 2px solid $primary-color;
 }
+
 
 .faq-category-title{
   font-size: 1.2em;
@@ -17,6 +18,7 @@
 
 .faq-question{
   border-left: 3px solid white;
+  border-bottom: 0;
 }
 
 .faq-answer{
