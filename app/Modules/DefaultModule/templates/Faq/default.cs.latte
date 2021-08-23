@@ -1,25 +1,22 @@
 {block content}
 
-{*    <script>*}
-{*        function collapseFAQ(btn)*}
-{*        {*}
-{*            let showText = 'Show all questions';*}
-{*            let hideText =  'Hide all questions';*}
-{*            if (btn.text === showText)*}
-{*            {*}
-{*                // Array.from(document.getElementsByClassName("collapse-faq")).forEach(elem => elem.classList.add("collapse"));*}
-{*                document.getElementById("delme").collapse("show")*}
-{*                btn.text = hideText;*}
-{*            }*}
-{*            else*}
-{*            {*}
-{*                Array.from(document.getElementsByClassName("collapse-faq")).forEach(elem => elem.classList.remove("in"));*}
-{*                btn.text = showText;*}
-{*            }*}
-{*    </script>*}
+    <script n:syntax="off">
+        function collapseFAQ(btn) {
+            let showText = 'Show all questions';
+            let hideText = "Hide all questions";
+            if (btn.innerText === showText) {
+                Array.from(document.getElementsByClassName("collapse-faq")).forEach(elem => elem.classList.add("show"));
+                btn.innerText = hideText;
+            } else {
+                Array.from(document.getElementsByClassName("collapse-faq")).forEach(elem => elem.classList.remove("show"));
+                btn.innerText = showText;
+            }
+        }
+    </script>
 
+        <button onclick="collapseFAQ(this)" class="btn btn-primary-FOL-style" type="button">Show all questions</button>
 
-    <button onclick="collapseFAQ(this)" class="btn btn-primary-FOL-style" type="button">Show all questions</button>
+{*    <button onclick="delme()" class="btn btn-primary-FOL-style" type="button">Show all questions</button>*}
     <hr>
 
     {var $i = 1}
