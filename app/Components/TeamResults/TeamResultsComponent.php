@@ -88,12 +88,12 @@ class TeamResultsComponent extends BaseComponent
 
     protected function passesCountryFilter(ModelTeam $team): bool
     {
-        $isoForTeam = [];
+        $ISOsForTeam = [];
 
         foreach ($team->participants as $participant) {
             $iso = $participant->countryIso;
-            if (!in_array($iso, $isoForTeam)) {
-                $iSOsForTeam[] = $iso;
+            if (!in_array($iso, $ISOsForTeam)) {
+                $ISOsForTeam[] = $iso;
             }
         }
 
@@ -110,7 +110,7 @@ class TeamResultsComponent extends BaseComponent
             return true;
         }
 
-        foreach ($isoForTeam as $iso) {
+        foreach ($ISOsForTeam as $iso) {
             if (in_array($iso, $selectedISOs)) {
                 return true;
             }
