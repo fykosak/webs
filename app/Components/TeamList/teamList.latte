@@ -2,15 +2,29 @@
 {block content}
     <div class="sidebar-toc">
         <ul>
-            <a href="#A">Kategorie A</a><br>
-            <a href="#B">Kategorie B</a><br>
-            <a href="#C">Kategorie C</a><br>
-            <a href="#O">Kategorie Open</a>
+            {var $x = ksort($teams)}
+            {foreach $teams AS $category => $teamsForCategory}
+                {if $category == 'F'}
+                    <a href="#{$category}">{_'Zahraniční SŠ'}</a><br>
+                {elseif $category == 'O'}
+                    <a href="#{$category}">{_'Kategorie'} Open</a><br>
+                {else}
+                    <a href="#{$category}">{_'Kategorie'} {$category}</a><br>
+                {/if}
+            {/foreach}
         </ul>
     </div>
     <div id="teams" class="list">
         {foreach $teams AS $category => $teamsForCategory}
-            <h2 id="{$category}">{$category}</h2>
+            <h2 id="{$category}">
+                {if $category == 'F'}
+                    {_'Zahraniční SŠ'}
+                {elseif $category == 'O'}
+                    Open
+                {else}
+                    {$category}
+                {/if}
+            </h2>
             <ol>
                 {foreach $teamsForCategory AS $team}
                     {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
