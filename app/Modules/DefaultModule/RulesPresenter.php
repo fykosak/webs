@@ -4,23 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\DefaultModule;
 
-use Fykosak\Utils\UI\PageTitle;
-
 class RulesPresenter extends BasePresenter
 {
 
-    public function renderDefault(): void
-    {
-        $this->setPageTitle(new PageTitle(_('rules.title.brief')));
-    }
-
-    public function renderComplete()
-    {
-        $this->setPageTitle(new PageTitle(_('rules.title.full')));
-    }
-
-    public function renderOrganisationalRegulations()
-    {
-        $this->setPageTitle(new PageTitle(_('rules.title.organisationalRegulations')));
-    }
 }
