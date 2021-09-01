@@ -6,5 +6,5 @@ namespace App\Modules\DefaultModule;
 
 class HowToPlayPresenter extends BasePresenter
 {
-    
+
 }
