@@ -40,30 +40,76 @@
 {block body}
     {control navigation}
 {block main}
-    <div class="inner-container">
-        <main>
-            {block title}
-                <h1 n:ifset="$pageTitle">{$pageTitle->toHtml(false)}</h1>
-            {/block}
+    <main>
             {include content}
-        </main>
-    </div>
+    </main>
     <footer>
-        <p class="pull-right small">
-        Organizátoři soutěže jsou
-        </p>
-         <p class="pull-right small">
-        Fyziklání Online sponzorují
-        </p>
-         <p class="pull-right small">{_'V případě, že byste měli zájem sponzorovat Fyziklání Online, ozvěte se nám na email'}
-            <a href="mailto:online@fyziklani.cz">online@fyziklani.cz</a>.
-        </p>
-        <p class="pull-right small">{_'Pokud máte jakýkoliv dotaz, připomínku, námět apod., napište nám na naši adresu'}
-            <a href="mailto:online@fyziklani.cz">online@fyziklani.cz</a>.
-        </p>
-        <p>
-            <a href="{_'http://fykos.cz/'}">{_'FYKOS.cz'}</a>
-        </p>
+        <div class="panel registration">
+            <div class="inner-container">
+                <div class="text">Zaujalo vás to?</div>
+                <button class="btn btn-outline-light">Registrace</button>
+            </div>
+        </div>
+
+        <div class="panel sponsors">
+            <div class="inner-container">
+                <div class="sponsors-row">
+                    <a href="https://www.mff.cuni.cz/"><img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-height: 10rem"></a>
+                    <a href="https://www.msmt.cz/"><img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 10rem"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel footer">
+            <div class="inner-container row">
+                <div class="col-md-6">
+                    <h1>Fyziklání Online</h1>
+                    <p>
+                        Fyziklání Online je organizováno FYKOSem - soutěží pro středoškoláky ve fyzice s 35 letou tradicí. FYKOS je tvořen převážně studenty Matematicko-fyzikální fakulty Univerzity Karlovy.
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <nav>
+                        <ul>
+                            <li>Pro účastníky
+                                <ul>
+                                    <li><a href="">O Soutěži</a></li>
+                                    <li><a href="">Pravidla</a></li>
+                                    <li><a href="">Program</a></li>
+                                    <li><a href="">Registrace</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-2">
+                    <nav>
+                        <ul>
+                            <li>Pro učitele
+                                <ul>
+                                    <li><a href="">Jak se připravit</a></li>
+                                    <li><a href="">Registrace</a></li>
+                                    <li><a href="">Program</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-2">
+                    <nav>
+                        <ul>
+                            <li>Pro partnery
+                                <ul>
+                                    <li><a href="">Proč sponzorovat Fyziklání Online?</a></li>
+                                    <li><a href="">Loga a materiály</a></li>
+                                    <li><a href="">Kontakt</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
     </footer>
 {/block}
 

@@ -1,46 +1,85 @@
 {block title}{/block}
 
-{block main}
-    <div class="title-page">
-        <div class="row blocks">
+{block content}
+    <div class="panel color-primary title-panel">
+        <div class="inner-container row align-items-center">
             <div class="col-md-6 left-block">
                 <h1>
-                    <strong>Fyziklání</strong><br>
-                    Online
+                    Mezinárodní internetová fyzikální soutěž
                 </h1>
-                <h2>Online týmová fyzikální soutěž nejen pro středoškoláky každý rok v listopadu.</h2>
-            </div>
-            <div class="col-md-6 right-block">
-                <div>23. listopad 2021</div>
-                <div class="time">17:00 - 20:00</div>
-            </div>
-        </div>
-        <div class="row strips">
-            <div class="col-md-4">Až 5 středoškoláků soutěží z domova ve 3 hodiny dlouhé soutěži v počítání fyzikálních příkladů.</div>
-            <div class="col-md-4">Neustále máte k dispozici 7 úloh. Jakmile nějakou vyřešíte, okamžitě dostáváte další. Za každou úlohu sbíráte body.</div>
-            <div class="col-md-4">Nejlepší týmy vyhrávají věcné ceny a nehynoucí slávu v naší soutěži, která probíhá přes deset let.</div>
-        </div>
-        <div class="row teams gx-5">
-            <div class="col-md-6">
-                <div class="map">
-                    {include 'world.svg'}
-                    <style n:syntax="off">
-                        #CS,#SK,#PL,#DE,#US,#AS,#CN,#AU,#EG,#SA
-                        {fill: white}
-                    </style>
+                <div class="subheader">Přihlaš se společně až s pětičlenným týmem.</div>
+                <div class="buttons">
+                    <button class="btn btn-light">O soutěži</button>
+                    <button class="btn btn-outline-light">Registrace</button>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="team-count"><strong>135</strong> přihlášených týmů</div>
-                <div class="country-count"><strong>15</strong> zemí světa</div>
+            <div class="col-md-6 right-block topic-panel">
+                <div class="map-panel">
+                    <div class="map">
+                        {include 'world.svg'}
+                        <style n:syntax="off">
+                            #CS,#SK,#PL,#DE,#US,#AS,#CN,#AU,#EG,#SA {fill: white}
+                        </style>
+                    </div>
+                    <div class="team-counts"><strong>135</strong> přihlášených týmů z <strong>15</strong> zemí světa</div>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="row task gx-5">
-            <div class="col-md-4 text">
-                Každý<br />najde<br />svou<br />obtížnost
+    <div class="panel color-light">
+        <section class="inner-container">
+            <div class="subheader">Shrnutí pravidel</div>
+            <h1>Co je to Fyziklání Online?</h1>
+            <div class="row strips">
+                <div class="col-md-4">Až 5 středoškoláků soutěží z domova ve 3 hodiny dlouhé soutěži v počítání fyzikálních příkladů.</div>
+                <div class="col-md-4">Neustále máte k dispozici 7 úloh. Jakmile nějakou vyřešíte, okamžitě dostáváte další. Za každou úlohu sbíráte body.</div>
+                <div class="col-md-4">Nejlepší týmy vyhrávají věcné ceny a nehynoucí slávu v naší soutěži, která probíhá přes deset let.</div>
             </div>
-            <div class="col-md-8 assignment">
+        </section>
+    </div>
+
+    <div class="panel color-dark">
+        <section class="inner-container">
+            <div class="subheader">Pro nejlepší týmy máme nachystané odměny</div>
+            <h1>O co soutěžíme?</h1>
+            <div class="row prices">
+                <div class="col-md-4">
+                    <div class="price-box small" style="background-color: #707070">
+                        FYKOSí<br />merch
+                    </div>
+
+                    <a class="price-box large" style="background-color: #F44336" href="https://fyziklani.org/erasmus">
+                        Účast ve<br />Fyziklání<br />International
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-box large" style="background-color: #F5ADC1">
+                        Knihy<br />podle<br />výběru
+                    </div>
+
+                    <div class="price-box small" style="background-color: #666666">
+                        Roční<br />předplatné<br />na Wolfram Mathematica
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-box small" style="background-color: #019A69">
+                        Deskovky
+                    </div>
+
+                    <div class="price-box large" style="background-color: #666666">
+                        O dalších<br />cenách jednáme<br />se sponzory...
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="panel color-light">
+        <section class="inner-container">
+            <div class="subheader">Ukázka příkladů v soutěži</div>
+            <h1>Každý najde svou obtížnost.</h1>
+            <div>
                 <p>
                     Jehličnatý strom může být z mechanického hlediska aproximován kolmým (nikoli komolým)
                     homogenním kuželem s výškou h = 40 m a poloměrem podstavy r = 1,0 m. O jaký úhel můžeme
@@ -62,7 +101,21 @@
                     s poloměrem r<sub>0</sub> = 1,6 m. V jaké výšce (měřeno od dna) byla voda předtím, než ji Vítek roztočil?
                 </p>
             </div>
-        </div>
+        </section>
+    </div>
+
+    <div class="panel color-dark">
+        <section class="inner-container">
+            <div class="subheader">Harmonogram soutěže</div>
+            <h1>Soutěžíme v pátek, program i o víkendu.</h1>
+        </section>
+    </div>
+
+    <div class="panel color-light">
+        <section class="inner-container">
+            <div class="subheader">Registrace</div>
+            <h1>Přihlašte se a staňte se legendami!</h1>
+        </section>
     </div>
 {/block}
 

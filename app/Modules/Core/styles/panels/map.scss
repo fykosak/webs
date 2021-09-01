@@ -1,0 +1,14 @@
+.map-panel {
+    svg {
+        width: 100%;
+        height: auto;
+        fill: $primary-color-dimmed;
+        stroke: $primary-color;
+        stroke-width: .1rem;
+    }
+
+    .team-counts {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+}

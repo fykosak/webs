@@ -4,6 +4,9 @@ $primary-color-dimmed: #32be88;
 $text-on-primary: white;
 $maze-pattern-image-size: 70em;
 
+$panel-color-dark: #f5f5f5;
+$panel-color-light: white;
+
 // Use the following font weights.
 // To change them you need to modify fonts.googleapis.com link in <head> tag
 $font-weight-light: 100;
@@ -13,6 +16,7 @@ $font-weight-bold: 800;
 // Override bootstrap variables
 $primary: $primary-color;
 $secondary: $primary-color-dimmed;
+$border-radius: 0;
 
 // Navbar
 $navbar-dark-color: $text-on-primary;
@@ -36,3 +40,5 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import '../../DefaultModule/styles/organisers';
 @import '../../ArchiveModule/templates/Reports/gallery';
 @import '../../../Components/EventList/style';
+
+@import './panels/map';

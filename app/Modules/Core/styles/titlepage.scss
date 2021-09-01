@@ -1,88 +1,42 @@
-.title-page {
-    background-color: $primary-color;
-    color: $text-on-primary;
-    padding-bottom: 10rem;
-
-    .row {
-        max-width: 120rem;
-        margin: 0 auto;
-        @include media-breakpoint-up(md) { padding: 0 5rem; }
+.panel.title-panel {
+    h1 {
+        font-size: 2.8rem;
     }
 
-    .blocks {
-        align-items: center;
-        margin-top: 3rem;
-        @include media-breakpoint-up(md) { margin-top: inherit; }
+    .subheader {
+        font-weight: normal;
+        color: inherit;
+        font-size: 1.3rem;
     }
 
-    .strips {
-        text-align: justify;
-        @extend .gx-5;
-        @extend .gy-2;
+    .buttons {
+        margin-top: 2.5rem;
     }
 
-    .left-block {
-        @include media-breakpoint-up(md) { padding: 0 1rem; }
+    .topic-panel {
+        margin-top: 2rem;
+        @include media-breakpoint-up(md) { margin-top: 0; }
+    }
+}
 
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            display: none;
-            @include media-breakpoint-up(md) { display: block; }
-            @include media-breakpoint-up(l) { font-size: 4rem; margin-bottom: 3rem; }
-            @include media-breakpoint-up(xl) { font-size: 5rem; margin-bottom: 4rem; }
-            @include media-breakpoint-up(xxl) { font-size: 6rem; margin-bottom: 5rem; }
-            font-weight: $font-weight-light;
-        }
-
-        h2 {
-            font-weight: $font-weight-light;
-        }
+.prices {
+    &.row {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 0;
     }
 
-    .right-block {
-        text-align: center;
+    .price-box {
+        display: block;
+        text-decoration: none;
+        margin-bottom: 1rem;
+        color: white;
         font-size: 2rem;
-        @include media-breakpoint-up(l) { font-size: 3rem; }
-        @include media-breakpoint-up(xxl) { font-size: 4rem; }
-
-        .time {
-            font-weight: $font-weight-light;
+        padding: 1.5rem;
+        &.small {
+            height: 16rem;
         }
-    }
-
-    // Third row
-    .teams {
-        align-items: center;
-        .map svg {
-            width: 100%;
-            height: auto;
-            fill: $primary-color-dimmed;
-            stroke: $primary-color;
-            stroke-width: .1rem;
+        &.large {
+            height: 21rem;
         }
-
-        .team-count, .country-count {
-            font-size: 3rem;
-            font-weight: $font-weight-light;
-        }
-    }
-
-    .task {
-        align-items: center;
-        .text {
-            font-size: 3rem;
-            font-weight: $font-weight-light;
-            text-align: right;
-        }
-
-        p {
-            background: $primary-color-dimmed;
-            padding: .5rem 1rem;
-        }
-    }
-
-    .strips, .teams, .task {
-        margin-top: 5rem;
     }
 }

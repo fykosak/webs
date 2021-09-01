@@ -2,14 +2,6 @@ html, body {
   height: 100%;
 }
 
-footer {
-  height: 5rem;
-}
-
-main {
-  min-height: 100%;
-}
-
 body {
   font-family: 'Inter', sans-serif;
   background-color: $primary-color;
@@ -25,49 +17,100 @@ a:hover {
   color: inherit;
 }
 
-header, footer {
-  color: $text-on-primary;
-}
+/**
+ * Everything except main menu is consisted of panels.
+ * Panel is a rectangle with .inner-container.
+ */
+.panel {
+  padding: 4.3rem 0;
 
-.mode_show .inner-container article {
-  max-width: 45em;
-}
+  &.color-dark {
+    background-color: $panel-color-dark;
+  }
 
-.full-width .inner-container article {
-  max-width: initial;
-}
+  &.color-light, &.sponsors {
+    background-color: $panel-color-light;
+  }
 
-.inner-container {
-  background: white;
-  //color: white;
+  &.sponsors .inner-container .sponsors-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 
-  main {
-    padding: 2em 5%;
+    a {
+      display: block;
+      margin: 1rem;
+
+      img {
+        @extend .img-fluid;
+      }
+    }
+  }
+
+  &.color-primary, &.registration {
+    background-color: $primary-color;
+    color: white;
+  }
+
+  &.footer {
+    background-color: #000000;
+    color: white;
+  }
+
+  // Inner container
+  &>.inner-container {
     margin: 0 auto;
-    box-sizing: content-box;
-    font-size: 1.2rem;
-    max-width: 45em;
+    padding: 0 1rem;
+    max-width: 77rem;
+  }
 
-    h1 {
-      margin-bottom: 2.5rem;
-      font-size: 3rem;
-      font-weight: $font-weight-bold;
-    }
+  &.registration {
+    padding: 2.5rem 0;
 
-    h2, h3, h4, h5 {
-      font-weight: $font-weight-bold;
-    }
+    &>.inner-container {
+      display: flex;
+      align-items: center;
 
-    p {
-      text-align: justify;
+      .text {
+        flex-grow: 1;
+        font-size: 1.4rem;
+      }
     }
   }
 
-  main.full-width {
-    max-width: none;
+  .subheader {
+    font-weight: bold;
+    color: $primary-color;
+  }
+
+  h1 {
+    size: 2.1rem;
+    font-weight: bold;
+    margin-bottom: 2.1rem;
   }
 }
 
-body {
-  background-color: $primary-color;
+
+.panel.footer nav {
+  &>ul>li {
+    font-weight: bold;
+
+    & li {
+      margin: 1rem 0;
+      a {
+        text-decoration: none;
+        color: white;
+        font-weight: normal;
+      }
+    }
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  li {
+    list-style-type: none;
+  }
 }
