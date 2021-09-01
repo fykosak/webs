@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-02 00:29+0200\n"
+"POT-Creation-Date: 2021-09-02 01:21+0200\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,18 +55,6 @@ msgstr ""
 msgid "Archive year home page ..."
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/OrganisersPresenter.php:14
-msgid "organisers.title"
-msgstr "Organizátoři Fyziklání online"
-
-#: ../../app/Modules/DefaultModule/SchedulePresenter.php:14
-msgid "schedule.title"
-msgstr "Program soutěže a doprovodných akcí"
-
-#: ../../app/Modules/DefaultModule/HowToPlayPresenter.php:14
-msgid "howToPlay.title"
-msgstr "Jak hrát"
-
 #: ../../app/Modules/DefaultModule/BasePresenter.php:18
 msgid "about.menu"
 msgstr "O soutěži"
@@ -98,35 +86,6 @@ msgstr "Archiv"
 #: ../../app/Modules/DefaultModule/BasePresenter.php:57
 msgid "Registrace"
 msgstr ""
-
-#: ../../app/Modules/DefaultModule/FaqPresenter.php:42
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:1
-msgid "faq.title"
-msgstr "FAQ"
-
-#: ../../app/Modules/DefaultModule/ArchivePresenter.php:15
-msgid "archive.title"
-msgstr "Archiv"
-
-#: ../../app/Modules/DefaultModule/AboutTheCompetitionPresenter.php:14
-msgid "aboutTheCompetition.title"
-msgstr "O soutěži"
-
-#: ../../app/Modules/DefaultModule/RulesPresenter.php:14
-msgid "rules.title.brief"
-msgstr "Stručná pravidla"
-
-#: ../../app/Modules/DefaultModule/RulesPresenter.php:19
-msgid "rules.title.full"
-msgstr "Kompletní pravidla Fyziklání online"
-
-#: ../../app/Modules/DefaultModule/RulesPresenter.php:24
-msgid "rules.title.organisationalRegulations"
-msgstr "Organizační řád Fyziklání online"
-
-#: ../../app/Modules/DefaultModule/ReportsPresenter.php:14
-msgid "reports.title"
-msgstr "Ohlasy účastníků"
 
 #: ../../app/Modules/DefaultModule/DefaultPresenter.php:14
 msgid "Mezinárodní soutež ve fyzice"
@@ -192,10 +151,18 @@ msgstr ""
 msgid "OtherFAQ"
 msgstr ""
 
+#: ../../app/Models/Exceptions/UnderConstructionException.php:15
+msgid "This page is under construction"
+msgstr ""
+
 #: ../../app/Components/TeamResults/TeamResultsComponent.php:163
 #, php-format
 msgid "%s:%s participants"
 msgstr ""
+
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:1
+msgid "faq.title"
+msgstr "FAQ"
 
 #: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:5
 #: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:24
@@ -274,17 +241,21 @@ msgstr "%d. ročník"
 msgid "Fyziklani online"
 msgstr ""
 
-#: ../../app/Components/TeamList/teamList.latte.latte2php:8
-#: ../../app/Components/TeamList/teamList.latte.latte2php:21
+#: ../../app/Components/TeamList/teamList.latte.latte2php:5
+msgid "team_list.title"
+msgstr ""
+
+#: ../../app/Components/TeamList/teamList.latte.latte2php:11
+#: ../../app/Components/TeamList/teamList.latte.latte2php:29
 msgid "Zahraniční SŠ"
 msgstr ""
 
-#: ../../app/Components/TeamList/teamList.latte.latte2php:10
-#: ../../app/Components/TeamList/teamList.latte.latte2php:12
+#: ../../app/Components/TeamList/teamList.latte.latte2php:13
+#: ../../app/Components/TeamList/teamList.latte.latte2php:15
 msgid "Kategorie"
 msgstr ""
 
-#: ../../app/Components/TeamList/teamList.latte.latte2php:53
+#: ../../app/Components/TeamList/teamList.latte.latte2php:63
 msgid "informace o členech týmu nejsou dostupné"
 msgstr ""
 
@@ -303,6 +274,33 @@ msgstr ""
 #: ../../app/Components/TeamResults/teamResults.latte.latte2php:12
 msgid "Rank total"
 msgstr ""
+
+#~ msgid "organisers.title"
+#~ msgstr "Organizátoři Fyziklání online"
+
+#~ msgid "schedule.title"
+#~ msgstr "Program soutěže a doprovodných akcí"
+
+#~ msgid "howToPlay.title"
+#~ msgstr "Jak hrát"
+
+#~ msgid "archive.title"
+#~ msgstr "Archiv"
+
+#~ msgid "aboutTheCompetition.title"
+#~ msgstr "O soutěži"
+
+#~ msgid "rules.title.brief"
+#~ msgstr "Stručná pravidla"
+
+#~ msgid "rules.title.full"
+#~ msgstr "Kompletní pravidla Fyziklání online"
+
+#~ msgid "rules.title.organisationalRegulations"
+#~ msgstr "Organizační řád Fyziklání online"
+
+#~ msgid "reports.title"
+#~ msgstr "Ohlasy účastníků"
 
 #~ msgid "Brief Rules"
 #~ msgstr "Stručná pravidla"

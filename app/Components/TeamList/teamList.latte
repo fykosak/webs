@@ -1,62 +1,73 @@
 {layout '../@layout.latte'}
 {block content}
-    <div class="sidebar-toc">
-        <ul>
-            {var $x = ksort($teams)}
-            {foreach $teams AS $category => $teamsForCategory}
-                {if $category == 'F'}
-                    <a href="#{$category}">{_'Zahraniční SŠ'}</a><br>
-                {elseif $category == 'O'}
-                    <a href="#{$category}">{_'Kategorie'} Open</a><br>
-                {else}
-                    <a href="#{$category}">{_'Kategorie'} {$category}</a><br>
-                {/if}
-            {/foreach}
-        </ul>
-    </div>
-    <div id="teams" class="list">
-        {foreach $teams AS $category => $teamsForCategory}
-            <h2 id="{$category}">
-                {if $category == 'F'}
-                    {_'Zahraniční SŠ'}
-                {elseif $category == 'O'}
-                    Open
-                {else}
-                    {$category}
-                {/if}
-            </h2>
-            <ol>
-                {foreach $teamsForCategory AS $team}
-                    {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
-                    {if $team->status == 'participated'}
-                        <li>
-                            <strong>{$team->name}</strong>:
-                        {var $inSchool = 0}
-                        {if $team->participants && count($team->participants)}
-                            {do
-                                $participants = $team->participants;
-                                usort($participants, fn($a, $b) => $a->schoolId <=> $b->schoolId)
-                            }
-                                {foreach $participants as $key => $participant}
-                                    {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
-                                    {$participant->name
-                                    }{do $inSchool++
-                                    }{if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->schoolId != $participants[$key + 1]->schoolId)
-                                        }<span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$participant->schoolName} <span
-                                                    class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>)</span>
-                                        {do $inSchool = 0
-                                    }{/if
-                                    }{if !$iterator->isLast()
-                                    }, {/if}
-                                {/foreach}
-                            {else}
-                                {_'informace o členech týmu nejsou dostupné'}
-                            {/if}
-                        </li>
+    <div class="panel color-light">
+        <section class="inner-container">
+            <h1>{_'team_list.title'}</h1>
+
+            <ul>
+                {do ksort($teams)}
+                {foreach $teams AS $category => $teamsForCategory}
+                    {if $category == 'F'}
+                        <li><a href="#{$category}">{_'Zahraniční SŠ'}</a></li>
+                    {elseif $category == 'O'}
+                        <li><a href="#{$category}">{_'Kategorie'} Open</a></li>
+                    {else}
+                        <li><a href="#{$category}">{_'Kategorie'} {$category}</a></li>
                     {/if}
                 {/foreach}
-            </ol>
-        {/foreach}
+            </ul>
+        </section>
     </div>
+
+    {var $parityCounter = true}
+    {foreach $teams AS $category => $teamsForCategory}
+        {do $parityCounter = !$parityCounter}
+        <div n:class="panel, $parityCounter ? color-light : color-dark">
+            <section class="inner-container" id="{$category}">
+                <div class="subheader">Kategorie</div>
+                <h1>{if $category == 'F'}
+                        {_'Zahraniční SŠ'}
+                    {elseif $category == 'O'}
+                        Open
+                    {else}
+                        {$category}
+                    {/if}
+                </h1>
+
+                <ol>
+                    {foreach $teamsForCategory AS $team}
+                        {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
+                        {if $team->status == 'participated'}
+                            <li>
+                                <strong>{$team->name}</strong>:
+                                {var $inSchool = 0}
+                            {if $team->participants && count($team->participants)}
+                                    {do
+                                        $participants = $team->participants;
+                                        usort($participants, fn($a, $b) => $a->schoolId <=> $b->schoolId)
+                                    }
+                                    {foreach $participants as $key => $participant}
+                                        {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
+                                        {$participant->name
+                                        }{do $inSchool++
+                                    }{if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->schoolId != $participants[$key + 1]->schoolId)
+                                    }
+                                        <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$participant->schoolName} <span
+                                                    class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>)</span>
+                                        {do $inSchool = 0
+                                        }{/if
+                                    }{if !$iterator->isLast()
+                                    }, {/if}
+                                    {/foreach}
+                                {else}
+                                    {_'informace o členech týmu nejsou dostupné'}
+                                {/if}
+                            </li>
+                        {/if}
+                    {/foreach}
+                </ol>
+            </section>
+        </div>
+    {/foreach}
 {/block}
 
