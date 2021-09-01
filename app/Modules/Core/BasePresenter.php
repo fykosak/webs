@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Core;
 
 use App\Components\Navigation\Navigation;
+use App\Models\Exceptions\UnderConstructionException;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\Localization\GettextTranslator;
@@ -100,5 +101,16 @@ abstract class BasePresenter extends Presenter
             str_replace('.latte', '.' . $this->lang . '.latte', $file),
             $file,
         ];
+    }
+
+    /**
+     * @throws UnderConstructionException
+     */
+    protected function throwUnderConstructionException(): void
+    {
+        if ($this->getParameter('dev')) {
+            return;
+        }
+        throw new UnderConstructionException();
     }
 }
