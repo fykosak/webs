@@ -48,11 +48,6 @@ a:hover {
     }
   }
 
-  &.color-primary, &.registration {
-    background-color: $primary-color;
-    color: white;
-  }
-
   &.footer {
     background-color: #000000;
     color: white;
@@ -82,6 +77,15 @@ a:hover {
   .subheader {
     font-weight: bold;
     color: $primary-color;
+  }
+
+  &.color-primary, &.registration {
+    background-color: $primary-color;
+    color: white;
+
+    .subheader {
+      color: white;
+    }
   }
 
   h1 {

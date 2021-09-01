@@ -1,4 +1,4 @@
-{block content}
+{block main}
 
     <script n:syntax="off">
         function collapseFAQ(btn) {
@@ -14,21 +14,23 @@
         }
     </script>
 
-        <button onclick="collapseFAQ(this)" class="btn btn-primary-FOL-style" type="button">Show all questions</button>
-
-{*    <button onclick="delme()" class="btn btn-primary-FOL-style" type="button">Show all questions</button>*}
-    <hr>
+    <div class="panel color-light">
+        <section class="inner-container">
+            <div class="subheader">Často Kladené Otázky</div>
+            <h1>FAQ</h1>
+            <button onclick="collapseFAQ(this)" class="btn btn-primary-FOL-style" type="button">Show all questions</button>
+        </section>
+    </div>
 
     {var $i = 1}
-
+    {var $parityCounter = true}
     {foreach $questions AS $category => $questionsForCategory}
-        <div class="row question-category-row">
-            <a href="javascript:void(0)" class="btn btn-primary-FOL-style rounded-0" data-bs-toggle="collapse" data-bs-target="#{$category}">
-                <div class="col-lg-12 faq-category-title">
-                    {$category}
-                </div>
-            </a>
-            <div id="{$category}" class="collapse-faq collapse p-0">
+        {do $parityCounter = !$parityCounter}
+        <div n:class="panel, $parityCounter ? color-light : color-dark">
+            <section class="inner-container">
+                <div class="subheader">Kategorie</div>
+                <h1>{$category}</h1>
+
                 {foreach $questionsForCategory AS $question}
                     <div class="card faq-question-and-answer rounded-0">
                         <a href="javascript:void(0)" class="btn-primary-FOL-style" data-bs-toggle="collapse" data-bs-target="#faq{$i}">
@@ -44,7 +46,8 @@
                     </div>
                     {do $i++}
                 {/foreach}
-            </div>
+
+            </section>
         </div>
     {/foreach}
 
