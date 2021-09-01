@@ -39,9 +39,14 @@
 <body>
 {block body}
     {control navigation}
-{block main}
     <main>
-            {include content}
+        {block main}
+            <div class="panel color-light">
+                <section class="inner-container">
+                    {include content}
+                </section>
+            </div>
+        {/block}
     </main>
     <footer>
         <div class="panel registration">
@@ -111,7 +116,6 @@
             </div>
         </div>
     </footer>
-{/block}
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="{$basePath}/assets/main.js"></script>

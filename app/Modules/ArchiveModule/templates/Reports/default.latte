@@ -1,4 +1,4 @@
-{block content}
+{block main}
     <head>
         <script n:syntax="off">
             function gallery(imgs, imgId, textId) {
@@ -47,8 +47,9 @@
         .box {
             position: relative;
             top: 2rem;
-            display: block;
+            display: none;
             width: 45rem;
+            max-width: 100%;
         }
 
         /*!* Expanding image text *!*/
@@ -70,29 +71,43 @@
             cursor: pointer;
         }
     </style>
+
+
+    <div class="panel color-light">
+        <section class="inner-container">
+            <h1>Reporty týmů {$year}</h1>
+        </section>
+    </div>
+
+
     {varType Fykosak\NetteORM\TypedTableSelection $reports}
     {varType App\Modules\ArchiveModule\ReportsPresenter $presenter}
-    {dump $reports}
     <div id="reports" class="list">
+        {varType bool $counter}
+        {do $counter = true}
         {foreach $reports as $report}
-            {dump $report}
-            <h2>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h2>
+            {do $counter = !$counter}
 
-            {$report->text|noescape}
-            <div class="row">
-                {foreach $report->related('report_image') as $reportImage}
-                    <div class="column">
-                        <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery(this, '{$report->report_id}-img', '{$report->report_id}-text');">
+            <div n:class="panel, $counter ? color-light : color-dark">
+                <section class="inner-container">
+                    <div class="subheader">Report týmu</div>
+                    <h1>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h1>
+
+                    {$report->text|noescape}
+                    <div class="row">
+                        {foreach $report->related('report_image') as $reportImage}
+                            <div class="column">
+                                <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery(this, '{$report->report_id}-img', '{$report->report_id}-text');">
+                            </div>
+                        {/foreach}
                     </div>
-                {/foreach}
+                    <div class="box">
+                        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                        <img id='{$report->report_id}-img' style="width:100%">
+                        <div id='{$report->report_id}-text'></div>
+                    </div>
+                </section>
             </div>
-            <div class="box">
-                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                <img id='{$report->report_id}-img' style="width:100%">
-                <div id='{$report->report_id}-text'></div>
-            </div>
-            <br>
-            <br>
         {/foreach}
     </div>
 
