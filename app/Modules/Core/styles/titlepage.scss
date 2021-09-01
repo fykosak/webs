@@ -32,11 +32,27 @@
         color: white;
         font-size: 2rem;
         padding: 1.5rem;
+        transition: all .5s ease;
+        &:hover {
+            font-size: 2rem*1.1;
+        }
         &.small {
             height: 16rem;
         }
         &.large {
             height: 21rem;
         }
+    }
+}
+
+.fyziklani-international-box {
+    background-color: #F44336;
+    background-image: url("https://fyziklani.cz/lib/tpl/redfoftpl/images/prague.svg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 60rem;
+
+    &:hover {
+        background-size: 60rem*1.1;
     }
 }

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 15:24+0200\n"
+"POT-Creation-Date: 2021-09-02 00:29+0200\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Results"
 msgstr ""
 
-#: ../../app/Modules/ArchiveModule/ReportsPresenter.php:31
+#: ../../app/Modules/ArchiveModule/ReportsPresenter.php:32
 msgid "Contestants' reports"
 msgstr ""
 
@@ -100,8 +100,9 @@ msgid "Registrace"
 msgstr ""
 
 #: ../../app/Modules/DefaultModule/FaqPresenter.php:42
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:1
 msgid "faq.title"
-msgstr "Časté dotazy"
+msgstr "FAQ"
 
 #: ../../app/Modules/DefaultModule/ArchivePresenter.php:15
 msgid "archive.title"
@@ -196,6 +197,55 @@ msgstr ""
 msgid "%s:%s participants"
 msgstr ""
 
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:5
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:24
+msgid "faq.show_text_button"
+msgstr "Zobrazit všechny otázky"
+
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:6
+msgid "faq.hide_text_button"
+msgstr "Skrýt všechny otázky"
+
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:22
+msgid "faq.subheader"
+msgstr "Často kladené dotazy"
+
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:34
+msgid "faq_category_text"
+msgstr "Kategorie"
+
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:60
+msgid "faq_category.registration"
+msgstr "Registrace na soutěž"
+
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:61
+msgid "faq_category.game"
+msgstr "Hra"
+
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:62
+msgid "faq_category.tasks"
+msgstr "Úlohy"
+
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:63
+msgid "faq_category.submits"
+msgstr "Odevzdávání úloh"
+
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:64
+msgid "faq_category.skipping"
+msgstr "Přeskakování úloh"
+
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:65
+msgid "faq_category.scoring"
+msgstr "Bodování"
+
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:66
+msgid "faq_category.hurry-up"
+msgstr "Hurry up"
+
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:67
+msgid "faq_category.otherFAQ"
+msgstr "Ostatní FAQ"
+
 #: ../../app/Modules/Core/templates/@layout.latte.latte2php:6
 msgid "Fyziklání online"
 msgstr ""
@@ -210,26 +260,6 @@ msgstr ""
 
 #: ../../app/Modules/Core/templates/@layout.latte.latte2php:16
 msgid "Online team competition in solving physics problems."
-msgstr ""
-
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:58
-msgid ""
-"V případě, že byste měli zájem sponzorovat Fyziklání Online, ozvěte se nám "
-"na email"
-msgstr ""
-
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:61
-msgid ""
-"Pokud máte jakýkoliv dotaz, připomínku, námět apod., napište nám na naši "
-"adresu"
-msgstr ""
-
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:65
-msgid "http://fykos.cz/"
-msgstr ""
-
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:65
-msgid "FYKOS.cz"
 msgstr ""
 
 #: ../../app/Components/EventList/eventList.latte.latte2php:15

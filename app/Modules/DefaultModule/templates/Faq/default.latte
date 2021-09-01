@@ -1,9 +1,12 @@
-{block main}
+{block title}{_"faq.title"}{/block}
 
+{block main}
+    <script>
+        const showText = "{_"faq.show_text_button"}";
+        const hideText = "{_"faq.hide_text_button"}";
+    </script>
     <script n:syntax="off">
         function collapseFAQ(btn) {
-            let showText = 'Show all questions';
-            let hideText = "Hide all questions";
             if (btn.innerText === showText) {
                 Array.from(document.getElementsByClassName("collapse-faq")).forEach(elem => elem.classList.add("show"));
                 btn.innerText = hideText;
@@ -16,9 +19,9 @@
 
     <div class="panel color-light">
         <section class="inner-container">
-            <div class="subheader">Často Kladené Otázky</div>
-            <h1>FAQ</h1>
-            <button onclick="collapseFAQ(this)" class="btn btn-primary-FOL-style" type="button">Show all questions</button>
+            <div class="subheader">{_"faq.subheader"}</div>
+            <h1>{include title}</h1>
+            <button onclick="collapseFAQ(this)" class="btn btn-primary-FOL-style" type="button">{_"faq.show_text_button"}</button>
         </section>
     </div>
 
@@ -28,8 +31,8 @@
         {do $parityCounter = !$parityCounter}
         <div n:class="panel, $parityCounter ? color-light : color-dark">
             <section class="inner-container">
-                <div class="subheader">Kategorie</div>
-                <h1>{$category}</h1>
+                <div class="subheader">{_"faq_category_text"}</div>
+                <h1>{_("faq_category." . $category)}</h1>
 
                 {foreach $questionsForCategory AS $question}
                     <div class="card faq-question-and-answer rounded-0">
@@ -52,3 +55,14 @@
     {/foreach}
 
 {/block}
+
+{* Force the extractor to find these keys
+    {_'faq_category.registration'}
+    {_'faq_category.game'}
+    {_'faq_category.tasks'}
+    {_'faq_category.submits'}
+    {_'faq_category.skipping'}
+    {_'faq_category.scoring'}
+    {_'faq_category.hurry-up'}
+    {_'faq_category.otherFAQ'}
+*}

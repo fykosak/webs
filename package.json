@@ -1,6 +1,9 @@
 {
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "extract_translations": "cd app/i18n/ && ./extract.sh",
+    "compile_translation": "./app/i18n/compile.sh",
+    "clear_latte_cache": "rm -r temp/cache/latte"
   },
   "devDependencies": {
     "css-loader": "^6.2.0",
