@@ -1,20 +1,58 @@
 {block main}
     <head>
         <script n:syntax="off">
-            function gallery(imgs, imgId, textId) {
+            function gallery(srcID, imgId) {
                 // Get the expanded image
                 var expandImg = document.getElementById(imgId);
-                // Get the image text
-                var imgText = document.getElementById(textId);
                 // Use the same src in the expanded image as the image being clicked on from the grid
-                expandImg.src = imgs.src;
-                // Use the value of the alt attribute of the clickable image as text inside the expanded image
-                imgText.innerHTML = imgs.alt;
-                // Show the container element (hidden with CSS)
-                expandImg.parentElement.style.display = "block";
+                expandImg.src = srcID;
             }
         </script>
     </head>
+    <style>
+    /* The grid: Four equal columns that floats next to each other */
+    .column {
+    float: left;
+    width: 7rem;
+    padding: 1rem;
+    }
+
+    /* Style the images inside the grid */
+    .column img {
+    float: left;
+    opacity: 0.9;
+    cursor: pointer;
+    max-width: 6rem;
+    max-height: 6rem;
+
+    :hover { opacity: 1; }
+    }
+
+    /*!* Clear floats after the columns *!*/
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    .image-container {
+        display: block;
+        float: left;
+        width: 20rem;
+        background-color: green;
+    }
+
+    /*!* The expanding image container (positioning is needed to position the close button and the text) *!*/
+    .box {
+        position: relative;
+        top: 0rem;
+        left: 0rem;
+        width: 6rem;
+        display: block;
+        background-color: blueviolet;
+
+    }
+    </style>
 
     <div class="panel color-light">
         <section class="inner-container">
@@ -31,24 +69,55 @@
         {foreach $reports as $report}
             {do $counter = !$counter}
 
-            <div n:class="panel, $counter ? color-dark : color-light">
+            <div n:class="panel, $counter ? color-light : color-dark">
                 <section class="inner-container">
-                    <div class="subheader">Report týmu</div>
-                    <h1>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h1>
-
-                    {$report->text|noescape}
-                    <div class="row">
-                        {foreach $report->related('report_image') as $reportImage}
-                            <div class="column">
-                                <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery(this, '{$report->report_id}-img', '{$report->report_id}-text');">
+                        <div class="image-container">
+                            <div class="box">
+                                <img id="{$report->report_id}-img" style="width: 100%">
                             </div>
-                        {/foreach}
-                    </div>
-                    <div class="box">
-                        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                        <img id='{$report->report_id}-img' style="width:100%">
-                        <div id='{$report->report_id}-text'></div>
-                    </div>
+                            <div class="row">
+                                {varType bool $first}
+                                {do $first = true}
+                                {foreach $report->related('report_image') as $reportImage}
+                                    {if $first}
+                                        <script n:syntax="off">
+                                            gallery('{$basePath}/images/reports/{$reportImage->filename}', '{$report->report_id}-img');
+                                        </script>
+                                        {do $first = false}
+                                    {/if}
+                                    <div class="column">
+                                        <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery('{$basePath}/images/reports/{$reportImage->filename}', '{$report->report_id}-img');">
+                                    </div>
+                                {/foreach}
+                            </div>
+                        </div>
+                        <div class="text">
+                            <div class="subheader">Report týmu</div>
+                            <h1>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h1>
+
+                            {$report->text|noescape}
+                        </div>
+
+
+
+
+
+{*                    <div class="subheader">Report týmu</div>*}
+{*                    <h1>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h1>*}
+
+{*                    {$report->text|noescape}*}
+{*                    <div class="row">*}
+{*                        {foreach $report->related('report_image') as $reportImage}*}
+{*                            <div class="column">*}
+{*                                <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery(this, '{$report->report_id}-img', '{$report->report_id}-text');">*}
+{*                            </div>*}
+{*                        {/foreach}*}
+{*                    </div>*}
+{*                    <div class="box">*}
+{*                        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>*}
+{*                        <img id='{$report->report_id}-img' style="width: 100%">*}
+{*                        <div id='{$report->report_id}-text'></div>*}
+{*                    </div>*}
                 </section>
             </div>
         {/foreach}

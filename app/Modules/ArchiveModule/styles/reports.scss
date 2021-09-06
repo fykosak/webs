@@ -12,10 +12,8 @@
     cursor: pointer;
     max-width: 6rem;
     max-height: 6rem;
-}
 
-.column img:hover {
-    opacity: 1;
+    :hover { opacity: 1; }
 }
 
 /*!* Clear floats after the columns *!*/
@@ -25,29 +23,20 @@
     clear: both;
 }
 
+.image-container {
+    display: block;
+    float: left;
+    width: 20rem;
+    background-color: green;
+}
+
 /*!* The expanding image container (positioning is needed to position the close button and the text) *!*/
 .box {
     position: relative;
-    top: 2rem;
+    top: 0rem;
+    left: 0rem;
+    width: 6rem;
     display: block;
-    width: 45rem;
-}
+    background-color: blueviolet;
 
-/*!* Expanding image text *!*/
-#imgtext {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    color: white;
-    font-size: 2rem;
-}
-
-/*!* Closable button inside the image *!*/
-.closebtn {
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
-    color: white;
-    font-size: 4rem;
-    cursor: pointer;
 }
