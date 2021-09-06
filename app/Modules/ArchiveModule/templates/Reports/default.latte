@@ -1,11 +1,11 @@
 {block main}
     <head>
         <script n:syntax="off">
-            function gallery(srcID, imgId) {
+            function gallery(source, imgId) {
                 // Get the expanded image
                 var expandImg = document.getElementById(imgId);
                 // Use the same src in the expanded image as the image being clicked on from the grid
-                expandImg.src = srcID;
+                expandImg.src = source;
             }
         </script>
     </head>
@@ -38,19 +38,25 @@
     .image-container {
         display: block;
         float: left;
-        width: 20rem;
+        width: 30rem;
+        height: auto;
         background-color: green;
     }
 
     /*!* The expanding image container (positioning is needed to position the close button and the text) *!*/
     .box {
         position: relative;
-        top: 0rem;
-        left: 0rem;
-        width: 6rem;
+        width: 80%;
+        height: 80%;
         display: block;
         background-color: blueviolet;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
+    .box img {
+        max-width: 100%;
+        max-height: 100%;
     }
     </style>
 
@@ -73,20 +79,22 @@
                 <section class="inner-container">
                         <div class="image-container">
                             <div class="box">
-                                <img id="{$report->report_id}-img" style="width: 100%">
+                                <img id="{$report->report_id}">
                             </div>
                             <div class="row">
                                 {varType bool $first}
                                 {do $first = true}
                                 {foreach $report->related('report_image') as $reportImage}
-                                    {if $first}
+                                    {varType string $source}
+                                    {do $source = $basePath . '/images/reports/' . $reportImage->filename}
+                                    {if $first == true}
                                         <script n:syntax="off">
-                                            gallery('{$basePath}/images/reports/{$reportImage->filename}', '{$report->report_id}-img');
+                                            gallery({$source}, {$report->report_id});
                                         </script>
                                         {do $first = false}
                                     {/if}
                                     <div class="column">
-                                        <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery('{$basePath}/images/reports/{$reportImage->filename}', '{$report->report_id}-img');">
+                                        <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$report->report_id});">
                                     </div>
                                 {/foreach}
                             </div>
