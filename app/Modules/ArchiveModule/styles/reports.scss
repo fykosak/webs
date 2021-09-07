@@ -23,21 +23,25 @@
     clear: both;
 }
 
+.inner-container {
+    overflow: auto;
+}
+
 .image-container {
     display: block;
     float: left;
     width: 30rem;
-    height: auto;
-    background-color: green;
+    height: 20rem;
+    background-color: transparent;
 }
 
 /*!* The expanding image container (positioning is needed to position the close button and the text) *!*/
 .box {
     position: relative;
-    width: 80%;
+    width: 90%;
     height: 80%;
     display: block;
-    background-color: blueviolet;
+    background-color: transparent;
     margin-left: auto;
     margin-right: auto;
 }

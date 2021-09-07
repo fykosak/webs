@@ -35,21 +35,25 @@
     clear: both;
     }
 
+    .inner-container {
+        overflow: auto;
+    }
+
     .image-container {
         display: block;
         float: left;
         width: 30rem;
-        height: auto;
-        background-color: green;
+        height: 20rem;
+        background-color: transparent;
     }
 
     /*!* The expanding image container (positioning is needed to position the close button and the text) *!*/
     .box {
         position: relative;
-        width: 80%;
+        width: 90%;
         height: 80%;
         display: block;
-        background-color: blueviolet;
+        background-color: transparent;
         margin-left: auto;
         margin-right: auto;
     }
@@ -77,55 +81,46 @@
 
             <div n:class="panel, $counter ? color-light : color-dark">
                 <section class="inner-container">
-                        <div class="image-container">
-                            <div class="box">
-                                <img id="{$report->report_id}">
-                            </div>
-                            <div class="row">
-                                {varType bool $first}
-                                {do $first = true}
-                                {foreach $report->related('report_image') as $reportImage}
-                                    {varType string $source}
-                                    {do $source = $basePath . '/images/reports/' . $reportImage->filename}
-                                    {if $first == true}
-                                        <script n:syntax="off">
-                                            gallery({$source}, {$report->report_id});
-                                        </script>
-                                        {do $first = false}
-                                    {/if}
-                                    <div class="column">
-                                        <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$report->report_id});">
-                                    </div>
-                                {/foreach}
-                            </div>
+                    <div class="image-container" id="{$report->report_id}-ic">
+                        <div class="box">
+                            <img id="{$report->report_id}">
                         </div>
-                        <div class="text">
-                            <div class="subheader">Report týmu</div>
-                            <h1>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h1>
-
-                            {$report->text|noescape}
+                        <div class="row">
+                            {varType bool $first}
+                            {do $first = true}
+                            {varType bool $noImage} {* to determine whether the image-container should be "none" or not *}
+                            {do $noImage = true}
+                            {foreach $report->related('report_image') as $reportImage}
+                                {do $noImage = false}
+                                {varType string $source}
+                                {do $source = $basePath . '/images/reports/' . $reportImage->filename}
+                                {if $first == true}
+                                    {* this doesn't work *}
+                                    <script n:syntax="off">
+                                        gallery({$source}, {$report->report_id});
+                                    </script>
+                                    {do $first = false}
+                                {/if}
+                                <div class="column">
+                                    <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$report->report_id});">
+                                </div>
+                            {/foreach}
                         </div>
+                    </div>
+                    {if $noImage == true}
+                        {* this also doesn't work *}
+                        <span onload="document.getElementById('{$report->report_id}-ic').style.display='none'"></span>
+{*                            <script n:syntax="off">*}
+{*                                var box = document.getElementById("{$report->report_id}-box");*}
+{*                                box.style.display = "none";*}
+{*                            </script>*}
+                    {/if}
+                    <div class="text">
+                        <div class="subheader">Report týmu</div>
+                        <h1>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h1>
 
-
-
-
-
-{*                    <div class="subheader">Report týmu</div>*}
-{*                    <h1>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h1>*}
-
-{*                    {$report->text|noescape}*}
-{*                    <div class="row">*}
-{*                        {foreach $report->related('report_image') as $reportImage}*}
-{*                            <div class="column">*}
-{*                                <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery(this, '{$report->report_id}-img', '{$report->report_id}-text');">*}
-{*                            </div>*}
-{*                        {/foreach}*}
-{*                    </div>*}
-{*                    <div class="box">*}
-{*                        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>*}
-{*                        <img id='{$report->report_id}-img' style="width: 100%">*}
-{*                        <div id='{$report->report_id}-text'></div>*}
-{*                    </div>*}
+                        {$report->text|noescape}
+                    </div>
                 </section>
             </div>
         {/foreach}
