@@ -1,11 +1,14 @@
 .organiser {
   padding: 1rem;
 
-  img {
-    width: 80%;
-    display: block;
-    margin: 0 auto 1rem auto;
-    border-radius: 100%;
+  .image-cropper {
+    background-size: cover;
+    background-position-y: 50%;
+    background-position-x: 50%;
+    width: 18rem;
+    height: 18rem;
+    overflow: hidden;
+    border-radius: 50%;
   }
 
   .name {
