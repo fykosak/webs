@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\DefaultModule;
 
+use App\Components\UpperHomeCountdown\UpperHomeCountdownComponent;
+use App\Components\UpperHomeMap\UpperHomeCountdown;
 use App\Components\UpperHomeMap\UpperHomeMapComponent;
 use Fykosak\Utils\UI\PageTitle;
 
@@ -18,6 +20,11 @@ class DefaultPresenter extends BasePresenter
     protected function createComponentUpperHomeMap(): UpperHomeMapComponent
     {
         return new UpperHomeMapComponent($this->getContext());
+    }
+
+    protected function createComponentUpperHomeCountdown(): UpperHomeCountdownComponent
+    {
+        return new UpperHomeCountdownComponent($this->getContext());
     }
 
     public function renderLastYears(): void

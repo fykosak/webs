@@ -36,6 +36,7 @@
 <div class="row">
     <div class="col-md-4">
         <h2>When</h2>
+        {control upperHomeCountdown}
         {*if $control->yearsService->isGameEnd()}
         <p>It took place on <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Online+Physics+Brawl&iso={$year->game_start|date:'%Y%m%d'}T{$year->game_start|date:'%H%M'}&p1=204&ah=3" n:block='game_period'>{$year->game_start|date:'%A %B %e, %Y'} from {$year->game_start|date:'%k:%M %Z'} to {$year->game_end|date:'%k.%M %Z'}</a>.</p>
         {else}

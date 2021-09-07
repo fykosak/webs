@@ -1,0 +1,39 @@
+{block content}
+    <script type="text/javascript">
+        var finalTime = new Date("Oct 4, 2021 06:00").getTime();
+        var x = setInterval(()=>{
+            var now = new Date().getTime();
+            var dist = (finalTime - now)/1000;
+            var days = Math.floor(dist/86400)
+            var hours = Math.floor((dist-days*86400)/3600);
+            var mins = Math.floor(((dist-days*86400)-hours*3600)/60);
+            var secs = Math.floor((dist-days*86400-hours*3600-mins*60));
+            var date = [days,hours,mins,secs]
+
+            if (dist > 0){
+                document.getElementById("days").innerHTML = days;
+                document.getElementById("hours").innerHTML = hours;
+                document.getElementById("mins").innerHTML = mins;
+                document.getElementById("secs").innerHTML = secs;
+            }
+        },1000);
+    </script>
+
+    <div class="countdown-panel">
+        <div id="countdown">
+            {switch $lang}
+                {case cs}
+                    Do začátku registrace zbývá
+                    <span id="days"></span> dní,
+                    <span id="hours"></span> hodin,
+                    <span id="mins"></span> minut
+                    a <span id="secs"></span> sekund.
+                {case en}
+                    <span id="days"></span> days,
+                    <span id="hours"></span> hours,
+                    <span id="mins"></span> minutes
+                    and <span id="secs"></span> seconds left until the beginning of the registration.
+            {/switch}
+        </div>
+    </div>
+{/block}
