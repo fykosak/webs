@@ -6,7 +6,6 @@ namespace App\Components\UpperHomeMap;
 
 use Fykosak\Utils\BaseComponent\BaseComponent;
 
-
 class UpperHomeMapComponent extends BaseComponent
 {
     public function render(): void
