@@ -1,0 +1,26 @@
+{block content}
+    <div class="map-panel">
+        <div class="map">
+            {include 'world.svg'}
+            <style n:syntax="off">
+                #CS,#SK,#PL,#DE,#US,#AS,#CN,#AU,#EG,#SA {fill: white}
+            </style>
+        </div>
+        <div class="team-counts">
+            <strong>135</strong>
+            {switch $lang}
+                {case cs}
+                    přihlášených týmů z
+                {case en}
+                    registered teams from
+            {/switch}
+            <strong>15</strong>
+            {switch $lang}
+                {case cs}
+                    zemí světa
+                {case en}
+                    countries
+            {/switch}
+        </div>
+    </div>
+{/block}

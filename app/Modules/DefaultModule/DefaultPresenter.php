@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\DefaultModule;
 
+use App\Components\UpperHomeMap\UpperHomeMapComponent;
 use Fykosak\Utils\UI\PageTitle;
 
 class DefaultPresenter extends BasePresenter
@@ -12,6 +13,11 @@ class DefaultPresenter extends BasePresenter
     public function renderDefault(): void
     {
         $this->setPageTitle(new PageTitle(_('Mezinárodní soutež ve fyzice')));
+    }
+
+    protected function createComponentUpperHomeMap(): UpperHomeMapComponent
+    {
+        return new UpperHomeMapComponent($this->getContext());
     }
 
     public function renderLastYears(): void
