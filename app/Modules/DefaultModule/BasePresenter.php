@@ -54,8 +54,8 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         // if ($this->yearsService->isRegistrationActive()) {
         //    if (!$this->getUser()->isLoggedIn()) {
         $items[] = new NavItem(
-            new PageTitle(_('Registrace'), 'visible-sm-inline glyphicon glyphicon-edit'), // TODO
-            ':Default:Default:default',
+            new PageTitle(_('Registrace'), 'visible-sm-inline glyphicon glyphicon-edit'),
+            ':Default:Registration:',
         );
         //    }
         // }
