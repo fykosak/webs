@@ -1,0 +1,59 @@
+$timeline-line-position: 4.5rem;
+$timeline-icon-size: .8rem;
+$timeline-line-width: .2rem;
+
+/**
+ * Vertical timeline of events
+ */
+.timeline {
+    position: relative;
+    padding: 1.5rem 0 1rem;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: $timeline-line-position;
+        height: 100%;
+        width: $timeline-line-width;
+        background: $text-dimmed;
+    }
+
+    & > div {
+        position: relative;
+        margin: 0 0 1rem;
+    }
+
+    .timeline-element-icon {
+        position: absolute;
+        top: .3rem;
+        left: $timeline-line-position;
+        width: $timeline-icon-size;
+        height: $timeline-icon-size;
+        margin-left: - $timeline-icon-size / 2 + $timeline-line-width / 2;
+        border-radius: 100%;
+        background-color: $primary-color;
+    }
+
+    .timeline-element-content {
+        position: relative;
+        margin-left: $timeline-line-position + 2rem;
+    }
+
+    .timeline-title {
+        text-transform: uppercase;
+        margin: 0 0 .25rem;
+        font-weight: bold;
+    }
+
+    .timeline-element-date {
+        display: block;
+        position: absolute;
+        left: - ($timeline-line-position + 2rem);
+        top: 0;
+        padding-right: 10px;
+        text-align: right;
+        color: $text-dimmed;
+        white-space: nowrap;
+    }
+}
