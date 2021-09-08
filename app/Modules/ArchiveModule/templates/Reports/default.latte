@@ -19,13 +19,14 @@
 
     /* Style the images inside the grid */
     .column img {
-    float: left;
-    opacity: 0.9;
-    cursor: pointer;
-    max-width: 6rem;
-    max-height: 6rem;
-
-    :hover { opacity: 1; }
+        float: left;
+        opacity: 0.9;
+        cursor: pointer;
+        max-width: 6rem;
+        max-height: 6rem;
+    }
+    .column img:hover{
+        opacity: 1;
     }
 
     /*!* Clear floats after the columns *!*/
@@ -43,30 +44,38 @@
         display: block;
         float: left;
         width: 30rem;
-        height: 20rem;
+        height: auto;
         background-color: transparent;
     }
 
     /*!* The expanding image container (positioning is needed to position the close button and the text) *!*/
     .box {
         position: relative;
-        width: 90%;
-        height: 80%;
+        width: 28rem;
+        height: 22rem;
         display: block;
         background-color: transparent;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 0;
+        text-align: center;
+        margin-bottom: 1rem;
     }
 
     .box img {
         max-width: 100%;
-        max-height: 100%;
+        height: auto;
     }
     </style>
 
     <div class="panel color-light">
         <section class="inner-container">
-            <h1>Reporty týmů {$year}</h1>
+            <h1>
+            {switch $lang}
+                {case cs}
+                    Reporty týmů
+                {case en}
+                    Teams' reports from
+            {/switch}
+            {$year}</h1>
         </section>
     </div>
 
@@ -81,42 +90,43 @@
 
             <div n:class="panel, $counter ? color-light : color-dark">
                 <section class="inner-container">
-                    <div class="image-container" id="{$report->report_id}-ic">
-                        <div class="box">
+                    <div class="image-container" id="{$report->report_id}-container">
+                        <div class="box" id="{$report->report_id}-box">
                             <img id="{$report->report_id}">
                         </div>
-                        <div class="row">
-                            {varType bool $first}
-                            {do $first = true}
-                            {varType bool $noImage} {* to determine whether the image-container should be "none" or not *}
+                        <div class="row" id="{$report->report_id}-row">
+                            {varType bool $solo} {* true when there's only one picture *}
+                            {do $solo = true}
+                            {varType bool $noImage}
                             {do $noImage = true}
                             {foreach $report->related('report_image') as $reportImage}
+                                {if !($iterator->first)}
+                                    {do $solo = false}
+                                {/if}
                                 {do $noImage = false}
                                 {varType string $source}
                                 {do $source = $basePath . '/images/reports/' . $reportImage->filename}
-                                {if $first == true}
-                                    {* this doesn't work *}
-                                    <script n:syntax="off">
-                                        gallery({$source}, {$report->report_id});
-                                    </script>
-                                    {do $first = false}
-                                {/if}
+                                <script n:if="$iterator->first">gallery({$source}, {$report->report_id});</script>
                                 <div class="column">
                                     <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$report->report_id});">
                                 </div>
                             {/foreach}
+                            <script n:if="$solo">
+                                document.getElementById({$report->report_id} + "-row").style.display="none";
+                                document.getElementById({$report->report_id} + "-box").style.height="auto";
+                            </script>
                         </div>
                     </div>
-                    {if $noImage == true}
-                        {* this also doesn't work *}
-                        <span onload="document.getElementById('{$report->report_id}-ic').style.display='none'"></span>
-{*                            <script n:syntax="off">*}
-{*                                var box = document.getElementById("{$report->report_id}-box");*}
-{*                                box.style.display = "none";*}
-{*                            </script>*}
-                    {/if}
+                    <script n:if="$noImage">document.getElementById({$report->report_id} + "-container").style.display="none";</script>
                     <div class="text">
-                        <div class="subheader">Report týmu</div>
+                        <div class="subheader">
+                            {switch $lang}
+                                {case cs}
+                                    Report týmu
+                                {case en}
+                                    Report from the team
+                            {/switch}
+                        </div>
                         <h1>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h1>
 
                         {$report->text|noescape}

@@ -3,17 +3,18 @@
     float: left;
     width: 7rem;
     padding: 1rem;
-}
 
-/* Style the images inside the grid */
-.column img {
-    float: left;
-    opacity: 0.9;
-    cursor: pointer;
-    max-width: 6rem;
-    max-height: 6rem;
+    img {
+        float: left;
+        opacity: 0.9;
+        cursor: pointer;
+        max-width: 6rem;
+        max-height: 6rem;
 
-    :hover { opacity: 1; }
+        &:hover {
+            opacity: 1;
+        }
+    }
 }
 
 /*!* Clear floats after the columns *!*/
@@ -31,22 +32,23 @@
     display: block;
     float: left;
     width: 30rem;
-    height: 20rem;
-    background-color: transparent;
+    height: auto;
+    background-color: pink;
 }
 
 /*!* The expanding image container (positioning is needed to position the close button and the text) *!*/
 .box {
     position: relative;
-    width: 90%;
-    height: 80%;
+    width: 28rem;
+    height: 22rem;
     display: block;
-    background-color: transparent;
-    margin-left: auto;
-    margin-right: auto;
-}
+    background-color: deeppink;
+    margin-left: 0;
+    text-align: center;
+    margin-bottom: 1rem;
 
-.box img {
-    max-width: 100%;
-    max-height: 100%;
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }
