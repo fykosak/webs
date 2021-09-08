@@ -1,5 +1,7 @@
 {varType App\Modules\Core\BasePresenter $presenter}
 {varType Fykosak\Utils\UI\PageTitle $pageTitle}
+{varType string $lang}
+
 <!DOCTYPE html>
 <html lang="{$presenter->lang}">
 <head>
@@ -53,8 +55,13 @@
     <footer>
         <div class="panel registration">
             <div class="inner-container">
-                <div class="text">Zaujalo vás to?</div>
-                <button class="btn btn-outline-light">Registrace</button>
+                <div class="text">
+                    {switch $lang}
+                        {case 'cs'}Zaujalo vás to?
+                        {default}Are you interested?
+                    {/switch}
+                </div>
+                <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Registration{/switch}</a>
             </div>
         </div>
 
@@ -70,10 +77,18 @@
         <div class="panel footer">
             <div class="inner-container row">
                 <div class="col-md-6">
-                    <h1>Fyziklání Online</h1>
-                    <p>
-                        Fyziklání Online je organizováno FYKOSem - soutěží pro středoškoláky ve fyzice s 35letou tradicí. FYKOS je tvořen převážně studenty Matematicko-fyzikální fakulty Univerzity Karlovy.
-                    </p>
+                    {switch $lang}
+                        {case 'cs'}
+                        <h1>Fyziklání Online</h1>
+                        <p>
+                            Fyziklání Online je organizováno FYKOSem - soutěží pro středoškoláky ve fyzice s 35letou tradicí. FYKOS je tvořen převážně studenty Matematicko-fyzikální fakulty Univerzity Karlovy.
+                        </p>
+                        {default}
+                        <h1>Online Physics Brawl</h1>
+                        <p>
+                            Online Physics Brawl is organized by FYKOS - a competition for high school students with a 35-year tradition. FYKOS' organisers are mainly students from the Faculty of Mathematics and Physics, Charles University.
+                        </p>
+                    {/switch}
                 </div>
                 <div class="col-md-2">
                     <nav>
