@@ -7,9 +7,24 @@ body {
   background-color: black;
 }
 
-.btn-primary-FOL-style{
+.btn-primary-FOL-style {
   @extend .btn-primary;
   color: $text-on-primary;
+}
+
+ul.stylized {
+  list-style: none;
+
+  li::before {
+    content: " ";
+    background-color: $primary;
+    display: block;
+    width: .5rem;
+    height: .5rem;
+    margin-left: -1.5rem;
+    position: absolute;
+    margin-top: 0.5rem;
+  }
 }
 
 a:hover {
@@ -26,10 +41,18 @@ a:hover {
 
   &.color-dark {
     background-color: $panel-color-dark;
+
+    .inverse-background {
+      background-color: $panel-color-light;
+    }
   }
 
   &.color-light, &.sponsors {
     background-color: $panel-color-light;
+
+    .inverse-background {
+      background-color: $panel-color-dark;
+    }
   }
 
   &.sponsors .inner-container .sponsors-row {
@@ -54,7 +77,7 @@ a:hover {
   }
 
   // Inner container
-  &>.inner-container {
+  & > .inner-container {
     margin: 0 auto;
     padding: 0 1rem;
     max-width: 77rem;
@@ -63,7 +86,7 @@ a:hover {
   &.registration {
     padding: 2.5rem 0;
 
-    &>.inner-container {
+    & > .inner-container {
       display: flex;
       align-items: center;
 
@@ -97,11 +120,12 @@ a:hover {
 
 
 .panel.footer nav {
-  &>ul>li {
+  & > ul > li {
     font-weight: bold;
 
     & li {
       margin: 1rem 0;
+
       a {
         text-decoration: none;
         color: white;

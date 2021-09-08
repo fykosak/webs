@@ -1,16 +1,27 @@
+{varType string $lang}
 {block title}{/block}
+
+{switch $lang}{case 'cs'}Přihlaš se společně až s pětičlenným týmem.{default} Sign up with a team of up to five.{/switch}
 
 {block main}
     <div class="panel color-primary title-panel">
         <div class="inner-container row align-items-center">
             <div class="col-md-6 left-block">
                 <h1>
-                    Mezinárodní internetová fyzikální soutěž
+                    {switch $lang}
+                        {case 'cs'} Mezinárodní internetová fyzikální soutěž
+                        {default} International online physics competition
+                    {/switch}
                 </h1>
-                <div class="subheader">Přihlaš se společně až s pětičlenným týmem.</div>
+                <div class="subheader">
+                    {switch $lang}
+                        {case 'cs'} Přihlaš se společně až s pětičlenným týmem.
+                        {default} Sign up with a team of up to five.
+                    {/switch}
+                </div>
                 <div class="buttons">
-                    <button class="btn btn-light">O soutěži</button>
-                    <button class="btn btn-outline-light">Registrace</button>
+                    <button class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</button>
+                    <button class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</button>
                 </div>
             </div>
             <div class="col-md-6 right-block topic-panel">
@@ -22,19 +33,41 @@
 
     <div class="panel color-light">
         <section class="inner-container">
-            <div class="subheader">Shrnutí pravidel</div>
-            <h1>Co je to Fyziklání Online?</h1>
-            <div class="row strips">
-                <div class="col-md-4">Až 5 středoškoláků soutěží z domova ve 3 hodiny dlouhé soutěži v počítání
-                    fyzikálních příkladů.
+            {switch $lang}
+                {case 'cs'}
+                <div class="subheader">Shrnutí pravidel</div>
+                <h1>Co je to Fyziklání Online?</h1>
+                <div class="row strips">
+                    <div class="col-md-4">Až 5 středoškoláků soutěží z domova ve 3 hodiny dlouhé soutěži v počítání
+                        fyzikálních příkladů.
+                    </div>
+                    <div class="col-md-4">Neustále máte k dispozici 7 úloh. Jakmile nějakou vyřešíte, okamžitě dostáváte
+                        další. Za každou úlohu sbíráte body.
+                    </div>
+                    <div class="col-md-4">Nejlepší týmy vyhrávají věcné ceny a nehynoucí slávu v naší soutěži, která
+                        probíhá
+                        přes deset let.
+                    </div>
                 </div>
-                <div class="col-md-4">Neustále máte k dispozici 7 úloh. Jakmile nějakou vyřešíte, okamžitě dostáváte
-                    další. Za každou úlohu sbíráte body.
+
+            {default}
+                <div class="subheader">Rules briefly</div>
+                <h1>What is Online Physics Brawl?</h1>
+                <div class="row strips">
+                    <div class="col-md-4">
+                        Up to 5 high school students compete from home in a 3-hour long contest in solving physics
+                        problems.
+                    </div>
+                    <div class="col-md-4">
+                        There are 7 problems available for you. As soon as you solve one, you get another problem
+                        immediately. For each solved problem the team is awarded with points.
+                    </div>
+                    <div class="col-md-4">
+                        The best teams win prizes and undying glory in our competition, which runs for over a decade
+                        now.
+                    </div>
                 </div>
-                <div class="col-md-4">Nejlepší týmy vyhrávají věcné ceny a nehynoucí slávu v naší soutěži, která probíhá
-                    přes deset let.
-                </div>
-            </div>
+            {/switch}
         </section>
     </div>
 
@@ -173,6 +206,39 @@
         <section class="inner-container">
             <div class="subheader">Registrace</div>
             <h1>Přihlašte se a staňte se legendami!</h1>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <ul class="stylized">
+                        <li>Registrace je zdarma pro kohokoli!</li>
+                        <li>Je třeba se s dostatečným předstihem registrovat.</li>
+                        <li>Tým může být složen z maximálně dvou škol.</li>
+                        <li>Smí se používat jakékoli pomůcky kromě dalších lidí.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 legends">
+                    <div class="legends-row">
+                        <div class="legends-year">2020</div>
+                        <div class="legends-item">
+                            <span class="flag-icon flag-icon-us"></span>
+                            One-Diraction
+                        </div>
+                    </div>
+                    <div class="legends-row">
+                        <div class="legends-year">2019</div>
+                        <div class="legends-item" n:syntax="off">
+                            <span class="flag-icon flag-icon-sk"></span>
+                            \mathbb{H}armonic Approxilator
+                        </div>
+                    </div>
+                    <div class="legends-row">
+                        <div class="legends-year">2018</div>
+                        <div class="legends-item">
+                            <span class="flag-icon flag-icon-ee"></span>
+                            e = pi = sqrt(g) = 3
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 {/block}

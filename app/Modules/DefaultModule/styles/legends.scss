@@ -1,0 +1,23 @@
+.legends {
+  .legends-row {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+
+    .legends-year {
+      font-size: 1.8rem;
+      color: $primary;
+      margin-right: 2rem;
+      font-weight: bold;
+      width: 5rem;
+    }
+
+    .legends-item {
+      @extend .inverse-background;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      flex-grow: 1;
+    }
+  }
+}
