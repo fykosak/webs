@@ -1,31 +1,51 @@
 {block main}
     <div class="panel color-light">
         <section class="inner-container">
-            <h1>Základní informace</h1>
-            <p>
-                Fyziklání online je internetová týmová soutěž pro každého, kdo má zájem o fyziku.<br>
-                Až pětičlenné týmy se snaží v časovém limitu <strong>tří hodin</strong> správně vyřešit co nejvíce zadaných fyzikálních úloh v lítém boji stovek týmů z celého světa.
-                Každý tým začíná se sedmi úlohami, za každou správně vyřešenou úlohu dostává novou, obtížnější úlohu. <br>
-                Soutěž probíhá jak v českém, tak v anglickém jazyce.
-                Účast je zcela zdarma.
-            </p>
+            {switch $lang}
+                {case cs}
+                <h1>Základní informace</h1>
+                <p>
+                    Fyziklání online je internetová týmová soutěž pro každého, kdo má zájem o fyziku.<br>
+                    Až pětičlenné týmy se snaží v časovém limitu <strong>tří hodin</strong> vyřešit co nejvíce zadaných fyzikálních úloh v lítém boji stovek týmů z celého světa.
+                    Každý tým začíná se sedmi úlohami, za každou správně vyřešenou úlohu dostává novou, obtížnější úlohu. <br>
+                    Soutěž probíhá jak v českém, tak v anglickém jazyce.
+                    Účast je zcela zdarma.
+                </p>
+                {default}
+                <h1>Basic Information</h1>
+                <p>
+                    Physics Brawl Online is a non-profit three-hour-long team competition for anyone with an interest in physics.<br/> Teams of up to five competitors are trying to solve as many physics problems as possible in a given time limit of three hours in a fierce competition of hundreds of teams from all around the world. Every team starts with the same seven problems, for each problem solved they get a new, more challenging one.<br/> It is possible to compete in Czech and English language. The participation is free of charge.
+                </p>
+            {/switch}
         </section>
     </div>
 
     <div class="panel color-dark">
         <section class="inner-container">
-            <h1>O organizátorech</h1>
-            <p>
-                Fyziklání online vyhlašují Matematicko-fyzikální fakulta Univerzity Karlovy (MFF UK) a&nbsp;<em>Ministerstvo školství, mláděže a tělovýchovy</em>.
-                Organizátoři jsou převážně studenti MFF UK, sdružení ve studentské skupině <em>FYKOS</em> (Fyzikální korespondenční seminář).
+            {switch $lang}
+                {case cs}
+                    <h1>O organizátorech</h1>
+                    <p>
+                        Fyziklání online vyhlašují <em>Matematicko-fyzikální fakulta Univerzity Karlovy (MFF UK)</em> a&nbsp;<em>Ministerstvo školství, mláděže a tělovýchovy</em>.
+                        Organizátoři jsou převážně studenti MFF UK, sdružení ve studentské skupině <em>FYKOS</em> (Fyzikální korespondenční seminář).
 
-                Zázemí a hardware poskytují <em>Ústav Teoretické Fyziky</em> MFF UK a <em>Katedra Aplikované Matematiky</em> MFF UK.
-            </p>
-            <p>
-                FYKOS také organizuje několik dalších akcí, například offline verzi této soutěže, <a href="https://fyziklani.cz/">Fyziklání</a>,
-                která se koná každý rok v Praze a <a href="https://fykos.cz/">Fyzikální korespondenční seminář</a>, který probíhá během celého školního roku.
-            </p>
-            <a class="btn btn-primary-FOL-style my-2" href="https://fykos.cz/akce/start">akce pořádané FYKOSem</a>
+                        Zázemí a hardware poskytují <em>Ústav Teoretické Fyziky</em> MFF UK a <em>Katedra Aplikované Matematiky</em> MFF UK.
+                    </p>
+                    <p>
+                        FYKOS také organizuje několik dalších akcí, například offline verzi této soutěže, <a href="https://fyziklani.cz/">Fyziklání</a>,
+                        která se koná každý rok v Praze a <a href="https://fykos.cz/">Fyzikální korespondenční seminář</a>, který probíhá během celého školního roku.
+                    </p>
+                <a class="btn btn-primary-FOL-style my-2" href="https://fykos.cz/akce/start">akce pořádané FYKOSem</a>
+                {default}
+                    <h1>Organizers</h1>
+                    <p>
+                        Physics Brawl Online is organized on behalf of the <em>Ministry of Education, Youth and Sports of the Czech Republic</em> by the <em>FYKOS</em> student group, consisting mostly of students of physics at the <em>Faculty of Mathematics and Physics, Charles University</em>. The rooms, hosting and hardware are provided by the <em>Institute of Theoretical Physics and the Department of Applied Mathematics</em>.</p>
+                    <p>
+                        The FYKOS group also organizes an offline version of the Physics Brawl Online called <a href="https://fyziklani.org/">Fyziklani</a> (which in Czech loosely translates to "Physics Brawl") which is held annually in Prague, and the <a href="https://fykos.org/">FYKOS Online Physics Competition</a> taking place throughout the school year.
+                    </p>
+                <a class="btn btn-primary-FOL-style my-2" href="https://fykos.org/events/start">events organized by FYKOS</a>
+            {/switch}
+
         </section>
     </div>
 
