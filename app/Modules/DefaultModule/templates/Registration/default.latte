@@ -1,0 +1,51 @@
+{block title}
+    {switch $lang}
+        {case cs}Důležité informace před registrací
+        {default}Important information before registration
+    {/switch}
+{/block}
+
+{block content}
+    {switch $lang}
+        {case cs}
+            <ul class="stylized">
+                <li>Jedná se o online soutěž. Nikam se nejezdí.</li>
+                <li>Soutěží se v nejvýše <strong>5členných týmech</strong>.</li>
+                <li>V jednom týmu mohou být studenti <strong>z maximálně 2 škol</strong>.</li>
+                <li>Soutěžit mohou žáci <strong>středních</strong> i <strong>základních škol</strong> v oficiálních kategoriích
+                    (A, B a C). Ostatní soutěžící mohou soutěžit v kategorii Open.
+                </li>
+                <li>Úlohy jsou zadávány v <strong>českém</strong> a <strong>anglickém</strong> jazyce.</li>
+            </ul>
+
+            <ul class="stylized">
+                <li>Přečtěte si <a n:href="Rules:default">podrobná pravidla soutěže</a>.</li>
+                <li>Neváhejte nás kontaktovat na <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>.</li>
+            </ul>
+        {default}
+            {*    TODO Myslet na to, že jsou více cizinci, dal bych tady i to, že kromě FOLu existuje i FOF a FYKOS, aby si to fakt nepletli *}
+
+            <ul class="stylized">
+                <li>Please note that this is not <strong><a href="https://fyziklani.org">Fyziklani in Prague</a></strong> nor the
+                    <strong><a href="https://fykos.org">FYKOS</a></strong> competition (although all of them are organised by the same organization).</li>
+                <li>This is an <strong>online contest</strong>. You can stay at home while taking part.</li>
+                <li>There can be up to <strong>5 members</strong> in one team.</li>
+                <li>The team can consist of people from <strong>maximum of 2 schools</strong>.</li>
+                <li>The official categories (A, B and C) are reserved for <strong>high school</strong>
+                    and <strong>primary school</strong> students. Anyone else can compete in the
+                    <strong>Open</strong> category.
+                </li>
+                <li>The problems are available only in <strong>English</strong> and <strong>Czech</strong>.</li>
+            </ul>
+
+            <ul class="stylized">
+                <li>Read the <a n:href="Rules:default">complete rules of the contest</a>.</li>
+                <li>You can reach us at <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>.</li>
+            </ul>
+    {/switch}
+
+    <div class="d-grid gap-2">
+        <a href="https://db.fykos.cz/public/application/?eventId=159&lang=cs" type="button"
+           class="btn btn-primary btn-lg btn-block">{switch $lang}{case cs}Registrovat tým{default}Register team{/switch}</a>
+    </div>
+{/block}
