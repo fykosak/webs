@@ -45,7 +45,7 @@ class GamePhaseCalculator
         return $this->isGameRunning();/*&& new \DateTime() <  TODO*/
     }
 
-    public function isResultsPubliched(): bool
+    public function isResultsPublished(): bool
     {
         return false;// TODO;
     }
