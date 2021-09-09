@@ -1,0 +1,120 @@
+{block title}
+    {switch $lang}
+        {case cs}Pravidla
+        {default}Rules
+    {/switch}
+{/block}
+
+{block content}
+
+    <a class="btn btn-primary-FOL-style my-2" n:href="Rules:complete">
+        {switch $lang}
+            {case cs}úplná pravidla soutěže
+            {default}full rules
+        {/switch}
+    </a>
+    <a class="btn btn-primary-FOL-style my-2" n:href="Rules:OrganisationalRegulations">
+        {switch $lang}
+            {case cs}organizační řád
+            {default}organisational regulations
+        {/switch}
+    </a>
+    <p>
+        {switch $lang}
+            {case cs}Tato pravidla jsou pouze stručná verze pro připomenutí. Přesné znění naleznete v odkazech výše.
+            {default}These rules are only brief reminders. You can find the full version in the links above.
+        {/switch}
+    </p>
+{*    <p>*}
+{*    Můžete si také projít příklady z minulých ročníků pro lepší představu.*}
+{*    </p>*}
+
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="rule-block">
+                <div class="picture">
+                    <i class="far fa-clock fa-3x"></i>
+                </div>
+                <div class="description">
+                    {switch $lang}
+                        {case cs}Fyziklání online je tříhodinová týmová hra probíhající přes internet.
+                        {default}Physics Brawl Online is a 3-hour long team competition taking place over the internet.
+                    {/switch}
+                </div>
+            </div>
+        </div>
+{*        <div class="d-flex justify-content-end">*}
+            <div class="col-lg-6">
+                <div class="rule-block">
+                    <div class="description">
+                        {switch $lang}
+                            {case cs}Soutěže se mohou účastnit až pětičlenné týmy především ze středních škol z celého světa.
+                            {default}Teams of up to five members (primarily high school students) from all over the world can take part.
+                        {/switch}
+                    </div>
+                    <div class="picture">
+                        <i class="fas fa-users fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+{*        </div>*}
+        <div class="col-lg-6">
+            <div class="rule-block">
+                <div class="picture">
+                    <i class="fas fa-sitemap fa-3x"></i>
+                </div>
+                <div class="description">
+                    {switch $lang}
+                        {case cs}Soutěží se ve třech středoškolských kategoriích a kategorii Open, ve které se může zúčastnit kdokoliv. Postup, jak zjistit do jaké kategorie váš tým patří, je detailněji popsán v úplném znění pravidel.
+                        {default}There are three categories for high school students and the Open category, in which anybody can take part. Instructions on how to identify your team's category can be found in the full version of rules.
+                    {/switch}
+                </div>
+            </div>
+        </div>
+
+{*        <div class="d-flex justify-content-end">*}
+            <div class="col-lg-6">
+                <div class="rule-block">
+                    <div class="description">
+                        {switch $lang}
+                            {case cs}Řešením každé úlohy je číselný výsledek, odevzdávaný přes webový formulář. Formát výsledku (počet platných číslic, jednotky) je vždy uveden u zadání úlohy.
+                            {default}The solution to every problem is a number that is sent to our servers using a web form. Format (number of significant digits, units) is always specified.
+                        {/switch}
+                    </div>
+                    <div class="picture">
+                        <i class="fas fa-calculator fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+{*        </div>*}
+
+        <div class="col-lg-6">
+            <div class="rule-block">
+                <div class="picture">
+                    <i class="fas fa-comment-slash fa-3x"></i>
+                </div>
+                <div class="description">
+                    {switch $lang}
+                        {case cs}Během soutěže je povoleno užívat tištenou literaturu i internet. Nicméně komunikace mezi týmy je striktně zakázána.
+                        {default}You can use both printed literature and the internet. However, any communication between the members of different teams is strictly prohibited.
+                    {/switch}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="rule-block">
+                <div class="description">
+                    {switch $lang}
+                        {case cs}Za vyřešené úlohy sbírají týmy body. Během hry týmy stále vidí aktuální výsledkovou listinu, která bude 20 minut před koncem soutěže zmrazena a opět aktualizována až po skončení hry.
+                        {default}Teams are awarded points for successfully solved problems. During the competition, the score of each team is visible to every other team until 20 minutes before the end. At that point, the scores are hidden and not shown to the participants again until the competition finishes.
+                    {/switch}
+                </div>
+                <div class="picture">
+                    <i class="fas fa-list-ol fa-3x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+{/block}

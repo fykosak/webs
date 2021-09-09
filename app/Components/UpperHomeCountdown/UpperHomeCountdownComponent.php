@@ -17,22 +17,22 @@ class UpperHomeCountdownComponent extends BaseComponent
 
     public function render(): void
     {
-        $this->template->isBeforeRegistration = $this->isBeforeRegistration();
-        $this->template->registrationOpen = $this->calculator->isRegistrationOpen();
-        $this->template->isBeforeContest = $this->isBeforeContest();
-        $this->template->registrationBegin = $this->getFKSDBEvent()->registrationBegin;
-        $this->template->contestBegin = $this->getFKSDBEvent()->begin;
+        //$this->template->isBeforeRegistration = $this->isBeforeRegistration();
+        //$this->template->registrationOpen = $this->calculator->isRegistrationOpen();
+        //$this->template->isBeforeContest = $this->isBeforeContest();
+        //$this->template->registrationBegin = $this->calculator->getFKSDBEvent()->registrationBegin;
+        //$this->template->contestBegin = $this->getFKSDBEvent()->begin;
         $this->template->lang = $this->getPresenter()->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomeCountdown.latte');
     }
 
-    public function isBeforeRegistration(): bool
-    {
-        return new \DateTime() < $this->getFKSDBEvent()->registrationBegin;
-    }
-
-    public function isBeforeContest(): bool
-    {
-        return new \DateTime() < $this->getFKSDBEvent()->begin;
-    }
+//    public function isBeforeRegistration(): bool
+//    {
+//        return new \DateTime() < $this->getFKSDBEvent()->registrationBegin;
+//    }
+//
+//    public function isBeforeContest(): bool
+//    {
+//        return new \DateTime() < $this->getFKSDBEvent()->begin;
+//    }
 }
