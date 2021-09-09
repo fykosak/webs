@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-02 01:21+0200\n"
+"POT-Creation-Date: 2021-09-09 07:55+0200\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -85,33 +85,33 @@ msgstr "History"
 
 #: ../../app/Modules/DefaultModule/BasePresenter.php:57
 msgid "Registrace"
-msgstr ""
+msgstr "Registration"
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:14
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:17
 msgid "Mezinárodní soutež ve fyzice"
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:19
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:32
 msgid "Minulé ročníky"
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:24
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:37
 msgid "Pravidla"
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:29
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:42
 msgid "Rychlý grafický návod ke hře"
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:34
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:47
 msgid "Přihlášené týmy"
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:39
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:52
 msgid "Rozcvička"
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:44
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:57
 msgid "Další akce"
 msgstr ""
 
@@ -165,7 +165,7 @@ msgid "faq.title"
 msgstr "FAQ"
 
 #: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:5
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:24
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:25
 msgid "faq.show_text_button"
 msgstr "Show all questions"
 
@@ -177,55 +177,55 @@ msgstr "Hide all questions"
 msgid "faq.subheader"
 msgstr "Frequently Asked Questions"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:34
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:35
 msgid "faq_category_text"
 msgstr "Category"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:60
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:62
 msgid "faq_category.registration"
 msgstr "Registration to the competition"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:61
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:63
 msgid "faq_category.game"
 msgstr "The game"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:62
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:64
 msgid "faq_category.tasks"
 msgstr "Tasks"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:63
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:65
 msgid "faq_category.submits"
 msgstr "Submits"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:64
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:66
 msgid "faq_category.skipping"
 msgstr "Task skipping"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:65
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:67
 msgid "faq_category.scoring"
 msgstr "Scoring"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:66
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:68
 msgid "faq_category.hurry-up"
 msgstr "Hurry up"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:67
+#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:69
 msgid "faq_category.otherFAQ"
 msgstr "Other FAQ"
 
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:6
+#: ../../app/Modules/Core/templates/@layout.latte.latte2php:8
 msgid "Fyziklání online"
 msgstr ""
 
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:14
+#: ../../app/Modules/Core/templates/@layout.latte.latte2php:16
 msgid "Team competition in solving physics problems"
 msgstr ""
 
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:15
+#: ../../app/Modules/Core/templates/@layout.latte.latte2php:17
 msgid "http://physicsbrawl.org/images/fyziklani-logo.png"
 msgstr ""
 
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:16
+#: ../../app/Modules/Core/templates/@layout.latte.latte2php:18
 msgid "Online team competition in solving physics problems."
 msgstr ""
 
@@ -243,7 +243,7 @@ msgstr ""
 
 #: ../../app/Components/TeamList/teamList.latte.latte2php:5
 msgid "team_list.title"
-msgstr ""
+msgstr "Teams"
 
 #: ../../app/Components/TeamList/teamList.latte.latte2php:11
 #: ../../app/Components/TeamList/teamList.latte.latte2php:29
