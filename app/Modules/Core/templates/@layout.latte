@@ -101,40 +101,74 @@
                 <div class="col-md-2">
                     <nav>
                         <ul>
-                            <li>Pro účastníky
-                                <ul>
-                                    <li><a href="">O Soutěži</a></li>
-                                    <li><a href="">Pravidla</a></li>
-                                    <li><a href="">Program</a></li>
-                                    <li><a href="">Registrace</a></li>
-                                </ul>
-                            </li>
+                            {switch $lang}
+                                {case cs}
+                                <li>Pro účastníky
+                                    <ul>
+                                        <li><a href="">O soutěži</a></li>
+                                        <li><a href="">Pravidla</a></li>
+                                        <li><a href="">Program</a></li>
+                                        <li><a href="">Registrace</a></li>
+                                    </ul>
+                                </li>
+                                {default}
+                                <li>For contestants
+                                    <ul>
+                                        <li><a href="">About</a></li>
+                                        <li><a href="">Rules</a></li>
+                                        <li><a href="">Schedule</a></li>
+                                        <li><a href="">Registration</a></li>
+                                    </ul>
+                                </li>
+                            {/switch}
                         </ul>
                     </nav>
                 </div>
                 <div class="col-md-2">
                     <nav>
                         <ul>
-                            <li>Pro učitele
-                                <ul>
-                                    <li><a href="">Jak se připravit</a></li>
-                                    <li><a href="">Registrace</a></li>
-                                    <li><a href="">Program</a></li>
-                                </ul>
-                            </li>
+                            {switch $lang}
+                                {case cs}
+                                <li>Pro učitele
+                                    <ul>
+                                        <li><a href="">Jak se připravit</a></li>
+                                        <li><a href="">Registrace</a></li>
+                                        <li><a href="">Program</a></li>
+                                    </ul>
+                                </li>
+                                {default}
+                                <li>For teachers
+                                    <ul>
+                                        <li><a href="">How to prepare</a></li>
+                                        <li><a href="">Registration</a></li>
+                                        <li><a href="">Schedule</a></li>
+                                    </ul>
+                                </li>
+                            {/switch}
                         </ul>
                     </nav>
                 </div>
                 <div class="col-md-2">
                     <nav>
                         <ul>
-                            <li>Pro partnery
-                                <ul>
-                                    <li><a href="">Proč sponzorovat Fyziklání Online?</a></li>
-                                    <li><a href="">Loga a materiály</a></li>
-                                    <li><a href="">Kontakt</a></li>
-                                </ul>
-                            </li>
+                            {switch $lang}
+                                {case cs}
+                                <li>Pro partnery
+                                    <ul>
+                                        <li><a href="">Proč sponzorovat Fyziklání Online?</a></li>
+                                        <li><a href="">Loga a materiály</a></li>
+                                        <li><a href="">Kontakt</a></li>
+                                    </ul>
+                                </li>
+                                {default}
+                                <li>For partners
+                                    <ul>
+                                        <li><a href="">Why sponsor Physics Brawl Online?</a></li>
+                                        <li><a href="">Logos and materials</a></li>
+                                        <li><a href="">Contact</a></li>
+                                    </ul>
+                                </li>
+                            {/switch}
                         </ul>
                     </nav>
                 </div>
