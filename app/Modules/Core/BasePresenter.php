@@ -6,6 +6,7 @@ namespace App\Modules\Core;
 
 use App\Components\Navigation\Navigation;
 use App\Models\Exceptions\UnderConstructionException;
+use App\Models\GamePhaseCalculator;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\Localization\GettextTranslator;
@@ -27,6 +28,13 @@ abstract class BasePresenter extends Presenter
     {
         $this->translator = $translator;
         $this->serviceEventDetail = $serviceEventDetail;
+    }
+
+    protected GamePhaseCalculator $gamePhaseCalculator;
+
+    public function injectGamePhaseCalculator(GamePhaseCalculator $calculator): void
+    {
+        $this->gamePhaseCalculator = $calculator;
     }
 
     /**
@@ -58,6 +66,7 @@ abstract class BasePresenter extends Presenter
     {
         $template = parent::createTemplate();
         $template->lang = $this->lang;
+        $template->gamePhaseCalculator = $this->gamePhaseCalculator;
         $template->setTranslator($this->translator);
 
         return $template;

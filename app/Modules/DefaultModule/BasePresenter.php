@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\DefaultModule;
 
 use App\Components\Navigation\NavItem;
+use App\Models\GamePhaseCalculator;
 use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
@@ -53,10 +54,12 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 
         // if ($this->yearsService->isRegistrationActive()) {
         //    if (!$this->getUser()->isLoggedIn()) {
-        $items[] = new NavItem(
-            new PageTitle(_('Registrace'), 'visible-sm-inline glyphicon glyphicon-edit'),
-            ':Default:Registration:',
-        );
+        if ($this->gamePhaseCalculator->isRegistration(GamePhaseCalculator::NOW)) {
+            $items[] = new NavItem(
+                new PageTitle(_('Registrace'), 'visible-sm-inline glyphicon glyphicon-edit'),
+                ':Default:Registration:',
+            );
+        }
         //    }
         // }
         return $items;

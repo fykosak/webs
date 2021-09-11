@@ -7,6 +7,9 @@ namespace App\Modules\DefaultModule;
 use App\Components\UpperHomeCountdown\UpperHomeCountdownComponent;
 use App\Components\UpperHomeMap\UpperHomeCountdown;
 use App\Components\UpperHomeMap\UpperHomeMapComponent;
+use App\Models\GamePhaseCalculator;
+use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\UI\PageTitle;
 
 class DefaultPresenter extends BasePresenter
@@ -24,7 +27,7 @@ class DefaultPresenter extends BasePresenter
 
     protected function createComponentUpperHomeCountdown(): UpperHomeCountdownComponent
     {
-        return new UpperHomeCountdownComponent($this->getContext());
+        return new UpperHomeCountdownComponent($this->gamePhaseCalculator);
     }
 
     public function renderLastYears(): void
