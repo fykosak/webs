@@ -2,13 +2,13 @@
   padding: 1rem;
 
   .image-cropper {
+    @extend .ratio;
+    @extend .ratio-1x1;
     background-size: cover;
     background-position-y: 50%;
     background-position-x: 50%;
-    width: 18rem;
-    height: 18rem;
+    max-width: 30rem;
     overflow: hidden;
-    border-radius: 50%;
   }
 
   .name {
