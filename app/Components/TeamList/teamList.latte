@@ -2,20 +2,32 @@
 {block content}
     <div class="panel color-light">
         <section class="inner-container">
-            <h1>{_'team_list.title'}</h1>
-
-            <ul>
-                {do ksort($teams)}
-                {foreach $teams AS $category => $teamsForCategory}
-                    {if $category == 'F'}
-                        <li><a href="#{$category}">{_'Zahraniční SŠ'}</a></li>
-                    {elseif $category == 'O'}
-                        <li><a href="#{$category}">{_'Kategorie'} Open</a></li>
-                    {else}
-                        <li><a href="#{$category}">{_'Kategorie'} {$category}</a></li>
-                    {/if}
-                {/foreach}
-            </ul>
+            <h1>{switch $lang}{case 'cs'}Týmy{default}Teams{/switch}</h1>
+            {do ksort($teams)}
+            {foreach $teams AS $category => $teamsForCategory}
+                {if $category == 'F'}
+                    <a class="btn btn-primary-FOL-style my-2" href="#{$category}">
+                        {switch $lang}
+                            {case 'cs'}Zahraniční SŠ
+                            {default}Foreign High School
+                        {/switch}
+                    </a>
+                {elseif $category == 'O'}
+                    <a class="btn btn-primary-FOL-style my-2" href="#{$category}">
+                        {switch $lang}
+                            {case 'cs'}Kategorie Open
+                            {default}Open Category
+                        {/switch}
+                    </a>
+                {else}
+                    <a class="btn btn-primary-FOL-style my-2" href="#{$category}">
+                        {switch $lang}
+                            {case 'cs'}Kategorie {$category}
+                            {default}Category {$category}
+                        {/switch}
+                    </a>
+                {/if}
+            {/foreach}
         </section>
     </div>
 
@@ -24,9 +36,13 @@
         {do $parityCounter = !$parityCounter}
         <div n:class="panel, $parityCounter ? color-light : color-dark">
             <section class="inner-container" id="{$category}">
-                <div class="subheader">Kategorie</div>
-                <h1>{if $category == 'F'}
-                        {_'Zahraniční SŠ'}
+                <div class="subheader">{switch $lang}{case 'cs'}Kategorie{default}Category{/switch}</div>
+                <h1>
+                    {if $category == 'F'}
+                        {switch $lang}
+                            {case 'cs'}Zahraniční SŠ
+                            {default}Foreign High School
+                        {/switch}
                     {elseif $category == 'O'}
                         Open
                     {else}
