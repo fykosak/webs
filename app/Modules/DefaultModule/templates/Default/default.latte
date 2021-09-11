@@ -1,4 +1,5 @@
 {varType string $lang}
+{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 {block title}{/block}
 
 {block main}
@@ -19,12 +20,15 @@
                 </div>
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
-                    <a n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
+                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
             </div>
             <div class="col-md-6 right-block topic-panel">
-                {*{control upperHomeMap}*}
-                {control upperHomeCountdown}
+                {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
+                    {control upperHomeCountdown}
+                {elseif false}
+                    {control upperHomeMap}
+                {/if}
             </div>
         </div>
     </div>

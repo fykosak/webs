@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use DateTimeInterface;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
+use Nette\ArgumentOutOfRangeException;
 use Nette\DI\Container;
 use Nette\SmartObject;
 
@@ -15,19 +17,52 @@ class GamePhaseCalculator
 
     private ServiceEventList $serviceEventList;
     private Container $container;
-    /**
-     * @return bool
-     * @throws \Throwable
-     */
+
+    const BEFORE = 0;
+    const AFTER = 1;
+    const NOW = 2;
+
+    protected function checkEvent(int $period, DateTimeInterface $start, DateTimeInterface $end): bool {
+        $now = new \DateTime();
+        switch ($period) {
+            case self::BEFORE: return $now < $start;
+            case self::AFTER: return $now > $end;
+            case self::NOW: return $now > $start && $now < $end;
+            default: throw new ArgumentOutOfRangeException("Invalid period");
+        }
+    }
+
+    public function __construct(ServiceEventList $serviceEventList, Container $container)
+    {
+        $this->serviceEventList = $serviceEventList;
+        $this->container = $container;
+    }
+
     public function isDateKnown(): bool
     {
         return new \DateTime() < $this->getFKSDBEvent()->end;
     }
 
-    public function isRegistrationOpen(): bool
+    public function isRegistration(int $period): bool {
+        return $this->checkEvent($period, $this->getFKSDBEvent()->registrationBegin, $this->getFKSDBEvent()->registrationEnd);
+    }
+
+    public function isGame(int $period): bool {
+        // todo implement
+        switch ($period) {
+            case self::BEFORE: return true;
+            default: return false;
+        }
+    }
+
+    public function isAfterRegistration(): bool
     {
-        return new \DateTime() > $this->getFKSDBEvent()->registrationBegin
-            && new \DateTime() < $this->getFKSDBEvent()->registrationEnd;
+        return $this->isDateKnown() && new \DateTime() > $this->getFKSDBEvent()->registrationEnd;
+    }
+
+    public function isBeforeTheCompetition(): bool
+    {
+        return true; // todo implement
     }
 
     public function getStreamURL(): ?string
@@ -54,7 +89,7 @@ class GamePhaseCalculator
      * @return ModelEvent|null
      * @throws \Throwable
      */
-    private function getFKSDBEvent(): ?ModelEvent
+    public function getFKSDBEvent(): ?ModelEvent
     {
         static $fksdbEvent;
         if (!isset($this->event)) {

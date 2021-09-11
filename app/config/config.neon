@@ -18,6 +18,7 @@ services:
     - Fykosak\NetteFKSDBDownloader\NetteFKSDBDownloader('https://db.fykos.cz/FKSDBWebServices.wsdl',%fksdbDownloader.login%,%fksdbDownloader.password%,'1 day')
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail('1 day')
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList('1 day')
+    - App\Models\GamePhaseCalculator()
 
     router: App\Router::createRouter(%domains%, %router-mapping%)
 

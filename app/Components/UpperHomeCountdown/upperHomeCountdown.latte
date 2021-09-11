@@ -1,65 +1,13 @@
+{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType string $lang}
 {block content}
-    <script n:syntax="off" type="text/javascript">
-        var finalTime = new Date("Oct 4, 2021 06:00").getTime();
-        var x = setInterval(()=>{
-            var now = new Date().getTime();
-            var dist = (finalTime - now)/1000;
-            var days = Math.floor(dist/86400)
-            var hours = Math.floor((dist-days*86400)/3600);
-            var mins = Math.floor(((dist-days*86400)-hours*3600)/60);
-            var secs = Math.floor((dist-days*86400-hours*3600-mins*60));
-            var date = [hours,mins,secs]
-
-            if (dist > 0){
-                if (days < 1){
-                    var i = 0
-                    date.forEach(element =>{
-                        if (element < 10){
-                            document.getElementById(i).innerHTML = "0" + element;
-                        } else { document.getElementById(i).innerHTML = element; }
-                        i++;
-                    })
-                    document.getElementById('long-countdown').innerHTML = "";
-                } else {
-                    document.getElementById("days").innerHTML = days;
-                    var i = 0;
-                    date.forEach(element =>{
-                        document.getElementById(i).innerHTML = element;
-                        i++;
-                    })
-                    document.getElementById("short-countdown").innerHTML = "";
-                }
-            }
-        },1000);
-    </script>
-
-    <div class="countdown-panel subheader">
-        <div id="long-countdown">
+    <div class="upper-home-countdown countdown-panel subheader justify-content-center">
+        <div class="info-text">
             {switch $lang}
-                {case cs}
-                {*TODO skloňování *}
-                    <h2>Do začátku registrace zbývá<br/>
-                    <strong><span id="days"></span> dní,<br/>
-                    <span id="0"></span> hodin,<br/>
-                    <span id="1"></span> minut<br/>
-                    a <span id="2"></span> sekund.</strong></h2>
-                {default}
-                    <h2><strong><span id="days"></span> days,<br/>
-                    <span id="0"></span> hours,<br/>
-                    <span id="1"></span> minutes<br/>
-                    and <span id="2"></span> seconds<br/></strong>
-                    left until the beginning of the registration.</h2>
+                {case "cs"} Registraci otevíráme {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'}
+                {default} Registration opens on {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j F'}
             {/switch}
         </div>
-        <div id="short-countdown">
-            {switch $lang}
-                {case cs}
-                <h2>Do začátku registrace zbývá<br/></h2>
-                <h1><span id="0"></span>:<span id="1"></span>:<span id="2"></span></h1>
-                {default}
-                    <h1><span id="0"></span>:<span id="1"></span>:<span id="2"></span></h1><br/>
-                    <h2>left until the beginning of the registration.</h2>
-            {/switch}
-        </div>
+        {control countdown}
     </div>
 {/block}
