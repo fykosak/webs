@@ -57,7 +57,7 @@ class TeamListComponent extends BaseComponent
     public function render(): void
     {
         $this->loadTeams();
-
+        $this->template->lang = $this->getPresenter()->lang;
         $this->template->teams = $this->teams;
         $this->template->lang = $this->getPresenter()->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamList.latte');

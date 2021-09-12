@@ -14,7 +14,8 @@ class RegistrationPresenter extends BasePresenter
             $gamePhaseCalculator->isGame(GamePhaseCalculator::BEFORE);
     }
 
-    public function actionDefault() {
+    public function actionDefault()
+    {
         if (!self::isVisible($this->gamePhaseCalculator)) {
             $this->error();
         }
