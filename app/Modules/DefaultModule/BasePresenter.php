@@ -27,10 +27,10 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             new PageTitle(_('faq.menu'), 'visible-sm-inline glyphicon glyphicon-question-sign'), // TODO
             ':Default:Faq:default',
         );
-        $items[] = new NavItem(
-            new PageTitle(_('howToPlay.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            ':Default:HowToPlay:default',
-        );
+//        $items[] = new NavItem(
+//            new PageTitle(_('howToPlay.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+//            ':Default:HowToPlay:default',
+//        );
         $items[] = new NavItem(
             new PageTitle(_('schedule.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Schedule:default',
