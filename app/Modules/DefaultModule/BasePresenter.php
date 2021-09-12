@@ -35,10 +35,10 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             new PageTitle(_('schedule.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Schedule:default',
         );
-        $items[] = new NavItem(
-            new PageTitle(_('reports.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            ':Default:Reports:default',
-        );
+//        $items[] = new NavItem(
+//            new PageTitle(_('reports.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+//            ':Default:Reports:default',
+//        );
         $items[] = new NavItem(
             new PageTitle(_('archive.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
             ':Default:Archive:default',

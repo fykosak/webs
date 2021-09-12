@@ -1,256 +1,130 @@
-{block content}
-    <p>
-        Pravidla jsou také dostupná v <a href="{$basePath}/documents/rules_cs.pdf">pdf verzi</a>.
-    </p>
+{block title}Úplná pravidla soutěže{/block}
 
-    <p>
-        Oficiální sdělení organizátorů účastníkům během soutěže budou zveřejněna prostřednictvím
-        nástěnky &mdash; účastníci jsou povinni nástěnku sledovat.
-    </p>
-
-{*    <p>Oproti minulým ročníkům máme letos změnu v Hurry-up části, viz níže. Také jsme spojili české kategorie se*}
-{*        zahraničními.</p>*}
-
-    <h3 id="participation">Účast ve hře</h3>
-    <ul>
-        <li>Hrají týmy skládající se z 1&ndash;5 hráčů.</li>
-        <li>
-            Každý tým se zařadí do jedné ze tří kategorií podle koeficient týmu.
-            Studenti mladší prvního ročníku čtyřletého gymnázia si přiřadí
-            koeficient hráče 0, studenti prvního ročníku koeficient hráče 1, druhého 2, atd.
-            koeficient týmu se spočte jako průměrná hodnota koeficientů hráčů
-            (koeficienty hráče od jednotlivých členů se sečtou a vydělí počtem členů týmu).
-            Tým se zařadí do nejnižší kategorie, která mu vyhovuje.<br>
-            Kategorie jsou následující:
+{block main}
+    <div class="panel color-primary">
+        <section class="inner-container">
+            <h1>{include title}</h1>
             <ul>
-                <li><strong> C</strong> &ndash; koeficient týmu &le; 2 &amp; žádný člen
-                    týmu
-                    nemá koeficient hráče 4 &amp; max. dva členové týmu mají koeficient hráče
-                    3,
+                <li>ÚČAST VE HŘE
+                    <ul>
+                        <li><a href="#">Přihlášení do soutěže</a></li>
+                        <li><a href="#">Rozdělení do kategorií</a></li>
+                    </ul>
                 </li>
-                <li><strong> B</strong> &ndash; koeficient týmu &le; 3 &amp; max. dva
-                    členové týmu mají koeficient hráče 4,
+                <li>POPIS SOUTĚŽE
+                    <ul>
+                        <li><a href="#">Herní systém</a></li>
+                        <li><a href="#">Systém soutěže a bodování</a></li>
+                        <li><a href="#">Hlavní linie</a></li>
+                        <li><a href="#">Hurry-up linie </a></li>
+                        <li><a href="#">Formát výsledků</a></li>
+                        <li><a href="#">Ukončení soutěže a vyhlášení vítězů</a></li>
+                    </ul>
                 </li>
-                <li><strong> A</strong> &ndash; koeficient týmu &le; 4.</li>
-                <li><strong> open</strong> &ndash; každý tým, který nechce nebo nemůže být ve středoškolských
-                    kategoriích.
+                <li>DOPLŇUJÍCÍ USTANOVENÍ
+                    <ul>
+                        <li><a href="#">Porušení pravidel</a></li>
+                        <li><a href="#">Závěrečná ustanovení</a></li>
+                    </ul>
                 </li>
             </ul>
-        </li>
-        <li>Týmy ve všech kategoriích řeší stejné úlohy.</li>
-        <li>Každá kategorie má samostatnou výsledkovou listinu, bude vytvořena i
-            celková výsledková listina.
-        </li>
-        <li>Účast ve hře je zdarma.</li>
-        <li>Odměnou za dobré umístění je prestiž a dobrý pocit, pro nejlepší
-            jsou připraveny také ceny hmotné.
-        </li>
-        <li>Je zakázána jakákoliv spolupráce mezi týmy i s osobami mimo tým.
-        </li>
-        <li>Hra je založena na fair-play. Průběh hry monitorujeme a můžeme tedy
-            odhalit některé způsoby podvádění, nicméně předpokládáme, že hrajete proto,
-            abyste si zahráli, a tudíž že podvádění nemá smysl.
-        </li>
-    </ul>
 
-    <h3 id="tasks">Úlohy</h3>
-    <ul>
-        <li>V soutěži bude celkem více než 60 úloh.
-            Přesný počet úloh se každý ročník liší a záměrně není dopředu zveřejňován.
-        </li>
-        <li>Zadání úloh budou zveřejněna ve formátu <acronym title="Portable Document Format">PDF</acronym>
-            na webu hry po přihlášení týmovým heslem.
-        </li>
-        <li>Výsledkem úlohy je číslo zadávané přes webový formulář. V zadání úlohy bude,
-            zda požadujeme číslo celé
-            (vysloveně) nebo reálné (výchozí). U reálného čísla se bude<!-- zadán
-    požadovaný
-    počet platných cifer a--> jeho vyhodnocování provádět v rámci intervalu
-            tolerance (ten je námi stanovený pro danou úlohu).
-        </li>
-        <li>Je-li v zadání uvedena číselná hodnota nějaké konstanty, použijte
-            striktně tuto hodnotu.
-        </li>
-        <li>Číselné výsledky úloh uvádějte v nenásobných jednotkách SI, není-li
-            uvedeno jinak. U každého příkladu je uveden minimální počet požadovaných
-            platných cifer, ačkoli je možné, že váš výsledek bude správný i při menším
-            počtu
-            zadaných míst, jen dodržení vám zaručí správnou opravu výsledku. Příklady:
-            <ul>
-                <li><em>Jakou vzdálenost ujede vlak rychlostí 50 km/h za minutu? Uveďte
-                        alespoň 4 platné cifry.</em> &mdash; třeba odpověď 833,3 nebo 833,33
-                    (jednotka není specifikovaná, tedy odpovídáme v metrech jakožto základní jednotce)
-                </li>
-                <li><em>Kolik kilometrů ujede vlak rychlostí 50 km/h za minutu? Stačí 1
-                        platná cifra.</em> &mdash; třeba odpověď 0,8
-                </li>
-                <li><em>Kolik atomů uhlíku (celé číslo) obsahuje molekula
-                        cyklopentanoperhydrofenantrenu?</em> &mdash; odpověď 17 je správně &mdash;
-                    odpověď 17,0001 je
-                    špatně
-                </li>
-            </ul>
-        </li>
-        <li>Úlohy budou rozmanitých typů a rozmanité obtížnosti, která bude
-            rozlišena maximem možných získaných bodů, jednodušší úlohy bude obsahovat
-            <em>Hurry-up</em> série, ale bude na jejich řešení méně času.
-        </li>
-    </ul>
+            <p>
+                Pravidla jsou také dostupná v <a href="{$basePath}/documents/rules_cs.pdf">pdf verzi</a>.
+            </p>
+        </section>
+    </div>
 
-    <h3 id="system">Systém hry a bodování</h3>
-    <ul>
-        <li>
-            Hra bude mít dvě souběžné soutěžní linie:
-            <ul>
-                <li>Hlavní linie: 17:00 až 20:00.</li>
-                <li>Hurry-up linie: 18:00 až 20:00.</li>
-            </ul>
-        </li>
-        <li>Konec hry je ve 20:00 (3 hodiny po začátku hry).</li>
-        <li>V každé linii bude mít tým zpřístupněný pouze konkrétní počet úloh k řešení. Při zadání správné odpovědi se
-            zpřístupní další úloha.
-        </li>
-        <li> V 18:30 (polovina herní doby) se týmům navíc odemkne možnost přeskakovat nevyřešené úlohy.</li>
-        <li>
-            Při přeskočení nevyřešené úlohy tým ztratí 1 bod a bude mu zpřístupněna další úloha v dané skupině. Na
-            přeskočenou úlohu již nelze odpovědět. Každý tým má možnost přeskočit maximálně 10 úloh.
-        </li>
-        <li>
-            Za vyřešené úlohy získávají týmy body. U každé úlohy je určen maximální počet bodů, které tým získá, pokud
-            odpoví na úlohy správně napoprvé. Po chybné odpovědi se snižuje počet bodů, který může tým za úlohu získat
-            (viz Hlavní linie, resp. Hurry-up).
-        </li>
-        <li>Bezprostředně po zadání chybné odpovědi bude týmu na 1 minutu znemožněno odpovídat na úlohy dané skupiny,
-            tzn. úlohy hlavní linie, nebo jedné ze tří skupin úloh linie Hurry up (viz níže).
-        </li>
-        <li>Vítězem se stává tým s nejvyšším počtem bodů. V případě rovnosti bodů rozhoduje nižší čas přijetí poslední
-            správné odpovědi.
-        </li>
-        <li>Okamžitě po soutěži zveřejňujeme předběžné výsledkové listiny, které se uzavírají půl hodiny po soutěži.
-        </li>
-    </ul>
-    <h4>Hlavní linie</h4>
-    <ul>
-        <li>Na počátku hlavní linie soutěže bude každému týmu zadáno 7 úloh, po vyřešení úlohy se týmu zpřístupní další
-            příklad v sérii přibližně 50 úloh.
-        </li>
-        <li>Maximální bodový zisk za každou úlohu je 3 až 9 bodů a je přibližně určen podle obtížnosti.</li>
-        <li>Po prvním chybném pokusu o odpověď se sníží počet bodů za danou úlohu na 60% maxima, dále analogicky 40% a
-            20% (zaokrouhleno vždy nahoru na celý bod).
-            Správná odpověď je vždy ohodnocena alespoň jedním bodem. Přesnou bodovací tabulku najdete v <a
-                    href="{$basePath}/download/2018-1/pravidla.pdf">pravidlech</a>.
-        </li>
-    </ul>
+    <div>
+        <div class="panel color-auto" id="">
+            <section class="inner-container">
+                <div class="subheader">ÚČAST VE HŘE</div>
+                <h1>Přihlášení do soutěže</h1>
 
-    <h4>Hurry-up</h4>
-    <ul>
-        <li>Hodinu po začátku se otevře možnost odpovídat na úlohy tzv.
-            <em>Hurry-up</em> série.
-        </li>
-        <li>Úlohy této linie jsou rozděleny na tři tematické oddíly (mechanika M, elektromagnetismus E, ostatní X).</li>
-        <li>Na počátku dostane tým z každého oddílu jeden příklad (tedy příklady M.1, E.1, X.1).</li>
-        <li>Po správné odpovědi se týmu zpřístupní další úloha daného oddílu (po správném zodpovězení M.1 se zpřístupní
-            úloha M.2).
-        </li>
-        <li>Úlohy hurry-up série jsou jednodušší (téměř vždy za 3 body).</li>
-        <li>Za každou špatnou odpověď se bodové ohodnocení dané úlohy snižuje stejným způsobem jako v hlavní linii,
-            avšak na rozdíl od hlavní linie soutěže lze za hurry-up úlohy získat i 0 bodů (méně ne).
-        </li>
-        <li>První půlhodinu hurry-upu (než se umožní přeskakovat úlohy v 18:30, viz Systém hry a bodování) platí, že za
-            každé zkompletované patro úloh (tj. správně zodpovězenou úlohu daného pořadí v každém oddílu – např. M.1,
-            E.1, X.1) se týmu zdvojnásobí získaný počet bodů za dané patro.
-        </li>
-        <li>Tyto bonusové body se ve výsledkových listinách zobrazují pouze ve sloupci bonusových bodů a celkových
-            získaných bodů.
-        </li>
-        <li>V době 18:30 až 20:00 zůstávají úlohy hurry-upu přístupné k řešení, avšak za zkompletované patro se už
-            nebudou udělovat bonusové body.
-        </li>
+                Aby tým mohl soutěžit, musí se přihlásit přes https://online.fyziklani.cz.
+                Přihlášením do soutěže se tým zavazuje, že se seznámil s organizačním řádem soutěže a s těmito pravidly a že je bude dodržovat.
+                Tým se skládá z 1–5 hráčů.
+                Členové týmu musí být studenti střední, popřípadě základní školy.
+                Pro ostatní soutěžící je vyhrazena kategorie Open.
+                Každý soutěžící se může účastnit soutěže pouze v jedné kategorii a být členem pouze jednoho týmu. Tyto kategorie jsou popsány níže.
+                Jméno týmu nesmí šířit politické či náboženské názory, nesmí být urážlivé či jiným způsobem nevhodné. Hlavní organizátor má právo jméno takovému týmu změnit, případně ho cenzurovat nebo tým diskvalifikovat ze soutěže.
+                Přihlášením do soutěže souhlasíte se zveřejněním výsledků ve formě základních údajů (svého jména, příjmení, kategorie, školy a bodů) ve výsledkové listině na internetových stránkách, v brožurkách a ročenkách FYKOSu.
+        </div>
 
-    </ul>
+        <div class="panel color-auto" id="">
+            <section class="inner-container">
+                <div class="subheader">ÚČAST VE HŘE</div>
+                <h1>Rozdělení do kategorií</h1>
 
-    <h3 id="equipment">Vybavení</h3>
-    <ul>
-        <li>Počítač s přístupem na internet (rychlost připojení by neměla být
-            příliš
-            důležitá). Více počítačů může být výhodou (ale není nezbytně nutné). Je
-            dovoleno
-            používat internet jako zdroj informací v libovolné míře (kromě komunikace
-            s osobami mimo tým).
-        </li>
-        <li>Tiskárna není nutná, ale může vám pomoci.</li>
-        <li>Papíry, tužky, pastelky, podložky, literatura, kalkulačka, &hellip;</li>
-        <li>Svačina.</li>
-        <li>Maskot týmu (nejlépe pták Fykosák).</li>
-    </ul>
+                Soutěží se ve třech kategoriích, do kterých jsou týmy rozděleny podle níže popsaného algoritmu.
+                Všechny ostatní týmy se mohou zúčastnit v kategorii Open.
+                Studentům mladším prvního ročníku středních škol a odpovídajících ročníků víceletých gymnázií bude přiřazen koeficient hráče 0, studentům prvního ročníku koeficient hráče 1, druhého 2, atd.
+                Koeficient týmu se spočte jako průměrná hodnota koeficientů hráčů (koeficienty hráčů jednotlivých členů týmu se sečtou a vydělí počtem členů týmu).
+                Tým se zařadí do nejnižší kategorie, která mu vyhovuje:
+                kategorie A: koeficient týmu ≤ 4,
+                kategorie B: koeficient týmu ≤ 3 a max. dva členové týmu mají koeficient hráče 4,
+                kategorie C: koeficient týmu ≤ 2, žádný člen týmu nemá koeficient hráče 4 a max. dva členové týmu mají koeficient hráče 3.
+                Tým může soutěžit v kategorii A, i když je jeho koeficient řadí do nižší kategorie, pokud to označí v přihlášce.
+                Všechny kategorie budou mít stejné zadání úloh.
+                Pro každou kategorii bude samostatná výsledková listina.
 
-    <h3 id="advices">Rady</h3>
-    <ul>
-        <li>Větší tým má výhodu, doporučujeme pětičlenné týmy.</li>
-        <li>U hry je důležitou součástí i celková strategie: Které úlohy je výhodné
-            řešit? Je lepší pracovat společně nebo si práci rozdělit a pracovat samostatně?
-            Kdo rozhoduje, jak si tým rozdělí práci? Během hry budete zavaleni úkoly,
-            zkuste
-            si tedy strategii prodiskutovat dopředu.
-        </li>
-        <li> Během hry máte k dispozici výsledkovou listinu a statistiky úloh &mdash; z
-            těchto informací můžete poznat, které úlohy jsou jednoduché a které těžké a
-            tomu
-            můžete přizpůsobit svoji strategii. Sledujte tedy pravidelně výsledkovku!
-            Ta bude zmražena 20 minut před koncem soutěže.
-        </li>
-        <li> Doporučujeme také sledovat diskusi. Pokud nějakou úlohu nechápete, možná
-            nejste sami &mdash; a je rychlejší zjistit, zda se někdo zeptal stejnou otázku,
-            než ptát se ji taky a čekat na odpověď.
-        </li>
-    </ul>
+        </div>
 
-    <h3 id="awards">Odměny</h3>
-    <ul>
-        <li>Mimo zisk nehynoucí slávy jsou alespoň <strong>první tři československé</strong> středoškolské
-            týmy v každé kategorii odměněni <strong>diplomy</strong> a věcnými cenami, jimiž jsou například
-            <strong>společenské hry, knížky, trička, mikiny, flashky a mnoho dalších...</strong>.
-        </li>
-        <li>Zároveň budou odměněni i první tři týmy z každé středoškolské kategorie a jeden celkový vítěz (včetně
-            kategorie open).
-        </li>
-    </ul>
+        <div class="panel color-auto" id="">
+            <section class="inner-container">
+                <div class="subheader">POPIS SOUTĚŽE</div>
+                <h1>Herní systém</h1>
 
-    <h3 id="codex">Kodex cti</h3>
-    <ul>
-        <li>Ačkoli doufáme, že následující nebude nikdy uplatněno, organizátoři si
-            vyhrazují právo tým nepřihlásit do soutěže, ze soutěže ho vyloučit
-            nebo vymazat z výsledkových listin v případě, že ze strany týmu dojde
-            k porušení fairplay nebo dojde k jakémukoli odsouzeníhodnému chování
-            souvisejícímu se soutěží.
-        </li>
-        <li>Jmenovitě především (ale ne pouze): pokud budou poskytnuté údaje nepravdivé,
-            vulgární, nebo společensky závadné, pokud dojde ze strany týmu k nevhodnému
-            vyjadřování v oficiálních kanálech soutěže, pokud dojde k diskutování
-            řešení úloh během soutěže s osobami mimo vlastní tým, pokud dojde k jakémukoli
-            typu útoku na herní servery (včetně neopodstatněného a úmyslného spamování
-            herních komunikačních kanálů, neúměrného zatěžování, či hádání hesel
-            jiných týmů apod.)
-        </li>
-        <li>V případě situací, které nebylo možno předvídat nebo se jim i přes nejlepší
-            snahu nepodařilo zabránit, si organizátoři vyhrazují právo vydat konečné
-            rozhodnutí, které bude podle jejich vědomí nejlépe v souladu s fairplay.
-        </li>
-    </ul>
+        </div>
 
-    <i>V případě, že vám pravidla neposkytla požadovanou informaci, navštivte stránku
-        častých otázek (FAQ), pokud odpověď nenaleznete ani tam, obraťte se na nás emailem.</i>
+        <div class="panel color-auto" id="">
+            <section class="inner-container">
+                <div class="subheader">POPIS SOUTĚŽE</div>
+                <h1>Systém soutěže a bodování</h1>
 
-{/block}
-{block #subnavigation}
-    <ul class="nav">
-        <li><a href="#briefrules">Zkrácené znění pravidel a rady</a></li>
-        <li><a href="#participation">Účast ve hře</a></li>
-        <li><a href="#tasks">Úlohy</a></li>
-        <li><a href="#system">Systém hry a bodování</a></li>
-        <li><a href="#equipment">Vybavení</a></li>
-        <li><a href="#advices">Rady</a></li>
-        <li><a href="#awards">Odměny</a></li>
-        <li><a href="#codex">Kodex cti</a></li>
-    </ul>
+        </div>
+
+        <div class="panel color-auto" id="">
+            <section class="inner-container">
+                <div class="subheader">POPIS SOUTĚŽE</div>
+                <h1>Hlavní linie</h1>
+
+        </div>
+
+        <div class="panel color-auto" id="">
+            <section class="inner-container">
+                <div class="subheader">POPIS SOUTĚŽE</div>
+                <h1>Hurry-up linie </h1>
+
+        </div>
+
+        <div class="panel color-auto" id="">
+        <section class="inner-container">
+            <div class="subheader">POPIS SOUTĚŽE</div>
+            <h1>Formát výsledků</h1>
+
+        </div>
+
+        <div class="panel color-auto" id="">
+            <section class="inner-container">
+                <div class="subheader">POPIS SOUTĚŽE</div>
+                <h1>Ukončení soutěže a vyhlášení vítězů</h1>
+
+        </div>
+
+        <div class="panel color-auto" id="">
+            <section class="inner-container">
+                <div class="subheader">DOPLŇUJÍCÍ USTANOVENÍ</div>
+                <h1>Porušení pravidel</h1>
+
+        </div>
+
+        <div class="panel color-auto" id="">
+            <section class="inner-container">
+                <div class="subheader">DOPLŇUJÍCÍ USTANOVENÍ</div>
+                <h1>Závěrečná ustanovení</h1>
+
+        </div>
+    </div>
+
 {/block}

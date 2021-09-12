@@ -1,0 +1,14 @@
+.archive {
+  .event .inner {
+    text-decoration: none;
+    color: $text-on-primary;
+    background: $primary-color-dimmed;
+    display: block;
+    padding: 2rem;
+
+    h2 small {
+      font-weight: normal;
+      font-size: .8rem;
+    }
+  }
+}

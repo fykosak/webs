@@ -59,6 +59,7 @@ class TeamListComponent extends BaseComponent
         $this->loadTeams();
 
         $this->template->teams = $this->teams;
+        $this->template->lang = $this->getPresenter()->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamList.latte');
     }
 }

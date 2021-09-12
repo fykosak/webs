@@ -1,0 +1,29 @@
+{varType string $lang}
+{varType array $eventKeys}
+
+{block title}
+    {switch $lang}
+        {case cs}Minulé ročníky Fyziklání online
+        {default}Last years of Physics Brawl Online
+    {/switch}
+{/block}
+
+{block content}
+    <div class="row archive g-4">
+        {foreach $eventKeys AS $eventKey}
+            <div class="col-md-4 event">
+                <a href="{plink :Archive:Default:default eventYear => $eventKey['key']}" class="inner">
+                    {switch $lang}
+                        {case cs}
+                        <h2>{$eventKey['event']->begin|date:"Y"} <small>{$eventKey['event']->begin|date:"j. n."}</small></h2>
+                        <div>{$eventKey['event']->eventYear}. ročník</div>
+
+                        {default}
+                        <h2>{$eventKey['event']->begin|date:"Y"} <small>{$eventKey['event']->begin|date: "j F"}</small></h2>
+                        <div>Year {$eventKey['event']->eventYear}</div>
+                    {/switch}
+                </a>
+            </div>
+        {/foreach}
+    </div>
+{/block}

@@ -39,7 +39,7 @@ a:hover {
 .panel {
   padding: 4.3rem 0;
 
-  &.color-dark {
+  &.color-dark, &.color-auto:nth-of-type(2n) {
     background-color: $panel-color-dark;
 
     .inverse-background {
@@ -47,7 +47,7 @@ a:hover {
     }
   }
 
-  &.color-light, &.sponsors {
+  &.color-light, &.sponsors, &.color-auto:nth-of-type(2n+1) {
     background-color: $panel-color-light;
 
     .inverse-background {
@@ -108,6 +108,10 @@ a:hover {
     color: white;
 
     .subheader {
+      color: white;
+    }
+
+    a:not(.btn) {
       color: white;
     }
   }

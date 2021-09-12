@@ -9,6 +9,7 @@ use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
+use Nette\Application\UI\Template;
 use Nette\Http\IResponse;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
@@ -97,5 +98,12 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             str_replace('.latte', '.' . $key . '.latte', end($files)),
             ...$files,
         ];
+    }
+
+    protected function createTemplate(): Template
+    {
+        $template = parent::createTemplate();
+        $template->event = $this->getEvent();
+        return $template;
     }
 }

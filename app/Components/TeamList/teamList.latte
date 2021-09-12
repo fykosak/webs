@@ -1,18 +1,25 @@
 {layout '../@layout.latte'}
+{varType string $lang}
+
 {block content}
     <div class="panel color-light">
         <section class="inner-container">
-            <h1>{_'team_list.title'}</h1>
+            <h1>
+                {switch $lang}
+                    {case cs} Přihlášené týmy
+                    {case en} Registered teams
+                {/switch}
+            </h1>
 
             <ul>
                 {do ksort($teams)}
                 {foreach $teams AS $category => $teamsForCategory}
                     {if $category == 'F'}
-                        <li><a href="#{$category}">{_'Zahraniční SŠ'}</a></li>
+                        <li><a href="#{$category}">{switch $lang}{case cs}Zahraniční SŠ{default}High school abroad{/switch}</a></li>
                     {elseif $category == 'O'}
-                        <li><a href="#{$category}">{_'Kategorie'} Open</a></li>
+                        <li><a href="#{$category}">{switch $lang}{case cs}Kategorie{default}Category{/switch} Open</a></li>
                     {else}
-                        <li><a href="#{$category}">{_'Kategorie'} {$category}</a></li>
+                        <li><a href="#{$category}">{switch $lang}{case cs}Kategorie{default}Category{/switch} {$category}</a></li>
                     {/if}
                 {/foreach}
             </ul>
@@ -24,9 +31,9 @@
         {do $parityCounter = !$parityCounter}
         <div n:class="panel, $parityCounter ? color-light : color-dark">
             <section class="inner-container" id="{$category}">
-                <div class="subheader">Kategorie</div>
+                <div class="subheader">{switch $lang}{case cs}Kategorie{default}Category{/switch}</div>
                 <h1>{if $category == 'F'}
-                        {_'Zahraniční SŠ'}
+                        {switch $lang}{case cs}Zahraniční SŠ{default}High school abroad{/switch}
                     {elseif $category == 'O'}
                         Open
                     {else}
@@ -60,7 +67,10 @@
                                     }, {/if}
                                     {/foreach}
                                 {else}
-                                    {_'informace o členech týmu nejsou dostupné'}
+                                    {switch $lang}
+                                        {case cs}informace o členech týmu nejsou dostupné
+                                        {default}no info avaiable
+                                    {/switch}
                                 {/if}
                             </li>
                         {/if}
