@@ -22,7 +22,8 @@ class GamePhaseCalculator
     public const AFTER = 1;
     public const NOW = 2;
 
-    protected function checkEvent(int $period, DateTimeInterface $start, DateTimeInterface $end): bool {
+    protected function checkEvent(int $period, DateTimeInterface $start, DateTimeInterface $end): bool 
+    {
         $now = new \DateTime();
         switch ($period) {
             case self::BEFORE: return $now < $start;
@@ -43,11 +44,13 @@ class GamePhaseCalculator
         return new \DateTime() < $this->getFKSDBEvent()->end;
     }
 
-    public function isRegistration(int $period): bool {
+    public function isRegistration(int $period): bool 
+    {
         return $this->checkEvent($period, $this->getFKSDBEvent()->registrationBegin, $this->getFKSDBEvent()->registrationEnd);
     }
 
-    public function isGame(int $period): bool {
+    public function isGame(int $period): bool 
+    {
         // todo implement
         switch ($period) {
             case self::BEFORE: return true;
