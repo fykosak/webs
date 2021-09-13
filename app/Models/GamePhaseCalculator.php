@@ -18,9 +18,9 @@ class GamePhaseCalculator
     private ServiceEventList $serviceEventList;
     private Container $container;
 
-    const BEFORE = 0;
-    const AFTER = 1;
-    const NOW = 2;
+    public const BEFORE = 0;
+    public const AFTER = 1;
+    public const NOW = 2;
 
     protected function checkEvent(int $period, DateTimeInterface $start, DateTimeInterface $end): bool {
         $now = new \DateTime();
