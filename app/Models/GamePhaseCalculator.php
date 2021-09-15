@@ -26,10 +26,14 @@ class GamePhaseCalculator
     {
         $now = new \DateTime();
         switch ($period) {
-            case self::BEFORE: return $now < $start;
-            case self::AFTER: return $now > $end;
-            case self::NOW: return $now > $start && $now < $end;
-            default: throw new ArgumentOutOfRangeException("Invalid period");
+            case self::BEFORE:
+                return $now < $start;
+            case self::AFTER:
+                return $now > $end;
+            case self::NOW:
+                return $now > $start && $now < $end;
+            default:
+                throw new ArgumentOutOfRangeException("Invalid period");
         }
     }
 
@@ -57,8 +61,10 @@ class GamePhaseCalculator
     {
         // todo implement
         switch ($period) {
-            case self::BEFORE: return true;
-            default: return false;
+            case self::BEFORE:
+                return true;
+            default:
+                return false;
         }
     }
 

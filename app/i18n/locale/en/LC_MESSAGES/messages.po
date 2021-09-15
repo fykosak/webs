@@ -167,11 +167,11 @@ msgstr "FAQ"
 #: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:5
 #: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:25
 msgid "faq.show_text_button"
-msgstr "Show all questions"
+msgstr "Show all answers"
 
 #: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:6
 msgid "faq.hide_text_button"
-msgstr "Hide all questions"
+msgstr "Hide all answers"
 
 #: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:22
 msgid "faq.subheader"
