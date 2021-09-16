@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 07:55+0200\n"
+"POT-Creation-Date: 2021-09-16 09:28+0200\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11,27 +11,27 @@ msgstr ""
 msgid "Teams"
 msgstr ""
 
-#: ../../app/Modules/ArchiveModule/BasePresenter.php:52
+#: ../../app/Modules/ArchiveModule/BasePresenter.php:53
 msgid "Event not found"
 msgstr ""
 
-#: ../../app/Modules/ArchiveModule/BasePresenter.php:63
+#: ../../app/Modules/ArchiveModule/BasePresenter.php:64
 msgid "Archive Home"
 msgstr ""
 
-#: ../../app/Modules/ArchiveModule/BasePresenter.php:67
+#: ../../app/Modules/ArchiveModule/BasePresenter.php:68
 msgid "Týmy"
 msgstr ""
 
-#: ../../app/Modules/ArchiveModule/BasePresenter.php:71
+#: ../../app/Modules/ArchiveModule/BasePresenter.php:72
 msgid "Výsledky"
 msgstr ""
 
-#: ../../app/Modules/ArchiveModule/BasePresenter.php:75
+#: ../../app/Modules/ArchiveModule/BasePresenter.php:76
 msgid "Podrobné výsledky"
 msgstr ""
 
-#: ../../app/Modules/ArchiveModule/BasePresenter.php:79
+#: ../../app/Modules/ArchiveModule/BasePresenter.php:80
 msgid "Reporty"
 msgstr ""
 
@@ -51,67 +51,55 @@ msgstr ""
 msgid "Contestants' reports"
 msgstr ""
 
-#: ../../app/Modules/ArchiveModule/DefaultPresenter.php:13
-msgid "Archive year home page ..."
-msgstr ""
-
-#: ../../app/Modules/DefaultModule/BasePresenter.php:18
+#: ../../app/Modules/DefaultModule/BasePresenter.php:19
 msgid "about.menu"
 msgstr "About"
 
-#: ../../app/Modules/DefaultModule/BasePresenter.php:22
+#: ../../app/Modules/DefaultModule/BasePresenter.php:23
 msgid "rules.menu"
 msgstr "Rules"
 
-#: ../../app/Modules/DefaultModule/BasePresenter.php:26
+#: ../../app/Modules/DefaultModule/BasePresenter.php:27
 msgid "faq.menu"
 msgstr "FAQ"
 
-#: ../../app/Modules/DefaultModule/BasePresenter.php:30
-msgid "howToPlay.menu"
-msgstr "How to play"
-
-#: ../../app/Modules/DefaultModule/BasePresenter.php:34
+#: ../../app/Modules/DefaultModule/BasePresenter.php:35
 msgid "schedule.menu"
 msgstr "Schedule"
 
-#: ../../app/Modules/DefaultModule/BasePresenter.php:38
-msgid "reports.menu"
-msgstr "Reports"
-
-#: ../../app/Modules/DefaultModule/BasePresenter.php:42
+#: ../../app/Modules/DefaultModule/BasePresenter.php:43
 msgid "archive.menu"
 msgstr "History"
 
-#: ../../app/Modules/DefaultModule/BasePresenter.php:57
+#: ../../app/Modules/DefaultModule/BasePresenter.php:59
 msgid "Registrace"
 msgstr "Registration"
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:17
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:20
 msgid "Mezinárodní soutež ve fyzice"
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:32
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:35
 msgid "Minulé ročníky"
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:37
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:40
 msgid "Pravidla"
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:42
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:45
 msgid "Rychlý grafický návod ke hře"
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:47
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:50
 msgid "Přihlášené týmy"
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:52
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:55
 msgid "Rozcvička"
 msgstr ""
 
-#: ../../app/Modules/DefaultModule/DefaultPresenter.php:57
+#: ../../app/Modules/DefaultModule/DefaultPresenter.php:60
 msgid "Další akce"
 msgstr ""
 
@@ -213,50 +201,24 @@ msgstr "Hurry up"
 msgid "faq_category.otherFAQ"
 msgstr "Other FAQ"
 
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:8
+#: ../../app/Modules/Core/templates/@layout.latte.latte2php:10
 msgid "Fyziklání online"
-msgstr ""
+msgstr "Physics Brawl Online"
 
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:16
+#: ../../app/Modules/Core/templates/@layout.latte.latte2php:18
 msgid "Team competition in solving physics problems"
 msgstr ""
 
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:17
+#: ../../app/Modules/Core/templates/@layout.latte.latte2php:19
 msgid "http://physicsbrawl.org/images/fyziklani-logo.png"
 msgstr ""
 
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:18
+#: ../../app/Modules/Core/templates/@layout.latte.latte2php:20
 msgid "Online team competition in solving physics problems."
 msgstr ""
 
-#: ../../app/Components/EventList/eventList.latte.latte2php:15
-msgid "format.dayMonth"
-msgstr "F j"
-
-#: ../../app/Components/EventList/eventList.latte.latte2php:16
-msgid "nthYear"
-msgstr "Year %d"
-
 #: ../../app/Components/Navigation/navigation.latte.latte2php:9
 msgid "Fyziklani online"
-msgstr ""
-
-#: ../../app/Components/TeamList/teamList.latte.latte2php:5
-msgid "team_list.title"
-msgstr "Teams"
-
-#: ../../app/Components/TeamList/teamList.latte.latte2php:11
-#: ../../app/Components/TeamList/teamList.latte.latte2php:29
-msgid "Zahraniční SŠ"
-msgstr ""
-
-#: ../../app/Components/TeamList/teamList.latte.latte2php:13
-#: ../../app/Components/TeamList/teamList.latte.latte2php:15
-msgid "Kategorie"
-msgstr ""
-
-#: ../../app/Components/TeamList/teamList.latte.latte2php:63
-msgid "informace o členech týmu nejsou dostupné"
 msgstr ""
 
 #: ../../app/Components/TeamResults/teamResults.latte.latte2php:9
@@ -274,6 +236,21 @@ msgstr ""
 #: ../../app/Components/TeamResults/teamResults.latte.latte2php:12
 msgid "Rank total"
 msgstr ""
+
+#~ msgid "howToPlay.menu"
+#~ msgstr "How to play"
+
+#~ msgid "reports.menu"
+#~ msgstr "Reports"
+
+#~ msgid "format.dayMonth"
+#~ msgstr "F j"
+
+#~ msgid "nthYear"
+#~ msgstr "Year %d"
+
+#~ msgid "team_list.title"
+#~ msgstr "Teams"
 
 #~ msgid "organisers.title"
 #~ msgstr "Organisers"

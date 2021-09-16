@@ -5,7 +5,7 @@
         <div class="info-text">
             {switch $lang}
                 {case "cs"} Registraci otevíráme {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'}
-                {default} Registration opens on {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j F'}.
+                {default} Registration opens on {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'}.
             {/switch}
         </div>
         {control countdown}
