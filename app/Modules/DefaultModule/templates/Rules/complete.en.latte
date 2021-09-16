@@ -1,263 +1,414 @@
-{block content}
-    <p>
-        The rules are
-{*        also *}
-        available in a <a href="{$basePath}/documents/rules_en.pdf">pdf version</a>.
-    </p>
+{block title}Full version of rules{/block}
 
-    <p>
-        Official announcements by the organizers will be posted
-        to the noticeboard during the comperition. Players have to follow this noticeboard.
-    </p>
-{*    <p>There is a change in rules of Hurry-up part compared to previous years. We also merged czech high school*}
-{*        categories with foregin high school category. </p>*}
-    <h3 id="participation">Basic information</h3>
-    <ul>
-        <li>Teams consist of 1&ndash;5 players.</li>
-        <li>
-            Every team is a member of one of the following four categories based on team coefficient.
-            Team coefficient is the average value of player coefficients in the team. Each player has a player
-            coefficient based on the expected year of graduation (ISCED 2011 level 3). If a player is studying
-            his last year, he gets a coefficient of 4. If he is studying the
-            penultimate year, he gets a coefficient of 3 and so on... A minimum possible coefficient is 0.<br>
-            The categories are as follows:
+{block main}
+    <div class="panel color-primary">
+        <section class="inner-container">
+            <h1>{include title}</h1>
             <ul>
-                <li><strong>C</strong> &ndash; team coefficient &le; 2 &amp; no member of the team has a player
-                    coefficient of
-                    4 &amp; a maximum of two members has a player coefficient of 3
-                </li>
-                <li><strong>B</strong> &ndash; team coefficient &le; 3 &amp; a maximum of two members has a player
-                    coefficient of 4
-                </li>
-                <li><strong>A</strong> &ndash; team coefficient &le; 4</li>
-                <li><strong>open</strong> &ndash; everyone who cannot or does not
-                    want to be in the high school categories.
-                </li>
+                <li><a href="#participation">Participation</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#problems">Problems</a></li>
+                <li><a href="#rules">Rules and the scoring system</a></li>
+                <li><a href="#breaking-rules">Breaking the rules</a></li>
+                <li><a href="#equipment">Allowed equipment and tools</a></li>
+                <li><a href="#prizes">Prizes</a></li>
+                <li><a href="#tips">Tips</a></li>
+                <li><a href="#code">Code of honour</a></li>
             </ul>
 
-        </li>
-        <li>Teams solve the same problems no matter what category they are in.
-            Winners of each category will be announced separately. Absolute winners
-            will be announced as well.
-        </li>
-        <li>Participation in the competition is free.</li>
-        <li>The award for the best teams is the eternal fame and prestige gained by winning
-            a competition like this.
-        </li>
-        <li>Collaboration among different teams is not allowed.</li>
-        <li>While we do monitor the competition and can uncover some methods cheating we
-            still mainly rely on trust in your sportsmanship. We assume all the teams
-            participate because they want to have fun competing. Cheating will spoil
-            this purpose.
-        </li>
-        <li>All members of the team agree with processing their personal information
-            by registering into the competition. Your information will be used for
-            appraisal of the competition and its improvement.
-        </li>
-    </ul>
+            <p>
+                The rules are also
+                available in a <a href="{$basePath}/documents/rules_en.pdf">pdf version</a>.
+            </p>
+            <p>There is a change in rules of Hurry-up part compared to previous years. We also merged Czech high school
+                categories with foreign high school category.</p>
+        </section>
+    </div>
 
-    <h3 id="tasks">Problems</h3>
-    <ul>
-        <li>There will be more than 60 problems in the competition. The precise amount of problems is
-            different every year and is not released ahead of time.
-        </li>
-        <li>Problems will be available on the web of the competition in the form of
-            a <acronym title="Portable Document Format">PDF</acronym> file. You will
-            need your team's password to access the problems.
-        </li>
-        <li>The answer to a problem is always a number that is delivered via a web
-            form. Unless otherwise stated, you should assume that this number
-            is real. The minimum number of significant digits we expect you to write down will
-            be stated in each problem. Check this before submitting your answer!
-            You do not need to worry about numerical inaccuracies, rounding up etc.
-            since each problem will have a range of correct answers.
-        </li>
-        <li>If there is a numerical value of a certain constant in the problem
-            statement, you should use exactly this value in your calculations.
-        </li>
-        <li>Unless otherwise stated, answers should be expressed in the base
-            SI units. Examples:
-            <ul>
-                <li><em>A train is moving at a speed of 50 km/h. What is the distance it
-                        travels in a minute? State your answer to at least 4 significant
-                        digits.</em> &mdash; for example 833,3 or 833,33 are both
-                    correct answers (the unit is not specified and the answer should therefore be in SI base units)
-                </li>
-                <li><em>A train is moving at a speed of 50 km/h. How many kilometers will
-                        it travel in a minute? One significant digit is enough. </em>
-                    &mdash; for example 0,8
-                </li>
-                <li><em>How many carbon atoms (an integer) does a single molecule of a
-                        cyclopentano-perhydrophenanthrene contain?</em> &mdash;
-                    the answer is 17 &mdash; 17,0001 is a wrong answer
-                </li>
-            </ul>
-        </li>
-        <li>The competition will consist of a large spectrum of physics problems.
-            Some of them will be very easy and some of them really hard. Therefore,
-            different problems will be worth different amounts of points. Easier
-            problems will be in the so-called <em>Hurry-up</em> series. However,
-            you will have much more limited amount of time to solve them.
-        </li>
-    </ul>
+    <div>
+        <div class="panel color-auto" id="participation">
+            <section class="inner-container">
+                <h1>Participation</h1>
+                <ul>
+                    <li>Participation in the competition is free.</li>
+                    <li>Teams can register for the competition via our website <a href="https://online.fyziklani.org">https://online.fyziklani.org</a>.</li>
+                    <li>By registering for the competition, the teams agree to the terms and conditions and the
+                        rules. Teams must abide by these rules and undertake to refrain from using any methods
+                        of cheating.</li>
+                    <li>Each contestant can compete in only one category and be a member of only one team
+                        (see <a href="#categories">Categories</a>).</li>
+                    <li>Each category has a separate scoreboard. For each category, there will be created an
+                        unofficial scoreboard from merely Czech and Slovak teams. Furthermore, the complete
+                        scoreboard containing all teams will be created.</li>
+                    <li>Collaboration among different teams and with persons outside of the team is forbidden.</li>
+                    <li>While we do monitor the competition and can uncover some methods of cheating, we still
+                        mainly rely on trust in your sportsmanship. We assume all the teams participate because
+                        they want to have fun competing. Don’t use an inappropriate form of communicating in
+                        the official channels.</li>
+                    <li>Official announcements by the organizers will be posted
+                        to the noticeboard during the competition. Players have to follow this noticeboard.</li>
+                </ul>
+            </section>
+        </div>
 
-    <h3 id="system"> Rules and the scoring system </h3>
-    <ul>
-        <li> The competition comprises two parallel parts, the Major contest, and the Hurry-up series.
-        </li>
-        <ul>
-            <li> Major contest: 17:00 - 20:00 (UTC + 1)</li>
-            <li> Hurry-up series: 18:00 - 20:00 (UTC + 1)</li>
-        </ul>
-        <li> The competition lasts 3 hours and will end at 20:00.</li>
-        <li>In both, Major contest and Hurry-up series, each team will be given a specific number of problems to solve.
-            Once a team solves a problem, it will gain access to the following one (in the appropriate contest).
-        </li>
-        <li> At 18:30, teams will be enabled to skip unsolved problems. This action will be penalized by 1pt and the
-            team acquires access to the following problem instead.
-        </li>
-        <li> If a team skips a problem, it will no longer be able to submit an answer to it.</li>
-        <li> Each team can skip a maximum amount of 10 problems.</li>
-        <li> Teams are awarded points for correct submissions. Each problem is assigned a number of maximal points you
-            can earn by solving it.
-        </li>
-        <li> Contestants can submit an answer to a problem as many times as they wish. However, teams can earn the
-            maximal amount of points only if they answer correctly with their first submission. With each wrong answer,
-            the amount of points the team can earn decreases (see Major contest, Hurry-up series).
-        </li>
-        <li> If a team answers incorrectly, it will not be able to submit any answers for 1 minute (in the appropriate
-            group of problems, i.e. major contest or one of three hurry up groups).
-        </li>
-        <li> If two teams happen to end up with the same score, the team which solved their last problem earlier will be
-            prioritized.
-        </li>
-        <li> The preliminary results are revealed immediately after the contest, the final standing are announced after
-            half an hour.
-        </li>
-    </ul>
+        <div class="panel color-auto" id="categories">
+            <section class="inner-container">
+                <h1>Categories</h1>
+                <ul>
+                    <li>High school teams are divided into one of the three categories (A, B and C) based on the
+                        value of the team coefficient (see below).</li>
+                    <li>All other teams can participate in the Open Category.</li>
+                    <li>Each player has a player coefficient based on the expected year of graduation (ISCED
+                        2011 level 3). If a player is studying his last year, he gets a coefficient of 4. If he is
+                        studying the penultimate year, he gets a coefficient of 3 and so on. A minimum possible
+                        coefficient is 0.</li>
+                    <li>Team coefficient is the average value of player coefficients of the team (player
+                        coefficients of individual team members are summed up and divided by the number of
+                        members in the team).</li>
+                    <li>Teams will join the lowest category that suits them:
+                        <ul>
+                            <li>category <strong>A</strong>: team coefficient ≤ 4,</li>
+                            <li>category <strong>B</strong>: team coefficient ≤ 3 a maximum of two members has a player
+                                coefficient of 4,</li>
+                            <li>category <strong>C</strong>: team coefficient ≤ 2, no member of the team has a player coefficient of
+                                4 & a maximum of two members has a player coefficient of 3.</li>
+                        </ul>
+                    </li>
+                    <li>There is the same set of problems for all categories.</li>
+                    <li>There will be a separate scoreboard for each category.</li>
+                </ul>
+            </section>
+        </div>
 
+        <div class="panel color-auto" id="problems">
+            <section class="inner-container">
+                <h1>Problems</h1>
+                <ul>
+                    <li>There will be more than 60 problems in the competition. The precise amount of problems is
+                        different every year and is not released ahead of time.
+                    </li>
+                    <li>Problems will be available on the web of the competition in the form of
+                        a <acronym title="Portable Document Format">PDF</acronym> file. You will
+                        need your team's password to access the problems.
+                    </li>
+                    <li>The answer to a problem is always a number that is delivered via a web
+                        form. Unless otherwise stated, you should assume that this number
+                        is real. The minimum number of significant digits we expect you to write down will
+                        be stated in each problem. Check this before submitting your answer!
+                        You do not need to worry about numerical inaccuracies, rounding up etc.
+                        since each problem will have a range of correct answers.
+                    </li>
+                    <li>If there is a numerical value of a certain constant in the problem
+                        statement, you should use exactly this value in your calculations.
+                    </li>
+                    <li>Unless otherwise stated, answers should be expressed in the base
+                        SI units. Examples:
+                        <ul>
+                            <li><em>A train is moving at a speed of 50 km/h. What is the distance it
+                                    travels in a minute? State your answer to at least 4 significant
+                                    digits.</em> &mdash; for example 833,3 or 833,33 are both
+                                correct answers (the unit is not specified and the answer should therefore be in SI base units)
+                            </li>
+                            <li><em>A train is moving at a speed of 50 km/h. How many kilometers will
+                                    it travel in a minute? One significant digit is enough. </em>
+                                &mdash; for example 0,8
+                            </li>
+                            <li><em>How many carbon atoms (an integer) does a single molecule of a
+                                    cyclopentano-perhydrophenanthrene contain?</em> &mdash;
+                                the answer is 17 &mdash; 17,0001 is a wrong answer
+                            </li>
+                        </ul>
+                    </li>
+                    <li>The competition covers a large spectrum of physics problems, some of them are easy
+                        and some of them very challenging. The difficulty of a problem corresponds to the number
+                        of points that the problem is worth. Easier problems will be in the so-called <em>Hurry-up</em>
+                        series (see Hurry-up). However, you will have a much more limited amount of time to
+                        solve them.
+                    </li>
+                </ul>
+            </section>
+        </div>
 
-    <h4> Major contest </h4>
-    <ul>
-        <li> In the Major contest, each team will be given the first 7 problems. Once a team solves a problem, it will
-            gain access to the following one. There are approximately 50 problems in this section.
-        </li>
-        <li> The maximal amount of points for each problem varies from 3 to 9 based on its difficulty.</li>
-        <li> If you answer correctly the first time, you get the maximum amount of points. If you need one more try, you
-            will only gain 0.6 times the maximum number of points. If you need three attempts, you will get 0.4 times
-            the maximum and if four, it is 0.2 times the maximum. However, no matter how many times you try to answer a
-            problem, you will always get at least one point. The amount of points you get is always rounded up.
-        </li>
-    </ul>
+        <div class="panel color-auto" id="rules">
+            <section class="inner-container">
+                <h1>Rules and the scoring system</h1>
+                <ul>
+                    <li> The competition comprises two parallel parts, the Major contest, and the Hurry-up series.
+                    </li>
+                    <ul>
+                        <li> Major contest: 17:00 - 20:00 (UTC + 1)</li>
+                        <li> Hurry-up series: 18:00 - 20:00 (UTC + 1)</li>
+                    </ul>
+                    <li> The competition lasts 3 hours and will end at 20:00.</li>
+                    <li>In both, Major contest and Hurry-up series, each team will be given a specific number of problems to solve.
+                        Once a team solves a problem, it will gain access to the following one (in the appropriate contest).
+                    </li>
+                    <li> At 18:30, teams will be enabled to skip unsolved problems. This action will be penalized by 1pt and the
+                        team acquires access to the following problem instead.
+                    </li>
+                    <li> If a team skips a problem, it will no longer be able to submit an answer to it.</li>
+                    <li> Each team can skip a maximum amount of 10 problems.</li>
+                    <li> Teams are awarded points for correct submissions. Each problem is assigned a number of maximal points you
+                        can earn by solving it.
+                    </li>
+                    <li> Contestants can submit an answer to a problem as many times as they wish. However, teams can earn the
+                        maximal amount of points only if they answer correctly with their first submission. With each wrong answer,
+                        the amount of points the team can earn decreases (see <a href="#major-contest">Major contest</a>, <a href="#hurry-up">Hurry-up</a> series).
+                    </li>
+                    <li> If a team answers incorrectly, it will not be able to submit any answers for 1 minute (in the appropriate
+                        group of problems, i.e. major contest or one of three hurry up groups).
+                    </li>
+                    <li> If two teams happen to end up with the same score, the team which solved their last problem earlier will be
+                        prioritized.
+                    </li>
+                    <li> The preliminary results are revealed immediately after the contest, the final standing are announced after
+                        half an hour.
+                    </li>
+                    <li>If there are no justified complaints within the first 30 minutes after the end of the
+                         competition, the scoreboard will be closed and the final standings will be announced.
+                         Teams can submit their appeals even after that but it doesn't have to be taken into
+                         account.</li>
+                </ul>
+                <h4 id="major-contest"> Major contest </h4>
+                <ul>
+                    <li> In the Major contest, each team will be given the first 7 problems. Once a team solves a problem, it will
+                        gain access to the following one. There are approximately 50 problems in this section.
+                    </li>
+                    <li> The maximal amount of points for each problem varies from 3 to 9 based on its difficulty.</li>
+                    <li> If you answer correctly the first time, you get the maximum amount of points. If you need one more try, you
+                        will only gain 0.6 times the maximum number of points. If you need three attempts, you will get 0.4 times
+                        the maximum and if four, it is 0.2 times the maximum. However, no matter how many times you try to answer a
+                        problem, you will always get at least one point. The amount of points you get is always rounded up.
+                    </li>
+                    <li>The exact scoring system is shown in the table below.</li>
+                </ul>
+                <table class="table table-hover" style="max-width: 40rem">
+                    <thead>
+                    <tr>
+                        <td>without an error</td>
+                        <td>1 error</td>
+                        <td>2 errors</td>
+                        <td>3 errors</td>
+                        <td>4 and more errors</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>5</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>1 </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h4 id="hurry-up"> Hurry-up series </h4>
+                <ul>
+                    <li> An hour after the beginning of the competition, teams will be enabled to answer the problems in the
+                        so-called Hurry-up series.
+                    </li>
+                    <li> The problems are divided into three groups according to their topic (mechanics M, electromagnetism E, other
+                        X).
+                    </li>
+                    <li> When the Hurry-up series is launched, teams are given one problem from each of the aforementioned groups.
+                        Correctly answering a problem will grant you access to the next problem in the same group (after a correct
+                        answer to M.1, problem M.2 is unlocked).
+                    </li>
+                    <li> The Hurry-up problems are easier (usually worth 3 pts).</li>
+                    <li> If you answer a problem from the Hurry-up incorrectly, the possible amount of points you can get for this
+                        particular problem decreases in the same way as major contest. Therefore, unlike the problems in the major
+                        line, you can get zero points (but no negative points) for a problem in the Hurry-up series.
+                    </li>
+                    <li>The exact scoring system is shown in the table below (analogous to the Major contest
+                        table).</li>
+                    <table class="table table-hover" style="max-width: 40rem">
+                        <thead>
+                        <tr>
+                            <td>without an error</td>
+                            <td>1 error</td>
+                            <td>2 errors</td>
+                            <td>3 errors</td>
+                            <td>4 and more errors</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>0 </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <li> If you correctly answer three problems so that each of them is from a different group, and they all have
+                        the same sequence number in their corresponding group (e.g. M.1, E.1, X.1) during the first half an hour of
+                        hurry-up line (18:00 - 18:30), the points received from this triplet of problems are doubled.
+                    </li>
+                    <li> The hurry-up problems are still available after 18:30, but you do not get the bonus points for completing a
+                        triplet.
+                    </li>
+                </ul>
+            </section>
+        </div>
 
+        <div class="panel color-auto" id="breaking-rules">
+            <section class="inner-container">
+                <h1>Breaking the rules</h1>
+                <ul>
+                    <li>Should a rightful suspicion of violating the rules or terms and conditions arise, the head of
+                        the Online Physics Brawl has the right to take special measures in order to confirm this
+                        suspicion and to prevent any more unauthorized activity.</li>
+                    <li>Should a team be found guilty of violating any rules or terms and conditions,
+                        consequences will be determined by the head of the Online Physics Brawl or an
+                        appointed commission.</li>
+                    <li>In case of a small violation, the head of the Online Physics Brawl or an appointed
+                        commission may reduce the score of the guilty team by some specific amount of points
+                        depending on the seriousness of the violation.</li>
+                    <li>Organizers can disqualify a team, which seriously violated the terms and conditions or the
+                        rules of the competition.</li>
+                    <li>In case of an especially serious violation of the terms and conditions or rules of the
+                        competition, the central committee may ban the team from participating in the following
+                        years of the Online Physics Brawl or may decide about other punishments for the
+                        members of the guilty team or for the school from which the members come.</li>
+                    <li>As an especially serious violation are considered the following activities; an effort to
+                        acquire the problem-set, solutions or answers in forbidden ways and disclosing them or
+                        providing them to other contestants. An intended effort to prevent other participants or
+                        organizers from participating is also considered as a serious violation.</li>
+                </ul>
+            </section>
+        </div>
 
-    <h4> Hurry-up series </h4>
-    <ul>
-        <li> An hour after the beginning of the competition, teams will be enabled to answer the problems in the
-            so-called Hurry-up series.
-        </li>
-        <li> The problems are divided into three groups according to their topic (mechanics M, electromagnetism E, other
-            X).
-        </li>
-        <li> When the Hurry-up series is launched, teams are given one problem from each of the aforementioned groups.
-            Correctly answering a problem will grant you access to the next problem in the same group (after a correct
-            answer to M.1, problem M.2 is unlocked).
-        </li>
-        <li> The Hurry-up problems are easier (usually worth 3 pts).</li>
-        <li> If you answer a problem from the Hurry-up incorrectly, the possible amount of points you can get for this
-            particular problem decreases in the same way as major contest. Therefore, unlike the problems in the major
-            line, you can get zero points (but no negative points) for a problem in the Hurry-up series.
-        </li>
-        <li> If you correctly answer three problems so that each of them is from a different group, and they all have
-            the same sequence number in their corresponding group (e.g. M.1, E.1, X.1) during the first half an hour of
-            hurry-up line (18:00 - 18:30), the points received from this triplet of problems are doubled.
-        </li>
-        <li> The hurry-up problems are still available after 18:30, but you do not get the bonus points for completing a
-            triplet.
-        </li>
-    </ul>
+        <div class="panel color-auto" id="equipment">
+            <section class="inner-container">
+                <h1>Allowed equipment and tools</h1>
+                <ul>
+                    <li>A computer with an access to the Internet (the internet connection is not important). More
+                        devices may be an advantage but it is not necessary.</li>
+                    <li>You are allowed to use the Internet as the source of information.</li>
+                    <li>The printer is not necessary, however, it might be helpful.</li>
+                    <li>Papers, pens, arbitrary literature, calculator.</li>
+                </ul>
+            </section>
+        </div>
 
-    <h3 id="equipment">What do I need to have to participate?</h3>
-    <ul>
-        <li>Access to the Internet (the speed of your connection should not matter).
-            More than one device with access to the Internet is an advantage but it
-            is not necessary. You are allowed to use the Internet as a source of
-            information that can help you solve the problems. (You are not allowed to use
-            it to communicate with people outside your team about the problems.)
-        </li>
-        <li>A printer is not necessary but it might be helpful.</li>
-        <li>Papers, pens, literature, calculators, &hellip;</li>
-        <li>Snacks.</li>
-        <li>Team mascot.</li>
-    </ul>
+        <div class="panel color-auto" id="prizes">
+            <section class="inner-container">
+                <h1>Prizes</h1>
+                <ul>
+                    <li>At least first three teams and first three teams from the Czech or the Slovak Republic in
+                        each high school category will be rewarded (czech/slovak teams can win multiple prices).</li>
+                    <li>We also usually reward the overall winner (including Open Category).</li>
+                    <li>Prizes usually involve diplomas, T-shirts, hoodies, USB drives (and board games or card
+                        games for the Czech or the Slovak Republic).</li>
+                    <li>Rewarded teams can choose the prizes from the prepared list, better-scoring teams are
+                        prioritized.</li>
+                </ul>
+            </section>
+        </div>
 
-    <h3 id="advices">Tips</h3>
-    <ul>
-        <li>Having more people in your team is an advantage. Therefore, we recommend
-            that you have all of the five positions filled.
-        </li>
-        <li>It is important to decide on a strategy to attack the problems. What
-            problems can you do quickly? Is it better to work as a team or to divide
-            the work among individual members? Who decides what individual members
-            work on? You will have a lot of problems available during the competition
-            so it is an advantage to know how to approach them as a team beforehand.
-        </li>
-        <li>During the competition you will be able to see how other teams are doing
-            as well as the statistics of each problem. This will end 20 minutes
-            before the end of the competition. Use this information to figure out
-            what problems might be easy or hard.
-        </li>
-        <li>We suggest occasionally watching the forum for new information as well.
-            If you don't understand a problem, maybe somebody else has already asked for
-            a clarification there &mdash; and it's faster to read the answer than ask
-            the same question again!
-        </li>
-    </ul>
-
-    <h3 id="prices">Prices</h3>
-    <ul>
-        <!-- zde neprekladam, ze prvni tri domaci tymy budou odmeneni -Matej M. -->
-        <li>Besides the non-fading glory you can win <strong>diplomas, T-shirts, hoodies or flash drives</strong>.</li>
-        <li>First three teams in categories A, B, C and the overall winner (including open category) will be rewarded.
-        </li>
-    </ul>
-
-    <h3 id="codex">Code of honour</h3>
-    <ul>
-        <li>Even though we believe that the following will never have to be used we
-            still need to include it. The organizers reserve a right not to let a team
-            sign up, continue in participating or even deleting it from the scoreboards
-            in the case that fair-play shall be disrupted in some way by said team or
-            if some detestable behaviour is detected in connection with
-            the competition.
-        </li>
-        <li>Namely (mainly but not limited to): if the submitted personal data are false,
-            vulgar, socially unacceptable, if the team uses inappropriate form of
-            communicating in the official channels, if the problems are discussed
-            with people outside of the team during the competition or if an attack
-            is attempted on the servers of the competition (guessing the passwords
-            of other teams, intentional spam, unreasonable usage of server time, etc.)
-        </li>
-        <li>In case of situation that could not be predicted or prevented by the organizers,
-            the organizers reserve the right to declare their final decision on the matter
-            as it comes and this decision will be made in accordance to the rules of fair
-            play.
-        </li>
-    </ul>
-
-    <i>In case you are confused by some of the rules visit the <a n:href="Faq:">FAQ section</a> or
-        contact us via email.</i>
-
-{/block}
-{block #subnavigation}
-    <ul class="nav">
-        <li><a href="#briefrules">Brief rules</a></li>
-        <li><a href="#participation">Basic information</a></li>
-        <li><a href="#tasks">Problems</a></li>
-        <li><a href="#system">Rules and the scoring system</a></li>
-        <li><a href="#equipment">What do I need to participate?</a></li>
-        <li><a href="#advices">Tips</a></li>
-        <li><a href="#prices">Prices</a></li>
-        <li><a href="#codex">Code of honour</a></li>
-    </ul>
+        <div class="panel color-auto" id="tips">
+            <section class="inner-container">
+                <h1>Tips</h1>
+                <ul>
+                    <li>Having more people in your team is an advantage. Therefore, we recommend
+                        that you have all of the five positions filled.
+                    </li>
+                    <li>It is important to decide on a strategy to attack the problems. What
+                        problems can you do quickly? Is it better to work as a team or to divide
+                        the work among individual members? Who decides what individual members
+                        work on? You will have a lot of problems available during the competition
+                        so it is an advantage to know how to approach them as a team beforehand.
+                    </li>
+                    <li>During the competition you will be able to see how other teams are doing
+                        as well as the statistics of each problem. This will end 20 minutes
+                        before the end of the competition. Use this information to figure out
+                        what problems might be easy or hard.
+                    </li>
+                    <li>We suggest occasionally watching the forum for new information as well.
+                        If you don't understand a problem, maybe somebody else has already asked for
+                        a clarification there &mdash; and it's faster to read the answer than ask
+                        the same question again!
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div class="panel color-auto" id="code">
+            <section class="inner-container">
+                <h1>Code of honour</h1>
+                <ul>
+                    <li>Even though we believe that the following will never have to be used we
+                        still need to include it. The organizers reserve a right not to let a team
+                        sign up, continue in participating or even deleting it from the scoreboards
+                        in the case that fair-play shall be disrupted in some way by said team or
+                        if some detestable behaviour is detected in connection with
+                        the competition.
+                    </li>
+                    <li>Namely (mainly but not limited to): if the submitted personal data are false,
+                        vulgar, socially unacceptable, if the team uses inappropriate form of
+                        communicating in the official channels, if the problems are discussed
+                        with people outside of the team during the competition or if an attack
+                        is attempted on the servers of the competition (guessing the passwords
+                        of other teams, intentional spam, unreasonable usage of server time, etc.)
+                    </li>
+                    <li>In case of situation that could not be predicted or prevented by the organizers,
+                        the organizers reserve the right to declare their final decision on the matter
+                        as it comes and this decision will be made in accordance to the rules of fair
+                        play.
+                    </li>
+                </ul>
+                <i>In case you are confused by some of the rules visit the <a n:href="Faq:">FAQ section</a> or
+                    contact us via email.</i>
+            </section>
+        </div>
+    </div>
 {/block}
