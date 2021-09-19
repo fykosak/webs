@@ -224,15 +224,19 @@
                     <ul class="stylized">
                         {switch $lang}
                         {case cs}
-                            <li>Registrace je zdarma pro kohokoli!</li>
-                            <li>Je třeba se s dostatečným předstihem registrovat.</li>
-                            <li>Tým může být složen z žáků maximálně dvou škol.</li>
-                            <li>Smí se používat jakékoli pomůcky kromě dalších lidí.</li>
+                            <li>Soutěž je zdarma pro kohokoli!</li>
+                            <li>
+                                Registrace končí
+                                {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n.'}
+                            </li>
+                            <li>Kromě komunikace s dalšími týmy jsou povoleny jakékoli pomůcky.</li>
                         {default}
-                            <li>Registration is free for anyone!</li>
-                            <li>You have to register in advance.</li>
-                            <li>The team can consist of people from maximum of two schools.</li>
-                            <li>You can use any tools except for other people.</li>
+                            <li>Participation is free for anyone!</li>
+                            <li>
+                                Registration is possible until
+                                {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j'}.
+                            </li>
+                            <li>Except for communicating with other teams, you can use any tools to solve the problems.</li>
                         {/switch}
                     </ul>
                 </div>
