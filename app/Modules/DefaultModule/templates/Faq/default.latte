@@ -21,6 +21,11 @@
         <section class="inner-container">
             <div class="subheader">{_"faq.subheader"}</div>
             <h1>{include title}</h1>
+            <ul class="stylized">
+            {foreach $questions AS $category => $questionsForCategory}
+                <li><a href="#{$category}">{_("faq_category." . $category)}</a></li>
+            {/foreach}
+            </ul>
             <button onclick="collapseFAQ(this)" class="btn btn-primary-FOL-style"
                     type="button">{_"faq.show_text_button"}</button>
         </section>
@@ -31,7 +36,7 @@
     {foreach $questions AS $category => $questionsForCategory}
         {do $parityCounter = !$parityCounter}
         <div n:class="panel, $parityCounter ? color-light : color-dark">
-            <section class="inner-container">
+            <section class="inner-container" id="{$category}">
                 <div class="subheader">{_"faq_category_text"}</div>
                 <h1>{_("faq_category." . $category)}</h1>
 
