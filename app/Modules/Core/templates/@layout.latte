@@ -1,5 +1,4 @@
 {varType App\Modules\Core\BasePresenter $presenter}
-{varType Fykosak\Utils\UI\PageTitle $pageTitle}
 {varType string $lang}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 
@@ -7,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="{$presenter->lang}">
 <head>
-    <title>{_'Fyziklání online'}{ifset $pageTitle} &ndash; {$pageTitle->title}{/ifset}</title>
+    <title>{ifset title}{include title}| {/ifset}{_'Fyziklání online'}</title>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
