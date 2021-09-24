@@ -91,10 +91,16 @@
                         {switch $lang}{case cs}FYKOSí<br/>trička a mikiny{default}T-shirts<br/>and hoodies{/switch}
                     </div>
 
-                    <a class="price-box large fyziklani-international-box" href="https://fyziklani.org/erasmus">
-                        {switch $lang}{case cs}Účast ve<br/>Fyziklání<br/>International
-                            {default}Participation in<br/>Fyziklani<br/>International{/switch}
-                    </a>
+                    {switch $lang}
+                        {case cs}
+                        <a class="price-box large fyziklani-international-box" href="https://fyziklani.org/erasmus">
+                            Účast ve<br/>Fyziklání<br/>International
+                        </a>
+                        {default}
+                        <a class="price-box large mathematica-box" href="https://www.wolfram.com/mathematica/">
+                            Wolfram<br/>Mathematica<br/>software
+                        </a>
+                    {/switch}
                 </div>
                 <div class="col-md-4">
                     <div class="price-box large" style="background-color: #F5ADC1">
