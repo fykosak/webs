@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Components\UpperHomeCountdown;
+namespace App\Components\UpperHomeBeforeRegistration;
 
 use App\Components\Countdown\CountdownComponent;
 use App\Models\GamePhaseCalculator;
 use Nette\Application\UI\Control;
 
-class UpperHomeCountdownComponent extends Control
+class UpperHomeBeforeRegistrationComponent extends Control
 {
     protected GamePhaseCalculator $gamePhaseCalculator;
 
@@ -21,7 +21,7 @@ class UpperHomeCountdownComponent extends Control
     {
         $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
         $this->template->lang = $this->getPresenter()->lang;
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomeCountdown.latte');
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomeBeforeRegistration.latte');
     }
 
     protected function createComponentCountdown(): CountdownComponent

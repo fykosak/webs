@@ -4,12 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\DefaultModule;
 
-use App\Components\UpperHomeCountdown\UpperHomeCountdownComponent;
-use App\Components\UpperHomeMap\UpperHomeCountdown;
+use App\Components\UpperHomeBeforeRegistration\UpperHomeBeforeRegistrationComponent;
 use App\Components\UpperHomeMap\UpperHomeMapComponent;
-use App\Models\GamePhaseCalculator;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
-use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\UI\PageTitle;
 
 class DefaultPresenter extends BasePresenter
@@ -25,9 +21,9 @@ class DefaultPresenter extends BasePresenter
         return new UpperHomeMapComponent($this->getContext());
     }
 
-    protected function createComponentUpperHomeCountdown(): UpperHomeCountdownComponent
+    protected function createComponentUpperHomeBeforeRegistration(): UpperHomeBeforeRegistrationComponent
     {
-        return new UpperHomeCountdownComponent($this->gamePhaseCalculator);
+        return new UpperHomeBeforeRegistrationComponent($this->gamePhaseCalculator);
     }
 
     public function renderLastYears(): void
