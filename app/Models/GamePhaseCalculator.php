@@ -99,13 +99,13 @@ class GamePhaseCalculator
     }
 
     /**
-     * @return ModelEvent|null
-     * @throws \Throwable
+     * Returns newest FKSDB event. That means by creating a new one, the application automatically switches to the new
+     * year.
      */
     public function getFKSDBEvent(): ?ModelEvent
     {
         static $fksdbEvent;
-        if (!isset($this->event)) {
+        if (!isset($fksdbEvent)) {
             $fksdbEvent = $this->serviceEventList->getNewest([9]);
         }
         return $fksdbEvent;
