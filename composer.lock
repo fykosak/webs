@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e5b1448de48b120bd7312fdb78411ec",
+    "content-hash": "b6044922840bbce47f9f220b56e2ce37",
     "packages": [
         {
             "name": "fykosak/fksdb-downloader-core",
@@ -174,6 +174,56 @@
                 }
             ],
             "time": "2021-07-28T22:17:07+00:00"
+        },
+        {
+            "name": "h4kuna/assets",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/h4kuna/assets.git",
+                "reference": "d204d815e0d81d5dc6b31df437a71fe45b85ba2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/h4kuna/assets/zipball/d204d815e0d81d5dc6b31df437a71fe45b85ba2d",
+                "reference": "d204d815e0d81d5dc6b31df437a71fe45b85ba2d",
+                "shasum": ""
+            },
+            "require": {
+                "latte/latte": "^2.5",
+                "nette/application": "^3.0",
+                "nette/bootstrap": "^3.0",
+                "nette/safe": "^0.9",
+                "nette/utils": "^3.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12.18",
+                "salamium/testinium": "^0.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "h4kuna\\Assets\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Milan Matějček",
+                    "email": "milan.matejcek@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Support mtime for assets on development machine.",
+            "homepage": "https://github.com/h4kuna/assets",
+            "support": {
+                "issues": "https://github.com/h4kuna/assets/issues",
+                "source": "https://github.com/h4kuna/assets/tree/v1.1.0"
+            },
+            "time": "2021-08-03T14:38:17+00:00"
         },
         {
             "name": "latte/latte",
@@ -1279,6 +1329,69 @@
             "time": "2021-02-06T04:08:30+00:00"
         },
         {
+            "name": "nette/safe",
+            "version": "v0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/safe.git",
+                "reference": "8ebf13bdcd5e0ae5394671afa3a6deae70dc01cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/safe/zipball/8ebf13bdcd5e0ae5394671afa3a6deae70dc01cf",
+                "reference": "8ebf13bdcd5e0ae5394671afa3a6deae70dc01cf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "nette/tester": "^2.2",
+                "phpstan/phpstan": "^0.12",
+                "tracy/tracy": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🛡 PHP functions rewritten to throw exceptions instead of returning false or triggering errors.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "errors",
+                "exceptions",
+                "nette",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/safe/issues",
+                "source": "https://github.com/nette/safe/tree/v0.9"
+            },
+            "time": "2019-12-11T17:44:10+00:00"
+        },
+        {
             "name": "nette/safe-stream",
             "version": "v2.4.2",
             "source": {
@@ -1799,5 +1912,6 @@
         "ext-dom": "*",
         "ext-gettext": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

@@ -24,6 +24,7 @@ database:
 
 extensions:
     orm: Fykosak\NetteORM\ORMExtension
+    assets: h4kuna\Assets\DI\AssetsExtension
 
 parameters:
     i18n:
