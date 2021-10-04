@@ -6,7 +6,13 @@
 <!DOCTYPE html>
 <html lang="{$presenter->lang}">
 <head>
-    <title>{ifset title}{include title}| {/ifset}{_'Fyziklání online'}</title>
+    <title>
+        {ifset title}{include title} | {/ifset}
+        {switch $lang}
+            {case "cs"} Fyziklání Online
+            {default} Online Physics Brawl
+        {/switch}
+    </title>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
