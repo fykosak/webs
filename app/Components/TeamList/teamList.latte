@@ -55,7 +55,7 @@
                 <ol>
                     {foreach $teamsForCategory AS $team}
                         {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
-                        {if $team->status == 'participated'}
+                        {if $team->status == 'participated' || $team->status == 'applied'}
                             <li>
                                 <strong>{$team->name}</strong>:
                                 {var $inSchool = 0}
