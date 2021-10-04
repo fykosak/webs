@@ -56,7 +56,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         //    if (!$this->getUser()->isLoggedIn()) {
         if ($this->gamePhaseCalculator->isRegistration(GamePhaseCalculator::NOW)) {
             $items[] = new NavItem(
-                new PageTitle(_('Registrace'), 'visible-sm-inline glyphicon glyphicon-edit'),
+                new PageTitle(_('registration.menu'), 'visible-sm-inline glyphicon glyphicon-edit'),
                 ':Default:Registration:',
             );
         }

@@ -61,23 +61,23 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     {
         return [
             new NavItem(
-                new PageTitle(_('Archive Home'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(_('archive_home.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Archive:Default:default',
             ),
             new NavItem(
-                new PageTitle(_('Týmy'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(_('teams.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Archive:Teams:default',
             ),
             new NavItem(
-                new PageTitle(_('Výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
+                new PageTitle(_('results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
                 ':Archive:Results:default',
             ),
             new NavItem(
-                new PageTitle(_('Podrobné výsledky'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
+                new PageTitle(_('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
                 ':Archive:DetailedResults:default',
             ),
             new NavItem(
-                new PageTitle(_('Reporty'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'), // TODO
+                new PageTitle(_('reports.menu'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'), // TODO
                 ':Archive:Reports:default',
             ),
         ];

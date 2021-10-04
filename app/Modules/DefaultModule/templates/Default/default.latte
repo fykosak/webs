@@ -1,6 +1,11 @@
 {varType string $lang}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
-{block title}{/block}
+{block title}
+    {switch $lang}
+        {case 'cs'} Hlavní stránka
+        {default} Main page
+    {/switch}
+{/block}
 
 {block main}
     <div class="panel color-primary title-panel">
