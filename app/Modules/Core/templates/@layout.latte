@@ -27,7 +27,7 @@
     <meta property="og:locale" content="{$presenter->translator->locales[$presenter->lang]}"/>
     <meta property="og:url" content="{plink //this}"/>
     <link href="{$basePath}/images/fol_symbol.svg" rel="icon" type="image/svg"/>
-    <link href="{$basePath}/assets/main.css" rel="stylesheet"/>
+    <link href="{='assets/main.css'|asset}" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;800&display=swap" rel="stylesheet">
@@ -44,7 +44,7 @@
     </script>
     {block head}{/block}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="{$basePath}/assets/main.js"></script>
+    <script src="{='assets/main.js'|asset}"></script>
     {block scripts}{/block}
 </head>
 
@@ -87,6 +87,11 @@
                 <div class="sponsors-row">
                     <a href="https://www.mff.cuni.cz/"><img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-height: 10rem"></a>
                     <a href="https://www.msmt.cz/"><img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 10rem"></a>
+                </div>
+                <div class="sponsors-row">
+                    <a href="https://orgpad.com/"><img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad logo" style="max-height: 10rem"></a>
+                    <a href="https://www.wolfram.com/mathematica/"><img src="{$basePath}/images/logos/wolfram.png" alt="Wolfram logo" style="max-height: 10rem"></a>
+                    <a href="http://www.graphmatica.com/" style="font-size: 2rem; color: black; font-weight: bold;">Graphmatica</a>
                 </div>
             </div>
         </div>
