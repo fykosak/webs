@@ -37,7 +37,7 @@ class UpperHomeMapComponent extends BaseComponent
             $this->teamCount++;
             /* @var $participant \Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant */
             foreach ($team->participants as $participant) {
-                if (!in_array($participant->countryIso, $this->teamCountries)) {
+                if (!in_array($participant->countryIso, $this->teamCountries) && strtolower($participant->countryIso) !== "zz") {
                     $this->teamCountries[] = $participant->countryIso;
                 }
             }
