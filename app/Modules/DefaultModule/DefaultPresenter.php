@@ -18,7 +18,7 @@ class DefaultPresenter extends BasePresenter
 
     protected function createComponentUpperHomeMap(): UpperHomeMapComponent
     {
-        return new UpperHomeMapComponent($this->getContext());
+        return new UpperHomeMapComponent($this->getContext(), $this->gamePhaseCalculator);
     }
 
     protected function createComponentUpperHomeBeforeRegistration(): UpperHomeBeforeRegistrationComponent
