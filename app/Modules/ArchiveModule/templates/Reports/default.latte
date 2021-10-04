@@ -1,71 +1,17 @@
+{varType Fykosak\NetteORM\TypedTableSelection $reports}
+{varType App\Modules\ArchiveModule\ReportsPresenter $presenter}
+{varType string $lang}
+
+{block title}
+    {switch $lang}
+        {case cs}
+        Reporty týmů
+        {case en}
+        Teams' reports from
+    {/switch}
+{/block}
+
 {block main}
-    <head>
-        <script n:syntax="off">
-            function gallery(source, imgId) {
-                // Get the expanded image
-                var expandImg = document.getElementById(imgId);
-                // Use the same src in the expanded image as the image being clicked on from the grid
-                expandImg.src = source;
-            }
-        </script>
-    </head>
-    <style>
-    /* The grid: Four equal columns that floats next to each other */
-    .column {
-    float: left;
-    width: 7rem;
-    padding: 1rem;
-    }
-
-    /* Style the images inside the grid */
-    .column img {
-        float: left;
-        opacity: 0.9;
-        cursor: pointer;
-        max-width: 6rem;
-        max-height: 6rem;
-    }
-    .column img:hover{
-        opacity: 1;
-    }
-
-    /*!* Clear floats after the columns *!*/
-    .row:after {
-    content: "";
-    display: table;
-    clear: both;
-    }
-
-    .inner-container {
-        overflow: auto;
-    }
-
-    .image-container {
-        display: block;
-        float: left;
-        width: 30rem;
-        height: auto;
-        background-color: transparent;
-    }
-
-    /*!* The expanding image container (positioning is needed to position the close button and the text) *!*/
-    .box {
-        position: relative;
-        width: 28rem;
-        height: 22rem;
-        display: block;
-        background-color: transparent;
-        margin-left: 0;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    .box img {
-        max-width: 100%;
-        max-height: 100%;
-    }
-    </style>
-
     <div class="panel color-light">
         <section class="inner-container">
             <h1>
@@ -80,8 +26,6 @@
     </div>
 
 
-    {varType Fykosak\NetteORM\TypedTableSelection $reports}
-    {varType App\Modules\ArchiveModule\ReportsPresenter $presenter}
     <div id="reports" class="list">
         {varType bool $counter}
         {do $counter = true}
@@ -89,12 +33,10 @@
             {do $counter = !$counter}
 
             <div n:class="panel, $counter ? color-light : color-dark">
-                <section class="inner-container">
-                    <div class="image-container" id="{$report->report_id}-container">
-                        <div class="box" id="{$report->report_id}-box">
-                            <img id="{$report->report_id}">
-                        </div>
-                        <div class="row" id="{$report->report_id}-row">
+                <section class="inner-container row">
+                    <div class="col-md-4" id="{$report->report_id}-container" n:if="$report->related('report_image')->count()">
+                        <img id="{$report->report_id}" src="{$basePath . '/images/reports/' . $report->related('report_image')->fetch()->filename}" class="img-fluid">
+                        <div class="row gallery-thumbnails" id="{$report->report_id}-row">
                             {varType bool $solo} {* true when there's only one picture *}
                             {do $solo = true}
                             {varType bool $noImage}
@@ -106,9 +48,8 @@
                                 {do $noImage = false}
                                 {varType string $source}
                                 {do $source = $basePath . '/images/reports/' . $reportImage->filename}
-                                <script n:if="$iterator->first">gallery({$source}, {$report->report_id});</script>
-                                <div class="column">
-                                    <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$report->report_id});">
+                                <div class="col-4">
+                                    <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$report->report_id});" class="img-fluid">
                                 </div>
                             {/foreach}
                             <script n:if="$solo">
@@ -117,8 +58,7 @@
                             </script>
                         </div>
                     </div>
-                    <script n:if="$noImage">document.getElementById({$report->report_id} + "-container").style.display="none";</script>
-                    <div class="text">
+                    <div class="col">
                         <div class="subheader">
                             {switch $lang}
                                 {case cs}
