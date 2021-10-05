@@ -31,13 +31,16 @@ class UpperHomeMapComponent extends BaseComponent
     public function processTeams(): void
     {
         $this->teamCount = 0;
-        $this->teamCountries= [];
+        $this->teamCountries = [];
 
         foreach ($this->serviceTeam->getTeams($this->gamePhaseCalculator->getFKSDBEvent()->eventId) as $team) {
             $this->teamCount++;
             /* @var $participant \Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant */
             foreach ($team->participants as $participant) {
-                if (!in_array($participant->countryIso, $this->teamCountries) && strtolower($participant->countryIso) !== "zz") {
+                if (
+                    !in_array($participant->countryIso, $this->teamCountries) &&
+                    strtolower($participant->countryIso) !== "zz"
+                ) {
                     $this->teamCountries[] = $participant->countryIso;
                 }
             }
