@@ -14,7 +14,7 @@
                 <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
                     {switch $lang}
                         {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} 17:00 - 20:00
-                        {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j Y'} 5:00 - 8:00 a.m. CET
+                        {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j Y'} 5:00 - 8:00 p.m. CET
                     {/switch}
                 </time>
 
