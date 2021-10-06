@@ -147,3 +147,17 @@ a:hover {
     list-style-type: none;
   }
 }
+
+/**
+ * By using #team-id in URL, the team will blink
+ */
+.team-list {
+  li:target {
+    background-color: $complementary-color;
+    animation: blink-target .8s 5;
+  }
+
+  @keyframes blink-target {
+    100% { background-color: rgba($complementary-color, 0); }
+  }
+}
