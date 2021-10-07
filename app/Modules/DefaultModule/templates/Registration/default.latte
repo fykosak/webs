@@ -1,3 +1,6 @@
+{varType string $lang}
+{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+
 {block title}
     {switch $lang}
         {case cs}Důležité informace před registrací
@@ -34,6 +37,11 @@
                     <strong>Open</strong> category.
                 </li>
                 <li>The problems are available only in <strong>English</strong> and <strong>Czech</strong>.</li>
+                <li>
+                    Keep in mind that in the registration form you have to select a school from the list of schools in
+                    our database. If the school is not listed, please send us an email first at
+                    <a href="mailto:schola.novum@fykos.cz">schola.novum@fykos.cz</a>.
+                </li>
             </ul>
 
             <ul class="stylized">
@@ -43,7 +51,7 @@
     {/switch}
 
     <div class="d-grid gap-2">
-        <a href="https://db.fykos.cz/public/application/?eventId=159&lang=cs" type="button"
+        <a href="https://db.fykos.cz/public/application/?eventId={$gamePhaseCalculator->getFKSDBEvent()->eventId}&lang={$lang}" type="button"
            class="btn btn-primary btn-lg btn-block">{switch $lang}{case cs}Registrovat tým{default}Register team{/switch}</a>
     </div>
 {/block}
