@@ -80,7 +80,7 @@ a:hover {
   & > .inner-container {
     margin: 0 auto;
     padding: 0 1rem;
-    max-width: 77rem;
+    max-width: $page-width;
   }
 
   &.registration {
