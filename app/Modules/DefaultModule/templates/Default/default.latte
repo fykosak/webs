@@ -92,7 +92,7 @@
                 {default}We have rewards for the best of you.{/switch}</h1>
             <div class="row prices">
                 <div class="col-md-4">
-                    <div class="price-box small" style="background-color: #707070">
+                    <div class="price-box small" style="background-color: #666666">
                         {switch $lang}{case cs}FYKOSí<br/>trička a mikiny{default}T-shirts<br/>and hoodies{/switch}
                     </div>
 
@@ -108,9 +108,16 @@
                     {/switch}
                 </div>
                 <div class="col-md-4">
-                    <div class="price-box large" style="background-color: #F5ADC1">
-                        {switch $lang}{case cs}Knihy<br/>podle<br/>výběru{default}Mugs<br/>and towels{/switch}
-                    </div>
+                    {switch $lang}
+                        {case cs}
+                            <div class="price-box large knihy-box">
+                                Knihy<br/>podle<br/>výběru
+                            </div>
+                        {default}
+                            <div class="price-box large" style="background-color: #ba7743">
+                                Mugs<br/>and towels
+                            </div>
+                    {/switch}
 
                     <a class="price-box small orgpad-box" href="https://orgpad.com/">
                         {switch $lang}{case cs}Licence na<br/><span style="color: #F15E15;">Org</span><span style="color: #249AD5;">pad</span>
@@ -118,11 +125,18 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <div class="price-box small" style="background-color: #019A69">
-                        {switch $lang}{case cs}Deskovky{default}Canvas bags{/switch}
-                    </div>
+                    {switch $lang}
+                        {case cs}
+                            <div class="price-box small deskovky-box">
+                                Deskovky a<br>karetní<br>hry
+                            </div>
+                        {default}
+                            <div class="price-box small" style="background-color: #666666">
+                                Canvas bags
+                            </div>
+                    {/switch}
 
-                    <div class="price-box large" style="background-color: #666666">
+                    <div class="price-box large" style="background-color: #019A69">
                         {switch $lang}{case cs}O dalších<br/>cenách jednáme<br/>se sponzory...
                             {default}We are discussing<br/>other prizes<br/>with our sponsors...{/switch}
                     </div>
