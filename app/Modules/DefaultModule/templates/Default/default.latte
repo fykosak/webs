@@ -120,8 +120,12 @@
                     {/switch}
 
                     <a class="price-box small orgpad-box" href="https://orgpad.com/">
-                        {switch $lang}{case cs}Licence na<br/><span style="color: #F15E15;">Org</span><span style="color: #249AD5;">pad</span>
-                            {default}<span style="color: #F15E15;">Org</span><span style="color: #249AD5;">pad</span><br/>software{/switch}
+                        {switch $lang}
+                            {case cs}Licence na<br/>
+                            <img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad" style="max-height: 3rem">
+                            {default}License to<br/>
+                            <img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad" style="max-height: 3rem">
+                        {/switch}
                     </a>
                 </div>
                 <div class="col-md-4">
