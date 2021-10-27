@@ -16,4 +16,5 @@ parameters:
         password:
     database:
          user:
-         password: 
+         password:
+    gameApiURL:
