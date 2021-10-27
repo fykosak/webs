@@ -15,7 +15,7 @@
     "nette/nette": "^v3.1.0",
     "fykosak/nette-orm": "dev-master#588d956",
     "fykosak/nette-fksdb-downloader": "dev-master#d45d37d",
-    "fykosak/nette-fks-utils": "dev-master#70035d5",
+    "fykosak/nette-fks-utils": "dev-master#4054d9f",
     "ext-soap": "*",
     "ext-dom": "*",
     "ext-gettext": "*",
@@ -23,7 +23,7 @@
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.6.0",
-    "nette/tester": "^v2.4.0"
+    "nette/tester": "^v2.4.1"
   },
   "scripts": {
     "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 app/"

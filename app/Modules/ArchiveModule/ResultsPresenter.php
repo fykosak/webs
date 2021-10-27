@@ -17,7 +17,6 @@ class ResultsPresenter extends BasePresenter
     }
 
     /**
-     * @return TeamResultsComponent
      * @throws BadRequestException
      * @throws \Throwable
      */

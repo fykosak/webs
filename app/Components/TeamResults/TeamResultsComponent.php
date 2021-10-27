@@ -126,7 +126,6 @@ class TeamResultsComponent extends BaseComponent
     }
 
     /**
-     * @return Form
      * @throws \Throwable
      */
     protected function createComponentFilterForm(): Form

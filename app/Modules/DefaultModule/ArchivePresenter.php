@@ -15,11 +15,14 @@ class ArchivePresenter extends BasePresenter
         $this->serviceEvent = $serviceEvent;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderDefault(): void
     {
         $events = array_reverse($this->serviceEvent->getEvents([9]));
         $events = array_filter($events, function ($event) {
-            return $event->end < new \DateTime("now");
+            return $event->end < new \DateTime('now');
         });
         $eventKeys = [];
         foreach ($events as $event) {

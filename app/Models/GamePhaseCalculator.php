@@ -33,7 +33,7 @@ class GamePhaseCalculator
             case self::NOW:
                 return $now > $start && $now < $end;
             default:
-                throw new ArgumentOutOfRangeException("Invalid period");
+                throw new ArgumentOutOfRangeException('Invalid period');
         }
     }
 
@@ -43,11 +43,17 @@ class GamePhaseCalculator
         $this->container = $container;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function isDateKnown(): bool
     {
         return new \DateTime() < $this->getFKSDBEvent()->end;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function isRegistration(int $period): bool
     {
         return $this->checkEvent(
@@ -68,6 +74,9 @@ class GamePhaseCalculator
         }
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function isAfterRegistration(): bool
     {
         return $this->isDateKnown() && new \DateTime() > $this->getFKSDBEvent()->registrationEnd;
@@ -83,11 +92,17 @@ class GamePhaseCalculator
         return $this->container->getParameters()['streamURL'] ?? null;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function isGameRunning(): bool
     {
         return new \DateTime() > $this->getFKSDBEvent()->begin && new \DateTime() < $this->getFKSDBEvent()->end;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function isResultsVisible(): bool
     {
         return $this->isGameRunning();/*&& new \DateTime() <  TODO*/
@@ -101,6 +116,7 @@ class GamePhaseCalculator
     /**
      * Returns newest FKSDB event. That means by creating a new one, the application automatically switches to the new
      * year.
+     * @throws \Throwable
      */
     public function getFKSDBEvent(): ?ModelEvent
     {

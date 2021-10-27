@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 namespace App\Modules\DefaultModule;
 
-use App\Components\Navigation\NavItem;
+use Fykosak\Utils\UI\Navigation\NavItem;
 use App\Models\GamePhaseCalculator;
 use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
 
+    /**
+     * @throws \Throwable
+     */
     protected function getNavItems(): array
     {
         $items = [];

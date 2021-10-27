@@ -80,7 +80,7 @@ abstract class BasePresenter extends Presenter
      */
     protected function localize(): void
     {
-        $i18nConf = $this->context->parameters['i18n'];
+        $i18nConf = $this->getContext()->parameters['i18n'];
         $this->detectLang($i18nConf);
         $this->translator->setLang($this->lang);
     }

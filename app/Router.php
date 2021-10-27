@@ -13,8 +13,6 @@ class Router
 
     /**
      * Creates a global filter for a route modifying parameters to use domains instead of lang.
-     * @param array|null $domainList
-     * @param array $routerMapping
      * @param string $key todo replace by an array of keys
      * @return \Closure[]
      */
@@ -77,7 +75,7 @@ class Router
             ->addRoute('//<domain>/<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]', [
                 'presenter' => 'Default',
                 'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['archive'], "presenter")
+                null => self::useTranslateFilter($domainList, $routerMapping['archive'], 'presenter')
             ]);
 
         $router->withModule('Default')
@@ -90,7 +88,7 @@ class Router
                     ]
                 ],
                 'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default'], "presenter")
+                null => self::useTranslateFilter($domainList, $routerMapping['default'], 'presenter')
             ]);
 
         return $router;

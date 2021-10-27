@@ -24,6 +24,9 @@ class UpperHomeBeforeRegistrationComponent extends Control
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomeBeforeRegistration.latte');
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentCountdown(): CountdownComponent
     {
         return new CountdownComponent($this->gamePhaseCalculator->getFKSDBEvent()->registrationBegin);

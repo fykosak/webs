@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Components\UpperHomeMap;
 
 use App\Models\GamePhaseCalculator;
+use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
@@ -28,6 +29,9 @@ class UpperHomeMapComponent extends BaseComponent
         $this->gamePhaseCalculator = $calculator;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function processTeams(): void
     {
         $this->teamCount = 0;
@@ -35,11 +39,11 @@ class UpperHomeMapComponent extends BaseComponent
 
         foreach ($this->serviceTeam->getTeams($this->gamePhaseCalculator->getFKSDBEvent()->eventId) as $team) {
             $this->teamCount++;
-            /* @var $participant \Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant */
+            /* @var ModelParticipant $participant */
             foreach ($team->participants as $participant) {
                 if (
                     !in_array($participant->countryIso, $this->teamCountries) &&
-                    strtolower($participant->countryIso) !== "zz"
+                    strtolower($participant->countryIso) !== 'zz'
                 ) {
                     $this->teamCountries[] = $participant->countryIso;
                 }
@@ -47,6 +51,9 @@ class UpperHomeMapComponent extends BaseComponent
         }
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function render(): void
     {
         $this->processTeams();

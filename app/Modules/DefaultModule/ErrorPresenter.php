@@ -20,8 +20,6 @@ class ErrorPresenter extends BasePresenter
     }
 
     /**
-     * @param Throwable
-     * @return void
      * @throws AbortException
      */
     public function renderDefault(Throwable $exception): void

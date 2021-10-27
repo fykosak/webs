@@ -16,7 +16,6 @@ class TeamsPresenter extends BasePresenter
     }
 
     /**
-     * @return TeamListComponent
      * @throws BadRequestException
      * @throws \Throwable
      */

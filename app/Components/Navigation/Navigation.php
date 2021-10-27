@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Components\Navigation;
 
 use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\UI\Navigation\NavItem;
 
 class Navigation extends BaseComponent
 {

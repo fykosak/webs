@@ -6,9 +6,13 @@ namespace App\Modules\DefaultModule;
 
 use App\Components\TeamList\TeamListComponent;
 use App\Models\GamePhaseCalculator;
+use Nette\Application\BadRequestException;
 
 class TeamsPresenter extends BasePresenter
 {
+    /**
+     * @throws \Throwable
+     */
     public static function isVisible(GamePhaseCalculator $gamePhaseCalculator): bool
     {
         return $gamePhaseCalculator->isRegistration(GamePhaseCalculator::NOW) ||
@@ -18,6 +22,10 @@ class TeamsPresenter extends BasePresenter
             );
     }
 
+    /**
+     * @throws BadRequestException
+     * @throws \Throwable
+     */
     public function actionDefault()
     {
         if (!self::isVisible($this->gamePhaseCalculator)) {
@@ -25,6 +33,9 @@ class TeamsPresenter extends BasePresenter
         }
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentTeamList(): TeamListComponent
     {
         return new TeamListComponent($this->getContext(), $this->gamePhaseCalculator->getFKSDBEvent()->eventId);

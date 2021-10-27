@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\ArchiveModule;
 
-use App\Components\Navigation\NavItem;
+use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Fykosak\Utils\UI\PageTitle;
@@ -26,7 +26,6 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     }
 
     /**
-     * @return ModelEvent
      * @throws BadRequestException
      * @throws \Throwable
      */
@@ -84,7 +83,6 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     }
 
     /**
-     * @return array
      * @throws BadRequestException
      * @throws \Throwable
      */
@@ -100,6 +98,10 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         ];
     }
 
+    /**
+     * @throws \Throwable
+     * @throws BadRequestException
+     */
     protected function createTemplate(): Template
     {
         $template = parent::createTemplate();

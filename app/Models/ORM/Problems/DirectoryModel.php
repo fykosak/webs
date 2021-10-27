@@ -16,7 +16,6 @@ class DirectoryModel extends AbstractModel
 {
 
     /**
-     * @param bool $recursive
      * @return ProblemModel[]
      */
     public function getProblems(bool $recursive = false): array

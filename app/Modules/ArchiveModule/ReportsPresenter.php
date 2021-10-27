@@ -20,7 +20,6 @@ class ReportsPresenter extends BasePresenter
     }
 
     /**
-     * @return void
      * @throws BadRequestException
      * @throws \Throwable
      */
@@ -28,13 +27,11 @@ class ReportsPresenter extends BasePresenter
     {
         $this->template->reports = $this->reportService->getTable()
             ->where('lang = ? AND event_id = ?', $this->lang, $this->getEvent()->eventId);
-        $this->template->year = $this->getEvent()->begin->format("Y");
+        $this->template->year = $this->getEvent()->begin->format('Y');
         $this->setPageTitle(new PageTitle(_('Contestants\' reports')));
     }
 
     /**
-     * @param array $teamIds
-     * @return array
      * @throws BadRequestException
      * @throws \Throwable
      */
