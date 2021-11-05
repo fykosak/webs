@@ -74,6 +74,31 @@ a:hover {
   &.footer {
     background-color: #000000;
     color: white;
+
+    a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .logo {
+      max-height: 3rem;
+      margin-bottom: 2rem;
+      @extend .img-fluid;
+    }
+
+    .other-logos {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #FFFFFF80;
+      .other-logo {
+        @extend .img-fluid;
+        opacity: .5;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   // Inner container

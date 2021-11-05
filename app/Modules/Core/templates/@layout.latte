@@ -100,16 +100,15 @@
         <div class="panel footer">
             <div class="inner-container row">
                 <div class="col-md-6">
+                    <img class="logo" src="{$basePath}/images/fyziklani_online{$lang !== "cs" ? "_en" : null}_logo_white.svg" alt="{_'Fyziklani online'}" />
                     {switch $lang}
                         {case 'cs'}
-                        <h1>Fyziklání Online</h1>
                         <p>
                             Fyziklání Online je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 soutěží pro
                             středoškoláky ve fyzice s 35letou tradicí. FYKOS je tvořen převážně studenty
                             <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                         </p>
                         {default}
-                        <h1>Physics Brawl Online</h1>
                         <p>
                             Physics Brawl Online is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a competition for
                             high school students with a 35-year tradition. FYKOS' organisers are mainly students from
@@ -122,9 +121,12 @@
                             {case 'cs'}<strong>#fyziklanionline</strong>
                             {default}<strong>#physicsbrawlonline</strong>
                         {/switch}
-                        <a href="mailto:online@fyziklani.cz" style="text-decoration: none; color: white; font-weight: bold;">online@fyziklani.cz</a>
-
+                        <a href="mailto:online@fyziklani.cz">online@fyziklani.cz</a>
                     </p>
+                    <div class="other-logos">
+                        <a target="_blank" href="{switch $lang}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/en{/switch}"><img class="other-logo" src="{$basePath}/images/fyziklani_white_logo.svg" alt="Fyziklani" style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
+                        <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/fykos_logo.png" alt="FYKOS" style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
+                    </div>
                 </div>
                 {* todo disabled for now
                 <div class="col-md-2">
