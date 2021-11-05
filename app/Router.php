@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App;
 
-use Nette\Application\BadRequestException;
 use Nette\Application\Routers\Route;
 use Nette\Application\Routers\RouteList;
 
@@ -13,15 +12,16 @@ class Router
 
     /**
      * Creates a global filter for a route modifying parameters to use domains instead of lang.
-     * @param string $key todo replace by an array of keys
-     * @return \Closure[]
      */
-    private static function useTranslateFilter(?array $domainList, array $routerMapping, string $key): array
+    private static function useTranslateFilter(?array $domainList, array $routerMapping): array
     {
         return [
-            Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList, $key): array {
+            // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
+            Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList): array {
+                // From where to extract the language
                 if ($domainList && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
+                    // In case of accessing from unknown domain (which should not happen)
                     if ($domainLang === null) {
                         trigger_error(
                             'Domain \'' . $params['domain'] . '\' has no language assigned. Fallback to en.',
@@ -30,36 +30,47 @@ class Router
                         $domainLang = 'en';
                     }
 
-                    if ($domainLang !== 'en') {
-                        if (array_key_exists($params['presenter'], $routerMapping[$domainLang])) {
-                            $params['lang'] = $domainLang;
-                            $params[$key] = $routerMapping[$domainLang][$params[$key]];
-                        } else {
-                            // 404 because there is no translation
-                            throw new BadRequestException('', 404);
-                        }
+                    // Set the language guessed from the domain
+                    $params['lang'] = $domainLang;
+                } else {
+                    if (!isset($params['lang'])) {
+                        $params['lang'] = 'en';
                     }
                 }
+
+                // Translate presenter
+                if (isset($routerMapping[$params['lang']]) && isset($routerMapping[$params['lang']][$params['presenter']])) {
+                    $params['presenter'] = $routerMapping[$params['lang']][$params['presenter']];
+                }
+
                 return $params;
             },
 
             // From params to URL
-            Route::FILTER_OUT => function (array $params) use ($routerMapping, $domainList, $key): array {
-                if ($domainList && count($domainList)) {
-                    if ($params['lang'] !== 'en') {
-                        $params[$key] = array_search($params[$key], $routerMapping[$params['lang']]);
-                    }
+            Route::FILTER_OUT => function (array $params) use ($routerMapping, $domainList): array {
+                // Always translate presenter based on language
 
+                if (isset($routerMapping[$params['lang']])) {
+                    $key = array_search($params['presenter'], $routerMapping[$params['lang']]);
+                    if ($key !== false) {
+                        // Return the FIRST occurrence
+                        $params['presenter'] = $key;
+                    }
+                }
+
+                // Either set the language in the domain, or in lang parameter
+
+                if ($domainList && count($domainList)) {
                     $params['domain'] = array_search($params['lang'], $domainList);
                     if ($params['domain'] === false) {
-                        // No suitable domain for specified lang
-                        $params['domain'] = array_key_first($domainList);
+                        return [];
                     }
+
                     unset($params['lang']);
                 } else {
                     $params['domain'] = $_SERVER['HTTP_HOST'];
+                    // Keep the lang
                 }
-
 
                 return $params;
             },
@@ -71,24 +82,17 @@ class Router
         $router = new RouteList();
 
         $router->withModule('Archive')
-            /*->addRoute('<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]', 'Default:default');*/
             ->addRoute('//<domain>/<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]', [
                 'presenter' => 'Default',
                 'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['archive'], 'presenter')
+                null => self::useTranslateFilter($domainList, $routerMapping['archive'])
             ]);
 
         $router->withModule('Default')
-            ->addRoute('index.php', 'Default:default', $router::ONE_WAY)
             ->addRoute('//<domain>/<presenter>[/<action>]', [
-                'presenter' => [
-                    Route::VALUE => 'Default',
-                    Route::FILTER_TABLE => [
-                        'about' => 'AboutTheCompetition'
-                    ]
-                ],
+                'presenter' => 'Default',
                 'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default'], 'presenter')
+                null => self::useTranslateFilter($domainList, $routerMapping['default'])
             ]);
 
         return $router;

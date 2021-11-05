@@ -80,19 +80,7 @@ abstract class BasePresenter extends Presenter
      */
     protected function localize(): void
     {
-        $i18nConf = $this->getContext()->parameters['i18n'];
-        $this->detectLang($i18nConf);
         $this->translator->setLang($this->lang);
-    }
-
-    protected function detectLang(array $i18nConf): void
-    {
-        if (!isset($this->lang)) {
-            $this->lang = $this->getHttpRequest()->detectLanguage($this->translator->getSupportedLanguages());
-        }
-        if (array_search($this->lang, $this->translator->getSupportedLanguages()) === false) {
-            $this->lang = $i18nConf['defaultLang'];
-        }
     }
 
     public static function createEventKey(ModelEvent $event): string

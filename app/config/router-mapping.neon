@@ -1,13 +1,9 @@
+# This is translate table for URLs
+# Key is local translation, value is corresponding presenter
+# If the translation is missing, presenter name is used
+# If more than one local translation points to one presenter, the first one is used and other are redirects.
 parameters:
     router-mapping:
-        archive:
-            cs:
-                Default: Default
-                Tymy: Teams
-                Vysledky: Results
-                PodrobneVysledky: DetailedResults
-                Reporty: Reports
-
         default:
             cs:
                 Default: Default
@@ -22,4 +18,12 @@ parameters:
                 UstredniKomise: CentralCommity
                 Tymy: Teams
                 FyziklaniInternational: FyziklaniInternational
-
+            en:
+                About: AboutTheCompetition
+        archive:
+            cs:
+                Default: Default
+                Tymy: Teams
+                Vysledky: Results
+                PodrobneVysledky: DetailedResults
+                Reporty: Reports

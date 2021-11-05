@@ -33,8 +33,6 @@ parameters:
             en: en_US.utf-8
         # path to gettext dir structure
         dir: %appDir%/i18n/locale
-        # language used when no or unknown language is requested
-        defaultLang: cs
     # Contains mapping from domain to language. If empty, ?lang is used
     domains:
         # domain: lang
