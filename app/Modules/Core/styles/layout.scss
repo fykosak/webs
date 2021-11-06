@@ -75,6 +75,10 @@ a:hover {
     background-color: #000000;
     color: white;
 
+    .row {
+      --bs-gutter-x: 3rem;
+    }
+
     a {
       color: white;
       font-weight: bold;

@@ -18,6 +18,7 @@ parameters:
                 UstredniKomise: CentralCommity
                 Tymy: Teams
                 FyziklaniInternational: FyziklaniInternational
+                Spoluprace: Cooperation
             en:
                 About: AboutTheCompetition
         archive:
