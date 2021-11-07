@@ -39,7 +39,10 @@ class Router
                 }
 
                 // Translate presenter
-                if (isset($routerMapping[$params['lang']]) && isset($routerMapping[$params['lang']][$params['presenter']])) {
+                if (
+                    isset($routerMapping[$params['lang']]) &&
+                    isset($routerMapping[$params['lang']][$params['presenter']])
+                ) {
                     $params['presenter'] = $routerMapping[$params['lang']][$params['presenter']];
                 }
 
