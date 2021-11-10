@@ -26,7 +26,7 @@
                 <li><a href="#{$category}">{_("faq_category." . $category)}</a></li>
             {/foreach}
             </ul>
-            <button onclick="collapseFAQ(this)" class="btn btn-primary-FOL-style"
+            <button onclick="collapseFAQ(this)" class="btn btn-primary"
                     type="button">{_"faq.show_text_button"}</button>
         </section>
     </div>
@@ -42,7 +42,7 @@
 
                 {foreach $questionsForCategory AS $question}
                     <div class="card faq-question-and-answer rounded-0">
-                        <a href="javascript:void(0)" class="btn-primary-FOL-style" data-bs-toggle="collapse"
+                        <a href="javascript:void(0)" class="btn-primary" data-bs-toggle="collapse"
                            data-bs-target="#faq{$i}">
                             <div class="card-header faq-question rounded-0">
                                 {$question->question}

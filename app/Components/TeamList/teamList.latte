@@ -8,21 +8,21 @@
             {do ksort($teams)}
             {foreach $teams AS $category => $teamsForCategory}
                 {if $category == 'F'}
-                    <a class="btn btn-primary-FOL-style my-2" href="#{$category}">
+                    <a class="btn btn-primary my-2" href="#{$category}">
                         {switch $lang}
                             {case 'cs'}Zahraniční SŠ
                             {default}Foreign High School
                         {/switch}
                     </a>
                 {elseif $category == 'O'}
-                    <a class="btn btn-primary-FOL-style my-2" href="#{$category}">
+                    <a class="btn btn-primary my-2" href="#{$category}">
                         {switch $lang}
                             {case 'cs'}Kategorie Open
                             {default}Open Category
                         {/switch}
                     </a>
                 {else}
-                    <a class="btn btn-primary-FOL-style my-2" href="#{$category}">
+                    <a class="btn btn-primary my-2" href="#{$category}">
                         {switch $lang}
                             {case 'cs'}Kategorie {$category}
                             {default}Category {$category}

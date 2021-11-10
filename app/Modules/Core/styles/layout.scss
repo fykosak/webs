@@ -7,7 +7,7 @@ body {
   background-color: black;
 }
 
-.btn-primary-FOL-style {
+.btn-primary {
   @extend .btn-primary;
   color: $text-on-primary;
 }
