@@ -42,7 +42,8 @@
     font-size: 2rem;
     padding: 1.5rem;
     transition: all .5s ease;
-    font-weight: bold;
+    font-weight: 500;
+    line-height: 1.45;
 
     &.small {
       height: 16rem;
@@ -92,7 +93,7 @@
 }
 
 .price-box.deskovky-box {
-  background-color: #666666;
+  background-color: #C3A06C;
   background-image: url("./deskovky.png");
   background-repeat: no-repeat;
   background-position: bottom right;
@@ -104,18 +105,18 @@
 }
 
 .price-box.knihy-box {
-  background-color: #ba7743;
-  background-image: url("./orange_book.png"), url("yellow_book.png"), url("./blue_book.png");
+  background-color: #5a83c5;
+  background-image: url("./blue_book.png");
   background-repeat: no-repeat;
-  background-position: 90% 40%, 95% 73%, 71% 12%;
-  background-size: 45%;
+  background-position: 120% 4.7rem;
+  background-size: 60%;
 
   display: flex;
   align-items: center;
 
   &:hover {
-    background-size: 40%;
-    background-position: 92% 52%,68% 88%,62% 8%;
+    background-size: 65%;
+    background-position: 120% 2.9rem;
   }
 }
 

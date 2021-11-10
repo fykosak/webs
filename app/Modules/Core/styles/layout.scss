@@ -58,13 +58,12 @@ a:hover {
   &.sponsors .inner-container .sponsors-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    gap: 2rem;
 
     a {
       display: block;
-      margin: 1rem 2rem;
-
       img {
         @extend .img-fluid;
       }
@@ -147,7 +146,7 @@ a:hover {
 
   h1 {
     size: 2.1rem;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 2.1rem;
   }
 }
