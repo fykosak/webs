@@ -27,19 +27,11 @@
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
                     <li class="navbar-text real-clock" data-timestamp="{1000 * time()}"></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            <span><i class="{$control::mapLangToIcon($lang)}"></i></span>
+                    {var $otherLanguage = $lang === 'cs' ? 'en' : 'cs'}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{plink this, lang => $otherLanguage}">
+                            <span><i class="{$control::mapLangToIcon($otherLanguage)}"></i></span>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="langDropdown">
-                            {foreach $supportedLangs as $supportedLang}
-                                <a class="dropdown-item {$lang === $supportedLang ? 'active' : ''}"
-                                   href="{plink this, lang => $supportedLang}">
-                                    <i class="{$control::mapLangToIcon($supportedLang)}"></i>
-                                </a>
-                            {/foreach}
-                        </div>
                     </li>
                 </ul>
             </div>
