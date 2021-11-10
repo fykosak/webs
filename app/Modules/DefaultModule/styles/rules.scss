@@ -1,38 +1,11 @@
-@use "sass:math";
-
-$scaling: 1.04;
-
-
-.zig-zag {
-  //opacity: 0.7;
-  visibility: hidden;
-
-  .rule-block:hover {
-    transform: scale($scaling);
-    opacity: 1;
-  }
-}
-
-.rule-block {
-  visibility: visible;
-  background-color: $primary-color;
-  display: flex;
-  color: $text-on-primary;
-  text-align: center;
-  margin-bottom: 2em;
-  align-items: center;
-  opacity: 0.9;
-
-  .description {
-    flex-grow: 3;
-    text-align: left;
-    margin: .5em;
+.rules {
+  .title {
+    text-transform: uppercase;
+    margin: 0 0 0.25rem;
+    font-weight: bold;
   }
 
-  .picture {
-    margin: 1em;
-    @media screen and (max-width: 600px) {
-      display: none;
-    }
-  }
+  border-left: .25rem solid $primary-color;
+  margin-bottom: 2rem;
+  padding: .5rem 1rem;
 }
