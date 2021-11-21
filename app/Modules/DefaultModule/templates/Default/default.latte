@@ -47,6 +47,7 @@
         </div>
     </div>
 
+    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW)}
     <div class="panel color-dark" id="{$anchorBeforeCompetition}">
         <section class="inner-container">
             {switch $lang}
@@ -105,6 +106,7 @@
             {/switch}
         </section>
     </div>
+    {/if}
 
     <div class="panel color-light">
         <section class="inner-container">
