@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\DefaultModule;
 
+use App\Components\Countdown\CountdownComponent;
 use App\Components\UpperHomeBeforeRegistration\UpperHomeBeforeRegistrationComponent;
 use App\Components\UpperHomeMap\UpperHomeMapComponent;
 
@@ -17,5 +18,10 @@ class DefaultPresenter extends BasePresenter
     protected function createComponentUpperHomeBeforeRegistration(): UpperHomeBeforeRegistrationComponent
     {
         return new UpperHomeBeforeRegistrationComponent($this->gamePhaseCalculator);
+    }
+
+    protected function createComponentCountdown(): CountdownComponent
+    {
+        return new CountdownComponent($this->gamePhaseCalculator->getGameBegin());
     }
 }

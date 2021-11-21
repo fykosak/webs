@@ -139,4 +139,15 @@
   padding: .5rem 1rem;
 }
 
+.begin-countdown {
+  text-align: center;
+  font-size: 1.5rem;
+  .countdown-value {
+    font-weight: bold;
+  }
+  .countdown-value, .countdown-text {
+    font-size: 1rem;
+  }
+}
+
 @import "../../DefaultModule/styles/legends";

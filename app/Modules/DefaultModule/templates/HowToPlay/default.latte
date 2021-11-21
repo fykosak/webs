@@ -1,0 +1,30 @@
+{varType string $lang}
+
+{block subtitle}
+    {switch $lang}
+        {case cs}Jak hrát
+        {default}How to play
+    {/switch}
+{/block}
+
+{block title}
+    {switch $lang}
+        {case cs}Orientace v herním systému
+        {default}Orientation in the game system
+    {/switch}
+{/block}
+
+{block content}
+    <div class="ratio ratio-16x9">
+        <iframe
+                width="560"
+                height="315"
+                src="{switch $lang}{case cs}https://www.youtube.com/embed/m2SDsce_iIs{default}https://www.youtube.com/embed/LzabOcqQNYc{/switch}"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+        ></iframe>
+    </div>
+{/block}
+

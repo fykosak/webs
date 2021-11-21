@@ -87,9 +87,16 @@ class GamePhaseCalculator
         return true; // todo implement
     }
 
-    public function getStreamURL(): ?string
+    /**
+     * @throws \Throwable
+     */
+    public function getGameBegin(): \DateTime
     {
-        return $this->container->getParameters()['streamURL'] ?? null;
+        $time = new \DateTime($this->container->getParameters()['competitionBegin']);
+        $day = $this->getFKSDBEvent()->begin;
+
+        $time->setDate((int)$day->format('Y'), (int)$day->format('m'), (int)$day->format('sd'));
+        return $time;
     }
 
     /**

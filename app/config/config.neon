@@ -36,6 +36,7 @@ parameters:
     # Contains mapping from domain to language. If empty, ?lang is used
     domains:
         # domain: lang
+    competitionBegin: 17:00
 
 orm:
     faq:

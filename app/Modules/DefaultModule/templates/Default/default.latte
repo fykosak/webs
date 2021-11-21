@@ -8,6 +8,7 @@
 {/block}
 
 {block main}
+{capture $anchorBeforeCompetition}{switch $lang}{case 'cs'}pred-soutezi{default}before-the-competition{/switch}{/capture}
     <div class="panel color-primary title-panel">
         <div class="inner-container row align-items-center">
             <div class="col-md-6 left-block">
@@ -33,6 +34,7 @@
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
                     <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
+                    <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $lang}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>
                 </div>
             </div>
             <div class="col-md-6 right-block topic-panel">
@@ -43,6 +45,65 @@
                 {/if}
             </div>
         </div>
+    </div>
+
+    <div class="panel color-dark" id="{$anchorBeforeCompetition}">
+        <section class="inner-container">
+            {switch $lang}
+                {case 'cs'}
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="subheader">Informace před hrou</div>
+                        <h1>Pro registrované soutěžící...</h1>
+                        <div class="row strips">
+                            <div class="col-md-6">
+                                <ul class="stylized">
+                                    <li>Hra bude probíhat na <a href="https://game.online.fyziklani.cz/">game.online.fyziklani.cz</a>.</li>
+                                    <li>Pro přihlášení potřebujete týmové heslo, které vám zašleme mailem nejpozději den před hrou. (později přihlášeným týmům bude heslo zasláno po konci registrace)</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="stylized">
+                                    <li>Můžete se podívat na video, <a n:href="HowToPlay:">jak se v herním systému orientovat</a>.</li>
+                                    <li>Nezapomeňte se seznámit s <a n:href="Rules:">pravidly soutěže</a>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 begin-countdown">
+                        Začínáme za
+                        {control countdown}
+                        <a href="https://game.online.fyziklani.cz/" class="btn btn-secondary mt-2">game.online.fyziklani.cz</a>
+                    </div>
+                </div>
+            {default}
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="subheader">Information before the game</div>
+                        <h1>For registered competitors...</h1>
+                        <div class="row strips">
+                            <div class="col-md-6">
+                                <ul class="stylized">
+                                    <li>The game will take place at <a href="https://game.online.fyziklani.cz/">game.online.fyziklani.cz</a>.</li>
+                                    <li>You need a team password to log in, which we will send to you by e-mail no later than the day before the game. (for late registered competitors, passwords will be sent after the registration ends)</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="stylized">
+                                    <li>You can watch the video on <a n:href="HowToPlay:">how to play in our game system</a>.</li>
+                                    <li>Do not forget to read the <a n:href="Rules:">competition rules</a>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 begin-countdown">
+                        Competition starts in
+                        {control countdown}
+                        <a href="https://game.online.fyziklani.cz/" class="btn btn-secondary mt-2">game.online.fyziklani.cz</a>
+                    </div>
+                </div>
+            {/switch}
+        </section>
     </div>
 
     <div class="panel color-light">

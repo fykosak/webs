@@ -1,46 +1,18 @@
+{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+
 {block content}
-    <div class="map-panel">
-        <div class="map">
-            {include 'world.svg'}
+    {control map}
+   {* {if $gamePhaseCalculator->getFKSDBEvent()->begin->getTimestamp() - 7*24*60*60 < time()}
+        {control countdown}
+        {syntax off}
             <style>
-                {foreach $teamCountries as $iso}#{$iso}{sep},{/sep}{/foreach} {syntax off}{fill: white}{/syntax}
+                .map {
+                    width: 80%;
+                    margin: 0 auto;
+                }
             </style>
-        </div>
-        <div class="team-counts">
-            <strong>{$teamCount}</strong>
-            {switch $lang}
-                {case cs}
-                {if $teamCount === 1}
-                    přihlášený tým z
-                {elseif $teamCount > 1 &&  $teamCount < 5}
-                    přihlášené týmy z
-                {else}
-                    přihlášených týmů z
-                {/if}
 
-                {case en}
-
-                {if $teamCount === 1}
-                    registered team from
-                {else}
-                    registered teams from
-                {/if}
-            {/switch}
-            <strong>{count($teamCountries)}</strong>
-            {switch $lang}
-                {case cs}
-                {if $teamCount === 1}
-                    země světa
-                {else}
-                    zemí světa
-                {/if}
-                {case en}
-                {if $teamCount === 1}
-                    country
-                {else}
-                    countries
-                {/if}
-            {/switch}
-        </div>
-    </div>
+        {/syntax}
+    {/if}*}
 {/block}
+
