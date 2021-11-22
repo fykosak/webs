@@ -23,22 +23,21 @@ abstract class BasePresenter extends Presenter
 
     public GettextTranslator $translator;
     protected ServiceEventDetail $serviceEventDetail;
-
-    public function injectServices(GettextTranslator $translator, ServiceEventDetail $serviceEventDetail): void
-    {
-        $this->translator = $translator;
-        $this->serviceEventDetail = $serviceEventDetail;
-    }
-
     protected GamePhaseCalculator $gamePhaseCalculator;
 
-    public function injectGamePhaseCalculator(GamePhaseCalculator $calculator): void
-    {
+    public function injectServices(
+        GettextTranslator $translator,
+        ServiceEventDetail $serviceEventDetail,
+        GamePhaseCalculator $calculator
+    ): void {
+        $this->translator = $translator;
+        $this->serviceEventDetail = $serviceEventDetail;
         $this->gamePhaseCalculator = $calculator;
     }
 
     /**
      * @throws UnsupportedLanguageException
+     * @throws \Throwable
      */
     protected function startUp(): void
     {
