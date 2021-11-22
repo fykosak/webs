@@ -109,7 +109,7 @@ class GamePhaseCalculator
         $time = new \DateTime($this->container->getParameters()['competitionBegin']);
         $day = $this->getFKSDBEvent()->begin;
 
-        $time->setDate((int)$day->format('Y'), (int)$day->format('m'), (int)$day->format('s'));
+        $time->setDate((int)$day->format('Y'), (int)$day->format('m'), (int)$day->format('d'));
         return $time;
     }
 
