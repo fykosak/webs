@@ -75,10 +75,17 @@
                 {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
                     <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Registration{/switch}</a>
                 {else}
-                    {switch $lang}
-                        {case 'cs'}Registrujte se od 4.10.!
-                        {default} Register to the competition from 4.10.!
-                    {/switch}
+                    {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
+                        {switch $lang}
+                            {case 'cs'}Registrujte se od 4.10.!
+                            {default} Register to the competition from 4.10.!
+                        {/switch}
+                    {else}
+                        {switch $lang}
+                            {case 'cs'}Registrace skončila. Počkejte na další rok.
+                            {default} Registration has ended. Wait for the next year.
+                        {/switch}
+                    {/if}
                 {/if}
             </div>
         </div>
