@@ -32,7 +32,11 @@ class Connector
         }
         return $this->getCache()->load('results', function (?array &$dependencies): array {
             $data = json_decode(file_get_contents($this->url), true);
-            $dependencies[Cache::EXPIRE] = ($data['refreshDelay'] / 1000) . ' seconds';
+            if ($data['times']['toEnd'] > 0) {
+                $dependencies[Cache::EXPIRE] = min($data['refreshDelay'] / 1000, $data['times']['toEnd']) . ' seconds';
+            } else {
+                $dependencies[Cache::EXPIRE] = ($data['refreshDelay'] / 1000) . ' seconds';
+            }
             return $data;
         });
     }

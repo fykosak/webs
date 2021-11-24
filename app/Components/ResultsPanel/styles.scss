@@ -1,0 +1,55 @@
+.results-panel {
+  .category-title {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    tr {
+      td:first-child {
+        width: 3rem;
+        font-weight: bold;
+        text-align: right;
+        padding-right: 1rem;
+      }
+      td:nth-child(2) {
+        width: 100%;
+        display: flex;
+      }
+      td:last-child {
+        width: 3rem;
+        text-align: right;
+      }
+
+      &.zero-points {
+        opacity: .75;
+      }
+    }
+
+    .team-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .flags {
+      flex-shrink: 0;
+      .flag-icon {
+        margin-left: .3rem;
+
+      }
+    }
+  }
+
+  .hidden-results {
+    text-align: center;
+  }
+}
+
+#countdown-portal>span {
+  margin-left: 2rem;
+  padding: 0 .5rem;
+  background-color: $complementary-color;
+}

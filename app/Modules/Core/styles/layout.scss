@@ -12,6 +12,13 @@ body {
   color: $text-on-primary;
 }
 
+.panel {
+  color: #4a4a4a;
+  h1, h2, h3, h4, h5, h6 {
+    color: black;
+  }
+}
+
 ul.stylized {
   list-style: none;
 
@@ -190,5 +197,19 @@ a:hover {
 
   @keyframes blink-target {
     100% { background-color: rgba($complementary-color, 0); }
+  }
+}
+
+.btn-panel-action {
+  font-weight: bold;
+  font-size: .75rem;
+  text-transform: uppercase;
+  padding: 0;
+  margin-top: 1rem;
+  margin-right: 3rem;
+
+  &::after {
+    content: "❯";
+    margin-left: .2rem;
   }
 }

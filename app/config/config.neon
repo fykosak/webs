@@ -28,6 +28,7 @@ extensions:
     assets: h4kuna\Assets\DI\AssetsExtension
 
 parameters:
+    gameApiURL: "/dev/null"
     i18n:
         locales:
             cs: cs_CZ.utf-8

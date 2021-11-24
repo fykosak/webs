@@ -3,11 +3,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: "production",
-    entry: path.resolve(__dirname, './app/main.js'),
+    entry: {
+        main: path.resolve(__dirname, './app/main.js'),
+        results: "./app/Components/ResultsPanel/main.tsx",
+    },
     output: {
         path: path.resolve(__dirname, './www/assets'),
         assetModuleFilename: 'media/[path][name][ext]',
-        filename: 'main.js',
+        filename: '[name].js',
     },
     plugins: [new MiniCssExtractPlugin()],
     module: {

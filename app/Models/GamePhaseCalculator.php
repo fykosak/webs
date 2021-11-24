@@ -77,15 +77,13 @@ class GamePhaseCalculator
         );
     }
 
-    public function isGame(int $period): bool
+    public function isGame(int $period = self::NOW): bool
     {
-        // todo implement
-        switch ($period) {
-            case self::BEFORE:
-                return true;
-            default:
-                return false;
-        }
+        return $this->checkEvent(
+            $period,
+            $this->getGameBegin(),
+            $this->getGameBegin()->add(new \DateInterval("PT3H")),
+        );
     }
 
     /**
@@ -94,11 +92,6 @@ class GamePhaseCalculator
     public function isAfterRegistration(): bool
     {
         return $this->isDateKnown() && new \DateTime() > $this->getFKSDBEvent()->registrationEnd;
-    }
-
-    public function isBeforeTheCompetition(): bool
-    {
-        return true; // todo implement
     }
 
     /**

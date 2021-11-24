@@ -18,23 +18,24 @@
                         {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j Y'} 5:00 - 8:00 p.m. CET
                     {/switch}
                 </time>
-
                 <h1>
                     {switch $lang}
-                        {case 'cs'} Mezinárodní internetová fyzikální soutěž
-                        {default} International online physics competition
+                        {case 'cs'} Mezinárodní<br>internetová<br>fyzikální soutěž
+                        {default} International<br>online<br>physics competition
                     {/switch}
                 </h1>
                 <div class="subheader">
                     {switch $lang}
-                        {case 'cs'}<p>Přihlaš se společně až s pětičlenným týmem.</p>
+                        {case 'cs'}<p>Přihlas se společně až s pětičlenným týmem.</p>
                         {default}<p>Sign up with a team of up to five.</p>
                     {/switch}
                 </div>
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
                     <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
-                    <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $lang}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>
+                    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW)}
+                        <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $lang}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>
+                    {/if}
                 </div>
             </div>
             <div class="col-md-6 right-block topic-panel">
@@ -46,6 +47,10 @@
             </div>
         </div>
     </div>
+
+    {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE) || false}
+        {control resultsPanel}
+    {/if}
 
     {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW)}
     <div class="panel color-dark" id="{$anchorBeforeCompetition}">
@@ -125,7 +130,7 @@
                         která se koná každoročně už přes deset let.
                     </div>
                 </div>
-
+                <a n:href="Rules:" class="btn btn-panel-action">Pravidla</a>
             {default}
                 <div class="subheader">Rules briefly</div>
                 <h1>What is Physics Brawl Online?</h1>
@@ -143,6 +148,7 @@
                         annually for over a decade now.
                     </div>
                 </div>
+                <a n:href="Rules:" class="btn btn-panel-action">Rules</a>
             {/switch}
         </section>
     </div>
