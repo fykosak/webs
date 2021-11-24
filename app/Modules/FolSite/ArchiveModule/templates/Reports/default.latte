@@ -1,0 +1,79 @@
+{varType Fykosak\NetteORM\TypedTableSelection|App\Models\ORM\ReportModel[] $reports}
+{varType App\Modules\FolSite\ArchiveModule\ReportsPresenter $presenter}
+{varType string $lang}
+
+{block title}
+    {switch $lang}
+        {case cs}
+        Reporty týmů
+        {case en}
+        Teams' reports from
+    {/switch}
+{/block}
+
+{block main}
+    <div class="panel color-light">
+        <section class="inner-container">
+            <h1>
+            {switch $lang}
+                {case cs}
+                    Reporty týmů
+                {case en}
+                    Teams' reports from
+            {/switch}
+            {$year}</h1>
+        </section>
+    </div>
+
+
+    <div id="reports" class="list">
+        {varType bool $counter}
+        {do $counter = true}
+        {foreach $reports as $report}
+            {do $counter = !$counter}
+
+            <div n:class="panel, $counter ? color-light : color-dark">
+                <section class="inner-container row">
+                    <div class="col-md-4" id="{$report->report_id}-container" n:if="$report->related('report_image')->count()">
+                        <img id="{$report->report_id}" src="{$basePath . '/images/reports/' . $report->related('report_image')->fetch()->filename}" class="img-fluid">
+                        <div class="row gallery-thumbnails" id="{$report->report_id}-row">
+                            {varType bool $solo} {* true when there's only one picture *}
+                            {do $solo = true}
+                            {varType bool $noImage}
+                            {do $noImage = true}
+                            {foreach $report->related('report_image') as $reportImage}
+                                {if !($iterator->first)}
+                                    {do $solo = false}
+                                {/if}
+                                {do $noImage = false}
+                                {varType string $source}
+                                {do $source = $basePath . '/images/reports/' . $reportImage->filename}
+                                <div class="col-4">
+                                    <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$report->report_id});" class="img-fluid">
+                                </div>
+                            {/foreach}
+                            <script n:if="$solo">
+                                document.getElementById({$report->report_id} + "-row").style.display="none";
+                                document.getElementById({$report->report_id} + "-box").style.height="auto";
+                            </script>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="subheader">
+                            {switch $lang}
+                                {case cs}
+                                    Report týmu
+                                {case en}
+                                    Report from the team
+                            {/switch}
+                        </div>
+                        <h1>{\implode(', ',array_map(fn($team)=>$team->name,$presenter->getTeams($report->related('report_team')->fetchPairs('team_id','team_id'))))}</h1>
+
+                        {$report->text|noescape}
+                    </div>
+                </section>
+            </div>
+        {/foreach}
+    </div>
+
+{/block}
