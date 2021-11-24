@@ -16,6 +16,7 @@
     "fykosak/nette-orm": "dev-master#588d956",
     "fykosak/nette-fksdb-downloader": "dev-master#d45d37d",
     "fykosak/nette-fks-utils": "dev-master#4054d9f",
+    "fykosak/nette-frontend-component": "dev-master#cc7e271",
     "ext-soap": "*",
     "ext-dom": "*",
     "ext-gettext": "*",

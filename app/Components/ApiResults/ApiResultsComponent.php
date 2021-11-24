@@ -7,15 +7,11 @@ namespace App\Components\ApiResults;
 use App\Models\Game\Connector;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\NetteFrontendComponent\Components\AjaxComponent;
 use Nette\Application\AbortException;
-use Nette\Application\Responses\JsonResponse;
 use Nette\DI\Container;
-use Nette\Utils\Json;
-use Nette\Utils\JsonException;
-use Throwable;
 
-class ApiResultsComponent extends BaseComponent
+class ApiResultsComponent extends AjaxComponent
 {
     private Connector $gameServerApiConnector;
     private ServiceEventDetail $serviceTeam;
@@ -23,11 +19,12 @@ class ApiResultsComponent extends BaseComponent
 
     public function __construct(Container $container, int $eventId)
     {
-        parent::__construct($container);
+        parent::__construct($container, 'api.results');
         $this->eventId = $eventId;
     }
 
-    public function injectGameServerApiConnector(Connector $connector) {
+    public function injectGameServerApiConnector(Connector $connector)
+    {
         $this->gameServerApiConnector = $connector;
     }
 
@@ -36,6 +33,10 @@ class ApiResultsComponent extends BaseComponent
         $this->serviceTeam = $serviceTeam;
     }
 
+    /**
+     * @return array
+     * @throws \Throwable
+     */
     private function serialiseTeams(): array
     {
         $teams = [];
@@ -65,9 +66,9 @@ class ApiResultsComponent extends BaseComponent
 
     /**
      * @return array
-     * @throws Throwable
+     * @throws \Throwable
      */
-    public function serialiseResults(): array
+    public function getData(): array
     {
         $data = $this->gameServerApiConnector->getResults();
         if (strtotime($data['times']['gameEnd']) <= time()) {
@@ -75,40 +76,26 @@ class ApiResultsComponent extends BaseComponent
         }
         if (!$data['times']['visible']) {
             // results are hidden
-            $data["submits"] = null;
-            foreach ($data["teams"] as &$team) {
-                $team["bonus"] = null;
+            $data['submits'] = null;
+            foreach ($data['teams'] as &$team) {
+                $team['bonus'] = null;
             }
         }
+        $data['teams'] = $this->serialiseTeams();
         return $data;
     }
 
-    public function render() {
-
-    }
-
-    /**
-     * @throws JsonException
-     */
-    public function renderTeamsData() {
-        echo Json::encode($this->serialiseTeams());
-    }
-
-    /**
-     * @throws Throwable
-     * @throws JsonException
-     */
-    public function renderResultsData() {
-        echo Json::encode($this->serialiseResults());
+    protected function createActions(): void
+    {
+        $this->addAction('results', 'results!');
     }
 
     /**
      * @throws AbortException
-     * @throws Throwable
+     * @throws \Throwable
      */
     public function handleResults(): void
     {
-        $this->getPresenter()->sendResponse(new JsonResponse($this->serialiseResults()));
+        $this->sendAjaxResponse();
     }
-
 }

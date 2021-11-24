@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {App} from "./app";
 
-const element = document.getElementById("results-panel");
+const element = document.querySelectorAll('[data-frontend-id="api.results"]')[0];
 const countdownElement = document.getElementById("countdown-portal");
 
 export const LangContext = React.createContext<string>('lang');
