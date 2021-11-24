@@ -47,29 +47,21 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             ':Default:Archive:default',
         );
 
-        //if ($this->yearsService->isRegistrationStarted()) {
-        //$items[] = new NavItem(':Default:Team:list', [], _('Týmy'), 'visible-sm-inline glyphicon glyphicon-list');
-        //  if ($this->yearsService->isGameStarted()) {
-        // $items[] = new NavItem(':Archive:Archive:results', [],
-        // _('Výsledky'), 'visible-sm-inline glyphicon glyphicon-stats');
-        // }
-        //}
 
-        // if ($this->yearsService->isRegistrationActive()) {
-        //    if (!$this->getUser()->isLoggedIn()) {
-        if ($this->gamePhaseCalculator->isRegistration(GamePhaseCalculator::NOW)) {
+        if (TeamsPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
                 new PageTitle(_('teams.menu'), 'visible-sm-inline glyphicon glyphicon-edit'),
                 ':Default:Teams:',
             );
+        }
 
+        if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
                 new PageTitle(_('registration.menu'), 'visible-sm-inline glyphicon glyphicon-edit'),
                 ':Default:Registration:',
             );
         }
-        //    }
-        // }
+
         return $items;
     }
 }
