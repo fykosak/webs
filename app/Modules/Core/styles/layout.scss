@@ -213,3 +213,27 @@ a:hover {
     margin-left: .2rem;
   }
 }
+
+.fyziklani-banner {
+  /*position: fixed;*/
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 1.5rem 0;
+  background-color: $complementary-color;
+  color: black;
+
+  // Inner container
+  & > .inner-container {
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: $page-width;
+
+    display: flex;
+    align-items: center;
+
+    .text {
+      flex-grow: 1;
+    }
+  }
+}

@@ -77,8 +77,12 @@
                         </div>
                     </div>
                     <div class="col-md-4 begin-countdown">
-                        Začínáme za
-                        {control countdown}
+                        {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)}
+                            Začínáme za
+                            {control countdown}
+                        {else}
+                            <div>Hra již začala</div>
+                        {/if}
                         <a href="https://game.online.fyziklani.cz/" class="btn btn-secondary mt-2">game.online.fyziklani.cz</a>
                     </div>
                 </div>
@@ -103,8 +107,12 @@
                         </div>
                     </div>
                     <div class="col-md-4 begin-countdown">
-                        Competition starts in
-                        {control countdown}
+                        {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)}
+                            Competition starts in
+                            {control countdown}
+                        {else}
+                            Game already started
+                        {/if}
                         <a href="https://game.online.fyziklani.cz/" class="btn btn-secondary mt-2">game.online.fyziklani.cz</a>
                     </div>
                 </div>
