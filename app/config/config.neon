@@ -16,8 +16,7 @@ services:
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail('10 minutes')
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList('10 minutes')
     - App\Models\GamePhaseCalculator()
-
-    router: App\Router::createRouter(%domains%, %router-mapping%)
+    - App\MultiSiteRouter::createRouter()
 
 database:
     conventions: 'discovered'
