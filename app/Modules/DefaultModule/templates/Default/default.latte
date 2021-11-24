@@ -33,7 +33,7 @@
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
                     <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
-                    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW)}
+                    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
                         <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $lang}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>
                     {/if}
                 </div>
@@ -49,10 +49,10 @@
     </div>
 
     {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE) || false}
-        {control resultsPanel}
+        {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}
     {/if}
 
-    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW)}
+    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
     <div class="panel color-dark" id="{$anchorBeforeCompetition}">
         <section class="inner-container">
             {switch $lang}

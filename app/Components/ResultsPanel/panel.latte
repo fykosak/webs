@@ -1,7 +1,8 @@
 {varType string $lang}
+{varType bool $dark}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 
-<div class="panel color-light">
+<div class="panel color-{$dark ? 'dark' : 'light'}">
     <section class="inner-container">
         {control apiResults}
         {switch $lang}
