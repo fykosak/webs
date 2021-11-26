@@ -51,18 +51,18 @@
 
 <body>
 {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
-<div class="fyziklani-banner">
-    <div class="inner-container">
-        <div class="text">
-            {switch $lang}
-                {case 'cs'}Líbilo se vám Fyziklání Online? Přijeďte do Prahy 11. 2. na <strong>Fyziklani 2022</strong>.
-                {default}Have you enjoyed Physics Brawl Online? Come to Prague, the Czech Republic, in February 11 to <strong>Fyziklani 2022</strong>.
-            {/switch}
-        </div>
+    <div class="fyziklani-banner">
+        <div class="inner-container">
+            <div class="text">
+                {switch $lang}
+                    {case 'cs'}Líbilo se vám Fyziklání Online? Přijeďte do Prahy 11. 2. na <strong>Fyziklani 2022</strong>.
+                    {default}Did you enjoy Physics Brawl Online? Come to <strong>Fyziklani 2022</strong>, held on February 11, in Prague, the Czech Republic.
+                {/switch}
+            </div>
 
-        <a href="{switch $lang}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/en{/switch}" class="btn btn-outline-dark">{switch $lang}{case 'cs'}Více informací{default}Learn more{/switch}</a>
+            <a href="{switch $lang}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/en{/switch}" class="btn btn-outline-dark">{switch $lang}{case 'cs'}Více informací{default}Learn more{/switch}</a>
+        </div>
     </div>
-</div>
 {/if}
 
 {block body}
