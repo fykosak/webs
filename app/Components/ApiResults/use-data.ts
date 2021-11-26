@@ -16,6 +16,9 @@ export const useData = (url: string, initialData: DataInterface | null = null): 
   }, [url]); // do not add data to dependencies
 
   useEffect(() => {
+    if (data && new Date(data.times.gameEnd).getTime() > new Date().getTime() + 1000) {
+      return;
+    }
     if (data && data.refreshDelay) {
       setTimeout(reload, Math.max(data.refreshDelay, 5000));
     }
