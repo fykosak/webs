@@ -1,0 +1,14 @@
+application:
+    mapping:
+        *: App\Modules\Fol\*Module\*Presenter
+
+services:
+    - App\FolRouter::createRouter(%domains%, %router-mapping%)
+
+parameters:
+    wwwDir: %appDir%/.../www-fol
+    competitionBegin: 17:00
+
+includes:
+    - fol-router-mapping.neon
+    - config.neon

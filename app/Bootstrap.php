@@ -8,24 +8,33 @@ use Nette\Configurator;
 
 class Bootstrap
 {
-
-    public static function boot(): Configurator
+    private static function boot(string $site): Configurator
     {
         $configurator = new Configurator();
 
-        //$configurator->setDebugMode('secret@23.75.345.200'); // enable for your remote IP
+        $configurator->setDebugMode(true); // uncomment for debug mode
         $configurator->enableTracy(__DIR__ . '/../log');
         error_reporting(~E_USER_DEPRECATED);
         $configurator->setTimeZone('Europe/Prague');
-        $configurator->setTempDirectory(__DIR__ . '/../temp');
+        $configurator->setTempDirectory(__DIR__ . '/../temp/' . $site);
 
         $configurator->createRobotLoader()
             ->addDirectory(__DIR__)
             ->register();
 
-        $configurator->addConfig(__DIR__ . '/config/config.neon');
-        $configurator->addConfig(__DIR__ . '/config/config.local.neon');
+        $configurator->addConfig(__DIR__ . '/config/config.' . $site . '.neon');
+        $configurator->addConfig(__DIR__ . '/config/config.' . $site . '.local.neon');
 
         return $configurator;
+    }
+
+    public static function bootFof(): Configurator
+    {
+        return self::boot('fof');
+    }
+
+    public static function bootFol(): Configurator
+    {
+        return self::boot('fol');
     }
 }
