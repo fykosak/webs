@@ -9,6 +9,7 @@ use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\NetteFrontendComponent\Components\AjaxComponent;
 use Nette\Application\AbortException;
+use Nette\Application\UI\InvalidLinkException;
 use Nette\DI\Container;
 
 class ApiResultsComponent extends AjaxComponent
@@ -85,7 +86,10 @@ class ApiResultsComponent extends AjaxComponent
         return $data;
     }
 
-    protected function createActions(): void
+    /**
+     * @throws InvalidLinkException
+     */
+    protected function configure(): void
     {
         $this->addAction('results', 'results!');
     }

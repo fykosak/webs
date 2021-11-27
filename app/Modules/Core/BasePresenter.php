@@ -7,7 +7,6 @@ namespace App\Modules\Core;
 use App\Components\Navigation\Navigation;
 use App\Models\Exceptions\UnderConstructionException;
 use App\Models\GamePhaseCalculator;
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
@@ -17,7 +16,6 @@ use Nette\Application\UI\Template;
 
 abstract class BasePresenter extends Presenter
 {
-
     /** @persistent */
     public ?string $lang = null; // = 'cs';
 
@@ -85,14 +83,6 @@ abstract class BasePresenter extends Presenter
         }
 
         $this->translator->setLang($this->lang);
-    }
-
-    public static function createEventKey(ModelEvent $event): string
-    {
-        $year = $event->begin->format('Y');
-        $month = $event->begin->format('m');
-        $monthName = strtolower($event->begin->format('M'));
-        return $month < 10 ? ($year . '-' . $monthName) : $year;
     }
 
     public function formatTemplateFiles(): array

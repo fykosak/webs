@@ -12,7 +12,8 @@ class ResultsPanelComponent extends BaseComponent
 {
     private GamePhaseCalculator $gamePhaseCalculator;
 
-    public function injectGamePhaseCalculator(GamePhaseCalculator $calculator) {
+    public function injectGamePhaseCalculator(GamePhaseCalculator $calculator)
+    {
         $this->gamePhaseCalculator = $calculator;
     }
 
@@ -21,8 +22,9 @@ class ResultsPanelComponent extends BaseComponent
         return new ApiResultsComponent($this->getContext(), $this->gamePhaseCalculator->getFKSDBEvent()->eventId);
     }
 
-    public function render(): void
+    public function render(bool $dark = false): void
     {
+        $this->template->dark = $dark;
         $this->template->lang = $this->getPresenter()->lang;
         $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'panel.latte');
