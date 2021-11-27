@@ -2,7 +2,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const commonConfiguration = {
-    mode: "production",
     plugins: [new MiniCssExtractPlugin()],
     module: {
         rules: [
@@ -33,7 +32,7 @@ const commonConfiguration = {
 const folConfiguration = {
     ...commonConfiguration,
     entry: {
-        main: path.resolve(__dirname, './app/main-fol.js'),
+        main: path.resolve(__dirname, './app/main-fol.ts'),
         results: "./app/Components/ResultsPanel/main.tsx",
     },
     output: {
@@ -46,7 +45,7 @@ const folConfiguration = {
 const fofConfiguration = {
     ...commonConfiguration,
     entry: {
-        main: path.resolve(__dirname, './app/main-fof.js'),
+        main: path.resolve(__dirname, './app/main-fof.ts'),
     },
     output: {
         path: path.resolve(__dirname, './www/fof/assets'),

@@ -1,26 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {App} from "./app";
+import { App } from './app';
+import { NetteActions } from '../../../vendor/fykosak/nette-frontend-component/src/NetteActions/netteActions';
+import { DataInterface } from '../ApiResults/data-interface';
 
-const element = document.querySelectorAll('[data-frontend-id="api.results"]')[0];
-const countdownElement = document.getElementById("countdown-portal");
 
 export const LangContext = React.createContext<string>('lang');
 export const CountdownPortalContext = React.createContext<HTMLElement | null>(null);
 
-if (element) {
-  ReactDOM.render(
-    <React.StrictMode>
-      <LangContext.Provider value={element.getAttribute("data-lang")}>
-        <CountdownPortalContext.Provider value={countdownElement}>
-          <App
-            url={element.getAttribute("data-url")}
-            teams={JSON.parse(element.getAttribute("data-teams"))}
-            results={JSON.parse(element.getAttribute("data-results"))}
-          />
-        </CountdownPortalContext.Provider>
-      </LangContext.Provider>
-    </React.StrictMode>,
-    element
-  )
+const Main: React.FC<{ data: DataInterface, actions: NetteActions }> = (params) => {
+    console.log(params);
+    const {data: {teams,lang}, data, actions} = params;
+    const countdownElement = document.getElementById('countdown-portal');
+
+    return <React.StrictMode>
+        <LangContext.Provider value={lang}>
+            <CountdownPortalContext.Provider value={countdownElement}>
+                <App
+                    url={actions.getAction('refresh')}
+                    // @ts-ignore
+                    teams={teams}
+                    results={data}
+                />
+            </CountdownPortalContext.Provider>
+        </LangContext.Provider>
+    </React.StrictMode>;
 }
+export default Main;

@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack --watch",
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack --watch --config webpack.dev.js",
     "extract_translations": "cd app/i18n/ && ./extract.sh",
     "compile_translation": "./app/i18n/compile.sh",
     "clear_latte_cache": "rm -r temp/cache/latte"
@@ -17,7 +17,8 @@
     "ts-loader": "^9.2.5",
     "typescript": "^4.4.3",
     "webpack": "^5.46.0",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.7.2",
+    "webpack-merge": "latest"
   },
   "dependencies": {
     "@popperjs/core": "^2.9.2",

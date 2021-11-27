@@ -17,11 +17,13 @@ class ApiResultsComponent extends AjaxComponent
     private Connector $gameServerApiConnector;
     private ServiceEventDetail $serviceTeam;
     private int $eventId;
+    private string $lang;
 
-    public function __construct(Container $container, int $eventId)
+    public function __construct(Container $container, int $eventId, string $lang)
     {
         parent::__construct($container, 'api.results');
         $this->eventId = $eventId;
+        $this->lang = $lang;
     }
 
     public function injectGameServerApiConnector(Connector $connector)
@@ -82,6 +84,7 @@ class ApiResultsComponent extends AjaxComponent
                 $team['bonus'] = null;
             }
         }
+        $data['lang'] = $this->lang;
         $data['teams'] = $this->serialiseTeams();
         return $data;
     }

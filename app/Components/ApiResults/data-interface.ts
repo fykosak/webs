@@ -30,6 +30,7 @@ export interface Times<Visible extends boolean> {
 }
 
 export interface DataInterface<Visible extends boolean = false> {
+  lang: 'cs' | 'en';
   gameStart: string;
   gameEnd: string;
   availablePoints: number[];

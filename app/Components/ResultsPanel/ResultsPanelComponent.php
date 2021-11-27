@@ -19,7 +19,11 @@ class ResultsPanelComponent extends BaseComponent
 
     protected function createComponentApiResults(): ApiResultsComponent
     {
-        return new ApiResultsComponent($this->getContext(), $this->gamePhaseCalculator->getFKSDBEvent()->eventId);
+        return new ApiResultsComponent(
+            $this->getContext(),
+            $this->gamePhaseCalculator->getFKSDBEvent()->eventId,
+            $this->getPresenter()->lang
+        );
     }
 
     public function render(bool $dark = false): void
