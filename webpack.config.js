@@ -1,17 +1,8 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = {
+const commonConfiguration = {
     mode: "production",
-    entry: {
-        main: path.resolve(__dirname, './app/main.js'),
-        results: "./app/Components/ResultsPanel/main.tsx",
-    },
-    output: {
-        path: path.resolve(__dirname, './www/assets'),
-        assetModuleFilename: 'media/[path][name][ext]',
-        filename: '[name].js',
-    },
     plugins: [new MiniCssExtractPlugin()],
     module: {
         rules: [
@@ -38,3 +29,30 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
 };
+
+const folConfiguration = {
+    ...commonConfiguration,
+    entry: {
+        main: path.resolve(__dirname, './app/main-fol.js'),
+        results: "./app/Components/ResultsPanel/main.tsx",
+    },
+    output: {
+        path: path.resolve(__dirname, './www/fol/assets'),
+        assetModuleFilename: 'media/[path][name][ext]',
+        filename: '[name].js',
+    },
+};
+
+const fofConfiguration = {
+    ...commonConfiguration,
+    entry: {
+        main: path.resolve(__dirname, './app/main-fof.js'),
+    },
+    output: {
+        path: path.resolve(__dirname, './www/fof/assets'),
+        assetModuleFilename: 'media/[path][name][ext]',
+        filename: '[name].js',
+    },
+};
+
+module.exports = [folConfiguration, fofConfiguration];

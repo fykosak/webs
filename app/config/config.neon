@@ -3,8 +3,6 @@ php:
 
 application:
     errorPresenter: Default:Error
-    mapping:
-        *: App\Modules\*Module\*Presenter
 
 session:
     expiration: 14 days
@@ -17,8 +15,6 @@ services:
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList('10 minutes')
     - App\Models\GamePhaseCalculator()
     - App\Models\Game\Connector(%gameApiURL%)
-
-    router: App\Router::createRouter(%domains%, %router-mapping%)
 
 database:
     conventions: 'discovered'
@@ -38,7 +34,6 @@ parameters:
     # Contains mapping from domain to language. If empty, ?lang is used
     domains:
         # domain: lang
-    competitionBegin: 17:00
 
 orm:
     faq:
@@ -83,7 +78,3 @@ orm:
         context: @database.problems.context
     work_person:
         context: @database.problems.context
-
-
-includes:
-    - router-mapping.neon
