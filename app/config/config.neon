@@ -13,7 +13,7 @@ services:
     - Fykosak\NetteFKSDBDownloader\NetteFKSDBDownloader('https://db.fykos.cz/FKSDBWebServices.wsdl',%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes')
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail('10 minutes')
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList('10 minutes')
-    - App\Models\GamePhaseCalculator()
+    - App\Models\GamePhaseCalculator(%eventTypeId%)
     - App\Models\Game\Connector(%gameApiURL%)
 
 database:

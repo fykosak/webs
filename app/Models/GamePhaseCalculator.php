@@ -21,6 +21,7 @@ class GamePhaseCalculator
     public const BEFORE = 0;
     public const AFTER = 1;
     public const NOW = 2;
+    private int $eventTypeId;
 
     protected function checkEvent(int $period, DateTimeInterface $start, DateTimeInterface $end): bool
     {
@@ -37,8 +38,9 @@ class GamePhaseCalculator
         }
     }
 
-    public function __construct(ServiceEventList $serviceEventList, Container $container)
+    public function __construct(int $eventTypeId, ServiceEventList $serviceEventList, Container $container)
     {
+        $this->eventTypeId = $eventTypeId;
         $this->serviceEventList = $serviceEventList;
         $this->container = $container;
     }
@@ -138,7 +140,7 @@ class GamePhaseCalculator
     {
         static $fksdbEvent;
         if (!isset($fksdbEvent)) {
-            $fksdbEvent = $this->serviceEventList->getNewest([9]);
+            $fksdbEvent = $this->serviceEventList->getNewest([$this->eventTypeId]);
         }
         return $fksdbEvent;
     }

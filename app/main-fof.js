@@ -1,2 +1,2 @@
-import './Modules/Fol/Core/styles/main.scss';
+import './Modules/Fof/Core/styles/main.scss';
 import 'bootstrap';

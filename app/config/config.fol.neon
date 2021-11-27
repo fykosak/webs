@@ -3,11 +3,12 @@ application:
         *: App\Modules\Fol\*Module\*Presenter
 
 services:
-    - App\FolRouter::createRouter(%domains%, %router-mapping%)
+    - App\RouterFactory::createFolRouter(%domains%, %router-mapping%)
 
 parameters:
     wwwDir: %appDir%/.../www-fol
     competitionBegin: 17:00
+    eventTypeId: 9
 
 includes:
     - fol-router-mapping.neon

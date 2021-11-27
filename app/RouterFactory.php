@@ -7,7 +7,7 @@ namespace App;
 use Nette\Application\Routers\Route;
 use Nette\Application\Routers\RouteList;
 
-class FolRouter
+class RouterFactory
 {
 
     /**
@@ -80,7 +80,28 @@ class FolRouter
         ];
     }
 
-    public static function createRouter(?array $domainList, array $routerMapping): \Nette\Routing\Router
+    public static function createFolRouter(?array $domainList, array $routerMapping): \Nette\Routing\Router
+    {
+        $router = new RouteList();
+
+        $router->withModule('Archive')
+            ->addRoute('//<domain>/<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]', [
+                'presenter' => 'Default',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['archive'])
+            ]);
+
+        $router->withModule('Default')
+            ->addRoute('//<domain>/<presenter>[/<action>]', [
+                'presenter' => 'Default',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default'])
+            ]);
+
+        return $router;
+    }
+
+    public static function createFofRouter(?array $domainList, array $routerMapping): \Nette\Routing\Router
     {
         $router = new RouteList();
 
