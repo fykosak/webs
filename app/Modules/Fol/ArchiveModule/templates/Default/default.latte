@@ -37,13 +37,13 @@
             </a></li>
     </ul>
     <ul>
-        <li><a href="{$basePath}/download/{App\Modules\Core\BasePresenter::createEventKey($event)}/reseni.pdf">
+        <li><a href="{$basePath}/download/{App\Modules\Fol\Core\BasePresenter::createEventKey($event)}/reseni.pdf">
                 {switch $lang}
                     {case "cs"}Zadání a řešení úloh v českém jazyce
                     {default}Problems and solutions in Czech
                 {/switch}
             </a></li>
-        <li n:if="App\Modules\Core\BasePresenter::createEventKey($event) !== '2012-may'"><a href="{$basePath}/download/{App\Modules\Core\BasePresenter::createEventKey($event)}/solutions.pdf">
+        <li n:if="App\Modules\Fol\Core\BasePresenter::createEventKey($event) !== '2012-may'"><a href="{$basePath}/download/{App\Modules\Fol\Core\BasePresenter::createEventKey($event)}/solutions.pdf">
                 {switch $lang}
                     {case "cs"}Zadání a řešení úloh v anglickém jazyce
                     {default}Problems and solutions in English
