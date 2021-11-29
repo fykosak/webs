@@ -3,6 +3,7 @@ export interface Team<Visible extends boolean> {
   name: string;
   category: string;
   disqualified: boolean;
+  participated: boolean;
   bonus: Visible extends true ? number : null;
 }
 

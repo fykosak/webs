@@ -43,6 +43,43 @@ const CountDownPortal: React.FC<{results: DataInterface}> = memo(({results}) => 
   </span>, element);
 });
 
+/**
+ * Generates SQL for FKSDB because it seemed faster than generating on the server side
+ * @param points
+ */
+function generateSQL(points: ReturnType<typeof useTeamPoints> | null) {
+  let query = "";
+  function addTeam(team: number, status: string, points: number | null, rankCategory: number | null, rankTotal: number | null) {
+    query += `UPDATE e_fyziklani_team SET status = '${status}', points = ${points ?? "NULL"}, rank_category = ${rankCategory ?? "NULL"}, rank_total = ${rankTotal ?? "NULL"} WHERE e_fyziklani_team_id = ${team} AND event_id = 159;\n`;
+  }
+
+  const sorted = points.sort((a, b) => {
+    if (a.team.disqualified !== b.team.disqualified) {
+      return (a.team.disqualified ? 1 : 0) - (b.team.disqualified ? 1 : 0);
+    }
+    if (a.points === b.points) {
+      return a.lastSubmit > b.lastSubmit ? 1 : -1;
+    } else {
+      return b.points - a.points;
+    }
+  });
+
+  for (let i = 0; i < sorted.length; i++) {
+    const team = sorted[i];
+    const rankTotal = i + 1;
+    const rankCategory = sorted.slice(0, i).filter(t => t.team.category === team.team.category).length + 1;
+    const status = team.team.disqualified ? "disqualified" : team.team.participated ? "participated" : "missed";
+    addTeam(team.team.teamId, status, status == "participated" ? team.points : null, status == "participated" ? rankCategory : null, status == "participated" ? rankTotal : null);
+  }
+
+  query += `\n\nUPDATE event_participant ep
+INNER JOIN e_fyziklani_participant efp ON ep.event_participant_id=efp.event_participant_id
+INNER JOIN e_fyziklani_team eft ON eft.e_fyziklani_team_id=efp.e_fyziklani_team_id
+SET ep.status=eft.status WHERE ep.event_id=159;`
+
+  console.log(query);
+}
+
 export const ForVisibleResults: React.FC<{data: DataInterface<true>, teams: Team[]}> = ({data, teams}) => {
   const points = useTeamPoints(data);
   const [showFull, toggleShowFull] = useToggle();
