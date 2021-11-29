@@ -14,19 +14,19 @@
                 <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
                     {switch $lang}
                         {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} Praha, Česká Republika
-                        {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j Y'} 5:00 - 8:00 p.m. CET
+                        {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j Y'} Prague, Czech Republic
                     {/switch}
                 </time>
                 <h1>
                     {switch $lang}
-                        {case 'cs'} Mezinárodní<br>internetová<br>fyzikální soutěž
-                    {default} International<br>online<br>physics competition
+                        {case 'cs'}Největší fyzikální<br>týmová soutěž v ČR
+                    {default}Physics Team Competition<br>In the Czech Republic
                     {/switch}
                 </h1>
-                <div class="subheader">
+                <div class="subheader col-md-10">
                     {switch $lang}
-                        {case 'cs'}<p>Přihlas se společně až s pětičlenným týmem.</p>
-                        {default}<p>Sign up with a team of up to five.</p>
+                        {case 'cs'}<p>Přihlas se společně až s pětičlenným týmem a přijeďte do Prahy si zasoutěžit.</p>
+                        {default}<p>Sign up with a team of up to five and come to Prague, Czech Republic to compete with others.</p>
                     {/switch}
                 </div>
                 <div class="buttons">
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col-md-6 right-block topic-panel">
-
+                {control prague}
             </div>
         </div>
     </div>
@@ -45,25 +45,25 @@
             {switch $lang}
                 {case 'cs'}
                 <div class="subheader">Shrnutí pravidel</div>
-                <h1>Co je to Fyziklání Online?</h1>
+                <h1>Co je to Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y'}?</h1>
                 <div class="row strips">
-                    <div class="col-md-4">Až 5 středoškoláků soutěží z domova ve 3 hodiny dlouhé soutěži v počítání
+                    <div class="col-md-4">Až 5 středoškoláků soutěží v Praze ve 3 hodiny dlouhé soutěži v počítání
                         fyzikálních příkladů.
                     </div>
                     <div class="col-md-4">Neustále máte k dispozici 7 úloh. Jakmile nějakou vyřešíte, okamžitě dostáváte
                         další. Za každou úlohu sbíráte body.
                     </div>
                     <div class="col-md-4">Nejlepší týmy vyhrávají věcné ceny a nehynoucí slávu v naší soutěži,
-                        která se koná každoročně už přes deset let.
+                        která se koná každoročně už 16 let.
                     </div>
                 </div>
                 <a n:href="Rules:" class="btn btn-panel-action">Pravidla</a>
             {default}
                 <div class="subheader">Rules briefly</div>
-                <h1>What is Physics Brawl Online?</h1>
+                <h1>What is Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y'}?</h1>
                 <div class="row strips">
                     <div class="col-md-4">
-                        Up to 5 high school students compete from home in a 3-hour long contest in solving physics
+                        Up to 5 high school students compete in Prague in a 3-hour-long contest in solving physics
                         problems.
                     </div>
                     <div class="col-md-4">
@@ -72,7 +72,7 @@
                     </div>
                     <div class="col-md-4">
                         The best teams win prizes and undying glory in our competition, which has been held
-                        annually for over a decade now.
+                        annually for 16 years now.
                     </div>
                 </div>
                 <a n:href="Rules:" class="btn btn-panel-action">Rules</a>

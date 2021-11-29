@@ -11,8 +11,10 @@ class Navigation extends BaseComponent
 {
     private array $items = [];
 
-    public function render(): void
+    public function render(string $logoPath, string $logoAlt): void
     {
+        $this->template->logoPath = $logoPath;
+        $this->template->logoAlt = $logoAlt;
         $this->template->items = $this->items;
         $this->template->lang = $this->getPresenter()->lang;
         $this->template->supportedLangs = $this->translator->getSupportedLanguages();

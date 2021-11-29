@@ -31,6 +31,10 @@
       margin-top: 0;
     }
   }
+
+  &>.row {
+    --bs-gutter-x: 0;
+  }
 }
 
 .prices {

@@ -43,7 +43,7 @@
 <body>
 
 {block body}
-    {control navigation}
+    {control navigation "/images/logo.svg", "Fyziklani " . $gamePhaseCalculator->getFKSDBEvent()->begin->format('Y')}
     <main>
         {block main}
             <div class="panel color-light">
@@ -94,7 +94,7 @@
         <div class="panel footer">
             <div class="inner-container row">
                 <div class="col-md-6">
-                    <img class="logo" src="{$basePath}/images/fyziklani_online{$lang !== "cs" ? "_en" : null}_logo_white.svg" alt="{_'Fyziklani online'}" />
+                    <img class="logo" src="{$basePath}/images/logo.svg" alt="Fyziklani" />
                     {switch $lang}
                         {case 'cs'}
                         <p>
@@ -118,8 +118,8 @@
                         <a href="mailto:online@fyziklani.cz">fyziklani@fyziklani.cz</a>
                     </p>
                     <div class="other-logos">
-                        <a target="_blank" href="{switch $lang}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/en{/switch}"><img class="other-logo" src="{$basePath}/images/fyziklani_white_logo.svg" alt="Fyziklani" style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
-                        <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/fykos_logo_white.svg" alt="FYKOS" style="max-height: 1.5rem; margin: 0 1rem 1rem 0" /></a>
+                        <a target="_blank" href="{switch $lang}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
+                        <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/logos/fykos.svg" alt="FYKOS" style="max-height: 1.5rem; margin: 0 1rem 1rem 0" /></a>
                     </div>
                 </div>
                 <div class="col-md-3">

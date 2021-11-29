@@ -1,12 +1,15 @@
 {varType \App\Components\Navigation\Navigation $control}
 {varType \Fykosak\Utils\UI\Navigation\NavItem[] $items}
 {varType string $lang}
+{varType string $logoPath}
+{varType string $logoAlt}
 {varType string[] $supportedLangs}
 {block content}
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="{plink :Default:Default:default}">
-                <img class="FOL-logo" src="{$basePath}/images/fyziklani_online{$lang !== "cs" ? "_en" : null}_logo_white.svg" alt="{_'Fyziklani online'}" />
+                {*<img class="FOL-logo" src="{$basePath}/images/fyziklani_online{$lang !== "cs" ? "_en" : null}_logo_white.svg" alt="{_'Fyziklani online'}" />*}
+                <img class="FOL-logo" src="{$basePath}{$logoPath}" alt="{$logoPath}" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

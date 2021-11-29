@@ -1,0 +1,66 @@
+{varType string $lang}
+{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+
+{block title}
+    {switch $lang}
+        {case cs}Důležité informace před registrací
+        {default}Important information before registration
+    {/switch}
+{/block}
+
+{block content}
+    {switch $lang}
+        {case cs}
+            <ul class="stylized">
+                <li>Jedná se o online soutěž. Nikam se nejezdí.</li>
+                <li>Soutěží se v nejvýše <strong>5členných týmech</strong>.</li>
+                <li>Soutěžit mohou žáci <strong>středních</strong> i <strong>základních škol</strong> v oficiálních kategoriích
+                    (A, B a C). Ostatní soutěžící mohou soutěžit v kategorii Open.
+                </li>
+                <li>Úlohy jsou zadávány v <strong>českém</strong> a <strong>anglickém</strong> jazyce.</li>
+            </ul>
+
+            <ul class="stylized">
+                <li>Přečtěte si <a n:href="Rules:default">podrobná pravidla soutěže</a>.</li>
+                <li>Neváhejte nás kontaktovat na <a href="mailto:online@fyziklani.cz">online@fyziklani.cz</a>.</li>
+            </ul>
+        {default}
+            {* Myslet na to, že jsou více cizinci, dal bych tady i to, že kromě FOLu existuje i FOF a FYKOS, aby si to fakt nepletli *}
+
+            <ul class="stylized">
+                <li>Please note that this is not <strong><a href="https://fyziklani.org">Fyziklani in Prague</a></strong> nor the
+                    <strong><a href="https://fykos.org">FYKOS</a></strong> competition (although all of them are organised by the same organization).</li>
+                <li>This is an <strong>online contest</strong>. You can stay at home while taking part.</li>
+                <li>There can be up to <strong>5 members</strong> in one team.</li>
+                <li>The official categories (A, B and C) are reserved for <strong>high school</strong>
+                    and <strong>primary school</strong> students. Anyone else can compete in the
+                    <strong>Open</strong> category.
+                </li>
+                <li>It is prohibited to create fake accounts (especcialy for testing if the answer is correst). With creating registration form, you confirm that the data provided by you are real.</li>
+                <li>The problems are available only in <strong>English</strong> and <strong>Czech</strong>.</li>
+                <li>
+                    Keep in mind that in the registration form you have to select a school from the list of schools in
+                    our database. If the school is not listed, please send us an email at
+                 <a href="mailto:schola.novum@fykos.cz">schola.novum@fykos.cz</a> with information about your school (name of school, street, town/city, country, the link to the web page of the school (if possible))
+                    <textarea class="form-control" disabled rows="8" style="margin-top: 1rem">Hello,
+please add the following school to your database.
+
+School name:
+School address:
+School website:
+
+Thank you</textarea>
+                </li>
+            </ul>
+
+            <ul class="stylized">
+                <li>Read the <a n:href="Rules:default">complete rules of the contest</a>.</li>
+                <li>You can reach us at <a href="mailto:online@fyziklani.cz">online@fyziklani.cz</a>.</li>
+            </ul>
+    {/switch}
+
+    <div class="d-grid gap-2">
+        <a href="https://db.fykos.cz/public/application/?eventId={$gamePhaseCalculator->getFKSDBEvent()->eventId}&lang={$lang}" type="button"
+           class="btn btn-primary btn-lg btn-block" style="border-radius: 0">{switch $lang}{case cs}Registrovat tým{default}Register team{/switch}</a>
+    </div>
+{/block}
