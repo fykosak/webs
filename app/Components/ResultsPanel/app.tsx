@@ -94,6 +94,9 @@ const CategoryColumn: React.FC<{
   const sorted = useMemo(() => points
     ?.filter(p => p.team.category === category)
     .sort((a, b) => {
+        if (a.team.disqualified !== b.team.disqualified) {
+          return (a.team.disqualified ? 1 : 0) - (b.team.disqualified ? 1 : 0);
+        }
         if (a.points === b.points) {
           if (a.points === 0) {
             return a.team.teamId - b.team.teamId;
@@ -114,8 +117,8 @@ const CategoryColumn: React.FC<{
       }
       </div>
     <table>
-      {sorted?.map((p, i) => <tr className={p.points ? "" : "zero-points"}>
-        <td>{p.points ? `${i + 1}.` : '-'}</td>
+      {sorted?.map((p, i) => <tr className={p.points || p.team.disqualified ? "" : "zero-points"}>
+        <td>{p.team.disqualified ? "DSQ" : (p.points ? `${i + 1}.` : '-')}</td>
         <td>
           <div className="team-name">{mappedTeams[p.team.teamId]?.name ?? p.team.name}</div>
           <div className="flags">
@@ -124,7 +127,7 @@ const CategoryColumn: React.FC<{
             )}
           </div>
         </td>
-        <td>{p.points}</td>
+        <td>{p.team.disqualified ? "x" : p.points}</td>
       </tr> )}
     </table>
   </>;
