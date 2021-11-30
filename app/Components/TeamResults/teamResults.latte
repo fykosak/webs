@@ -1,11 +1,14 @@
 {layout '../@layout.latte'}
 {block content}
-    {control filterForm}
+    <div class="team-results-control">
+        {control filterForm}
+    </div>
     {foreach $teams AS $category => $teamsForCategory}
         <h2 id="{$category}">{$category}</h2>
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>#</th>
                 <th>{_'Team'}</th>
                 <th>{_'Points'}</th>
                 <th>{_'Rank in category'}</th>
@@ -13,10 +16,11 @@
             </tr>
             </thead>
             <tbody>
-            {do usort($teamsForCategory, fn($a, $b) => $a->rankCategory <=> $b->rankCategory)}
-                {foreach $teamsForCategory AS $team}
+            {do usort($teamsForCategory, fn($a, $b) => ($a->rankCategory ? $a->rankCategory : PHP_INT_MAX) <=> ($b->rankCategory ? $b->rankCategory : PHP_INT_MAX))}
+                {foreach $teamsForCategory AS $index => $team}
                 <tr>
                     {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
+                    <td>{if $team->status === "disqualified"}DNQ{else}{$index + 1}.{/if}</td>
                     <td><strong>{$team->name}</strong>
                         {var $fromCountry = 0}
                             {if $team->participants && count($team->participants)}<span class="text-muted">(
@@ -35,9 +39,9 @@
                             {/foreach})</span>
                         {/if}
                     </td>
-                    <td>{$team->points}</td>
-                    <td>{$team->rankCategory}</td>
-                    <td>{$team->rankTotal}</td>
+                    <td>{if $team->status === "disqualified"}x{else}{$team->points}{/if}</td>
+                    <td>{if $team->status === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</td>
+                    <td>{if $team->status === "disqualified"}DNQ{else}{$team->rankTotal}.{/if}</td>
                 </tr>
             {/foreach}
             </tbody>

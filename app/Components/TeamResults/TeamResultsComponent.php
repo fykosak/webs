@@ -13,8 +13,6 @@ use Nette\DI\Container;
 class TeamResultsComponent extends BaseComponent
 {
 
-    protected const ALL_CATEGORIES_IDENTIFIER = 'All';
-
     protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
     protected ?array $filterData = null;
@@ -49,7 +47,7 @@ class TeamResultsComponent extends BaseComponent
 
         $teams = [];
         foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
-            if ($team->status != 'participated') {
+            if ($team->status != 'participated' && $team->status != 'disqualified') {
                 continue;
             }
             if (is_null($this->filterData) || $this->passesFilters($team)) {
@@ -76,8 +74,7 @@ class TeamResultsComponent extends BaseComponent
     protected function passesFilters(ModelTeam $team): bool
     {
         return $this->passesOneMemberFilter($team)
-            && $this->passesCountryFilter($team)
-            && $this->passesCategoryFilter($team);
+            && $this->passesCountryFilter($team);
     }
 
     protected function passesOneMemberFilter(ModelTeam $team): bool
@@ -119,12 +116,6 @@ class TeamResultsComponent extends BaseComponent
         return false;
     }
 
-    protected function passesCategoryFilter(ModelTeam $team): bool
-    {
-        return ($this->filterData['category'] == self::ALL_CATEGORIES_IDENTIFIER)
-            || ($this->filterData['category'] == $team->category);
-    }
-
     /**
      * @throws \Throwable
      */
@@ -148,12 +139,7 @@ class TeamResultsComponent extends BaseComponent
         }
 
         // one member teams
-        $form->addCheckbox('OneMemberTeams', 'One-member teams');
-
-        // categories
-        asort($categories);
-        array_unshift($categories, self::ALL_CATEGORIES_IDENTIFIER);
-        $form->addSelect('category', 'category', array_combine($categories, $categories));
+        $form->addCheckbox('OneMemberTeams', _('One member teams only'));
 
         // countries
         arsort($countryISOs);
@@ -162,9 +148,9 @@ class TeamResultsComponent extends BaseComponent
             $countryISOContainer->addCheckbox($countryISO, sprintf(_('%s:%s participants'), $countryISO, $count));
         }
 
-        $form->addButton('reset')->setHtmlAttribute('type', 'reset');
+        $form->addButton('reset')->setHtmlAttribute('type', 'reset')->setHtmlAttribute('class', 'btn btn-dark');
 
-        $form->addSubmit('applyFilters', 'Apply');
+        $form->addSubmit('applyFilters', 'Apply')->setHtmlAttribute('class', 'btn btn-primary');;
 
         $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
 

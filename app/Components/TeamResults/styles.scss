@@ -1,0 +1,13 @@
+.team-results-control {
+  column-count: 4;
+
+  form table tr {
+    @extend .form-check;
+    label {
+      @extend .form-check-label;
+      input {
+        @extend .form-check-input;
+      }
+    }
+  }
+}
