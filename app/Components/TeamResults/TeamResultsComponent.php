@@ -150,7 +150,7 @@ class TeamResultsComponent extends BaseComponent
 
         $form->addButton('reset')->setHtmlAttribute('type', 'reset')->setHtmlAttribute('class', 'btn btn-dark');
 
-        $form->addSubmit('applyFilters', 'Apply')->setHtmlAttribute('class', 'btn btn-primary');;
+        $form->addSubmit('applyFilters', 'Apply')->setHtmlAttribute('class', 'btn btn-primary');
 
         $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
 
