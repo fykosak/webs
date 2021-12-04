@@ -55,7 +55,7 @@
                 <ol class="team-list">
                     {foreach $teamsForCategory AS $team}
                         {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
-                        {if $team->status == 'participated' || $team->status == 'applied' || $team->status == 'approved'}
+                        {if $team->status == 'disqualified' || $team->status == 'missed' || $team->status == 'participated' || $team->status == 'applied' || $team->status == 'approved'}
                             <li id="{$team->teamId}">
                                 <strong>{$team->name}</strong>:
                                 {var $inSchool = 0}
