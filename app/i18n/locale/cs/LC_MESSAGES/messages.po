@@ -1,83 +1,97 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-04 12:55+0200\n"
+"POT-Creation-Date: 2021-12-05 15:59+0100\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../app/Modules/ArchiveModule/TeamsPresenter.php:15
+#: ../../app/Modules/Fol/ArchiveModule/TeamsPresenter.php:15
 msgid "Teams"
 msgstr "Týmy"
 
-#: ../../app/Modules/ArchiveModule/BasePresenter.php:53
+#: ../../app/Modules/Fol/ArchiveModule/BasePresenter.php:52
 msgid "Event not found"
-msgstr ""
+msgstr "Akce nenalezena"
 
-#: ../../app/Modules/ArchiveModule/BasePresenter.php:64
+#: ../../app/Modules/Fol/ArchiveModule/BasePresenter.php:63
 msgid "archive_home.menu"
 msgstr "Archiv"
 
-#: ../../app/Modules/ArchiveModule/BasePresenter.php:68
+#: ../../app/Modules/Fol/ArchiveModule/BasePresenter.php:67
+#: ../../app/Modules/Fol/DefaultModule/BasePresenter.php:52
+#: ../../app/Modules/Fof/DefaultModule/BasePresenter.php:43
 msgid "teams.menu"
 msgstr "Týmy"
 
-#: ../../app/Modules/ArchiveModule/BasePresenter.php:72
+#: ../../app/Modules/Fol/ArchiveModule/BasePresenter.php:71
 msgid "results.menu"
 msgstr "Pořadí"
 
-#: ../../app/Modules/ArchiveModule/BasePresenter.php:76
+#: ../../app/Modules/Fol/ArchiveModule/BasePresenter.php:75
 msgid "detailed_results.menu"
 msgstr "Podrobné pořadí"
 
-#: ../../app/Modules/ArchiveModule/BasePresenter.php:80
+#: ../../app/Modules/Fol/ArchiveModule/BasePresenter.php:79
 msgid "reports.menu"
 msgstr "Ohlasy účastníků"
 
-#: ../../app/Modules/ArchiveModule/ProblemsPresenter.php:23
+#: ../../app/Modules/Fol/ArchiveModule/ProblemsPresenter.php:23
 msgid "Problems"
-msgstr ""
+msgstr "Zadání"
 
-#: ../../app/Modules/ArchiveModule/DetailedResultsPresenter.php:13
+#: ../../app/Modules/Fol/ArchiveModule/DetailedResultsPresenter.php:13
 msgid "Detailed results"
-msgstr ""
+msgstr "Podrobné výsledky"
 
-#: ../../app/Modules/ArchiveModule/ResultsPresenter.php:16
+#: ../../app/Modules/Fol/ArchiveModule/ResultsPresenter.php:16
 msgid "Results"
-msgstr ""
+msgstr "Výsledky"
 
-#: ../../app/Modules/ArchiveModule/ReportsPresenter.php:32
+#: ../../app/Modules/Fol/ArchiveModule/ReportsPresenter.php:31
 msgid "Contestants' reports"
-msgstr ""
+msgstr "Ohlasy účastníků"
 
-#: ../../app/Modules/DefaultModule/BasePresenter.php:19
+#: ../../app/Modules/Fol/DefaultModule/BasePresenter.php:21
+#: ../../app/Modules/Fof/DefaultModule/BasePresenter.php:21
 msgid "about.menu"
 msgstr "O soutěži"
 
-#: ../../app/Modules/DefaultModule/BasePresenter.php:23
+#: ../../app/Modules/Fol/DefaultModule/BasePresenter.php:25
+#: ../../app/Modules/Fof/DefaultModule/BasePresenter.php:29
 msgid "rules.menu"
 msgstr "Pravidla"
 
-#: ../../app/Modules/DefaultModule/BasePresenter.php:27
+#: ../../app/Modules/Fol/DefaultModule/BasePresenter.php:29
 msgid "faq.menu"
 msgstr "FAQ"
 
-#: ../../app/Modules/DefaultModule/BasePresenter.php:35
+#: ../../app/Modules/Fol/DefaultModule/BasePresenter.php:37
+#: ../../app/Modules/Fof/DefaultModule/BasePresenter.php:37
 msgid "schedule.menu"
 msgstr "Plán"
 
-#: ../../app/Modules/DefaultModule/BasePresenter.php:43
+#: ../../app/Modules/Fol/DefaultModule/BasePresenter.php:45
 msgid "archive.menu"
 msgstr "Archiv"
 
-#: ../../app/Modules/DefaultModule/BasePresenter.php:59
+#: ../../app/Modules/Fol/DefaultModule/BasePresenter.php:59
+#: ../../app/Modules/Fof/DefaultModule/BasePresenter.php:50
 msgid "registration.menu"
 msgstr "Registrace"
 
+#: ../../app/Modules/Fof/DefaultModule/BasePresenter.php:25
+msgid "history.menu"
+msgstr "Archiv"
+
+#: ../../app/Modules/Fof/DefaultModule/BasePresenter.php:33
+msgid "accommodation.menu"
+msgstr "Ubytování"
+
 #: ../../app/Models/ORM/FaqModel.php:23
 msgid "game"
-msgstr ""
+msgstr "hra"
 
 #: ../../app/Models/ORM/FaqModel.php:25
 msgid "hurry-up"
@@ -85,122 +99,130 @@ msgstr ""
 
 #: ../../app/Models/ORM/FaqModel.php:27
 msgid "registration"
-msgstr ""
+msgstr "registrace"
 
 #: ../../app/Models/ORM/FaqModel.php:29
 msgid "scoring"
-msgstr ""
+msgstr "bodování"
 
 #: ../../app/Models/ORM/FaqModel.php:31
 msgid "skipping"
-msgstr ""
+msgstr "přeskakování"
 
 #: ../../app/Models/ORM/FaqModel.php:33
 msgid "submits"
-msgstr ""
+msgstr "odevzdání"
 
 #: ../../app/Models/ORM/FaqModel.php:35
 msgid "tasks"
-msgstr ""
+msgstr "úlohy"
 
 #: ../../app/Models/ORM/FaqModel.php:37
 msgid "otherFAQ"
-msgstr ""
+msgstr "ostatní"
 
 #: ../../app/Models/ORM/FaqModel.php:39
 msgid "OtherFAQ"
-msgstr ""
+msgstr "Ostatní"
 
 #: ../../app/Models/Exceptions/UnderConstructionException.php:15
 msgid "This page is under construction"
+msgstr "Tato stránka se opravuje."
+
+#: ../../app/Components/TeamResults/TeamResultsComponent.php:142
+msgid "One member teams only"
 msgstr ""
 
-#: ../../app/Components/TeamResults/TeamResultsComponent.php:163
+#: ../../app/Components/TeamResults/TeamResultsComponent.php:148
 #, php-format
 msgid "%s:%s participants"
-msgstr ""
+msgstr "%s:%s účastníků"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:1
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:1
 msgid "faq.title"
 msgstr "FAQ"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:5
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:30
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:5
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:30
 msgid "faq.show_text_button"
 msgstr "Zobrazit všechny odpovědi"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:6
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:6
 msgid "faq.hide_text_button"
 msgstr "Skrýt všechny odpovědi"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:22
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:23
 msgid "faq.subheader"
 msgstr "Často kladené dotazy"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:40
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:40
 msgid "faq_category_text"
 msgstr "Kategorie"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:67
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:67
 msgid "faq_category.registration"
 msgstr "Registrace na soutěž"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:68
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:68
 msgid "faq_category.game"
 msgstr "Hra"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:69
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:69
 msgid "faq_category.tasks"
 msgstr "Úlohy"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:70
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:70
 msgid "faq_category.submits"
 msgstr "Odevzdávání úloh"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:71
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:71
 msgid "faq_category.skipping"
 msgstr "Přeskakování úloh"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:72
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:72
 msgid "faq_category.scoring"
 msgstr "Bodování"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:73
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:73
 msgid "faq_category.hurry-up"
 msgstr "Hurry up"
 
-#: ../../app/Modules/DefaultModule/templates/Faq/default.latte.latte2php:74
+#: ../../app/Modules/Fol/DefaultModule/templates/Faq/default.latte.latte2php:74
 msgid "faq_category.otherFAQ"
 msgstr "Ostatní FAQ"
 
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:23
+#: ../../app/Modules/Fol/Core/templates/@layout.latte.latte2php:24
+#: ../../app/Modules/Fof/Core/templates/@layout.latte.latte2php:24
 msgid "Team competition in solving physics problems"
-msgstr ""
+msgstr "Týmová soutěž v řešení fyzikálních problémů"
 
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:24
+#: ../../app/Modules/Fol/Core/templates/@layout.latte.latte2php:25
+#: ../../app/Modules/Fof/Core/templates/@layout.latte.latte2php:25
 msgid "http://physicsbrawl.org/images/fyziklani-logo.png"
 msgstr ""
 
-#: ../../app/Modules/Core/templates/@layout.latte.latte2php:25
+#: ../../app/Modules/Fol/Core/templates/@layout.latte.latte2php:26
+#: ../../app/Modules/Fof/Core/templates/@layout.latte.latte2php:26
 msgid "Online team competition in solving physics problems."
-msgstr ""
+msgstr "Online týmová soutěž v řešení fyzikálních problémů"
 
-#: ../../app/Components/Navigation/navigation.latte.latte2php:9
+#: ../../app/Modules/Fol/Core/templates/@layout.latte.latte2php:123
+#: ../../app/Components/Navigation/navigation.latte.latte2php:11
 msgid "Fyziklani online"
-msgstr ""
-
-#: ../../app/Components/TeamResults/teamResults.latte.latte2php:9
-msgid "Team"
-msgstr ""
-
-#: ../../app/Components/TeamResults/teamResults.latte.latte2php:10
-msgid "Points"
-msgstr ""
-
-#: ../../app/Components/TeamResults/teamResults.latte.latte2php:11
-msgid "Rank in category"
-msgstr ""
+msgstr "Physics Brawl Online"
 
 #: ../../app/Components/TeamResults/teamResults.latte.latte2php:12
+msgid "Team"
+msgstr "Tým"
+
+#: ../../app/Components/TeamResults/teamResults.latte.latte2php:13
+msgid "Points"
+msgstr "Body"
+
+#: ../../app/Components/TeamResults/teamResults.latte.latte2php:14
+msgid "Rank in category"
+msgstr "Pořadí v kategorii"
+
+#: ../../app/Components/TeamResults/teamResults.latte.latte2php:15
 msgid "Rank total"
-msgstr ""
+msgstr "Celkové pořadí"
