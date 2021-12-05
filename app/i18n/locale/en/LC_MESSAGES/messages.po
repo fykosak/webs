@@ -83,7 +83,7 @@ msgstr "Registration"
 
 #: ../../app/Modules/Fof/DefaultModule/BasePresenter.php:25
 msgid "history.menu"
-msgstr "Archive"
+msgstr "History"
 
 #: ../../app/Modules/Fof/DefaultModule/BasePresenter.php:33
 msgid "accommodation.menu"
