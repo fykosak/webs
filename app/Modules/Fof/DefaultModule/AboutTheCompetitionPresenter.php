@@ -7,4 +7,5 @@ namespace App\Modules\Fof\DefaultModule;
 class AboutTheCompetitionPresenter extends BasePresenter
 {
 
+
 }
