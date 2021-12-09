@@ -1,0 +1,25 @@
+.organiser {
+  padding: 1rem;
+
+  .image-cropper {
+    @extend .ratio;
+    @extend .ratio-1x1;
+    background-size: cover;
+    background-position-y: 50%;
+    background-position-x: 50%;
+    max-width: 30rem;
+    overflow: hidden;
+  }
+
+  .name {
+    font-weight: bold;
+    font-size: 2rem;
+    small {
+      font-weight: normal;
+    }
+  }
+
+  .about {
+    color: gray;
+  }
+}
