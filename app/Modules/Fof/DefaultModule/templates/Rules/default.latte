@@ -1,0 +1,147 @@
+{block subtitle}
+    {switch $lang}
+        {case cs}Pravidla
+        {default}Rules
+    {/switch}
+{/block}
+
+{block title}
+    {switch $lang}
+        {case cs}Stručná pravidla pro rychlé pochopení soutěže
+        {default}Brief rules to quickly understand the competition
+    {/switch}
+{/block}
+
+{block content}
+
+    <a class="btn btn-primary my-2" n:href="Rules:complete">
+        {switch $lang}
+            {case cs}úplná pravidla soutěže
+            {default}full rules
+        {/switch}
+    </a>
+    <a class="btn btn-primary my-2" n:href="Rules:OrganisationalRegulations">
+        {switch $lang}
+            {case cs}organizační řád
+            {default}organisational regulations
+        {/switch}
+    </a>
+    {*    <a class="btn btn-primary my-2" n:href="Rules:CentralCommittee">
+            {switch $lang}
+                {case cs}usnesení ústřední komise
+                {default}central committee resolution
+            {/switch}
+        </a>*}
+    <p>
+        {switch $lang}
+            {case cs}Tato pravidla jsou pouze stručná verze pro připomenutí. Přesné znění naleznete v odkazech výše.
+            {default}These rules are only brief reminders. You can find the full version in the links above.
+        {/switch}
+    </p>
+
+    <div class="rules" style="margin-top: 2rem">
+        <div class="title">
+            {switch $lang}
+                {case cs}Co to je
+                {default}What is this
+            {/switch}
+        </div>
+        <div class="description">
+            {switch $lang}
+                {case cs}Fyziklání je tříhodinová týmová hra v Praze.
+                {default}Fyziklani is a 3-hour-long team competition taking place in Prague, Czech Republic.
+            {/switch}
+        </div>
+    </div>
+
+    <div class="rules" style="margin-top: 2rem">
+        <div class="title">
+            {switch $lang}
+                {case cs}Kdo může soutěžit
+                {default}Who can participate
+            {/switch}
+        </div>
+        <div class="description">
+            {switch $lang}
+                {case cs}Soutěží se 3 hodiny v až 5členných týmech středoškoláků z <strong>maximálně dvou škol</strong>.
+            {default}The competition is held for 3 hours between teams of up to 5 high-schoolers, who attend <strong>two different high schools at most</strong>.
+            {/switch}
+        </div>
+    </div>
+
+    <div class="rules" style="margin-top: 2rem">
+        <div class="title">
+            {switch $lang}
+                {case cs}Jak to je s příklady
+                {default}How does it work
+            {/switch}
+        </div>
+        <div class="description">
+            {switch $lang}
+                {case cs}Každý tým má na stole neustále 7 zadání příkladů. Jakmile si jeho členové myslí, že nějaký příklad vyřešili, napíšou výsledek na papír se zadáním a zajdou za opravovatelem. V případě správného výsledku se jim započtou body a ihned dostanou nové zadání. Tedy neustále má každý tým 7 příkladů, které řeší. V případě neúspěchu se vracejí zpět přepočítat výsledek.
+                {default}At any instance, every team should have 7 tasks accessible. Solutions of the tasks should be written on the paper that states the problem and delivered to the judges. In the case of a correct solution, the team earns points and gets a new task straight away. In case of an incorrect solution, the team gets the task back to correct their answer.
+            {/switch}
+        </div>
+    </div>
+
+    <div class="rules" style="margin-top: 2rem">
+        <div class="title">
+            {switch $lang}
+                {case cs}Bodování
+                {default}Scoring
+            {/switch}
+        </div>
+        <div class="description">
+            {switch $lang}
+                {case cs}Za každý příklad je 5 bodů, pokud ho tým odevzdá napoprvé správně. Jestliže je příklad odevzdán správně až na druhý pokus, tým získá pouze 3 body, třetím pokusem 2 a poté pouze 1 bod nezávisle na tom, kolikrát příklad odevzdal špatně.
+                {default}Every problem solved on the first try is awarded 5 points, on the second try with 3 points, on the third try with 2 points and with 1 point otherwise.
+            {/switch}
+        </div>
+    </div>
+
+    <div class="rules" style="margin-top: 2rem">
+        <div class="title">
+            {switch $lang}
+                {case cs}Jak získat nový příklad
+                {default}How to get a new problem
+            {/switch}
+        </div>
+        <div class="description">
+            {switch $lang}
+                {case cs}Není možné příklad vyměnit za nový. Tedy jediná možnost, jak dostat zadání dalšího příkladu, je vypočítat nějaký z příkladů na stole. Opravovatel se ve výjimečných případech může ptát, jak tým k výsledku přišel, například pokud se už podesáté vrací se špatným výsledkem.
+                {default}The only way to get a new problem is to solve another one correctly; you can't skip problems. In an exceptional case the judge can ask how the team found the solution.
+            {/switch}
+        </div>
+    </div>
+
+    <div class="rules" style="margin-top: 2rem">
+        <div class="title">
+            {switch $lang}
+                {case cs}Tvar výsledku
+                {default}Form of the solutions
+            {/switch}
+        </div>
+        <div class="description">
+            {switch $lang}
+                {case cs}Výsledky jsou akceptovány ve standardním zápise společně s jednotkami. Podíl se píše ve zlomkovém tvaru, který je usměrněn, používají se konstanty jako &#960; a vhodně se zaokrouhluje.
+                {default}Solutions are accepted in standard form, i. e. with correct units. Fractions should be simplified. You should use constants like &#960; and round the numbers correctly.
+            {/switch}
+        </div>
+    </div>
+
+    <div class="rules" style="margin-top: 2rem">
+        <div class="title">
+            {switch $lang}
+                {case cs}Povolené pomůcky
+                {default}Allowed tools
+            {/switch}
+        </div>
+        <div class="description">
+            {switch $lang}
+                {case cs}Je povoleno využívat jakoukoli tištěnou literaturu a kalkulačky. Například přehled středoškolské fyziky, matematicko-fyzikální tabulky, zápisky ze školy apod. Používání jiných elektronických zařízení, například tabletů a čteček, je zakázáno.
+                {default}It is allowed to use any written or printed materials. Electronic gadgets are strictly forbidden (except calculators).
+            {/switch}
+        </div>
+    </div>
+
+{/block}

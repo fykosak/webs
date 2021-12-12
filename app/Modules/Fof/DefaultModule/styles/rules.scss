@@ -1,0 +1,11 @@
+.rules {
+  .title {
+    text-transform: uppercase;
+    margin: 0 0 0.25rem;
+    font-weight: bold;
+  }
+
+  border-left: .25rem solid $primary-color;
+  margin-bottom: 2rem;
+  padding: .5rem 1rem;
+}
