@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE) || false}
+    {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheGame()}
         {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}
     {/if}
 
@@ -316,49 +316,101 @@
                 <h1>Sign up and become a legend!</h1>
             {/switch}
 
-            <div class="row">
+            <ul class="stylized">
+                {switch $lang}
+                {case cs}
+                    <li>Soutěž je zdarma pro kohokoli!</li>
+                    <li>
+                        Registrace je otevřena od
+                        {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'} do
+                        <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
+                    </li>
+                    <li>Kromě komunikace s dalšími týmy jsou povoleny jakékoli pomůcky.</li>
+                {default}
+                    <li>Participation is free for anyone!</li>
+                    <li>
+                        Registration is open from
+                        {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'} until
+                        <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
+                    </li>
+                    <li>Except for communicating with other teams, you can use any tools to solve the problems.</li>
+                {/switch}
+            </ul>
+            <div class="row legends">
                 <div class="col-md-6">
-                    <ul class="stylized">
-                        {switch $lang}
-                        {case cs}
-                            <li>Soutěž je zdarma pro kohokoli!</li>
-                            <li>
-                                Registrace je otevřena od
-                                {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'} do
-                                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
-                            </li>
-                            <li>Kromě komunikace s dalšími týmy jsou povoleny jakékoli pomůcky.</li>
-                        {default}
-                            <li>Participation is free for anyone!</li>
-                            <li>
-                                Registration is open from
-                                {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'} until
-                                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
-                            </li>
-                            <li>Except for communicating with other teams, you can use any tools to solve the problems.</li>
-                        {/switch}
-                    </ul>
-                </div>
-                <div class="col-md-6 legends">
+                    <div class="legends-row">
+                        <div class="legends-year">2021</div>
+                        <div class="legends-item">
+                            <div>
+                                <span class="flag-icon flag-icon-jp"></span>
+                                <span class="flag-icon flag-icon-us"></span>
+                                Metaphysical Brawlers
+                            </div>
+                            <div class="members">
+                                Đức Huy Trần, Nam Nguyen Hoang, Mạnh Quân Nguyễn, Tung Tran, Ung Nguyen
+                            </div>
+                        </div>
+                    </div>
                     <div class="legends-row">
                         <div class="legends-year">2020</div>
                         <div class="legends-item">
-                            <span class="flag-icon flag-icon-us"></span>
-                            One-Diraction
+                            <div>
+                                <span class="flag-icon flag-icon-us"></span>
+                                One-Diraction
+                            </div>
+                            <div class="members">
+                                Rishab Parthasarathy, David Dai, Harsh Deep, Kailash Ranganathan, William Zhao
+                            </div>
                         </div>
                     </div>
                     <div class="legends-row">
                         <div class="legends-year">2019</div>
                         <div class="legends-item" n:syntax="off">
-                            <span class="flag-icon flag-icon-sk"></span>
-                            \mathbb{H}armonic Approxilator
+                            <div>
+                                <span class="flag-icon flag-icon-sk"></span>
+                                \mathbb{H}armonic Approxilator
+                            </div>
+                            <div class="members">
+                                Richard Ciglanský, Radovan Lascsák, Branislav Pastula, Jakub Mandzák, Matej Hanus
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2018</div>
                         <div class="legends-item">
-                            <span class="flag-icon flag-icon-ee"></span>
-                            e = pi = sqrt(g) = 3
+                            <div>
+                                <span class="flag-icon flag-icon-ee"></span>
+                                e = pi = sqrt(g) = 3
+                            </div>
+                            <div class="members">
+                                Richard Luhtaru, Konstantin Dukatš, Kaarel Kivisalu, Robin Haljak, Karl Paul Parmakson
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legends-row">
+                        <div class="legends-year">2017</div>
+                        <div class="legends-item">
+                            <div>
+                                <span class="flag-icon flag-icon-in"></span>
+                                SuperPentaPhosphate
+                            </div>
+                            <div class="members">
+                                Samar Jain, Harshavardhan Baheti, Ashay Veer, Yash Shah, Niranjan Herwadkar
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legends-row">
+                        <div class="legends-year">2016</div>
+                        <div class="legends-item">
+                            <div>
+                                <span class="flag-icon flag-icon-in"></span>
+                                Castrambe
+                            </div>
+                            <div class="members">
+                                Mikail Khona, Karan Jain, Basuhi Ravi, Sandesh Kalantre, Pavan Hebbar
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -366,6 +418,3 @@
         </section>
     </div>
 {/block}
-
-
-

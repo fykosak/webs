@@ -10,6 +10,7 @@ use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Nette\ArgumentOutOfRangeException;
 use Nette\DI\Container;
 use Nette\SmartObject;
+use Throwable;
 
 class GamePhaseCalculator
 {
@@ -46,7 +47,7 @@ class GamePhaseCalculator
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function isDateKnown(): bool
     {
@@ -54,7 +55,7 @@ class GamePhaseCalculator
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function isRegistration(int $period): bool
     {
@@ -66,7 +67,7 @@ class GamePhaseCalculator
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function isNearTheCompetition(int $period): bool
     {
@@ -81,6 +82,10 @@ class GamePhaseCalculator
         );
     }
 
+    /**
+     * The game itself, three hours long
+     * @throws Throwable
+     */
     public function isGame(int $period = self::NOW): bool
     {
         return $this->checkEvent(
@@ -91,7 +96,7 @@ class GamePhaseCalculator
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function isAfterRegistration(): bool
     {
@@ -99,7 +104,7 @@ class GamePhaseCalculator
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function getGameBegin(): \DateTime
     {
@@ -111,7 +116,7 @@ class GamePhaseCalculator
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function isGameRunning(): bool
     {
@@ -119,7 +124,18 @@ class GamePhaseCalculator
     }
 
     /**
-     * @throws \Throwable
+     * Returns true about a week after the competition when no one is interested in game already.
+     * @throws Throwable
+     */
+    public function isLongAfterTheGame(): bool
+    {
+        $event = (new \DateTime())->setTimestamp($this->getFKSDBEvent()->end->getTimestamp())
+            ->add(new \DateInterval('P7D'));
+        return new \DateTime() > $event;
+    }
+
+    /**
+     * @throws Throwable
      */
     public function isResultsVisible(): bool
     {
@@ -134,7 +150,7 @@ class GamePhaseCalculator
     /**
      * Returns newest FKSDB event. That means by creating a new one, the application automatically switches to the new
      * year.
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function getFKSDBEvent(): ?ModelEvent
     {

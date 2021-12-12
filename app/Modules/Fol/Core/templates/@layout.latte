@@ -50,7 +50,7 @@
 </head>
 
 <body>
-{if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+{if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER) && !$gamePhaseCalculator->isLongAfterTheGame()}
     <div class="fyziklani-banner">
         <div class="inner-container">
             <div class="text">
