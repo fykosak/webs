@@ -1,0 +1,138 @@
+{block title}Úplná pravidla soutěže{/block}
+
+{block main}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>{include title}</h1>
+            <a href="{$basePath}/download/2022/pravidla_fyziklani_2021-01-15.pdf" class="btn btn-primary">
+                Verze v PDF
+            </a>
+            <ul class="mt-5">
+                <li><a href="#prihlaseni">Přihlášení do soutěže</a></li>
+                <li><a href="#rozdeleni">Rozdělení do kategorií</a></li>
+                <li><a href="#prijezd">Příjezd na soutěž</a></li>
+                <li><a href="#system">Systém hry a bodování</a></li>
+                <li><a href="#ukonceni">Ukončení hry a vyhlášení vítězů</a></li>
+                <li><a href="#poruseni">Porušení pravidel</a></li>
+                <li><a href="#ustanoveni">Závěrečná ustanovení</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="prihlaseni">
+        <section class="inner-container">
+            <div class="subheader">ÚČAST VE HŘE</div>
+            <h1>Přihlášení do soutěže</h1>
+            <ul>
+                <li>Aby tým mohl soutěžit, musí se přihlásit přes <a href="https://fyziklani.cz">https://fyziklani.cz.</a></li>
+                <li>Přihlášením do soutěže se tým zavazuje, že se seznámil s organizačním řádem soutěže a s těmito pravidly a že je bude dodržovat.</li>
+                <li>Tým se skládá z 1&#8211;5 hráčů.</li>
+                <li>Členové týmu musí být studenti střední, popřípadě základní školy.</li>
+                <li>Tým nesmí být složen ze studentů z více než 2 škol.</li>
+                <li>Studenti jedné školy mohou soutěžit maximálně ve 4 různých týmech. V případě volných míst na soutěži, popřípadě i za jiných okolností, si organizátoři vyhrazují právo udělit tomuto pravidlu výjimku.</li>
+                <li>Jméno týmu nesmí šířit politické či náboženské názory, nesmí být urážlivé či jiným způsobem nevhodné. Hlavní organizátor má právo jméno takovému týmu změnit, případně ho cenzurovat nebo tým diskvalifikovat ze soutěže.</li>
+                <li>Přihlášením do soutěže souhlasíte se zveřejněním výsledků ve formě základních údajů (svého jména, příjmení, kategorie, školy a bodů) ve výsledkové listině na internetových stránkách, v brožurkách a ročenkách FYKOSu.</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="rozdeleni">
+        <section class="inner-container">
+            <div class="subheader">KATEGORIE</div>
+            <h1>Rozdělení do kategorií</h1>
+            <ul>
+                <li>Soutěží se ve třech kategoriích, do kterých jsou týmy rozděleny podle níže popsaného algoritmu.</li>
+                <li>Studentům mladším prvního ročníku středních škol a odpovídajících ročníků víceletých gymnázií bude přiřazen koeficient hráče 0, studentům prvního ročníku koeficient hráče 1, druhého 2, atd.</li>
+                <li>Koeficient týmu se spočte jako průměrná hodnota koeficientů hráčů (koeficienty hráčů jednotlivých členů týmu se sečtou a vydělí počtem členů týmu).</li>
+                <li>Tým se zařadí do nejnižší kategorie, která mu vyhovuje:
+                    <ul>
+                        <li>kategorie A: koeficient týmu &leq; 4,</li>
+                        <li>kategorie B: koeficient týmu &leq; 3 a max. dva členové týmu mají koeficient hráče 4,</li>
+                        <li>kategorie C: koeficient týmu &leq; 2, žádný člen týmu nemá koeficient hráče 4 a max. dva členové týmu mají koeficient hráče 3.</li>
+                    </ul>
+                </li>
+                <li>Tým může soutěžit v kategorii A, i když je jeho koeficient řadí do nižší kategorie, pokud to označí v přihlášce.</li>
+                <li>Organizátoři si vyhrazují právo přesunout tým zpět do nižší kategorie, nebo naopak přesunout tým do kategorie A v případě potřeby. Tým bude o této změně informován nejpozději den před soutěží.</li>
+                <li>Všechny kategorie budou mít stejné zadání úloh.</li>
+                <li>Pro každou kategorii bude samostatná výsledková listina.</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="prijezd">
+        <section class="inner-container">
+            <div class="subheader">REGISTRACE</div>
+            <h1>Příjezd na soutěž</h1>
+            <ul>
+                <li>Týmy jsou povinny se dostavit včas. Organizátoři si vyhrazují právo do soutěže nevpustit pozdě příchozí týmy.</li>
+                <li>Týmy jsou povinny se při příchodu registrovat a uvést přesné údaje o svých členech (ročníky, školy atd.). Týmy jsou povinny upozornit na případné změny v jejich složení.</li>
+                <li>Každý tým dostane obálku se zadáním prvních sedmi úloh. Je zakázáno tuto obálku otevřít dříve, než k tomu dá pokyn vedoucí místnosti, ve které tým soutěží.</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="system">
+        <section class="inner-container">
+            <div class="subheader">PRAVIDLA HRY</div>
+            <h1>Systém hry a bodování</h1>
+            <ul>
+                <li>Soutěž trvá 3 hodiny.</li>
+                <li>Každý tým dostane na začátku soutěže 7 úloh, které se snaží vyřešit.</li>
+                <li>Pokud si tým myslí, že došel ke správnému řešení, vyšle jednoho zástupce k opravovateli, který mu řekne, zdali je řešení špatně nebo dobře. Zástupce musí předložit papírek se zadáním úlohy a s jasně uvedeným výsledkem.</li>
+                <li>Organizátor má právo požadovat od soutěžících postup řešení úlohy.</li>
+                <li>Správného opravovatele si zástupce vybere na základě označení úlohy, kterou řeší. Přesný algoritmus určení opravovatele bude vysvětlen před soutěží.</li>
+                <li>Pokud je řešení špatně, organizátor to označí na papírku se zadáním úlohy a zástupce se vrátí ke svému týmu a počítá dále.</li>
+                <li>Pokud je řešení dobře, opravovatel označí papírek se zadáním úlohy počtem získaných bodů a pošle zástupce s papírkem k vydavači, od kterého dostane novou úlohu.</li>
+                <li>Úlohy jsou bodovány podle počtu pokusů potřebných pro vyřešení, a to následovně: jeden pokus &#8211; 5 bodů, dva pokusy &#8211; 3 body, tři pokusy &#8211; 2 body a čtyři a více pokusů &#8211; 1 bod.</li>
+                <li>Cílem týmu je získat co nejvíce bodů.</li>
+                <li>Během soutěže jsou promítány aktuální výsledky všech týmů. Ty budou skryty 30 minut před koncem soutěže.</li>
+                <li>Pokud se během soutěže zjistí, že je závažný problém se zadáním některé úlohy, organizátoři si vyhrazují právo tuto úlohu pozměnit, nebo vyřadit ze soutěže bez jakéhokoliv nároku týmu na kompenzaci.</li>
+                <li>Během soutěže mohou účastníci komunikovat pouze se členy svých týmů nebo s organizátory. Jakákoliv interakce s učiteli, jinými týmy apod. je přísně zakázána.</li>
+                <li>Týmy mají povoleno používat jakoukoliv literaturu v papírové podobě. Během soutěže je zakázáno používání internetu. Dále jsou povoleny kalkulačky a psací či rýsovací pomůcky. Kalkulačka nesmí umožňovat přístup k internetu ani jakoukoliv formu komunikace (zařízení typu mobilní telefon, tablet, notebook, smartwatch apod. tedy nejsou jako kalkulačky v žádném případě povoleny).</li>
+                <li>Všechny pomůcky, které účastníci v průběhu soutěže používají či je mají dostupné v blízkosti svého stolu, mohou být vyžádány ke kontrole organizátorem.</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="ukonceni">
+        <section class="inner-container">
+            <div class="subheader">KONEC HRY</div>
+            <h1>Ukončení soutěže a vyhlášení vítězů</h1>
+            <ul>
+                <li>Konec soutěže je vyhlášen hlavním organizátorem soutěže nebo jiným, ním pověřeným organizátorem.</li>
+                <li>Po vyhlášení konce soutěže již žádný tým nemůže vyslat svého zástupce k opravovatelům. Pokud některý člen týmu stál ve frontě ještě před vyhlášením konce, může tam zůstat a jeho úloha bude opravena, ale již má zakázáno používat psací pomůcky.</li>
+                <li>Pokud o vítězném týmu, popřípadě o dalších týmech na odměňovaných pozicích nerozhodne počet bodů, bude rozhodnuto podle kritérií v následujícím pořadí: vyšší průměrný bodový zisk za úlohu, vyšší počet úloh vyřešených za 5 bodů, vyšší počet úloh vyřešených za 3 body, nižší týmový koeficient, dřívější datum a čas přihlášení do soutěže a náhodný los.</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="poruseni">
+        <section class="inner-container">
+            <div class="subheader">NEČESTNÁ HRA</div>
+            <h1>Porušení pravidel</h1>
+            <ul>
+                <li>V případě důvodného podezření z porušení pravidel nebo organizačního řádu má hlavní organizátor právo vykonat speciální opatření pro ověření tohoto podezření a zamezení v pokračování nepovolené činnosti nebo postupu.</li>
+                <li>V případě, že se tým proviní vůči některým z uvedených pravidel, nebo proti organizačnímu řádu soutěže, rozhoduje o následcích hlavní organizátor nebo jím pověřená komise.</li>
+                <li>V případě malého provinění může hlavní organizátor nebo jím pověřená komise rozhodnout o odebrání určitého počtu bodů proviněnému týmu podle závažnosti provinění.</li>
+                <li>Organizátoři mohou diskvalifikovat tým, který se závažně proviní proti organizačnímu řádu nebo pravidlům soutěže.</li>
+                <li>V případě zvlášť závažného porušení organizačního řádu nebo pravidel soutěže může ústřední komise soutěže rozhodnout o zákazu účasti v soutěži v dalších ročnících soutěže nebo o jiných postizích pro členy proviněného týmu či školy, ze které členové týmu pocházejí.</li>
+                <li>Za zvlášť závažné porušení se považuje zejména cílená snaha získat zadání, řešení nebo výsledky úloh nepovoleným způsobem, jejich zveřejňování nebo poskytování jiným účastníkům soutěže. Zvlášť závažným porušením se také chápe úmyslná snaha bránit v průběhu soutěže jiným účastníkům nebo organizátorům, nebo také napadení herního serveru.</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="ustanoveni">
+        <section class="inner-container">
+            <div class="subheader">ZÁVĚR</div>
+            <h1>Závěrečná ustanovení</h1>
+            <ul>
+                <li>Organizátoři si vyhrazují právo na drobné změny pravidel před začátkem soutěže.</li>
+                <li>O řešení případných sporných situací a potíží, které nejsou v těchto pravidlech specifikovány, rozhoduje hlavní organizátor nebo jím pověřený organizátor.</li>
+                <li>Tým má právo se proti rozhodnutí hlavního organizátora odvolat, nejpozději však do 14 dnů od vydání rozhodnutí. O odvolání pak rozhoduje ústřední komise soutěže nejpozději do 40 dnů ode dne podání odvolání.</li>
+                <li>Tato pravidla byla schválena ústřední komisí soutěže Fyziklání dne 15. 1. 2021.</li>
+                <li>Tato pravidla nahrazují předešlou verzi a nabývají platnosti dne 15. 1. 2021.</li>
+            </ul>
+        </section>
+    </div>
+
+{/block}
