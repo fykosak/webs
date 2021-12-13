@@ -214,10 +214,10 @@
             {switch $lang}
                 {case cs}
                 <div class="subheader">Harmonogram soutěže</div>
-                <h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}</h1>
+                <h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}.</h1>
             {default}
                 <div class="subheader">Competition Schedule</div>
-                <h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}</h1>
+                <h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}.</h1>
             {/switch}
 
             {include "../schedule.latte"}
