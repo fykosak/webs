@@ -1,115 +1,156 @@
 <div class="timeline">
     <div>
         <span class="timeline-element-icon"></span>
-        <div class="timeline-element-content">
-            {switch $lang}
-                {case cs}
-                <div class="timeline-title">Začátek soutěže</div>
+        {switch $lang}
+        {case cs}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Přijezd na ubytování</div>
                 <p>
-                    Účastníci dostávají prvních 7 příkladů na počítání. Jamile je příklad vyřešen, dostávají
-                    ihned další.
+                    Ve čtvrtek odpoledne se otevře hotel Duo pro ubytované.
                 </p>
-            {default}
-                <div class="timeline-title">Beginning of the contest</div>
+                <time datetime="ctvrtek" class="timeline-element-date">Čt</time>
+            </div>
+        {default}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Arrival</div>
                 <p>
-                    Participants get 7 problems. Once they solve any of them, they immediately get another.
+                    On Thursday afternoon, participants with accommodation will come to the Hotel Duo.
                 </p>
-            {/switch}
-            <time datetime="17:00" class="timeline-element-date">17:00</time>
-        </div>
+                <time datetime="thursday" class="timeline-element-date">Thu</time>
+            </div>
+        {/switch}
     </div>
 
     <div>
         <span class="timeline-element-icon"></span>
-        <div class="timeline-element-content">
-            {switch $lang}
-                {case cs}
-                <div class="timeline-title">
-                    Hurry up!
-                </div>
+        {switch $lang}
+            {case cs}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Soutěž</div>
                 <p>
-                    Zveřejňujeme další sérií příkladů, která je tentokrát orientována na různé obory z
-                    fyziky. Po příští půlhodinu mají účastníci bonus za její odevzdání.
+                    V pátek dopoledne bude zahájena samotná soutěž.
                 </p>
-            {default}
-                <div class="timeline-title">
-                    Hurry up!
-                </div>
+                <time datetime="patek" class="timeline-element-date">Pá</time>
+            </div>
+        {default}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Competition</div>
                 <p>
-                    Another series of problems appears, with problems related to different physics fields.
-                    For the next half an hour, participants can achieve bonus points for solving the series.
+                    The competition itself will be commenced on Friday morning.
                 </p>
-            {/switch}
-            <time datetime="18:00" class="timeline-element-date">18:00</time>
-        </div>
+                <time datetime="friday" class="timeline-element-date">Fri</time>
+            </div>
+        {/switch}
     </div>
 
     <div>
         <span class="timeline-element-icon"></span>
-        <div class="timeline-element-content">
-            {switch $lang}
-                {case cs}
-                <div class="timeline-title">
-                    Konec zvýhodněné části Hurry up!
-                </div>
+        {switch $lang}
+            {case cs}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Raut</div>
                 <p>
-                    Hurry up! lze řešit i nadále, ale nebudou za něj připisovány tak velké body.
+                    Večer po soutěži se bude konat slavnostní recepce.
                 </p>
-            {default}
-                <div class="timeline-title">
-                    End of bonus points in the Hurry up! series
-                </div>
+                <time datetime="patek" class="timeline-element-date">Pá</time>
+            </div>
+        {default}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Reception</div>
                 <p>
-                    Problems from Hurry up! are still available but without bonus points.
+                    We will hold a ceremonial reception in the evening after the competition.
                 </p>
-            {/switch}
-            <time datetime="18:30" class="timeline-element-date">18:30</time>
-        </div>
+                <time datetime="friday" class="timeline-element-date">Fri</time>
+            </div>
+        {/switch}
     </div>
 
     <div>
         <span class="timeline-element-icon"></span>
-        <div class="timeline-element-content">
-            {switch $lang}
-                {case cs}
-                <div class="timeline-title">
-                    Konec soutěže
-                </div>
+        {switch $lang}
+            {case cs}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Fyzikální přednášky</div>
                 <p>
-                    Soutěž končí. Zveřejňujeme autorská řešení a řešíme případné spory.
+                    V sobotu dopoledne proběhnou fyzikální přednášky.
                 </p>
-            {default}
-                <div class="timeline-title">
-                    End of the competition
-                </div>
+                <time datetime="sobota" class="timeline-element-date">So</time>
+            </div>
+        {default}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Physics lectures</div>
                 <p>
-                    The competition is over. We publish the author's solutions and settle potential conflicts.
+                    Physics lectures will take place on Saturday morning.
                 </p>
-            {/switch}
-            <time datetime="20:00" class="timeline-element-date">20:00</time>
-        </div>
+                <time datetime="saturday" class="timeline-element-date">Sat</time>
+            </div>
+        {/switch}
     </div>
 
     <div>
         <span class="timeline-element-icon"></span>
-        <div class="timeline-element-content">
-            {switch $lang}
-                {case cs}
-                <div class="timeline-title">
-                    Konec přijímání stížností
-                </div>
+        {switch $lang}
+            {case cs}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Prohlídka Prahy a muzeí</div>
                 <p>
-                    Ukončujeme přijímání stížností a připravujeme zveřejnění oficiálních vítězů během příštích dnů.
+                    V sobotu odpoledne navštívíme Národní technické a Národní zemědělské muzeum a další zajímavá místa v Praze.
                 </p>
-            {default}
-                <div class="timeline-title">
-                    Deadline for complaints
-                </div>
+                <time datetime="sobota" class="timeline-element-date">So</time>
+            </div>
+        {default}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Prague and museum tour</div>
                 <p>
-                    We close the possibility to complain and prepare to publish the official winners during the upcoming days.
+                    On Saturday afternoon we will visit the National Technical Museum, National Museum of Agriculture and take a Prague tour.
                 </p>
-            {/switch}
-            <time datetime="20:30" class="timeline-element-date">20:30</time>
-        </div>
+                <time datetime="saturday" class="timeline-element-date">Sat</time>
+            </div>
+        {/switch}
     </div>
+
+    <div>
+        <span class="timeline-element-icon"></span>
+        {switch $lang}
+            {case cs}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Hvězdárna a planetárium</div>
+                <p>
+                    V sobotu večer se podíváme do Štefánikovy hvězdárny a Planetária Praha.
+                </p>
+                <time datetime="sobota" class="timeline-element-date">So</time>
+            </div>
+        {default}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Observatory and planetarium</div>
+                <p>
+                    On Saturday evening, we will visit the Štefánik Observatory and Prague Planetarium.
+                </p>
+                <time datetime="saturday" class="timeline-element-date">Sat</time>
+            </div>
+        {/switch}
+    </div>
+
+    <div>
+        <span class="timeline-element-icon"></span>
+        {switch $lang}
+            {case cs}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Exkurze</div>
+                <p>
+                    V neděli dopoledne proběhnou exkurze po vědeckých pracovištích.
+                </p>
+                <time datetime="nedele" class="timeline-element-date">Ne</time>
+            </div>
+        {default}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Excursions</div>
+                <p>
+                    Excursions into scientific workplaces will take place on Sunday morning.
+                </p>
+                <time datetime="sunday" class="timeline-element-date">Sun</time>
+            </div>
+        {/switch}
+    </div>
+
 </div>

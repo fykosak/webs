@@ -82,7 +82,7 @@
 
     <div class="panel color-dark">
         <section class="inner-container">
-            <div class="subheader">{switch $lang}{case cs}O co soutěžíme?{default}What are the prizes?{/switch}</div>
+            <div class="subheader">{switch $lang}{case cs}Ceny{default}Prizes{/switch}</div>
             <h1>{switch $lang}
                 {case cs}Pro nejlepší týmy máme nachystané odměny.
                 {default}We have rewards for the best of you.{/switch}</h1>
@@ -214,10 +214,10 @@
             {switch $lang}
                 {case cs}
                 <div class="subheader">Harmonogram soutěže</div>
-                <h1>Soutěžíme ve středu {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}</h1>
+                <h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}</h1>
             {default}
-                <div class="subheader">Competition schedule</div>
-                <h1>The contest takes place on Wednesday {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j Y'}</h1>
+                <div class="subheader">Competition Schedule</div>
+                <h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}</h1>
             {/switch}
 
             {include "../schedule.latte"}
