@@ -6,7 +6,6 @@ services:
     - App\RouterFactory::createFolRouter(%domains%, %router-mapping%)
 
 parameters:
-    wwwDir: %appDir%/.../www-fol
     competitionBegin: 17:00
     eventTypeId: 9
 

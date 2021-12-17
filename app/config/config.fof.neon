@@ -6,7 +6,6 @@ services:
     - App\RouterFactory::createFofRouter(%domains%, %router-mapping%)
 
 parameters:
-    wwwDir: %appDir%/.../www-fof
     competitionBegin: 10:00
     eventTypeId: 1
 

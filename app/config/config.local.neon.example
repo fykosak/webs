@@ -1,6 +1,3 @@
-tracy:
-    email: webmaster@fykos.cz
-
 database:
     default:
         dsn: 'mysql:host=localhost;dbname=fol-web'
