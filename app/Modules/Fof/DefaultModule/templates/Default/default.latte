@@ -40,7 +40,9 @@
         </div>
     </div>
 
-    <div class="panel color-light">
+    <div>{* Changes parity of color-auto *}</div>
+
+    <div class="panel color-auto">
         <section class="inner-container">
             {switch $lang}
                 {case 'cs'}
@@ -80,6 +82,7 @@
         </section>
     </div>
 
+    {*
     <div class="panel color-dark">
         <section class="inner-container">
             <div class="subheader">{switch $lang}{case cs}Ceny{default}Prizes{/switch}</div>
@@ -144,8 +147,9 @@
             </div>
         </section>
     </div>
+    *}
 
-    <div class="panel color-light">
+    <div class="panel color-auto">
         <section class="inner-container">
             {switch $lang}
                 {case cs}
@@ -209,7 +213,7 @@
         </section>
     </div>
 
-    <div class="panel color-dark">
+    <div class="panel color-auto">
         <section class="inner-container">
             {switch $lang}
                 {case cs}
@@ -224,7 +228,7 @@
         </section>
     </div>
 
-    <div class="panel color-light">
+    <div class="panel color-auto">
         <section class="inner-container">
             {switch $lang}
                 {case cs}
@@ -235,49 +239,93 @@
                 <h1>Sign up and become a legend!</h1>
             {/switch}
 
-            <div class="row">
+            <ul class="stylized">
+                {switch $lang}
+                    {case cs}
+                    <li>Soutěž je určena pro středoškoláky a je zdarma!</li>
+                    <li>
+                        Registrace je otevřena od
+                        {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'} do
+                        <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
+                    </li>
+                {default}
+                    <li>The competition is for high school students and is free of charge!</li>
+                    <li>
+                        Registration is open from
+                        {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'} until
+                        <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
+                    </li>
+                {/switch}
+            </ul>
+
+            <div class="row legends">
                 <div class="col-md-6">
-                    <ul class="stylized">
-                        {switch $lang}
-                            {case cs}
-                            <li>Soutěž je zdarma pro kohokoli!</li>
-                            <li>
-                                Registrace je otevřena od
-                                {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'} do
-                                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
-                            </li>
-                            <li>Kromě komunikace s dalšími týmy jsou povoleny jakékoli pomůcky.</li>
-                        {default}
-                            <li>Participation is free for anyone!</li>
-                            <li>
-                                Registration is open from
-                                {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'} until
-                                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
-                            </li>
-                            <li>Except for communicating with other teams, you can use any tools to solve the problems.</li>
-                        {/switch}
-                    </ul>
-                </div>
-                <div class="col-md-6 legends">
+                    <div class="legends-row">
+                        <div class="legends-year">2021<br>online</div>
+                        <div class="legends-item">
+                            <div>
+                                30chuaphailaT(Ê)ST
+                            </div>
+                            <div class="members">
+                                Mạnh Quân Nguyễn, Quang Vinh Tran, Hoang Nam Nguyen, Đức Hoàng Nguyễn Lê, Gia Khanh Nguyen
+                            </div>
+                        </div>
+                    </div>
                     <div class="legends-row">
                         <div class="legends-year">2020</div>
                         <div class="legends-item">
-                            <span class="flag-icon flag-icon-us"></span>
-                            One-Diraction
+                            <div>
+                                Teorie všeho se jede rozloučit
+                            </div>
+                            <div class="members">
+                                Viktor Materna, Lubor Čech, Václav Zvoníček, Jaroslav Herman, Jiří Kalvoda
+                            </div>
                         </div>
                     </div>
                     <div class="legends-row">
                         <div class="legends-year">2019</div>
                         <div class="legends-item" n:syntax="off">
-                            <span class="flag-icon flag-icon-sk"></span>
-                            \mathbb{H}armonic Approxilator
+                            <div>
+                                Jaderný reaktor IV. generace
+                            </div>
+                            <div class="members">
+                                Richard Veselý, Jiří Janoušek, Jindřich Jelínek, Jiří Loun, Tereza Pavlišová
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2018</div>
                         <div class="legends-item">
-                            <span class="flag-icon flag-icon-ee"></span>
-                            e = pi = sqrt(g) = 3
+                            <div>
+                                Pozitróny
+                            </div>
+                            <div class="members">
+                                Matúš Kopunec, Mikuláš Mikula, Marek Kadlečík, Róbert Jurčo, Martin Babača
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legends-row">
+                        <div class="legends-year">2017</div>
+                        <div class="legends-item">
+                            <div>
+                                ก็็็็็็็็ก็็็็็็็็กิิิิิิิิิิิ
+                            </div>
+                            <div class="members">
+                                Matěj Mezera, Jáchym Bártík, Matěj Coufal, Jan Hlaváč, Vít Beran
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legends-row">
+                        <div class="legends-year">2016</div>
+                        <div class="legends-item">
+                            <div>
+                                Parenica tím
+                            </div>
+                            <div class="members">
+                                Martin Gažo, Adam Škrlec, Juraj Halabrin, Simona Veselá, Peter Ralbovský
+                            </div>
                         </div>
                     </div>
                 </div>

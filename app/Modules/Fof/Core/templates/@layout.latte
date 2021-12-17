@@ -27,7 +27,7 @@
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:locale" content="{$presenter->translator->locales[$presenter->lang]}"/>
     <meta property="og:url" content="{plink //this}"/>
-    <link href="{$basePath}/images/fol_symbol.svg" rel="icon" type="image/svg"/>
+    <link href="{$basePath}/images/icon.svg" rel="icon" type="image/svg"/>
     <link href="{='assets/main.css'|asset}" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -131,7 +131,6 @@
                                     <ul>
                                         <li><a n:href=":Default:AboutTheCompetition:">O soutěži</a></li>
                                         <li><a n:href=":Default:Rules:">Pravidla</a></li>
-                                        <li><a n:href=":Default:Faq:">FAQ</a></li>
                                         <li><a n:href=":Default:Schedule:">Program</a></li>
                                         {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
                                             <li><a n:href=":Default:Registration:">Registrace</a></li>
@@ -143,7 +142,6 @@
                                     <ul>
                                         <li><a n:href=":Default:AboutTheCompetition:">About</a></li>
                                         <li><a n:href=":Default:Rules:">Rules</a></li>
-                                        <li><a n:href=":Default:Faq:">FAQ</a></li>
                                         <li><a n:href=":Default:Schedule:">Schedule</a></li>
                                         {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
                                             <li><a n:href=":Default:Registration:">Registration</a></li>

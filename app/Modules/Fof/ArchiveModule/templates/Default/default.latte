@@ -1,0 +1,47 @@
+{varType string $lang}
+{varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent $event}
+
+{block subtitle}
+    {switch $lang}
+        {case "cs"}Archivní stránka soutěže z {$event->begin|date: "j. n. Y"}
+        {default}Archive page of the competition from {$event->begin|date: "j F Y"}
+    {/switch}
+{/block}
+
+{block title}
+    {switch $lang}
+        {case "cs"}Fyziklání online {$event->begin|date: "Y"}
+        {default}Physics Brawl Online {$event->begin|date: "Y"}
+    {/switch}
+{/block}
+
+{block content}
+    <ul>
+        <li><a n:href="Teams:">
+                {switch $lang}
+                    {case "cs"}Seznam přihlášených týmů
+                    {default}List of registered teams
+                {/switch}
+            </a></li>
+        <li><a n:href="Results:">
+                {switch $lang}
+                    {case "cs"}Výsledky soutěže
+                    {default}Results of the competition
+                {/switch}
+            </a></li>
+    </ul>
+    <ul>
+        <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($event)}/reseni.pdf">
+                {switch $lang}
+                    {case "cs"}Zadání a řešení úloh v českém jazyce
+                    {default}Problems and solutions in Czech
+                {/switch}
+            </a></li>
+        <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($event)}/solutions.pdf">
+                {switch $lang}
+                    {case "cs"}Zadání a řešení úloh v anglickém jazyce
+                    {default}Problems and solutions in English
+                {/switch}
+            </a></li>
+    </ul>
+{/block}

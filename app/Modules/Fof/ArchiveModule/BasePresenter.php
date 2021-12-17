@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Modules\Fol\ArchiveModule;
+namespace App\Modules\Fof\ArchiveModule;
 
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
@@ -12,7 +12,7 @@ use Nette\Application\BadRequestException;
 use Nette\Application\UI\Template;
 use Nette\Http\IResponse;
 
-abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
+abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
 {
     /** @persistent */
     public ?string $eventYear = null;
@@ -74,10 +74,6 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
             new NavItem(
                 new PageTitle(_('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
                 ':Archive:DetailedResults:default',
-            ),
-            new NavItem(
-                new PageTitle(_('reports.menu'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'), // TODO
-                ':Archive:Reports:default',
             ),
         ];
     }

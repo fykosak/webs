@@ -1,56 +1,61 @@
 {varType string $lang}
-{*{block title}*}
-{*    {switch $lang}*}
-{*        {case cs}Historie Fyziklání*}
-{*        {default}History and Previous Fyziklani*}
-{*    {/switch}*}
-{*{/block}*}
+{block subtitle}
+    {switch $lang}
+        {case cs}Historie Fyziklání
+        {default}History and Previous Fyziklani
+    {/switch}
+{/block}
+{block title}
+    {switch $lang}
+        {case cs}Jak soutěž vznikla?
+        {default}What was the origin of the competition?
+    {/switch}
+{/block}
 {block content}
-    <div class="panel color-light">
-        <section class="inner-container">
-            {switch $lang}
-            {case cs}
-            <div class="subheader">Historie Fyziklání</div>
-            <h1>Jak soutěž vznikla?</h1>
-            <p>
-                Fyziklání se poprvé konalo v roce 2006. Vzniklo jako česká obdoba soutěže Fyzikální náboj, která je organizována na Slovensku. Od počátku je Fyziklání zcela organizováno organizátory FYKOSu, převážně studenty MFF UK v Praze. Fakulta zároveň od začátku oficiálně zastřešuje celou soutěž.
-            </p>
-            <p>
-                První významná změna v organizaci nastala v roce 2013, kdy se zavedlo rozdělení týmů do tří kategorií podle (zjednodušeně řečeno) průměrného věku členů týmu. Tento systém se zachoval dodnes. Dělení do kategorií je podrobněji popsáno v Organizačním řádu soutěže. Další významná změna nastala v roce 2016. Do tohoto roku se soutěž konala pouze v prostorách MFF UK na Karlově. Rostoucí zájem o soutěž však přinutil organizátory navýšit kapacitu míst. Kategorie A tak poprvé soutěžila v budově MFF UK na Malé Straně, zatímco kategorie B a C zůstaly na Karlově. Ke změně místa konání opět došlo v roce 2018, kdy se kategorie A přesunula z Malé Strany, kde nebyl dostatek prostoru, do konferenčních prostor Hotelu Duo. Od roku 2019 všechny kategorie soutěží na jednom místě, v TOP Hotelu Praha.
-            </p>
-            {*TODO: přidat odkaz na Organizační řád soutěže nahoru*}
-            <p>
-                Další novinkou bylo umožnění soutěžit i zahraničním týmům v anglickém jazyce. K tomu došlo taktéž v roce 2018, přičemž hned poprvé se přihlásily tři zahraniční týmy (Lotyšsko, Makedonie, Španělsko).
-            </p>
-            <p>
-                Od roku 2016 se soutěže zúčastnilo vždy více než 500 soutěžících. V roce 2019 soutěžilo celkově 724 studentů ze sedmi zemí, což byl do té doby nejvyšší počet.
-            </p>
-            <p>
-                V roce 2020 se konal 14. ročník FYKOSího Fyziklání. Soutěž se v posledních letech výrazně rozrostla a zájem o ni je mezi středoškoláky stále větší. V roce 2020 se zúčastnily již po několikáté týmy ze Španělska. Kromě nich k nám dorazili i účastníci z Polska, Ruska či Srbska.
-            </p>
-            <p>
-                V roce 2021 proběhlo Fyziklání v online formě kvůli pandemickým opatřením. Soutěže se zúčastnilo víc než 400 týmů ze 36 různých zemí světa.
-            </p>
-            {default}
-                <div class="subheader">History and Previous Fyziklani</div>
-                <h1>What was the origin of the competition?</h1>
-                <p>
-                    The first Fyziklani took place in 2006. It was formed as a parallel competition to the Physics Naboj organized by Slovak students. From the very beginning, Fyziklani was organized on behalf of the Faculty of Mathematics and Physics at Charles University and its students assembled in FYKOS.
-                </p>
-                <p>
-                    The first significant change in the organization of Fyziklani happened in 2013 when the team categories were introduced (according to the average age of team members). The rules concerning categories are described in the Organizational Regulations of Fyziklani in detail. Another significant change happened in 2016 (due to capacity) when category A took place at Malá Strana, whereas categories B and C remained at Karlov. The last significant adjustment happened in 2018 when category A was moved from Malá Strana to the conference rooms in Hotel Duo in Prague. That year, we were pleased to welcome the first foreign teams from Spain, Latvia, and the Republic of North Macedonia.
-                </p>
-                <p>
-                    Since 2016 there have always been more than 500 contestants. In 2019 over 700 students participated, which is so far the highest number of participants.
-                </p>
-                <p>
-                    In 2020 the 14th Fyziklani was held. The competition has been getting more and more known in public, and the interest among high-school students is increasing. Thus, the competition took place in Top Hotel in Prague, where more teams from all categories could compete at one place.
-                </p>
-                <p>
-                    In 2021, due to covid-19 restrictions, Fyziklani took place online. Despite such complications, more than 400 teams from 36 countries participated.
-                </p>
-            {/switch}
-        </section>
-    </div>
+    <a class="btn btn-primary my-2" n:href="Archive:default">
+        {switch $lang}
+            {case cs}Minulé ročníky
+            {default}Previous years of Fyziklani
+        {/switch}
+    </a>
 
+    {switch $lang}
+    {case cs}
+        <p>
+            Fyziklání se poprvé konalo v roce 2006. Vzniklo jako česká obdoba soutěže Fyzikální náboj, která je organizována na Slovensku. Od počátku je Fyziklání zcela organizováno organizátory FYKOSu, převážně studenty MFF UK v Praze. Fakulta zároveň od začátku oficiálně zastřešuje celou soutěž.
+        </p>
+        <p>
+            První významná změna v organizaci nastala v roce 2013, kdy se zavedlo rozdělení týmů do tří kategorií podle (zjednodušeně řečeno) průměrného věku členů týmu. Tento systém se zachoval dodnes. Dělení do kategorií je podrobněji popsáno v Organizačním řádu soutěže. Další významná změna nastala v roce 2016. Do tohoto roku se soutěž konala pouze v prostorách MFF UK na Karlově. Rostoucí zájem o soutěž však přinutil organizátory navýšit kapacitu míst. Kategorie A tak poprvé soutěžila v budově MFF UK na Malé Straně, zatímco kategorie B a C zůstaly na Karlově. Ke změně místa konání opět došlo v roce 2018, kdy se kategorie A přesunula z Malé Strany, kde nebyl dostatek prostoru, do konferenčních prostor Hotelu Duo. Od roku 2019 všechny kategorie soutěží na jednom místě, v TOP Hotelu Praha.
+        </p>
+        {*TODO: přidat odkaz na Organizační řád soutěže nahoru*}
+        <p>
+            Další novinkou bylo umožnění soutěžit i zahraničním týmům v anglickém jazyce. K tomu došlo taktéž v roce 2018, přičemž hned poprvé se přihlásily tři zahraniční týmy (Lotyšsko, Makedonie, Španělsko).
+        </p>
+        <p>
+            Od roku 2016 se soutěže zúčastnilo vždy více než 500 soutěžících. V roce 2019 soutěžilo celkově 724 studentů ze sedmi zemí, což byl do té doby nejvyšší počet.
+        </p>
+        <p>
+            V roce 2020 se konal 14. ročník FYKOSího Fyziklání. Soutěž se v posledních letech výrazně rozrostla a zájem o ni je mezi středoškoláky stále větší. V roce 2020 se zúčastnily již po několikáté týmy ze Španělska. Kromě nich k nám dorazili i účastníci z Polska, Ruska či Srbska.
+        </p>
+        <p>
+            V roce 2021 proběhlo Fyziklání v online formě kvůli pandemickým opatřením. Soutěže se zúčastnilo víc než 400 týmů ze 36 různých zemí světa.
+        </p>
+
+    {default}
+        <p>
+            The first Fyziklani took place in 2006. It was formed as a parallel competition to the Physics Naboj organized by Slovak students. From the very beginning, Fyziklani was organized on behalf of the Faculty of Mathematics and Physics at Charles University and its students assembled in FYKOS.
+        </p>
+        <p>
+            The first significant change in the organization of Fyziklani happened in 2013 when the team categories were introduced (according to the average age of team members). The rules concerning categories are described in the Organizational Regulations of Fyziklani in detail. Another significant change happened in 2016 (due to capacity) when category A took place at Malá Strana, whereas categories B and C remained at Karlov. The last significant adjustment happened in 2018 when category A was moved from Malá Strana to the conference rooms in Hotel Duo in Prague. That year, we were pleased to welcome the first foreign teams from Spain, Latvia, and the Republic of North Macedonia.
+        </p>
+        <p>
+            Since 2016 there have always been more than 500 contestants. In 2019 over 700 students participated, which is so far the highest number of participants.
+        </p>
+        <p>
+            In 2020 the 14th Fyziklani was held. The competition has been getting more and more known in public, and the interest among high-school students is increasing. Thus, the competition took place in Top Hotel in Prague, where more teams from all categories could compete at one place.
+        </p>
+        <p>
+            In 2021, due to covid-19 restrictions, Fyziklani took place online. Despite such complications, more than 400 teams from 36 countries participated.
+        </p>
+    {/switch}
 {/block}

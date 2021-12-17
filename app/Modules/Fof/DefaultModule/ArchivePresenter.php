@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Modules\Fol\DefaultModule;
+namespace App\Modules\Fof\DefaultModule;
 
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 
