@@ -40,7 +40,9 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
                     [$year, $month] = explode('-', $this->eventYear);
                 }
                 $events = $this->serviceEvent->getEventsByYear(
-                    [$this->context->getParameters()["eventTypeId"]], +$year);
+                    [$this->context->getParameters()["eventTypeId"]],
+                    +$year
+                );
                 if (count($events)) {
                     $event = isset($month) ? reset($events) : end($events);
                 }
