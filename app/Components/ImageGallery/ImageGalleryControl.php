@@ -16,7 +16,8 @@ class ImageGalleryControl extends BaseComponent
     private string $wwwDir;
     private Cache $cache;
 
-    public function injectStorage(Storage $storage) {
+    public function injectStorage(Storage $storage)
+    {
         $this->cache = new Cache($storage, 'App\Components\ImageGallery');
     }
 
