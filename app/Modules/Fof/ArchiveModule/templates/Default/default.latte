@@ -1,5 +1,6 @@
 {varType string $lang}
 {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent $event}
+{varType string $eventKey}
 
 {block subtitle}
     {switch $lang}
@@ -10,38 +11,54 @@
 
 {block title}
     {switch $lang}
-        {case "cs"}Fyziklání online {$event->begin|date: "Y"}
-        {default}Physics Brawl Online {$event->begin|date: "Y"}
+        {case "cs"}Fyziklání {$event->begin|date: "Y"}
+        {default}Fyziklani {$event->begin|date: "Y"}
     {/switch}
 {/block}
 
-{block content}
-    <ul>
-        <li><a n:href="Teams:">
-                {switch $lang}
-                    {case "cs"}Seznam přihlášených týmů
-                    {default}List of registered teams
-                {/switch}
-            </a></li>
-        <li><a n:href="Results:">
-                {switch $lang}
-                    {case "cs"}Výsledky soutěže
-                    {default}Results of the competition
-                {/switch}
-            </a></li>
-    </ul>
-    <ul>
-        <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($event)}/reseni.pdf">
-                {switch $lang}
-                    {case "cs"}Zadání a řešení úloh v českém jazyce
-                    {default}Problems and solutions in Czech
-                {/switch}
-            </a></li>
-        <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($event)}/solutions.pdf">
-                {switch $lang}
-                    {case "cs"}Zadání a řešení úloh v anglickém jazyce
-                    {default}Problems and solutions in English
-                {/switch}
-            </a></li>
-    </ul>
+{block main}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+                {ifset title}<h1>{include title}</h1>{/ifset}
+                <ul>
+                    <li><a n:href="Teams:">
+                            {switch $lang}
+                                {case "cs"}Seznam přihlášených týmů
+                                {default}List of registered teams
+                            {/switch}
+                        </a></li>
+                    <li><a n:href="Results:">
+                            {switch $lang}
+                                {case "cs"}Výsledky soutěže
+                                {default}Results of the competition
+                            {/switch}
+                        </a></li>
+                </ul>
+                <ul>
+                    <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($event)}/reseni.pdf">
+                            {switch $lang}
+                                {case "cs"}Zadání a řešení úloh v českém jazyce
+                                {default}Problems and solutions in Czech
+                            {/switch}
+                        </a></li>
+                    <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($event)}/solutions.pdf">
+                            {switch $lang}
+                                {case "cs"}Zadání a řešení úloh v anglickém jazyce
+                                {default}Problems and solutions in English
+                            {/switch}
+                        </a></li>
+                </ul>
+        </section>
+    </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>{switch $lang}
+                {case "cs"}Fotografie ze soutěže
+                {default}Photos from the competition
+            {/switch}</h1>
+            {control gallery "/photos/" . $eventKey . "/"}
+        </section>
+    </div>
 {/block}

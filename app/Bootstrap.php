@@ -12,7 +12,7 @@ class Bootstrap
     {
         $configurator = new Configurator();
 
-        //$configurator->setDebugMode(true); // uncomment for debug mode
+        $configurator->setDebugMode(true); // uncomment for debug mode
         $configurator->enableTracy(__DIR__ . '/../log');
         error_reporting(~E_USER_DEPRECATED);
         $configurator->setTimeZone('Europe/Prague');

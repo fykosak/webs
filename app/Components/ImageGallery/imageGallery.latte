@@ -1,0 +1,12 @@
+<div class="row pswp-gallery pswp-gallery--single-column">
+    {foreach $images as $image}
+        <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+            <a href="{$image["src"]}"
+               data-pswp-width="{$image["width"]}"
+               data-pswp-height="{$image["height"]}"
+               target="_blank">
+                <img src="{$image["src"]}" alt="" class="w-100 shadow-1-strong rounded mb-4" />
+            </a>
+        </div>
+    {/foreach}
+</div>

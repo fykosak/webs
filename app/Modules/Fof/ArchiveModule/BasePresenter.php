@@ -105,6 +105,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
     {
         $template = parent::createTemplate();
         $template->event = $this->getEvent();
+        $template->eventKey = parent::createEventKey($this->getEvent());
         return $template;
     }
 }
