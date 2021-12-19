@@ -24,7 +24,6 @@ class ImageGalleryControl extends BaseComponent
     {
         parent::__construct($container);
         $this->wwwDir = $container->getParameters()['wwwDir'];
-        $this->basePath = "/";
     }
 
     public static function getImages($path, $wwwDir): array
