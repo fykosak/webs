@@ -52,6 +52,10 @@ class ImageGalleryControl extends BaseComponent
             return $a['src'] <=> $b['src'];
         });
 
+        foreach ($images as $index => &$image) {
+            $image['index'] = $index;
+        }
+
         return $images;
     }
 
@@ -63,6 +67,21 @@ class ImageGalleryControl extends BaseComponent
         $this->template->images = $this->cache->call([$this, 'getImages'], $path, $this->wwwDir); // Enabled cache
         //$this->template->images = self::getImages($path, $this->wwwDir); // Disabled cache
         $this->template->lang = $this->getPresenter()->lang;
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'imageGallery.latte');
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'default.latte');
+    }
+
+    public function renderOneLine(string $path): void
+    {
+        $this->template->images = $this->cache->call([$this, 'getImages'], $path, $this->wwwDir); // Enabled cache
+        if (count($this->template->images) <= 6) {
+            $this->template->previewImages = $this->template->images;
+        } else {
+            $step = count($this->template->images) / 6;
+            $this->template->previewImages = [];
+            for ($i = 0; $i < 6; $i++) {
+                $this->template->previewImages[] = $this->template->images[(int) ($i * $step)];
+            }
+        }
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
     }
 }
