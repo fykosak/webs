@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\DefaultModule;
 
-use App\Components\ImageGallery\ImageGalleryControl;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
-use Nette\Application\BadRequestException;
 
 class ArchivePresenter extends BasePresenter
 {
@@ -35,14 +33,5 @@ class ArchivePresenter extends BasePresenter
         }
 
         $this->template->eventKeys = $eventKeys;
-    }
-
-    /**
-     * @throws BadRequestException
-     * @throws \Throwable
-     */
-    protected function createComponentGallery(): ImageGalleryControl
-    {
-        return new ImageGalleryControl($this->context);
     }
 }

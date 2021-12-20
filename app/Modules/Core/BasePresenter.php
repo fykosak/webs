@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Core;
 
+use App\Components\ImageGallery\ImageGalleryControl;
 use App\Components\Navigation\Navigation;
 use App\Models\Exceptions\UnderConstructionException;
 use App\Models\GamePhaseCalculator;
@@ -11,6 +12,7 @@ use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Fykosak\Utils\UI\PageTitle;
+use Nette\Application\BadRequestException;
 use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Template;
 
@@ -103,5 +105,14 @@ abstract class BasePresenter extends Presenter
             return;
         }
         throw new UnderConstructionException();
+    }
+
+    /**
+     * @throws BadRequestException
+     * @throws \Throwable
+     */
+    protected function createComponentGallery(): ImageGalleryControl
+    {
+        return new ImageGalleryControl($this->context);
     }
 }
