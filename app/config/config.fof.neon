@@ -10,5 +10,5 @@ parameters:
     eventTypeId: 1
 
 includes:
-    - fol-router-mapping.neon
+    - fof-router-mapping.neon
     - config.neon

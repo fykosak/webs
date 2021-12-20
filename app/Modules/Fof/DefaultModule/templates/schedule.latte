@@ -1,4 +1,6 @@
-<div class="timeline">
+<div class="timeline timeline-wider">
+    <div class="timeline-group">{switch $lang}{case cs}Čtvrtek{default}Thursday{/switch}</div>
+
     <div>
         <span class="timeline-element-icon"></span>
         {switch $lang}
@@ -8,7 +10,7 @@
                 <p>
                     Ve čtvrtek odpoledne se otevře hotel Duo pro ubytované.
                 </p>
-                <time datetime="ctvrtek" class="timeline-element-date">Čt</time>
+                <time class="timeline-element-date">odpoledne</time>
             </div>
         {default}
             <div class="timeline-element-content">
@@ -16,31 +18,59 @@
                 <p>
                     On Thursday afternoon, participants with accommodation will come to the Hotel Duo.
                 </p>
-                <time datetime="thursday" class="timeline-element-date">Thu</time>
+                <time class="timeline-element-date">afternoon</time>
             </div>
         {/switch}
     </div>
 
+    <div class="timeline-group">{switch $lang}{case cs}Pátek{default}Friday{/switch}</div>
+
     <div>
         <span class="timeline-element-icon"></span>
-        {switch $lang}
-            {case cs}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Soutěž</div>
-                <p>
-                    V pátek dopoledne bude zahájena samotná soutěž.
-                </p>
-                <time datetime="patek" class="timeline-element-date">Pá</time>
-            </div>
-        {default}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Competition</div>
-                <p>
-                    The competition itself will be commenced on Friday morning.
-                </p>
-                <time datetime="friday" class="timeline-element-date">Fri</time>
-            </div>
-        {/switch}
+        <div class="timeline-element-content">
+            <div class="timeline-title">{switch $lang}{case cs}Prezence týmů{default}Team arrival{/switch}</div>
+            <time class="timeline-element-date">9:00 - 9:45</time>
+        </div>
+    </div>
+
+    <div>
+        <span class="timeline-element-icon"></span>
+        <div class="timeline-element-content">
+            <div class="timeline-title">{switch $lang}{case cs}Otevírací ceremoniál{default}Opening ceremony{/switch}</div>
+            <time class="timeline-element-date">10:00 - 10:25</time>
+        </div>
+    </div>
+
+    <div>
+        <span class="timeline-element-icon"></span>
+        <div class="timeline-element-content">
+            <div class="timeline-title">{switch $lang}{case cs}Soutěž{default}Competition{/switch}</div>
+            <time class="timeline-element-date">10:30 - 13:30</time>
+        </div>
+    </div>
+
+    <div>
+        <span class="timeline-element-icon"></span>
+        <div class="timeline-element-content">
+            <div class="timeline-title">{switch $lang}{case cs}Speciální program Fyziklani International{default}Special programme Fyziklani International{/switch}</div>
+            <time class="timeline-element-date">13:45 - 14:00</time>
+        </div>
+    </div>
+
+    <div>
+        <span class="timeline-element-icon"></span>
+        <div class="timeline-element-content">
+            <div class="timeline-title">{switch $lang}{case cs}Závěrečný ceremoniál, vyhlášení výsledků{default}Announcement of results{/switch}</div>
+            <time class="timeline-element-date">14:00 - 14:45</time>
+        </div>
+    </div>
+
+    <div>
+        <span class="timeline-element-icon"></span>
+        <div class="timeline-element-content">
+            <div class="timeline-title">{switch $lang}{case cs}Společné focení vítězů{default}Joint photo shoot of the winners{/switch}</div>
+            <time class="timeline-element-date">14:45 - 14:50</time>
+        </div>
     </div>
 
     <div>
@@ -52,7 +82,7 @@
                 <p>
                     Večer po soutěži se bude konat slavnostní recepce.
                 </p>
-                <time datetime="patek" class="timeline-element-date">Pá</time>
+                <time class="timeline-element-date">večer</time>
             </div>
         {default}
             <div class="timeline-element-content">
@@ -60,10 +90,12 @@
                 <p>
                     We will hold a ceremonial reception in the evening after the competition.
                 </p>
-                <time datetime="friday" class="timeline-element-date">Fri</time>
+                <time class="timeline-element-date">odpoledne</time>
             </div>
         {/switch}
     </div>
+
+    <div class="timeline-group">{switch $lang}{case cs}Sobota{default}Saturday{/switch}</div>
 
     <div>
         <span class="timeline-element-icon"></span>
@@ -74,7 +106,7 @@
                 <p>
                     V sobotu dopoledne proběhnou fyzikální přednášky.
                 </p>
-                <time datetime="sobota" class="timeline-element-date">So</time>
+                <time class="timeline-element-date">dopoledne</time>
             </div>
         {default}
             <div class="timeline-element-content">
@@ -82,7 +114,7 @@
                 <p>
                     Physics lectures will take place on Saturday morning.
                 </p>
-                <time datetime="saturday" class="timeline-element-date">Sat</time>
+                <time class="timeline-element-date">morning</time>
             </div>
         {/switch}
     </div>
@@ -96,7 +128,7 @@
                 <p>
                     V sobotu odpoledne navštívíme Národní technické a Národní zemědělské muzeum a další zajímavá místa v Praze.
                 </p>
-                <time datetime="sobota" class="timeline-element-date">So</time>
+                <time class="timeline-element-date">odpoledne</time>
             </div>
         {default}
             <div class="timeline-element-content">
@@ -104,7 +136,7 @@
                 <p>
                     On Saturday afternoon we will visit the National Technical Museum, National Museum of Agriculture and take a Prague tour.
                 </p>
-                <time datetime="saturday" class="timeline-element-date">Sat</time>
+                <time class="timeline-element-date">afternoon</time>
             </div>
         {/switch}
     </div>
@@ -118,7 +150,7 @@
                 <p>
                     V sobotu večer se podíváme do Štefánikovy hvězdárny a Planetária Praha.
                 </p>
-                <time datetime="sobota" class="timeline-element-date">So</time>
+                <time class="timeline-element-date">večer</time>
             </div>
         {default}
             <div class="timeline-element-content">
@@ -126,10 +158,12 @@
                 <p>
                     On Saturday evening, we will visit the Štefánik Observatory and Prague Planetarium.
                 </p>
-                <time datetime="saturday" class="timeline-element-date">Sat</time>
+                <time class="timeline-element-date">evening</time>
             </div>
         {/switch}
     </div>
+
+    <div class="timeline-group">{switch $lang}{case cs}Neděle{default}Sunday{/switch}</div>
 
     <div>
         <span class="timeline-element-icon"></span>
@@ -140,7 +174,7 @@
                 <p>
                     V neděli dopoledne proběhnou exkurze po vědeckých pracovištích.
                 </p>
-                <time datetime="nedele" class="timeline-element-date">Ne</time>
+                <time class="timeline-element-date">dopoledne</time>
             </div>
         {default}
             <div class="timeline-element-content">
@@ -148,7 +182,7 @@
                 <p>
                     Excursions into scientific workplaces will take place on Sunday morning.
                 </p>
-                <time datetime="sunday" class="timeline-element-date">Sun</time>
+                <time class="timeline-element-date">morning</time>
             </div>
         {/switch}
     </div>

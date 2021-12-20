@@ -34,13 +34,19 @@ $timeline-line-width: .2rem;
         background-color: $primary-color;
     }
 
-    .timeline-element-content {
+    .timeline-group {
+        text-transform: uppercase;
+        margin: 0 0 1rem;
+        font-weight: bold;
+        color: $primary-color;
+    }
+
+    .timeline-element-content, .timeline-group {
         position: relative;
         margin-left: $timeline-line-position + $wideness + 2rem;
     }
 
     .timeline-title {
-        text-transform: uppercase;
         margin: 0 0 .25rem;
         font-weight: bold;
     }
@@ -57,4 +63,4 @@ $timeline-line-width: .2rem;
 }
 
 .timeline {@include timeline(0);}
-.timeline.timeline-wider {@include timeline(2rem);}
+.timeline.timeline-wider {@include timeline(3rem);}
