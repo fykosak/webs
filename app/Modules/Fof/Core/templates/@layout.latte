@@ -85,9 +85,33 @@
         <div class="panel sponsors">
             <div class="inner-container">
                 <div class="sponsors-row">
-                    <a href="https://www.mff.cuni.cz/"><img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-height: 6rem; max-width: 13rem"></a>
-                    <a href="https://www.msmt.cz/"><img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 6rem; max-width: 13rem"></a>
-                    <a href="https://www.nfneuron.cz/"><img src="{$basePath}/images/logos/neuron-logo.jpg" alt="Neuron logo" style="max-height: 6rem; max-width: 13rem"></a>
+                    <a href="https://www.mff.cuni.cz/">
+                        <div class="text">
+                            {switch $lang}
+                                {case 'cs'}Organizátor soutěže
+                                {default}Competition organiser
+                            {/switch}
+                        </div>
+                        <img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-height: 6rem; max-width: 13rem">
+                    </a>
+                    <a href="https://www.msmt.cz/">
+                        <div class="text">
+                            {switch $lang}
+                                {case 'cs'}Organizátor soutěže
+                                {default}Competition organiser
+                            {/switch}
+                        </div>
+                        <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 6rem; max-width: 13rem">
+                    </a>
+                    <a href="https://www.nfneuron.cz/">
+                        <div class="text">
+                            {switch $lang}
+                                {case 'cs'}Generální partner soutěže
+                                {default}General partner of the competition
+                            {/switch}
+                        </div>
+                        <img src="{$basePath}/images/logos/neuron-logo.jpg" alt="Neuron logo" style="max-height: 6rem; max-width: 13rem">
+                    </a>
                 </div>
             </div>
         </div>

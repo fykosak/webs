@@ -66,13 +66,20 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: 2rem;
 
     a {
       display: block;
+      text-decoration: none;
       img {
         @extend .img-fluid;
+      }
+      .text {
+        text-align: center;
+        color: black;
+        font-weight: bold;
+        padding-bottom: 2rem;
       }
     }
   }
