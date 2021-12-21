@@ -69,13 +69,13 @@
                 {else}
                     {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
                         {switch $lang}
-                            {case 'cs'}Registrujte se od 4.10.!
-                            {default} Register to the competition from 4.10.!
+                            {case 'cs'}Registrace se otevře brzy!
+                            {default} Registration will open soon!
                         {/switch}
                     {else}
                         {switch $lang}
-                            {case 'cs'}Registrace skončila. Počkejte na další rok.
-                            {default} Registration has ended. Wait for the next year.
+                            {case 'cs'}Registrace na další ročník ještě není otevřena.
+                            {default} Registration for the next year is not open yet.
                         {/switch}
                     {/if}
                 {/if}
