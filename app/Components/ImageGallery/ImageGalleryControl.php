@@ -64,15 +64,14 @@ class ImageGalleryControl extends BaseComponent
      */
     public function render(string $path): void
     {
-        $this->template->images = $this->cache->call([$this, 'getImages'], $path, $this->wwwDir); // Enabled cache
-        //$this->template->images = self::getImages($path, $this->wwwDir); // Disabled cache
+        $this->template->images = $this->cache->load([$path, $this->wwwDir], fn() => self::getImages($path, $this->wwwDir));
         $this->template->lang = $this->getPresenter()->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'default.latte');
     }
 
     public function renderOneLine(string $path): void
     {
-        $this->template->images = $this->cache->call([$this, 'getImages'], $path, $this->wwwDir); // Enabled cache
+        $this->template->images = $this->cache->load([$path, $this->wwwDir], fn() => self::getImages($path, $this->wwwDir));
         if (count($this->template->images) <= 6) {
             $this->template->previewImages = $this->template->images;
         } else {
