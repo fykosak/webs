@@ -12,9 +12,10 @@ class RouterFactory
     /**
      * Ensures that the request came to domain from $languages array of languages. Rejects otherwise.
      */
-    private static function havingDomainLanguage(array $languages, ?array $domainList) {
+    private static function havingDomainLanguage(array $languages, ?array $domainList)
+    {
         return [
-            Route::FILTER_IN => function (array $params) use ($languages, $domainList) {
+            Route::FILTER_IN => function (array $params) use ($languages, $domainList) { // todo fix code duplication
                 // From where to extract the language
                 if ($domainList && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
@@ -35,7 +36,6 @@ class RouterFactory
                 } else {
                     return null;
                 }
-
             },
         ];
     }

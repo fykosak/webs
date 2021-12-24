@@ -75,10 +75,6 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
                 ':Archive:Results:default',
             ),
             new NavItem(
-                new PageTitle(_('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
-                ':Archive:DetailedResults:default',
-            ),
-            new NavItem(
                 new PageTitle(_('reports.menu'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'), // TODO
                 ':Archive:Reports:default',
             ),
