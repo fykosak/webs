@@ -23,6 +23,13 @@
                 <li>Přečtěte si <a n:href="Rules:complete">podrobná pravidla soutěže</a>.</li>
                 <li>Neváhejte nás kontaktovat na <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>.</li>
             </ul>
+
+            <ul class="stylized">
+                <li>
+                    Registrace je otevřena do
+                    <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>. Neotálejte s registrací vašeho týmu.
+                </li>
+            </ul>
         {default}
             {* Myslet na to, že jsou více cizinci, dal bych tady i to, že kromě FOLu existuje i FOF a FYKOS, aby si to fakt nepletli *}
 
@@ -51,6 +58,13 @@ Thank you</textarea>
             <ul class="stylized">
                 <li>Read the <a n:href="Rules:complete">complete rules of the contest</a>.</li>
                 <li>You can reach us at <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>.</li>
+            </ul>
+
+            <ul class="stylized">
+                <li>
+                    Registration is open until
+                    <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
+                </li>
             </ul>
     {/switch}
 

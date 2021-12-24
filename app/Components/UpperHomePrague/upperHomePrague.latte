@@ -109,4 +109,14 @@
     <div class="upper-home-countdown">
         {control countdown}
     </div>
+    <div class="upper-home-registration-deadline">
+        {switch $lang}
+            {case cs}
+            Registrace je otevřena do
+                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
+        {default}
+            Registration is open until
+                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
+        {/switch}
+    </div>
 {/block}
