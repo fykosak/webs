@@ -9,6 +9,36 @@ use Nette\Application\Routers\RouteList;
 
 class RouterFactory
 {
+    /**
+     * Ensures that the request came to domain from $languages array of languages. Rejects otherwise.
+     */
+    private static function havingDomainLanguage(array $languages, ?array $domainList) {
+        return [
+            Route::FILTER_IN => function (array $params) use ($languages, $domainList) {
+                // From where to extract the language
+                if ($domainList && count($domainList)) {
+                    $domainLang = $domainList[$params['domain']] ?? null;
+                    // In case of accessing from unknown domain (which should not happen)
+                    if ($domainLang === null) {
+                        trigger_error(
+                            'Domain \'' . $params['domain'] . '\' has no language assigned. Fallback to en.',
+                            E_USER_WARNING
+                        );
+                        $domainLang = 'en';
+                    }
+                } else {
+                    $domainLang = $params['lang'] ?? 'en';
+                }
+
+                if (in_array($domainLang, $languages)) {
+                    return $params;
+                } else {
+                    return null;
+                }
+
+            },
+        ];
+    }
 
     /**
      * Creates a global filter for a route modifying parameters to use domains instead of lang.
@@ -113,6 +143,11 @@ class RouterFactory
             ]);
 
         $router->withModule('Default')
+            ->addRoute('//<domain>/<? international|erasmus>', [
+                'presenter' => 'Erasmus',
+                'lang' => 'en',
+                null => self::havingDomainLanguage(['cs'], $domainList),
+            ], $router::ONE_WAY)
             ->addRoute('//<domain>/<presenter>[/<action>]', [
                 'presenter' => 'Default',
                 'action' => 'default',
