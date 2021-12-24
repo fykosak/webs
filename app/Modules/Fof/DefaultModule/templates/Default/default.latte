@@ -332,4 +332,34 @@
             </div>
         </section>
     </div>
+
+    <script type="application/ld+json" n:syntax="double">
+        {
+            "@context": "https://schema.org",
+            "@type": "Event",
+            "name": {{= "Fyziklani " . $gamePhaseCalculator->getFKSDBEvent()->begin->format('Y')}},
+            "startDate": {{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'c'}},
+            "endDate": {{$gamePhaseCalculator->getFKSDBEvent()->end |date:'c'}},
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "isAccessibleForFree": "true",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "location": {
+                "@type": "Place",
+                "name": "PVA EXPO PRAHA",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Beranových 667",
+                    "addressLocality": "Praha",
+                    "postalCode": "19900",
+                    "addressCountry": "CZ"
+                }
+            },
+            "description": "Physics team competition in the Czech Republic for high school students.",
+            "organizer": {
+                "@type": "Organization",
+                "name": "FYKOS",
+                "url": "https://fykos.cz"
+            }
+        }
+    </script>
 {/block}
