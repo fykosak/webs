@@ -13,7 +13,7 @@ class ResultsPresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPageTitle(new PageTitle(_('Results')));
+        $this->setPageTitle(new PageTitle(null, _('Results')));
     }
 
     /**

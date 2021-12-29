@@ -18,15 +18,15 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
         $items = [];
 
         $items[] = new NavItem(
-            new PageTitle(_('about.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, _('about.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:AboutTheCompetition:default',
         );
         $items[] = new NavItem(
-            new PageTitle(_('rules.menu'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'), // TODO
+            new PageTitle(null, _('rules.menu'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'), // TODO
             ':Default:Rules:default',
         );
         $items[] = new NavItem(
-            new PageTitle(_('faq.menu'), 'visible-sm-inline glyphicon glyphicon-question-sign'), // TODO
+            new PageTitle(null, _('faq.menu'), 'visible-sm-inline glyphicon glyphicon-question-sign'), // TODO
             ':Default:Faq:default',
         );
 //        $items[] = new NavItem(
@@ -34,7 +34,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
 //            ':Default:HowToPlay:default',
 //        );
         $items[] = new NavItem(
-            new PageTitle(_('schedule.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, _('schedule.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Schedule:default',
         );
 //        $items[] = new NavItem(
@@ -42,21 +42,21 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
 //            ':Default:Reports:default',
 //        );
         $items[] = new NavItem(
-            new PageTitle(_('archive.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
+            new PageTitle(null, _('archive.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
             ':Default:Archive:default',
         );
 
 
         if (TeamsPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
-                new PageTitle(_('teams.menu'), 'visible-sm-inline glyphicon glyphicon-edit'),
+                new PageTitle(null, _('teams.menu'), 'visible-sm-inline glyphicon glyphicon-edit'),
                 ':Default:Teams:',
             );
         }
 
         if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
-                new PageTitle(_('registration.menu'), 'visible-sm-inline glyphicon glyphicon-edit'),
+                new PageTitle(null, _('registration.menu'), 'visible-sm-inline glyphicon glyphicon-edit'),
                 ':Default:Registration:',
             );
         }

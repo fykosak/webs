@@ -10,6 +10,6 @@ class DetailedResultsPresenter extends BasePresenter
 {
     public function renderDefault(): void
     {
-        $this->setPageTitle(new PageTitle(_('Detailed results')));
+        $this->setPageTitle(new PageTitle(null, _('Detailed results')));
     }
 }

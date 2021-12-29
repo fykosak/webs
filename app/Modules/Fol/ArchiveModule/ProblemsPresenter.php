@@ -20,7 +20,7 @@ class ProblemsPresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $this->setPageTitle(new PageTitle(_('Problems')));
+        $this->setPageTitle(new PageTitle(null, _('Problems')));
 
         $this->template->problems = $this->directoryService->findRoot()
             ->findChildByPath('fykos/seminar/34/3')

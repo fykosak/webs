@@ -63,19 +63,20 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
     {
         return [
             new NavItem(
-                new PageTitle(_('archive_home.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(null, _('archive_home.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Archive:Default:default',
             ),
             new NavItem(
-                new PageTitle(_('teams.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(null, _('teams.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Archive:Teams:default',
             ),
             new NavItem(
-                new PageTitle(_('results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
+                new PageTitle(null, _('results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
                 ':Archive:Results:default',
             ),
             new NavItem(
-                new PageTitle(_('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
+                new PageTitle(null, _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
+                // TODO
                 ':Archive:DetailedResults:default',
             ),
         ];

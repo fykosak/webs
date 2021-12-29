@@ -4,18 +4,20 @@ declare(strict_types=1);
 
 namespace App;
 
-use Nette\Application\Routers\Route;
+use Nette\Routing\Route;
 use Nette\Application\Routers\RouteList;
+use Nette\Routing\Router;
 
 class RouterFactory
 {
     /**
      * Ensures that the request came to domain from $languages array of languages. Rejects otherwise.
      */
-    private static function havingDomainLanguage(array $languages, ?array $domainList)
+    private static function havingDomainLanguage(array $languages, ?array $domainList): array
     {
         return [
-            Route::FILTER_IN => function (array $params) use ($languages, $domainList) { // todo fix code duplication
+            // todo fix code duplication
+            Route::FILTER_IN => function (array $params) use ($languages, $domainList) {
                 // From where to extract the language
                 if ($domainList && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
@@ -110,7 +112,7 @@ class RouterFactory
         ];
     }
 
-    public static function createFolRouter(?array $domainList, array $routerMapping): \Nette\Routing\Router
+    public static function createFolRouter(?array $domainList, array $routerMapping): Router
     {
         $router = new RouteList();
 
@@ -118,20 +120,20 @@ class RouterFactory
             ->addRoute('//<domain>/<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]', [
                 'presenter' => 'Default',
                 'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['archive'])
+                null => self::useTranslateFilter($domainList, $routerMapping['archive']),
             ]);
 
         $router->withModule('Default')
             ->addRoute('//<domain>/<presenter>[/<action>]', [
                 'presenter' => 'Default',
                 'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default'])
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
 
         return $router;
     }
 
-    public static function createFofRouter(?array $domainList, array $routerMapping): \Nette\Routing\Router
+    public static function createFofRouter(?array $domainList, array $routerMapping): Router
     {
         $router = new RouteList();
 
@@ -139,7 +141,7 @@ class RouterFactory
             ->addRoute('//<domain>/<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]', [
                 'presenter' => 'Default',
                 'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['archive'])
+                null => self::useTranslateFilter($domainList, $routerMapping['archive']),
             ]);
 
         $router->withModule('Default')
@@ -151,7 +153,7 @@ class RouterFactory
             ->addRoute('//<domain>/<presenter>[/<action>]', [
                 'presenter' => 'Default',
                 'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default'])
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
 
         return $router;

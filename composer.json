@@ -11,11 +11,11 @@
     "GPL-3.0"
   ],
   "require": {
-    "php": ">= 7.4 <8.1",
+    "php": ">= 7.4",
     "nette/nette": "^v3.1.0",
     "fykosak/nette-orm": "dev-master#588d956",
-    "fykosak/nette-fksdb-downloader": "dev-master#d45d37d",
-    "fykosak/nette-fks-utils": "dev-master#4054d9f",
+    "fykosak/nette-fksdb-downloader": "^1.2.0",
+    "fykosak/nette-fks-utils": "dev-master#469ab13",
     "ext-soap": "*",
     "ext-dom": "*",
     "ext-gettext": "*",
@@ -30,7 +30,6 @@
   },
   "autoload": {
     "psr-4": {
-      "Tests\\": "tests/",
       "App\\": "app/"
     }
   }

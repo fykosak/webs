@@ -12,7 +12,7 @@ class TeamsPresenter extends BasePresenter
 {
     public function renderDefault(): void
     {
-        $this->setPageTitle(new PageTitle(_('Teams')));
+        $this->setPageTitle(new PageTitle(null, _('Teams')));
     }
 
     /**
