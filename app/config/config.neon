@@ -10,7 +10,7 @@ session:
 
 services:
     - Fykosak\Utils\Localization\GettextTranslator(%i18n.locales%,%i18n.dir%)
-    - Fykosak\NetteFKSDBDownloader\NetteFKSDBDownloader('https://db.fykos.cz/FKSDBWebServices.wsdl',%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes')
+    - Fykosak\NetteFKSDBDownloader\NetteFKSDBDownloader('https://db.fykos.cz/FKSDBWebServices.wsdl',%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes','')
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail('10 minutes')
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList('10 minutes')
     - App\Models\GamePhaseCalculator(%eventTypeId%)
