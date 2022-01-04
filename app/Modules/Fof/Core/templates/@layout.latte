@@ -60,7 +60,7 @@
             <div class="inner-container">
                 <div class="text">
                     {switch $lang}
-                        {case 'cs'}Zaujalo vás to?
+                        {case 'cs'}Zaujala vás soutěž?
                         {default}Are you interested?
                     {/switch}
                 </div>
@@ -69,7 +69,7 @@
                 {else}
                     {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
                         {switch $lang}
-                            {case 'cs'}Registrace se otevře brzy!
+                            {case 'cs'}Registrace se brzy otevře!
                             {default} Registration will open soon!
                         {/switch}
                     {else}
@@ -94,15 +94,6 @@
                         </div>
                         <img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-height: 6rem; max-width: 13rem">
                     </a>
-                    <a href="https://www.msmt.cz/">
-                        <div class="text">
-                            {switch $lang}
-                                {case 'cs'}Organizátor soutěže
-                                {default}Competition organiser
-                            {/switch}
-                        </div>
-                        <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 6rem; max-width: 13rem">
-                    </a>
                     <a href="https://www.nfneuron.cz/">
                         <div class="text">
                             {switch $lang}
@@ -111,6 +102,15 @@
                             {/switch}
                         </div>
                         <img src="{$basePath}/images/logos/neuron-logo.jpg" alt="Neuron logo" style="max-height: 6rem; max-width: 13rem">
+                    </a>
+                    <a href="https://www.msmt.cz/">
+                        <div class="text">
+                            {switch $lang}
+                                {case 'cs'}Organizátor soutěže
+                                {default}Competition organiser
+                            {/switch}
+                        </div>
+                        <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 6rem; max-width: 13rem">
                     </a>
                 </div>
             </div>

@@ -51,6 +51,12 @@ $timeline-line-width: .2rem;
         font-weight: bold;
     }
 
+    .timeline-title-competition {
+        margin: 0 0 .25rem;
+        font-weight: bold;
+        color: $primary-color;
+    }
+
     .timeline-element-date {
         display: block;
         position: absolute;
