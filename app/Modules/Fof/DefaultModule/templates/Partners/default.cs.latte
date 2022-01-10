@@ -1,0 +1,27 @@
+{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+
+{block title}Podpořte Fyziklání{/block}
+
+{block main}
+    <div class="panel color-auto">
+        <section class="inner-container">
+{*          <div class="subheader">O soutěži</div>*}
+            <h1>Kdo jsme?</h1>
+            <p>
+                FYKOS je skupina vysokoškolských studentů působících na Matematicko-fyzikální fakultě Univerzity Karlovy. Každým rokem pořádáme několik vzdělávacích a popularizačních akcí na osvětu a rozšíření povědomí o fyzice mezi studenty i širokou veřejností. Druhým pilířem FYKOSu je pořádání fyzikálních soutěží, primárně pro studenty středních škol. Jednou z našich největších a nejprestižnějších soutěží je i Fyziklání, jehož {$gamePhaseCalculator->getFKSDBEvent()->eventYear}. ročník letos pořádáme {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'j. n. Y'}.
+            </p>
+        </section>
+    </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>Výhody spolupráce</h1>
+            <p>
+                Hlavním cílem spolupráce je rozšíření povědomí o Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} a obecně tím i o fyzice a přírodních vědách mezi mladými lidmi i širší veřejností. Zároveň chceme studentům středních škol nabídnout možnost zasoutěžit si v silné mezinárodní konkurenci a zlepšit se ve fyzice. Účast v soutěži také pomáhá rozvíjet potenciál studentů a tříbit fyzikální myšlení, které je v dnešní době extrémně žádoucí nejen na poli fyziky. Propagace Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} tak nepřímo přispívá k růstu vzdělanosti mládeže a nepřímo také k propagaci českého vysokého školství.</p>
+            <p>
+                Recipročně mediální partneři FYKOSu získají možnost propagace na našich webových stránkách, sociálních sítích, prostřednictvím propagačních materiálů a letáků, případně přímo na akcích FYKOSu formou reklamního banneru.
+            </p>
+        </section>
+    </div>
+
+{/block}
