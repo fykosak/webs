@@ -4,7 +4,7 @@
 {block content}
     <div class="panel color-light">
         <section class="inner-container">
-            <h1>{switch $lang}{case 'cs'}Týmy{default}Teams{/switch}</h1>
+            <h1>{switch $lang}{case 'cs'}Přihlášené týmy{default}Registered Teams{/switch}</h1>
             {do ksort($teams)}
             {foreach $teams AS $category => $teamsForCategory}
                 {if $category == 'F'}

@@ -23,7 +23,7 @@ msgstr "Archive home"
 #: ../../app/Modules/Fol/DefaultModule/BasePresenter.php:52
 #: ../../app/Modules/Fof/DefaultModule/BasePresenter.php:43
 msgid "teams.menu"
-msgstr "Team list"
+msgstr "Teams"
 
 #: ../../app/Modules/Fol/ArchiveModule/BasePresenter.php:71
 msgid "results.menu"
