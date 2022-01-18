@@ -70,4 +70,45 @@
             {/switch}
         </section>
     </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            {switch $lang}
+                {case 'cs'}
+                <h1>Jak zaplatit za ubytování?</h1>
+                <ul>
+                    <li>Toto je <strong>jediný</strong> způsob, jak lze zaplatit za ubytování na Fyziklání; platby na místě nebudou akceptovány.</li>
+                    <li>Tento návod je pouze pro účastníky, kteří si ubytování zaškrtli v přihlášce na Fyziklání. Předem se také platí <strong>pouze</strong> za ubytování; placené části doprovodného programu se platí <strong>v hotovosti</strong> až na místě.</li>
+                    <li>Přihlašte se do databáze na <a href="https://db.fykos.cz/">db.fykos.cz</a> (pod stejným e-mailem, jaký jste uváděli v přihlášce).</li>
+                    <li>V menu klikněte na Nová platba.</li>
+                    <li>Vyberte si měnu, ve které chcete platit (CZK nebo EUR).</li>
+                    <li>Zaškrtněte svoje položky k zaplacení a pokračujte na souhrn.</li>
+                    <li>Zkontrolute si svůj e-mail a vybrané položky, pak klikněte na Vygenerovat platbu. Pokud v tomto momentě zrušíte platbu, můžete ji znovu vygenerovat později.</li>
+                    <li>Zobrazí se vám informace o platbě, které budete potřebovat k bankovnímu převodu, včetně vašeho osobního variabilního symbolu. <strong>Nezapomeňte prosím tento symbol uvést u vaší platby, jinak nebudeme moct rozlišit, že je od vás.</strong></li>
+                    <li>Pak proveďte platbu převodem na účet.</li>
+                    <li>Až vaši platbu obdržíme, zašleme vám potvrzovací e-mail. To by mělo být během jednoho týdne od převodu. <strong>Účet je vedený pod MFF UK, nějaký čas tedy zabere i komunikace mezi námi.</strong> Pokud už je to více než týden a potvrzení jste stále nedostali, napište nám na <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>.</li>
+                    <li>Stav své platby si také můžete zkontrolovat v detailu přihlášky svého týmu.</li>
+                </ul>
+            {default}
+                <h1>How to pay for your accommodation?</h1>
+                <ul>
+                    <li>Please note that this is the <strong>only</strong> way to pay for your accommodation, we do not accept any payments on-the-spot in the hotel.</li>
+                    <li>In order to book accommodation, you have to tick it in the application for Fyziklani. Also this payment is only for accommodation; paid parts of the weekend program have to be paid <strong>in cash</strong> and on-the-spot.</li>
+                    <li>Log into the database on <a href="https://db.fykos.cz/">db.fykos.cz</a> with the e-mail you stated in your application.</li>
+                    <li>In the menu, click on New payment.</li>
+                    <li>Select the currency in which you want to make the payment. It is possible to pay in CZK or EUR.</li>
+                    <li>Tick your items for which you want to pay (probably all of them).</li>
+                    <li>Then click on Proceed to summary.</li>
+                    <li>Check your e-mail address and the items, then click on Generate payment. If you cancel the payment, you will be able to start the payment again later.</li>
+                    <li>Then you will get the information about the bank transfer and your own unique variable symbol. <strong>Please use this symbol in your payment, otherwise we will not be able to recognize that the payment is from you.</strong></li>
+                    <li>Then go to your bank account and make the transfer.</li>
+                    <li>We should send you a confirmation e-mail within one week from the transfer. <strong>Please note that the bank account is kept under the FMP CUNI (our faculty), so it takes some time to get the information.</strong> If you don't get a confirmation and it has been more than a week, let us know at <a href="mailto:fyziklani@fykos.org">fyziklani@fykos.org</a>.</li>
+                    <li>You can check your payment status in the detail of your team application.</li>
+                </ul>
+            {/switch}
+            <div class="mt-3">
+                {control gallery:oneLine "/download/2022/payment/"}
+            </div>
+        </section>
+    </div>
 {/block}
