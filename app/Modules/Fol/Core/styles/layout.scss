@@ -244,3 +244,13 @@ a:hover {
     }
   }
 }
+
+/**
+ * For tables that looks like a schedule. Each row is a different hour and columns represents different groups.
+ */
+.schedule-table {
+  td {
+    vertical-align: middle;
+    border: 1px solid $text-dimmed;
+  }
+}
