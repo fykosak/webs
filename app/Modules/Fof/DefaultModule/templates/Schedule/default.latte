@@ -7,15 +7,102 @@
     {/switch}
 {/block}
 
-{block content}
-{*    {switch $lang}*}
-{*        {case "cs"}*}
-{*        <p>Podrobnější harmonogram společně s doprovodným programem bude upřesněn později.</p>*}
-
-{*        {default}*}
-{*        <p>A more detailed schedule, together with the accompanying programme will be specified later.</p>*}
-{*<p>As a time zone is used CET (Central Europian Time).</p>*}
-{*    {/switch}*}
-
+{block main}
+<div class="panel color-auto">
+    <section class="inner-container">
     {include "../schedule.latte"}
+    </section>
+</div>
+    {switch $lang}
+    {case cs}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1 id="excursions">Anotace exkurzí</h1>
+            <p>Anotace dalších exkurzí budou postupně doplňovány.</p>
+            <h2>Školní reaktor VR-1 Vrabec</h2>
+            <p><em>[Účastníkům této exkurze musí být 16 let a více.]</em></p>
+            <p>Školní reaktor VR-1 je lehkovodní jaderný reaktor nulového výkonu s obohaceným uranem. Jedná se o jedinečnou výukovou podmínku v celé České republice, kde studenti mohou vyzkoušet práci s opravdovým reaktorem. Reaktor je provozován ve spolupráci s FJFI ČVUT.</p>
+
+            <h2>Cesta do středu Země (Katedra geofyziky)</h2>
+            <p>
+                Blok bude věnovaný geofyzikálním jevům: měření zemětřesení a funkci
+                seismografu; vyzkoušíte si otřesový stůl a seznámíte se se způsoby
+                stabilizace budov proti účinkům zemětřesení. Podíváte se na deformační
+                módy zemského nitra v různých časových škálách, změříte si magnetické
+                pole Země. Stranou nezůstanou ani elektromagnetické jevy – jako
+                například elektromagnetická indukce v geofyzice.
+            </p>
+
+            <h2>Oddělení radiofrekvenční spektroskopie</h2>
+            <p>
+                Laboratoře jaderné magnetické rezonance disponují několika moderními spektrometry se zaměřením na vysoké rozlišení v kapalinách, v pevných látkách a na širokopásmovou spektroskopii ve velkém teplotním rozsahu. Spektroskopie jaderné magnetické rezonance (NMR) je poměrně univerzální neradioaktivní metoda, která využívá magneticky aktivní atomová jádra vhodných izotopů jako lokální sondy v měřené látce. Uplatňuje se při studiu atomové, elektronové a magnetické struktury různorodých látek a materiálů.
+            </p>
+
+            <h2>Oddělení Mössbauerovy spektroskopie</h2>
+            <p>
+                Metody Mössbauerovy spektroskopie nalezly široké uplatnění v nejrůznějších oborech výzkumu, zejména ve fyzice, chemii, geologii, biologii a lékařství.
+                Používají stabilní atomová jádra chemických prvků, nejčastěji stabilního izotopu <sup>57</sup>Fe, jako lokální sondy ve struktuře studovaných látek. Velikost hyperjemných interakcí atomových jader sondy je citlivá na okolí ve kterém se sonda nachází, a proto také může podat informaci zejména o valenčním stavu iontů, lokální krystalové symetrii a defektech krystalové mříže, magnetickém uspořádání a fázovém složení vzorků.
+            </p>
+        </section>
+    </div>
+
+        <div class="panel color-auto">
+            <section class="inner-container">
+                <h1 id="excursions">Rozvrh exkurzí</h1>
+                <table class="table table-hover" style="text-align: center; ">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>1.</th>
+                        <th>2. </th>
+                        <th>3.</th>
+                        <th>4.</th>
+                        <th>5.<br></th>
+                        <th>6.</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>9:00</td>
+                        <td rowspan="2" style="vertical-align: center">Vrabec</td>
+                        <td>M. spektroskopie</td>
+                        <td>Povrchy<br></td>
+                        <td>Plasma<br></td>
+                        <td>Kosmická fyzika</td>
+                        <td>Detektory</td>
+                    </tr>
+                    <tr>
+                        <td>9:40</td>
+                        <td>Detektory</td>
+                        <td>Plasma</td>
+                        <td>Geofyzika</td>
+                        <td>Povrchy</td>
+                        <td>Kosmická fyzika</td>
+                    </tr>
+                    <tr>
+                        <td>10:20</td>
+                        <td>Plasma</td>
+                        <td>Rf. spektroskopie</td>
+                        <td>Kosmická fyzika</td>
+                        <td rowspan="2" style="vertical-align: center">Vrabec</td>
+                        <td>M. spektroskopie</td>
+                        <td>Povrchy</td>
+                    </tr>
+                    <tr>
+                        <td>11:00</td>
+                        <td>Kosmická fyzika</td>
+                        <td>Povrchy</td>
+                        <td></td>
+                        <td>Geofyzika</td>
+                        <td>Plasma</td>
+                    </tr>
+                    <tr>
+                        <td>11:40</td>
+                        <td colspan="6">Závěr</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    {/switch}
 {/block}
