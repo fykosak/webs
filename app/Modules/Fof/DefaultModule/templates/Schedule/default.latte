@@ -1,23 +1,23 @@
 {varType string $lang}
 
 {block title}
-    {switch $lang}
-        {case "cs"}Časový plán soutěže a doprovodného programu
-        {default}Game and Accompanying Programme Schedule
-    {/switch}
+
 {/block}
 
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
-    {include "../schedule.latte"}
+        {switch $lang}
+            {case "cs"}<h1>Časový plán soutěže a doprovodného programu</h1>
+            {default}<h1>Game and Accompanying Program Schedule</h1>
+        {/switch}    {include "../schedule.latte"}
     </section>
 </div>
     {switch $lang}
     {case cs}
     <div class="panel color-auto">
         <section class="inner-container">
-            <h1 id="excursions">Anotace exkurzí</h1>
+            <h1 id="anotace-exkurzi">Anotace exkurzí</h1>
             <p>Anotace dalších exkurzí budou postupně doplňovány.</p>
             <h2>Školní reaktor VR-1 Vrabec</h2>
             <p><em>[Účastníkům této exkurze musí být 16 let a více.]</em></p>
@@ -48,7 +48,7 @@
 
         <div class="panel color-auto">
             <section class="inner-container">
-                <h1 id="excursions">Rozvrh exkurzí</h1>
+                <h1 id="rozvrh-exkurzi">Rozvrh exkurzí</h1>
                 <table class="table table-hover" style="text-align: center; ">
                     <thead>
                     <tr>
