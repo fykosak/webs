@@ -15,6 +15,103 @@
 </div>
     {switch $lang}
     {case cs}
+        <div class="panel color-auto" id="rozvrh-prednasek">
+            <section class="inner-container">
+                <h1>Rozvrh přednášek</h1>
+                <p>
+                    Na jednotlivé přednášky se můžete zapsat ve své <a href="https://db.fykos.cz/my-applications">přihlášce</a>. Budou probíhat vždy dvě paralelně, jedna česky a jedna anglicky. I čeští účastníci se samozřejmě mohou přihlásit na anglickou přednášku.
+                </p>
+                <table class="table schedule-table" style="text-align: center;">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>1.</th>
+                        <th>2. </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                        <th>9:30</th>
+                        <td>doc. RNDr. Jiří Dolejší, CSc.: Kvantová fyzika [CZ]</td>
+                        <td>prof. Lenka Zdeborová [EN]</td>
+                    </tr>
+                    <tr>
+                        <th>10:30</th>
+                        <td colspan="2">Přestávka</td>
+                    </tr>
+                    <tr>
+                        <th>10:45</th>
+                        <td>prof. RNDr. Ondřej Santolík, Dr.: Hudba sfér [CZ]</td>
+                        <td>MScR. Branislav Viliam Hakala: Physics Chemistry [EN]</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <div id="rozvrh-exkurzi" class="panel color-auto">
+        <section class="inner-container">
+            <h1>Rozvrh exkurzí</h1>
+            <p>Na jednotlivé bloky se můžete zapsat ve své <a href="https://db.fykos.cz/my-applications">přihlášce</a>. Anotace jednotlivých exkurzí najdete na této stránce níže.</p>
+            <div style="overflow-x:auto; padding: .1rem">
+                <table class="table schedule-table" style="text-align: center;">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>1.</th>
+                        <th>2. </th>
+                        <th>3.</th>
+                        <th>4.</th>
+                        <th>5.<br></th>
+                        <th>6.</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>9:00</th>
+                        <td rowspan="2">Vrabec</td>
+                        <td>M. spektroskopie</td>
+                        <td>Povrchy<br></td>
+                        <td>Plazma<br></td>
+                        <td>Kosmická fyzika</td>
+                        <td>Detektory</td>
+                    </tr>
+                    <tr>
+                        <th>9:40</th>
+                        <td>Detektory</td>
+                        <td>Plazma</td>
+                        <td>Geofyzika</td>
+                        <td>Povrchy</td>
+                        <td>Kosmická fyzika</td>
+                    </tr>
+                    <tr>
+                        <th>10:20</th>
+                        <td>Plazma</td>
+                        <td>Rf. spektroskopie</td>
+                        <td>Kosmická fyzika</td>
+                        <td rowspan="2">Vrabec</td>
+                        <td>M. spektroskopie</td>
+                        <td>Povrchy</td>
+                    </tr>
+                    <tr>
+                        <th>11:00</th>
+                        <td>Kosmická fyzika</td>
+                        <td>Povrchy</td>
+                        <td>Rf. spektroskopie</td>
+                        <td>Geofyzika</td>
+                        <td>Plazma</td>
+                    </tr>
+                    <tr>
+                        <th>11:40</th>
+                        <td colspan="6">Závěr</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
     <div id="anotace-exkurzi" class="panel color-auto">
         <section class="inner-container">
             <h1>Anotace exkurzí</h1>
@@ -22,6 +119,11 @@
             <h2>Školní reaktor VR-1 Vrabec</h2>
             <p><em>[Účastníkům této exkurze musí být 16 let a více.]</em></p>
             <p>Školní reaktor VR-1 je lehkovodní jaderný reaktor nulového výkonu s obohaceným uranem. Jedná se o jedinečnou výukovou podmínku v celé České republice, kde studenti mohou vyzkoušet práci s opravdovým reaktorem. Reaktor je provozován ve spolupráci s FJFI ČVUT.</p>
+
+            <h2>Skupina fyziky plazmatu</h2>
+            <p>
+                Plazma je důležité v mnoha oblastech vesmíru i pro použití na Zemi. Experimenty v našich laboratořích využívají plazma pro pochopení dějů v mezihvězdných oblacích plynu, k úpravě povrchů či přípravě nanočástic.
+            </p>
 
             <h2>Cesta do středu Země (Katedra geofyziky)</h2>
             <p>
@@ -46,66 +148,6 @@
         </section>
     </div>
 
-        <div id="rozvrh-exkurzi" class="panel color-auto">
-            <section class="inner-container">
-                <h1>Rozvrh exkurzí</h1>
-                <p>Na jednotlivé bloky se můžete zapsat ve své <a href="https://db.fykos.cz/my-applications">přihlášce</a>.</p>
-                <div style="overflow-x:auto; padding: .1rem">
-                    <table class="table schedule-table" style="text-align: center;">
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th>1.</th>
-                            <th>2. </th>
-                            <th>3.</th>
-                            <th>4.</th>
-                            <th>5.<br></th>
-                            <th>6.</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th>9:00</th>
-                            <td rowspan="2">Vrabec</td>
-                            <td>M. spektroskopie</td>
-                            <td>Povrchy<br></td>
-                            <td>Plasma<br></td>
-                            <td>Kosmická fyzika</td>
-                            <td>Detektory</td>
-                        </tr>
-                        <tr>
-                            <th>9:40</th>
-                            <td>Detektory</td>
-                            <td>Plasma</td>
-                            <td>Geofyzika</td>
-                            <td>Povrchy</td>
-                            <td>Kosmická fyzika</td>
-                        </tr>
-                        <tr>
-                            <th>10:20</th>
-                            <td>Plasma</td>
-                            <td>Rf. spektroskopie</td>
-                            <td>Kosmická fyzika</td>
-                            <td rowspan="2">Vrabec</td>
-                            <td>M. spektroskopie</td>
-                            <td>Povrchy</td>
-                        </tr>
-                        <tr>
-                            <th>11:00</th>
-                            <td>Kosmická fyzika</td>
-                            <td>Povrchy</td>
-                            <td>Rf. spektroskopie</td>
-                            <td>Geofyzika</td>
-                            <td>Plasma</td>
-                        </tr>
-                        <tr>
-                            <th>11:40</th>
-                            <td colspan="6">Závěr</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
+
     {/switch}
 {/block}
