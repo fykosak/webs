@@ -112,6 +112,21 @@
             </div>
         {/switch}
     </div>
+    <div>
+        <span class="timeline-element-icon"></span>
+        {switch $lang}
+            {case cs}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Rozchod, oběd a přesun</div>
+                <time class="timeline-element-date">12:00 - 14:00</time>
+            </div>
+        {default}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Lunch and transport</div>
+                <time class="timeline-element-date">12:00 - 14:00</time>
+            </div>
+        {/switch}
+    </div>
 
     <div>
         <span class="timeline-element-icon"></span>
@@ -131,6 +146,22 @@
                     We will visit the National Technical Museum, National Museum of Agriculture and take a Prague tour.
                 </p>
                 <time class="timeline-element-date">14:00 - 16:30</time>
+            </div>
+        {/switch}
+    </div>
+
+    <div>
+        <span class="timeline-element-icon"></span>
+        {switch $lang}
+            {case cs}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Večeře a přesun</div>
+                <time class="timeline-element-date">16:30 - 18:00</time>
+            </div>
+        {default}
+            <div class="timeline-element-content">
+                <div class="timeline-title">Dinner and transport</div>
+                <time class="timeline-element-date">16:30 - 18:00</time>
             </div>
         {/switch}
     </div>
