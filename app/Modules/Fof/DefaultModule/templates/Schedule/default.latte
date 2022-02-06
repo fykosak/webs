@@ -9,14 +9,17 @@
         {/switch}    {include "../schedule.latte"}
     </section>
 </div>
-    {switch $lang}
-    {case cs}
         <div class="panel color-auto" id="rozvrh-prednasek">
             <section class="inner-container">
+                {switch $lang}
+                {case cs}
                 <h1>Rozvrh přednášek</h1>
                 <p>
                     Na jednotlivé přednášky se můžete zapsat ve své <a href="https://db.fykos.cz/my-applications">přihlášce</a>. Budou probíhat vždy dvě paralelně, jedna česky a jedna anglicky. I čeští účastníci se samozřejmě mohou přihlásit na anglickou přednášku.
                 </p>
+                {default}
+                <h1>Lectures schedule</h1>
+                {/switch}
                 <table class="table schedule-table" style="text-align: center;">
                     <thead>
                     <tr>
@@ -39,7 +42,7 @@
                     <tr>
                         <th>10:45</th>
                         <td>prof. RNDr. Ondřej Santolík, Dr.: Hudba sfér [CZ]</td>
-                        <td>MScR. Branislav Viliam Hakala: Physics Chemistry [EN]</td>
+                        <td>MScR. Branislav Viliam Hakala: Crash Course of Material Chemistry [EN]</td>
                     </tr>
                     </tbody>
                 </table>
@@ -47,20 +50,38 @@
         </div>
         <div class="panel color-auto">
             <section class="inner-container">
+                {switch $lang}
+                {case cs}
                 <h1>Anotace přednášek</h1>
-                <p>Zbývající anotace budou postupně doplněny.</p>
-                <h2><strong>doc. RNDr. Jiří Dolejší, CSc.</strong>: O částicové fyzice v různých souvislostech [CZ]</h2>
+                {default}
+                <h1>Lectures abstract</h1>
+                {/switch}
+                <h2><strong>doc. RNDr. Jiří Dolejší, CSc.:</strong> O částicové fyzice v různých souvislostech [CZ]</h2>
                 <p>
                     V přednášce bude stručně představen Standardní model mikrosvěta, tedy to, co o částicích víme, v kontrastu s tím, co dosud nevíme. Vedle toho se zmíníme o tom, jaké jsou plány do budoucna, jestli stojí za to se jí věnovat, zda souvisí s jinými obory fyziky, dá-li se považovat za užitečnou pro „běžné občany“ atd.
                 </p>
-                <h2><strong>prof. Lenka Zdeborová</strong>: Physics of Computation [EN]</h2>
+                <h2><strong>prof. Lenka Zdeborová:</strong> Physics of Computation [EN]</h2>
                 <p>Algorithms are an indispensable tool behind many modern technologies. Many widely used algorithms, e.g. those used in machine learning when training artificial neural networks, are surrounded by mysteries and open questions. Our understanding of which practical problems are solvable with computers is still in its infancy. Physics gives us tools to unveil some of those mysteries and discover better algorithms. Phase transitions such as water freezing or evaporating play a key role in this adventure. If you want to know how physics is used in the domain of computer science and machine learning, come to listen.</p>
+
+                <h2><strong>prof. RNDr. Ondřej Santolík, Dr.:</strong> Hudba sfér [CZ]</h2>
+                <p>
+                    Bez zvuku není hudby, ovšem ne každý zvuk nám zní jako hudba. Zaposloucháme se do zvuků vytvořených ze záznamů elektromagnetických vln na slyšitelných kmitočtech, které v ionosféře zachytila první československá družice Magion 1 a její moderní následovnice.  Na lov podobných zvuků se vydáme i do magnetosféry a dále do heliosféry – do slunečního větru a k planetám sluneční soustavy. Dozvíme se i něco o tom, jak tato „hudba sfér“ vzniká, jaké záhady jsou s ní spojeny a jaké nové robotické sondy chystáme pro odhalení jejích dosud skrytých tajemství.
+                </p>
+                <h2><strong>MScR. B. Viliam Hakala:</strong> Crash Course of Material Chemistry [EN]</h2>
+                <p>
+                    More than hundred years ago, basics of structural analysis were laid when x-rays were discovered. During 20<sup>th</sup> century, several Nobel Prizes were awarded for solutions of crystal structures of important compounds. These days, there is an increasing need for new magnetic, electronic, or electrochemical materials that can solve problems in modern science and technology. It was found that even the most basic materials can have interesting physical properties under extreme conditions, such as low temperatures or high pressures. In this talk we will have a look on how different materials behave under these conditions, describe experimental methods used to achieve them and discuss how the conditions influence the structures and properties of the materials.
+                </p>
             </section>
         </div>
         <div id="rozvrh-exkurzi" class="panel color-auto">
         <section class="inner-container">
+            {switch $lang}
+            {case cs}
             <h1>Rozvrh exkurzí</h1>
             <p>Na jednotlivé bloky se můžete zapsat ve své <a href="https://db.fykos.cz/my-applications">přihlášce</a>. Anotace jednotlivých exkurzí najdete na této stránce níže.</p>
+            {default}
+            <h1>Excursions schedule</h1>
+            {/switch}
             <div style="overflow-x:auto; padding: .1rem">
                 <table class="table schedule-table" style="text-align: center;">
                     <thead>
@@ -119,10 +140,12 @@
         </section>
     </div>
 
+{switch $lang}
+    {case cs}
     <div id="anotace-exkurzi" class="panel color-auto">
         <section class="inner-container">
+
             <h1>Anotace exkurzí</h1>
-            <p>Anotace dalších exkurzí budou postupně doplňovány.</p>
             <h2>Školní reaktor VR-1 Vrabec</h2>
             <p><em>[Účastníkům této exkurze musí být 16 let a více.]</em></p>
             <p>Školní reaktor VR-1 je lehkovodní jaderný reaktor nulového výkonu s obohaceným uranem. Jedná se o jedinečnou výukovou podmínku v celé České republice, kde studenti mohou vyzkoušet práci s opravdovým reaktorem. Reaktor je provozován ve spolupráci s FJFI ČVUT.</p>
@@ -130,6 +153,11 @@
             <h2>Skupina fyziky plazmatu</h2>
             <p>
                 Plazma je důležité v mnoha oblastech vesmíru i pro použití na Zemi. Experimenty v našich laboratořích využívají plazma pro pochopení dějů v mezihvězdných oblacích plynu, k úpravě povrchů či přípravě nanočástic.
+            </p>
+
+            <h2>Skupina kosmické fyziky</h2>
+            <p>
+                V rámci bloku se seznámíme se satelity, jejichž dvojčata byla v kosmu, a se spoustou dalších věcí týkajících se kosmické fyziky.
             </p>
 
             <h2>Proč a jak se dozvědět o povrchu co nejvíce (Skupina fyziky povrchů)</h2>
@@ -167,7 +195,5 @@
             </p>
         </section>
     </div>
-
-
-    {/switch}
+{/switch}
 {/block}
