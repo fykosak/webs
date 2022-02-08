@@ -159,6 +159,11 @@ a:hover {
     a:not(.btn) {
       color: white;
     }
+
+    .btn-primary {
+      background: $secondary;
+      color: black;
+    }
   }
 
   h1 {
