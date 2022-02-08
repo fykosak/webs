@@ -88,7 +88,7 @@
                     <tr>
                         <th></th>
                         <th>1.</th>
-                        <th>2.</th>
+                        <th>2.{if $lang='en'} (EN){/if}</th>
                         <th>3.</th>
                         <th>4.</th>
                         <th>5.<br></th>
@@ -150,11 +150,11 @@
         </section>
     </div>
 
-{switch $lang}
-    {case cs}
+
     <div id="anotace-exkurzi" class="panel color-auto">
         <section class="inner-container">
-
+        {switch $lang}
+            {case cs}
             <h1>Anotace exkurzí</h1>
             <h2>Školní reaktor VR-1 Vrabec</h2>
             <p><em>[Účastníkům této exkurze musí být 16 let a více.]</em></p>
@@ -203,7 +203,25 @@
 {*                Metody Mössbauerovy spektroskopie nalezly široké uplatnění v nejrůznějších oborech výzkumu, zejména ve fyzice, chemii, geologii, biologii a lékařství.*}
 {*                Používají stabilní atomová jádra chemických prvků, nejčastěji stabilního izotopu <sup>57</sup>Fe, jako lokální sondy ve struktuře studovaných látek. Velikost hyperjemných interakcí atomových jader sondy je citlivá na okolí ve kterém se sonda nachází, a proto také může podat informaci zejména o valenčním stavu iontů, lokální krystalové symetrii a defektech krystalové mříže, magnetickém uspořádání a fázovém složení vzorků.*}
 {*            </p>*}
+            {default}
+            <h1>Excursion abstracts</h1>
+            <h2>Astrophysics (Kosmická fyzika)</h2>
+            <p>
+                Within this block, we will get introduced to satellites whose twins were in space, and with lots of other exciting details regarding astrophysics.
+            </p>
+            <h2>Silicon detectors group (Detektory)</h2>
+            <p>
+                We will visit a workplace with a primary focus on experimental and particle physics regarding tests and simulations of silicon detectors.
+            </p>
+            <h2>Laboratory of Radiofrequency Spectroscopy (Rf. spektroskopie)</h2>
+            <p>
+                We will dig into the world of a research method called radiofrequency spectroscopy which finds its applications e.g. in a study of an atomic, electron, and magnetic structure of various substances and materials.
+            </p>
+            <h2>Surface physics group (Povrchy)</h2>
+            <p>
+                During the excursion we will get acquainted with the principles and tricks which enable us to figure the arrangement, chemical composition, and chemical properties of surfaces at an atomic level, and to learn how to configure them to perform best in practical applications.
+            </p>
+            {/switch}
         </section>
     </div>
-{/switch}
 {/block}
