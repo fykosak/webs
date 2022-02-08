@@ -22,11 +22,21 @@
                 {/switch}
                 <table class="table schedule-table" style="text-align: center;">
                     <thead>
-                    <tr>
-                        <th>místnost</th>
-                        <th><strong>F1</strong> (v budově Ke Karlovu 5)</th>
-                        <th><strong>M1</strong> (v budově Ke Karlovu 3)</th>
-                    </tr>
+                    {switch $lang}
+                        {case cs}
+                        <tr>
+                            <th>místnost</th>
+                            <th><strong>F1</strong> (v budově Ke Karlovu 5)</th>
+                            <th><strong>M1</strong> (v budově Ke Karlovu 3)</th>
+                        </tr>
+                        {default}
+                        <tr>
+                            <th>place</th>
+                            <th><strong>F1</strong> (address: Ke Karlovu 5)</th>
+                            <th><strong>M1</strong> (address: Ke Karlovu 3)</th>
+                        </tr>
+                    {/switch}
+
                     </thead>
                     <tbody>
 
@@ -37,7 +47,9 @@
                     </tr>
                     <tr>
                         <th>10:30</th>
-                        <td colspan="2">Přestávka</td>
+                        <td colspan="2">{switch $lang}
+                            {case cs}Přestávka{default}Break
+                         {/switch}</td>
                     </tr>
                     <tr>
                         <th>10:45</th>
@@ -142,7 +154,7 @@
                     </tr>
                     <tr>
                         <th>11:40</th>
-                        <td colspan="8">Závěr</td>
+                        <td colspan="8">{switch $lang}{case cs}Závěr{default}End of excursions{/switch}</td>
                     </tr>
                     </tbody>
                 </table>
