@@ -6,7 +6,7 @@ services:
     - App\RouterFactory::createFofRouter(%domains%, %router-mapping%)
 
 parameters:
-    competitionBegin: 10:00
+    competitionBegin: 10:30
     eventTypeId: 1
 
 includes:
