@@ -106,7 +106,7 @@
             </g>
 </svg>
     </div>
-    <div class="upper-home-countdown">
+    {*<div class="upper-home-countdown">
         {control countdown}
     </div>
     <div class="upper-home-registration-deadline">
@@ -118,5 +118,15 @@
             Registration is open until
                 <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
         {/switch}
-    </div>
+    </div>*}
+    <div style="margin-top: 1rem; text-align: center;">
+    {switch $lang}
+            {case cs}
+            <a class="btn btn-primary" href="/2022/vysledky/">Výsledky soutěže</a>
+            <a class="btn btn-primary" href="/download/2022/reseni.pdf">Úlohy a řešení</a>
+        {default}
+            <a class="btn btn-primary" href="/2022/results/">Competition results</a>
+            <a class="btn btn-primary" href="/download/2022/solutions.pdf">Problem assignment and solutions</a>
+        {/switch}
+        </div>
 {/block}
