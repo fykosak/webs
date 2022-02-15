@@ -31,14 +31,14 @@ Following configuration expects repository located in `/var/www/web-fyziklani`.
         ServerName online.fyziklani.cz.local
         ServerAlias online.fyziklani.org.local
         DocumentRoot /var/www/web-fyziklani/www/fol
-        SetEnv NETTE_DEVEL 1 # enable development mode
+        SetEnv NETTE_DEVEL 1
 </VirtualHost>
 
 <VirtualHost *:80>
         ServerName fyziklani.cz.local
         ServerAlias fyziklani.org.local
         DocumentRoot /var/www/web-fyziklani/www/fof
-        SetEnv NETTE_DEVEL 1 # enable development mode
+        SetEnv NETTE_DEVEL 1
 </VirtualHost>
 ```
 
