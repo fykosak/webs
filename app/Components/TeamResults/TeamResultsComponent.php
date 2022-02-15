@@ -126,6 +126,9 @@ class TeamResultsComponent extends BaseComponent
         $countryISOs = [];
         $categories = [];
         foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
+            if ($team->status != 'participated' && $team->status != 'disqualified') {
+                continue;
+            }
             if ($team->participants) {
                 $category = $team->category;
                 if (!in_array($category, $categories)) {
