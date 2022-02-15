@@ -42,6 +42,9 @@ class TeamListComponent extends BaseComponent
         $teams = [];
         foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
             $category = $team->category;
+            if (strlen($category) === 0) {
+                continue;
+            }
             if (!isset($teams[$category])) {
                 $teams[$category] = [];
             }
