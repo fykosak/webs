@@ -61,4 +61,28 @@
             {control gallery "/photos/" . $eventKey . "/"}
         </section>
     </div>
+
+    {if in_array($eventKey, ["2022"])}
+        <div class="panel color-auto">
+            <section class="inner-container">
+                <h1>{switch $lang}
+                    {case "cs"}Fotografie týmů
+                    {default}Photos of teams
+                    {/switch}</h1>
+                {control gallery "/photos/" . $eventKey . "/teams"}
+            </section>
+        </div>
+    {/if}
+
+    {if in_array($eventKey, ["2022"])}
+        <div class="panel color-auto">
+            <section class="inner-container">
+                <h1>{switch $lang}
+                    {case "cs"}Víkend po Fyziklání
+                    {default}Weekend after Fyziklani
+                    {/switch}</h1>
+                {control gallery "/photos/" . $eventKey . "/weekend"}
+            </section>
+        </div>
+    {/if}
 {/block}

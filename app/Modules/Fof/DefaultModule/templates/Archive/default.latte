@@ -71,6 +71,20 @@
                 <div class="mt-5">
                     {control gallery:oneLine "/photos/" . $eventKey['key'] . "/"}
                 </div>
+
+                {if in_array($eventKey['key'], ["2022"])}
+                    <div class="mt-5">
+                        <h2>{switch $lang}{case "cs"}Týmy{default}Teams{/switch}</h2>
+                        {control gallery:oneLine "/photos/" . $eventKey['key'] . "/teams"}
+                    </div>
+                {/if}
+
+                {if in_array($eventKey['key'], ["2022"])}
+                    <div class="mt-5">
+                        <h2>{switch $lang}{case "cs"}Víkend po Fyziklání{default}Weekend after Fyziklani{/switch}</h2>
+                        {control gallery:oneLine "/photos/" . $eventKey['key'] . "/weekend"}
+                    </div>
+                {/if}
             </section>
         </div>
     {/foreach}
