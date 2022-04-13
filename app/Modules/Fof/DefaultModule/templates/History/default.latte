@@ -1,9 +1,17 @@
 {varType string $lang}
 {block subtitle}
-    {switch $lang}
-        {case cs}Historie Fyziklání
-        {default}History and Previous Fyziklani
-    {/switch}
+    <div>
+    <a class="btn btn-primary my-2" n:href="Archive:default">
+        {switch $lang}
+            {case cs}Minulé ročníky
+            {default}Previous years of Fyziklani
+        {/switch}
+    </a>
+    </div>
+{*    {switch $lang}*}
+{*        {case cs}Historie Fyziklání*}
+{*        {default}History and Previous Fyziklani*}
+{*    {/switch}*}
 {/block}
 {block title}
     {switch $lang}
@@ -12,12 +20,7 @@
     {/switch}
 {/block}
 {block content}
-    <a class="btn btn-primary my-2" n:href="Archive:default">
-        {switch $lang}
-            {case cs}Minulé ročníky
-            {default}Previous years of Fyziklani
-        {/switch}
-    </a>
+
 
     {switch $lang}
     {case cs}
