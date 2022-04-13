@@ -39,13 +39,6 @@
                     </a>
                 </h1>
 
-                {if in_array($eventKey['key'], ["2022"])}
-                    <div>
-                    <a class="btn btn-primary" n:href=":Archive:Erasmus: eventYear:$eventKey['key']">
-                        Erasmus+
-                    </a></div>
-                {/if}
-
                 <div>
                     <ul>
                         <li><a n:href=":Archive:Teams: eventYear:$eventKey['key']">
@@ -76,6 +69,12 @@
                             </a></li>
                     </ul>
                 </div>
+                {if in_array($eventKey['key'], ["2022"])}
+                    <div>
+                        <a class="btn btn-primary" n:href=":Archive:Erasmus: eventYear:$eventKey['key']">
+                            Erasmus+
+                        </a></div>
+                {/if}
 
                 <div class="mt-5">
                     {control gallery:oneLine "/photos/" . $eventKey['key'] . "/"}

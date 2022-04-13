@@ -35,6 +35,7 @@
                             {/switch}
                         </a></li>
                 </ul>
+
                 <ul>
                     <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($event)}/reseni.pdf">
                             {switch $lang}
@@ -49,6 +50,13 @@
                             {/switch}
                         </a></li>
                 </ul>
+            {if in_array($eventKey, ["2022"])}
+                <div>
+                    <a class="btn btn-primary" n:href=":Archive:Erasmus: eventYear:$eventKey">
+                        Erasmus+
+                    </a>
+                </div>
+            {/if}
         </section>
     </div>
 

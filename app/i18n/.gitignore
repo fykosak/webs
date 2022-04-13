@@ -1,3 +1,5 @@
 messages.pot
 *.po~
 *.mo
+wslcompile.sh
+wslextract.sh
