@@ -18,5 +18,4 @@ class ErasmusPresenter extends BasePresenter
     {
         return new ImageGalleryControl($this->context);
     }
-
 }
