@@ -39,34 +39,43 @@
                     </a>
                 </h1>
 
-                <ul>
-                    <li><a n:href=":Archive:Teams: eventYear:$eventKey['key']">
-                            {switch $lang}
-                                {case "cs"}Seznam přihlášených týmů
-                                {default}List of registered teams
-                            {/switch}
-                        </a></li>
-                    <li><a n:href=":Archive:Results: eventYear:$eventKey['key']">
-                            {switch $lang}
-                                {case "cs"}Výsledky soutěže
-                                {default}Results of the competition
-                            {/switch}
-                        </a></li>
-                </ul>
-                <ul>
-                    <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/reseni.pdf">
-                            {switch $lang}
-                                {case "cs"}Zadání a řešení úloh v českém jazyce
-                                {default}Problems and solutions in Czech
-                            {/switch}
-                        </a></li>
-                    <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/solutions.pdf">
-                            {switch $lang}
-                                {case "cs"}Zadání a řešení úloh v anglickém jazyce
-                                {default}Problems and solutions in English
-                            {/switch}
-                        </a></li>
-                </ul>
+                {if in_array($eventKey['key'], ["2022"])}
+                    <div>
+                    <a class="btn btn-primary" n:href=":Archive:Erasmus: eventYear:$eventKey['key']">
+                        Erasmus+
+                    </a></div>
+                {/if}
+
+                <div>
+                    <ul>
+                        <li><a n:href=":Archive:Teams: eventYear:$eventKey['key']">
+                                {switch $lang}
+                                    {case "cs"}Seznam přihlášených týmů
+                                    {default}List of registered teams
+                                {/switch}
+                            </a></li>
+                        <li><a n:href=":Archive:Results: eventYear:$eventKey['key']">
+                                {switch $lang}
+                                    {case "cs"}Výsledky soutěže
+                                    {default}Results of the competition
+                                {/switch}
+                            </a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/reseni.pdf">
+                                {switch $lang}
+                                    {case "cs"}Zadání a řešení úloh v českém jazyce
+                                    {default}Problems and solutions in Czech
+                                {/switch}
+                            </a></li>
+                        <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/solutions.pdf">
+                                {switch $lang}
+                                    {case "cs"}Zadání a řešení úloh v anglickém jazyce
+                                    {default}Problems and solutions in English
+                                {/switch}
+                            </a></li>
+                    </ul>
+                </div>
 
                 <div class="mt-5">
                     {control gallery:oneLine "/photos/" . $eventKey['key'] . "/"}
@@ -81,7 +90,7 @@
 
                 {if in_array($eventKey['key'], ["2022"])}
                     <div class="mt-5">
-                        <h2>{switch $lang}{case "cs"}Víkend po Fyziklání{default}Weekend after Fyziklani{/switch}</h2>
+                        <h2>{switch $lang}{case "cs"}Víkendový program Fyziklání{default}Weekend Program of Fyziklani{/switch}</h2>
                         {control gallery:oneLine "/photos/" . $eventKey['key'] . "/weekend"}
                     </div>
                 {/if}

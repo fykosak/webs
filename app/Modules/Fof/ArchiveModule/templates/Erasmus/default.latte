@@ -1,0 +1,59 @@
+{varType string $lang}
+{varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent $event}
+{varType string $eventKey}
+
+{block subtitle}
+    {switch $lang}
+        {case "cs"}Archivní stránka programu při Fyziklání {$event->begin|date: "j. n. Y"}
+        {default}Archive page the program of Fyziklani {$event->begin|date: "j F Y"}
+    {/switch}
+{/block}
+
+{block title}
+    {switch $lang}
+        {case "cs"}Erasmus+ {$event->begin|date: "Y"}
+        {default}Erasmus+ {$event->begin|date: "Y"}
+    {/switch}
+{/block}
+
+{block main}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+                {ifset title}<h1>{include title}</h1>{/ifset}
+            <div>
+                {switch $lang}
+                    {case "cs"}Fotky, prezentace a videa z programu Erasmus+.
+                    {default}Photos, presentations and videos from the Erasmus+ program.
+                {/switch}
+
+            </div>
+        </section>
+    </div>
+
+    {* -----TBD----- *}
+{*    <div class="panel color-auto">*}
+{*        <section class="inner-container">*}
+{*            <h1>{switch $lang}*}
+{*                {case "cs"}Prezentace*}
+{*                {default}Presentations*}
+{*                {/switch}</h1>*}
+{*            <div class="mt-5">*}
+
+{*            </div>*}
+{*        </section>*}
+{*    </div>*}
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>{switch $lang}
+                {case "cs"}Fotky z programu
+                {default}Photos
+                {/switch}</h1>
+            <div class="mt-5">
+                {control gallery "/photos/" . $eventKey['key'] . "/erasmus/"}
+            </div>
+        </section>
+    </div>
+
+{/block}
