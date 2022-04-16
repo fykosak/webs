@@ -11,8 +11,8 @@
 
 {block title}
     {switch $lang}
-        {case "cs"}Erasmus+ {$event->begin|date: "Y"}
-        {default}Erasmus+ {$event->begin|date: "Y"}
+        {case "cs"}Fyziklani International {$event->begin|date: "Y"}
+        {default}Fyziklani International {$event->begin|date: "Y"}
     {/switch}
 {/block}
 
@@ -23,8 +23,8 @@
                 {ifset title}<h1>{include title}</h1>{/ifset}
             <div>
                 {switch $lang}
-                    {case "cs"}Fotky, prezentace a videa z programu Erasmus+.
-                    {default}Photos, presentations and videos from the Erasmus+ program.
+                    {case "cs"}Fotky, prezentace a videa z Fyziklani International uskutečněného v rámci programu Erasmus+.
+                    {default}Photos, presentations and videos from Fyziklani International under the Erasmus+ program.
                 {/switch}
 
             </div>
@@ -52,6 +52,111 @@
                 {/switch}</h1>
             <div class="mt-5">
                 {control gallery "/photos/" . $eventKey . "/erasmus/"}
+            </div>
+        </section>
+    </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>{switch $lang}
+                {case "cs"}Úvodní videa účastníků
+                {default}Introductory Videos from Participants
+                {/switch}</h1>
+            <div class="row strips">
+                <div class="col-md-6 left-block">
+                    <h2>{switch $lang}
+                        {case "cs"}Česko
+                        {default}Czech Republic
+                        {/switch}</h2>
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                                src="https://www.youtube.com/embed/xWHDlnp7hss"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6 left-block">
+                    <h2>{switch $lang}
+                        {case "cs"}Finsko
+                        {default}Finland
+                        {/switch}</h2>
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                                src="https://www.youtube.com/embed/K6A7gpdTqgE"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row strips">
+                <div class="col-md-6 right-block">
+                    <h2>{switch $lang}
+                        {case "cs"}Polsko
+                        {default}Poland
+                        {/switch}</h2>
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                                src="https://www.youtube.com/embed/zSBSiMXLShE"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6 right-block">
+                    <h2>{switch $lang}
+                        {case "cs"}Rumunsko
+                        {default}Romania
+                        {/switch}</h2>
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                                src="https://www.youtube.com/embed/Ras5N5_SE18"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row strips">
+                <div class="col-md-6 right-block">
+                    <h2>{switch $lang}
+                        {case "cs"}Slovensko
+                        {default}Slovakia
+                        {/switch}</h2>
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                                src="https://www.youtube.com/embed/JzYMjkHj4hk"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6 right-block">
+                    <h2>{switch $lang}
+                        {case "cs"}Španělsko
+                        {default}Spain
+                        {/switch}</h2>
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                                src="https://www.youtube.com/embed/XbQ7HcJrg78"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
