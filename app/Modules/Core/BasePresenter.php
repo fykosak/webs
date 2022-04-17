@@ -6,6 +6,7 @@ namespace App\Modules\Core;
 
 use App\Components\ImageGallery\ImageGalleryControl;
 use App\Components\Navigation\Navigation;
+use App\Components\PdfGallery\PdfGalleryControl;
 use App\Models\Exceptions\UnderConstructionException;
 use App\Models\GamePhaseCalculator;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
@@ -114,5 +115,10 @@ abstract class BasePresenter extends Presenter
     protected function createComponentGallery(): ImageGalleryControl
     {
         return new ImageGalleryControl($this->context);
+    }
+
+    protected function createComponentPdfGallery(): PdfGalleryControl
+    {
+        return new PdfGalleryControl($this->context);
     }
 }
