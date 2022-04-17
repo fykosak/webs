@@ -31,19 +31,6 @@
         </section>
     </div>
 
-    {* -----TBD----- *}
-{*    <div class="panel color-auto">*}
-{*        <section class="inner-container">*}
-{*            <h1>{switch $lang}*}
-{*                {case "cs"}Prezentace*}
-{*                {default}Presentations*}
-{*                {/switch}</h1>*}
-{*            <div class="mt-5">*}
-
-{*            </div>*}
-{*        </section>*}
-{*    </div>*}
-
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>{switch $lang}
@@ -52,6 +39,31 @@
                 {/switch}</h1>
             <div class="mt-5">
                 {control gallery "/photos/" . $eventKey . "/erasmus/"}
+            </div>
+        </section>
+    </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>{switch $lang}
+                {case "cs"}Prezentace
+                {default}Presentations
+                {/switch}</h1>
+            <div class="row">
+                <div class="col-md-6 left-block">
+                    <h2>{switch $lang}
+                        {case "cs"}Prezentace o vybraných vědcích
+                        {default}Presentations about scientists
+                        {/switch}</h2>
+                    {control pdfGallery "/download/" . $eventKey . "/erasmus-scientists/"}
+                </div>
+                <div class="col-md-6 right-block">
+                    <h2>{switch $lang}
+                        {case "cs"}Prezentace o absolvovaných exkurzích
+                        {default}Presentations about attended excursions
+                        {/switch}</h2>
+                    {control pdfGallery "/download/" . $eventKey . "/erasmus-excursions/"}
+                </div>
             </div>
         </section>
     </div>
