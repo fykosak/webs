@@ -9,7 +9,6 @@ use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\DI\Container;
 use Nette\Utils\Finder;
-use Tracy\Debugger;
 
 class PdfGalleryControl extends BaseComponent
 {
@@ -46,7 +45,9 @@ class PdfGalleryControl extends BaseComponent
             ];
         }
 
-        sort($pdfs); //sort alphabetically
+        usort($pdfs, function ($a, $b) { //sort alphabetically
+            return $a['name'] <=> $b['name'];
+        });
 
         foreach ($pdfs as $index => &$pdffile) {
             $pdffile['index'] = $index;
