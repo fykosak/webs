@@ -45,7 +45,8 @@ class PdfGalleryControl extends BaseComponent
             ];
         }
 
-        usort($pdfs, function ($a, $b) { //sort alphabetically
+        //sort alphabetically
+        usort($pdfs, function ($a, $b) {
             return $a['name'] <=> $b['name'];
         });
 
