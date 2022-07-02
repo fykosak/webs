@@ -20,9 +20,9 @@ This project uses modified bootstrap file to support multiple websites sharing c
 4. Follow the build instructions
 
 ### Example Apache configuration
-Following configuration expects repository located in `/var/www/web-fyziklani`.
+Following configuration expects repository located in `/var/www/fykos-webs`.
 ```apacheconf
-<Directory /var/www/web-fyziklani>
+<Directory /var/www/fykos-webs>
         AllowOverride All
         Require all granted
 </Directory>
@@ -30,14 +30,14 @@ Following configuration expects repository located in `/var/www/web-fyziklani`.
 <VirtualHost *:80>
         ServerName online.fyziklani.cz.local
         ServerAlias online.fyziklani.org.local
-        DocumentRoot /var/www/web-fyziklani/www/fol
+        DocumentRoot /var/www/fykos-webs/www/fol
         SetEnv NETTE_DEVEL 1
 </VirtualHost>
 
 <VirtualHost *:80>
         ServerName fyziklani.cz.local
         ServerAlias fyziklani.org.local
-        DocumentRoot /var/www/web-fyziklani/www/fof
+        DocumentRoot /var/www/fykos-webs/www/fof
         SetEnv NETTE_DEVEL 1
 </VirtualHost>
 ```
