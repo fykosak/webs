@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8df5371ebe1813fd51e02b9b270acfd",
+    "content-hash": "43bda9e75c4c4785dcc40088c6a7a90d",
     "packages": [
         {
             "name": "fykosak/fksdb-downloader-core",
@@ -108,16 +108,16 @@
         },
         {
             "name": "fykosak/nette-fksdb-downloader",
-            "version": "dev-dev/json-only",
+            "version": "v2.0.0-RC",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/nette-fksdb-downloader.git",
-                "reference": "aa68105"
+                "reference": "b51b68922ac1f4ba58312f0797a1e553520a7b7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/aa68105",
-                "reference": "aa68105",
+                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/b51b68922ac1f4ba58312f0797a1e553520a7b7b",
+                "reference": "b51b68922ac1f4ba58312f0797a1e553520a7b7b",
                 "shasum": ""
             },
             "require": {
@@ -149,9 +149,9 @@
             "description": "FKSDB Downloader for nette web applications",
             "support": {
                 "issues": "https://github.com/fykosak/nette-fksdb-downloader/issues",
-                "source": "https://github.com/fykosak/nette-fksdb-downloader/tree/dev/json-only"
+                "source": "https://github.com/fykosak/nette-fksdb-downloader/tree/v2.0.0-RC"
             },
-            "time": "2022-01-18T00:26:22+00:00"
+            "time": "2022-07-02T21:47:13+00:00"
         },
         {
             "name": "fykosak/nette-orm",
@@ -2098,7 +2098,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "fykosak/nette-orm": 20,
-        "fykosak/nette-fksdb-downloader": 20,
+        "fykosak/nette-fksdb-downloader": 5,
         "fykosak/nette-fks-utils": 20
     },
     "prefer-stable": false,
