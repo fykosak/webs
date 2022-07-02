@@ -17,6 +17,7 @@ This project uses modified bootstrap file to support multiple websites sharing c
 3. Create a configuration files and fill all the necessary information
    - `cp app/config/config.local.neon.example app/config/config.fof.local.neon`
    - `cp app/config/config.local.neon.example app/config/config.fol.local.neon`
+   - `cp app/config/config.local.neon.example app/config/config.dsef.local.neon`
 4. Follow the build instructions
 
 ### Example Apache configuration
