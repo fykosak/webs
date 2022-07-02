@@ -39,4 +39,9 @@ class Bootstrap
     {
         return self::boot('fol');
     }
+
+    public static function bootDsef(): Configurator
+    {
+        return self::boot('dsef');
+    }
 }

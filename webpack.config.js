@@ -55,4 +55,15 @@ const fofConfiguration = {
     },
 };
 
-module.exports = [folConfiguration, fofConfiguration];
+const dsefConfiguration = {
+    ...commonConfiguration,
+    entry: {
+        main: path.resolve(__dirname, './app/main-dsef.js'),
+    },
+    output: {
+        path: path.resolve(__dirname, './www/dsef/assets'),
+        assetModuleFilename: 'media/[path][name][ext]',
+        filename: '[name].js',
+    },
+};
+module.exports = [folConfiguration, fofConfiguration, dsefConfiguration];

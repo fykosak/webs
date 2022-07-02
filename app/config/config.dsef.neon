@@ -1,0 +1,17 @@
+application:
+    mapping:
+        *: App\Modules\Dsef\*Module\*Presenter
+
+services:
+    - App\RouterFactory::createFofRouter(%domains%, %router-mapping%)
+
+includes:
+    - config.neon
+
+parameters:
+    eventTypeId: 1
+    router-mapping:
+        default:
+            cs:
+        archive:
+            cs:
