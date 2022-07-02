@@ -20,7 +20,7 @@ database:
     conventions: 'discovered'
 
 extensions:
-    orm: Fykosak\NetteORM\ORMExtension
+    orm: Fykosak\NetteORM\Extension
     assets: h4kuna\Assets\DI\AssetsExtension
 
 parameters:
