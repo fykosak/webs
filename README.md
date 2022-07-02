@@ -40,6 +40,13 @@ Following configuration expects repository located in `/var/www/fykos-webs`.
         DocumentRoot /var/www/fykos-webs/www/fof
         SetEnv NETTE_DEVEL 1
 </VirtualHost>
+
+<VirtualHost *:80>
+        ServerName dsef.cz.local
+        ServerAlias dsef.org.local
+        DocumentRoot /var/www/fykos-webs/www/dsef
+        SetEnv NETTE_DEVEL 1
+</VirtualHost>
 ```
 
 Do not forget to modify your `/etc/hosts` file to point to the correct IP address of your server.
@@ -48,6 +55,8 @@ Do not forget to modify your `/etc/hosts` file to point to the correct IP addres
 127.0.0.1    online.fyziklani.org.local
 127.0.0.1    fyziklani.cz.local
 127.0.0.1    fyziklani.org.local
+127.0.0.1    dsef.cz.local
+127.0.0.1    dsef.org.local
 ```
 
 These domains need to be configured in `app/config/config.*.local.neon` under `parameters.domains` in order to work.
