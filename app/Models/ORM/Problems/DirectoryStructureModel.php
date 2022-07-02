@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models\ORM\Problems;
 
-use Fykosak\NetteORM\AbstractModel;
+use Fykosak\NetteORM\Model;
 use Nette\Database\Table\ActiveRow;
 
 /**
@@ -14,7 +14,7 @@ use Nette\Database\Table\ActiveRow;
  * @property-read ActiveRow parent_directory
  * @property-read ActiveRow child_directory
  */
-class DirectoryStructureModel extends AbstractModel
+class DirectoryStructureModel extends Model
 {
     public function getChildDirectory(): DirectoryModel
     {

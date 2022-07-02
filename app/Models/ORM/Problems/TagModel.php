@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models\ORM\Problems;
 
-use Fykosak\NetteORM\AbstractModel;
+use Fykosak\NetteORM\Model;
 
-class TagModel extends AbstractModel
+class TagModel extends Model
 {
     public function getLocalizedData(string $lang): ?TagLocalizedDataModel
     {

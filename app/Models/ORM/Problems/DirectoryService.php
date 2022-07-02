@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Models\ORM\Problems;
 
-use Fykosak\NetteORM\AbstractService;
+use Fykosak\NetteORM\Service;
 
 /**
  * @method DirectoryModel|null findByPrimary($key)
  */
-class DirectoryService extends AbstractService
+class DirectoryService extends Service
 {
     public const ROOT_DIR = '_root';
 

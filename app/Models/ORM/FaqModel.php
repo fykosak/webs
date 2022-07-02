@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models\ORM;
 
-use Fykosak\NetteORM\AbstractModel;
+use Fykosak\NetteORM\Model;
 
 /**
  * @property-read int faq_id
@@ -13,7 +13,7 @@ use Fykosak\NetteORM\AbstractModel;
  * @property-read string lang
  * @property-read string|null category
  */
-class FaqModel extends AbstractModel
+class FaqModel extends Model
 {
 
     public function getCategory(): string

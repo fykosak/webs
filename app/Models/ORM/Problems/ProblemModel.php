@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models\ORM\Problems;
 
-use Fykosak\NetteORM\AbstractModel;
+use Fykosak\NetteORM\Model;
 use Nette\Database\Table\ActiveRow;
 
 /**
@@ -16,7 +16,7 @@ use Nette\Database\Table\ActiveRow;
  * @property-read int points
  * @property-read ActiveRow directory
  */
-class ProblemModel extends AbstractModel
+class ProblemModel extends Model
 {
     public function getLocalizedData(string $lang): ?ProblemLocalizedDataModel
     {

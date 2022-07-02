@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models\ORM\Problems;
 
-use Fykosak\NetteORM\AbstractModel;
+use Fykosak\NetteORM\Model;
 
 /**
  * @property-read int problem_id
@@ -16,6 +16,6 @@ use Fykosak\NetteORM\AbstractModel;
  * @property-read string|null solution
  * @property-read string|null human_result
  */
-class ProblemLocalizedDataModel extends AbstractModel
+class ProblemLocalizedDataModel extends Model
 {
 }

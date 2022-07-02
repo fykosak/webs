@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models\ORM;
 
-use Fykosak\NetteORM\AbstractService;
+use Fykosak\NetteORM\Service;
 
-class ReportTeamService extends AbstractService
+class ReportTeamService extends Service
 {
 }

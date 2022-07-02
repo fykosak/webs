@@ -60,7 +60,7 @@ class ImageGalleryControl extends BaseComponent
     }
 
     /**
-     * @throws \Nette\Utils\UnknownImageFileException
+     * @throws \Nette\Utils\UnknownImageFileException|\Throwable
      */
     public function render(string $path): void
     {
