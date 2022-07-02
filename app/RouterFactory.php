@@ -158,4 +158,30 @@ class RouterFactory
 
         return $router;
     }
+
+    public static function createDsefRouter(?array $domainList, array $routerMapping): Router
+    {
+        $router = new RouteList();
+
+        $router->withModule('Archive')
+            ->addRoute('//<domain>/<eventYear ([0-9]{4})(-.*)?>/<eventMonth>/[<presenter>/[<action>]]', [
+                'presenter' => 'Default',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['archive']),
+            ]);
+
+        $router->withModule('Default')
+            ->addRoute('//<domain>/(international|erasmus)', [
+                'presenter' => 'Erasmus',
+                'lang' => 'en',
+                null => self::havingDomainLanguage(['cs'], $domainList),
+            ], $router::ONE_WAY)
+            ->addRoute('//<domain>/<presenter>[/<action>]', [
+                'presenter' => 'Default',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
+        return $router;
+    }
 }

@@ -3,13 +3,13 @@ application:
         *: App\Modules\Dsef\*Module\*Presenter
 
 services:
-    - App\RouterFactory::createFofRouter(%domains%, %router-mapping%)
+    - App\RouterFactory::createDsefRouter(%domains%, %router-mapping%)
 
 includes:
     - config.neon
 
 parameters:
-    eventTypeId: 1
+    eventTypeId: 2
     router-mapping:
         default:
             cs:
