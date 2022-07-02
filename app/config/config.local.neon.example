@@ -11,6 +11,7 @@ parameters:
     fksdbDownloader:
         login:
         password:
+        url:
     database:
          user:
          password:

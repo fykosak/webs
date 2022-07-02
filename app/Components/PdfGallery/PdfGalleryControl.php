@@ -25,7 +25,7 @@ class PdfGalleryControl extends BaseComponent
         parent::__construct($container);
         $this->wwwDir = $container->getParameters()['wwwDir'];
     }
-
+// TODO typy!!!!!
     public static function getPdfs($path, $wwwDir): array
     {
         $pdfs = [];
