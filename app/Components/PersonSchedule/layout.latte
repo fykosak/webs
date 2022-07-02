@@ -1,0 +1,18 @@
+{varType string $lang}
+{varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelSchedule[] $scheduleGroups}
+{varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelPersonSchedule[][] $personGroups}
+{foreach $scheduleGroups as $group}
+    <h3>{$group->label[$lang]}</h3>
+    {foreach $group->scheduleItems as $scheduleItem}
+        <h4>{$scheduleItem->label[$lang]}</h4>
+        {if isset($personGroups[$scheduleItem->scheduleItemId])}
+            <ul>
+                {foreach $personGroups[$scheduleItem->scheduleItemId] as $person}
+                    <li>{$person->person->name}</li>
+                {/foreach}
+            </ul>
+        {else}
+            pičo tu nič nieje!
+        {/if}
+    {/foreach}
+{/foreach}
