@@ -1,5 +1,5 @@
-web-fyziklani
-=======
+# FYKOS-webs
+
 
 Nette multisite codebase for the [Fyziklani](https://fyziklani.cz) and [Online Physics Brawl](https://online.fyziklani.cz) competitions.
 
