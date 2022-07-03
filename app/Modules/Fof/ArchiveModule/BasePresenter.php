@@ -48,10 +48,6 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
                 }
             }
             if (!isset($event)) {
-                $event = $this->serviceEvent->getNewest([$this->context->getParameters()["eventTypeId"]]);
-            }
-
-            if (!isset($event)) {
                 throw new BadRequestException(_('Event not found'), IResponse::S404_NOT_FOUND);
             }
             $this->event = $event;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Dsef\ArchiveModule;
 
+use App\Components\PersonSchedule\AllScheduleListComponent;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Fykosak\Utils\UI\Navigation\NavItem;
@@ -11,6 +12,8 @@ use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
 use Nette\Application\UI\Template;
 use Nette\Http\IResponse;
+use Tracy\Debugger;
+use Tracy\Dumper;
 
 abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
 {
@@ -35,23 +38,20 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     protected function getEvent(): ModelEvent
     {
         if (!isset($this->event)) {
-            if (isset($this->eventYear)) {
-                if (is_numeric($this->eventYear)) {
-                    $year = $this->eventYear;
-                    $month = null;
-                } else {
-                    [$year, $month] = explode('-', $this->eventYear);
-                }
+            if (isset($this->eventYear) && isset($this->eventMonth)) {
+                $year = $this->eventYear;
+                $month = $this->eventMonth;
                 $events = $this->serviceEvent->getEventsByYear(
                     [$this->context->getParameters()["eventTypeId"]],
                     +$year
                 );
-                if (count($events)) {
-                    $event = isset($month) ? reset($events) : end($events);
+                $monthNumber =  array_search($month, BasePresenter::$months);
+                $events = array_filter($events, function ($event) use ($monthNumber) {
+                    return (int)$event->begin->format('n') - 1 === $monthNumber;
+                });
+                if (count($events) === 1) {
+                    $event = end($events);
                 }
-            }
-            if (!isset($event)) {
-                $event = $this->serviceEvent->getNewest([$this->context->getParameters()["eventTypeId"]]);
             }
 
             if (!isset($event)) {
@@ -92,7 +92,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     public function formatTemplateFiles(): array
     {
         $files = parent::formatTemplateFiles();
-        $key = parent::createEventKey($this->getEvent());
+        $key = parent::getEventKey($this->getEvent());
 
         return [
             str_replace('.latte', '.' . $key . '.' . $this->lang . '.latte', end($files)),
@@ -109,7 +109,12 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     {
         $template = parent::createTemplate();
         $template->event = $this->getEvent();
-        $template->eventKey = parent::createEventKey($this->getEvent());
+        $template->eventKey = parent::getEventKey($this->getEvent());
         return $template;
+    }
+
+    protected function createComponentScheduleParticipants(): AllScheduleListComponent
+    {
+        return new AllScheduleListComponent(null, $this->event->eventId, $this->getContext());
     }
 }
