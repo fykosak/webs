@@ -117,6 +117,13 @@ Configuring MySql
 7. Close mysql by ctrl+D
 
 
+Inserting tables and data
+* Explanation: In FOL, we the database also needs to have some tables and preferably dummy data.
+1. open wsl terminal and `sudo mysql`
+2. type `use fol` (tells mysql to modify the `fol` database)
+3. copy and paste the contents of the file `data/sql/schema_fol.sql` into mysql shell and press Enter
+
+
 Configuring neon files
 * Explanation: these files contain secret data such as passwords and connection strings. 
 It is something like appsettings.json. These data are then used in the application to 
