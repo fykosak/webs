@@ -31,6 +31,7 @@ class ArchivePresenter extends BasePresenter
                 'event' => $event,
                 'year' => BasePresenter::getEventYear($event),
                 'month' => BasePresenter::getEventMonth($event),
+                'fykos-year' => $event->year,
             ];
         }
 
