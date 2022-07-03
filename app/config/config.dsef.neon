@@ -2,6 +2,12 @@ application:
     mapping:
         *: App\Modules\Dsef\*Module\*Presenter
 
+database:
+    default:
+        dsn: ''
+    problems:
+        dsn: ''
+
 services:
     - App\RouterFactory::createDsefRouter(%domains%, %router-mapping%)
 
