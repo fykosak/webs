@@ -11,3 +11,21 @@
     }
   }
 }
+
+.results-first-row, .results-first-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.results-header {
+  padding: 1rem .5rem;
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+}
+
+.results-row {
+  padding: 1rem .5rem;
+  &:nth-child(even) {
+    background-color: #00000010;
+  }
+}
