@@ -8,7 +8,9 @@ use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
-    public static $months = ["leden", "unor", "brezen", "duben", "kveten", "cerven", "cervenec", "srpen", "zari", "rijen", "listopad", "prosinec"];
+    public static $months = [
+        "leden", "unor", "brezen", "duben", "kveten", "cerven",
+        "cervenec", "srpen", "zari", "rijen", "listopad", "prosinec"];
 
     public static function getEventYear(ModelEvent $event): string
     {
