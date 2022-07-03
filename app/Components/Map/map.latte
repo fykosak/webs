@@ -1,13 +1,24 @@
 {varType int $teamCount}
+{varType int $uniqueId}
+{varType bool $inverseColors}
 {varType string[] $teamCountries}
 {varType string $lang}
 
 {block content}
     <div class="map-panel">
-        <div class="map">
+        <div class="map map-id-{$uniqueId}">
             {include 'world.svg'}
             <style>
-                {foreach $teamCountries as $iso}#{$iso}{sep},{/sep}{/foreach} {syntax off}{fill: white}{/syntax}
+                {if $inverseColors}
+                .map-id-{$uniqueId} path{syntax off}{
+                    fill: #00000010;
+                    stroke: #00000015;
+                }{/syntax}
+                {foreach $teamCountries as $iso}.map-id-{$uniqueId} #{$iso}{sep},{/sep}{/foreach} {syntax off}{fill: var(--primary)}{/syntax}
+                }
+                {else}
+                {foreach $teamCountries as $iso}.map-id-{$uniqueId} #{$iso}{sep},{/sep}{/foreach} {syntax off}{fill: white}{/syntax}
+                {/if}
             </style>
         </div>
         <div class="team-counts">

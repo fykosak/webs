@@ -11,6 +11,8 @@ use Nette\DI\Container;
 
 class MapComponent extends BaseComponent
 {
+    private static $uniqueId = 0;
+
     protected ServiceEventDetail $serviceTeam;
     protected int $forEventId;
 
@@ -53,12 +55,15 @@ class MapComponent extends BaseComponent
     /**
      * @throws \Throwable
      */
-    public function render(): void
+    public function render($inverseColors = false): void
     {
         $this->processTeams();
 
         $this->template->teamCount = $this->teamCount;
         $this->template->teamCountries = $this->teamCountries;
+
+        $this->template->uniqueId = self::$uniqueId++;
+        $this->template->inverseColors = $inverseColors;
 
         $this->template->lang = $this->getPresenter()->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'map.latte');
