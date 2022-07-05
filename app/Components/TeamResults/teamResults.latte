@@ -19,15 +19,15 @@
                     {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
                     <div class="result-column" style="width: 5rem">{if $team->status === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</div>
                     <div class="result-column" style="flex-grow: 1"><strong>{$team->name}</strong></div>
-                    <div class="result-column" style="width: 5rem">{if $team->status === "disqualified"}x{else}{$team->points}{/if}</div>
-                    <div class="result-column" style="width: 5rem">{if $team->status === "disqualified"}DNQ{else}{$team->rankTotal}.{/if}</div>
+                    <div class="result-column" style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->points}{/if}</div>
+                    <div class="result-column" style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->rankTotal}.{/if}</div>
                 </div>
                 <div class="results-second-row">
                     <div class="result-column text-muted" style="flex-grow: 1; margin-left: 5rem; margin-right: 10rem">
                         {var $inSchool = 0}
-                        {if $team->participants && count($team->participants)}
+                        {if $team->members && count($team->members)}
                             {do
-                                $participants = $team->participants;
+                                $participants = $team->members;
                                 usort($participants, fn($a, $b) => $a->schoolId <=> $b->schoolId)
                             }
                             {foreach $participants as $key => $participant}

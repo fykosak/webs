@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43bda9e75c4c4785dcc40088c6a7a90d",
+    "content-hash": "b54dfaa9ac9e7ad3f94b1285f705765f",
     "packages": [
         {
             "name": "fykosak/fksdb-downloader-core",
@@ -108,16 +108,16 @@
         },
         {
             "name": "fykosak/nette-fksdb-downloader",
-            "version": "v2.0.0-RC",
+            "version": "v2.1.0-RC",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/nette-fksdb-downloader.git",
-                "reference": "b51b68922ac1f4ba58312f0797a1e553520a7b7b"
+                "reference": "537a72d4861314626262a9747d939314ed8a3dc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/b51b68922ac1f4ba58312f0797a1e553520a7b7b",
-                "reference": "b51b68922ac1f4ba58312f0797a1e553520a7b7b",
+                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/537a72d4861314626262a9747d939314ed8a3dc6",
+                "reference": "537a72d4861314626262a9747d939314ed8a3dc6",
                 "shasum": ""
             },
             "require": {
@@ -149,9 +149,9 @@
             "description": "FKSDB Downloader for nette web applications",
             "support": {
                 "issues": "https://github.com/fykosak/nette-fksdb-downloader/issues",
-                "source": "https://github.com/fykosak/nette-fksdb-downloader/tree/v2.0.0-RC"
+                "source": "https://github.com/fykosak/nette-fksdb-downloader/tree/v2.1.0-RC"
             },
-            "time": "2022-07-02T21:47:13+00:00"
+            "time": "2022-07-05T18:10:24+00:00"
         },
         {
             "name": "fykosak/nette-orm",
@@ -2110,5 +2110,5 @@
         "ext-gettext": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }

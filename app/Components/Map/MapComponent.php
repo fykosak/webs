@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Components\Map;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
@@ -40,13 +39,12 @@ class MapComponent extends BaseComponent
 
         foreach ($this->serviceTeam->getTeams($this->forEventId) as $team) {
             $this->teamCount++;
-            /* @var ModelParticipant $participant */
-            foreach ($team->participants as $participant) {
+            foreach ($team->members as $member) {
                 if (
-                    !in_array($participant->countryIso, $this->teamCountries) &&
-                    strtolower($participant->countryIso) !== 'zz'
+                    !in_array($member->countryIso, $this->teamCountries) &&
+                    strtolower($member->countryIso) !== 'zz'
                 ) {
-                    $this->teamCountries[] = $participant->countryIso;
+                    $this->teamCountries[] = $member->countryIso;
                 }
             }
         }

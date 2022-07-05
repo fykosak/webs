@@ -80,14 +80,14 @@ class TeamResultsComponent extends BaseComponent
     protected function passesOneMemberFilter(ModelTeam $team): bool
     {
         return !$this->filterData['OneMemberTeams']
-            || ($this->filterData['OneMemberTeams'] && count($team->participants) == 1);
+            || ($this->filterData['OneMemberTeams'] && count($team->members) == 1);
     }
 
     protected function passesCountryFilter(ModelTeam $team): bool
     {
         $ISOsForTeam = [];
 
-        foreach ($team->participants as $participant) {
+        foreach ($team->members as $participant) {
             $iso = $participant->countryIso;
             if (!in_array($iso, $ISOsForTeam)) {
                 $ISOsForTeam[] = $iso;
@@ -129,12 +129,12 @@ class TeamResultsComponent extends BaseComponent
             if ($team->status != 'participated' && $team->status != 'disqualified') {
                 continue;
             }
-            if ($team->participants) {
+            if ($team->members) {
                 $category = $team->category;
                 if (!in_array($category, $categories)) {
                     $categories[] = $category;
                 }
-                foreach ($team->participants as $participant) {
+                foreach ($team->members as $participant) {
                     $countryISOs[$participant->countryIso] ??= 0;
                     $countryISOs[$participant->countryIso]++;
                 }

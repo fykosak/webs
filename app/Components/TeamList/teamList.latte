@@ -64,16 +64,16 @@
                             <li id="{$team->teamId}">
                                 <strong>{$team->name}</strong>:
                                 {var $inSchool = 0}
-                            {if $team->participants && count($team->participants)}
+                            {if $team->members && count($team->members)}
                                     {do
-                                        $participants = $team->participants;
-                                        usort($participants, fn($a, $b) => $a->schoolId <=> $b->schoolId)
+                                        $members = $team->members;
+                                        usort($members, fn($a, $b) => $a->schoolId <=> $b->schoolId)
                                     }
-                                    {foreach $participants as $key => $participant}
+                                    {foreach $members as $key => $participant}
                                         {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
                                         {$participant->name
                                         }{do $inSchool++
-                                    }{if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->schoolId != $participants[$key + 1]->schoolId)
+                                    }{if $iterator->isLast() || (!is_null($members[$key + 1]) && $participant->schoolId != $members[$key + 1]->schoolId)
                                     }
                                         <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$participant->schoolName}{if (strtolower($participant->countryIso) != "zz")} <span
                                                     class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>{/if})</span>
@@ -87,6 +87,16 @@
                                         {case cs}informace o členech týmu nejsou dostupné
                                         {default}no info avaiable
                                     {/switch}
+                                {/if}
+
+                                {if count($team->teachers)}
+                                    {switch $lang}
+                                        {case cs}doprovod
+                                        {default}teacher
+                                    {/switch}
+                                    <span class="text-muted">
+                                        {foreach $team->teachers as $teacher}{$teacher->name}{sep}, {/sep}{/foreach}
+                                    </span>
                                 {/if}
                             </li>
                         {/if}

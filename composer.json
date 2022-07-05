@@ -14,7 +14,7 @@
     "php": ">= 7.4",
     "nette/nette": "^v3.1.0",
     "fykosak/nette-orm": "dev-master#0aa2b76",
-    "fykosak/nette-fksdb-downloader": "v2.0.0-RC",
+    "fykosak/nette-fksdb-downloader": "v2.1.0-RC",
     "fykosak/nette-fks-utils": "dev-master#469ab13",
     "ext-soap": "*",
     "ext-dom": "*",
