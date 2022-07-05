@@ -137,3 +137,7 @@ edit the `.local` files, which are intentionally excluded from git.
 4. set gameApiURL to an empty string: `gameApiURL: ''`
 
 
+## Troubleshooting
+
+* "could not find driver" ... if this error is shown `Nette\Database\ConnectionException could not find driver Caused by PDOException`, it is likely because you do not have something installed, see https://stackoverflow.com/questions/2852748/pdoexception-could-not-find-driver
+ 
