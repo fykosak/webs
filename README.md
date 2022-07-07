@@ -82,7 +82,7 @@ Installing Prerequisites
 4. if not installed, install `mysql` (google how to do that - e.g. via `sudo apt install mysql-server`)
 5. if not installed, install `composer` (google how to do that - sudo apt install composer does not work as of July 2022)
 6. if not installed, install `node`, version at least 16. Alternatively, install nvm and then `nvm use 16`
-7. if not installed, install `gettext` (via `sudo apt install gettext`)
+7. if not installed, install `gettext` (via `sudo apt install gettext`), check `locale -a` if you have `cs_CZ` and `en_US` installed, otherwise use `sudo locale-gen cs_CZ`, `sudo locale-gen cs_CZ.UTF-8` and then `sudo update-locale`
 8. pull this repository to a location where you want to have it (e.g. `cd C:/data/fykos && git pull <repourl>`)
 * Note: you may encounter various problems, e.g. php not being executed (try `sudo apt install libapache2-mod-php` and `sudo a2enmod php7.4`) or with "ERROR: Module mpm_event is enabled" (try `sudo a2dismod mpm_event` and `sudo a2enmod mpm_prefork`, and then `sudo service apache2 restart`)
 
