@@ -14,11 +14,12 @@ class AllScheduleListComponent extends BaseComponent
     private ServiceEventDetail $serviceEventDetail;
 
     private int $eventId;
-    private ?string $groupType;
 
-    public function __construct(?string $groupType, int $eventId, Container $container)
+    /** @var ModelPersonSchedule[][] | null */
+    private $groupedPersonSchedule = null;
+
+    public function __construct(int $eventId, Container $container)
     {
-        $this->groupType = $groupType;
         $this->eventId = $eventId;
         parent::__construct($container);
     }
@@ -28,11 +29,26 @@ class AllScheduleListComponent extends BaseComponent
         $this->serviceEventDetail = $serviceEventDetail;
     }
 
-    public function render(): void
+    public function hasData(?string $groupType): bool
+    {
+        foreach ($this->serviceEventDetail->getSchedule($this->eventId) as $item) {
+            if ($item->scheduleGroupType === $groupType || is_null($groupType)) {
+                foreach ($item->scheduleItems as $scheduleItem) {
+                    if ($scheduleItem->usedCapacity > 0) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public function render(?string $groupType): void
     {
         $scheduleGroups = [];
         foreach ($this->serviceEventDetail->getSchedule($this->eventId) as $item) {
-            if ($item->scheduleGroupType === $this->groupType || is_null($this->groupType)) {
+            if ($item->scheduleGroupType === $groupType || is_null($groupType)) {
                 $scheduleGroups[] = $item;
             }
         }
@@ -45,12 +61,16 @@ class AllScheduleListComponent extends BaseComponent
     /** @return ModelPersonSchedule[][] */
     private function getGroupedPersonSchedule(): array
     {
-        $groups = [];
-        $personSchedule = $this->serviceEventDetail->getPersonSchedule($this->eventId);
-        foreach ($personSchedule as $item) {
-            $groups[$item->scheduleItemId] = $groups[$item->scheduleItemId] ?? [];
-            $groups[$item->scheduleItemId][] = $item;
+        if (is_null($this->groupedPersonSchedule)) {
+            $groups = [];
+            $personSchedule = $this->serviceEventDetail->getPersonSchedule($this->eventId);
+            foreach ($personSchedule as $item) {
+                $groups[$item->scheduleItemId] = $groups[$item->scheduleItemId] ?? [];
+                $groups[$item->scheduleItemId][] = $item;
+            }
+            $this->groupedPersonSchedule = $groups;
         }
-        return $groups;
+
+        return $this->groupedPersonSchedule;
     }
 }

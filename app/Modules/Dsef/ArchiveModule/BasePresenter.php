@@ -12,8 +12,6 @@ use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
 use Nette\Application\UI\Template;
 use Nette\Http\IResponse;
-use Tracy\Debugger;
-use Tracy\Dumper;
 
 abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
 {
@@ -23,7 +21,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     /** @persistent */
     public ?string $eventMonth = null;
 
-    private ModelEvent $event;
+    protected ModelEvent $event;
     protected ServiceEventList $serviceEvent;
 
     public function injectServiceEvent(ServiceEventList $serviceEvent): void
@@ -115,6 +113,6 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
 
     protected function createComponentScheduleParticipants(): AllScheduleListComponent
     {
-        return new AllScheduleListComponent(null, $this->event->eventId, $this->getContext());
+        return new AllScheduleListComponent($this->event->eventId, $this->getContext());
     }
 }

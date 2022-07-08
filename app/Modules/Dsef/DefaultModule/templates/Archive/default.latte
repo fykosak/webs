@@ -31,9 +31,11 @@
                     </a>
                 </h1>
 
-                <div class="mt-5">
-                    {control gallery:oneLine "/photos/" . $eventKey['fykos-year'] . "/"}
-                </div>
+                {if $control->getComponent('gallery')->hasPhotos("/photos/" . $eventKey['fykos-year'] . "/")}
+                    <div class="mt-5">
+                        {control gallery:oneLine "/photos/" . $eventKey['fykos-year'] . "/"}
+                    </div>
+                {/if}
             </section>
         </div>
     {/foreach}

@@ -59,6 +59,14 @@ class ImageGalleryControl extends BaseComponent
         return $images;
     }
 
+    public function hasPhotos(string $path): bool
+    {
+        return count($this->cache->load(
+            [$path, $this->wwwDir],
+            fn() => self::getImages($path, $this->wwwDir)
+        )) > 0;
+    }
+
     /**
      * @throws \Nette\Utils\UnknownImageFileException|\Throwable
      */
