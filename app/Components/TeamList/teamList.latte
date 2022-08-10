@@ -5,11 +5,7 @@
     <div class="panel color-light">
         <section class="inner-container">
             <h1>{switch $lang}{case 'cs'}Přihlášené týmy{default}Registered Teams{/switch}</h1>
-            {switch $lang}{case 'cs'}{default}
-            <p>
-                This is a list of approved teams. All foreign teams that apply for the competition will be asked to confirm they are really able to come to Prague (to prevent the confusion that this might be an online event &#8211; it is not). In case you registered more than two days ago and your team is not listed, let us know at <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>.
-            </p>
-            {/switch}
+
             {do ksort($teams)}
             {foreach $teams AS $category => $teamsForCategory}
                 {if $category == 'F'}
