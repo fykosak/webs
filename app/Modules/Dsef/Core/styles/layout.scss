@@ -2,12 +2,15 @@
   h1 {
     color: white;
     font-weight: bold;
-    font-size: 11rem;
+    font-size: min(20vw,11rem);
     margin-bottom: 0;
     text-align: center;
   }
   h2 {
     color: white;
+  }
+  time.competition-date {
+    color: $primary-color;
   }
 }
 
