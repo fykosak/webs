@@ -173,7 +173,7 @@ class RouterFactory
         $router->withModule('Default')
             ->addRoute('//<domain>/(international|erasmus)', [
                 'presenter' => 'Erasmus',
-                'lang' => 'en',
+                'lang' => 'cs',
                 null => self::havingDomainLanguage(['cs'], $domainList),
             ], $router::ONE_WAY)
             ->addRoute('//<domain>/<presenter>[/<action>]', [
