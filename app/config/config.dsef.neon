@@ -19,5 +19,7 @@ parameters:
     router-mapping:
         default:
             cs:
+                Aktualni: Current
+                Archiv: Archive
         archive:
             cs:

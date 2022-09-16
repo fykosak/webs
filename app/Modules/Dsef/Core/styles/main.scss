@@ -1,7 +1,7 @@
 // Our theme
-$primary-color: #e6060d; // Do not forget to modify meta theme-color in ../templates/@layout.latte as well
-$primary-color-dimmed: #D7392E;
-$complementary-color: #ffd700;
+$primary-color: #FF7431; // Do not forget to modify meta theme-color in ../templates/@layout.latte as well
+$primary-color-dimmed: darken($primary-color, 20%);
+$complementary-color: #ffdd31;
 
 $panel-color-dark: #f5f5f5;
 $panel-color-light: white;

@@ -1,13 +1,21 @@
 .panel.title-panel {
-  text-align: center;
-  background-image: url("https://fykos.cz/_media/rocnik35/dsef/dsef_2021_background.jpg");
   h1 {
     color: white;
     font-weight: bold;
     font-size: 11rem;
     margin-bottom: 0;
+    text-align: center;
   }
   h2 {
     color: white;
   }
+}
+
+nav.navbar, .panel.title-panel {
+  background-image: url("./bg.jpg");
+  background-color: #00000090;
+  background-size: cover;
+  background-position-y: center;
+  background-blend-mode: color;
+  background-attachment: fixed;
 }

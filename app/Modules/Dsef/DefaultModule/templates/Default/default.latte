@@ -1,11 +1,80 @@
 {block title}Hlavní stránka{/block}
 
 {block main}
-    <div class="panel color-light title-panel">
+    <div class="panel color-primary title-panel">
+        <div class="inner-container row align-items-center">
+{*            <div class="col-md-6 left-block">*}
+                <h1>
+                    DSEF
+                </h1>
+                <div class="subheader">
+                    <p>Den plný přednášek a exkurzí po fyzikálních laboratořích MFF UK.</p>
+                </div>
+                <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
+                    {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}
+                </time>
+{*                <div class="buttons">*}
+{*                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>*}
+{*                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>*}
+{*                    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}*}
+{*                        <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $lang}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>*}
+{*                    {/if}*}
+{*                </div>*}
+{*            </div>*}
+{*            <div class="col-md-6 right-block topic-panel">*}
+{*                right panel*}
+{*            </div>*}
+        </div>
+    </div>
+
+    <div class="panel color-auto">
         <section class="inner-container">
-            <h1>DSEF</h1>
-            <h2>Den s experimentální fyzikou</h2>
-            <br/><br/><br/><h2>Za grafický návrh děkujeme Červeňovi. <a n:href="Archive:default" style="background: black">Archiv</a></h2><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <div class="subheader">Základní informace</div>
+            <h1>Den s Experimentální Fyzikou</h1>
+            <div class="row strips">
+                <div class="col-md-4">
+                    <p>
+                        Jednodenní prezenční akce pořádaná ve spoluprácí s Matfyzem - Matematicko-fyzikální fakultou Univerzity Karlovy určená pro středoškoláky.
+                    </p>
+                    <a href="https://www.mff.cuni.cz/" class="btn btn-panel-action">Více o Matfyzu!</a>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        Na akci se můžete zúčastnit spousty přednášek a exkurzí po různých vědeckých pracovičtích v Praze.
+                    </p>
+                    <a n:href="Archive:" class="btn btn-panel-action">Podívejte se na minulé ročníky!</a>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        Akce koná FYKOS.cz pravidelně na podzim s cílem představit studentům fyziky a příbuzných oborů vědeckou práci v laboratořích.
+                    </p>
+                    <a href="https://fykos.cz/" class="btn btn-panel-action">Více o FYKOSu!</a>
+                </div>
+            </div>
         </section>
     </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="subheader">Z minulých let</div>
+            <h1>Nepřesvědčili jsme tě?</h1>
+            <div class="row strips">
+                {control gallery:oneLine "/photos/front-page/"}
+            </div>
+            <div>
+                <a href="https://www.matfyz.cz/clanky/den-s-experimentalni-fyzikou-ukazal-jak-se-dela-veda" class="btn btn-panel-action text-start">Den s experimentální fyzikou ukázal, jak se dělá věda</a>
+                <a href="https://www.gymn-dacice.cz/detail/cz/den-s-experimentalni-fyzikou-dsef-2021" class="btn btn-panel-action text-start">Článek Gymnázia Dačice</a>
+            </div>
+        </section>
+    </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="subheader">DSEF 2022</div>
+            <h1>K aktuálnímu ročníku</h1>
+            <p>Na podrobnějších informacích stále ještě pracujeme. Pokud máš nějaký dotaz, neváhej nám napsat na e-mail <a
+                        href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>, nebo třeba na náš <a href="https://www.facebook.com/FYKOS" target="_blank">Facebok</a>.</p>
+        </section>
+    </div>
+
 {/block}
