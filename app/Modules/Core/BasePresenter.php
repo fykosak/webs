@@ -23,17 +23,11 @@ abstract class BasePresenter extends Presenter
     public ?string $lang = null; // = 'cs';
 
     public GettextTranslator $translator;
-    protected ServiceEventDetail $serviceEventDetail;
-    protected GamePhaseCalculator $gamePhaseCalculator;
 
     public function injectServices(
-        GettextTranslator $translator,
-        ServiceEventDetail $serviceEventDetail,
-        GamePhaseCalculator $calculator
+        GettextTranslator $translator
     ): void {
         $this->translator = $translator;
-        $this->serviceEventDetail = $serviceEventDetail;
-        $this->gamePhaseCalculator = $calculator;
     }
 
     /**
@@ -66,7 +60,6 @@ abstract class BasePresenter extends Presenter
     {
         $template = parent::createTemplate();
         $template->lang = $this->lang;
-        $template->gamePhaseCalculator = $this->gamePhaseCalculator;
         $template->setTranslator($this->translator);
 
         return $template;

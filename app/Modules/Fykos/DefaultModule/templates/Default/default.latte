@@ -1,0 +1,17 @@
+{varType string $lang}
+{block title}
+    {switch $lang}
+        {case 'cs'} Hlavní stránka
+        {default} Main page
+    {/switch}
+{/block}
+
+{block main}
+    <div class="panel color-primary title-panel">
+        <div class="inner-container row align-items-center">
+            <h1>
+                FYKOS.cz
+            </h1>
+        </div>
+    </div>
+{/block}

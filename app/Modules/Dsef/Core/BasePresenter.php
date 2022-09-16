@@ -8,7 +8,7 @@ use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 
-abstract class BasePresenter extends \App\Modules\Core\BasePresenter
+abstract class BasePresenter extends \App\Modules\Core\EventWebPresenter
 {
     public static $months = [
         "leden", "unor", "brezen", "duben", "kveten", "cerven",

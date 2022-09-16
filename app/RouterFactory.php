@@ -184,4 +184,18 @@ class RouterFactory
 
         return $router;
     }
+
+    public static function createFykosRouter(?array $domainList, array $routerMapping): Router
+    {
+        $router = new RouteList();
+
+        $router->withModule('Default')
+            ->addRoute('//<domain>/<presenter>[/<action>]', [
+                'presenter' => 'Default',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
+        return $router;
+    }
 }

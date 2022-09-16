@@ -44,4 +44,9 @@ class Bootstrap
     {
         return self::boot('dsef');
     }
+
+    public static function bootFykos(): Configurator
+    {
+        return self::boot('fykos');
+    }
 }

@@ -34,6 +34,7 @@ parameters:
     # Contains mapping from domain to language. If empty, ?lang is used
     domains:
         # domain: lang
+    eventTypeId: 0
 
 orm:
     faq:

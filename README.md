@@ -48,6 +48,13 @@ Following configuration expects repository located in `/var/www/fykos-webs`.
         DocumentRoot /var/www/fykos-webs/www/dsef
         SetEnv NETTE_DEVEL 1
 </VirtualHost>
+
+<VirtualHost fykos.cz.local fykos.org.local>
+        ServerName fykos.cz.local
+        ServerAlias fykos.org.local
+        DocumentRoot /var/www/fykos-webs/www/fykos
+        SetEnv NETTE_DEVEL 1
+</VirtualHost>
 ```
 
 Do not forget to modify your `/etc/hosts` file to point to the correct IP address of your server.
@@ -58,6 +65,8 @@ Do not forget to modify your `/etc/hosts` file to point to the correct IP addres
 127.0.0.1    fyziklani.org.local
 127.0.0.1    dsef.cz.local
 127.0.0.1    dsef.org.local
+127.0.0.1    fykos.cz.local
+127.0.0.1    fykos.org.local
 ```
 
 These domains need to be configured in `app/config/config.*.local.neon` under `parameters.domains` in order to work.
@@ -140,4 +149,3 @@ edit the `.local` files, which are intentionally excluded from git.
 ## Troubleshooting
 
 * "could not find driver" ... if this error is shown `Nette\Database\ConnectionException could not find driver Caused by PDOException`, it is likely because you do not have something installed, see https://stackoverflow.com/questions/2852748/pdoexception-could-not-find-driver
- 

@@ -1,0 +1,20 @@
+application:
+    mapping:
+        *: App\Modules\Fykos\*Module\*Presenter
+
+services:
+    - App\RouterFactory::createFykosRouter(%domains%, %router-mapping%)
+
+includes:
+    - config.neon
+
+parameters:
+    router-mapping:
+        default:
+            cs:
+
+database:
+    default:
+        dsn: ''
+    problems:
+        dsn: ''

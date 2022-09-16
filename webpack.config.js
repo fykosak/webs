@@ -66,4 +66,16 @@ const dsefConfiguration = {
         filename: '[name].js',
     },
 };
-module.exports = [folConfiguration, fofConfiguration, dsefConfiguration];
+
+const fykosConfiguration = {
+    ...commonConfiguration,
+    entry: {
+        main: path.resolve(__dirname, './app/main-fykos.js'),
+    },
+    output: {
+        path: path.resolve(__dirname, './www/fykos/assets'),
+        assetModuleFilename: 'media/[path][name][ext]',
+        filename: '[name].js',
+    },
+};
+module.exports = [folConfiguration, fofConfiguration, dsefConfiguration, fykosConfiguration];

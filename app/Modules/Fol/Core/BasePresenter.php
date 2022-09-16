@@ -6,7 +6,7 @@ namespace App\Modules\Fol\Core;
 
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 
-abstract class BasePresenter extends \App\Modules\Core\BasePresenter
+abstract class BasePresenter extends \App\Modules\Core\EventWebPresenter
 {
     public static function createEventKey(ModelEvent $event): string
     {
