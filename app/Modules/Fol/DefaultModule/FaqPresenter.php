@@ -25,7 +25,7 @@ class FaqPresenter extends BasePresenter
         $questions = [];
         /** @var FaqModel $question */
         foreach ($query as $question) {
-            $category = $question->getCategory();
+            $category = $question->category;
 
             if (!isset($questions[$category])) {
                 $questions[$category] = [];
