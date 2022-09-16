@@ -4,6 +4,7 @@
 {varType string $logoPath}
 {varType string $logoAlt}
 {varType string[] $supportedLangs}
+{varType bool $hasI18n}
 {block content}
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
@@ -32,6 +33,17 @@
                         </li>
                     {/foreach}
                 </ul>
+                {if $hasI18n}
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="navbar-text real-clock" data-timestamp="{1000 * time()}"></li>
+                        {var $otherLanguage = $lang === 'cs' ? 'en' : 'cs'}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{plink this, lang => $otherLanguage}">
+                                <span><i class="{$control::mapLangToIcon($otherLanguage)}"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                {/if}
             </div>
         </div>
     </nav>
