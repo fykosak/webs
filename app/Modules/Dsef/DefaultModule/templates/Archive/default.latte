@@ -21,7 +21,9 @@
                     {/switch}
                 </div>
                 <h1>
-                    {$eventKey["event"]->begin|date: "F Y"}
+                    {* todo, fix this with localized PHP funcitons *}
+                    {["leden", "únor", "březen", "duben", "květen", "červen", "červenec", "srpen", "září", "říjen", "listopad", "prosinec"][$eventKey["event"]->begin->format("m")-1]}
+                    {$eventKey["event"]->begin|date: "Y"}
 
                     <a class="btn btn-primary" n:href=":Archive:Default: eventYear:$eventKey['year'], eventMonth:$eventKey['month']">
                         {switch $lang}
