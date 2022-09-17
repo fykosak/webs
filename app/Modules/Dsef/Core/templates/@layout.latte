@@ -56,7 +56,7 @@
                     {/switch}
                 </div>
                 {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
-                    <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Registration{/switch}</a>
+                    <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Zaregistrovat se{default}Registration{/switch}</a>
                 {else}
                     {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
                         {switch $lang}

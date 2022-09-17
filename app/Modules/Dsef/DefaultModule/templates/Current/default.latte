@@ -1,10 +1,43 @@
 
 {block main}
-    <div class="panel color-light">
+    <div class="panel color-auto">
         <section class="inner-container">
             <h1>Základní informace</h1>
-            <p>DSEF 2022 se bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} v Troji. Registraci spustíme {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n. Y'}. Podrobnější informace zveřejníme brzy. Pokud máte nějaký dotaz, neváhejte nám napsat na e-mail <a
-                        href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>, nebo třeba na náš <a href="https://www.facebook.com/FYKOS" target="_blank">Facebook</a>.</p>
+            <p>DSEF 2022 se bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} v Troji. Registraci spustíme {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n. Y'}. Podrobnější informace zveřejníme brzy. Pokud máte nějaký dotaz, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</p>
+        </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>Harmonogram</h1>
+            <p>
+                DSEF je jednodenní akce konající se v Praze v Troji. Den začne registrací účastníků, následovat bude oficiální zahájení a přednáška.
+            </p>
+            <p>
+                Hlavní náplní dne jsou pak dopolední a odpolední exkurze. Až domluvíme s pracovišti jednotlivé bloky, objeví se rozpis zde na webu.
+            </p>
+        </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>Přihlašování</h1>
+            <p>
+                Exkurze mají dopolední a odpolední část, v každé z nich jsou účastníci rozdělení do několika skupin, jejichž program se liší. Svoji skupinu si zvolíte už v přihlášce a pokud bude volná kapacita, je možné ji později změnit podle vašich preferencí.
+            </p>
+            <h3>Jak se přihlásit?</h3>
+            <ul>
+                <li>Odkaz na přihlášení se po začátku registrace ({$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n. Y'}) naleznete na liště nahoře nebo dole na stránce.</li>
+                <li>Uzávěrka přihlášek bude {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. Y'} o půlnoci či v okamžiku zaplnění akce. Kapacita akce je zhruba 90 účastníků.</li>
+                <li>Stávající řešitelé FYKOSu (či registrované osoby) se hlásí pod e-mailem, pod kterým jsou u nás registrovaní – nebudete muset vyplňovat všechno znovu. Noví účastníci musí vyplnit i svoje základní údaje (adresa, škola).</li>
+                <li>Pokud by při vyplňování přihlášky nastal nějaký problém, neváhejte se co nejdřív ozvat na náš <a href="mailto:dsef@dsef.cz">e-mail</a>.</li>
+            </ul>
+            <h3>Podmínky přihlašování</h3>
+            <ul>
+                <li>Předpokládáme účast na celé akci. Pokud byste se chtěli zúčastnit jen části, můžete se přihlásit na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a> jako náhradníci.</li>
+                <li>Účast na akci je <strong>zdarma</strong>.</li>
+                <li>Před odesláním formuláře zkontrolujte správnost zadaných údajů, zejména e-mail. Údaje můžete sice po přihlášení (v případě potřeby) upravit, byli bychom ale rádi, aby byly definitivní hned po přihlášení.</li>
+                <li>Pokud by měl zájem se účastnit váš učitel, tak se nejprve ozvěte na <a href="mailto:dsef@dsef.cz">kontaktní e-mail</a>, ale neměl by být problém, aby se účastnil jako běžný účastník.</li>
+                <li>Osoby s jiným místem trvalého bydliště než ČR a SR se před přihlášením ozvou na <a href="mailto:dsef@dsef.cz">kontaktní e-mail</a>.</li>
+            </ul>
         </section>
     </div>
 {/block}
