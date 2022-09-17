@@ -1,15 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 750 750" style="enable-background:new 0 0 750 750;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#00AE6B;}
-</style>
-<g>
-	<polygon class="st0" points="544.9,460.2 559.3,494.8 586.4,447.3 394.9,296 	"/>
-	<polygon class="st0" points="528.4,491.7 542,497.9 535.8,482.6 	"/>
-	<path class="st0" d="M0,0v750h750V0H0z M422.4,554.7H286.6v-21.4h38.1v-60.3h-199V178.4h457.6v188.7c-8.8-5-17.7-10-26.8-15.1
-		V205.2H152.4v241h251.3l9.1,26.8h-28.6v60.3h38.1V554.7z M602.5,453.8l-40.1,72.3l-45.4-20.6l-51.8,66L359.5,261
-		c0,0,340.9,192.8,342.8,194L602.5,453.8z"/>
-</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00ae6b;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <rect id="Box" class="cls-1" width="250" height="250"/>
+  <g>
+    <path class="cls-2" d="M66.02,122.32V58.38H221.1v99.8h-67.44s0,20.45,0,20.45h12.92v7.25h-46.04v-7.25h12.92s0-20.45,0-20.45h-9.69s3.09-9.07,3.09-9.07h85.16s0-81.67,0-81.67H75.09s0,49.74,0,49.74c-3.06,1.73-6.1,3.45-9.07,5.13Z"/>
+    <path class="cls-2" d="M28.9,150.28v1.79s30.6-.34,30.6-.34l13.58,24.49,15.38-6.97,17.55,22.38,35.86-105.25s-94.25,53.31-112.97,63.91Zm51.12,16.36l2.08-5.17,2.53,3.09-4.61,2.08Zm-15.06-17.14l64.9-51.28-50.82,55.67-4.89,11.72-9.19-16.1Z"/>
+  </g>
 </svg>
