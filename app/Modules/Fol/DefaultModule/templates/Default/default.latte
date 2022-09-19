@@ -196,14 +196,25 @@
                             </div>
                     {/switch}
 
-                    <a class="price-box small orgpad-box" href="https://orgpad.com/">
-                        {switch $lang}
-                            {case cs}Licence na<br/>
-                            <img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad" style="max-height: 3rem">
-                            {default}License to<br/>
-                            <img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad" style="max-height: 3rem">
-                        {/switch}
-                    </a>
+{*                    <a class="price-box small orgpad-box" href="https://orgpad.com/">*}
+{*                        {switch $lang}*}
+{*                            {case cs}Licence na<br/>*}
+{*                            <img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad" style="max-height: 3rem">*}
+{*                            {default}License to<br/>*}
+{*                            <img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad" style="max-height: 3rem">*}
+{*                        {/switch}*}
+{*                    </a>*}
+
+                    {switch $lang}
+                        {case cs}
+                        <div class="price-box large"  style="background-color: #666666">
+                            FYKOSí<br/>ponožky, plecháčky<br/>a další propagační předměty
+                        </div>
+                    {default}
+                        <div class="price-box large" style="background-color: #666666">
+                            FYKOS's socks, and other promotional items
+                        </div>
+                    {/switch}
                 </div>
                 <div class="col-md-4">
                     {switch $lang}
@@ -217,10 +228,21 @@
                             </div>
                     {/switch}
 
-                    <a class="price-box large" href="http://www.graphmatica.com/" style="background-color: #019A69">
-                        {switch $lang}{case cs}Software<br/>Graphmatica<br/>
-                            {default}Software<br/>Graphmatica<br/>{/switch}
-                    </a>
+{*                    <a class="price-box large" href="http://www.graphmatica.com/" style="background-color: #019A69">*}
+{*                        {switch $lang}{case cs}Software<br/>Graphmatica<br/>*}
+{*                            {default}Software<br/>Graphmatica<br/>{/switch}*}
+{*                    </a>*}
+
+                    {switch $lang}
+                        {case cs}
+                        <div class="price-box large" style="background-color: #ba7743; display: flex; align-items: center;">
+                            O dalších cenách jednáme se sponzory...
+                        </div>
+                    {default}
+                        <div class="price-box large" style="background-color: #ba7743; display: flex; align-items: center;">
+                            We are preparing more prizes...
+                        </div>
+                    {/switch}
                 </div>
             </div>
         </section>
