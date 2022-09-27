@@ -13,12 +13,13 @@
   "require": {
     "php": "7.4.*",
     "nette/nette": "^v3.1.0",
-    "fykosak/nette-orm": "dev-master#0aa2b76",
+    "fykosak/nette-orm": "dev-dev-mapper#408ef2e",
     "fykosak/nette-fksdb-downloader": "dev-dev-results#7f42296",
     "fykosak/nette-fks-utils": "dev-master#469ab13",
     "ext-soap": "*",
     "ext-dom": "*",
     "ext-gettext": "*",
+    "ext-json": "*",
     "h4kuna/assets": "^1.1"
   },
   "require-dev": {

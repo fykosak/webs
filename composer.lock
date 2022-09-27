@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "982e69d2edba9df62ccc087db372cdde",
+    "content-hash": "f0c8d1173e93e4143ea1b4d5aae4595f",
     "packages": [
         {
             "name": "fykosak/fksdb-downloader-core",
@@ -155,16 +155,16 @@
         },
         {
             "name": "fykosak/nette-orm",
-            "version": "dev-master",
+            "version": "dev-dev-mapper",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/nette-orm.git",
-                "reference": "0aa2b76"
+                "reference": "408ef2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/nette-orm/zipball/0aa2b76",
-                "reference": "0aa2b76",
+                "url": "https://api.github.com/repos/fykosak/nette-orm/zipball/408ef2e",
+                "reference": "408ef2e",
                 "shasum": ""
             },
             "require": {
@@ -178,7 +178,6 @@
                 "nette/tester": "^2.4.0",
                 "squizlabs/php_codesniffer": "3.6.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -206,9 +205,9 @@
             ],
             "support": {
                 "issues": "https://github.com/fykosak/nette-orm/issues",
-                "source": "https://github.com/fykosak/nette-orm/tree/master"
+                "source": "https://github.com/fykosak/nette-orm/tree/dev-mapper"
             },
-            "time": "2022-06-18T21:18:21+00:00"
+            "time": "2022-08-27T20:15:11+00:00"
         },
         {
             "name": "h4kuna/assets",
