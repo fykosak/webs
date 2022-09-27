@@ -10,6 +10,7 @@ use Nette\Caching\Storage;
 use Nette\DI\Container;
 use Nette\Utils\Finder;
 use Nette\Utils\Image;
+use Nette\Utils\UnknownImageFileException;
 
 class ImageGalleryControl extends BaseComponent
 {
@@ -27,11 +28,12 @@ class ImageGalleryControl extends BaseComponent
         $this->wwwDir = $container->getParameters()['wwwDir'];
     }
 
-    public static function getImages($path, $wwwDir): array
+    /**
+     * @throws UnknownImageFileException
+     */
+    public static function getImages(string $path, string $wwwDir): array
     {
         $images = [];
-        $iterator = null;
-
         try {
             $iterator = Finder::findFiles('*.jpg')->in($wwwDir . $path)->getIterator();
         } catch (\Exception $e) {
@@ -59,16 +61,16 @@ class ImageGalleryControl extends BaseComponent
         return $images;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function hasPhotos(string $path): bool
     {
-        return count($this->cache->load(
-            [$path, $this->wwwDir],
-            fn() => self::getImages($path, $this->wwwDir)
-        )) > 0;
+        return count($this->cache->load([$path, $this->wwwDir], fn() => self::getImages($path, $this->wwwDir))) > 0;
     }
 
     /**
-     * @throws \Nette\Utils\UnknownImageFileException|\Throwable
+     * @throws UnknownImageFileException|\Throwable
      */
     public function render(string $path): void
     {
@@ -80,6 +82,9 @@ class ImageGalleryControl extends BaseComponent
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'default.latte');
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderOneLine(string $path): void
     {
         $this->template->images = $this->cache->load(
@@ -92,7 +97,7 @@ class ImageGalleryControl extends BaseComponent
             $step = count($this->template->images) / 6;
             $this->template->previewImages = [];
             for ($i = 0; $i < 6; $i++) {
-                $this->template->previewImages[] = $this->template->images[(int) ($i * $step)];
+                $this->template->previewImages[] = $this->template->images[(int)($i * $step)];
             }
         }
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');

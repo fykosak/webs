@@ -6,5 +6,4 @@ namespace App\Modules\Fykos\DefaultModule;
 
 class DefaultPresenter extends BasePresenter
 {
-
 }

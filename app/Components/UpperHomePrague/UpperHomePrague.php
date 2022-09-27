@@ -12,7 +12,6 @@ use Nette\DI\Container;
 
 class UpperHomePrague extends BaseComponent
 {
-    protected ServiceEventDetail $serviceTeam;
     protected GamePhaseCalculator $gamePhaseCalculator;
 
     public function injectGamePhaseCalculator(GamePhaseCalculator $gamePhaseCalculator): void
@@ -35,6 +34,9 @@ class UpperHomePrague extends BaseComponent
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . "upperHomePrague.latte");
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentCountdown(): CountdownComponent
     {
         return new CountdownComponent($this->gamePhaseCalculator->getGameBegin());

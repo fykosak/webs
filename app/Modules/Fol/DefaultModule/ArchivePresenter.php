@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\DefaultModule;
 
-use App\Components\Map\MapComponent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 
 class ArchivePresenter extends BasePresenter
@@ -21,7 +20,7 @@ class ArchivePresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $events = array_reverse($this->serviceEvent->getEvents([$this->context->getParameters()["eventTypeId"]]));
+        $events = array_reverse($this->serviceEvent->getEvents([$this->getContext()->getParameters()["eventTypeId"]]));
         $events = array_filter($events, function ($event) {
             return $event->end < new \DateTime('now');
         });

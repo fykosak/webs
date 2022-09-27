@@ -7,8 +7,6 @@ namespace App\Modules\Dsef\ArchiveModule;
 use App\Components\PersonSchedule\AllScheduleListComponent;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
-use Fykosak\Utils\UI\Navigation\NavItem;
-use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
 use Nette\Application\UI\Template;
 use Nette\Http\IResponse;
@@ -40,10 +38,10 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
                 $year = $this->eventYear;
                 $month = $this->eventMonth;
                 $events = $this->serviceEvent->getEventsByYear(
-                    [$this->context->getParameters()["eventTypeId"]],
+                    [$this->getContext()->getParameters()["eventTypeId"]],
                     +$year
                 );
-                $monthNumber =  array_search($month, BasePresenter::$months);
+                $monthNumber = array_search($month, BasePresenter::$months);
                 $events = array_filter($events, function ($event) use ($monthNumber) {
                     return (int)$event->begin->format('n') - 1 === $monthNumber;
                 });

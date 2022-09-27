@@ -10,7 +10,7 @@ use Nette\DI\Container;
 
 class MapComponent extends BaseComponent
 {
-    private static $uniqueId = 0;
+    private static int $uniqueId = 0;
 
     protected ServiceEventDetail $serviceTeam;
     protected int $forEventId;

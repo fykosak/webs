@@ -11,7 +11,6 @@ use Nette\Application\BadRequestException;
 
 class ReportsPresenter extends BasePresenter
 {
-
     private ReportService $reportService;
 
     public function injectReportService(ReportService $reportService): void
@@ -26,7 +25,8 @@ class ReportsPresenter extends BasePresenter
     public function renderDefault(): void
     {
         $this->template->reports = $this->reportService->getTable()
-            ->where('lang = ? AND event_id = ?', $this->lang, $this->getEvent()->eventId);
+            ->where('lang', $this->lang)
+            ->where('event_id', $this->getEvent()->eventId);
         $this->template->year = $this->getEvent()->begin->format('Y');
         $this->setPageTitle(new PageTitle(null, _('Contestants\' reports')));
     }

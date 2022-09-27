@@ -5,17 +5,15 @@ declare(strict_types=1);
 namespace App\Modules\Fof\ArchiveModule;
 
 use App\Components\ImageGallery\ImageGalleryControl;
-use Nette\Application\BadRequestException;
 
 class ErasmusPresenter extends BasePresenter
 {
 
     /**
-     * @throws BadRequestException
      * @throws \Throwable
      */
     protected function createComponentGallery(): ImageGalleryControl
     {
-        return new ImageGalleryControl($this->context);
+        return new ImageGalleryControl($this->getContext());
     }
 }

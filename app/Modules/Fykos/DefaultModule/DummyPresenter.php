@@ -16,6 +16,9 @@ class DummyPresenter extends BasePresenter
         $this->downloader = $downloader;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderDefault(): void
     {
         $this->template->results = json_decode($this->downloader->download(new SeriesResultsRequest(1, 35, 1)), true);

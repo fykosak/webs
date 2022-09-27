@@ -40,7 +40,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
                     [$year, $month] = explode('-', $this->eventYear);
                 }
                 $events = $this->serviceEvent->getEventsByYear(
-                    [$this->context->getParameters()["eventTypeId"]],
+                    [$this->getContext()->getParameters()["eventTypeId"]],
                     +$year
                 );
                 if (count($events)) {
@@ -48,7 +48,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
                 }
             }
             if (!isset($event)) {
-                $event = $this->serviceEvent->getNewest([$this->context->getParameters()["eventTypeId"]]);
+                $event = $this->serviceEvent->getNewest([$this->getContext()->getParameters()["eventTypeId"]]);
             }
 
             if (!isset($event)) {
