@@ -11,10 +11,10 @@
     "GPL-3.0"
   ],
   "require": {
-    "php": ">= 7.4",
+    "php": "7.4.*",
     "nette/nette": "^v3.1.0",
     "fykosak/nette-orm": "dev-master#0aa2b76",
-    "fykosak/nette-fksdb-downloader": "v2.1.0-RC",
+    "fykosak/nette-fksdb-downloader": "dev-dev-results#7f42296",
     "fykosak/nette-fks-utils": "dev-master#469ab13",
     "ext-soap": "*",
     "ext-dom": "*",
@@ -22,7 +22,7 @@
     "h4kuna/assets": "^1.1"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "3.6.0",
+    "squizlabs/php_codesniffer": "^3.6.0",
     "nette/tester": "^v2.4.1"
   },
   "scripts": {
