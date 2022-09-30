@@ -41,14 +41,13 @@ abstract class BasePresenter extends \App\Modules\Core\EventWebPresenter
     protected function getNavItems(): array
     {
         $items = [];
-
-        $items[] = new NavItem(
-            new PageTitle(null, "Minulé ročníky", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Archive:',
-        );
         $items[] = new NavItem(
             new PageTitle(null, "Aktuální ročník", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             'Current:',
+        );
+        $items[] = new NavItem(
+            new PageTitle(null, "Minulé ročníky", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            'Archive:',
         );
 
         return $items;
