@@ -1,9 +1,12 @@
-
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>Základní informace</h1>
-            <p>DSEF 2022 se bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} v Troji. Registraci spustíme {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n. Y'}. Podrobnější informace zveřejníme brzy. Pokud máte nějaký dotaz, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</p>
+            <p>DSEF 2022 se bude
+                konat {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'j. n. Y'} v Troji. Registrace začala {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin|date:'j. n. Y'} a končí {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd|date:'j. n. Y'}
+                . Rozvržení jednotlivých exkurzí a doplňující informace k programu naleznete níže na stránce, informace
+                k přihlašování pak v sekci <a href="#prihlasovani">Přihlašování</a>. Pokud máte nějaký dotaz nebo
+                problém, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</p>
         </section>
     </div>
 
@@ -12,280 +15,269 @@
             <h1>Harmonogram dne</h1>
 
             <h4 id="zacatek-dsefu">Začátek DSEFu</h4>
-            <div class="level4">
-                <ul>
-                   	<li class="level1"><div class="li">  Příjezd pro ubytované v hostelu je v neděli od 13:00 do večera. Pondělní snídaně je plánovaná na 7:00. </div>
-                    </li>
-                  	<li class="level1"><div class="li"> DSEF začne v pondělí registrací účastníků, která proběhne mezi <strong>8:00 a 8:30 na Matematicko-fyzikální fakultě ve vestibulu budovy T na adrese V Holešovičkách 2</strong>. Následovat pak bude oficiální zahájení a ranní přednáška.</div>
-                    </li>
-                    
-                </ul>
-
-            </div>
+            <ul>
+                <li>Příjezd pro ubytované v hostelu je v neděli od 13:00 do večera. Pondělní snídaně je plánovaná na
+                    7:00.
+                </li>
+                <li>DSEF začne v pondělí registrací účastníků, která proběhne mezi <strong>8:00 a 8:30 na
+                        Matematicko-fyzikální fakultě ve vestibulu budovy T na adrese V Holešovičkách 2</strong>.
+                    Následovat pak bude oficiální zahájení a ranní přednáška.
+                </li>
+            </ul>
 
             <h4 id="ranni-prednaska">Ranní přednáška</h4>
-            <div class="level4">
-
-                <p>
-                    <strong> </strong>
-                </p>
-
-                <p>
-                    Den začne přednáškou.
-                </p>
-
-            </div>
-             <h4 id="exkurze">Exkurze</h4>
-        <div class="level4">
-
             <p>
-                Při přihlášení si zvolíte jednu dopolední a odpolední skupinu; níže naleznete informace, jaké exkurze vás čekají. Dopolední program probíhá na pracovištích MFF a odpolední na různých vědeckých institucích v Praze a okolí. Skupinu bude možné v přihlášce změnit do konce registrace, tj. 4. listopadu.
+                Den začne přednáškou; její název a jméno přednášejícícho zveřejníme brzy.
             </p>
-          <div class="table sectionedit3"><table class="inline table">
-                    <thead>
-                    <tr class="row0">
-                        <th class="col0 header" colspan="2"> </th><th class="col2 header" colspan="2"> Dopolední exkurze </th>
-                    </tr>
-                    </thead>
-                    <tbody><tr class="row1">
-                        <td class="col0"> </td><td class="col1"> 10:15 – 10:40 </td><td class="col2"> 10:50 – 11:15 </td><td class="col3"> 11:25 – 11:50 </td>
-                    </tr>
-                    <tr class="row2">
-                        <th class="col0">Alfa </th><td class="col1"> <a href="#Skupina-fyziky-povrchů" title="rocnik36:dsef:start ↵" class="wikilink1">SFPo</a> </td><td class="col2"> <a href="#Oddělení-Mössbauerovy-spektroskopie" title="rocnik36:dsef:start ↵" class="wikilink1">MbS1</a> </td><td class="col3"> <a href="#Skupina-nanomateriálů-Near-ambient-pressure" title="rocnik36:dsef:start ↵" class="wikilink1">NAP</a> </td>
-                    </tr>
-                    <tr class="row3">
-                        <th class="col0">Beta </th><td class="col1"> <a href="#Katedra-fyziky-atmosféry" title="rocnik36:dsef:start ↵" class="wikilink1">KFA</a> </td><td class="col2"> <a href="#Skupina-fyziky-povrchů" title="rocnik36:dsef:start ↵" class="wikilink1">SFPo</a> </td><td class="col3"> <a href="#Řádkovací-tunelový-mikroskop" title="rocnik36:dsef:start ↵" class="wikilink1">STM</a> </td>
-                    </tr>
-                    <tr class="row4">
-                        <th class="col0">Gama </th><td class="col1"> <a href="#Řádkovací-tunelový-mikroskop" title="rocnik36:dsef:start ↵" class="wikilink1">STM</a> </td><td class="col2"> <a href="#Interaktivní-fyzikální-laboratoř" title="rocnik36:dsef:start ↵" class="wikilink1">IFL</a> </td><td class="col3"> <a href="#Skupina-fyziky-povrchů" title="rocnik36:dsef:start ↵" class="wikilink1">SFPo</a> </td>
-                    </tr>
-                    <tr class="row5">
-                        <th class="col0">Delta </th><td class="col1"> <a href="#Skupina-kosmické-fyziky" title="rocnik36:dsef:start ↵" class="wikilink1">SKF</a> </td><td class="col2"> <a href="#Řádkovací-tunelový-mikroskop" title="rocnik36:dsef:start ↵" class="wikilink1">STM</a> </td><td class="col3"> <a href="#Interaktivní-fyzikální-laboratoř" title="rocnik36:dsef:start ↵" class="wikilink1">IFL</a> </td>
-                    </tr>
-                    <tr class="row6">
-                        <th class="col0">Epsilon </th><td class="col1"> <a href="#Skupina-fyziky-plasmatu" title="rocnik36:dsef:start ↵" class="wikilink1">SFPl</a> </td><td class="col2"> <a href="#Skupina-kosmické-fyziky" title="rocnik36:dsef:start ↵" class="wikilink1">SKF</a> </td><td class="col3"> <a href="#Katedra-fyziky-atmosféry" title="rocnik36:dsef:start ↵" class="wikilink1">KFA</a> </td>
-                    </tr>
-                    <tr class="row7">
-                        <th class="col0">Kappa </th><td class="col1"> <a href="#Urychlovač-Van-der-Graaff" title="rocnik36:dsef:start ↵" class="wikilink1">VDG</a> </td><td class="col2"> <a href="#Oddělení-Mössbauerovy-spektroskopie" title="rocnik36:dsef:start ↵" class="wikilink1">MbS2</a> </td><td class="col3"> <a href="#Skupina-kosmické-fyziky" title="rocnik36:dsef:start ↵" class="wikilink1">SKF</a> </td>
-                    </tr>
-                    <tr class="row8">
-                        <th class="col0">Ióta </th><td class="col1"> <a href="#Interaktivní-fyzikální-laboratoř" title="rocnik36:dsef:start ↵" class="wikilink1">IFL</a> </td><td class="col2"> <a href="#Oddělení-Mössbauerovy-spektroskopie" title="rocnik36:dsef:start ↵" class="wikilink1">MbS3</a> </td><td class="col3"> <a href="#Skupina-fyziky-plasmatu" title="rocnik36:dsef:start ↵" class="wikilink1">SFPl</a> </td>
-                    </tr>
-                    
-                    </tbody></table></div>
-            <div class="table sectionedit4"><table class="inline table">
-                    <thead>
-                    <tr class="row0">
-                        <th class="col0 header" colspan="3"> </th><th class="col2 header" colspan="2"> Odpolední exkurze </th>
-                    </tr>
-                    </thead>
-                    <tbody><tr class="row1">
-                        <td class="col0"> </td><td class="col1" colspan="2"> 13:30 – 14:15 </td><td class="col3"> 14:30 – cca 16:00 </td>
-                    </tr>
-                    <tr class="row2">
-                        <th class="col0" colspan="2">Theta </th><td class="col2" colspan="2"> <a href="#Český-hydrometeorologický-ústav-v-Komořanech" title="rocnik36:dsef:start ↵" class="wikilink1">ČHMÚ</a> </td>
-                    </tr>
-                    <tr class="row3">
-                        <th class="col0" colspan="2">Lambda </th><td class="col2" colspan="2"> <a href="#Ústav-jaderného-výzkumu-Řež" title="rocnik36:dsef:start ↵" class="wikilink1">Řež</a> </td>
-                    </tr>
-                    <tr class="row4">
-                        <th class="col0">Pí </th><td class="col1" colspan="2"> <a href="#Prague-Asterix-Laser-System" title="rocnik36:dsef:start ↵" class="wikilink1">PALS</a> </td><td class="col3"> <a href="THz spektroskopie" title="rocnik35:dsef:start ↵" class="wikilink1">THz</a> </td>
-                    </tr>
-                    <tr class="row5">
-                        <th class="col0">Sigma </th><td class="col1" colspan="2"> <a href="#THz-spektroskopie" title="rocnik36:dsef:start ↵" class="wikilink1">THz</a> </td><td class="col3"> <a href="Prague Asterix Laser System" title="rocnik35:dsef:start ↵" class="wikilink1">PALS</a> </td>
-                    </tr>
-                    <tr class="row6">
-                        <th class="col0" colspan="2">Omega </th><td class="col2" colspan="2"> <a href="#ELI-Beamlines-a-HiLASE-centrum-Dolní-Břežany" title="rocnik36:dsef:start ↵" class="wikilink1">ELI</a> </td>
-                    </tr>
-                    <tr class="row7">
-                        <th class="col0" colspan="2">Ypsilon </th><td class="col2" colspan="2"> <a href="#prohlidka-vybranych-laboratori-fyzikalniho-ustavu-av-cr-fzu-na-slovance" title="rocnik36:dsef:start ↵" class="wikilink1">FZUS</a> </td>
-                    </tr>
-                    <tr class="row8">
-                        <th class="col0" colspan="2">Zéta </th><td class="col2" colspan="2"> <a href="#prohlidka-vybranych-laboratori-fyzikalniho-ustavu-av-cr-fzu-cukrovarnicka" title="rocnik36:dsef:start ↵" class="wikilink1">FZUC</a> </td>
-                    </tr>
-                    </tbody></table></div>
 
-        </div>
+            <h4 id="exkurze">Exkurze</h4>
+            <p>
+                Při přihlášení si zvolíte jednu dopolední a odpolední skupinu; níže naleznete informace, jaké exkurze
+                vás čekají. Dopolední program probíhá na pracovištích MFF a odpolední na různých vědeckých institucích v
+                Praze a okolí. Skupinu bude možné v přihlášce změnit do konce registrace,
+                tj. {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd|date:'j. n. Y'}.
+            </p>
+            <div class="table sectionedit3">
+                <table class="inline table">
+                    <thead>
+                    <tr class="row0">
+                        <th class="col0 header" colspan="2"></th>
+                        <th class="col2 header" colspan="2"> Dopolední exkurze</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="row1">
+                        <td class="col0"></td>
+                        <td class="col1"> 10:15 – 10:40</td>
+                        <td class="col2"> 10:50 – 11:15</td>
+                        <td class="col3"> 11:25 – 11:50</td>
+                    </tr>
+                    <tr class="row2">
+                        <th class="col0">Alfa</th>
+                        <td class="col1"><a href="#Skupina-fyziky-povrchů" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">SFPo</a></td>
+                        <td class="col2"><a href="#Oddělení-Mössbauerovy-spektroskopie" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">MbS1</a></td>
+                        <td class="col3"><a href="#Skupina-nanomateriálů-Near-ambient-pressure"
+                                            title="rocnik36:dsef:start ↵" class="wikilink1">NAP</a></td>
+                    </tr>
+                    <tr class="row3">
+                        <th class="col0">Beta</th>
+                        <td class="col1"><a href="#Katedra-fyziky-atmosféry" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">KFA</a></td>
+                        <td class="col2"><a href="#Skupina-fyziky-povrchů" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">SFPo</a></td>
+                        <td class="col3"><a href="#Řádkovací-tunelový-mikroskop" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">STM</a></td>
+                    </tr>
+                    <tr class="row4">
+                        <th class="col0">Gama</th>
+                        <td class="col1"><a href="#Řádkovací-tunelový-mikroskop" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">STM</a></td>
+                        <td class="col2"><a href="#Interaktivní-fyzikální-laboratoř" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">IFL</a></td>
+                        <td class="col3"><a href="#Skupina-fyziky-povrchů" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">SFPo</a></td>
+                    </tr>
+                    <tr class="row5">
+                        <th class="col0">Delta</th>
+                        <td class="col1"><a href="#Skupina-kosmické-fyziky" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">SKF</a></td>
+                        <td class="col2"><a href="#Řádkovací-tunelový-mikroskop" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">STM</a></td>
+                        <td class="col3"><a href="#Interaktivní-fyzikální-laboratoř" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">IFL</a></td>
+                    </tr>
+                    <tr class="row6">
+                        <th class="col0">Epsilon</th>
+                        <td class="col1"><a href="#Skupina-fyziky-plasmatu" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">SFPl</a></td>
+                        <td class="col2"><a href="#Skupina-kosmické-fyziky" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">SKF</a></td>
+                        <td class="col3"><a href="#Katedra-fyziky-atmosféry" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">KFA</a></td>
+                    </tr>
+                    <tr class="row7">
+                        <th class="col0">Kappa</th>
+                        <td class="col1"><a href="#Urychlovač-Van-der-Graaff" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">VDG</a></td>
+                        <td class="col2"><a href="#Oddělení-Mössbauerovy-spektroskopie" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">MbS2</a></td>
+                        <td class="col3"><a href="#Skupina-kosmické-fyziky" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">SKF</a></td>
+                    </tr>
+                    <tr class="row8">
+                        <th class="col0">Ióta</th>
+                        <td class="col1"><a href="#Interaktivní-fyzikální-laboratoř" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">IFL</a></td>
+                        <td class="col2"><a href="#Oddělení-Mössbauerovy-spektroskopie" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">MbS3</a></td>
+                        <td class="col3"><a href="#Skupina-fyziky-plasmatu" title="rocnik36:dsef:start ↵"
+                                            class="wikilink1">SFPl</a></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="table sectionedit4">
+                <table class="inline table">
+                    <thead>
+                    <tr class="row0">
+                        <th class="col0 header" colspan="3"></th>
+                        <th class="col2 header" colspan="2"> Odpolední exkurze</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="row1">
+                        <td class="col0"></td>
+                        <td class="col1" colspan="2"> 13:30 – 14:15</td>
+                        <td class="col3"> 14:30 – cca 16:00</td>
+                    </tr>
+                    <tr class="row2">
+                        <th class="col0" colspan="2">Theta</th>
+                        <td class="col2" colspan="2"><a href="#Český-hydrometeorologický-ústav-v-Komořanech"
+                                                        title="rocnik36:dsef:start ↵" class="wikilink1">ČHMÚ</a></td>
+                    </tr>
+                    <tr class="row3">
+                        <th class="col0" colspan="2">Lambda</th>
+                        <td class="col2" colspan="2"><a href="#Ústav-jaderného-výzkumu-Řež"
+                                                        title="rocnik36:dsef:start ↵" class="wikilink1">Řež</a></td>
+                    </tr>
+                    <tr class="row4">
+                        <th class="col0">Pí</th>
+                        <td class="col1" colspan="2"><a href="#Prague-Asterix-Laser-System"
+                                                        title="rocnik36:dsef:start ↵" class="wikilink1">PALS</a></td>
+                        <td class="col3"><a href="THz spektroskopie" title="rocnik35:dsef:start ↵"
+                                            class="wikilink1">THz</a></td>
+                    </tr>
+                    <tr class="row5">
+                        <th class="col0">Sigma</th>
+                        <td class="col1" colspan="2"><a href="#THz-spektroskopie" title="rocnik36:dsef:start ↵"
+                                                        class="wikilink1">THz</a></td>
+                        <td class="col3"><a href="Prague Asterix Laser System" title="rocnik35:dsef:start ↵"
+                                            class="wikilink1">PALS</a></td>
+                    </tr>
+                    <tr class="row6">
+                        <th class="col0" colspan="2">Omega</th>
+                        <td class="col2" colspan="2"><a href="#ELI-Beamlines-a-HiLASE-centrum-Dolní-Břežany"
+                                                        title="rocnik36:dsef:start ↵" class="wikilink1">ELI</a></td>
+                    </tr>
+                    <tr class="row7">
+                        <th class="col0" colspan="2">Ypsilon</th>
+                        <td class="col2" colspan="2"><a
+                                    href="#prohlidka-vybranych-laboratori-fyzikalniho-ustavu-av-cr-fzu-na-slovance"
+                                    title="rocnik36:dsef:start ↵" class="wikilink1">FZUS</a></td>
+                    </tr>
+                    <tr class="row8">
+                        <th class="col0" colspan="2">Zéta</th>
+                        <td class="col2" colspan="2"><a
+                                    href="#prohlidka-vybranych-laboratori-fyzikalniho-ustavu-av-cr-fzu-cukrovarnicka"
+                                    title="rocnik36:dsef:start ↵" class="wikilink1">FZUC</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+    </div>
     </section>
-    	</div>
-        </section>
+    </div>
+    </section>
     </div>
 
     <div class="panel color-auto">
-        <section class="inner-container">
+        <section class="inner-container" id="prihlasovani">
             <h1>Přihlašování</h1>
             <p>
-                Exkurze mají dopolední a odpolední část, v každé z nich jsou účastníci rozdělení do několika skupin, jejichž program se liší. Svoji skupinu si zvolíte už v přihlášce a pokud bude volná kapacita, je možné ji později změnit podle vašich preferencí.
+                Exkurze mají dopolední a odpolední část, v každé z nich jsou účastníci rozdělení do několika skupin,
+                jejichž program se liší. Svoji skupinu si zvolíte už v přihlášce a pokud bude volná kapacita, je možné
+                ji později změnit podle vašich preferencí.
             </p>
-            <h3>Jak se přihlásit?</h3>
-            <ul>
-                <li>Odkaz na přihlášení se po začátku registrace ({$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n. Y'}) naleznete na liště nahoře nebo dole na stránce.</li>
-                <li>Uzávěrka přihlášek bude {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. Y'} o půlnoci či v okamžiku zaplnění akce. Kapacita akce je zhruba 90 účastníků.</li>
-                <li>Stávající řešitelé FYKOSu (či registrované osoby) se hlásí pod e-mailem, pod kterým jsou u nás registrovaní – nebudete muset vyplňovat všechno znovu. Noví účastníci musí vyplnit i svoje základní údaje (adresa, škola).</li>
-                <li>Pokud by při vyplňování přihlášky nastal nějaký problém, neváhejte se co nejdřív ozvat na náš <a href="mailto:dsef@dsef.cz">e-mail</a>.</li>
-            </ul>
-            <h3>Podmínky přihlašování</h3>
-            <ul>
-                <li>Předpokládáme účast na celé akci. Pokud byste se chtěli zúčastnit jen části, můžete se přihlásit na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a> jako náhradníci.</li>
-                <li>Účast na akci je <strong>zdarma</strong>.</li>
-                <li>Před odesláním formuláře zkontrolujte správnost zadaných údajů, zejména e-mail. Údaje můžete sice po přihlášení (v případě potřeby) upravit, byli bychom ale rádi, aby byly definitivní hned po přihlášení.</li>
-                <li>Pokud by měl zájem se účastnit váš učitel, tak se nejprve ozvěte na <a href="mailto:dsef@dsef.cz">kontaktní e-mail</a>, ale neměl by být problém, aby se účastnil jako běžný účastník.</li>
-                <li>Osoby s jiným místem trvalého bydliště než ČR a SR se před přihlášením ozvou na <a href="mailto:dsef@dsef.cz">kontaktní e-mail</a>.</li>
-            </ul>
+            <p>
+                Odkaz na přihlášení naleznete na liště dole na stránce nebo na <a n:href=":Default:Registration:">tomto
+                    odkazu</a>. Tam také naleznete všechny podmínky a informace k přihlašování.
+            </p>
         </section>
     </div>
-<div class="panel color-auto">
-    <section class="inner-container">
-        <h1>Anotace exkurzí</h1>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>Anotace exkurzí</h1>
 
-        <h4 id="Skupina-fyziky-povrchů">Skupina fyziky povrchů (SFPo)</h4>
-        <div class="level4">
-
-            <p>
-            </p>
-
-        </div>
-
-        <h4 id="Katedra-fyziky-atmosféry">Katedra fyziky atmosféry (KFA)</h4>
-        <div class="level4">
-
-            <p>
-             </p>
-
-        </div>
-
-        <h4 id="Řádkovací-tunelový-mikroskop">Řádkovací tunelový mikroskop (STM)</h4>
-        <div class="level4">
+            <h4 id="Skupina-fyziky-povrchů">Skupina fyziky povrchů (SFPo)</h4>
 
             <p>
             </p>
 
-        </div>
 
-        <h4 id="Skupina-kosmické-fyziky">Skupina kosmické fyziky (SKF)</h4>
-        <div class="level4">
+            <h4 id="Katedra-fyziky-atmosféry">Katedra fyziky atmosféry (KFA)</h4>
 
             <p>
             </p>
 
-        </div>
+    <h4 id="Řádkovací-tunelový-mikroskop">Řádkovací tunelový mikroskop (STM)</h4>
+    <p></p>
 
-        <h4 id="Skupina-fyziky-plasmatu">Skupina fyziky plasmatu (SFPl)</h4>
-        <div class="level4">
+    <h4 id="Skupina-kosmické-fyziky">Skupina kosmické fyziky (SKF)</h4>
+    <p></p>
 
-            <p>
-            </p>
+    <h4 id="Skupina-fyziky-plasmatu">Skupina fyziky plasmatu (SFPl)</h4>
+    <p></p>
 
-        </div>
+    <h4 id="Urychlovač-Van-der-Graaff">Urychlovač Van der Graaff (VdG)</h4>
+    <p></p>
 
-        <h4 id="Urychlovač-Van-der-Graaff">Urychlovač Van der Graaff (VdG)</h4>
-        <div class="level4">
+    <h4 id="Interaktivní-fyzikální-laboratoř">Interaktivní fyzikální laboratoř (IFL)</h4>
+    <p></p>
 
-            <p>
-            </p>
+    <h4 id="Oddělení-Mössbauerovy-spektroskopie">Oddělení Mössbauerovy spektroskopie (MbS1)</h4>
+    <p></p>
 
-        </div>
+    <h4 id="Oddělení-Mössbauerovy-spektroskopie">Oddělení Mössbauerovy spektroskopie (helium) (MbS2)</h4>
+    <p></p>
 
-        <h4 id="Interaktivní-fyzikální-laboratoř">Interaktivní fyzikální laboratoř (IFL)</h4>
-        <div class="level4">
+    <h4 id="Oddělení-Mössbauerovy-spektroskopie">Oddělení Mössbauerovy spektroskopie (supravodiče) (MbS3)</h4>
+    <p></p>
+    <h4 id="Skupina-nanomateriálů-Near-ambient-pressure">Skupina nanomateriálů: Near ambient pressure (NAP)</h4>
+    <p></p>
 
-            <p>
-            </p>
+    <h4 id="Český-hydrometeorologický-ústav-v-Komořanech">Český hydrometeorologický ústav v Komořanech (ČHMÚ)</h4>
+    <p></p>
 
-        </div>
+    <h4 id="THz-spektroskopie">THz spektroskopie (THz)</h4>
 
-        <h4 id="Oddělení-Mössbauerovy-spektroskopie">Oddělení Mössbauerovy spektroskopie (MbS1)</h4>
-        <div class="level4">
+    <p>
+        THz spektroskopie je relativně mladá spektroskopická metoda, zaměřující se na oblast elektromagnetického
+        spektra ležící na rozhraní mikrovlnného a infračerveného záření. Využívá se například ke zkoumání
+        fotonických krystalů nebo meta materiálů.
+    </p>
 
-            <p>
-             </p>
 
-        </div>
+    <h4 id="Prague-Asterix-Laser-System">Prague Asterix Laser System (PALS)</h4>
+    <p>
+        Vysoce výkonný jodový laserový systém Prague Asterix Laser System, jeden z největších v Evropě. Dosahuje
+        špičkového výkonu v pulsu až 3 TW. Svazek je zaostřen do malého bodu v reakční komoře, kde dokáže vytvořit
+        plazma o teplotě milionů stupňů Celsia.
+    </p>
 
-       <h4 id="Oddělení-Mössbauerovy-spektroskopie">Oddělení Mössbauerovy spektroskopie (helium) (MbS2)</h4>
-         <div class="level4">
+    <h4 id="prohlidka-vybranych-laboratori-fyzikalniho-ustavu-av-cr-fzu-cukrovarnicka">Prohlídka vybraných laboratoří
+        Fyzikálního ústavu AV ČR Cukrovarnická (FZUC)</h4>
+    <p>
+        Víte, jak se připravují magnetické polovodiče, nejúčinnější solární články nebo optické materiály, co to
+        jsou scintilátory a k čemu to vlastně všechno je? Jak co nejlépe využít odpadní teplo z aut nebo jak fungují
+        superrychlé maglevy? V památkově chráněné historické budově se seznámíte s tou nejmodernější vědou v
+        několika laboratořích.
+    </p>
 
-            <p>
-            </p>
+    <h4 id="prohlidka-vybranych-laboratori-fyzikalniho-ustavu-av-cr-fzu-na-slovance">Prohlídka vybraných laboratoří
+        Fyzikálního ústavu AV ČR Na Slovance (FZUS)</h4>
+    <p></p>
 
-        </div>
+    <h4 id="Ústav-jaderného-výzkumu-Řež">Ústav jaderného výzkumu Řež (Řež)</h4>
+    <p></p>
 
-     <h4 id="Oddělení-Mössbauerovy-spektroskopie">Oddělení Mössbauerovy spektroskopie (supravodiče) (MbS3)</h4>
-           <div class="level4">
-
-            <p>
-            </p>
-
-        </div>
-
-        <h4 id="Skupina-nanomateriálů-Near-ambient-pressure">Skupina nanomateriálů: Near ambient pressure (NAP)</h4>
-        <div class="level4">
-
-            <p>
-            </p>
-
-        </div>
-
-        <h4 id="Český-hydrometeorologický-ústav-v-Komořanech">Český hydrometeorologický ústav v Komořanech (ČHMÚ)</h4>
-        <div class="level4">
-
-            <p>
-            </p>
-
-        </div>
-
-        <h4 id="THz-spektroskopie">THz spektroskopie (THz)</h4>
-        <div class="level4">
-
-            <p>
-                THz spektroskopie je relativně mladá spektroskopická metoda, zaměřující se na oblast elektromagnetického spektra ležící na rozhraní mikrovlnného a infračerveného záření. Využívá se například ke zkoumání fotonických krystalů nebo meta materiálů.
-            </p>
-
-        </div>
-
-        <h4 id="Prague-Asterix-Laser-System">Prague Asterix Laser System (PALS)</h4>
-        <div class="level4">
-
-            <p>
-                Vysoce výkonný jodový laserový systém Prague Asterix Laser System, jeden z největších v Evropě. Dosahuje špičkového výkonu v pulsu až 3 TW. Svazek je zaostřen do malého bodu v reakční komoře, kde dokáže vytvořit plazma o teplotě milionů stupňů Celsia.
-            </p>
-
-        </div>
-
-        <h4 id="prohlidka-vybranych-laboratori-fyzikalniho-ustavu-av-cr-fzu-cukrovarnicka">Prohlídka vybraných laboratoří Fyzikálního ústavu AV ČR Cukrovarnická (FZUC)</h4>
-        <div class="level4">
-
-            <p>
-                Víte, jak se připravují magnetické polovodiče, nejúčinnější solární články nebo optické materiály, co to jsou scintilátory a k čemu to vlastně všechno je? Jak co nejlépe využít odpadní teplo z aut nebo jak fungují superrychlé maglevy? V památkově chráněné historické budově se seznámíte s tou nejmodernější vědou v několika laboratořích.
-            </p>
-
-        </div>
-
-         <h4 id="prohlidka-vybranych-laboratori-fyzikalniho-ustavu-av-cr-fzu-na-slovance">Prohlídka vybraných laboratoří Fyzikálního ústavu AV ČR Na Slovance (FZUS)</h4>
-       <div class="level4">
-
-            <p>
-             </p>
-
-        </div>
-
-        <h4 id="Ústav-jaderného-výzkumu-Řež">Ústav jaderného výzkumu Řež (Řež)</h4>
-        <div class="level4">
-
-            <p>
-             </p>
-
-        </div>
-
-        <h4 id="ELI-Beamlines-a-HiLASE-centrum-Dolní-Břežany">ELI Beamlines a HiLASE centrum Dolní Břežany</h4>
-        <div class="level4">
-
-            <p>
-             </p>
-
-        </div>
+    <h4 id="ELI-Beamlines-a-HiLASE-centrum-Dolní-Břežany">ELI Beamlines a HiLASE centrum Dolní Břežany</h4>
+    <p></p>
     </section>
-</div>
+    </div>
 
 {/block}
 

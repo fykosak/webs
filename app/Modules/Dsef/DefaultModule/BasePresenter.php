@@ -17,6 +17,10 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     {
         $items = [];
         $items[] = new NavItem(
+            new PageTitle(null, "Registrace", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            'Registration:',
+        );
+        $items[] = new NavItem(
             new PageTitle(null, "Aktuální ročník", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             'Current:',
         );
