@@ -29,7 +29,7 @@
                 <h1>
                     {switch $lang}
                         {case "cs"}Fyziklání Online {$eventKey["event"]->begin|date: "Y"}
-                        {default}Online Physics Brawl {$eventKey["event"]->begin|date: "Y"}
+                        {default}Physics Brawl Online{$eventKey["event"]->begin|date: "Y"}
                     {/switch}
 
                     <a class="btn btn-primary" n:href=":Archive:Default: eventYear:$eventKey['key']">
