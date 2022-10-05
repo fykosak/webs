@@ -113,6 +113,19 @@
   }
 }
 
+.price-box.propagacni-box {
+  background-color: #666666;
+  background-image: url("./hrnecek.png");
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: 200% -136%;
+
+  &:hover {
+    background-size: 75%*1.1;
+    background-position: 200% -36%;
+  }
+}
+
 .price-box.knihy-box {
   background-color: #5a83c5;
   background-image: url("./blue_book.png");
