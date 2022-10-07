@@ -16,6 +16,13 @@
         </section>
     </div>
 
+    <div class="panel color-auto">
+        <section class="inner-container">
+            {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+            {ifset title}<h1>{include title}</h1>{/ifset}
+        </section>
+    </div>
+
     {foreach $eventKeys AS $eventKey}
         <div class="panel color-auto">
             <section class="inner-container">
