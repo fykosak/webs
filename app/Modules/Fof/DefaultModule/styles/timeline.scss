@@ -16,7 +16,7 @@ $timeline-line-width: .2rem;
         }
     }
 
-    & > div::before {
+    & > div::before, &::before {
         content: '';
         position: absolute;
         top: 0;
@@ -24,6 +24,11 @@ $timeline-line-width: .2rem;
         height: 100%;
         width: $timeline-line-width;
         background: $text-dimmed;
+    }
+
+    &::before {
+        background: none;
+        border-left: $timeline-line-width dotted $text-dimmed;
     }
 
     & > div > div {
