@@ -7,24 +7,29 @@
 {*        {default}History and Previous Fyziklani*}
 {*    {/switch}*}
 {/block}
-{block title}
-    {switch $lang}
-        {case cs}Jak soutěž vznikla?
-        {default}What was the origin of the competition?
-    {/switch}
-    <a class="btn btn-primary my-2" n:href="Archive:default">
+{*{block title}*}
+{*    {switch $lang}*}
+{*        {case cs}Jak soutěž vznikla?*}
+{*        {default}What was the origin of the competition?*}
+{*    {/switch}*}
+
+{*{/block}*}
+
+{block main}
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>{switch $lang}
+            {case cs}Historie Fyziklání
+            {default}History and Previous Fyziklani
+            {/switch}
+        <a class="btn btn-primary my-2" n:href="Archive:default">
         <div>
             {switch $lang}
                 {case cs}Minulé ročníky
                 {default}Previous years of Fyziklani
             {/switch}
-        </div>
-    </a>
-{/block}
-
-{block content}
-
-
+        </div></a>
+        </h1>
     {switch $lang}
     {case cs}
         <p>
@@ -64,6 +69,7 @@
             In 2021, due to covid-19 restrictions, Fyziklani took place online. Despite such complications, more than 400 teams from 36 countries participated.
         </p>
     {/switch}
-
+    </section>
+</div>
 
 {/block}
