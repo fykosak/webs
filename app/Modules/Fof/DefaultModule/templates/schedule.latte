@@ -52,8 +52,8 @@
     <div>
         <span class="timeline-element-icon"></span>
         <div class="timeline-element-content">
-            <div class="timeline-title">{switch $lang}{case cs}Speciální program Fyziklani International{default}Special program Fyziklani International{/switch}</div>
-            <time class="timeline-element-date">13:45 - 14:00</time>
+            <div class="timeline-title">{switch $lang}{case cs}Speciální program{default}Special program{/switch}</div>
+            <time class="timeline-element-date">13:30 - 13:45</time>
         </div>
     </div>
 
@@ -79,17 +79,11 @@
             {case cs}
             <div class="timeline-element-content">
                 <div class="timeline-title">Rozbor řešení úloh</div>
-                <p>
-                    Místnosti <strong>F1</strong> (v budově Ke Karlovu 5) pro CZ a <strong>M1</strong> (v budově Ke Karlovu 3) pro EN
-                </p>
                 <time class="timeline-element-date">19:00 - 20:30</time>
             </div>
         {default}
             <div class="timeline-element-content">
                 <div class="timeline-title">Analysis</div>
-                <p>
-                    Lecture rooms <strong>M1</strong> (address: Ke Karlovu 3) in EN and <strong>F1</strong> (address: Ke Karlovu 5) in CZ
-                </p>
                 <time class="timeline-element-date">19:00 - 20:30</time>
             </div>
         {/switch}
@@ -102,115 +96,131 @@
         {switch $lang}
             {case cs}
             <div class="timeline-element-content">
-                <div class="timeline-title"><a n:href="Schedule:default#rozvrh-prednasek" style="color: black">Fyzikální přednášky</a></div>
-                <time class="timeline-element-date">09:30 - 11:45</time>
+                <div class="timeline-title"><a n:href="Schedule:default#rozvrh-prednasek" style="color: black">Doprovodný program</a></div>
+                <time class="timeline-element-date">celý den</time>
             </div>
         {default}
             <div class="timeline-element-content">
-                <div class="timeline-title"><a n:href="Schedule:default#rozvrh-prednasek" style="color: black">Physics lectures</a></div>
-                <time class="timeline-element-date">09:30 - 11:45</time>
+                <div class="timeline-title"><a n:href="Schedule:default#rozvrh-prednasek" style="color: black">Accompanying program</a></div>
+                <time class="timeline-element-date">all day</time>
             </div>
         {/switch}
     </div>
-    <div>
-        <span class="timeline-element-icon"></span>
-        {switch $lang}
-            {case cs}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Rozchod, oběd</div>
-                <p>
-                    Přesun na další program na <strong>Náměstí Republiky</strong>
-                </p>
-                <time class="timeline-element-date">12:00 - 14:00</time>
-            </div>
-        {default}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Lunch and transport</div>
-                <time class="timeline-element-date">12:00 - 14:00</time>
-            </div>
-        {/switch}
-    </div>
+{*    <div>*}
+{*        <span class="timeline-element-icon"></span>*}
+{*        {switch $lang}*}
+{*            {case cs}*}
+{*            <div class="timeline-element-content">*}
+{*                <div class="timeline-title">Rozchod, oběd</div>*}
+{*                <p>*}
+{*                    Přesun na další program na <strong>Náměstí Republiky</strong>*}
+{*                </p>*}
+{*                <time class="timeline-element-date">12:00 - 14:00</time>*}
+{*            </div>*}
+{*        {default}*}
+{*            <div class="timeline-element-content">*}
+{*                <div class="timeline-title">Lunch and transport</div>*}
+{*                <time class="timeline-element-date">12:00 - 14:00</time>*}
+{*            </div>*}
+{*        {/switch}*}
+{*    </div>*}
 
-    <div>
-        <span class="timeline-element-icon"></span>
-        {switch $lang}
-            {case cs}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Prohlídka Prahy a muzeí</div>
-                <p>
-                    Navštívíme Národní technické a Národní zemědělské muzeum a také další zajímavá místa v Praze.
-                </p>
-                <time class="timeline-element-date">14:00 - 16:30</time>
-            </div>
-        {default}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Prague and museum tour</div>
-                <p>
-                    We will visit the National Technical Museum, National Museum of Agriculture and take a Prague tour.
-                </p>
-                <time class="timeline-element-date">14:00 - 16:30</time>
-            </div>
-        {/switch}
-    </div>
+{*    <div>*}
+{*        <span class="timeline-element-icon"></span>*}
+{*        {switch $lang}*}
+{*            {case cs}*}
+{*            <div class="timeline-element-content">*}
+{*                <div class="timeline-title">Prohlídka Prahy a muzeí</div>*}
+{*                <p>*}
+{*                    Navštívíme Národní technické a Národní zemědělské muzeum a také další zajímavá místa v Praze.*}
+{*                </p>*}
+{*                <time class="timeline-element-date">14:00 - 16:30</time>*}
+{*            </div>*}
+{*        {default}*}
+{*            <div class="timeline-element-content">*}
+{*                <div class="timeline-title">Prague and museum tour</div>*}
+{*                <p>*}
+{*                    We will visit the National Technical Museum, National Museum of Agriculture and take a Prague tour.*}
+{*                </p>*}
+{*                <time class="timeline-element-date">14:00 - 16:30</time>*}
+{*            </div>*}
+{*        {/switch}*}
+{*    </div>*}
 
-    <div>
-        <span class="timeline-element-icon"></span>
-        {switch $lang}
-            {case cs}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Večeře a přesun</div>
-                <time class="timeline-element-date">16:30 - 18:00</time>
-            </div>
-        {default}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Dinner and transport</div>
-                <time class="timeline-element-date">16:30 - 18:00</time>
-            </div>
-        {/switch}
-    </div>
+{*    <div>*}
+{*        <span class="timeline-element-icon"></span>*}
+{*        {switch $lang}*}
+{*            {case cs}*}
+{*            <div class="timeline-element-content">*}
+{*                <div class="timeline-title">Večeře a přesun</div>*}
+{*                <time class="timeline-element-date">16:30 - 18:00</time>*}
+{*            </div>*}
+{*        {default}*}
+{*            <div class="timeline-element-content">*}
+{*                <div class="timeline-title">Dinner and transport</div>*}
+{*                <time class="timeline-element-date">16:30 - 18:00</time>*}
+{*            </div>*}
+{*        {/switch}*}
+{*    </div>*}
 
-    <div>
-        <span class="timeline-element-icon"></span>
-        {switch $lang}
-            {case cs}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Hvězdárna a planetárium</div>
-                <p>
-                    Podíváme se do Štefánikovy hvězdárny a Planetária Praha.
-                </p>
-                <time class="timeline-element-date">18:00 - 20:00</time>
-            </div>
-        {default}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Observatory and planetarium</div>
-                <p>
-                    We will visit the Štefánik Observatory and Prague Planetarium.
-                </p>
-                <time class="timeline-element-date">18:00 - 20:00</time>
-            </div>
-        {/switch}
-    </div>
+{*    <div>*}
+{*        <span class="timeline-element-icon"></span>*}
+{*        {switch $lang}*}
+{*            {case cs}*}
+{*            <div class="timeline-element-content">*}
+{*                <div class="timeline-title">Hvězdárna a planetárium</div>*}
+{*                <p>*}
+{*                    Podíváme se do Štefánikovy hvězdárny a Planetária Praha.*}
+{*                </p>*}
+{*                <time class="timeline-element-date">18:00 - 20:00</time>*}
+{*            </div>*}
+{*        {default}*}
+{*            <div class="timeline-element-content">*}
+{*                <div class="timeline-title">Observatory and planetarium</div>*}
+{*                <p>*}
+{*                    We will visit the Štefánik Observatory and Prague Planetarium.*}
+{*                </p>*}
+{*                <time class="timeline-element-date">18:00 - 20:00</time>*}
+{*            </div>*}
+{*        {/switch}*}
+{*    </div>*}
 
     <div class="timeline-group">{switch $lang}{case cs}Neděle{default}Sunday{/switch}</div>
 
+{*    <div>*}
+{*        <span class="timeline-element-icon"></span>*}
+{*        {switch $lang}*}
+{*            {case cs}*}
+{*            <div class="timeline-element-content">*}
+{*                <div class="timeline-title"><a n:href="Schedule:default#rozvrh-exkurzi" style="color: black">Exkurze</a></div>*}
+{*                <p>*}
+{*                    Sraz na začátek exkurzí je v budově <strong>v Troji</strong>, adresa V Holešovičkách 2/747.*}
+{*                </p>*}
+{*                <time class="timeline-element-date">08:45 - 11:30</time>*}
+{*            </div>*}
+{*        {default}*}
+{*            <div class="timeline-element-content">*}
+{*                <div class="timeline-title"><a n:href="Schedule:default#rozvrh-exkurzi" style="color: black">Excursions</a></div>*}
+{*                <p>*}
+{*                    Beginning of the excursions is in <strong>Troja building</strong>, address: <strong>V Holešovičkách 2/747</strong>.*}
+{*                </p>*}
+{*                <time class="timeline-element-date">08:45 - 11:30</time>*}
+{*            </div>*}
+{*        {/switch}*}
+{*    </div>*}
+
     <div>
         <span class="timeline-element-icon"></span>
         {switch $lang}
             {case cs}
             <div class="timeline-element-content">
-                <div class="timeline-title"><a n:href="Schedule:default#rozvrh-exkurzi" style="color: black">Exkurze</a></div>
-                <p>
-                    Sraz na začátek exkurzí je v budově <strong>v Troji</strong>, adresa V Holešovičkách 2/747.
-                </p>
-                <time class="timeline-element-date">08:45 - 11:30</time>
+                <div class="timeline-title">Doprovodný program</a></div>
+                <time class="timeline-element-date">celý den</time>
             </div>
         {default}
             <div class="timeline-element-content">
-                <div class="timeline-title"><a n:href="Schedule:default#rozvrh-exkurzi" style="color: black">Excursions</a></div>
-                <p>
-                    Beginning of the excursions is in <strong>Troja building</strong>, address: <strong>V Holešovičkách 2/747</strong>.
-                </p>
-                <time class="timeline-element-date">08:45 - 11:30</time>
+                <div class="timeline-title">Accompanying program</a></div>
+                <time class="timeline-element-date">all day</time>
             </div>
         {/switch}
     </div>
