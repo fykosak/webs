@@ -1,13 +1,7 @@
 {varType string $lang}
 {block subtitle}
-    <div>
-    <a class="btn btn-primary my-2" n:href="Archive:default">
-        {switch $lang}
-            {case cs}Minulé ročníky
-            {default}Previous years of Fyziklani
-        {/switch}
-    </a>
-    </div>
+
+
 {*    {switch $lang}*}
 {*        {case cs}Historie Fyziklání*}
 {*        {default}History and Previous Fyziklani*}
@@ -61,4 +55,13 @@
             In 2021, due to covid-19 restrictions, Fyziklani took place online. Despite such complications, more than 400 teams from 36 countries participated.
         </p>
     {/switch}
+<a class="btn btn-primary my-2" n:href="Archive:default">
+    <div>
+        {switch $lang}
+            {case cs}Minulé ročníky
+            {default}Previous years of Fyziklani
+        {/switch}    </div>
+
+</a>
+
 {/block}
