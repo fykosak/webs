@@ -30,7 +30,7 @@
                     {/switch}
                 </div>
                 <div class="buttons">
-                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
+{*                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>*}
 {*                    <a target="_blank" href="https://static.fykos.cz/fyziklani2022/{switch $lang}{case 'cs'}pruvodce{default}guidebook{/switch}.pdf" class="btn btn-primary">{switch $lang}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>*}
                     <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
