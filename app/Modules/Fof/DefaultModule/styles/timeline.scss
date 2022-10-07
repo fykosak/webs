@@ -9,7 +9,14 @@ $timeline-line-width: .2rem;
     position: relative;
     padding: 1.5rem 0 1rem;
 
-    &::before {
+    & > div {
+        position: relative;
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    & > div::before {
         content: '';
         position: absolute;
         top: 0;
@@ -19,7 +26,7 @@ $timeline-line-width: .2rem;
         background: $text-dimmed;
     }
 
-    & > div {
+    & > div > div {
         position: relative;
         margin: 0 0 1rem;
     }
@@ -37,8 +44,14 @@ $timeline-line-width: .2rem;
     .timeline-group {
         text-transform: uppercase;
         margin: 0 0 1rem;
+        padding: .2rem .5rem;
         font-weight: bold;
-        color: $primary-color;
+        color: white;
+        background: $primary-color;
+
+        margin-left: $timeline-line-position + $wideness + $timeline-line-width / 2 !important;
+        transform: translate(-50%,0);
+        display: inline-block;
     }
 
     .timeline-element-content, .timeline-group {
