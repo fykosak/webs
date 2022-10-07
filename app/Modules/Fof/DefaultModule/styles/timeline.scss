@@ -28,7 +28,7 @@ $timeline-line-width: .2rem;
 
     &::before {
         background: none;
-        border-left: $timeline-line-width dotted $text-dimmed;
+        border-left: $timeline-line-width dashed $text-dimmed;
     }
 
     & > div > div {
