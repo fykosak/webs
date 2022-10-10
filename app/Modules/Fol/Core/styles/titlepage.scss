@@ -142,6 +142,19 @@
   }
 }
 
+.price-box.avast-box {
+  color: black;
+  background-color: #FFDDBF;
+  background-image: url("./avast_pc.png");
+  background-repeat: no-repeat;
+  background-position: 125% 100%;
+  background-size: 80%;
+
+  &:hover {
+    background-size: 80%*1.1;
+  }
+}
+
 .upper-home-countdown {
   text-align: center;
 

@@ -233,16 +233,25 @@
 {*                            {default}Software<br/>Graphmatica<br/>{/switch}*}
 {*                    </a>*}
 
-                    {switch $lang}
+{*                    {switch $lang}
                         {case cs}
-                        <div class="price-box large" style="background-color: #00ae6b; display: flex; align-items: center;">
-                            O dalších cenách jednáme se sponzory...
-                        </div>
-                    {default}
-                        <div class="price-box large" style="background-color: #00ae6b; display: flex; align-items: center;">
-                            We are preparing more prizes...
-                        </div>
-                    {/switch}
+                            <div class="price-box large" style="background-color: #00ae6b; display: flex; align-items: center;">
+                                O dalších cenách jednáme se sponzory...
+                            </div>
+                        {default}
+                            <div class="price-box large" style="background-color: #00ae6b; display: flex; align-items: center;">
+                                We are preparing more prizes...
+                            </div>
+                    {/switch}*}
+
+                    <a class="price-box large avast-box" href="https://avast.com/">
+                        {switch $lang}
+                            {case cs}Licence na<br/>
+                                <img src="{$basePath}/images/logos/avast.png" alt="Avast" style="max-height: 3rem">
+                            {default}License to<br/>
+                                <img src="{$basePath}/images/logos/avast.png" alt="Avast" style="max-height: 3rem">
+                        {/switch}
+                    </a>
                 </div>
             </div>
         </section>
