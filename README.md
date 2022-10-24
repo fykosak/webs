@@ -6,7 +6,7 @@ Nette multisite codebase for the [Fyziklani](https://fyziklani.cz) and [Online P
 This project uses modified bootstrap file to support multiple websites sharing components and models.
 
 ## Requirements
- - `PHP 7.4` or `PHP 8.0`
+ - `PHP 8.1`
  - `Apache` with `mod_rewrite`
  - sql database
 
@@ -87,7 +87,7 @@ You can use `npm run dev` to automatically rebuild files when they are changed.
 Installing Prerequisites
 1. open wsl
 2. if not installed, install `apache2` (`sudo apt install apache2`)
-3. if not installed, install `php7.4` (`sudo apt install php7.4`)
+3. if not installed, install `php8.1` (`sudo apt install php8.1`)
 4. if not installed, install `mysql` (google how to do that - e.g. via `sudo apt install mysql-server`)
 5. if not installed, install `composer` (google how to do that - sudo apt install composer does not work as of July 2022)
 6. if not installed, install `node`, version at least 16. Alternatively, install nvm and then `nvm use 16`
