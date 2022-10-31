@@ -40,7 +40,9 @@ class MapComponent extends BaseComponent
         foreach ($this->serviceTeam->getTeams($this->forEventId) as $team) {
             $this->teamCount++;
             foreach ($team->members as $member) {
-                if (is_null($member->countryIso)) continue;
+                if (is_null($member->countryIso)) {
+                    continue;
+                }
                 if (
                     !in_array($member->countryIso, $this->teamCountries) &&
                     strtolower($member->countryIso) !== 'zz'
