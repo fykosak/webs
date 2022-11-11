@@ -72,7 +72,7 @@ class GamePhaseCalculator
     public function isNearTheCompetition(int $period): bool
     {
         $begin = (new \DateTime())->setTimestamp($this->getFKSDBEvent()->begin->getTimestamp())
-            ->sub(new \DateInterval('P12D'));
+            ->sub(new \DateInterval('P7D'));
         $end = (new \DateTime())->setTimestamp($this->getFKSDBEvent()->begin->getTimestamp())
             ->add(new \DateInterval('P1D'));
         return $this->checkEvent(
