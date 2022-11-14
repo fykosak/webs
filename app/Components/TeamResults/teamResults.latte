@@ -1,4 +1,5 @@
 {layout '../@layout.latte'}
+{varType string $lang}
 {block content}
     <div class="team-results-control">
         {control filterForm}
@@ -17,10 +18,13 @@
             <div class="results-row">
                 <div class="results-first-row">
                     {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
-                    <div class="result-column" style="width: 5rem">{if $team->status === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</div>
+                    <div class="result-column"
+                         style="width: 5rem">{if $team->status === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</div>
                     <div class="result-column" style="flex-grow: 1"><strong>{$team->name}</strong></div>
-                    <div class="result-column" style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->points}{/if}</div>
-                    <div class="result-column" style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->rankTotal}.{/if}</div>
+                    <div class="result-column"
+                         style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->points}{/if}</div>
+                    <div class="result-column"
+                         style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->rankTotal}.{/if}</div>
                 </div>
                 <div class="results-second-row">
                     <div class="result-column text-muted" style="flex-grow: 1; margin-left: 5rem; margin-right: 10rem">
@@ -36,7 +40,7 @@
                                 }{do $inSchool++
                             }{if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->schoolId != $participants[$key + 1]->schoolId)
                             }
-                                <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$participant->schoolName}{if (strtolower($participant->countryIso) != "zz")} <span
+                                <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$participant->schoolName}{if ($participant->countryIso != "ZZ")} <span
                                         class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>{/if})</span>
                                 {do $inSchool = 0
                                 }{/if

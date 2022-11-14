@@ -9,6 +9,7 @@ use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\Application\UI\Form;
 use Nette\DI\Container;
+use Tracy\Debugger;
 
 class TeamResultsComponent extends BaseComponent
 {
@@ -16,11 +17,13 @@ class TeamResultsComponent extends BaseComponent
     protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
     protected ?array $filterData = null;
+    private string $lang;
 
-    public function __construct(Container $container, int $eventId)
+    public function __construct(Container $container, int $eventId, string $lang)
     {
         parent::__construct($container);
         $this->eventId = $eventId;
+        $this->lang = $lang;
     }
 
     public function injectServiceTeam(ServiceEventDetail $serviceTeam): void
@@ -35,6 +38,7 @@ class TeamResultsComponent extends BaseComponent
     public function render(): void
     {
         $this->template->teams = $this->loadTeams();
+        $this->template->lang = $this->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamResults.latte');
     }
 
@@ -135,8 +139,10 @@ class TeamResultsComponent extends BaseComponent
                     $categories[] = $category;
                 }
                 foreach ($team->members as $participant) {
-                    $countryISOs[$participant->countryIso] ??= 0;
-                    $countryISOs[$participant->countryIso]++;
+                    if ($participant->countryIso) {
+                        $countryISOs[$participant->countryIso] ??= 0;
+                        $countryISOs[$participant->countryIso]++;
+                    }
                 }
             }
         }
