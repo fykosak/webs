@@ -63,8 +63,8 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
     {
         return [
             new NavItem(
-                new PageTitle(null, _('archive_home.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-                ':Archive:Default:default',
+                new PageTitle(null, _('archive.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                ':Default:Archive:default',
             ),
             new NavItem(
                 new PageTitle(null, _('teams.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO

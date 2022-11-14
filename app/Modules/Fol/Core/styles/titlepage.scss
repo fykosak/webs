@@ -126,6 +126,31 @@
   }
 }
 
+.price-box.bag-box {
+  background-color: #5a83c5;
+  background-image: url("./taska.png");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: bottom 120% right -15%;
+
+  &:hover {
+    background-size: 40%*1.1;
+    background-position: bottom 40% right -10%;
+  }
+}
+
+.price-box.hoodie-box {
+  background-color: #00ae6b;
+  background-image: url("./mikina.png");
+  background-repeat: no-repeat;
+  background-size: 65%;
+  background-position: bottom -50% right -50%;
+
+  &:hover {
+    background-size: 65%*1.1;
+  }
+}
+
 .price-box.knihy-box {
   background-color: #5a83c5;
   background-image: url("./blue_book.png");
