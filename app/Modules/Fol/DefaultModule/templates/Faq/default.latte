@@ -1,4 +1,9 @@
-{block title}{_"faq.title"}{/block}
+{block title}
+    {switch $lang}
+        {case cs}Často kladené dotaazy
+        {default}Frequently Asked Questions
+    {/switch}
+{/block}
 
 {block main}
     <script>
