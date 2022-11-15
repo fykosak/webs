@@ -1,0 +1,422 @@
+[
+  {
+    "question": "Mohu po zaregistrování týmu ještě dodatečně měnit informace o členech týmu?",
+    "answer": "Ano, ale pouze do ukončení registrace.",
+    "lang": "cs",
+    "category": "registration"
+  },
+  {
+    "question": "Mohu po zaregistrování týmu ještě dodatečně měnit složení týmu?",
+    "answer": "Ano, ale pouze do ukončení registrace.",
+    "lang": "cs",
+    "category": "registration"
+  },
+  {
+    "question": "Mohu po zaregistrování týmu ještě dodatečně měnit název týmu?",
+    "answer": "Ano, ale pouze do ukončení registrace.",
+    "lang": "cs",
+    "category": "registration"
+  },
+  {
+    "question": "Mohu se soutěže zúčastnit, i když už nejsem žákem střední školy?",
+    "answer": "<p>Ano, pro týmy, jejichž členové jsou absolventi středních škol, je připravena kategorie Open, kde lze soutěžit bez rozdílu věku či vzdělání.</p>\n\n<p>Pokud jsi však zatím žákem základní školy, můžeš se zúčastnit v kategoriích A,B nebo C. </p>",
+    "lang": "cs",
+    "category": "registration"
+  },
+  {
+    "question": "Mohu se soutěže zúčastnit, i když jsem na střední školu (případně odpovídající ročník gymnázia) ještě nenastoupil?",
+    "answer": "Ano. Musíš ale počítat s tím, že nejnižší kategorie, ve které můžeš soutěžit je kategorie středoškoláků v prvním ročníku. Budeš tedy soutěžit ve stejné kategorii jako oni. Více najdeš v pravidlech.",
+    "lang": "cs",
+    "category": "registration"
+  },
+  {
+    "question": "Může se zúčastnit kamarád z cizí země?",
+    "answer": "Ano. Může soutěžit ve stejné kategorii, i když nebude součástí týmu z České nebo Slovenské republiky. Samozřejmě velkou výhodou pro něj bude, pokud bude umět anglicky nebo česky, potažmo slovensky.",
+    "lang": "cs",
+    "category": "registration"
+  },
+  {
+    "question": "Budeme moci s organizátory soutěže v jejím průběhu nějak komunikovat? Jak? V jakých jazycích?",
+    "answer": "<p>Organizátoři v průběhu celé soutěže oznamují důležité informace týkající se soutěže prostřednictvím elektronické nástěnky, která bude umístěna na našich stránkách.</p>\n\n<p>Vaše otázky týkající se soutěže zasílejte výhradně na emailovou adresu <a href=\"mailto:%22Fyziklání%20Online%22%3conline@fyziklani.cz%3e\">online@fyziklani.cz</a>. </p>\n\n<p>Organizátoři jsou schopni komunikovat v českém, slovenském případně anglickém jazyce. </p>",
+    "lang": "cs",
+    "category": "game"
+  },
+  {
+    "question": "Můžu v průběhu soutěže vyhledávat informace pomocí internetu?",
+    "answer": "Ano, ale nesmí to být informace z komunikačních kanálů s lidmi, kteří nejsou na soupisce vašeho týmu.",
+    "lang": "cs",
+    "category": "game"
+  },
+  {
+    "question": "Jaké jsou části soutěže a v čem se liší?",
+    "answer": "Soutěž má dvě paralelní části. Hlavní část je započata startem soutěže a skládá se z jedné linie. Hurry-up část začíná hodinu poté, obsahuje 3 souběžné linie. Obě části končí současně a v polovině celé soutěže se zpřístupní možnost přeskakovat úlohy.",
+    "lang": "cs",
+    "category": "game"
+  },
+  {
+    "question": "V jakých jazycích bude psáno zadání úloh?",
+    "answer": "V češtině a angličtině.",
+    "lang": "cs",
+    "category": "tasks"
+  },
+  {
+    "question": "Kdy, popřípadě za jakých okolností, budeme dostávat v průběhu soutěže nová zadání úloh?",
+    "answer": "Zadání prvních sedmi úloh dostanete při samotném zahájení soutěže. Další přísun nových úloh přijde se začátkem Hurry-up série. V průběhu soutěže se o zisk dalších nových úloh musíte zasloužit sami. Možné jsou dva způsoby. Buďto získáte novou úlohu díky tomu, že vyřešíte nějakou úlohu předešlou, nebo úlohu tzv. přeskočíte. Vždy se jedná o jednu úlohu, za jednu úlohu. Detailnější informace najdete v pravidlech soutěže.",
+    "lang": "cs",
+    "category": "tasks"
+  },
+  {
+    "question": "Jak se vyvíjí obtížnost úloh s pořadovým číslem úlohy?",
+    "answer": "Průměrná obtížnost úloh roste, nicméně i v pozdější fázi soutěže se můžou objevit jednodušší úlohy. Pamatujte také na to, že obtížnost je individuálně vnímaná věc.",
+    "lang": "cs",
+    "category": "tasks"
+  },
+  {
+    "question": "Dostaneme autorská řešení úloh?",
+    "answer": "Ano, po ukončení soutěže se autorská řešení objeví na našich stránkách. Nějakou dobu po ukončení soutěže budou ještě organizátoři na stránkách aktivně sledovat soutěžní fórum a reagovat na vaše případné připomínky, dojmy nebo reklamace vztahující se k úlohám nebo soutěži obecně.",
+    "lang": "cs",
+    "category": "tasks"
+  },
+  {
+    "question": "Na kolik platných cifer máme náš výsledek úlohy zadávat?",
+    "answer": "V zadání každé úlohy je uvedeno, kolik platných cifer vyžadujeme.",
+    "lang": "cs",
+    "category": "submits"
+  },
+  {
+    "question": "V zadání není specifikováno, v jakých jednotkách máme řešení odesílat. Jak si máme poradit?",
+    "answer": "Pokud je tomu tak, odesílejte vaše řešení v základních jednotkách SI.",
+    "lang": "cs",
+    "category": "submits"
+  },
+  {
+    "question": "Chceme odpovědět na úlohu, ale výsledek nelze odeslat. Co se děje?",
+    "answer": "Důvodem zřejmě je, že jste před méně než jednou minutou na nějakou úlohu odpověděli chybně. Pokud tomu tak není, kontaktuje, prosím, organizátory soutěže.",
+    "lang": "cs",
+    "category": "submits"
+  },
+  {
+    "question": "Když na úlohu odpovím špatně, mohu svoji odpověď opravit?",
+    "answer": "Ano, na každou úlohu můžete odpovídat opakovaně v neomezovaném množství až do konce soutěže. Mějte ale na paměti, že za každou špatnou odpověď může klesnout možný bodový zisk z této úlohy, a také, že se na 1 minutu po špatném zodpovězení úlohy uzavře možnost odpovídat na libovolnou úlohu dané skupiny (úlohy hlavní části a tři skupiny v Hurry-up). Pro více informací nahlédněte do pravidel soutěže.",
+    "lang": "cs",
+    "category": "submits"
+  },
+  {
+    "question": "Když budeme chtít odeslat výsledek jako desetinné číslo, máme pro zápis použít desetinnou čárku nebo tečku?",
+    "answer": "Je jedno, který znak použijete. Nepoužívejte však žádné oddělovače tisíců.",
+    "lang": "cs",
+    "category": "submits"
+  },
+  {
+    "question": "Jaké všechny formáty zápisu čísla jsou akceptovány?",
+    "answer": "<p> Akceptujeme tvar čísla popsaný na\n<a href=\"http://php.net/manual/en/language.types.float.php\">následujícím odkazu</a>.</p>\n\n<p>Navíc akceptujeme jak desetinnou čárku, tak desetinnou tečku. </p>",
+    "lang": "cs",
+    "category": "submits"
+  },
+  {
+    "question": "Kdy můžu úlohu přeskočit?",
+    "answer": "Úlohu je možno přeskočit v druhé polovině soutěže (od 18:30).",
+    "lang": "cs",
+    "category": "skipping"
+  },
+  {
+    "question": "Je za přeskočení úlohy nějaký bodový postih?",
+    "answer": "Ano, za přeskočení úlohy dostanete penalizaci mínus jeden bod do vašeho celkového skóre.",
+    "lang": "cs",
+    "category": "skipping"
+  },
+  {
+    "question": "Kolik úloh můžu přeskočit?",
+    "answer": "Celkem můžete přeskočit maximálně deset úloh, a to v hlavní i hurry-up linii dohromady.",
+    "lang": "cs",
+    "category": "skipping"
+  },
+  {
+    "question": "Můžeme se k přeskočené úloze ještě vrátit?",
+    "answer": "Ne.",
+    "lang": "cs",
+    "category": "skipping"
+  },
+  {
+    "question": "Jak můžeme získat bonusové body?",
+    "answer": "Bonusové body můžete získat za správně vyřešenou sadu úloh v sérii Hurry-up v daném časovém limitu. Více najdete v pravidlech soutěže.",
+    "lang": "cs",
+    "category": "scoring"
+  },
+  {
+    "question": "Za úlohu, která byla oceněna X body jsme dostali Y bodů. Jak to?",
+    "answer": "Je to proto, že za špatně zodpovězenou úlohu klesne při následující odpovědi možný bodový zisk z této úlohy. Pro upřesňující údaje ohledně strhávání bodů prosím nahlédněte do pravidel soutěže.",
+    "lang": "cs",
+    "category": "scoring"
+  },
+  {
+    "question": "Úlohu jsme vyřešili správně, ale ve výsledkové listině se nám záznam o správně vyřešené úloze neobjevil. Jak to?",
+    "answer": "Výsledková listina se obnovuje průběžně jednou za dvě minuty. Musíte chvíli počkat. Také pamatujte na to, že 20 minut před koncem se výsledková listina přestane obnovovat úplně, abyste byli trochu napjatí.",
+    "lang": "cs",
+    "category": "scoring"
+  },
+  {
+    "question": "Co je to Hurry-up?",
+    "answer": "Je to období soutěže v intervalu 18:00 až 20:00, kdy budete mít možnost řešit nové relativně jednoduché úlohy, avšak po 18:30 za ně už nebudete dostávat bonusové body. Jde o paralelně probíhající linii k linii hlavní. Sérii Hurry-up však provází jistá specifika v pravidlech, která najdete na stránce<a href=\"/pravidla\"> s pravidly naší soutěže</a>.",
+    "lang": "cs",
+    "category": "hurry-up"
+  },
+  {
+    "question": "Můžu odevzdávat řešení úloh standardní série v období Hurry-up série?",
+    "answer": "Ano.",
+    "lang": "cs",
+    "category": "hurry-up"
+  },
+  {
+    "question": "Jak se dozvím, že Hurry-up série už začala?",
+    "answer": "Podle hodin. Bude to zároveň oznámeno na nástěnce. Také by se vám měly objevit nové úlohy k řešení — k tomu však může být potřeba obnovení stránky.",
+    "lang": "cs",
+    "category": "hurry-up"
+  },
+  {
+    "question": "Řídí se bodování a strhávání bodů z úloh Hurry-up série stejnými pravidly jako u ostatních úloh?",
+    "answer": "Ano, avšak počet bodů se může snížit až na nulu. Přesnou bodovací tabulku najdete v <a href=\"/pravidla\">pravidlech</a>.",
+    "lang": "cs",
+    "category": "hurry-up"
+  },
+  {
+    "question": "Kdy můžu Hurry-up řešit?",
+    "answer": "Od 18:00 do 18:30 lze získávat bonusové body, po 18:30 budou výsledky úloh z Hurry-up linie dále akceptovány, nebudete za ně však dostávat bonusové body.",
+    "lang": "cs",
+    "category": "hurry-up"
+  },
+  {
+    "question": "Dostanu diplom nebo nějaké osvědčení o účasti?",
+    "answer": "<p>Certifikáty o účasti zasíláme všem týmům automaticky na email.</p>\n\n<p>Pokud vám nepřišel, zkontrolujte si prosím složku se spamem, případně se neváhejte ozvat na email  <a href=\"mailto: online@fyziklani.cz\">online@fyziklani.cz</a>. </p>",
+    "lang": "cs",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "Pomůže mi výborný výsledek v této soutěži při přijímacích zkouškách na VŠ?",
+    "answer": "Pravděpodobně ne, ale zkusit to můžete.",
+    "lang": "cs",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "Na jakou adresu mám psát otázky ohledně soutěže, ještě než soutěž začne?",
+    "answer": "<a href='mailto:online@fyziklani.cz'>online@fyziklani.cz</a>",
+    "lang": "cs",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "Kde naleznu všechny důležité informace o soutěži?",
+    "answer": "Na následující <a href=\"/o-soutezi\">stránce</a> a v <a href=\"/pravidla\">pravidlech</a>.",
+    "lang": "cs",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "Can I change the information about team members after registration?",
+    "answer": "Yes but only until the end of the registration period.",
+    "lang": "en",
+    "category": "registration"
+  },
+  {
+    "question": "Can I change the composition of my team after I create it?",
+    "answer": "Yes but only until the end of the registration period.",
+    "lang": "en",
+    "category": "registration"
+  },
+  {
+    "question": "Can I change the name of the team after creating it?",
+    "answer": "Yes but only until the end of the registration period.",
+    "lang": "en",
+    "category": "registration"
+  },
+  {
+    "question": "Can I take part even if I am not a high school student?",
+    "answer": "Yes. The Open category is for you. More in the rules.",
+    "lang": "en",
+    "category": "registration"
+  },
+  {
+    "question": "Can I take part even though I haven't started attending high school or grammar school?",
+    "answer": "Yes. But you must expect that you will be in the same category as the most junior highschool students. You can find more in the rules.",
+    "lang": "en",
+    "category": "registration"
+  },
+  {
+    "question": "Can a foreigner take part?",
+    "answer": "Yes. Of course a huge advantage for them would be if they knew English or Czech.",
+    "lang": "en",
+    "category": "registration"
+  },
+  {
+    "question": "Is it possible for participants to communicate with the organizers? If so how and in what languages?",
+    "answer": "<p>Organisers will during the competition give out important information through our in-game noticeboard that will be available on our website.</p>\n\n<p>Send your questions about the tasks and other things to <a href=\"mailto: online@fyziklani.cz\">online@fyziklani.cz</a>. </p>\n\n<p>Organisers communicate in Czech, Slovak or English only. </p>",
+    "lang": "en",
+    "category": "game"
+  },
+  {
+    "question": "Can I use the internet to find information during the competition?",
+    "answer": "Yes but you can't communicate with non-members of your team.",
+    "lang": "en",
+    "category": "game"
+  },
+  {
+    "question": "What are the parts of the competition and how do they differ?",
+    "answer": "The competition has two parallel parts. The major part starts at the beginning of the competition and one hour later the Hurry-up series will begin. These will then run in parallel until the competition ends. In the second half of the competition you will be able to skip problems. For the Hurry-up series see the rules and the questions and answers below.",
+    "lang": "en",
+    "category": "game"
+  },
+  {
+    "question": "In what language will the problems be?",
+    "answer": "In Czech and English.",
+    "lang": "en",
+    "category": "tasks"
+  },
+  {
+    "question": "When and how will we get new problems to solve during the competition?",
+    "answer": "You will get the seven initial problems when the competition starts. You can expect new problems with the Hurry-up series. During the competition you must solve the problems you have to get new ones or, in the second part, by skipping problems. The exchange is always one for one. You can find more information in the rules.",
+    "lang": "en",
+    "category": "tasks"
+  },
+  {
+    "question": "How does the difficulty of the problem change with its number?",
+    "answer": "The average difficulty rises as you do the problems but there still might be some easier problems later on. Also, remember that difficulty is highly individual.",
+    "lang": "en",
+    "category": "tasks"
+  },
+  {
+    "question": "Will we get author's solutions?",
+    "answer": "Yes, after the end of the competition the solutions will appear on our website. Some time after the end the organizers will still be on the website and will be reacting to your recommendations, experiences or troubles relating the competition or the problems.",
+    "lang": "en",
+    "category": "tasks"
+  },
+  {
+    "question": "How many significant digits should one give in the solution?",
+    "answer": "Each task has specified how many significant digits the result should have.",
+    "lang": "en",
+    "category": "submits"
+  },
+  {
+    "question": "The task doesn't tell us which units to submit the result in. What should we do?",
+    "answer": "If it is so then just submit it in the base SI units.",
+    "lang": "en",
+    "category": "submits"
+  },
+  {
+    "question": "We want to submit the answer to the problem but we can't. What is going on?",
+    "answer": "The reason must be that you submitted a wrong solution to a task less than a minute ago. If it isn't so then please contact the organizers.",
+    "lang": "en",
+    "category": "submits"
+  },
+  {
+    "question": "If I submit the wrong answer can I correct it?",
+    "answer": "Yes, you can answer any question as many times as you want to. Remember though that by submitting wrong answers you will lower the potential point gain from the question and also that you can't answer the problems from the same category incorrectly more than once in a minute (the problems from the main category and the three hurry-up categories). For more information see the rules of the competition.",
+    "lang": "en",
+    "category": "submits"
+  },
+  {
+    "question": "If we want to submit the solution as a decimal should we use a decimal point or comma?",
+    "answer": "The symbol is irrelevant but don't use anything to denote thousands (i. e., use 1000000 instead of 1,000,000) .",
+    "lang": "en",
+    "category": "submits"
+  },
+  {
+    "question": "What are the accepted formats of numbers?",
+    "answer": "<p>We accept the formats described on\n<a href=\"http://php.net/manual/en/language.types.float.php\">following website</a>.</p>\n<p>We enable the usage of both the comma and the decimal point.</p>",
+    "lang": "en",
+    "category": "submits"
+  },
+  {
+    "question": "When can I skip a problem?",
+    "answer": "You can skip problems in the second part of the competition (from 18:30 CET).",
+    "lang": "en",
+    "category": "skipping"
+  },
+  {
+    "question": "Will I lose points for skipping problems?",
+    "answer": "Yes, you will lose one point per skipped problem from your total score.",
+    "lang": "en",
+    "category": "skipping"
+  },
+  {
+    "question": "How many problems can I skip?",
+    "answer": "You can skip 10 problems in total (major part and hurry-up series altogether).",
+    "lang": "en",
+    "category": "skipping"
+  },
+  {
+    "question": "Can I come back to a problem I skipped?",
+    "answer": "No.",
+    "lang": "en",
+    "category": "skipping"
+  },
+  {
+    "question": "How do we get bonus points?",
+    "answer": "You can get bonus points for solving a whole collection of Hurry-up problems in the time limit. More about this in the rules.",
+    "lang": "en",
+    "category": "scoring"
+  },
+  {
+    "question": "We got Y points for a problem that was supposed to be worth X points. What happened?",
+    "answer": "This is caused by the fact that wrong solutions decrease the point gain from that problem. To get more information about this look at the rules.",
+    "lang": "en",
+    "category": "scoring"
+  },
+  {
+    "question": "We solved the problem but this hasn't appeared on the scoreboard yet. How come?",
+    "answer": "The scoreboard refreshes every two minutes so wait a bit longer. Also remember that twenty minutes before the end of the competition the scoreboard stops refreshing completely to add extra tension.",
+    "lang": "en",
+    "category": "scoring"
+  },
+  {
+    "question": "What is Hurry-up?",
+    "answer": "It is a period in the competition between 18:00 and 20:00 CET when you can solve new and relatively easy problems. However, you can get bonus points only until 18:30 CET. It is a series of problems that runs in parallel to the major competition. The Hurry-up series has some specific rules though. You can find more about this in <a href=\"/rules\">the rule section</a>.",
+    "lang": "en",
+    "category": "hurry-up"
+  },
+  {
+    "question": "Can I submit solutions to the normal problems during this part of the competition?",
+    "answer": "Yes.",
+    "lang": "en",
+    "category": "hurry-up"
+  },
+  {
+    "question": "How will I find out that the Hurry-up series has begun?",
+    "answer": "Using a clock. It will also be announced on the noticeboard. You should also have new problems to solve — but to see that refreshing the page will be necessary.",
+    "lang": "en",
+    "category": "hurry-up"
+  },
+  {
+    "question": "Is the awarding of points during the Hurry-up series governed by the same rules as the standard part of the competition?",
+    "answer": "Yes, but you can also get zero points. You can find the exact scoring table in <a href=\"/rules\">the rules</a>.",
+    "lang": "en",
+    "category": "hurry-up"
+  },
+  {
+    "question": "When will I be enabled to solve Hurry-up problems?",
+    "answer": "You can get bonus points only in a period between 18:00 and 18:30 CET, after that we will be accepting solutions to the Hurry-up problems but you will not get the bonus points.",
+    "lang": "en",
+    "category": "hurry-up"
+  },
+  {
+    "question": "Will I get a certificate for attending?",
+    "answer": "<p>We will send certificate for attending (with score) to all teams via email.</p>\n\n<p>In the case you didn't receive it, please check your spam folder. In case that it is not in spam, contact us on  <a href=\"mailto: online@fyziklani.cz\">online@fyziklani.cz</a>. </p>",
+    "lang": "en",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "Will my result in this competition help me with an application to a university?",
+    "answer": "Probably not but you can try to use it.",
+    "lang": "en",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "Where should I send my questions about the competition before it starts?",
+    "answer": "<a href='mailto:online@fyziklani.cz'>online@fyziklani.cz</a>",
+    "lang": "en",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "Where can I find all the important information about the competition?",
+    "answer": "On following <a href=\"/about\">website</a> and in the\n<a\nhref=\"/rules\">rules</a>.",
+    "lang": "en",
+    "category": "otherFAQ"
+  }
+]
