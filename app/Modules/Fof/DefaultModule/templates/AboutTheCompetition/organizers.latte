@@ -94,8 +94,8 @@
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person1833.jpg')"></div>
                     <div class="name">Štěpán Stenchlák</div>
                     <div class="role">
-                        {switch $lang}{case cs}IT, propagace
-                        {default}IT, publicity{/switch}</div>
+                        {switch $lang}{case cs}IT
+                        {default}IT{/switch}</div>
                     <div class="about">
                         {switch $lang}{case cs}Studuje 1. ročník doktorského studia Softwarových systémů na MFF UK.
                             {default}Studies 1st year of Ph.D. Computer Science at FMP CUNI.{/switch}</div>
@@ -180,21 +180,22 @@
                             {default}Studies 1st year of BSc. Physics at FMP CUNI.{/switch}</div>
                 </div>
 
-                <div class="col-md-3 organiser">
+{/if}
+              	<div class="col-md-3 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person15522.jpg')"></div>
                     <div class="name">Ema Wayan Danielová</div>
                     <div class="role">{switch $lang}{case cs}Komunikace s týmy, správa přihlášek
                         {default}Communication with teams, applications administration{/switch}</div>
                     <div class="about">
-                        {switch $lang}{case cs}Studuje 1. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 1st year of BSc. Physics at FMP CUNI.{/switch}</div>
+                        {switch $lang}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
+                            {default}Studies 2nd year of BSc. Physics at FMP CUNI.{/switch}</div>
                 </div>
-{/if}
+              
                 <div class="col-md-3 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person20093.jpg')"></div>
                     <div class="name">Daniel Broško</div>
-                    <div class="role">{switch $lang}{case cs}Překlady, obsah webu
-                            {default}Translations, web content{/switch}</div>
+                    <div class="role">{switch $lang}{case cs}Překlady
+                            {default}Translations{/switch}</div>
                     <div class="about">{switch $lang}{case cs}Studuje 2. ročník NMgr. Ekonomie a finance na IES UK.
                             {default}Studies 2st year of MSc. Economics and finances at IES CUNI.{/switch}
                         </div>
