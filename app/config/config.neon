@@ -20,7 +20,6 @@ database:
     conventions: 'discovered'
 
 extensions:
-    orm: Fykosak\NetteORM\Extension
     assets: h4kuna\Assets\DI\AssetsExtension
 
 parameters:
@@ -35,47 +34,3 @@ parameters:
     domains:
         # domain: lang
     eventTypeId: 0
-
-orm:
-    faq:
-        service: App\Models\ORM\FaqService
-        model: App\Models\ORM\FaqModel
-    report:
-        service: App\Models\ORM\ReportService
-        model: App\Models\ORM\ReportModel
-    # FSSU
-    problem:
-        context: @database.problems.context
-        model: App\Models\ORM\Problems\ProblemsModel
-    problem_localized_data:
-        context: @database.problems.context
-        model: App\Models\ORM\Problems\ProblemLocalizedDataModel
-    directory:
-        context: @database.problems.context
-        service: App\Models\ORM\Problems\DirectoryService
-        model: App\Models\ORM\Problems\DirectoryModel
-    directory_structure:
-        context: @database.problems.context
-        model: App\Models\ORM\Problems\DirectoryStructureModel
-    problem_tag:
-        context: @database.problems.context
-    problem_topic:
-        context: @database.problems.context
-    tag:
-         context: @database.problems.context
-         model: App\Models\ORM\Problems\TagModel
-    tag_localized_data:
-         context: @database.problems.context
-         model: App\Models\ORM\Problems\TagLocalizedDataModel
-    tag_structure:
-         context: @database.problems.context
-    topic:
-         context: @database.problems.context
-         model: App\Models\ORM\Problems\TopicModel
-    topic_localized_data:
-        context: @database.problems.context
-        model: App\Models\ORM\Problems\TopicLocalizedDataModel
-    work:
-        context: @database.problems.context
-    work_person:
-        context: @database.problems.context

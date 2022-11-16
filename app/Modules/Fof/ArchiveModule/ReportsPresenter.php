@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\ArchiveModule;
 
-use App\Models\ORM\ReportService;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
@@ -12,12 +11,12 @@ use Nette\Application\BadRequestException;
 class ReportsPresenter extends BasePresenter
 {
 
-    private ReportService $reportService;
+//    private ReportService $reportService;
 
-    public function injectReportService(ReportService $reportService): void
-    {
-        $this->reportService = $reportService;
-    }
+    /*  public function injectReportService(ReportService $reportService): void
+      {
+          $this->reportService = $reportService;
+      }*/
 
     /**
      * @throws BadRequestException
@@ -25,8 +24,8 @@ class ReportsPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $this->template->reports = $this->reportService->getTable()
-            ->where('lang = ? AND event_id = ?', $this->lang, $this->getEvent()->eventId);
+        /*   $this->template->reports = $this->reportService->getTable()
+               ->where('lang = ? AND event_id = ?', $this->lang, $this->getEvent()->eventId);*/
         $this->template->year = $this->getEvent()->begin->format('Y');
         $this->setPageTitle(new PageTitle(null, _('Contestants\' reports')));
     }

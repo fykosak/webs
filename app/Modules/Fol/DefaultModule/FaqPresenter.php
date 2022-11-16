@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\DefaultModule;
 
-use App\Models\ORM\FaqModel;
-use App\Models\ORM\FaqService;
-use Tracy\Debugger;
-
 class FaqPresenter extends BasePresenter
 {
     private function loadQuestions(): void
@@ -20,7 +16,6 @@ class FaqPresenter extends BasePresenter
 
         // questions sorted by category
         $questions = [];
-        /** @var FaqModel $question */
         foreach ($query as $question) {
             $category = $question->category;
 
