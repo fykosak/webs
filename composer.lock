@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "418312454efecb40fa7fa05a1a2ab2b0",
+    "content-hash": "2748e70a0f26502d678de9384fdcb4fc",
     "packages": [
         {
             "name": "fykosak/fksdb-downloader-core",
-            "version": "v1.5.1",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/fksdb-downloader-core.git",
-                "reference": "796903087e7193069d78ab879d1d02a632bdb59e"
+                "reference": "2bb5937e52111b4fc86b22f2aa991d71678e0927"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/796903087e7193069d78ab879d1d02a632bdb59e",
-                "reference": "796903087e7193069d78ab879d1d02a632bdb59e",
+                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/2bb5937e52111b4fc86b22f2aa991d71678e0927",
+                "reference": "2bb5937e52111b4fc86b22f2aa991d71678e0927",
                 "shasum": ""
             },
             "require": {
@@ -48,9 +48,9 @@
             "description": "Interface for downloading data from FKSDB by SOAP-client",
             "support": {
                 "issues": "https://github.com/fykosak/fksdb-downloader-core/issues",
-                "source": "https://github.com/fykosak/fksdb-downloader-core/tree/v1.5.1"
+                "source": "https://github.com/fykosak/fksdb-downloader-core/tree/v1.4.1"
             },
-            "time": "2022-09-23T20:19:29+00:00"
+            "time": "2021-12-29T15:18:05+00:00"
         },
         {
             "name": "fykosak/nette-fks-utils",
@@ -76,11 +76,11 @@
                 "nette/forms": "^v3.1.0",
                 "nette/http": "^v3.1.0",
                 "nette/utils": "^v3.2.0",
-                "php": "8.1.*"
+                "php": "7.4.* | 8.0.* | 8.1.* "
             },
             "require-dev": {
                 "nette/tester": "^v2.4.0",
-                "squizlabs/php_codesniffer": "3.7.1"
+                "squizlabs/php_codesniffer": "3.6.0"
             },
             "default-branch": true,
             "type": "library",
@@ -102,9 +102,9 @@
             ],
             "support": {
                 "issues": "https://github.com/fykosak/nette-fks-utils/issues",
-                "source": "https://github.com/fykosak/nette-fks-utils/tree/v0.2.0"
+                "source": "https://github.com/fykosak/nette-fks-utils/tree/v0.1.0-RC2"
             },
-            "time": "2022-11-03T16:16:46+00:00"
+            "time": "2022-01-11T17:04:47+00:00"
         },
         {
             "name": "fykosak/nette-fksdb-downloader",
@@ -152,6 +152,63 @@
                 "source": "https://github.com/fykosak/nette-fksdb-downloader/tree/v2.2.0-RC"
             },
             "time": "2022-10-03T09:14:57+00:00"
+        },
+        {
+            "name": "fykosak/nette-orm",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fykosak/nette-orm.git",
+                "reference": "0aa2b76"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fykosak/nette-orm/zipball/0aa2b76",
+                "reference": "0aa2b76",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gettext": "*",
+                "ext-pdo": "*",
+                "nette/database": "^3.1",
+                "nette/di": "^3.0",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "nette/tester": "^2.4.0",
+                "squizlabs/php_codesniffer": "3.6.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Fykosak\\NetteORM\\": "src/",
+                    "Fykosak\\NetteORM\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Michal Koutny",
+                    "email": "michal@fykos.cz"
+                },
+                {
+                    "name": "Michal Mišo Červeňák",
+                    "email": "miso@fykos.cz"
+                },
+                {
+                    "name": "Lukáš Timo",
+                    "email": "lukast@fykos.cz"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/fykosak/nette-orm/issues",
+                "source": "https://github.com/fykosak/nette-orm/tree/master"
+            },
+            "time": "2022-06-18T21:18:21+00:00"
         },
         {
             "name": "h4kuna/assets",
@@ -205,22 +262,22 @@
         },
         {
             "name": "latte/latte",
-            "version": "v2.11.6",
+            "version": "v2.11.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "af4dbb23a6044b1cf4904830a9b00246318c93d4"
+                "reference": "89e647e51213af8a270fe9903b8735a2f6c83ad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/af4dbb23a6044b1cf4904830a9b00246318c93d4",
-                "reference": "af4dbb23a6044b1cf4904830a9b00246318c93d4",
+                "url": "https://api.github.com/repos/nette/latte/zipball/89e647e51213af8a270fe9903b8735a2f6c83ad1",
+                "reference": "89e647e51213af8a270fe9903b8735a2f6c83ad1",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-tokenizer": "*",
-                "php": ">=7.1 <8.3"
+                "php": ">=7.1 <8.2"
             },
             "conflict": {
                 "nette/application": "<2.4.1"
@@ -283,9 +340,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/latte/issues",
-                "source": "https://github.com/nette/latte/tree/v2.11.6"
+                "source": "https://github.com/nette/latte/tree/v2.11.5"
             },
-            "time": "2022-11-04T14:53:52+00:00"
+            "time": "2022-06-26T10:12:18+00:00"
         },
         {
             "name": "netresearch/jsonmapper",
@@ -512,22 +569,22 @@
         },
         {
             "name": "nette/caching",
-            "version": "v3.1.4",
+            "version": "v3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/caching.git",
-                "reference": "e1e38105956bb631e2295ef7a2fdef83485238e9"
+                "reference": "7a59a7762e43ba6d8e4aa0484eaaf6a40835a4ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/caching/zipball/e1e38105956bb631e2295ef7a2fdef83485238e9",
-                "reference": "e1e38105956bb631e2295ef7a2fdef83485238e9",
+                "url": "https://api.github.com/repos/nette/caching/zipball/7a59a7762e43ba6d8e4aa0484eaaf6a40835a4ad",
+                "reference": "7a59a7762e43ba6d8e4aa0484eaaf6a40835a4ad",
                 "shasum": ""
             },
             "require": {
                 "nette/finder": "^2.4 || ^3.0",
                 "nette/utils": "^2.4 || ^3.0",
-                "php": ">=7.2 <8.3"
+                "php": ">=7.2 <8.2"
             },
             "require-dev": {
                 "latte/latte": "^2.11 || ^3.0",
@@ -577,9 +634,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/caching/issues",
-                "source": "https://github.com/nette/caching/tree/v3.1.4"
+                "source": "https://github.com/nette/caching/tree/v3.1.3"
             },
-            "time": "2022-10-18T23:27:44+00:00"
+            "time": "2022-05-17T18:30:21+00:00"
         },
         {
             "name": "nette/component-model",
@@ -722,16 +779,16 @@
         },
         {
             "name": "nette/di",
-            "version": "v3.0.14",
+            "version": "v3.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/di.git",
-                "reference": "9aba53b844f2f66ce4ebe37beffaa7119b3551d0"
+                "reference": "9878f2958a0a804b08430dbc719a52e493022739"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/di/zipball/9aba53b844f2f66ce4ebe37beffaa7119b3551d0",
-                "reference": "9aba53b844f2f66ce4ebe37beffaa7119b3551d0",
+                "url": "https://api.github.com/repos/nette/di/zipball/9878f2958a0a804b08430dbc719a52e493022739",
+                "reference": "9878f2958a0a804b08430dbc719a52e493022739",
                 "shasum": ""
             },
             "require": {
@@ -741,7 +798,7 @@
                 "nette/robot-loader": "^3.2",
                 "nette/schema": "^1.1",
                 "nette/utils": "^3.1.6",
-                "php": ">=7.1 <8.3"
+                "php": ">=7.1 <8.2"
             },
             "conflict": {
                 "nette/bootstrap": "<3.0"
@@ -791,22 +848,22 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/di/issues",
-                "source": "https://github.com/nette/di/tree/v3.0.14"
+                "source": "https://github.com/nette/di/tree/v3.0.13"
             },
-            "time": "2022-11-02T16:27:55+00:00"
+            "time": "2022-03-10T02:43:04+00:00"
         },
         {
             "name": "nette/finder",
-            "version": "v2.5.4",
+            "version": "v2.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/finder.git",
-                "reference": "4a1236db9067d86a75c3dcc0d9c2aced17f9bde8"
+                "reference": "64dc25b7929b731e72a1bc84a9e57727f5d5d3e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/finder/zipball/4a1236db9067d86a75c3dcc0d9c2aced17f9bde8",
-                "reference": "4a1236db9067d86a75c3dcc0d9c2aced17f9bde8",
+                "url": "https://api.github.com/repos/nette/finder/zipball/64dc25b7929b731e72a1bc84a9e57727f5d5d3e8",
+                "reference": "64dc25b7929b731e72a1bc84a9e57727f5d5d3e8",
                 "shasum": ""
             },
             "require": {
@@ -858,9 +915,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/finder/issues",
-                "source": "https://github.com/nette/finder/tree/v2.5.4"
+                "source": "https://github.com/nette/finder/tree/v2.5.3"
             },
-            "time": "2022-10-13T01:30:47+00:00"
+            "time": "2021-12-12T17:43:24+00:00"
         },
         {
             "name": "nette/forms",
@@ -1232,35 +1289,35 @@
         },
         {
             "name": "nette/php-generator",
-            "version": "v4.0.5",
+            "version": "v3.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/php-generator.git",
-                "reference": "a8d6abeae5d8c7202cd69600e086a7a72877fc86"
+                "reference": "b9ba414c9895fd9420887f20eeb4eabde123677f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/php-generator/zipball/a8d6abeae5d8c7202cd69600e086a7a72877fc86",
-                "reference": "a8d6abeae5d8c7202cd69600e086a7a72877fc86",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/b9ba414c9895fd9420887f20eeb4eabde123677f",
+                "reference": "b9ba414c9895fd9420887f20eeb4eabde123677f",
                 "shasum": ""
             },
             "require": {
-                "nette/utils": "^3.2.7 || ^4.0",
-                "php": ">=8.0 <8.3"
+                "nette/utils": "^3.1.2",
+                "php": ">=7.2 <8.2"
             },
             "require-dev": {
                 "nette/tester": "^2.4",
-                "nikic/php-parser": "^4.15",
-                "phpstan/phpstan": "^1.0",
+                "nikic/php-parser": "^4.13",
+                "phpstan/phpstan": "^0.12",
                 "tracy/tracy": "^2.8"
             },
             "suggest": {
-                "nikic/php-parser": "to use ClassType::from(withBodies: true) & ClassType::fromCode()"
+                "nikic/php-parser": "to use ClassType::withBodiesFrom() & GlobalFunction::withBodyFrom()"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "3.6-dev"
                 }
             },
             "autoload": {
@@ -1284,7 +1341,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🐘 Nette PHP Generator: generates neat PHP code for you. Supports new PHP 8.2 features.",
+            "description": "🐘 Nette PHP Generator: generates neat PHP code for you. Supports new PHP 8.1 features.",
             "homepage": "https://nette.org",
             "keywords": [
                 "code",
@@ -1294,9 +1351,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/php-generator/issues",
-                "source": "https://github.com/nette/php-generator/tree/v4.0.5"
+                "source": "https://github.com/nette/php-generator/tree/v3.6.7"
             },
-            "time": "2022-11-02T20:37:46+00:00"
+            "time": "2022-03-10T01:51:00+00:00"
         },
         {
             "name": "nette/robot-loader",
@@ -1619,32 +1676,31 @@
         },
         {
             "name": "nette/security",
-            "version": "v3.1.6",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/security.git",
-                "reference": "77a20cac539d62f5bcde15cd29244ae13890b483"
+                "reference": "c120893f561b09494486c66594720b2abcb099b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/security/zipball/77a20cac539d62f5bcde15cd29244ae13890b483",
-                "reference": "77a20cac539d62f5bcde15cd29244ae13890b483",
+                "url": "https://api.github.com/repos/nette/security/zipball/c120893f561b09494486c66594720b2abcb099b2",
+                "reference": "c120893f561b09494486c66594720b2abcb099b2",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^3.2.1",
-                "php": ">=7.2 <8.3"
+                "php": ">=7.2 <8.2"
             },
             "conflict": {
                 "nette/di": "<3.0-stable",
                 "nette/http": "<3.1.3"
             },
             "require-dev": {
-                "mockery/mockery": "^1.5",
                 "nette/di": "^3.0.1",
                 "nette/http": "^3.0.0",
                 "nette/tester": "^2.0",
-                "phpstan/phpstan-nette": "^1.0",
+                "phpstan/phpstan-nette": "^0.12",
                 "tracy/tracy": "^2.4"
             },
             "type": "library",
@@ -1684,9 +1740,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/security/issues",
-                "source": "https://github.com/nette/security/tree/v3.1.6"
+                "source": "https://github.com/nette/security/tree/v3.1.5"
             },
-            "time": "2022-10-12T22:40:37+00:00"
+            "time": "2021-09-20T15:20:25+00:00"
         },
         {
             "name": "nette/tokenizer",
@@ -1747,20 +1803,20 @@
         },
         {
             "name": "nette/utils",
-            "version": "v3.2.8",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "02a54c4c872b99e4ec05c4aec54b5a06eb0f6368"
+                "reference": "0af4e3de4df9f1543534beab255ccf459e7a2c99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/02a54c4c872b99e4ec05c4aec54b5a06eb0f6368",
-                "reference": "02a54c4c872b99e4ec05c4aec54b5a06eb0f6368",
+                "url": "https://api.github.com/repos/nette/utils/zipball/0af4e3de4df9f1543534beab255ccf459e7a2c99",
+                "reference": "0af4e3de4df9f1543534beab255ccf459e7a2c99",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2 <8.3"
+                "php": ">=7.2 <8.2"
             },
             "conflict": {
                 "nette/di": "<3.0.6"
@@ -1826,22 +1882,22 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/utils/issues",
-                "source": "https://github.com/nette/utils/tree/v3.2.8"
+                "source": "https://github.com/nette/utils/tree/v3.2.7"
             },
-            "time": "2022-09-12T23:36:20+00:00"
+            "time": "2022-01-24T11:29:14+00:00"
         },
         {
             "name": "tracy/tracy",
-            "version": "v2.9.4",
+            "version": "v2.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tracy.git",
-                "reference": "0ed605329b095f5f5fe2db2adc3d1ee80c917294"
+                "reference": "3aadc88c00d7aca84ce2f07da236a703cc183d52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tracy/zipball/0ed605329b095f5f5fe2db2adc3d1ee80c917294",
-                "reference": "0ed605329b095f5f5fe2db2adc3d1ee80c917294",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/3aadc88c00d7aca84ce2f07da236a703cc183d52",
+                "reference": "3aadc88c00d7aca84ce2f07da236a703cc183d52",
                 "shasum": ""
             },
             "require": {
@@ -1900,28 +1956,28 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/tracy/issues",
-                "source": "https://github.com/nette/tracy/tree/v2.9.4"
+                "source": "https://github.com/nette/tracy/tree/v2.9.3"
             },
-            "time": "2022-07-19T14:06:15+00:00"
+            "time": "2022-05-30T19:31:14+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "nette/tester",
-            "version": "v2.4.3",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tester.git",
-                "reference": "451f6e97b117797e817446de8d19fe06e54fd33f"
+                "reference": "2e788e243bb17a6889aac5411f3fabc48cc5b23a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tester/zipball/451f6e97b117797e817446de8d19fe06e54fd33f",
-                "reference": "451f6e97b117797e817446de8d19fe06e54fd33f",
+                "url": "https://api.github.com/repos/nette/tester/zipball/2e788e243bb17a6889aac5411f3fabc48cc5b23a",
+                "reference": "2e788e243bb17a6889aac5411f3fabc48cc5b23a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2 <8.3"
+                "php": ">=7.2 <8.2"
             },
             "require-dev": {
                 "ext-simplexml": "*",
@@ -1977,9 +2033,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/tester/issues",
-                "source": "https://github.com/nette/tester/tree/v2.4.3"
+                "source": "https://github.com/nette/tester/tree/v2.4.2"
             },
-            "time": "2022-08-29T16:39:38+00:00"
+            "time": "2022-03-24T19:02:37+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -2041,6 +2097,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "fykosak/nette-orm": 20,
         "fykosak/nette-fksdb-downloader": 5,
         "fykosak/nette-fks-utils": 20
     },
@@ -2050,9 +2107,8 @@
         "php": ">= 7.4",
         "ext-soap": "*",
         "ext-dom": "*",
-        "ext-gettext": "*",
-        "ext-json": "*"
+        "ext-gettext": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
