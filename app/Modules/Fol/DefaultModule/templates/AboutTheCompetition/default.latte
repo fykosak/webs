@@ -24,7 +24,7 @@
                     <li>Every team starts with the same seven problems, for each problem solved they get a new, more challenging one.</li>
                     <li>It is possible to compete in Czech and English language.</li>
                     <li>The participation is free of charge.</li>
-                    <li>The competition take place on {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'l, F j Y'} 5:00 - 8:00 p.m. CET.</li>
+                    <li>The competition take place on {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'l, F j, Y'}, 5:00 - 8:00 p.m. CET.</li>
                     <li>Registration is open from {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'} until {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, h:i a'} CET.</li>
                 </ul>
             {/switch}
