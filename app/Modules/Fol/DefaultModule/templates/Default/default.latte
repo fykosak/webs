@@ -26,8 +26,8 @@
                 </h1>
                 <div class="subheader">
                     {switch $lang}
-                        {case 'cs'}<p>Přihlašte se společně až s pětičlenným týmem. Registrace končí 23.11. v 13:00.</p>
-                        {default}<p>Sign up with a team of up to five. Registration is open until November 23, 13:00 CET.</p>
+                        {case 'cs'}<p>Přihlašte se společně až s pětičlenným týmem. Registrace končí {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. \v G:i'}.</p>
+                        {default}<p>Sign up with a team of up to five. Registration is open until {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET.</p>
                     {/switch}
                 </div>
                 <div class="buttons">
