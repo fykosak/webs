@@ -26,8 +26,18 @@
                 </h1>
                 <div class="subheader">
                     {switch $lang}
-                        {case 'cs'}<p>Přihlašte se společně až s pětičlenným týmem. <br> Registrace končí {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. \v G:i'}.</p>
-                        {default}<p>Sign up with a team of up to five. <br> Registration is open until {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET.</p>
+                        {case 'cs'}<p>
+                            Přihlašte se společně až s pětičlenným týmem.
+                            {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW) || $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW)}
+                                <br> Registrace končí {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. \v G:i'}.
+                            {/if}
+                        </p>
+                        {default}<p>
+                            Sign up with a team of up to five.
+                            {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW) || $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW)}
+                                <br> Registration is open until {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET.
+                            {/if}
+                        </p>
                     {/switch}
                 </div>
                 <div class="buttons">
