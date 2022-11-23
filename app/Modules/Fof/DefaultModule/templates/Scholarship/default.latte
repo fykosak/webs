@@ -3,17 +3,17 @@
 {varType string $eventKey}
 
 {block subtitle}
-    {switch $lang}
+    {*{switch $lang}
         {case "cs"}Archivní stránka programu z roku {$event->begin|date: "Y"}
         {default}Archive page of the program in {$event->begin|date: "Y"}
-    {/switch}
+    {/switch}*}
 {/block}
 
 {block title}
-    {switch $lang}
+    {*{switch $lang}
         {case "cs"}Fyziklani International {if $event->eventYear==16}8. – 14. 2. {/if}{$event->begin|date: "Y"}
         {default}Fyziklani International {if $event->eventYear==16}8. – 14. 2. {/if}{$event->begin|date: "Y"}
-    {/switch}
+    {/switch}*}
 {/block}
 
 {block main}
