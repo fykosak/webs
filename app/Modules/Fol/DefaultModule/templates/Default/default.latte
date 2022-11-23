@@ -28,13 +28,13 @@
                     {switch $lang}
                         {case 'cs'}<p>
                             Přihlašte se společně až s pětičlenným týmem.
-                            {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW) || $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW)}
+                            {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
                                 <br> Registrace končí {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. \v G:i'}.
                             {/if}
                         </p>
                         {default}<p>
                             Sign up with a team of up to five.
-                            {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW) || $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW)}
+                            {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
                                 <br> Registration is open until {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET.
                             {/if}
                         </p>
@@ -42,6 +42,9 @@
                 </div>
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
+                    {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+                    <a href="{$basePath}/download/2022/{switch $lang}{case 'cs'}reseni{default}solutions{/switch}.pdf" class="btn btn-secondary">{switch $lang}{case 'cs'}Řešení úloh{default}Solutions{/switch}</a>
+                    {/if}
                     <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
                     {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
                         <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $lang}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>
