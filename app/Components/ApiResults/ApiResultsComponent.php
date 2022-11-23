@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Components\ApiResults;
 
 use App\Models\Game\Connector;
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\Application\AbortException;
@@ -46,8 +45,7 @@ class ApiResultsComponent extends BaseComponent
             }
 
             $participants = [];
-            /** @var ModelParticipant $participant */
-            foreach ($team->participants as $participant) {
+            foreach ($team->members as $participant) {
                 $participants[] = [
                     'name' => $participant->name,
                     'schoolName' => $participant->schoolName,
