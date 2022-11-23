@@ -72,7 +72,7 @@ Thank you
             </ul>
     {/switch}
     <div class="d-grid gap-2">
-        <a href="https://db.fykos.cz/event{$gamePhaseCalculator->getFKSDBEvent()->eventId}/team-application/create&lang={$lang}" type="button"
+        <a href="https://db.fykos.cz/event{$gamePhaseCalculator->getFKSDBEvent()->eventId}/team-application/create?lang={$lang}" type="button"
            class="btn btn-primary btn-lg btn-block" style="border-radius: 0">{switch $lang}{case cs}Registrovat tým{default}Register team{/switch}</a>
     </div>
 {/block}
