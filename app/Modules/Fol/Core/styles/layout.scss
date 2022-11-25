@@ -36,6 +36,12 @@ ul.stylized {
     position: absolute;
     margin-top: 0.5rem;
   }
+
+  &.correction {
+    @media screen and (max-width: 1280px) {
+      padding-left: 3rem;
+    }
+  }
 }
 
 a:hover {
@@ -93,7 +99,9 @@ a:hover {
     color: white;
 
     .row {
-      --bs-gutter-x: 3rem;
+      @media screen and (min-width: 600px) {
+        --bs-gutter-x: 3rem;
+      }
     }
 
     a {
