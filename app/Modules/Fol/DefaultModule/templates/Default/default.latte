@@ -72,9 +72,9 @@
         </div>
     </div>
 
-    {/*{if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheGame()}*/}
+    {* {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheGame()} *}
         {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}
-    {/*{/if}*/}
+    {* {/if} *}
 
     {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
     <div class="panel color-dark" id="{$anchorBeforeCompetition}">
