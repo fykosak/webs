@@ -4,29 +4,11 @@
 
 
 
-{block main}
-    <div class="panel color-auto">
-        <section class="inner-container">
-          {block title}
-              {switch $lang}
-                  {case "cs"} Stipendia
-                  {default} Scholarship
-              {/switch}
-              {*{switch $lang}
-                  {case "cs"}Fyziklani International {if $event->eventYear==16}8. – 14. 2. {/if}{$event->begin|date: "Y"}
-                  {default}Fyziklani International {if $event->eventYear==16}8. – 14. 2. {/if}{$event->begin|date: "Y"}
-              {/switch}*}
-          {/block}
-        </section>
-    </div>
-
     <div class="panel color-auto">
         <section class="inner-container">
             {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
                 {ifset title}<h1>{include title}</h1>{/ifset}
             <div>
-                {switch $lang}
-                   {case "cs"}
                       <p>This year, for the Fyziklani competition and its accompanying program, we are offering a full scholarship to several teams that would not be able to participate otherwise.</p>
 
                       <p>This scholarship aims to make the program more accessible to a broader range of students. To educate, build a global network of highly-talented students interested in physics, and show the participants opportunities to make it easier to use their talent well.</p>
@@ -39,7 +21,12 @@
                               {default}Accompanying Program
                           {/switch}
                       </a>
+        </section>
+    </div>
 
+    <div class="panel color-auto">
+        <section class="inner-container">
+          
                       <div class="panel color-auto">
                           <section class="inner-container">
                               {switch $lang}
@@ -78,8 +65,6 @@
                           {/switch}
                       </a>
 
-
-                      {default}
                       <p>This year, for the Fyziklani competition and its accompanying program, we are offering a full scholarship to several teams that would not be able to participate otherwise.</p>
 
                       <p>This scholarship aims to make the program more accessible to a broader range of students. To educate, build a global network of highly-talented students interested in physics, and show the participants opportunities to make it easier to use their talent well.</p>
@@ -131,7 +116,6 @@
                           {/switch}
                       </a>
 
-                {/switch}
 
             </div>
         </section>
