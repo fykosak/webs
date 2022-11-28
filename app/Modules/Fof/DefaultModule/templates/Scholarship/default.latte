@@ -6,9 +6,12 @@
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
-            {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+          {* 
+          	{ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
                 {ifset title}<h1>{include title}</h1>{/ifset}
-            <div>
+			*}
+          <h1>Focus of the Scholarship</h1>
+
                       <p>This year, for the Fyziklani competition and its accompanying program, we are offering a full scholarship to several teams that would not be able to participate otherwise.</p>
 
                       <p>This scholarship aims to make the program more accessible to a broader range of students. To educate, build a global network of highly-talented students interested in physics, and show the participants opportunities to make it easier to use their talent well.</p>
@@ -27,16 +30,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
           
-                      <div class="panel color-auto">
-                          <section class="inner-container">
-                              {switch $lang}
-                                  {case 'cs'}
-                                  <h1>Focus of the Scholarship</h1>
-                                  {default}
-                                  <h1>Focus of the Scholarship</h1>
-                              {/switch}
-                          </section>
-                      </div>
+          <h1>Focus of the Scholarship</h1>
 
 
                       <p>All costs will be covered for selected teams, including travel from the participants’ countries to Prague and back, accommodation (most likely in the same hotel as for all other participants of Fyziklani), meals, tickets for the city public transport for the duration of the stay, and travel insurance.<br>
@@ -64,58 +58,6 @@
                               {default}More about ESPR
                           {/switch}
                       </a>
-
-                      <p>This year, for the Fyziklani competition and its accompanying program, we are offering a full scholarship to several teams that would not be able to participate otherwise.</p>
-
-                      <p>This scholarship aims to make the program more accessible to a broader range of students. To educate, build a global network of highly-talented students interested in physics, and show the participants opportunities to make it easier to use their talent well.</p>
-
-                      <p>The accepted teams will attend the entire accompanying program of Fyziklani as well as several closely related extension activities creating about a week-long memorable experience. We built upon last year’s Fyziklani International Youth Exchange. Read more about it on our website.</p>
-
-                      <a class="btn btn-primary my-2" n:href="schedule">
-                          {switch $lang}
-                              {case cs}Doprovodný program
-                              {default}Accompanying program
-                          {/switch}
-                      </a>
-
-                      <div class="panel color-auto">
-                          <section class="inner-container">
-                              {switch $lang}
-                                  {case 'cs'}
-                                  <h1>Focus of the Scholarship</h1>
-                                  {default}
-                                  <h1>Focus of the Scholarship</h1>
-                              {/switch}
-                          </section>
-                      </div>
-
-
-                      <p>All costs will be covered for selected teams, including travel from the participants’ countries to Prague and back, accommodation (most likely in the same hotel as for all other participants of Fyziklani), meals, tickets for the city public transport for the duration of the stay, and travel insurance.<br>
-                      The teams, in turn, must take part in the entire program (unless very serious circumstances prevent them).</p>
-
-                      <p>After being selected, the teams will also participate in preparation and supporting the event in minor ways (examples from last year include creating a presentation about science in their country, preparing for a cultural evening and writing reports from the event).</p>
-
-                      <p>The applications are for high-school (or equivalent) students only and should be made in a team of 5, where all the participants are at least 15 years old and from at most 2 different schools.</p>
-
-                      <p>Any team satisfying the above criteria anywhere in the world can apply. Note, however, that while Fyziklani aims to be open to all high-school students all around the world, the resources for this scholarship are limited. Thus it is aimed preferentially (not exclusively) at highly-talented students from economically less-advantaged backgrounds or from areas where the students have comparatively fewer opportunities than in Europe.</p>
-
-
-                      <a class="btn btn-primary my-2" href="https://docs.google.com/forms/d/e/1FAIpQLSfyvOs0iXjxuDFW8n2_T7jgsSBTOXkrC6d09NP1vHyOCxQ1yw/viewform?usp=sf_link">
-                          {switch $lang}
-                              {case cs}Apply for the Scholarship
-                              {default}Apply for the Scholarship
-                          {/switch}
-                      </a>
-
-                      <p>The scholarship is possible thanks to the kind sponsorship of the European Summer Program on Rationality (ESPR)</p>
-
-                      <a class="btn btn-primary my-2" href="https://espr-camp.org">
-                          {switch $lang}
-                              {case cs}More about ESPR
-                              {default}More about ESPR
-                          {/switch}
-                      </a>
-
 
             </div>
         </section>
