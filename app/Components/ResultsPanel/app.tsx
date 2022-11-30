@@ -49,8 +49,8 @@ const CountDownPortal: React.FC<{results: DataInterface}> = memo(({results}) => 
  */
 function generateSQL(points: ReturnType<typeof useTeamPoints> | null) {
   let query = "";
-  function addTeam(team: number, status: string, points: number | null, rankCategory: number | null, rankTotal: number | null) {
-    query += `UPDATE e_fyziklani_team SET status = '${status}', points = ${points ?? "NULL"}, rank_category = ${rankCategory ?? "NULL"}, rank_total = ${rankTotal ?? "NULL"} WHERE e_fyziklani_team_id = ${team} AND event_id = 159;\n`;
+  function addTeam(team: number, state: string, points: number | null, rankCategory: number | null, rankTotal: number | null) {
+    query += `UPDATE fyziklani_team SET state = '${state}', points = ${points ?? "NULL"}, rank_category = ${rankCategory ?? "NULL"}, rank_total = ${rankTotal ?? "NULL"} WHERE fyziklani_team_id = ${team} AND event_id = 170;\n`;
   }
 
   const sorted = points.sort((a, b) => {
@@ -71,11 +71,6 @@ function generateSQL(points: ReturnType<typeof useTeamPoints> | null) {
     const status = team.team.disqualified ? "disqualified" : team.team.participated ? "participated" : "missed";
     addTeam(team.team.teamId, status, status == "participated" ? team.points : null, status == "participated" ? rankCategory : null, status == "participated" ? rankTotal : null);
   }
-
-  query += `\n\nUPDATE event_participant ep
-INNER JOIN e_fyziklani_participant efp ON ep.event_participant_id=efp.event_participant_id
-INNER JOIN e_fyziklani_team eft ON eft.e_fyziklani_team_id=efp.e_fyziklani_team_id
-SET ep.status=eft.status WHERE ep.event_id=159;`
 
   console.log(query);
 }
