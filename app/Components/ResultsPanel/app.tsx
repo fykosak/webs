@@ -72,7 +72,7 @@ function generateSQL(points: ReturnType<typeof useTeamPoints> | null) {
     const rankTotal = i + 1;
     const rankCategory = sorted_participated.slice(0, i).filter(t => t.team.category === team.team.category).length + 1;
     const state = team.team.disqualified ? "disqualified" : team.team.participated ? "participated" : "missed";
-    addTeam(team.team.teamId, state, state == "participated" ? team.points : null, status == "participated" ? rankCategory : null, status == "participated" ? rankTotal : null);
+    addTeam(team.team.teamId, state, state == "participated" ? team.points : null, state == "participated" ? rankCategory : null, state == "participated" ? rankTotal : null);
   }
 
   console.log(query);
@@ -125,7 +125,7 @@ const CategoryColumn: React.FC<{
 }>
   = memo(({category, points, showFull, mappedTeams}) => {
   const lang = useContext(LangContext);
-  generateSQL(points);
+  //generateSQL(points);
 
   const sorted = useMemo(() => points
     ?.filter(p => p.team.category === category)
