@@ -65,12 +65,7 @@ function generateSQL(points: ReturnType<typeof useTeamPoints> | null) {
     }
   });
 
-  let sorted_participated = sorted;
-  for (let i = 0; i < sorted.length; i++){
-    if(!(participated.includes(sorted_participated[i].team.teamId))){
-      sorted_participated.slice(i, 1);
-    }
-  }
+  const sorted_participated = sorted.filter(t => participated.includes(t.team.teamId));
 
   for (let i = 0; i < sorted_participated.length; i++) {
     const team = sorted_participated[i];
@@ -130,6 +125,7 @@ const CategoryColumn: React.FC<{
 }>
   = memo(({category, points, showFull, mappedTeams}) => {
   const lang = useContext(LangContext);
+  generateSQL(points);
 
   const sorted = useMemo(() => points
     ?.filter(p => p.team.category === category)
