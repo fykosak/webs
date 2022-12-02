@@ -8,8 +8,12 @@
 {/block}
 
 {block main}
-    <div class="panel color-light">
+    <div class="panel color-auto">
         <section class="inner-container">
+            <h1>{switch $lang}
+                    {case 'cs'}Hlavní organizátoři
+                    {default}Main Organizers
+                {/switch}</h1>
             <div class="row justify-content-center">
                 <div class="col-md-4 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person2762.jpg')"></div>
@@ -283,7 +287,7 @@
     </div>
 
     {*TODO: sem doplnit orgy, co se podíleli na úlohách*}
-    {*<div class="panel color-dark">
+    {*<div class="panel color-auto">
         <section class="inner-container">
             <h1>{switch $lang}
                 {case cs}Na úlohách se podíleli:
@@ -317,7 +321,7 @@
         </section>
     </div>*}
     
-    <div class="panel color-light">
+    <div class="panel color-auto">
         <section class="inner-container">
             <h1>{switch $lang}{case cs}Ústřední komise{default}Central Commission{/switch}</h1>
             
@@ -420,7 +424,7 @@ CUNI), and he was the main organizer of Fyziklání for 6 years. He is an active
         </section>
     </div>
     
-    <div class="panel color-dark">
+    <div class="panel color-auto">
         <section class="inner-container">
             {switch $lang}
                 {case cs}
