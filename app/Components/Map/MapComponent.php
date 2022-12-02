@@ -38,6 +38,9 @@ class MapComponent extends BaseComponent
         $this->teamCountries = [];
 
         foreach ($this->serviceTeam->getTeams($this->forEventId) as $team) {
+            if (!in_array($team->status, ["participated", "disqualified", "applied", "pending", "approved"])) {
+                continue;
+            }
             $this->teamCount++;
             foreach ($team->members as $member) {
                 if (is_null($member->countryIso)) {

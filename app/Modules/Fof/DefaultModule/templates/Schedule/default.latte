@@ -2,6 +2,25 @@
 
 {block main}
 <div class="panel color-auto">
+     <section class="inner-container">
+        {switch $lang}
+            {case 'cs'}
+                <h1>Doprovodný program</h1>
+                <p>Kromě soutěže připravujeme i bohatý doprovodný program zaměřený na vzdělávání ve fyzice a propojování studentů, aby se týden kolem Fyziklání stal skutečným svátkem fyziky.</p>
+                <p>Přednášky, exkurze a diskuse se zkušenými vědci nabízejí možnost vidět skutečnou vědeckou práci a získat o ní lepší přehled. Vzhledem k tomu, že vědecká práce může být často obtížně představitelná, a tudíž odrazující, doprovodný program poskytuje studentům vhled a usnadňuje účastníkům udělat informovanější rozhodnutí a zvolit si smysluplnější, nikoli snadnější kariérní cestu, na níž využijí svůj talent k pozitivnímu ovlivnění společnosti.</p>
+                <p>Společenské akce a účast mezinárodních týmů nabízejí účastníkům možnost setkat se se studenty se zájmem o vědu z mnoha dalších zemí. To podporuje globální myšlení a pomáhá budovat mezinárodní komunitu, respekt a vzájemné kulturní porozumění.</p>
+            {default}
+                <h1>The accompanying program</h1>
+                <p>The program builds on the opportunities created by the competition to make the week around Fyziklani a real celebration of physics.</p>
+                <p>We offer a rich program that is focused on physics education and allowing students from very different backgrounds to meet like-minded peers.</p>
+                <p>Lectures, excursions, and discussions with senior scientists offer the opportunity to see actual scientific work and gain a better insight into it. Since scientific work can often be difficult to imagine and therefore discouraging, the accompanying program makes it easier for students to make a more informed decision and choose a more meaningful, rather than easier, career path to use their talents to make a positive impact on society.</p>
+                <p>Social events and participation of international teams offer the participants an opportunity to meet students with interest in science from many other countries. This promotes global thinking and helps to build an international community, respect, and mutual cultural understanding.</p>
+        {/switch}
+    </section>
+</div>
+
+
+<div class="panel color-auto">
     <section class="inner-container">
         {switch $lang}
             {case "cs"}<h1>Časový plán soutěže a doprovodného programu</h1>
