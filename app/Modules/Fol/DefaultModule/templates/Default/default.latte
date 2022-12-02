@@ -12,12 +12,21 @@
     <div class="panel color-primary title-panel">
         <div class="inner-container row align-items-center">
             <div class="col-md-6 left-block">
-                <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
-                    {switch $lang}
-                        {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} 17:00 - 20:00
-                        {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j, Y'}, 5:00 - 8:00 p.m. CET
-                    {/switch}
-                </time>
+                {if !$gamePhaseCalculator->isLongAfterTheGame()}
+                    <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
+                        {switch $lang}
+                            {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} 17:00 - 20:00
+                            {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j, Y'}, 5:00 - 8:00 p.m. CET
+                        {/switch}
+                    </time>
+                {else}
+                    <time class="competition-date">
+                        {switch $lang}
+                            {case 'cs'} listopad {(new \DateTime())->setTimestamp($gamePhaseCalculator->getFKSDBEvent()->begin->getTimestamp())->add(new \DateInterval("P1Y")) |date:'Y'}
+                            {default} November {(new \DateTime())->setTimestamp($gamePhaseCalculator->getFKSDBEvent()->begin->getTimestamp())->add(new \DateInterval("P1Y")) |date:'Y'}
+                        {/switch}
+                    </time>
+                {/if}
                 <h1>
                     {switch $lang}
                         {case 'cs'} Mezinárodní<br>internetová<br>fyzikální soutěž
@@ -45,6 +54,10 @@
                     {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
                     <a href="{$basePath}/download/2022/{switch $lang}{case 'cs'}reseni{default}solutions{/switch}.pdf" class="btn btn-secondary">{switch $lang}{case 'cs'}Řešení úloh{default}Solutions{/switch}</a>
                     {/if}
+                    {* todo: phase - results are final and in FKSDB *}
+                    {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+                        <a n:href=":Archive:Results: eventYear:2022" class="btn btn-secondary">{switch $lang}{case 'cs'}Pořadí týmů{default}Results list{/switch}</a>
+                    {/if}
                     <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
                     {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
                         <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $lang}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>
@@ -61,20 +74,20 @@
         </div>
     </div>
 
-    <div class="fyziklani-banner">
-        <div class="inner-container">
-            <div class="text">
-                {switch $lang}
-                    {case 'cs'}Stále pracujeme na zveřejnění oficiálních výsledků. Omlouváme se za komplikace.
-                    {default}We are still working on the official results of the competition. We are sorry for the inconvenience.
-                {/switch}
-            </div>
-        </div>
-    </div>
+{*    <div class="fyziklani-banner">*}
+{*        <div class="inner-container">*}
+{*            <div class="text">*}
+{*                {switch $lang}*}
+{*                    {case 'cs'}Stále pracujeme na zveřejnění oficiálních výsledků. Omlouváme se za komplikace.*}
+{*                    {default}We are still working on the official results of the competition. We are sorry for the inconvenience.*}
+{*                {/switch}*}
+{*            </div>*}
+{*        </div>*}
+{*    </div>*}
 
-    {* {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheGame()} *}
+     {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheGame()}
         {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}
-    {* {/if} *}
+     {/if}
 
     {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
     <div class="panel color-dark" id="{$anchorBeforeCompetition}">
@@ -394,6 +407,18 @@
             <div class="row legends">
                 <div class="col-md-6">
                     <div class="legends-row">
+                        <div class="legends-year">2022</div>
+                        <div class="legends-item">
+                            <div>
+                                <span class="flag-icon flag-icon-us"></span>
+                                S.I.M.P.S.
+                            </div>
+                            <div class="members">
+                                Đức Huy Trần, Eddie Chen, Quan Nguyen, Tung Tran, Zhening Li
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legends-row">
                         <div class="legends-year">2021</div>
                         <div class="legends-item">
                             <div>
@@ -421,6 +446,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2019</div>
                         <div class="legends-item" n:syntax="off">
@@ -433,8 +460,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2018</div>
                         <div class="legends-item">
@@ -462,18 +487,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="legends-row">
-                        <div class="legends-year">2016</div>
-                        <div class="legends-item">
-                            <div>
-                                <span class="flag-icon flag-icon-in"></span>
-                                Castrambe
-                            </div>
-                            <div class="members">
-                                Mikail Khona, Karan Jain, Basuhi Ravi, Sandesh Kalantre, Pavan Hebbar
-                            </div>
-                        </div>
-                    </div>
+{*                    <div class="legends-row">*}
+{*                        <div class="legends-year">2016</div>*}
+{*                        <div class="legends-item">*}
+{*                            <div>*}
+{*                                <span class="flag-icon flag-icon-in"></span>*}
+{*                                Castrambe*}
+{*                            </div>*}
+{*                            <div class="members">*}
+{*                                Mikail Khona, Karan Jain, Basuhi Ravi, Sandesh Kalantre, Pavan Hebbar*}
+{*                            </div>*}
+{*                        </div>*}
+{*                    </div>*}
                 </div>
             </div>
         </section>
