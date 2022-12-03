@@ -38,7 +38,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
             ':Default:Schedule:default',
         );
 //        $items[] = new NavItem(
-//            new PageTitle(_('reports.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+//            new PageTitle(null,_('reports.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
 //            ':Default:Reports:default',
 //        );
         $items[] = new NavItem(
