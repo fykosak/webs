@@ -31,7 +31,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
 
         $items[] = new NavItem(
             new PageTitle(null, "Minulé ročníky", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-                'Archive:',
+            'Archive:',
         );
         return $items;
     }
