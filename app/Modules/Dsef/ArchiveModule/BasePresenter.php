@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Modules\Dsef\ArchiveModule;
 
 use App\Components\PersonSchedule\AllScheduleListComponent;
+use App\Modules\Dsef\DefaultModule\CurrentPresenter;
+use App\Modules\Dsef\DefaultModule\RegistrationPresenter;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Fykosak\Utils\UI\Navigation\NavItem;
@@ -95,11 +97,25 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
 
     protected function getNavItems(): array
     {
-        return [
-            new NavItem(
-                new PageTitle(null, _('archive.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-                ':Default:Archive:default',
-            ),
-        ];
+        $items = [];
+        if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
+            $items[] = new NavItem(
+                new PageTitle(null, "Registrace", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                'Registration:',
+            );
+        }
+
+        if (CurrentPresenter::isVisible($this->gamePhaseCalculator)) {
+            $items[] = new NavItem(
+                new PageTitle(null, "Aktuální ročník", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                'Current:',
+            );
+        }
+
+        $items[] = new NavItem(
+            new PageTitle(null, "Archiv", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            ':Default:Archive:default',
+        );
+        return $items;
     }
 }
