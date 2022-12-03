@@ -11,9 +11,9 @@
                 <div class="subheader">
                     <p>Den plný přednášek a exkurzí po fyzikálních laboratořích (nejen) MFF UK.</p>
                 </div>
-                <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
+                {if $gamePhaseCalculator->isRegistration($gamePhaseCalculator::BEFORE)}<time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
                     {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}
-                </time>
+                </time>{/if}
 {*                <div class="buttons">*}
 {*                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>*}
 {*                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>*}
