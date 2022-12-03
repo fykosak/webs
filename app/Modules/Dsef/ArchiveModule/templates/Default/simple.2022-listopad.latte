@@ -5,18 +5,11 @@
         <div class="subheader">Archivní stránka soutěže z {$event->begin|date: "j. n. Y"}</div>
         <h1>DSEF {$event->begin|date: "Y"}</h1>
 
-        <p>DSEF 2022 se bude
-            konat {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'j. n. Y'} v Troji. Registrace začala
-            {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin|date:'j. n. Y'} a končí
-            {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd|date:'j. n. Y'}
-            . Rozvržení jednotlivých exkurzí a doplňující informace k programu naleznete níže na stránce, informace
-            k přihlašování pak v sekci <a href="#prihlasovani">Přihlašování</a>. Pokud máte nějaký dotaz nebo
-            problém, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.
+        <p>Den s experimentální fyzikou {$event->begin|date: "Y"} se konal {$event->begin|date: "j. n. Y"}, tentokrát v Troji. Účastníci se opět dostali do špičkových výzkumných laboratoří na MFF UK i jinde v Praze a blízkém okolí. Rozvržení jednotlivých exkurzí a doplňující informace k programu naleznete níže na stránce.
         </p>
         <p>
-            Partnerem letošního DSEFu je asociace <a href="https://www.iaps.info" class="urlextern"
-                title="https://www.iaps.info">IAPS</a> (International Association of Physics Students), která nás
-            podpořila grantem IAPS Outreach Grant. Díky tomu můžeme akci snadněji zorganizovat a rozložit prostředky na
+            Partnerem tohoto ročníku DSEFu byla asociace <a href="https://www.iaps.info" class="urlextern"
+                title="https://www.iaps.info">IAPS</a> (International Association of Physics Students), která nás podpořila grantem IAPS Outreach Grant. Díky tomu jsme mohli akci snadněji zorganizovat a rozložit prostředky na
             zajištění exkurzí a např. levnějšího ubytování pro účastníky.
         </p>
     </section>
@@ -26,17 +19,17 @@
     <section class="inner-container">
         <h1>Harmonogram dne</h1>
 
-        <h4 id="zacatek-dsefu">Začátek DSEFu</h4>
-        <ul>
-            <li>Příjezd pro ubytované v hostelu je v neděli od 16:00 do večera. Pondělní snídaně (pouze pro ubytované)
-                je plánovaná na
-                7:00.
-            </li>
-            <li>DSEF začne v pondělí registrací účastníků, která proběhne mezi <strong>8:00 a 8:30 na
-                    Matematicko-fyzikální fakultě ve vestibulu budovy T na adrese V Holešovičkách 2</strong>.
-                Následovat pak bude oficiální zahájení a ranní přednáška.
-            </li>
-        </ul>
+{*        <h4 id="zacatek-dsefu">Začátek DSEFu</h4>*}
+{*        <ul>*}
+{*            <li>Příjezd pro ubytované v hostelu je v neděli od 16:00 do večera. Pondělní snídaně (pouze pro ubytované)*}
+{*                je plánovaná na*}
+{*                7:00.*}
+{*            </li>*}
+{*            <li>DSEF začne v pondělí registrací účastníků, která proběhne mezi <strong>8:00 a 8:30 na*}
+{*                    Matematicko-fyzikální fakultě ve vestibulu budovy T na adrese V Holešovičkách 2</strong>.*}
+{*                Následovat pak bude oficiální zahájení a ranní přednáška.*}
+{*            </li>*}
+{*        </ul>*}
 
         <h4 id="ranni-prednaska">Ranní přednáška (9:15-10:00)</h4>
         <p>
@@ -46,10 +39,8 @@
 
         <h4 id="exkurze">Exkurze</h4>
         <p>
-            Při přihlášení si zvolíte jednu dopolední a odpolední skupinu; níže naleznete informace, jaké exkurze
-            vás čekají. Dopolední program probíhá na pracovištích MFF a odpolední na různých vědeckých institucích v
-            Praze a okolí. Skupinu bude možné v přihlášce změnit do konce registrace,
-            tj. {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd|date:'j. n. Y'}.
+            Při přihlášení si účastníci volili jednu dopolední a odpolední skupinu. Dopolední program proběhl na pracovištích MFF a odpolední na různých vědeckých institucích v
+            Praze a okolí.
         </p>
         <div class="table sectionedit3">
             <table class="inline table">
