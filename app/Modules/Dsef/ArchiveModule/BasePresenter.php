@@ -92,4 +92,14 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     {
         return new AllScheduleListComponent($this->event->eventId, $this->getContext());
     }
+
+    protected function getNavItems(): array
+    {
+        return [
+            new NavItem(
+                new PageTitle(null, _('archive.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                ':Default:Archive:default',
+            ),
+        ];
+    }
 }
