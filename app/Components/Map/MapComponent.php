@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Components\Map;
 
+use App\Models\GamePhaseCalculator;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
@@ -18,15 +19,18 @@ class MapComponent extends BaseComponent
     protected int $teamCount;
     protected array $teamCountries;
 
+    protected GamePhaseCalculator $gamePhaseCalculator;
+
     public function injectServiceTeam(ServiceEventDetail $serviceTeam): void
     {
         $this->serviceTeam = $serviceTeam;
     }
 
-    public function __construct(Container $container, int $forEventId)
+    public function __construct(Container $container, GamePhaseCalculator $calculator)
     {
         parent::__construct($container);
-        $this->forEventId = $forEventId;
+        $this->forEventId = $calculator->getFKSDBEvent()->eventId;
+        $this->gamePhaseCalculator = $calculator;
     }
 
     /**
@@ -70,6 +74,7 @@ class MapComponent extends BaseComponent
         $this->template->inverseColors = $inverseColors;
 
         $this->template->lang = $this->getPresenter()->lang;
+        $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'map.latte');
     }
 }

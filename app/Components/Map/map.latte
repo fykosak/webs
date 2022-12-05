@@ -3,6 +3,7 @@
 {varType bool $inverseColors}
 {varType string[] $teamCountries}
 {varType string $lang}
+{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 
 {block content}
     <div class="map-panel">
@@ -23,24 +24,45 @@
         </div>
         <div class="team-counts">
             <strong>{$teamCount}</strong>
-            {switch $lang}
-                {case cs}
-                {if $teamCount === 1}
-                    přihlášený tým z
-                {elseif $teamCount > 1 &&  $teamCount < 5}
-                    přihlášené týmy z
-                {else}
-                    přihlášených týmů z
-                {/if}
+            {if $gamePhaseCalculator->isLongAfterTheGame($gamePhaseCalculator::AFTER)}
+                {switch $lang}
+                    {case cs}
+                    {if $teamCount === 1}
+                        zúčastněný tým z
+                    {elseif $teamCount > 1 &&  $teamCount < 5}
+                        zúčastněné týmy z
+                    {else}
+                        zúčastněných týmů z
+                    {/if}
 
-                {case en}
+                    {case en}
 
-                {if $teamCount === 1}
-                    registered team from
-                {else}
-                    registered teams from
-                {/if}
-            {/switch}
+                    {if $teamCount === 1}
+                        participated team from
+                    {else}
+                        participated teams from
+                    {/if}
+                {/switch}
+            {else}
+                {switch $lang}
+                    {case cs}
+                    {if $teamCount === 1}
+                        přihlášený tým z
+                    {elseif $teamCount > 1 &&  $teamCount < 5}
+                        přihlášené týmy z
+                    {else}
+                        přihlášených týmů z
+                    {/if}
+
+                    {case en}
+
+                    {if $teamCount === 1}
+                        registered team from
+                    {else}
+                        registered teams from
+                    {/if}
+                {/switch}
+            {/if}
             <strong>{count($teamCountries)}</strong>
             {switch $lang}
                 {case cs}

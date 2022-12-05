@@ -22,7 +22,7 @@
                 {else}
                     <time class="competition-date">
                         {switch $lang}
-                            {case 'cs'} listopad {(new \DateTime())->setTimestamp($gamePhaseCalculator->getFKSDBEvent()->begin->getTimestamp())->add(new \DateInterval("P1Y")) |date:'Y'}
+                            {case 'cs'} Listopad {(new \DateTime())->setTimestamp($gamePhaseCalculator->getFKSDBEvent()->begin->getTimestamp())->add(new \DateInterval("P1Y")) |date:'Y'}
                             {default} November {(new \DateTime())->setTimestamp($gamePhaseCalculator->getFKSDBEvent()->begin->getTimestamp())->add(new \DateInterval("P1Y")) |date:'Y'}
                         {/switch}
                     </time>

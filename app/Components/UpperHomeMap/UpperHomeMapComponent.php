@@ -34,7 +34,7 @@ class UpperHomeMapComponent extends BaseComponent
 
     protected function createComponentMap(): MapComponent
     {
-        return new MapComponent($this->getContext(), $this->gamePhaseCalculator->getFKSDBEvent()->eventId);
+        return new MapComponent($this->getContext(), $this->gamePhaseCalculator);
     }
 
     protected function createComponentCountdown(): CountdownComponent
