@@ -1,0 +1,58 @@
+[
+  {
+    "headline": "3. Série se hlásí o slovo!!",
+    "text": "Už je tady zase nová Série, která čeká pouze na vaše vyřešení. Zajímá vás kolik peněz dáte za elektřinu nebo radši spíš řešíte problémy za naší sluneční soustavou? Tohle vše a mnohem víc vám nabízí nová Série. POZOR deadline je už 3.1. !!",
+    "backgrounds": {
+      "outer": "fykos-blue",
+      "inner": "fykos-purple"
+    },
+    "buttons": [
+      {
+        "page": "https://fykos.cz/rocnik36/ulohy/serie3",
+        "title": "3.Série"
+      }
+    ]
+  },
+  {
+    "headline": "Registrace na Fyziklání spuštěna",
+    "text": "Bavilo vás Fyziklání Online? Tak neváhejte a přihlaste se na Fyziklání, které se bude konat 10. 2. 2023 v Praze. Kromě samotné soutěže pro vás bude připravený i bohatý doprovodný program.",
+    "backgrounds": {
+      "outer": "fykos-blue",
+      "inner": "fykos-green"
+    },
+    "buttons": [
+      {
+        "page": "https://fyziklani.cz/",
+        "title": "Registrace!"
+      }
+    ]
+  },
+  {
+    "headline": "Fyziklání Online - 904, 59!",
+    "text": "To jsou čísla, která byla spojena s letošním Fyzikláním Online. 904 týmů z 59 zemí z celého světa se zúčastnilo soutěže, aby ukázali své schopnosti v řešení fyzikálních úloh! Vítězům gratulujeme a všem účastníkům přejeme mnoho zdaru s dalšími úlohami. Nestihl jsi se přihlásit na Fyziklání Online? Nesmutni, Fyziklání se nám už pomalu blíží...  ",
+    "backgrounds": {
+      "outer": "fykos-blue",
+      "inner": "fykos-orange"
+    },
+    "buttons": [
+      {
+        "page": "https://online.fyziklani.cz/",
+        "title": "Fyziklání Online"
+      }
+    ]
+  },
+  {
+    "headline": "Soutěž pro experimentátory",
+    "text": "Chceš se ponořit do hlubin experimentální fyziky? V letošním školním roce dostane několik nejlepších řešitelů experimentálních úloh FYKOSu možnost účastnit se zhruba dvoutýdenní letní stáže a vést svůj vlastní projekt na některém z vědeckých pracovišť MFF UK. Tak neváhej a řeš! Pokud si ale ještě úplně nevíš rady, jak máš experimenty správně zpracovávat, nevadí. Připravili jsme pro Tebe návod!",
+    "backgrounds": {
+      "outer": "fykos-blue",
+      "inner": "fykos-lime"
+    },
+    "buttons": [
+      {
+        "page": "https://fykos.cz/sex/jak-na-to",
+        "title": "Jak na experimenty"
+      }
+    ]
+  }
+]

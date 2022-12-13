@@ -1,0 +1,36 @@
+{varType App\Models\OldFykos\JumbotronItem[] $items}
+{var $id = uniqid()}
+<div class="carousel-container">
+    <div id="{$id}" class="carousel slide mb-3" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            {foreach $items as $key => $item}
+                <button
+                        type="button"
+                        data-bs-target="{$id}"
+                        data-bs-slide-to="{$key}"
+                        class="{$iterator->isFirst()?'active':''}"
+                ></button>
+            {/foreach}
+        </div>
+        <div class="carousel-inner">
+            {foreach $items as $item}
+                {var $className = 'bg-' . $item->backgrounds['outer'] . '-fade carousel-item' . ($iterator->isFirst()?' active':'')}
+                <div class="{$className}">
+                    <div class="mx-auto col-lg-8 col-xl-5">
+                        {var $classInner = 'jumbotron-inner-container d-block bg-' . $item->backgrounds['inner'] . '-fade'}
+                        <div class="{$classInner}">
+                            <h1>{$item->headline}</h1>
+                            <p>{$item->text}</p>
+                            {foreach $item->buttons as $button}
+                                {var $id = (preg_match('|^https?://|', $button['page']) ? $button['page'] : str_replace(':','/',$button['page']))}
+                                <p>
+                                    <a class="btn btn-outline-secondary" href="{$id}">{$button['title']}</a>
+                                </p>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+            {/foreach}
+        </div>
+    </div>
+</div>

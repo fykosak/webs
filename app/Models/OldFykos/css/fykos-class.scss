@@ -1,48 +1,49 @@
 @import './fykos-colors';
+
 .bg-fykos-blue {
   background-color: $colorFykosBlue !important;
 }
 
-.bg-fykos-blueFade {
-  background-color: fade($colorFykosBlue, 50%) !important;
+.bg-fykos-blue-fade {
+  background-color: transparentize($colorFykosBlue, 0.5) !important;
 }
 
 .bg-fykos-pink {
   background-color: $colorFykosPink !important;
 }
 
-.bg-fykos-pinkFade {
-  background-color: fade($colorFykosPink, 50%) !important;
+.bg-fykos-pink-fade {
+  background-color: transparentize($colorFykosPink, 0.5) !important;
 }
 
 .bg-fykos-lime {
   background-color: $colorFykosLime !important;
 }
 
-.bg-fykos-limeFade {
-  background-color: fade($colorFykosLime, 50%) !important;
+.bg-fykos-lime-fade {
+  background-color: transparentize($colorFykosLime, 0.5) !important;
 }
 
 .bg-fykos-orange {
   background-color: $colorFykosOrange !important;
 }
 
-.bg-fykos-orangeFade {
-  background-color: fade($colorFykosOrange, 50%) !important;
+.bg-fykos-orange-fade {
+  background-color: transparentize($colorFykosOrange, 0.5) !important;
 }
 
 .bg-fykos-purple {
   background-color: $colorFykosPurple !important;
 }
 
-.bg-fykos-purpleFade {
-  background-color: fade($colorFykosPurple, 50%) !important;
+.bg-fykos-purple-fade {
+  background-color: transparentize($colorFykosPurple, 0.5) !important;
 }
 
 .bg-fykos-green {
   background-color: $colorFykosGreen !important;
 }
 
-.bg-fykos-greenFade {
-  background-color: fade($colorFykosGreen, 50%) !important;
+.bg-fykos-green-fade {
+  background-color: transparentize($colorFykosGreen, 0.5) !important;
 }

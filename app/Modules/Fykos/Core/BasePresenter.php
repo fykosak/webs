@@ -4,17 +4,28 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\Core;
 
-use App\Components\Navigation\Navigation;
 use App\Models\OldFykos\BootstrapNavBar;
-use App\Models\OldFykos\NavBarItem;
+use App\Models\OldFykos\Jumbotron;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
+use Nette;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
     protected function getNavItems(): array
     {
         return [];
+    }
+
+    protected function includeJumbotron(): bool
+    {
+        return true;
+    }
+
+    protected function beforeRender()
+    {
+        parent::beforeRender();
+        $this->template->jumbotron = $this->includeJumbotron();
     }
 
     public function createComponentFullNav(): BootstrapNavBar
@@ -27,7 +38,6 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         $fullMenu->addMenuText(self::getPrimaryItems());
         $fullMenu->addMenuText(self::getSecondaryLeftItems());
         $fullMenu->addMenuText(self::getSecondaryRightItems());
-        $fullMenu->addLangSelect('justify-content-end');
         return $fullMenu;
     }
 
@@ -35,7 +45,6 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     {
         $primaryMenu = new BootstrapNavBar($this->getContext(), 'primary', 'navbar bg-light');
         $primaryMenu->addMenuText(self::getPrimaryItems(), 'mr-auto');
-        $primaryMenu->addLangSelect();
         return $primaryMenu;
     }
 
@@ -62,6 +71,11 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             new NavItem(new PageTitle(null, 'DSEF', 'fa fa-magnet'), 'https://dsef.cz/'),
             new NavItem(new PageTitle(null, 'Experimenty', 'fa fa-flask'), ':sex:start'),
         ];
+    }
+
+    protected function createComponentJumbotron(): Jumbotron
+    {
+        return new Jumbotron($this->getContext());
     }
 
     private function getPrimaryItems(): array
