@@ -15,7 +15,8 @@ class TeamsPresenter extends BasePresenter
      */
     public static function isVisible(GamePhaseCalculator $gamePhaseCalculator): bool
     {
-        return !$gamePhaseCalculator->isRegistration(GamePhaseCalculator::BEFORE);
+        return !$gamePhaseCalculator->isRegistration(GamePhaseCalculator::BEFORE)
+            && !$gamePhaseCalculator->isNearTheCompetition(GamePhaseCalculator::AFTER);
     }
 
     /**

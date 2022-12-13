@@ -13,7 +13,7 @@
             <div class="col-md-6 left-block">
                 <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
                     {switch $lang}
-                        {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} Praha, Česká Republika
+                        {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} Praha, Česká republika
                         {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j, Y'} Prague, Czech Republic
                     {/switch}
                 </time>
@@ -238,7 +238,7 @@
             {switch $lang}
                 {case cs}
                 <div class="subheader">Registrace</div>
-                <h1>Přihlašte se a staňte se legendami!</h1>
+                <h1>Přihlaste se a staňte se legendami!</h1>
             {default}
                 <div class="subheader">Registration</div>
                 <h1>Sign up and become a legend!</h1>
