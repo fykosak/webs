@@ -1,0 +1,29 @@
+.sous-lectures {
+  &.math {
+    h4 {
+      background-color: #F08BAA;
+      color: white;
+    }
+  }
+
+  &.physics {
+    h4 {
+      background-color: #37C4E5;
+      color: white;
+    }
+  }
+
+  &.ict {
+    h4 {
+      background-color: #8AC75A;
+      color: white;
+    }
+  }
+
+  &.other {
+    h4 {
+      background-color: #F47A69;
+      color: white;
+    }
+  }
+}

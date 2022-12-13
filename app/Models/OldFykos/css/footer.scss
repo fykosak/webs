@@ -1,0 +1,16 @@
+footer {
+  text-align: center;
+  .level1 {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    display: flex;
+    p {
+      width: 250px;
+      img {
+        object-fit: contain;
+        padding: 1rem;
+        width: 100%;
+      }
+    }
+  }
+}

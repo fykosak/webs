@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Models\OldFykos;
 
-final class Jumbotron
+use Fykosak\Utils\BaseComponent\BaseComponent;
+
+final class Jumbotron extends BaseComponent
 {
-    public static function render(BootstrapNavBar $secondMenu): string
+    public static function render(BootstrapNavBar $secondMenu, string $lang = 'cs'): string
     {
-       // $items = self::getItemsByPage($pageId);
+        $items = self::getItemsByPage($lang);
         if (!isset($items)) {
             return '
 <div class="container-fluid header mb-3">
@@ -47,14 +49,14 @@ final class Jumbotron
             ($active ? ' active' : '') .
             '" style="' . ($style ?? '') . '">
     <div class="mx-auto col-lg-8 col-xl-5">
-        <div class=" jumbotron-inner-container d-block ' . ($style ? 'bg-' . $item->backgrounds['inner'] . '-fade ' : '') . '">
+        <div class=" jumbotron-inner-container d-block ' .
+            ($style ? 'bg-' . $item->backgrounds['inner'] . '-fade ' : '') . '">
             <h1>' . hsc($item->headline) . '</h1>
             <p>' . p_render('xhtml', p_get_instructions($item->text), $info) . '</p>' .
             self::getButtons($item) . '
         </div>
     </div>
 </div>';
-
     }
 
     private static function getButtons(JumbotronItem $item): string
@@ -62,14 +64,17 @@ final class Jumbotron
         $html = '';
         foreach ($item->buttons as $button) {
             $id = $button['page'];
-            $html .= '<p><a class="btn btn-outline-secondary" href="' . (preg_match('|^https?://|', $id) ? hsc($id) : wl($id, null, true)) . '">' . $button['title'] . '</a></p>';
+            $html .= '<p><a class="btn btn-outline-secondary" href="' .
+                (preg_match('|^https?://|', $id) ? hsc($id) : wl($id, null, true)) . '">' . $button['title'] .
+                '</a></p>';
         }
         return $html;
     }
 
     private static function getDataFromJSON(string $dataPage): ?array
     {
-        $data = json_decode(io_readFile(wikiFN($dataPage)), true);
+
+        $data = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . $dataPage . '.json'), true);
         if (!$data) {
             return null;
         }
@@ -83,10 +88,10 @@ final class Jumbotron
     /**
      * @return JumbotronItem[]|null
      */
-    public static function getItemsByPage(string $page): ?array
+    public static function getItemsByPage(string $lang): ?array
     {
-        switch ($page) {
-            case 'start':
+        switch ($lang) {
+            case 'cs':
                 return self::getDataFromJSON('jumbotron-data-cs');
             case 'en':
                 return self::getDataFromJSON('jumbotron-data-en');

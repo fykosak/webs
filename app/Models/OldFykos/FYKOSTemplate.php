@@ -4,81 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models\OldFykos;
 
-use Fykosak\Utils\UI\Navigation\NavItem;
-use Fykosak\Utils\UI\PageTitle;
-
 class FYKOSTemplate
 {
-
-    public static function getFullNav(): BootstrapNavBar
-    {
-        $fullMenu = new BootstrapNavBar('full', 'col-xs-12 col-md-12 col-sm-12 navbar-inverse  bg-light-fykos');
-        $fullMenu->addMenuText('menu-primary');
-        $fullMenu->addMenuText('menu-second-left');
-        $fullMenu->addMenuText('menu-second-right');
-        $fullMenu->addLangSelect('justify-content-end');
-        return $fullMenu;
-    }
-
-    public static function getPrimaryNav(): BootstrapNavBar
-    {
-        $primaryMenu = new BootstrapNavBar('primary', 'navbar  bg-light');
-        $primaryMenu->addMenuText('menu-primary', 'mr-auto');
-        $primaryMenu->addLangSelect();
-        return $primaryMenu;
-    }
-
-    public static function getSecondaryNav(): BootstrapNavBar
-    {
-        $secondMenu = new BootstrapNavBar('secondary', 'navbar-inverse bg-light-fykos container');
-        $secondMenu->addMenuText('menu-second-left', 'mr-auto');
-        $secondMenu->addMenuText('menu-second-right');
-        return $secondMenu;
-    }
-
-    private static function getSecondaryRightItems(): array
-    {
-        * [[https://db.fykos.cz| Přihlásit se|fa fa-sign-in]]
-    }
-
-    private static function getSecondaryLeftItems(): array
-    {
-        * [[:zadani|Zadání|fa fa-pencil-square-o]]
-  * [[:poradi:start|Pořadí|fa fa-trophy]]
-  * [[https://fyziklani.cz/|Fyziklání 2023|fa fa-paper-plane]]
-  * [[https://online.fyziklani.cz/|Fyziklání Online|fa fa-tv]]
-  * [[https://dsef.cz/|DSEF|fa fa-magnet]]
-  * [[:sex:start|Experimenty|fa fa-flask]]
-
-    }
-
-    private static function getPrimaryItems(): array
-    {
-        new NavItem(new PageTitle()
-        * [[:o-nas:co-je-fykos|O FYKOSu|fa fa-group]]
-    * [[:o-nas:co-je-fykos|Co je FYKOS?]]
-    * [[:o-nas:organizatori|Organizátoři]]
-    * [[:o-nas:historie|Historie]]
-    * [[:o-nas:kontakt|Kontakt]]
-  * [[#|Jak řešit|fa fa-book]]
-    * [[:o-nas:pravidla|Pravidla]]
-    * [[:ulohy:elektronicka-reseni|Elektronická řešení]]
-    * [[:terminy|Termíny]]
-  * [[:ulohy:start|Úlohy|fa fa-tasks]]
-    * [[:ulohy:start|Podle oboru]]
-    * [[:ulohy:archiv|Podle ročníků]]
-    * [[:ulohy:serial|Všechny seriálové úlohy]]
-    * [[:ulohy:rocenky|Ročenky]]
-    * [[:sex:start|Experimenty]]
-  * [[:akce:start|Akce|fa fa-calendar-check-o ]]
-  * [[:odkazy|Odkazy|fa fa-external-link-square]]
-    * [[:odkazy|Doporučené odkazy]]
-    * [[:dopoknihy|Náměty ke čtení]]
-    * [[http://fyzikalniolympiada.cz/|Fyzikální olympiáda]]
-
-
-    }
-
     public static function getFYKOSLogo(): string
     {
         return '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 962.02 250" style="enable-background:new 0 0 962.02 250;" xml:space="preserve">
