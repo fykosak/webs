@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models\OldFykos;
 
+use Fykosak\Utils\UI\Navigation\NavItem;
+use Fykosak\Utils\UI\PageTitle;
+
 class FYKOSTemplate
 {
 
@@ -31,6 +34,49 @@ class FYKOSTemplate
         $secondMenu->addMenuText('menu-second-left', 'mr-auto');
         $secondMenu->addMenuText('menu-second-right');
         return $secondMenu;
+    }
+
+    private static function getSecondaryRightItems(): array
+    {
+        * [[https://db.fykos.cz| Přihlásit se|fa fa-sign-in]]
+    }
+
+    private static function getSecondaryLeftItems(): array
+    {
+        * [[:zadani|Zadání|fa fa-pencil-square-o]]
+  * [[:poradi:start|Pořadí|fa fa-trophy]]
+  * [[https://fyziklani.cz/|Fyziklání 2023|fa fa-paper-plane]]
+  * [[https://online.fyziklani.cz/|Fyziklání Online|fa fa-tv]]
+  * [[https://dsef.cz/|DSEF|fa fa-magnet]]
+  * [[:sex:start|Experimenty|fa fa-flask]]
+
+    }
+
+    private static function getPrimaryItems(): array
+    {
+        new NavItem(new PageTitle()
+        * [[:o-nas:co-je-fykos|O FYKOSu|fa fa-group]]
+    * [[:o-nas:co-je-fykos|Co je FYKOS?]]
+    * [[:o-nas:organizatori|Organizátoři]]
+    * [[:o-nas:historie|Historie]]
+    * [[:o-nas:kontakt|Kontakt]]
+  * [[#|Jak řešit|fa fa-book]]
+    * [[:o-nas:pravidla|Pravidla]]
+    * [[:ulohy:elektronicka-reseni|Elektronická řešení]]
+    * [[:terminy|Termíny]]
+  * [[:ulohy:start|Úlohy|fa fa-tasks]]
+    * [[:ulohy:start|Podle oboru]]
+    * [[:ulohy:archiv|Podle ročníků]]
+    * [[:ulohy:serial|Všechny seriálové úlohy]]
+    * [[:ulohy:rocenky|Ročenky]]
+    * [[:sex:start|Experimenty]]
+  * [[:akce:start|Akce|fa fa-calendar-check-o ]]
+  * [[:odkazy|Odkazy|fa fa-external-link-square]]
+    * [[:odkazy|Doporučené odkazy]]
+    * [[:dopoknihy|Náměty ke čtení]]
+    * [[http://fyzikalniolympiada.cz/|Fyzikální olympiáda]]
+
+
     }
 
     public static function getFYKOSLogo(): string

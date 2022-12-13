@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models\OldFykos;
 
-require_once(dirname(__FILE__) . '/JumbotronItem.php');
-
 final class Jumbotron
 {
     public static function render(BootstrapNavBar $secondMenu): string
