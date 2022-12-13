@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+
+  viewBox="-300 -300 600 600"
+   id="Ebene_1"
+   xml:space="preserve"><defs
+   id="defs15" />
+	<style>
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg);}}
+		path{
+
+    
+  
+		}
+		circle,path{
+		fill:limegreen;
+        opacity:0.3;
+		}
+
+	</style>
+
+<g transform="scale(0.9783764)">
+	<circle r="50"/>
+	<path d="M75,0A75,75 0 0,0 37.5-64.951905L125-216.50635A250,250 0 0,1 250,0Z" id="bld"/>
+	<use xlink:href="#bld" transform="rotate(120)"/>
+	<use xlink:href="#bld" transform="rotate(240)"/>
+</g>
+</svg>

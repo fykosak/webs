@@ -1,0 +1,101 @@
+@import './fykos-colors';
+
+.header-image {
+    background-color: transparent;;
+    padding: 0 !important;
+    border-radius: 0;
+
+    .jumbotron-inner-container {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 1.5rem;
+        color: white;
+        a {
+            color: white;
+        }
+        .btn {
+            background-color: initial;
+            border-color: white;
+            color: white;
+        }
+    }
+
+    @media (min-width: 992px) { // Bootstrap: large devices
+        .jumbotron-inner-container {
+            margin-top: 6rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .carousel-item {
+        background-position: center center;
+    }
+
+    .jumbotron-inner-container {
+        &[data-background="1"] {
+            background-color: fade($colorFykosBlue, 70%);
+        }
+        &[data-background="2"] {
+            background-color: fade($colorFykosPink, 70%);
+        }
+        &[data-background="3"] {
+            background-color: fade($colorFykosLime, 70%);
+        }
+        &[data-background="4"] {
+            background-color: fade($colorFykosGreen, 70%);
+        }
+        &[data-background="5"] {
+            background-color: fade($colorFykosOrange, 70%);
+        }
+        &[data-background="6"] {
+            background-color: fade($colorFykosPurple, 70%);
+        }
+    }
+    .jumbotron-background {
+        background-size: cover;
+        &[data-background="1"] {
+            background-image: url(../images/bg_start/04.jpg);
+        }
+        &[data-background="2"] {
+            background-image: url(../images/bg_start/18a.jpg);
+        }
+        &[data-background="3"] {
+            background-image: url(../images/bg_start/47.jpg);
+        }
+        &[data-background="4"] {
+            background: url(../images/bg_start/55.jpg) 50% 0;
+        }
+        &[data-background="5"] {
+            background-image: url(../images/bg_start/58.jpg);
+        }
+        &[data-background="6"] {
+            background-image: url(../images/bg_start/68.jpg);
+        }
+        &[data-background="fof"] {
+            background-color: $colorFykosPurple;
+        }
+        &[data-background="akce"] {
+            background-color: $colorFykosGreen;
+        }
+        &[data-background="7"] {
+            background-image: url(../images/bg_start/fof.jpg);
+            background-position-y: 20%;
+        }
+        &[data-background="vaf"] {
+            background-image: url(../images/bg_start/vaf.jpg);
+        }
+    }
+
+    .second-nav, .second-nav-jumbotron {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .carousel-container {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+}

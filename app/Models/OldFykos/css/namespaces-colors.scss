@@ -1,0 +1,88 @@
+@import './fykos-colors';
+
+@mixin namespace-color($color) {
+  .card-header {
+    background-color: $color;
+  }
+  .card {
+    border-color: $color;
+  }
+  .navbar-inverse {
+    background-color: $color;
+  }
+  .progress-bar {
+    background-color: $color;
+  }
+  .navbar.bg-light a:not(.active):not(:focus) {
+    color: $color;
+  }
+  .page-header {
+    svg {
+      stroke: $color;
+    }
+    .fykos {
+      color: $color;
+    }
+    &:hover {
+      svg {
+        stroke: darken($color, 20%);;
+      }
+      .fykos {
+        color: darken($color, 20%);;
+      }
+    }
+  }
+}
+
+@mixin page-color($color,$text-color:initial,$background:initial,$background-alt:initial){
+  color: $text-color;
+  background: $background, $background-alt;
+  .progress {
+    background-color: lighten($color, 20%);
+  }
+  .card, .list-group-item {
+    background-color: transparent;
+  }
+  a {
+    color: $color;
+    &:hover, &:focus {
+      color: darken($color, 10%);
+    }
+  }
+  @include namespace-color($color);
+}
+
+body {
+  @include namespace-color($colorFykosBlue);
+
+  &[data-namespace="akce:soustredeni"],
+  &[data-namespace*="sous-"] {
+    @include namespace-color($colorFykosLime);
+  }
+
+  &[data-namespace="sex"] {
+    @include namespace-color($colorFykosPink);
+  }
+
+  &[data-namespace="akce:dsef"],
+  &[data-namespace*="dsef"],
+  &[data-namespace="akce:tsaf"],
+  &[data-namespace*="tsaf"] {
+    @include namespace-color($colorFykosOrange);
+
+  }
+
+  &[data-namespace="akce:fyziklani"] {
+     @include namespace-color($colorFykosPurple);
+  }
+
+  &[data-page_id="rocnik31:sous-podzim:start"] {
+    @include page-color(limegreen, yellow, url(../images/r3.svg), #222);
+  }
+
+  &[data-page_id="rocnik33:dsef:start"] {
+    @include namespace-color(#d9534f);
+  }
+}
+
+

@@ -1,0 +1,45 @@
+{varType string $brand}
+{varType string $className}
+{varType string $id}
+{varType array $data}
+<nav class="{$className . ' navbar navbar-expand-lg'}">
+    {$brand|noescape}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#{$id}"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="{$id}">
+        {foreach $data as $datum}
+            <div class="{$datum['class'] . ' navbar-nav'}">
+                {foreach $datum['data'] as $item}
+                    {varType App\Models\OldFykos\NavBarItem $item}
+                    {if count($item->items)}
+                        <div class="nav-item dropdown">
+                            <a href="{$item->renderLink($control)}"
+                               class="nav-link dropdown-toggle"
+                               data-bs-toggle="dropdown"
+                            >{$item->renderTitle()}
+                                <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu">
+                                {foreach $item->items as $subItem}
+                                    <a class="dropdown-item" href="{$subItem->renderLink($control)}">
+                                        {$subItem->renderTitle()}
+                                    </a>
+                                {/foreach}
+                            </div>
+                        </div>
+                    {else}
+                        <div class="nav-item">
+                            <a class="nav-link" href="{$item->renderLink($control)}">
+                                {$item->renderTitle()}
+                            </a>
+                        </div>
+                    {/if}
+                {/foreach}
+            </div>
+        {/foreach}
+    </div>
+</nav>
