@@ -14,27 +14,30 @@
         {foreach $data as $datum}
             <div class="{$datum['class'] . ' navbar-nav'}">
                 {foreach $datum['data'] as $item}
-                    {varType App\Models\OldFykos\NavBarItem $item}
-                    {if count($item->items)}
+                    {varType Fykosak\Utils\UI\Navigation\NavItem $item}
+                    {var $link = preg_match('#https?://#', $item->destination)?htmlspecialchars($item->destination):str_replace(':', '/', $item->destination)}
+                    {if count($item->children)}
+
                         <div class="nav-item dropdown">
-                            <a href="{$item->renderLink($control)}"
+                            <a href="{$link}"
                                class="nav-link dropdown-toggle"
                                data-bs-toggle="dropdown"
-                            >{$item->renderTitle()}
+                            >{$item->title->toHtml()}
                                 <span class="caret"></span>
                             </a>
                             <div class="dropdown-menu">
-                                {foreach $item->items as $subItem}
-                                    <a class="dropdown-item" href="{$subItem->renderLink($control)}">
-                                        {$subItem->renderTitle()}
+                                {foreach $item->children as $subItem}
+                                    {var $link = preg_match('#https?://#', $item->destination)?htmlspecialchars($item->destination):str_replace(':', '/', $item->destination)}
+                                    <a class="dropdown-item" href="{$link}">
+                                        {$subItem->title->toHtml()}
                                     </a>
                                 {/foreach}
                             </div>
                         </div>
                     {else}
                         <div class="nav-item">
-                            <a class="nav-link" href="{$item->renderLink($control)}">
-                                {$item->renderTitle()}
+                            <a class="nav-link" href="{$link}">
+                                {$item->title->toHtml()}
                             </a>
                         </div>
                     {/if}

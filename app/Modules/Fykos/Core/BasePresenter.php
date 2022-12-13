@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\Core;
 
+use App\Components\Navigation\Navigation;
 use App\Models\OldFykos\BootstrapNavBar;
 use App\Models\OldFykos\NavBarItem;
+use Fykosak\Utils\UI\Navigation\NavItem;
+use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
@@ -46,66 +49,82 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 
     private function getSecondaryRightItems(): array
     {
-        return [new NavBarItem('https://db.fykos.cz', ' Přihlásit se', 'fa fa-sign-in')];
+        return [new NavItem(new PageTitle(null, 'Přihlásit se', 'fa fa-sign-in'), 'https://db.fykos.cz')];
     }
 
     private function getSecondaryLeftItems(): array
     {
         return [
-            new NavBarItem(':zadani', 'Zadání', 'fa fa-pencil-square-o'),
-            new NavBarItem(':poradi:start', 'Pořadí', 'fa fa-trophy'),
-            new NavBarItem('https://fyziklani.cz/', 'Fyziklání 2023', 'fa fa-paper-plane'),
-            new NavBarItem('https://online.fyziklani.cz/', 'Fyziklání Online', 'fa fa-tv'),
-            new NavBarItem('https://dsef.cz/', 'DSEF', 'fa fa-magnet'),
-            new NavBarItem(':sex:start', 'Experimenty', 'fa fa-flask'),
+            new NavItem(new PageTitle(null, 'Zadání', 'fa fa-pencil-square-o'), ':zadani'),
+            new NavItem(new PageTitle(null, 'Pořadí', 'fa fa-trophy'), ':poradi:start'),
+            new NavItem(new PageTitle(null, 'Fyziklání 2023', 'fa fa-paper-plane'), 'https://fyziklani.cz/'),
+            new NavItem(new PageTitle(null, 'Fyziklání Online', 'fa fa-tv'), 'https://online.fyziklani.cz/'),
+            new NavItem(new PageTitle(null, 'DSEF', 'fa fa-magnet'), 'https://dsef.cz/'),
+            new NavItem(new PageTitle(null, 'Experimenty', 'fa fa-flask'), ':sex:start'),
         ];
     }
 
     private function getPrimaryItems(): array
     {
         return [
-            new NavBarItem(
+            new NavItem(
+                new PageTitle(
+                    null,
+                    'O FYKOSu',
+                    'fa fa-group'
+                ),
                 ':o-nas:co-je-fykos',
-                'O FYKOSu',
-                'fa fa-group',
+                [],
                 [
-                    new NavBarItem(':o-nas:co-je-fykos', 'Co je FYKOS?'),
-                    new NavBarItem(':o-nas:organizatori', 'Organizátoři'),
-                    new NavBarItem(':o-nas:historie', 'Historie'),
-                    new NavBarItem(':o-nas:kontakt', 'Kontakt'),
+                    new NavItem(new PageTitle(null, 'Co je FYKOS?'), ':o-nas:co-je-fykos'),
+                    new NavItem(new PageTitle(null, 'Organizátoři'), ':o-nas:organizatori'),
+                    new NavItem(new PageTitle(null, 'Historie'), ':o-nas:historie'),
+                    new NavItem(new PageTitle(null, 'Kontakt'), ':o-nas:kontakt'),
                 ],
             ),
-            new NavBarItem(
+            new NavItem(
+                new PageTitle(
+                    null,
+                    'Jak řešit',
+                    'fa fa-book'
+                ),
                 '#',
-                'Jak řešit',
-                'fa fa-book',
+                [],
                 [
-                    new NavBarItem(':o-nas:pravidla', 'Pravidla'),
-                    new NavBarItem(':ulohy:elektronicka-reseni', 'Elektronická řešení'),
-                    new NavBarItem(':terminy', 'Termíny'),
+                    new NavItem(new PageTitle(null, 'Pravidla'), ':o-nas:pravidla'),
+                    new NavItem(new PageTitle(null, 'Elektronická řešení'), ':ulohy:elektronicka-reseni'),
+                    new NavItem(new PageTitle(null, 'Termíny'), ':terminy'),
                 ],
             ),
-            new NavBarItem(
+            new NavItem(
+                new PageTitle(
+                    null,
+                    'Úlohy',
+                    'fa fa-tasks'
+                ),
                 ':ulohy:start',
-                'Úlohy',
-                'fa fa-tasks',
+                [],
                 [
-                    new NavBarItem(':ulohy:start', 'Podle oboru'),
-                    new NavBarItem(':ulohy:archiv', 'Podle ročníků'),
-                    new NavBarItem(':ulohy:serial', 'Všechny seriálové úlohy'),
-                    new NavBarItem(':ulohy:rocenky', 'Ročenky'),
-                    new NavBarItem(':sex:start', 'Experimenty'),
+                    new NavItem(new PageTitle(null, 'Podle oboru'), ':ulohy:start'),
+                    new NavItem(new PageTitle(null, 'Podle ročníků'), ':ulohy:archiv'),
+                    new NavItem(new PageTitle(null, 'Všechny seriálové úlohy'), ':ulohy:serial'),
+                    new NavItem(new PageTitle(null, 'Ročenky'), ':ulohy:rocenky'),
+                    new NavItem(new PageTitle(null, 'Experimenty'), ':sex:start'),
                 ]
             ),
-            new NavBarItem(':akce:start', 'Akce', 'fa fa-calendar-check-o '),
-            new NavBarItem(
+            new NavItem(new PageTitle(null, 'Akce', 'fa fa-calendar-check-o'), ':akce:start'),
+            new NavItem(
+                new PageTitle(
+                    null,
+                    'Odkazy',
+                    'fa fa-external-link-square'
+                ),
                 ':odkazy',
-                'Odkazy',
-                'fa fa-external-link-square',
+                [],
                 [
-                    new NavBarItem(':odkazy', 'Doporučené odkazy'),
-                    new NavBarItem(':dopoknihy', 'Náměty ke čtení'),
-                    new NavBarItem('http://fyzikalniolympiada.cz/', 'Fyzikální olympiáda'),
+                    new NavItem(new PageTitle(null, 'Doporučené odkazy'), ':odkazy'),
+                    new NavItem(new PageTitle(null, 'Náměty ke čtení'), ':dopoknihy'),
+                    new NavItem(new PageTitle(null, 'Fyzikální olympiáda'), 'https://fyzikalniolympiada.cz/'),
                 ],
             ),
         ];

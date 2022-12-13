@@ -76,32 +76,4 @@ class BootstrapNavBar extends BaseComponent
             'data' => $data,
         ];
     }
-
-
-    /**
-     * @param NavBarItem[] $data
-     */
-    public function renderItem(array $data, string $class): string
-    {
-
-        $html = ' <div class="nav navbar-nav ' . $class . '" > ';
-        foreach ($data as $item) {
-            if (count($item->items)) {
-                '<div class="dropdown nav-item"><a href="' . $item->renderLink($this) .
-                '" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >' .
-                $item->renderTitle() .
-                '<span class="caret"></span></a>';
-                foreach ($item->items as $subItem) {
-                    $html .= '<a class="dropdown-item" href="' . $subItem->renderLink($this) . '">' .
-                        $subItem->renderTitle() .
-                        '</a>';
-                }
-            } else {
-                $html .= '<a class="nav-item nav-link" href="' . $item->renderLink($this) . '">' .
-                    $item->renderTitle() . '</a>';
-            }
-        }
-        $html .= '</div>';
-        return $html;
-    }
 }
