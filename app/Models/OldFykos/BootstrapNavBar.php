@@ -43,37 +43,11 @@ class BootstrapNavBar extends BaseComponent
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'navbar.latte');
     }
 
-    public function addMenuText(array $items, ?string $class = null, string $lang = 'cs'): void
+    public function addMenuText(array $items, ?string $class = null): void
     {
         $this->data[] = [
             'class' => 'nav ' . $class ?? '',
             'data' => $items,
-        ];
-    }
-
-    public function addLangSelect(?string $class = null): void
-    {
-        $data = [];
-        if (
-            !isset($conf['available_lang']) || !is_countable($conf['available_lang']) || !count($conf['available_lang'])
-        ) {
-            return;
-        }
-        $data[] = new NavBarItem('#', '<span class="fa fa-language"></span>');
-
-        foreach ($conf['available_lang'] as $currentLang) {
-            $data[] = new NavBarItem(
-                '#', '<a
-                href="' . $currentLang['content']['url'] . '"
-                class="dropdown-item ' . $currentLang['content']['class'] . ' ' .
-                ($currentLang['code'] == $conf['lang'] ? 'active' : '') . '"
-                ' . $currentLang['content']['more'] . '
-                >' . $currentLang['content']['text'] . ' </a> '
-            );
-        }
-        $this->data[] = [
-            'class' => 'nav ' . ($class ?? ''),
-            'data' => $data,
         ];
     }
 }
