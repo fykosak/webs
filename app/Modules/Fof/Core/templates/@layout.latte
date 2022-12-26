@@ -84,6 +84,36 @@
 
         <div class="panel sponsors">
             <div class="inner-container">
+                <div class="row">
+                    <div class="column" style="float: right; width: 45%">
+                        <div class="text" style="text-align: center; font-weight: bold; margin-top: 2rem; margin-bottom: 2rem">{switch $lang}{case cs}Organizátoři soutěže{default}Organizers of the Competition{/switch}</div>
+                        <div class="sponsors-row">
+                            <a href="https://www.mff.cuni.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-height: 6rem; max-width: 13rem">
+                            </a>
+                            <a href="https://www.msmt.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 6rem; max-width: 13rem">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column" style="float: left; width: 10%">
+                        {*Tohle je fakt zprasené, jestli umíte s CSS, klidně to opravte (prosím)*}
+                    </div>
+                    <div class="column" style="float: right; width: 45%">
+                        <div class="text" style="text-align: center; font-weight: bold; margin-top: 2rem; margin-bottom: 2rem">{switch $lang}{case cs}Generální partneři soutěže{default}General Partners of the Competition{/switch}</div>
+                        <div class="sponsors-row">
+                            <a href="https://espr-camp.org/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/ESPR-logo.png" alt="ESPR logo" style="max-height: 6rem; max-width: 13rem; justify-content: center">
+                            </a>
+                            <a href="https://www.nfneuron.cz/" style="text-align: center"><img src="{$basePath}/images/logos/neuron-logo.jpg" alt="Neuron logo" style="max-height: 6rem; max-width: 13rem"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {*<div class="panel sponsors">
+            <div class="inner-container">
                 <div class="sponsors-row">
                     <a href="https://www.mff.cuni.cz/" style="text-align: center">
                         <div class="text">
@@ -94,14 +124,17 @@
                         </div>
                         <img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-height: 6rem; max-width: 13rem">
                     </a>
-                    <a href="https://www.nfneuron.cz/" style="text-align: center">
+                    <a href="" style="text-align: center">
                         <div class="text">
                             {switch $lang}
-                                {case 'cs'}Generální partner soutěže
-                                {default}General Partner of the Competition
+                                {case 'cs'}Generální partneři soutěže
+                                {default}General Partners of the Competition
                             {/switch}
                         </div>
-                        <img src="{$basePath}/images/logos/neuron-logo.jpg" alt="Neuron logo" style="max-height: 6rem; max-width: 13rem">
+                            <a href="https://www.nfneuron.cz/" style="text-align: center"><img src="{$basePath}/images/logos/neuron-logo.jpg" alt="Neuron logo" style="max-height: 6rem; max-width: 13rem"></a>
+                            <a href="https://espr-camp.org/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/ESPR-logo.png" alt="ESPR logo" style="max-height: 6rem; max-width: 13rem; justify-content: center">
+                            </a>
                     </a>
                     <a href="https://www.msmt.cz/" style="text-align: center">
                         <div class="text">
@@ -112,17 +145,18 @@
                         </div>
                         <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 6rem; max-width: 13rem"></a>
 
-                </div>
+                </div>*}
+
 {*              partners in 2022: *}            
-                <div class="text" style="text-align: center; font-weight: bold; margin-top: 2rem; margin-bottom: 2rem">{switch $lang}{case cs}Partneři soutěže{default}Partners of the Competition{/switch}</div>
+                {*<div class="text" style="text-align: center; font-weight: bold; margin-top: 2rem; margin-bottom: 2rem">{switch $lang}{case cs}Partneři soutěže{default}Partners of the Competition{/switch}</div>
                 <div class="sponsors-row">
-                    <a
-                    </a>
                     <a href="https://espr-camp.org/" style="text-align: center">
                        <img src="{$basePath}/images/logos/ESPR-logo.png" alt="ESPR logo" style="max-height: 6rem; max-width: 13rem; justify-content: center">
                     </a>
-                    <a
-                    </a>
+
+                </div>*}
+
+
 {*                    <a href="https://prometheus-nakl.cz/" style="text-align: center">
 {*                       <img src="{$basePath}/images/logos/prometheus-logo.jpg" alt="Prometheus logo" style="max-height: 6rem; max-width: 13rem">*}
 {*                    </a>*}
