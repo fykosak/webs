@@ -47,7 +47,6 @@ class RouterFactory
      */
     private static function useTranslateFilter(?array $domainList, array $routerMapping): array
     {
-        Debugger::barDump($domainList);
         return [
             // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
             Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList): array {
