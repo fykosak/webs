@@ -7,6 +7,7 @@ namespace App;
 use Nette\Routing\Route;
 use Nette\Application\Routers\RouteList;
 use Nette\Routing\Router;
+use Tracy\Debugger;
 
 class RouterFactory
 {
@@ -47,14 +48,16 @@ class RouterFactory
      */
     private static function useTranslateFilter(?array $domainList, array $routerMapping): array
     {
+        Debugger::barDump($domainList);
         return [
             // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
             Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList): array {
                 // From where to extract the language
+                Debugger::barDump($params);
                 if ($domainList && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
-                    // In case of accessing from unknown domain (which should not happen)
-                    if ($domainLang === null) {
+                    // In case of accessing from unknown domain (which should not happen), dsef is an exception
+                    if ($domainLang === null and ($params['domain'] !== 'dsef.cz' or $params['domain'] !== 'dsef.fykos.cz')) {
                         trigger_error(
                             'Domain \'' . $params['domain'] . '\' has no language assigned. Fallback to en.',
                             E_USER_WARNING
