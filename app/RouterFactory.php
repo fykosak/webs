@@ -7,7 +7,6 @@ namespace App;
 use Nette\Routing\Route;
 use Nette\Application\Routers\RouteList;
 use Nette\Routing\Router;
-use Tracy\Debugger;
 
 class RouterFactory
 {
@@ -53,7 +52,6 @@ class RouterFactory
             // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
             Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList): array {
                 // From where to extract the language
-                Debugger::barDump($params);
                 if ($domainList && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
                     // In case of accessing from unknown domain (which should not happen), dsef is an exception
