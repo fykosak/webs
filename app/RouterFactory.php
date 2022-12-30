@@ -54,7 +54,8 @@ class RouterFactory
                 if ($domainList && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
                     // In case of accessing from unknown domain (which should not happen), dsef is an exception
-                    if ($domainLang === null and ($params['domain'] !== 'dsef.cz' or $params['domain'] !== 'dsef.fykos.cz')) {
+                    if ($domainLang === null and $params['domain'] !== 'dsef.cz'
+                        and $params['domain'] !== 'dsef.fykos.cz') {
                         trigger_error(
                             'Domain \'' . $params['domain'] . '\' has no language assigned. Fallback to en.',
                             E_USER_WARNING
