@@ -1,0 +1,28 @@
+{varType string $lang}
+
+{block title}
+    {switch $lang}
+        {case cs} Rozhodnutí ústřední komise
+        {case en} Central commission decisions 
+    {/switch}
+{/block}
+
+{block main}
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>{switch $lang}
+            {case cs}Rozhodnutí ústřední komise
+            {default}Central commission decisions 
+            {/switch}
+        </h1>
+    {switch $lang}
+    {case cs}
+        <p> Zde najdete rozhodnutí ústřední komise. </p>
+
+    {default}
+        <p> Official decisions of the central commission will be placed here. </p>
+    {/switch}
+    </section>
+</div>
+
+{/block}
