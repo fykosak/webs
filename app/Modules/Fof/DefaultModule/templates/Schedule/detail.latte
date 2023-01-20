@@ -8,16 +8,108 @@
                 <h1>Doprovodný program</h1>
        			<p>Kromě soutěže samotné na vás čeká také bohatý doprovodný program zahrnující odborné přednášky, exkurze na rozličná vědecká pracoviště, setkání s vědci a spoustu dalších aktivit, při kterých si užijete zábavu nejen se svými kamarády, ale také s dalšími lidmi s podobnými zájmy.</p>
                 <p>Akce se účastní i mnoho zahraničních týmů, můžete se tedy těšit na mnoho zajímavých setkání s lidmi s celého světa, tak neváhejte a užijte si Fyziklání s námi.</p>
-                <p>Předběžnou podobu doprovodného programu můžete vidět na harmonogramu níže. Konkrétní informace zveřejníme brzy na této stránce.</p>
+                <p>Detailní program na této stránce se může měnit.</p>
 
         {default}
                 <h1>The accompanying program</h1>
                 <p>In addition to the competition itself, we have prepared a rich accompanying programme including lectures, excursions to various scientific workplaces, meetings with scientists and many other activities to have fun not only with your friends, but also with other people of similar interests.</p>
                 <p>Teams from many different countries are taking part in the event, so you can look forward to lots of exciting encounters with people from all over the world, so don't hesitate and enjoy Fyziklani with us.</p>
-                <p>You can see the preliminary shape of the accompanying program on the schedule below. We will publish specific information on this page soon.</p>
+                <p>The detailed programme on this page is subject to change.</p>
         {/switch}
     </section>
 </div>
+
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        {switch $lang}
+            {case "cs"}<h1>Časový plán soutěže a doprovodného programu</h1>
+            {default}<h1>Game and Accompanying Program Schedule</h1>
+        {/switch}    {include "../schedule.latte"}
+    </section>
+</div>
+
+        <div class="panel color-auto" id="rozvrh-prednasek">
+            <section class="inner-container">
+                {switch $lang}
+                {case cs}
+                <h1>Rozvrh přednášek</h1>
+                <p>
+                    { * Na jednotlivé přednášky se můžete zapsat ve své <a href="https://db.fykos.cz/my-applications">přihlášce</a>. Budou probíhat vždy dvě paralelně, jedna česky a jedna anglicky. I čeští účastníci se samozřejmě mohou přihlásit na anglickou přednášku. * }
+                    Zde bude odkaz na pžihlašování na jednotlivé přadnášky, jakmile bude spuštěno.
+                </p>
+                {default}
+              	<h1>Lectures schedule</h1>
+              	<p>
+                    { * Na jednotlivé přednášky se můžete zapsat ve své <a href="https://db.fykos.cz/my-applications">přihlášce</a>. Budou probíhat vždy dvě paralelně, jedna česky a jedna anglicky. I čeští účastníci se samozřejmě mohou přihlásit na anglickou přednášku. * }
+                    There will be a link to sign up for individual lectures when it is launched.
+                </p>
+                {/switch}
+                <table class="table schedule-table" style="text-align: center;">
+                    <thead>
+                    {switch $lang}
+                        {case cs}
+                        <tr>
+                            <th>místnost</th>
+                            <th><strong>F1</strong> (v budově Ke Karlovu 5)</th>
+                            <th><strong>M1</strong> (v budově Ke Karlovu 3)</th>
+                        </tr>
+                        {default}
+                        <tr>
+                            <th>place</th>
+                            <th><strong>F1</strong> (address: Ke Karlovu 5)</th>
+                            <th><strong>M1</strong> (address: Ke Karlovu 3)</th>
+                        </tr>
+                    {/switch}
+
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                        <th>9:30</th>
+                        <td>doc. RNDr. Jiří Dolejší, CSc.: O částicové fyzice v různých souvislostech [CZ]</td>
+                        <td>prof. Lenka Zdeborová: Physics of Computation [EN]</td>
+                    </tr>
+                    <tr>
+                        <th>10:30</th>
+                        <td colspan="2">{switch $lang}
+                            {case cs}Přestávka{default}Break
+                         {/switch}</td>
+                    </tr>
+                    <tr>
+                        <th>10:45</th>
+                        <td>prof. RNDr. Ondřej Santolík, Dr.: Hudba sfér [CZ]</td>
+                        <td>MScR. Branislav Viliam Hakala: Crash Course of Material Chemistry [EN]</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <div class="panel color-auto">
+            <section class="inner-container">
+                {switch $lang}
+                {case cs}
+                <h1>Anotace přednášek</h1>
+                {default}
+                <h1>Lectures abstract</h1>
+                {/switch}
+                <h2><strong>doc. RNDr. Jiří Dolejší, CSc.:</strong> O částicové fyzice v různých souvislostech [CZ]</h2>
+                <p>{switch $lang}{case cs}
+                    V přednášce bude stručně představen Standardní model mikrosvěta, tedy to, co o částicích víme, v kontrastu s tím, co dosud nevíme. Vedle toho se zmíníme o tom, jaké jsou plány do budoucna, jestli stojí za to se jí věnovat, zda souvisí s jinými obory fyziky, dá-li se považovat za užitečnou pro „běžné občany“ atd.{default}This lecture is only available in Czech.{/switch}
+                </p>
+                <h2><strong>prof. Lenka Zdeborová:</strong> Physics of Computation [EN]</h2>
+                <p>Algorithms are an indispensable tool behind many modern technologies. Many widely used algorithms, e.g. those used in machine learning when training artificial neural networks, are surrounded by mysteries and open questions. Our understanding of which practical problems are solvable with computers is still in its infancy. Physics gives us tools to unveil some of those mysteries and discover better algorithms. Phase transitions such as water freezing or evaporating play a key role in this adventure. If you want to know how physics is used in the domain of computer science and machine learning, come to listen.</p>
+
+                <h2><strong>prof. RNDr. Ondřej Santolík, Dr.:</strong> Hudba sfér [CZ]</h2>
+                <p>{switch $lang}{case cs}
+                    Bez zvuku není hudby, ovšem ne každý zvuk nám zní jako hudba. Zaposloucháme se do zvuků vytvořených ze záznamů elektromagnetických vln na slyšitelných kmitočtech, které v ionosféře zachytila první československá družice Magion 1 a její moderní následovnice.  Na lov podobných zvuků se vydáme i do magnetosféry a dále do heliosféry – do slunečního větru a k planetám sluneční soustavy. Dozvíme se i něco o tom, jak tato „hudba sfér“ vzniká, jaké záhady jsou s ní spojeny a jaké nové robotické sondy chystáme pro odhalení jejích dosud skrytých tajemství.{default}This lecture is only available in Czech.{/switch}
+                </p>
+                <h2><strong>MScR. B. Viliam Hakala:</strong> Crash Course of Material Chemistry [EN]</h2>
+                <p>
+                    More than hundred years ago, basics of structural analysis were laid when x-rays were discovered. During 20<sup>th</sup> century, several Nobel Prizes were awarded for solutions of crystal structures of important compounds. These days, there is an increasing need for new magnetic, electronic, or electrochemical materials that can solve problems in modern science and technology. It was found that even the most basic materials can have interesting physical properties under extreme conditions, such as low temperatures or high pressures. In this talk we will have a look on how different materials behave under these conditions, describe experimental methods used to achieve them and discuss how the conditions influence the structures and properties of the materials.
+                </p>
+            </section>
+        </div>
 
 
 {*Pro inspiraci viz níže    *}
