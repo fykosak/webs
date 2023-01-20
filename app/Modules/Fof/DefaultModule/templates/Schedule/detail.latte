@@ -35,13 +35,11 @@
                 {case cs}
                 <h1>Rozvrh přednášek</h1>
                 <p>
-                    { * Na jednotlivé přednášky se můžete zapsat ve své <a href="https://db.fykos.cz/my-applications">přihlášce</a>. Budou probíhat vždy dvě paralelně, jedna česky a jedna anglicky. I čeští účastníci se samozřejmě mohou přihlásit na anglickou přednášku. * }
                     Zde bude odkaz na pžihlašování na jednotlivé přadnášky, jakmile bude spuštěno.
                 </p>
                 {default}
               	<h1>Lectures schedule</h1>
               	<p>
-                    { * Na jednotlivé přednášky se můžete zapsat ve své <a href="https://db.fykos.cz/my-applications">přihlášce</a>. Budou probíhat vždy dvě paralelně, jedna česky a jedna anglicky. I čeští účastníci se samozřejmě mohou přihlásit na anglickou přednášku. * }
                     There will be a link to sign up for individual lectures when it is launched.
                 </p>
                 {/switch}
@@ -51,14 +49,16 @@
                         {case cs}
                         <tr>
                             <th>místnost</th>
-                            <th><strong>F1</strong> (v budově Ke Karlovu 5)</th>
-                            <th><strong>M1</strong> (v budově Ke Karlovu 3)</th>
+                            <th><strong>1</strong> </th>
+                            <th><strong>2</strong> </th>
+                            <th><strong>3</strong> </th>
                         </tr>
                         {default}
                         <tr>
                             <th>place</th>
-                            <th><strong>F1</strong> (address: Ke Karlovu 5)</th>
-                            <th><strong>M1</strong> (address: Ke Karlovu 3)</th>
+                            <th><strong>1</strong> </th>
+                            <th><strong>2</strong> </th>
+                            <th><strong>3</strong> </th>
                         </tr>
                     {/switch}
 
@@ -66,20 +66,22 @@
                     <tbody>
 
                     <tr>
-                        <th>9:30</th>
-                        <td>doc. RNDr. Jiří Dolejší, CSc.: O částicové fyzice v různých souvislostech [CZ]</td>
-                        <td>prof. Lenka Zdeborová: Physics of Computation [EN]</td>
+                        <th>10:00</th>
+                        <td>Prof. Dr. Christian Bressler: Introduction to Femtosecond X-ray science [EN]</td>
+                        <td>prof. RNDr. Jiří Spousta Ph.D.	 [CZ]</td>
+                        <td>Mgr. Miroslav Kloz Ph.D.: Historie světla [CZ]</td>
                     </tr>
                     <tr>
-                        <th>10:30</th>
+                        <th>11:00</th>
                         <td colspan="2">{switch $lang}
                             {case cs}Přestávka{default}Break
                          {/switch}</td>
                     </tr>
                     <tr>
-                        <th>10:45</th>
-                        <td>prof. RNDr. Ondřej Santolík, Dr.: Hudba sfér [CZ]</td>
-                        <td>MScR. Branislav Viliam Hakala: Crash Course of Material Chemistry [EN]</td>
+                        <th>11:15</th>
+                        <td>To be added... [EN]</td>
+                        <td>prof. RNDr. Jiří Podolský , CSc., DSc.: Einstein [CZ]</td> 
+                        <td>Ing. Jan Kaufman: Špatná fyzika ve filmu [CZ]</td>
                     </tr>
                     </tbody>
                 </table>
@@ -93,21 +95,26 @@
                 {default}
                 <h1>Lectures abstract</h1>
                 {/switch}
-                <h2><strong>doc. RNDr. Jiří Dolejší, CSc.:</strong> O částicové fyzice v různých souvislostech [CZ]</h2>
-                <p>{switch $lang}{case cs}
-                    V přednášce bude stručně představen Standardní model mikrosvěta, tedy to, co o částicích víme, v kontrastu s tím, co dosud nevíme. Vedle toho se zmíníme o tom, jaké jsou plány do budoucna, jestli stojí za to se jí věnovat, zda souvisí s jinými obory fyziky, dá-li se považovat za užitečnou pro „běžné občany“ atd.{default}This lecture is only available in Czech.{/switch}
-                </p>
-                <h2><strong>prof. Lenka Zdeborová:</strong> Physics of Computation [EN]</h2>
-                <p>Algorithms are an indispensable tool behind many modern technologies. Many widely used algorithms, e.g. those used in machine learning when training artificial neural networks, are surrounded by mysteries and open questions. Our understanding of which practical problems are solvable with computers is still in its infancy. Physics gives us tools to unveil some of those mysteries and discover better algorithms. Phase transitions such as water freezing or evaporating play a key role in this adventure. If you want to know how physics is used in the domain of computer science and machine learning, come to listen.</p>
-
-                <h2><strong>prof. RNDr. Ondřej Santolík, Dr.:</strong> Hudba sfér [CZ]</h2>
-                <p>{switch $lang}{case cs}
-                    Bez zvuku není hudby, ovšem ne každý zvuk nám zní jako hudba. Zaposloucháme se do zvuků vytvořených ze záznamů elektromagnetických vln na slyšitelných kmitočtech, které v ionosféře zachytila první československá družice Magion 1 a její moderní následovnice.  Na lov podobných zvuků se vydáme i do magnetosféry a dále do heliosféry – do slunečního větru a k planetám sluneční soustavy. Dozvíme se i něco o tom, jak tato „hudba sfér“ vzniká, jaké záhady jsou s ní spojeny a jaké nové robotické sondy chystáme pro odhalení jejích dosud skrytých tajemství.{default}This lecture is only available in Czech.{/switch}
-                </p>
-                <h2><strong>MScR. B. Viliam Hakala:</strong> Crash Course of Material Chemistry [EN]</h2>
+                <h2><strong>Prof. Dr. Christian Bressler:</strong> Introduction to Femtosecond X-ray science [EN]</h2>
                 <p>
-                    More than hundred years ago, basics of structural analysis were laid when x-rays were discovered. During 20<sup>th</sup> century, several Nobel Prizes were awarded for solutions of crystal structures of important compounds. These days, there is an increasing need for new magnetic, electronic, or electrochemical materials that can solve problems in modern science and technology. It was found that even the most basic materials can have interesting physical properties under extreme conditions, such as low temperatures or high pressures. In this talk we will have a look on how different materials behave under these conditions, describe experimental methods used to achieve them and discuss how the conditions influence the structures and properties of the materials.
+                  Can we possibly ever image with atomic-scale spatial resolution the detailed structural changes during an ongoing chemical reaction? Femtosecond X-Rays have the required temporal resolution and offer atomic-scale structural resolution, and this presentation will introduce the current instrumental and scientific efforts to resolve with razor-sharp precision such ultrafast processes.
                 </p>
+                <h2><strong>prof. RNDr. Jiří Spousta Ph.D.</strong>  [CZ]</h2>
+                <p>{switch $lang}{case cs}
+                    Bude upřesněno.{default}This lecture is only available in Czech.{/switch}
+                </p>
+                <h2><strong>Mgr. Miroslav Kloz Ph.D.:</strong> Historie světla [CZ]</h2>
+                <p>{switch $lang}{case cs}
+                    Fascinace světlem spojuje všechny veliké civilizace. Od časů Egyptského boha Re, je sluce často hlavním božstvem, které přináší životodárnou energii světla. Studium vlastností světla stálo na počátku téměř všech průlomů v našem chápání materiálního světa. Přes dlouhou pouť postupným rozklíčováním vlastností světla jsme dospěli až do bodu, kdy jsme schopni světlo používat k tak nečekaným aplikacím jako chirurgie, řízení chemických reakcí, či zpracování informací. Cílem přednášky je přiblížit klíčové okamžiky této zajímavé pouti.{default}This lecture is only available in Czech.{/switch}
+                </p>
+                <h2><strong>prof. RNDr. Jiří Podolský , CSc., DSc.:</strong> Einstein [CZ]</h2>
+                <p>{switch $lang}{case cs}
+                    Bude upřesněno.{default}This lecture is only available in Czech.{/switch}
+                </p> 
+                <h2><strong>Ing. Jan Kaufman:</strong> Špatná fyzika ve filmu [CZ]</h2>
+                <p>{switch $lang}{case cs}
+                    Přednáška Špatná fyzika ve filmu rozebírá případy špatného nebo nereálného použití fyziky v akčních filmech, kdy fyzikální realita často padne za oběť příběhové dramatizace. Přednáška se skládá z několika filmových ukázek, kde se vyskytuje nějaký častý filmový fyzikální nešvar. Po shlédnutí ukázky je divákům problém odhalen a následuje krátký výklad, proč je to špatně a kde se s podobnou reálnou situací můžeme setkat v běžném životě. Cílem je publikum odlehčenou formou upozornit na zajímavé přírodní jevy a jak realita často stojí v cestě představám filmaře.{default}This lecture is only available in Czech.{/switch}
+                </p> 
             </section>
         </div>
 
