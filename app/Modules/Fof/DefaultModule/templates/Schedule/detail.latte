@@ -5,40 +5,26 @@
      <section class="inner-container">
         {switch $lang}
             {case 'cs'}
-                <h1>Doprovodný program</h1>
-       			<p>Kromě soutěže samotné na vás čeká také bohatý doprovodný program zahrnující odborné přednášky, exkurze na rozličná vědecká pracoviště, setkání s vědci a spoustu dalších aktivit, při kterých si užijete zábavu nejen se svými kamarády, ale také s dalšími lidmi s podobnými zájmy.</p>
-                <p>Akce se účastní i mnoho zahraničních týmů, můžete se tedy těšit na mnoho zajímavých setkání s lidmi s celého světa, tak neváhejte a užijte si Fyziklání s námi.</p>
-                <p>Detailní program na této stránce se může měnit.</p>
-
+                <h1>Detaily programu</h1>
+       			<p>Detailní program na této stránce se může měnit.</p>
         {default}
-                <h1>The accompanying program</h1>
-                <p>In addition to the competition itself, we have prepared a rich accompanying programme including lectures, excursions to various scientific workplaces, meetings with scientists and many other activities to have fun not only with your friends, but also with other people of similar interests.</p>
-                <p>Teams from many different countries are taking part in the event, so you can look forward to lots of exciting encounters with people from all over the world, so don't hesitate and enjoy Fyziklani with us.</p>
+                <h1>The program details</h1>
                 <p>The detailed programme on this page is subject to change.</p>
         {/switch}
     </section>
 </div>
 
 
-<div class="panel color-auto">
-    <section class="inner-container">
-        {switch $lang}
-            {case "cs"}<h1>Časový plán soutěže a doprovodného programu</h1>
-            {default}<h1>Game and Accompanying Program Schedule</h1>
-        {/switch}    {include "../schedule.latte"}
-    </section>
-</div>
-
         <div class="panel color-auto" id="rozvrh-prednasek">
             <section class="inner-container">
                 {switch $lang}
                 {case cs}
-                <h1>Rozvrh přednášek</h1>
+                <h1>Rozvrh přednášek 11. 2.</h1>
                 <p>
                     Zde bude odkaz na pžihlašování na jednotlivé přadnášky, jakmile bude spuštěno.
                 </p>
                 {default}
-              	<h1>Lectures schedule</h1>
+              	<h1>Lectures schedule 11. 2.</h1>
               	<p>
                     There will be a link to sign up for individual lectures when it is launched.
                 </p>
@@ -93,7 +79,7 @@
                 {case cs}
                 <h1>Anotace přednášek</h1>
                 {default}
-                <h1>Lectures abstract</h1>
+                <h1>Lectures annotation</h1>
                 {/switch}
                 <h2><strong>Prof. Dr. Christian Bressler:</strong> Introduction to Femtosecond X-ray science [EN]</h2>
                 <p>
@@ -117,6 +103,135 @@
                 </p> 
             </section>
         </div>
+
+<div class="panel color-auto" id="rozvrh-prednasek-ucitele">
+            <section class="inner-container">
+                {switch $lang}
+                {case cs}
+                <h1>Program pro učitele 10. 2.</h1>
+                {default}
+              	<h1>Program for teachers 10. 2.</h1>
+                {/switch}
+                <table class="table schedule-table" style="text-align: center;">
+                    <thead>
+                    {switch $lang}
+                        {case cs}
+                        <tr>
+                            <th>místnost</th>
+                            <th><strong>PVA Letňany</strong> </th>
+                        </tr>
+                        {default}
+                        <tr>
+                            <th>place</th>
+                            <th><strong>PVA Letňany</strong> </th>
+                        </tr>
+                    {/switch}
+
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                        <th>10:30</th>
+                        <td>Ing. Petr Dvořák, Ph.D.: Elektronová mikroskopie: vstupenka do nanosvěta? [CZ]</td>
+                    </tr>
+                    <tr>
+                        <th>11:20</th>
+                        <td colspan="3">{switch $lang}
+                            {case cs}Přestávka{default}Break
+                         {/switch}</td>
+                    </tr>
+                    <tr>
+                        <th>11:35</th>
+                        <td>Ing. Petr Dvořák, Ph.D.: Optické metapovrchy: optické komponenty budoucnosti? [CZ]</td>
+                    </tr>
+                    <tr>
+                        <th>12:30</th>
+                        <td>End</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <div class="panel color-auto">
+            <section class="inner-container">
+                {switch $lang}
+                {case cs}
+                <h1>Anotace programu pro učitele</h1>
+                {default}
+                <h1>Annotation of teachers program</h1>
+                {/switch}
+                <h2><strong>Ing. Petr Dvořák, Ph.D.:</strong> Elektronová mikroskopie: vstupenka do nanosvěta? [CZ]</h2>
+                <p>
+                  V první samostatné části přednášky se zaměříme na elektronovou mikroskopii a její využití v nanotechnologiích. Vysvětlíme si základní principy elektronové a iontové mikroskopie a představíme si pokročilé technologie, které najdeme v nejnovějších elektronových mikroskopech. Budeme si prezentovat i moderní technické a vědecké aplikace, kde elektronová mikroskopie nachází své uplatnění.
+                </p>
+                <h2><strong>Ing. Petr Dvořák, Ph.D.:</strong> Optické metapovrchy: optické komponenty budoucnosti? [CZ]</h2>
+                <p>
+                  V druhé části přednášky si představíme jednu z moderních aplikací nanotechnologií, kde se využívá elektronová mikroskopie, a to optické metapovrchy. O nich se hovoří jako o nové generaci optických komponent. Vysvětlíme si fyzikální principy jak takové optické metapovrchy fungují a ukážeme si širokou škálu jejich aplikací.
+                </p>
+            </section>
+        </div>
+
+<div id="rozvrh-exkurzi" class="panel color-auto">
+        <section class="inner-container">
+            {switch $lang}
+            {case cs}
+            <h1>Nabízené exkurze 11. 2.</h1>
+            <p>Zde bude odkaz na pžihlašování na jednotlivé exkurze, jakmile bude spuštěno. Seznam exkurzí se bude měnit.</p>
+            {default}
+            <h1>Offered excursions 11. 2.</h1>
+            <p>There will be a link to sign up for individual excursions when it is launched. The list of excursions is subject to change.</p>
+            {/switch}
+            <div style="overflow-x:auto; padding: .1rem">
+                <table class="table schedule-table" style="text-align: center;">
+                    <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Institute</th>
+                        <th>Capacity</th>
+                      	<th>Language</th>
+                        <th>Tour start place and time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>ELI</th>
+                        <td>ELI Beamlines</td>
+                        <td>20</td>
+                      	<th>EN</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>GOL</th>
+                        <td>Tokamak GOLEM</td>
+                        <td>10</td>
+                        <td>CZ</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>MACH</th>
+                        <td>Department of Physical and Macromolecular Chemistry UK</td>
+                        <td>15</td>
+                        <td>EN</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>17:00</th>
+                        <td colspan="8">{switch $lang}{case cs}Závěr{default}End of excursions{/switch}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+              
+              
 
 
 {*Pro inspiraci viz níže    *}
