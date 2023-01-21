@@ -6,190 +6,207 @@
         {switch $lang}
             {case 'cs'}
                 <h1>Detaily programu</h1>
-       			<p>Detailní program na této stránce se může měnit.</p>
+       			<p>Informace na této stránce se můžou měnit.</p>
         {default}
                 <h1>The program details</h1>
-                <p>The detailed programme on this page is subject to change.</p>
+                <p>The information on this page is subject to change.</p>
         {/switch}
     </section>
 </div>
 
-
-        <div class="panel color-auto" id="rozvrh-prednasek">
-            <section class="inner-container">
-                {switch $lang}
-                {case cs}
-                <h1>Rozvrh přednášek 11. 2.</h1>
-                <p>
-                    Zde bude odkaz na přihlašování na jednotlivé přednášky, jakmile bude spuštěno.
-                </p>
-                {default}
-              	<h1>Lectures schedule 11. 2.</h1>
-              	<p>
-                    There will be a link to sign up for individual lectures when it is launched.
-                </p>
-                {/switch}
-                <table class="table schedule-table" style="text-align: center;">
-                    <thead>
-                    {switch $lang}
-                        {case cs}
-                        <tr>
-                            <th>místnost</th>
-                            <th><strong>1</strong> </th>
-                            <th><strong>2</strong> </th>
-                            <th><strong>3</strong> </th>
-                        </tr>
-                        {default}
-                        <tr>
-                            <th>place</th>
-                            <th><strong>1</strong> </th>
-                            <th><strong>2</strong> </th>
-                            <th><strong>3</strong> </th>
-                        </tr>
-                    {/switch}
-
-                    </thead>
-                    <tbody>
-
-                    <tr>
-                        <th>10:00</th>
-                        <td>Prof. Dr. Christian Bressler: Introduction to Femtosecond X-ray science [EN]</td>
-                        <td>prof. RNDr. Jiří Spousta Ph.D.	 [CZ]</td>
-                        <td>Mgr. Miroslav Kloz Ph.D.: Historie světla [CZ]</td>
-                    </tr>
-                    <tr>
-                        <th>11:00</th>
-                        <td colspan="3">{switch $lang}
-                            {case cs}Přestávka{default}Break
-                         {/switch}</td>
-                    </tr>
-                    <tr>
-                        <th>11:15</th>
-                        <td>To be added... [EN]</td>
-                        <td>prof. RNDr. Jiří Podolský , CSc., DSc.: Einstein [CZ]</td> 
-                        <td>Ing. Jan Kaufman: Špatná fyzika ve filmu [CZ]</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </section>
-        </div>
-        <div class="panel color-auto">
-            <section class="inner-container">
-                {switch $lang}
-                {case cs}
-                <h1>Anotace přednášek</h1>
-                {default}
-                <h1>Lectures annotation</h1>
-                {/switch}
-                <h2><strong>Prof. Dr. Christian Bressler:</strong> Introduction to Femtosecond X-ray science [EN]</h2>
-                <p>
-                  Can we possibly ever image with atomic-scale spatial resolution the detailed structural changes during an ongoing chemical reaction? Femtosecond X-Rays have the required temporal resolution and offer atomic-scale structural resolution, and this presentation will introduce the current instrumental and scientific efforts to resolve with razor-sharp precision such ultrafast processes.
-                </p>
-                <h2><strong>prof. RNDr. Jiří Spousta Ph.D.</strong>  [CZ]</h2>
-                <p>{switch $lang}{case cs}
-                    Bude upřesněno.{default}This lecture is only available in Czech.{/switch}
-                </p>
-                <h2><strong>Mgr. Miroslav Kloz Ph.D.:</strong> Historie světla [CZ]</h2>
-                <p>{switch $lang}{case cs}
-                    Fascinace světlem spojuje všechny veliké civilizace. Od časů Egyptského boha Re, je sluce často hlavním božstvem, které přináší životodárnou energii světla. Studium vlastností světla stálo na počátku téměř všech průlomů v našem chápání materiálního světa. Přes dlouhou pouť postupným rozklíčováním vlastností světla jsme dospěli až do bodu, kdy jsme schopni světlo používat k tak nečekaným aplikacím jako chirurgie, řízení chemických reakcí, či zpracování informací. Cílem přednášky je přiblížit klíčové okamžiky této zajímavé pouti.{default}This lecture is only available in Czech.{/switch}
-                </p>
-                <h2><strong>prof. RNDr. Jiří Podolský , CSc., DSc.:</strong> Einstein [CZ]</h2>
-                <p>{switch $lang}{case cs}
-                    Bude upřesněno.{default}This lecture is only available in Czech.{/switch}
-                </p> 
-                <h2><strong>Ing. Jan Kaufman:</strong> Špatná fyzika ve filmu [CZ]</h2>
-                <p>{switch $lang}{case cs}
-                    Přednáška Špatná fyzika ve filmu rozebírá případy špatného nebo nereálného použití fyziky v akčních filmech, kdy fyzikální realita často padne za oběť příběhové dramatizace. Přednáška se skládá z několika filmových ukázek, kde se vyskytuje nějaký častý filmový fyzikální nešvar. Po shlédnutí ukázky je divákům problém odhalen a následuje krátký výklad, proč je to špatně a kde se s podobnou reálnou situací můžeme setkat v běžném životě. Cílem je publikum odlehčenou formou upozornit na zajímavé přírodní jevy a jak realita často stojí v cestě představám filmaře.{default}This lecture is only available in Czech.{/switch}
-                </p> 
-            </section>
-        </div>
-
 <div class="panel color-auto" id="rozvrh-prednasek-ucitele">
-            <section class="inner-container">
-                {switch $lang}
+    <section class="inner-container">
+        {switch $lang}
+            {case cs}
+            <div class="subheader">Pátek</div>
+            <h1>Program pro učitele 10. 2.</h1>
+        {default}
+            <div class="subheader">Friday</div>
+            <h1>Program for teachers 10. 2.</h1>
+        {/switch}
+        <table class="inline table" style="text-align: center;">
+            <thead style="border-bottom: 1px solid;">
+            {switch $lang}
                 {case cs}
-                <h1>Program pro učitele 10. 2.</h1>
-                {default}
-              	<h1>Program for teachers 10. 2.</h1>
-                {/switch}
-                <table class="table schedule-table" style="text-align: center;">
-                    <thead>
-                    {switch $lang}
-                        {case cs}
-                        <tr>
-                            <th>místnost</th>
-                            <th><strong>PVA Letňany</strong> </th>
-                        </tr>
-                        {default}
-                        <tr>
-                            <th>place</th>
-                            <th><strong>PVA Letňany</strong> </th>
-                        </tr>
-                    {/switch}
+                <tr>
+                    <th></th>
+                    <th><strong>PVA Letňany</strong></th>
+                </tr>
+            {default}
+                <tr>
+                    <th></th>
+                    <th><strong>PVA Letňany</strong></th>
+                </tr>
+            {/switch}
 
-                    </thead>
-                    <tbody>
+            </thead>
+            <tbody>
+            <tr>
+                <th>10:30</th>
+                <td>Ing. Petr Dvořák, Ph.D.: Elektronová mikroskopie: vstupenka do nanosvěta? [CZ]</td>
+            </tr>
+            <tr>
+                <th>11:20</th>
+                <td colspan="3">{switch $lang}
+                    {case cs}Přestávka{default}Break
+                    {/switch}</td>
+            </tr>
+            <tr>
+                <th>11:35</th>
+                <td>Ing. Petr Dvořák, Ph.D.: Optické metapovrchy: optické komponenty budoucnosti? [CZ]</td>
+            </tr>
+            <tr>
+                <th>12:30</th>
+                <td colspan="3">{switch $lang}
+                    {case cs}Konec{default}End
+                    {/switch}</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+<div class="panel color-auto">
+    <section class="inner-container">
+        {switch $lang}
+            {case cs}
+            <h1>Anotace programu pro učitele</h1>
+        {default}
+            <h1>Annotation of lectures for teachers</h1>
+        {/switch}
+        <h2><strong>Ing. Petr Dvořák, Ph.D.:</strong> Elektronová mikroskopie: vstupenka do nanosvěta? [CZ]</h2>
+        <p>
+            V&nbsp;první samostatné části přednášky se zaměříme na elektronovou mikroskopii a její využití v&nbsp;nanotechnologiích. Vysvětlíme si základní principy elektronové a iontové mikroskopie a představíme si pokročilé technologie, které najdeme v&nbsp;nejnovějších elektronových mikroskopech. Budeme si prezentovat i moderní technické a vědecké aplikace, kde elektronová mikroskopie nachází své uplatnění.
+        </p>
+        <h2><strong>Ing. Petr Dvořák, Ph.D.:</strong> Optické metapovrchy: optické komponenty budoucnosti? [CZ]</h2>
+        <p>
+            V&nbsp;druhé části přednášky si představíme jednu z&nbsp;moderních aplikací nanotechnologií, kde se využívá elektronová mikroskopie, a to optické metapovrchy. O nich se hovoří jako o nové generaci optických komponent. Vysvětlíme si fyzikální principy jak takové optické metapovrchy fungují a ukážeme si širokou škálu jejich aplikací.
+        </p>
+    </section>
+</div>
 
-                    <tr>
-                        <th>10:30</th>
-                        <td>Ing. Petr Dvořák, Ph.D.: Elektronová mikroskopie: vstupenka do nanosvěta? [CZ]</td>
-                    </tr>
-                    <tr>
-                        <th>11:20</th>
-                        <td colspan="3">{switch $lang}
-                            {case cs}Přestávka{default}Break
-                         {/switch}</td>
-                    </tr>
-                    <tr>
-                        <th>11:35</th>
-                        <td>Ing. Petr Dvořák, Ph.D.: Optické metapovrchy: optické komponenty budoucnosti? [CZ]</td>
-                    </tr>
-                    <tr>
-                        <th>12:30</th>
-                        <td>End</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </section>
-        </div>
-        <div class="panel color-auto">
-            <section class="inner-container">
-                {switch $lang}
+
+<div class="panel color-auto" id="rozvrh-prednasek">
+    <section class="inner-container">
+        {switch $lang}
+        {case cs}
+            <div class="subheader">Sobota</div>
+            <h1>Rozvrh přednášek 11. 2.</h1>
+        <p>
+            Zde bude odkaz na přihlašování na jednotlivé přednášky, jakmile bude spuštěno.
+        </p>
+        {default}
+            <div class="subheader">Saturday</div>
+            <h1>Lectures schedule 11. 2.</h1>
+        <p>
+            You will find here a link to sign up for individual lectures once it is launched.
+        </p>
+        {/switch}
+        <table class="table schedule-table" style="text-align: center;">
+            <thead style="border-bottom: 1px solid;">
+            {switch $lang}
                 {case cs}
-                <h1>Anotace programu pro učitele</h1>
+                <tr>
+                    <th></th>
+                    <th><strong>1</strong></th>
+                    <th><strong>2</strong></th>
+                    <th><strong>3</strong></th>
+                </tr>
                 {default}
-                <h1>Annotation of teachers program</h1>
-                {/switch}
-                <h2><strong>Ing. Petr Dvořák, Ph.D.:</strong> Elektronová mikroskopie: vstupenka do nanosvěta? [CZ]</h2>
-                <p>
-                  V první samostatné části přednášky se zaměříme na elektronovou mikroskopii a její využití v nanotechnologiích. Vysvětlíme si základní principy elektronové a iontové mikroskopie a představíme si pokročilé technologie, které najdeme v nejnovějších elektronových mikroskopech. Budeme si prezentovat i moderní technické a vědecké aplikace, kde elektronová mikroskopie nachází své uplatnění.
-                </p>
-                <h2><strong>Ing. Petr Dvořák, Ph.D.:</strong> Optické metapovrchy: optické komponenty budoucnosti? [CZ]</h2>
-                <p>
-                  V druhé části přednášky si představíme jednu z moderních aplikací nanotechnologií, kde se využívá elektronová mikroskopie, a to optické metapovrchy. O nich se hovoří jako o nové generaci optických komponent. Vysvětlíme si fyzikální principy jak takové optické metapovrchy fungují a ukážeme si širokou škálu jejich aplikací.
-                </p>
-            </section>
-        </div>
+                <tr>
+                    <th></th>
+                    <th><strong>1</strong> </th>
+                    <th><strong>2</strong> </th>
+                    <th><strong>3</strong> </th>
+                </tr>
+            {/switch}
+
+            </thead>
+            <tbody>
+
+            <tr>
+                <th>10:00</th>
+                <td>Prof. Dr. Christian Bressler: Introduction to Femtosecond X-ray science [EN]</td>
+                <td>prof. RNDr. Jiří Spousta Ph.D. [CZ]</td>
+                <td>Mgr. Miroslav Kloz Ph.D.: Historie světla [CZ]</td>
+            </tr>
+            <tr>
+                <th>11:00</th>
+                <td colspan="3">{switch $lang}
+                    {case cs}Přestávka{default}Break
+                 {/switch}</td>
+            </tr>
+            <tr>
+                <th>11:15</th>
+                <td>To be added... [EN]</td>
+                <td>prof. RNDr. Jiří Podolský , CSc., DSc.: Einstein [CZ]</td>
+                <td>Ing. Jan Kaufman: Špatná fyzika ve filmu [CZ]</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+<div class="panel color-auto">
+    <section class="inner-container">
+        {switch $lang}
+        {case cs}
+        <h1>Anotace přednášek</h1>
+        {default}
+        <h1>Lectures annotation</h1>
+        {/switch}
+        <h2><strong>Prof. Dr. Christian Bressler:</strong> Introduction to Femtosecond X-ray science [EN]</h2>
+        <p>
+          Can we possibly ever image with atomic-scale spatial resolution the detailed structural changes during an ongoing chemical reaction? Femtosecond X-Rays have the required temporal resolution and offer atomic-scale structural resolution, and this presentation will introduce the current instrumental and scientific efforts to resolve with razor-sharp precision such ultrafast processes.
+        </p>
+        <h2><strong>prof. RNDr. Jiří Spousta Ph.D.</strong>  [CZ]</h2>
+        <p>{switch $lang}{case cs}
+            Bude upřesněno.{default}This lecture is only available in Czech.{/switch}
+        </p>
+        <h2><strong>Mgr. Miroslav Kloz Ph.D.:</strong> Historie světla [CZ]</h2>
+        <p>{switch $lang}{case cs}
+            Fascinace světlem spojuje všechny veliké civilizace. Od časů Egyptského boha Re, je sluce často hlavním božstvem, které přináší životodárnou energii světla. Studium vlastností světla stálo na počátku téměř všech průlomů v našem chápání materiálního světa. Přes dlouhou pouť postupným rozklíčováním vlastností světla jsme dospěli až do bodu, kdy jsme schopni světlo používat k tak nečekaným aplikacím jako chirurgie, řízení chemických reakcí, či zpracování informací. Cílem přednášky je přiblížit klíčové okamžiky této zajímavé pouti.{default}This lecture is only available in Czech.{/switch}
+        </p>
+        <h2><strong>prof. RNDr. Jiří Podolský , CSc., DSc.:</strong> Einstein [CZ]</h2>
+        <p>{switch $lang}{case cs}
+            Bude upřesněno.{default}This lecture is only available in Czech.{/switch}
+        </p>
+        <h2><strong>Ing. Jan Kaufman:</strong> Špatná fyzika ve filmu [CZ]</h2>
+        <p>{switch $lang}{case cs}
+            Přednáška Špatná fyzika ve filmu rozebírá případy špatného nebo nereálného použití fyziky v akčních filmech, kdy fyzikální realita často padne za oběť příběhové dramatizace. Přednáška se skládá z několika filmových ukázek, kde se vyskytuje nějaký častý filmový fyzikální nešvar. Po shlédnutí ukázky je divákům problém odhalen a následuje krátký výklad, proč je to špatně a kde se s podobnou reálnou situací můžeme setkat v běžném životě. Cílem je publikum odlehčenou formou upozornit na zajímavé přírodní jevy a jak realita často stojí v cestě představám filmaře.{default}This lecture is only available in Czech.{/switch}
+        </p>
+    </section>
+</div>
 
 <div id="rozvrh-exkurzi" class="panel color-auto">
         <section class="inner-container">
             {switch $lang}
             {case cs}
-            <h1>Nabízené exkurze 11. 2.</h1>
+            <div class="subheader">Sobota</div>
+            <h1>Exkurze 11. 2.</h1>
             <p>Zde bude odkaz na přihlašování na jednotlivé exkurze, jakmile bude spuštěno. Seznam exkurzí se bude měnit.</p>
             {default}
-            <h1>Offered excursions 11. 2.</h1>
-            <p>There will be a link to sign up for individual excursions when it is launched. The list of excursions is subject to change.</p>
+            <div class="subheader">Saturday</div>
+            <h1>Excursions 11. 2.</h1>
+            <p>You will find here a link to sign up for individual excursions once it is launched. The list of excursions is subject to change.</p>
             {/switch}
             <div style="overflow-x:auto; padding: .1rem">
-                <table class="table schedule-table" style="text-align: center;">
-                    <thead>
+                <table class="inline table" style="text-align: center;">
+                    <thead style="border-bottom: 1px solid">
                     <tr>
-                        <th>Code</th>
-                        <th>Institute</th>
-                        <th>Capacity</th>
-                      	<th>Language</th>
-                        <th>Tour start place and time</th>
+                        <th>{switch $lang}
+                            {case cs}Zkratka{default}Code
+                            {/switch}</th>
+                        <th>{switch $lang}
+                            {case cs}Institut{default}Institute
+                            {/switch}</th>
+                        <th>{switch $lang}
+                            {case cs}Kapacita{default}Capacity
+                            {/switch}</th>
+                      	<th>{switch $lang}
+                            {case cs}Jazyk{default}Language
+                            {/switch}</th>
+                        <th>{switch $lang}
+                            {case cs}Kdy a kde{default}When and where
+                            {/switch}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -197,7 +214,7 @@
                         <th>ELI</th>
                         <td>ELI Beamlines</td>
                         <td>20</td>
-                      	<th>EN</th>
+                      	<td>EN</td>
                         <td></td>
                     </tr>
                     <tr>
