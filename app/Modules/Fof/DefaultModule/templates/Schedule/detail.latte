@@ -2,19 +2,35 @@
 
 {block main}
 <div class="panel color-auto">
-     <section class="inner-container">
+    <section class="inner-container">
         {switch $lang}
-            {case 'cs'}
-                <h1>Detaily programu</h1>
-       			<p>Informace na této stránce se můžou měnit.</p>
+        {case 'cs'}
+            <h1>Detaily programu</h1>
+            <p>Informace na této stránce se můžou měnit.</p>
+            <p>
+                Níže najdete:
+                <ul>
+                    <li><a href="#teachers">Program pro učitele během soutěže</a></li>
+                    <li><a href="#lectures">Rozvrh a anotace přednášek na sobotu</a></li>
+                    <li><a href="#excursions">Rozvrh a anotace exkurzí na sobotu</a></li>
+                </ul>
+            </p>
         {default}
                 <h1>The program details</h1>
                 <p>The information on this page is subject to change.</p>
+            <p>
+                You will find here:
+            <ul>
+                <li><a href="#teachers">Program for teachers during the competition</a></li>
+                <li><a href="#lectures">Schedule and annotations of Saturday lectures</a></li>
+                <li><a href="#excursions">Schedule and annotations of Saturday excursions</a></li>
+            </ul>
+            </p>
         {/switch}
     </section>
 </div>
 
-<div class="panel color-auto" id="rozvrh-prednasek-ucitele">
+<div class="panel color-auto" id="teachers">
     <section class="inner-container">
         {switch $lang}
             {case cs}
@@ -85,7 +101,7 @@
 </div>
 
 
-<div class="panel color-auto" id="rozvrh-prednasek">
+<div class="panel color-auto" id="lectures">
     <section class="inner-container">
         {switch $lang}
         {case cs}
@@ -176,7 +192,7 @@
     </section>
 </div>
 
-<div id="rozvrh-exkurzi" class="panel color-auto">
+<div id="excursions" class="panel color-auto">
         <section class="inner-container">
             {switch $lang}
             {case cs}
