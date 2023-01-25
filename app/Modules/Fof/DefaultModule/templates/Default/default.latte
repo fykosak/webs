@@ -221,11 +221,13 @@
         <section class="inner-container">
             {switch $lang}
                 {case cs}
-                <div class="subheader">Harmonogram soutěže</div>
+                <div class="subheader">Harmonogram Fyziklání</div>
                 <h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}.</h1>
+                <p>Doprovodný program soutěže je volitelný, lze se zúčastnit i pouze samotné soutěže.</p>
             {default}
-                <div class="subheader">Competition Schedule</div>
+                <div class="subheader">Fyziklani Schedule</div>
                 <h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}.</h1>
+                <p>The accompanying program is optional, it is possible to take part only in the competition itself.</p>
             {/switch}
 
             {include "../schedule.latte"}
