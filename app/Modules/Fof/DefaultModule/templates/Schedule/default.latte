@@ -2,29 +2,44 @@
 
 {block main}
 <div class="panel color-auto">
-     <section class="inner-container">
+    <section class="inner-container">
         {switch $lang}
             {case 'cs'}
             <div class="subheader">Volitelný program k soutěži</div>
-                <h1>Doprovodný program</h1>
-       			<p>Kromě soutěže samotné na vás čeká také bohatý doprovodný program zahrnující odborné přednášky, exkurze na rozličná vědecká pracoviště, setkání s vědci a spoustu dalších aktivit, při kterých si užijete zábavu nejen se svými kamarády, ale také s dalšími lidmi s podobnými zájmy.</p>
-                <p>Akce se účastní i mnoho zahraničních týmů, můžete se tedy těšit na mnoho zajímavých setkání s lidmi s celého světa, tak neváhejte a užijte si Fyziklání s námi.</p>
-                <p>Předběžnou podobu doprovodného programu můžete vidět na harmonogramu níže. Konkrétní informace zveřejníme v průběhu ledna.</p>
+            <h1>Doprovodný program</h1>
+            <p>Kromě soutěže samotné na vás čeká také bohatý doprovodný program zahrnující odborné přednášky, exkurze na
+                rozličná vědecká pracoviště, setkání s vědci a spoustu dalších aktivit, při kterých si užijete zábavu
+                nejen se svými kamarády, ale také s dalšími lidmi s podobnými zájmy.</p>
+            <p>Akce se účastní i mnoho zahraničních týmů, můžete se tedy těšit na mnoho zajímavých setkání s lidmi s
+                celého světa, tak neváhejte a užijte si Fyziklání s námi.</p>
+            <p>Předběžnou podobu doprovodného programu můžete vidět na harmonogramu níže. Konkrétní informace zveřejníme
+                v průběhu ledna.</p>
             <p>
-                <strong>Program v úterý a ve středu</strong> připravujeme primárně pro účastníky cestující z daleka, kteří zůstávají v Praze po celý týden. Chcete-li toho s Fyzikláním zažít více a poznat i zahraniční kulturu, můžete se přihlásit také, kapacita na tuto část je však bohužel nižší než v dalších dnech.
+                <strong>Program v úterý a ve středu</strong> připravujeme primárně pro účastníky cestující z daleka,
+                kteří zůstávají v Praze po celý týden. Chcete-li toho s Fyzikláním zažít více a poznat i zahraniční
+                kulturu, můžete se přihlásit také, kapacita na tuto část je však bohužel nižší než v dalších dnech.
             </p>
 
         {default}
             <div class="subheader">Optional program</div>
             <h1>The accompanying program</h1>
-                <p>In addition to the competition itself, we have prepared a rich accompanying programme including lectures, excursions to various scientific workplaces, meetings with scientists and many other activities to have fun not only with your friends, but also with other people of similar interests.</p>
-                <p>Teams from many different countries are taking part in the event, so you can look forward to lots of exciting encounters with people from all over the world, so don't hesitate and enjoy Fyziklani with us.</p>
-                <p>You can see the preliminary shape of the accompanying program on the schedule below. We will publish specific information during January.</p>
+            <p>In addition to the competition itself, we have prepared a rich accompanying programme including lectures,
+                excursions to various scientific workplaces, meetings with scientists and many other activities to have
+                fun not only with your friends, but also with other people of similar interests.</p>
+            <p>Teams from many different countries are taking part in the event, so you can look forward to lots of
+                exciting encounters with people from all over the world, so don't hesitate and enjoy Fyziklani with
+                us.</p>
+            <p>You can see the preliminary shape of the accompanying program on the schedule below. We will publish
+                specific information during January.</p>
 
         {/switch}
-         <a class="btn btn-primary my-2" n:href="Schedule:detail">{switch $lang}{case 'cs'}Popis programu{default}Program description{/switch}</a>
-
-     </section>
+        <a class="btn btn-primary my-2" n:href="Schedule:detail">
+            {switch $lang}
+                {case 'cs'}Popis programu
+                {default}Program description
+            {/switch}
+        </a>
+    </section>
 </div>
 
 
@@ -35,20 +50,23 @@
             <p>Doprovodný program Fyziklání je volitelný, lze se zúčastnit i pouze samotné soutěže.</p>
             {default}<h1>Game and Accompanying Program Schedule</h1>
             <p>The accompanying program is optional, it is possible to take part only in the competition itself.</p>
-        {/switch}    {include "../schedule.latte"}
+        {/switch}
+        {include "../schedule.latte"}
     </section>
 </div>
 {if false}
         <div class="panel color-auto" id="rozvrh-prednasek">
             <section class="inner-container">
                 {switch $lang}
-                {case cs}
-                <h1>Rozvrh přednášek</h1>
-                <p>
-                    Na jednotlivé přednášky se můžete zapsat ve své <a href="https://db.fykos.cz/my-applications">přihlášce</a>. Budou probíhat vždy dvě paralelně, jedna česky a jedna anglicky. I čeští účastníci se samozřejmě mohou přihlásit na anglickou přednášku.
-                </p>
+                    {case cs}
+                    <h1>Rozvrh přednášek</h1>
+                    <p>
+                        Na jednotlivé přednášky se můžete zapsat ve své <a href="https://db.fykos.cz/my-applications">přihlášce</a>.
+                        Budou probíhat vždy dvě paralelně, jedna česky a jedna anglicky. I čeští účastníci se samozřejmě
+                        mohou přihlásit na anglickou přednášku.
+                    </p>
                 {default}
-                <h1>Lectures schedule</h1>
+                    <h1>Lectures schedule</h1>
                 {/switch}
                 <table class="table schedule-table" style="text-align: center;">
                     <thead>
@@ -90,39 +108,59 @@
                 </table>
             </section>
         </div>
-        <div class="panel color-auto">
-            <section class="inner-container">
-                {switch $lang}
-                {case cs}
-                <h1>Anotace přednášek</h1>
-                {default}
-                <h1>Lectures abstract</h1>
-                {/switch}
-                <h2><strong>doc. RNDr. Jiří Dolejší, CSc.:</strong> O částicové fyzice v různých souvislostech [CZ]</h2>
-                <p>{switch $lang}{case cs}
-                    V přednášce bude stručně představen Standardní model mikrosvěta, tedy to, co o částicích víme, v kontrastu s tím, co dosud nevíme. Vedle toho se zmíníme o tom, jaké jsou plány do budoucna, jestli stojí za to se jí věnovat, zda souvisí s jinými obory fyziky, dá-li se považovat za užitečnou pro „běžné občany“ atd.{default}This lecture is only available in Czech.{/switch}
-                </p>
-                <h2><strong>prof. Lenka Zdeborová:</strong> Physics of Computation [EN]</h2>
-                <p>Algorithms are an indispensable tool behind many modern technologies. Many widely used algorithms, e.g. those used in machine learning when training artificial neural networks, are surrounded by mysteries and open questions. Our understanding of which practical problems are solvable with computers is still in its infancy. Physics gives us tools to unveil some of those mysteries and discover better algorithms. Phase transitions such as water freezing or evaporating play a key role in this adventure. If you want to know how physics is used in the domain of computer science and machine learning, come to listen.</p>
-
-                <h2><strong>prof. RNDr. Ondřej Santolík, Dr.:</strong> Hudba sfér [CZ]</h2>
-                <p>{switch $lang}{case cs}
-                    Bez zvuku není hudby, ovšem ne každý zvuk nám zní jako hudba. Zaposloucháme se do zvuků vytvořených ze záznamů elektromagnetických vln na slyšitelných kmitočtech, které v ionosféře zachytila první československá družice Magion 1 a její moderní následovnice.  Na lov podobných zvuků se vydáme i do magnetosféry a dále do heliosféry – do slunečního větru a k planetám sluneční soustavy. Dozvíme se i něco o tom, jak tato „hudba sfér“ vzniká, jaké záhady jsou s ní spojeny a jaké nové robotické sondy chystáme pro odhalení jejích dosud skrytých tajemství.{default}This lecture is only available in Czech.{/switch}
-                </p>
-                <h2><strong>MScR. B. Viliam Hakala:</strong> Crash Course of Material Chemistry [EN]</h2>
-                <p>
-                    More than hundred years ago, basics of structural analysis were laid when x-rays were discovered. During 20<sup>th</sup> century, several Nobel Prizes were awarded for solutions of crystal structures of important compounds. These days, there is an increasing need for new magnetic, electronic, or electrochemical materials that can solve problems in modern science and technology. It was found that even the most basic materials can have interesting physical properties under extreme conditions, such as low temperatures or high pressures. In this talk we will have a look on how different materials behave under these conditions, describe experimental methods used to achieve them and discuss how the conditions influence the structures and properties of the materials.
-                </p>
-            </section>
-        </div>
-        <div id="rozvrh-exkurzi" class="panel color-auto">
+    <div class="panel color-auto">
         <section class="inner-container">
             {switch $lang}
-            {case cs}
-            <h1>Rozvrh exkurzí</h1>
-            <p>Pro velký zájem jsme přidali dva bloky exkurzí. Anotace jednotlivých exkurzí najdete na této stránce níže, chybějící budou postupně doplněny.</p>
+                {case cs}
+                <h1>Anotace přednášek</h1>
             {default}
-            <h1>Excursions schedule</h1>
+                <h1>Lectures abstract</h1>
+            {/switch}
+            <h2><strong>doc. RNDr. Jiří Dolejší, CSc.:</strong> O částicové fyzice v různých souvislostech [CZ]</h2>
+            <p>
+                {switch $lang}
+                    {case cs}
+                    V přednášce bude stručně představen Standardní model mikrosvěta, tedy to, co o částicích víme, v kontrastu s tím, co dosud nevíme. Vedle toho se zmíníme o tom, jaké jsou plány do budoucna, jestli stojí za to se jí věnovat, zda souvisí s jinými obory fyziky, dá-li se považovat za užitečnou pro „běžné občany“ atd.
+                    {default}This lecture is only available in Czech.
+                {/switch}
+            </p>
+            <h2><strong>prof. Lenka Zdeborová:</strong> Physics of Computation [EN]</h2>
+            <p>Algorithms are an indispensable tool behind many modern technologies. Many widely used algorithms, e.g.
+                those used in machine learning when training artificial neural networks, are surrounded by mysteries and
+                open questions. Our understanding of which practical problems are solvable with computers is still in
+                its infancy. Physics gives us tools to unveil some of those mysteries and discover better algorithms.
+                Phase transitions such as water freezing or evaporating play a key role in this adventure. If you want
+                to know how physics is used in the domain of computer science and machine learning, come to listen.</p>
+
+            <h2><strong>prof. RNDr. Ondřej Santolík, Dr.:</strong> Hudba sfér [CZ]</h2>
+            <p>
+                {switch $lang}
+                    {case cs}Bez zvuku není hudby, ovšem ne každý zvuk nám zní jako hudba. Zaposloucháme se do zvuků vytvořených ze záznamů elektromagnetických vln na slyšitelných kmitočtech, které v ionosféře zachytila první československá družice Magion 1 a její moderní následovnice.  Na lov podobných zvuků se vydáme i do magnetosféry a dále do heliosféry – do slunečního větru a k planetám sluneční soustavy. Dozvíme se i něco o tom, jak tato „hudba sfér“ vzniká, jaké záhady jsou s ní spojeny a jaké nové robotické sondy chystáme pro odhalení jejích dosud skrytých tajemství.
+                    {default}This lecture is only available in Czech.
+                {/switch}
+            </p>
+            <h2><strong>MScR. B. Viliam Hakala:</strong> Crash Course of Material Chemistry [EN]</h2>
+            <p>
+                More than hundred years ago, basics of structural analysis were laid when x-rays were discovered. During
+                20<sup>th</sup> century, several Nobel Prizes were awarded for solutions of crystal structures of
+                important compounds. These days, there is an increasing need for new magnetic, electronic, or
+                electrochemical materials that can solve problems in modern science and technology. It was found that
+                even the most basic materials can have interesting physical properties under extreme conditions, such as
+                low temperatures or high pressures. In this talk we will have a look on how different materials behave
+                under these conditions, describe experimental methods used to achieve them and discuss how the
+                conditions influence the structures and properties of the materials.
+            </p>
+        </section>
+    </div>
+    <div id="rozvrh-exkurzi" class="panel color-auto">
+        <section class="inner-container">
+            {switch $lang}
+                {case cs}
+                <h1>Rozvrh exkurzí</h1>
+                <p>Pro velký zájem jsme přidali dva bloky exkurzí. Anotace jednotlivých exkurzí najdete na této stránce
+                    níže, chybějící budou postupně doplněny.</p>
+            {default}
+                <h1>Excursions schedule</h1>
             {/switch}
             <div style="overflow-x:auto; padding: .1rem">
                 <table class="table schedule-table" style="text-align: center;">
@@ -195,93 +233,129 @@
 
     <div id="anotace-exkurzi" class="panel color-auto">
         <section class="inner-container">
-        {switch $lang}
-            {case cs}
-            <h1>Anotace exkurzí</h1>
-            <h2>Školní reaktor VR-1 Vrabec</h2>
-            <p><em>[Účastníkům této exkurze musí být 16 let a více.]</em></p>
-            <p>Školní reaktor VR-1 je lehkovodní jaderný reaktor nulového výkonu s obohaceným uranem. Jedná se o jedinečnou výukovou podmínku v celé České republice, kde studenti mohou vyzkoušet práci s opravdovým reaktorem. Reaktor je provozován ve spolupráci s FJFI ČVUT.</p>
+            {switch $lang}
+                {case cs}
+                <h1>Anotace exkurzí</h1>
+                <h2>Školní reaktor VR-1 Vrabec</h2>
+                <p><em>[Účastníkům této exkurze musí být 16 let a více.]</em></p>
+                <p>Školní reaktor VR-1 je lehkovodní jaderný reaktor nulového výkonu s obohaceným uranem. Jedná se o
+                    jedinečnou výukovou podmínku v celé České republice, kde studenti mohou vyzkoušet práci s opravdovým
+                    reaktorem. Reaktor je provozován ve spolupráci s FJFI ČVUT.</p>
 
-            <h2>Skupina fyziky plazmatu</h2>
-            <p>
-                Plazma je důležité v mnoha oblastech vesmíru i pro použití na Zemi. Experimenty v našich laboratořích využívají plazma pro pochopení dějů v mezihvězdných oblacích plynu, k úpravě povrchů či přípravě nanočástic.
-            </p>
+                <h2>Skupina fyziky plazmatu</h2>
+                <p>
+                    Plazma je důležité v mnoha oblastech vesmíru i pro použití na Zemi. Experimenty v našich
+                    laboratořích
+                    využívají plazma pro pochopení dějů v mezihvězdných oblacích plynu, k úpravě povrchů či přípravě
+                    nanočástic.
+                </p>
 
-            <h2>Skupina kosmické fyziky</h2>
-            <p>
-                V rámci bloku se seznámíme se satelity, jejichž dvojčata byla v kosmu, a se spoustou dalších věcí týkajících se kosmické fyziky.
-            </p>
+                <h2>Skupina kosmické fyziky</h2>
+                <p>
+                    V rámci bloku se seznámíme se satelity, jejichž dvojčata byla v kosmu, a se spoustou dalších věcí
+                    týkajících se kosmické fyziky.
+                </p>
 
-            <h2>Proč a jak se dozvědět o povrchu co nejvíce (Skupina fyziky povrchů)</h2>
-            <p>
-                Povrchy nebo obecněji rozhraní pevných látek určují do značné míry jak
-                naši každodenní zkušenost, tak vlastnosti řady technologických aplikací.
-                Říká se, že je obtížné nahlížet pod povrch věcí a jevů. Ještě otížnější
-                se ale v praxi ukazuje zjišťování informací o povrchu samotném. Jistá
-                neuchopitelnost povrchů a jejich vlastností dala vzniknout samostatné
-                vědní disciplíně - fyzice povrchů. V rámci exkurze se seznámíme s
-                fyzikálními principy a triky, které nám umožňují zjistit uspořádání,
-                chemické složení a chemické vlastnosti povrchů až s atomárním rozlišením
-                a naučit se povrchy konfigurovat tak, aby v aplikacích fungovaly co nejlépe.
-            </p>
+                <h2>Proč a jak se dozvědět o povrchu co nejvíce (Skupina fyziky povrchů)</h2>
+                <p>
+                    Povrchy nebo obecněji rozhraní pevných látek určují do značné míry jak
+                    naši každodenní zkušenost, tak vlastnosti řady technologických aplikací.
+                    Říká se, že je obtížné nahlížet pod povrch věcí a jevů. Ještě otížnější
+                    se ale v praxi ukazuje zjišťování informací o povrchu samotném. Jistá
+                    neuchopitelnost povrchů a jejich vlastností dala vzniknout samostatné
+                    vědní disciplíně - fyzice povrchů. V rámci exkurze se seznámíme s
+                    fyzikálními principy a triky, které nám umožňují zjistit uspořádání,
+                    chemické složení a chemické vlastnosti povrchů až s atomárním rozlišením
+                    a naučit se povrchy konfigurovat tak, aby v aplikacích fungovaly co nejlépe.
+                </p>
 
-            <h2>Cesta do středu Země (Katedra geofyziky)</h2>
-            <p>
-                Blok bude věnovaný geofyzikálním jevům: měření zemětřesení a funkci
-                seismografu; vyzkoušíte si otřesový stůl a seznámíte se se způsoby
-                stabilizace budov proti účinkům zemětřesení. Podíváte se na deformační
-                módy zemského nitra v různých časových škálách, změříte si magnetické
+                <h2>Cesta do středu Země (Katedra geofyziky)</h2>
+                <p>
+                    Blok bude věnovaný geofyzikálním jevům: měření zemětřesení a funkci
+                    seismografu; vyzkoušíte si otřesový stůl a seznámíte se se způsoby
+                    stabilizace budov proti účinkům zemětřesení. Podíváte se na deformační
+                    módy zemského nitra v různých časových škálách, změříte si magnetické
                 pole Země. Stranou nezůstanou ani elektromagnetické jevy – jako
                 například elektromagnetická indukce v geofyzice.
             </p>
 
             <h2>Oddělení radiofrekvenční spektroskopie</h2>
             <p>
-                Laboratoře jaderné magnetické rezonance disponují několika moderními spektrometry se zaměřením na vysoké rozlišení v kapalinách, v pevných látkách a na širokopásmovou spektroskopii ve velkém teplotním rozsahu. Spektroskopie jaderné magnetické rezonance (NMR) je poměrně univerzální neradioaktivní metoda, která využívá magneticky aktivní atomová jádra vhodných izotopů jako lokální sondy v měřené látce. Uplatňuje se při studiu atomové, elektronové a magnetické struktury různorodých látek a materiálů.
+                Laboratoře jaderné magnetické rezonance disponují několika moderními spektrometry se zaměřením na vysoké
+                rozlišení v kapalinách, v pevných látkách a na širokopásmovou spektroskopii ve velkém teplotním rozsahu.
+                Spektroskopie jaderné magnetické rezonance (NMR) je poměrně univerzální neradioaktivní metoda, která
+                využívá magneticky aktivní atomová jádra vhodných izotopů jako lokální sondy v měřené látce. Uplatňuje
+                se při studiu atomové, elektronové a magnetické struktury různorodých látek a materiálů.
             </p>
 
             <h2>Křemíkové detektory částic</h2>
             <p>
-                Zaměřujeme se především na experimentální částicovou fyziku, vývoj detektorů a jejich simulace a vyhodnocení, programování v oblasti testování a simulací křemíkových stripových a pixelových detektorů.
+                Zaměřujeme se především na experimentální částicovou fyziku, vývoj detektorů a jejich simulace a
+                vyhodnocení, programování v oblasti testování a simulací křemíkových stripových a pixelových detektorů.
             </p>
             <h2>Nanomateriály pro vodíkové technologie (Baterie)</h2>
             <p>
-                Vodík má najvyššiu špecifickú energetickú hustotu spomedzi všetkých palív. Aj preto sa s ním v blízkej budúcnosti počíta nielen v doprave v spojení s palivovými článkami, ale aj v kontexte ukladania energie z obnoviteľných zdrojov prostredníctvom elektrolýzy vody.
-                Súčasný aplikovaný výskum na poli moderných palivových článkov a elektrolyzérov vody sa zameriava predovšetkým na vývoj efektívnych nanoštrukturovaných katalyzátorov, ktoré sú ich neoddeliteľnou súčasťou. Znižovaniu obsahu drahých kovov, zvyšovaniu účinnosti a zlepšovaniu elektrochemickej stability nových katalyticky aktívnych systémov sa venujeme aj u nás na katedre.
-                Príďte sa pozrieť, ako sa pripravujú, skúmajú a testujú nové materiály pre vodíkové technológie a bezemisnú spoločnosť.
+                Vodík má najvyššiu špecifickú energetickú hustotu spomedzi všetkých palív. Aj preto sa s ním v blízkej
+                budúcnosti počíta nielen v doprave v spojení s palivovými článkami, ale aj v kontexte ukladania energie
+                z obnoviteľných zdrojov prostredníctvom elektrolýzy vody.
+                Súčasný aplikovaný výskum na poli moderných palivových článkov a elektrolyzérov vody sa zameriava
+                predovšetkým na vývoj efektívnych nanoštrukturovaných katalyzátorov, ktoré sú ich neoddeliteľnou
+                súčasťou. Znižovaniu obsahu drahých kovov, zvyšovaniu účinnosti a zlepšovaniu elektrochemickej stability
+                nových katalyticky aktívnych systémov sa venujeme aj u nás na katedre.
+                Príďte sa pozrieť, ako sa pripravujú, skúmajú a testujú nové materiály pre vodíkové technológie a
+                bezemisnú spoločnosť.
 
             </p>
             <h2>Near ambient pressure x-ray (NAP)</h2>
             <p>
-                Na Katedře fyziky povrchů a plazmatu MFF UK se nachází unikátní laboratoř, jediná svého druhu v ČR, pro operando studie, které umožňují analýzu strukturních a chemických změn povrchů pevných látek za reálných provozních podmínek, tj. během reakcí, při kontaktu s různými plyny. Experimentální zařízení v naší laboratoři se skládá z rentgenového fotoelektronového spektrometru pro chemickou analýzu povrchu pevných látek při vyšších tlacích (<em>Near-Ambient Pressure X-ray Photoelectron Spectroscopy, NAP-XPS</em>) a vysokotlakého řádkovacího tunelového mikroskopu (<em>Near-Ambient Pressure Scanning Tunneling Microcopy, NAP-STM</em>), který umožňuje zobrazení povrchů v atomárním měřítku. Kombinace těchto vysoce citlivých experimentálních technik umožňuje studovat chemické procesy probíhající na površích modelových, ale také reálných katalyzátorů, plynových senzorů, palivových článků atd.
+                Na Katedře fyziky povrchů a plazmatu MFF UK se nachází unikátní laboratoř, jediná svého druhu v ČR, pro
+                operando studie, které umožňují analýzu strukturních a chemických změn povrchů pevných látek za reálných
+                provozních podmínek, tj. během reakcí, při kontaktu s různými plyny. Experimentální zařízení v naší
+                laboratoři se skládá z rentgenového fotoelektronového spektrometru pro chemickou analýzu povrchu pevných
+                látek při vyšších tlacích (<em>Near-Ambient Pressure X-ray Photoelectron Spectroscopy, NAP-XPS</em>) a
+                vysokotlakého řádkovacího tunelového mikroskopu (<em>Near-Ambient Pressure Scanning Tunneling Microcopy,
+                    NAP-STM</em>), který umožňuje zobrazení povrchů v atomárním měřítku. Kombinace těchto vysoce
+                citlivých experimentálních technik umožňuje studovat chemické procesy probíhající na površích
+                modelových, ale také reálných katalyzátorů, plynových senzorů, palivových článků atd.
             </p>
-             <h2>Katedra fyziky atmosféry</h2>
-            <p>
-                V rámci exkurze na katedře fyziky atmosféry budou představena hlavní vědecká témata, jimiž se pracovníci KFA zabývají. Protože se KFA nevěnuje experimentálnímu výzkumu, budou představeny hlavní principy modelování atmosférických dějů, jakožto hlavní metody používané na katedře.
-            </p>
+                <h2>Katedra fyziky atmosféry</h2>
+                <p>
+                    V rámci exkurze na katedře fyziky atmosféry budou představena hlavní vědecká témata, jimiž se
+                    pracovníci
+                    KFA zabývají. Protože se KFA nevěnuje experimentálnímu výzkumu, budou představeny hlavní principy
+                    modelování atmosférických dějů, jakožto hlavní metody používané na katedře.
+                </p>
 
-{*            <h2>Oddělení Mössbauerovy spektroskopie</h2>*}
-{*            <p>*}
-{*                Metody Mössbauerovy spektroskopie nalezly široké uplatnění v nejrůznějších oborech výzkumu, zejména ve fyzice, chemii, geologii, biologii a lékařství.*}
-{*                Používají stabilní atomová jádra chemických prvků, nejčastěji stabilního izotopu <sup>57</sup>Fe, jako lokální sondy ve struktuře studovaných látek. Velikost hyperjemných interakcí atomových jader sondy je citlivá na okolí ve kterém se sonda nachází, a proto také může podat informaci zejména o valenčním stavu iontů, lokální krystalové symetrii a defektech krystalové mříže, magnetickém uspořádání a fázovém složení vzorků.*}
-{*            </p>*}
+                {*            <h2>Oddělení Mössbauerovy spektroskopie</h2>*}
+                {*            <p>*}
+                {*                Metody Mössbauerovy spektroskopie nalezly široké uplatnění v nejrůznějších oborech výzkumu, zejména ve fyzice, chemii, geologii, biologii a lékařství.*}
+                {*                Používají stabilní atomová jádra chemických prvků, nejčastěji stabilního izotopu <sup>57</sup>Fe, jako lokální sondy ve struktuře studovaných látek. Velikost hyperjemných interakcí atomových jader sondy je citlivá na okolí ve kterém se sonda nachází, a proto také může podat informaci zejména o valenčním stavu iontů, lokální krystalové symetrii a defektech krystalové mříže, magnetickém uspořádání a fázovém složení vzorků.*}
+                {*            </p>*}
             {default}
-            <h1>Excursion abstracts</h1>
-            <h2>Astrophysics (Kosmická fyzika)</h2>
-            <p>
-                Within this block, we will get introduced to satellites whose twins were in space, and with lots of other exciting details regarding astrophysics.
-            </p>
-            <h2>Silicon detectors group (Detektory)</h2>
-            <p>
-                We will visit a workplace with a primary focus on experimental and particle physics regarding tests and simulations of silicon detectors.
-            </p>
-            <h2>Laboratory of Radiofrequency Spectroscopy (Rf. spektroskopie)</h2>
-            <p>
-                We will dig into the world of a research method called radiofrequency spectroscopy which finds its applications e.g. in a study of an atomic, electron, and magnetic structure of various substances and materials.
-            </p>
+                <h1>Excursion abstracts</h1>
+                <h2>Astrophysics (Kosmická fyzika)</h2>
+                <p>
+                    Within this block, we will get introduced to satellites whose twins were in space, and with lots of
+                    other exciting details regarding astrophysics.
+                </p>
+                <h2>Silicon detectors group (Detektory)</h2>
+                <p>
+                    We will visit a workplace with a primary focus on experimental and particle physics regarding tests
+                    and
+                    simulations of silicon detectors.
+                </p>
+                <h2>Laboratory of Radiofrequency Spectroscopy (Rf. spektroskopie)</h2>
+                <p>
+                    We will dig into the world of a research method called radiofrequency spectroscopy which finds its
+                    applications e.g. in a study of an atomic, electron, and magnetic structure of various substances
+                    and
+                    materials.
+                </p>
             <h2>Surface physics group (Povrchy)</h2>
             <p>
-                During the excursion we will get acquainted with the principles and tricks which enable us to figure the arrangement, chemical composition, and chemical properties of surfaces at an atomic level, and to learn how to configure them to perform best in practical applications.
+                During the excursion we will get acquainted with the principles and tricks which enable us to figure the
+                arrangement, chemical composition, and chemical properties of surfaces at an atomic level, and to learn
+                how to configure them to perform best in practical applications.
             </p>
             {/switch}
         </section>
