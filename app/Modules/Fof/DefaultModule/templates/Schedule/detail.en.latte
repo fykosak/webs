@@ -266,12 +266,14 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>Excursion annotation</h1>
-
             {foreach $data as $datum}
                 {if $datum->scheduleGroupId === 144}
                     {foreach $datum->scheduleItems as $item}
                         {continueIf $item->scheduleItemId === 396}
                         <h2>{$item->label['en']}</h2>
+                        <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
+                            {$item->totalCapacity-$item->usedCapacity} free places of {$item->totalCapacity}
+                        </div>
                         {switch $item->scheduleItemId}
                             {case 384}
                             <p>
