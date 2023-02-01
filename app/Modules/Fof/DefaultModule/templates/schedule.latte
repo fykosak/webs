@@ -34,6 +34,7 @@
             {switch $lang}
                 {case cs}
                 <div class="timeline-element-content">
+                    <time class="timeline-element-date">09:00 - 09:30</time>
                     <div class="timeline-title">Zahajovací ceremoniál</div>
                     <p>
                         Zahájení týdenního programu pro zahraniční týmy dorazivší z daleka
@@ -41,6 +42,7 @@
                 </div>
             {default}
                 <div class="timeline-element-content">
+                    <time class="timeline-element-date">09:00 - 09:30</time>
                     <div class="timeline-title">Opening ceremony and welcome</div>
                 </div>
             {/switch}
@@ -51,6 +53,7 @@
             {switch $lang}
                 {case cs}
                 <div class="timeline-element-content">
+                    <time class="timeline-element-date">09:30 - 11:30</time>
                     <div class="timeline-title">Ice-breakery a seznamovací hry</div>
                     <p>
                         Zahájení pobytu primárně pro zahraniční týmy účastnící se našeho programu <a n:href="Scholarship:default">Scholarship</a>
@@ -58,6 +61,7 @@
                 </div>
             {default}
                 <div class="timeline-element-content">
+                    <time class="timeline-element-date">09:30 - 11:30</time>
                     <div class="timeline-title">Icebreakers and get-to-know-you games</div>
                 </div>
             {/switch}
@@ -68,10 +72,12 @@
             {switch $lang}
                 {case cs}
                 <div class="timeline-element-content">
+                    <time class="timeline-element-date">13:30 - 17:30</time>
                     <div class="timeline-title">Výlet po Praze se zaměřením na místa vztahující se k fyzice</div>
                 </div>
             {default}
                 <div class="timeline-element-content">
+                    <time class="timeline-element-date">13:30 - 17:30</time>
                     <div class="timeline-title">Trip around Prague focused on famous places related to physics</div>
                 </div>
             {/switch}
@@ -82,11 +88,13 @@
             {switch $lang}
                 {case cs}
                 <div class="timeline-element-content">
+                    <time class="timeline-element-date">17:30 - 22:30</time>
                     <div class="timeline-title">Večer národů</div>
                     <p>Prezentace národních jídel, hudby a kultury zahraničních týmů</p>
                 </div>
             {default}
                 <div class="timeline-element-content">
+                    <time class="timeline-element-date">17:30 - 22:30</time>
                     <div class="timeline-title">Nation’s evening – presentation of national foods, music, and culture</div>
                 </div>
             {/switch}
@@ -102,6 +110,7 @@
             {switch $lang}
                 {case cs}
                 <div class="timeline-element-content">
+                    <time class="timeline-element-date">celý den</time>
                     <div class="timeline-title">Výlet po českých kulturních památkách</div>
                     <p>
                         Ukázka českých kulturních památek primárně pro zahraniční týmy
@@ -109,6 +118,7 @@
                 </div>
             {default}
                 <div class="timeline-element-content">
+                    <time class="timeline-element-date">all day</time>
                     <div class="timeline-title">Trip around Czech cultural monuments</div>
                 </div>
             {/switch}
@@ -119,11 +129,13 @@
             {switch $lang}
                 {case cs}
                 <div class="timeline-element-content">
+                    <time class="timeline-element-date">19:00 - 21:30</time>
                     <div class="timeline-title">Prezentace</div>
                     <p>Představení vědy a slavných vědců ze zemí zahraničních účastníků</p>
                 </div>
             {default}
                 <div class="timeline-element-content">
+                    <time class="timeline-element-date">19:00 - 21:30</time>
                     <div class="timeline-title">Presentations - science of participating countries</div>
                 </div>
             {/switch}
@@ -346,122 +358,23 @@
                 </div>
             {/switch}
         </div>
-        {*    <div>*}
-{*        <span class="timeline-element-icon"></span>*}
-{*        {switch $lang}*}
-{*            {case cs}*}
-{*            <div class="timeline-element-content">*}
-{*                <div class="timeline-title">Rozchod, oběd</div>*}
-{*                <p>*}
-{*                    Přesun na další program na <strong>Náměstí Republiky</strong>*}
-{*                </p>*}
-{*                <time class="timeline-element-date">12:00 - 14:00</time>*}
-{*            </div>*}
-{*        {default}*}
-{*            <div class="timeline-element-content">*}
-{*                <div class="timeline-title">Lunch and transport</div>*}
-{*                <time class="timeline-element-date">12:00 - 14:00</time>*}
-{*            </div>*}
-{*        {/switch}*}
-{*    </div>*}
-
-{*    <div>*}
-{*        <span class="timeline-element-icon"></span>*}
-{*        {switch $lang}*}
-{*            {case cs}*}
-{*            <div class="timeline-element-content">*}
-{*                <div class="timeline-title">Prohlídka Prahy a muzeí</div>*}
-{*                <p>*}
-{*                    Navštívíme Národní technické a Národní zemědělské muzeum a také další zajímavá místa v Praze.*}
-{*                </p>*}
-{*                <time class="timeline-element-date">14:00 - 16:30</time>*}
-{*            </div>*}
-{*        {default}*}
-{*            <div class="timeline-element-content">*}
-{*                <div class="timeline-title">Prague and museum tour</div>*}
-{*                <p>*}
-{*                    We will visit the National Technical Museum, National Museum of Agriculture and take a Prague tour.*}
-{*                </p>*}
-{*                <time class="timeline-element-date">14:00 - 16:30</time>*}
-{*            </div>*}
-{*        {/switch}*}
-{*    </div>*}
-
-{*    <div>*}
-{*        <span class="timeline-element-icon"></span>*}
-{*        {switch $lang}*}
-{*            {case cs}*}
-{*            <div class="timeline-element-content">*}
-{*                <div class="timeline-title">Večeře a přesun</div>*}
-{*                <time class="timeline-element-date">16:30 - 18:00</time>*}
-{*            </div>*}
-{*        {default}*}
-{*            <div class="timeline-element-content">*}
-{*                <div class="timeline-title">Dinner and transport</div>*}
-{*                <time class="timeline-element-date">16:30 - 18:00</time>*}
-{*            </div>*}
-{*        {/switch}*}
-{*    </div>*}
-
-{*    <div>*}
-{*        <span class="timeline-element-icon"></span>*}
-{*        {switch $lang}*}
-{*            {case cs}*}
-{*            <div class="timeline-element-content">*}
-{*                <div class="timeline-title">Hvězdárna a planetárium</div>*}
-{*                <p>*}
-{*                    Podíváme se do Štefánikovy hvězdárny a Planetária Praha.*}
-{*                </p>*}
-{*                <time class="timeline-element-date">18:00 - 20:00</time>*}
-{*            </div>*}
-{*        {default}*}
-{*            <div class="timeline-element-content">*}
-{*                <div class="timeline-title">Observatory and planetarium</div>*}
-{*                <p>*}
-{*                    We will visit the Štefánik Observatory and Prague Planetarium.*}
-{*                </p>*}
-{*                <time class="timeline-element-date">18:00 - 20:00</time>*}
-{*            </div>*}
-{*        {/switch}*}
-{*    </div>*}
     </div>
 
     <div>
         <div class="timeline-group">{switch $lang}{case cs}Neděle 12. 2.{default}Sunday, Feb 12{/switch}</div>
 
-        {*    <div>*}
-{*        <span class="timeline-element-icon"></span>*}
-{*        {switch $lang}*}
-{*            {case cs}*}
-{*            <div class="timeline-element-content">*}
-{*                <div class="timeline-title"><a n:href="Schedule:default#rozvrh-exkurzi" style="color: black">Exkurze</a></div>*}
-{*                <p>*}
-{*                    Sraz na začátek exkurzí je v budově <strong>v Troji</strong>, adresa V Holešovičkách 2/747.*}
-{*                </p>*}
-{*                <time class="timeline-element-date">08:45 - 11:30</time>*}
-{*            </div>*}
-{*        {default}*}
-{*            <div class="timeline-element-content">*}
-{*                <div class="timeline-title"><a n:href="Schedule:default#rozvrh-exkurzi" style="color: black">Excursions</a></div>*}
-{*                <p>*}
-{*                    Beginning of the excursions is in <strong>Troja building</strong>, address: <strong>V Holešovičkách 2/747</strong>.*}
-{*                </p>*}
-{*                <time class="timeline-element-date">08:45 - 11:30</time>*}
-{*            </div>*}
-{*        {/switch}*}
-{*    </div>*}
         <div>
             <span class="timeline-element-icon"></span>
             {switch $lang}
                 {case cs}
                 <div class="timeline-element-content">
                     <div class="timeline-title">Závěrečný ceremoniál</a></div>
-                    <time class="timeline-element-date">ráno</time>
+                    <time class="timeline-element-date">9:30</time>
                 </div>
             {default}
                 <div class="timeline-element-content">
                     <div class="timeline-title">Closing ceremony</a></div>
-                    <time class="timeline-element-date">morning</time>
+                    <time class="timeline-element-date">9:30</time>
                 </div>
             {/switch}
         </div>
@@ -472,7 +385,7 @@
                 {case cs}
                 <div class="timeline-element-content">
                     <div class="timeline-title">Městská hra</a></div>
-                    <time class="timeline-element-date">9:30 - 17:00</time>
+                    <time class="timeline-element-date">10:00 - volné</time>
                     <p>
                         Zábavná hra, která vás nejen provede po Praze, ale také zaměstná vaše mozkové buňky. Hra může končit i dříve.
                     </p>
@@ -480,7 +393,7 @@
             {default}
                 <div class="timeline-element-content">
                     <div class="timeline-title">City Rallye</a></div>
-                    <time class="timeline-element-date">9:30 - 17:00</time>
+                    <time class="timeline-element-date">10:00 - arbit.</time>
                     <p>
                         Fun game will guide you through Prague and also keep your brain cells busy. The game might end earlier.
                     </p>
