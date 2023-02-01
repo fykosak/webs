@@ -13,9 +13,8 @@
   "require": {
     "php": ">= 7.4",
     "nette/nette": "^v3.1.0",
-    "fykosak/nette-orm": "dev-master#0aa2b76",
-    "fykosak/nette-fksdb-downloader": "v2.2.0-RC",
-    "fykosak/nette-fks-utils": "dev-master#469ab13",
+    "fykosak/nette-fksdb-downloader": "dev-master#9c5e491",
+    "fykosak/nette-fks-utils": "dev-dev-context-translator",
     "ext-soap": "*",
     "ext-dom": "*",
     "ext-gettext": "*",

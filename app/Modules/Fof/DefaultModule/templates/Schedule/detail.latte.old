@@ -1,84 +1,84 @@
 {varType string $lang}
-
+{varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelSchedule[] $data}
 {block main}
-<div class="panel color-auto">
-    <section class="inner-container">
-        {switch $lang}
-            {case 'cs'}
-            <h1>Detaily programu</h1>
-            <p>Informace na této stránce se můžou měnit.</p>
-            <div>
-                Níže najdete:
-                <ul>
-                    <li><a href="#teachers">Program pro učitele během soutěže</a></li>
-                    <li><a href="#lectures">Rozvrh a anotace přednášek na sobotu</a></li>
-                    <li><a href="#excursions">Rozvrh a anotace exkurzí na sobotu</a></li>
-                </ul>
-            </div>
-        {default}
-            <h1>The program details</h1>
-            <p>The information on this page is subject to change.</p>
-            <div>
-                You will find here:
-                <ul>
-                    <li><a href="#teachers">Program for teachers during the competition</a></li>
-                    <li><a href="#lectures">Schedule and annotations of Saturday lectures</a></li>
-                    <li><a href="#excursions">Schedule and annotations of Saturday excursions</a></li>
-                </ul>
-            </div>
-        {/switch}
-    </section>
-</div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            {switch $lang}
+                {case 'cs'}
+                <h1>Detaily programu</h1>
+                <p>Informace na této stránce se můžou měnit.</p>
+                <div>
+                    Níže najdete:
+                    <ul>
+                        <li><a href="#teachers">Program pro učitele během soutěže</a></li>
+                        <li><a href="#lectures">Rozvrh a anotace přednášek na sobotu</a></li>
+                        <li><a href="#excursions">Rozvrh a anotace exkurzí na sobotu</a></li>
+                    </ul>
+                </div>
+            {default}
+                <h1>The program details</h1>
+                <p>The information on this page is subject to change.</p>
+                <div>
+                    You will find here:
+                    <ul>
+                        <li><a href="#teachers">Program for teachers during the competition</a></li>
+                        <li><a href="#lectures">Schedule and annotations of Saturday lectures</a></li>
+                        <li><a href="#excursions">Schedule and annotations of Saturday excursions</a></li>
+                    </ul>
+                </div>
+            {/switch}
+        </section>
+    </div>
 
-<div class="panel color-auto" id="teachers">
-    <section class="inner-container">
-        {switch $lang}
-            {case cs}
-            <div class="subheader">Pátek</div>
-            <h1>Program pro učitele 10. 2.</h1>
-        {default}
-            <div class="subheader">Friday</div>
-            <h1>Program for teachers 10. 2.</h1>
-        {/switch}
-        <table class="inline table" style="text-align: center;">
-            <thead style="border-bottom: 1px solid;">
+    <div class="panel color-auto" id="teachers">
+        <section class="inner-container">
             {switch $lang}
                 {case cs}
-                <tr>
-                    <th></th>
-                    <th><strong>PVA Letňany</strong></th>
-                </tr>
+                <div class="subheader">Pátek</div>
+                <h1>Program pro učitele 10. 2.</h1>
             {default}
-                <tr>
-                    <th></th>
-                    <th><strong>PVA Letňany</strong></th>
-                </tr>
+                <div class="subheader">Friday</div>
+                <h1>Program for teachers 10. 2.</h1>
             {/switch}
+            <table class="inline table" style="text-align: center;">
+                <thead style="border-bottom: 1px solid;">
+                {switch $lang}
+                    {case cs}
+                    <tr>
+                        <th></th>
+                        <th><strong>PVA Letňany</strong></th>
+                    </tr>
+                {default}
+                    <tr>
+                        <th></th>
+                        <th><strong>PVA Letňany</strong></th>
+                    </tr>
+                {/switch}
 
-            </thead>
-            <tbody>
-            <tr>
-                <th>10:30</th>
-                <td>Ing. Petr Dvořák, Ph.D.: Elektronová mikroskopie: vstupenka do nanosvěta? [CZ]</td>
-            </tr>
-            <tr>
-                <th>11:20</th>
-                <td colspan="3">{switch $lang}
-                    {case cs}Přestávka{default}Break
-                    {/switch}</td>
-            </tr>
-            <tr>
-                <th>11:35</th>
-                <td>Ing. Petr Dvořák, Ph.D.: Optické metapovrchy: optické komponenty budoucnosti? [CZ]</td>
-            </tr>
-            <tr>
-                <th>12:30</th>
-                <td colspan="3">{switch $lang}
-                    {case cs}Konec{default}End
-                    {/switch}</td>
-            </tr>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>10:30</th>
+                    <td>Ing. Petr Dvořák, Ph.D.: Elektronová mikroskopie: vstupenka do nanosvěta? [CZ]</td>
+                </tr>
+                <tr>
+                    <th>11:20</th>
+                    <td colspan="3">{switch $lang}
+                        {case cs}Přestávka{default}Break
+                        {/switch}</td>
+                </tr>
+                <tr>
+                    <th>11:35</th>
+                    <td>Ing. Petr Dvořák, Ph.D.: Optické metapovrchy: optické komponenty budoucnosti? [CZ]</td>
+                </tr>
+                <tr>
+                    <th>12:30</th>
+                    <td colspan="3">{switch $lang}
+                        {case cs}Konec{default}End
+                        {/switch}</td>
+                </tr>
+                </tbody>
+            </table>
     </section>
 </div>
 <div class="panel color-auto">
@@ -227,140 +227,156 @@
 </div>
 
 <div id="excursions" class="panel color-auto">
-        <section class="inner-container">
-            {switch $lang}
+
+    <section class="inner-container">
+        {switch $lang}
             {case cs}
             <div class="subheader">Sobota</div>
             <h1>Exkurze 11. 2.</h1>
             <p><a href="https://db.fykos.cz/my-applications">Přihlašování</a> na jednotlivé exkurze je spuštěno.</p>
-            {default}
+        {default}
             <div class="subheader">Saturday</div>
             <h1>Excursions 11. 2.</h1>
             <p><a href="https://db.fykos.cz/my-applications">Sign up</a> for individual excursions is launched.</p>
-            {/switch}
-            <div style="overflow-x:auto; padding: .1rem">
-                <table class="inline table" style="text-align: center;">
-                    <thead style="border-bottom: 1px solid">
-                    <tr>
-                        <th>{switch $lang}
-                            {case cs}Zkratka{default}Code
-                            {/switch}</th>
-                        <th>{switch $lang}
-                            {case cs}Institut{default}Institute
-                            {/switch}</th>
-                        <th>{switch $lang}
-                            {case cs}Kapacita{default}Capacity
-                            {/switch}</th>
-                      	<th>{switch $lang}
-                            {case cs}Jazyk{default}Language
-                            {/switch}</th>
-                        <th>{switch $lang}
-                            {case cs}Kdy a kde{default}When and where
-                            {/switch}</th>
-                      	<th>{switch $lang}
-                            {case cs}Start exkurze(pro organizátory){default}Labtour start(for organizers)
-                            {/switch}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th>ELI</th>
-                        <td>ELI Beamlines</td>
-                        <td>20</td>
-                      	<td>EN</td>
-                        <td>Metro C Kačerov - 13:25</td>
-                      	<td>14:10</td>
-                    </tr>
-                    <tr>
-                        <th>GOL</th>
-                        <td>Tokamak GOLEM</td>
-                        <td>10</td>
-                        <td>EN</td>
-                        <td>Metro C Nádraží Holešovice - next to McDonalds - 13:40</td>
-                      	<td>14:05</td>
-                    </tr>
-                    <tr>
-                        <th>MACH</th>
-                        <td>Department of Physical and Macromolecular Chemistry UK</td>
-                        <td>15</td>
-                        <td>EN</td>
-                        <td>Metro C Vltavská - 13:35</td>
-                      	<td>14:10</td>
-                    </tr>
-                    <tr>
-                        <th>PALS</th>
-                        <td>Prague Asterix Laser System</td>
-                        <td>15</td>
-                        <td>CZ</td>
-                        <td>Metro C Ládví - inside - 14:00</td>
-                      	<td>14:15</td>
-                    </tr>
-                    <tr>
-                        <th>MU</th>
-                        <td>Matematický ústav (přednáška)</td>
-                        <td>60</td>
-                        <td>CZ</td>
-                        <td>Metro B Karlovo náměstí - inside - 13:45</td>
-                      	<td>14:10</td>
-                    </tr>
-                    <tr>
-                        <th>UCHP + UEB</th>
-                        <td>Ústav chemických procesů + Ústav experimentální botaniky</td>
-                        <td>30 + 30</td>
-                        <td>CZ</td>
-                        <td>Metro C Nádraží Holešovice - next to bus stops - 13:30</td>
-                      	<td>14:10</td>
-                    </tr>
-                    <tr>
-                        <th>UT</th>
-                        <td>Institute of thermomechanics</td>
-                        <td>15 CZ + 30 EN</td>
-                        <td>CZ + EN</td>
-                        <td>Metro C Ládví - inside - 13:40</td>
-                      	<td>13:55</td>
-                    </tr>
-                    <tr>
-                        <th>USMH</th>
-                        <td>Ústav struktury a mechaniky hornin</td>
-                        <td>60</td>
-                        <td>CZ</td>
-                        <td>Infront of MFF UK building T - 13:45</td>
-                      	<td>14:00</td>
-                    </tr>
-                    <tr>
-                        <th>BIO</th>
-                        <td>BIOCEV</td>
-                        <td>20</td>
-                        <td>EN</td>
-                        <td>Metro C Kačerov - inside - 14:00</td>
-                      	<td>14:45</td>
-                    </tr>
-                    <tr>
-                        <th>COM</th>
-                        <td>Tokamak Compass</td>
-                        <td>25</td>
-                        <td>CZ</td>
-                        <td>Metro C Nádraží Holešovice - inside - 13:30 </td>
-                      	<td>14:00</td>
-                    </tr>
-                    <tr>
-                        <th>17:00</th>
-                        <td colspan="9">{switch $lang}{case cs}Závěr{default}End of excursions{/switch}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+        {/switch}
+        <div style="overflow-x:auto; padding: .1rem">
+            <table class="inline table" style="text-align: center;">
+                <thead style="border-bottom: 1px solid">
+                <tr>
+                    <th>{switch $lang}
+                        {case cs}Zkratka{default}Code
+                        {/switch}</th>
+                    <th>{switch $lang}
+                        {case cs}Institut{default}Institute
+                        {/switch}</th>
+                    <th>{switch $lang}
+                        {case cs}Kapacita{default}Capacity
+                        {/switch}</th>
+                    <th>{switch $lang}
+                        {case cs}Jazyk{default}Language
+                        {/switch}</th>
+                    <th>{switch $lang}
+                        {case cs}Kdy a kde{default}When and where
+                        {/switch}</th>
+                    <th>{switch $lang}
+                        {case cs}Start exkurze(pro organizátory){default}Labtour start(for organizers)
+                        {/switch}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>ELI</th>
+                    <td>ELI Beamlines</td>
+                    <td>20</td>
+                    <td>EN</td>
+                    <td>Metro C Kačerov - 13:25</td>
+                    <td>14:10</td>
+                </tr>
+                <tr>
+                    <th>GOL</th>
+                    <td>Tokamak GOLEM</td>
+                    <td>10</td>
+                    <td>EN</td>
+                    <td>Metro C Nádraží Holešovice - next to McDonalds - 13:40</td>
+                    <td>14:05</td>
+                </tr>
+                <tr>
+                    <th>MACH</th>
+                    <td>Department of Physical and Macromolecular Chemistry UK</td>
+                    <td>15</td>
+                    <td>EN</td>
+                    <td>Metro C Vltavská - 13:35</td>
+                    <td>14:10</td>
+                </tr>
+                <tr>
+                    <th>PALS</th>
+                    <td>Prague Asterix Laser System</td>
+                    <td>15</td>
+                    <td>CZ</td>
+                    <td>Metro C Ládví - inside - 14:00</td>
+                    <td>14:15</td>
+                </tr>
+                <tr>
+                    <th>MU</th>
+                    <td>Matematický ústav (přednáška)</td>
+                    <td>60</td>
+                    <td>CZ</td>
+                    <td>Metro B Karlovo náměstí - inside - 13:45</td>
+                    <td>14:10</td>
+                </tr>
+                <tr>
+                    <th>UCHP + UEB</th>
+                    <td>Ústav chemických procesů + Ústav experimentální botaniky</td>
+                    <td>30 + 30</td>
+                    <td>CZ</td>
+                    <td>Metro C Nádraží Holešovice - next to bus stops - 13:30</td>
+                    <td>14:10</td>
+                </tr>
+                <tr>
+                    <th>UT</th>
+                    <td>Institute of thermomechanics</td>
+                    <td>15 CZ + 30 EN</td>
+                    <td>CZ + EN</td>
+                    <td>Metro C Ládví - inside - 13:40</td>
+                    <td>13:55</td>
+                </tr>
+                <tr>
+                    <th>USMH</th>
+                    <td>Ústav struktury a mechaniky hornin</td>
+                    <td>60</td>
+                    <td>CZ</td>
+                    <td>Infront of MFF UK building T - 13:45</td>
+                    <td>14:00</td>
+                </tr>
+                <tr>
+                    <th>BIO</th>
+                    <td>BIOCEV</td>
+                    <td>20</td>
+                    <td>EN</td>
+                    <td>Metro C Kačerov - inside - 14:00</td>
+                    <td>14:45</td>
+                </tr>
+                <tr>
+                    <th>COM</th>
+                    <td>Tokamak Compass</td>
+                    <td>25</td>
+                    <td>CZ</td>
+                    <td>Metro C Nádraží Holešovice - inside - 13:30</td>
+                    <td>14:00</td>
+                </tr>
+                <tr>
+                    <th>17:00</th>
+                    <td colspan="9">{switch $lang}{case cs}Závěr{default}End of excursions{/switch}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
     </div>
 
 	<div class="panel color-auto">
     <section class="inner-container">
+
         {switch $lang}
             {case cs}
             <h1>Anotace exkurzí</h1>
         {default}
             <h1>Excursion annotation</h1>
         {/switch}
+
+        {foreach $data as $datum}
+            {if $datum->scheduleGroupId === 144}
+                {foreach $datum->scheduleItems as $item}
+                    {dump $item}
+                    {if $lang === 'cs'}
+                        <h2>{$item->label['cs']}</h2>
+                    {else}
+                        <h2>{$item->label['en']}</h2>
+                    {/if}
+                {/foreach}
+            {/if}
+        {/foreach}
+
       	{switch $lang}
             {case cs}
             <h2>ELI Beamlines</h2>

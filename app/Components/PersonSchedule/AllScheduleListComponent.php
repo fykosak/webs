@@ -16,7 +16,7 @@ class AllScheduleListComponent extends BaseComponent
     private int $eventId;
 
     /** @var ModelPersonSchedule[][] | null */
-    private $groupedPersonSchedule = null;
+    private ?array $groupedPersonSchedule = null;
 
     public function __construct(int $eventId, Container $container)
     {
