@@ -290,7 +290,7 @@
                 {if $datum->scheduleGroupId === 122}
                     {foreach $datum->scheduleItems as $item}
                         {continueIf $item->scheduleItemId === 331}
-                        <h2>{$item->label['cz']}</h2>
+                        <h2>{$item->label['cs']}</h2>
                         <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
                             {$item->totalCapacity-$item->usedCapacity} volných míst z {$item->totalCapacity}
                         </div>
