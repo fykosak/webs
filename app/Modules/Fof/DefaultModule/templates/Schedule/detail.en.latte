@@ -267,79 +267,150 @@
         <section class="inner-container">
             <h1>Excursion annotation</h1>
 
-            {*foreach $data as $datum}
+            {foreach $data as $datum}
                 {if $datum->scheduleGroupId === 144}
                     {foreach $datum->scheduleItems as $item}
-                        {dump $item}
-                        {if $lang === 'cs'}
-                            <h2>{$item->label['cs']}</h2>
-                        {else}
-                            <h2>{$item->label['en']}</h2>
-                        {/if}
+                        {continueIf $item->scheduleItemId === 396}
+                        <h2>{$item->label['en']}</h2>
+                        {switch $item->scheduleItemId}
+                            {case 384}
+                            <p>
+                                ELI Beamlines Facility is a leading laser research centre and part of The Extreme Light
+                                Infrastructure
+                                ERIC, pan-European research Infrastructure hosting the world’s most intense lasers. ELI
+                                provides unique
+                                tools of support for scientific excellence in Europe. ELI Beamlines has developed and
+                                operates four
+                                leading edge high-power femtosecond laser systems reaching unprecedent intensities. ELI
+                                Beamlines offers
+                                to its users unique femtosecond sources of X-rays and accelerated particles. These
+                                beamlines enable
+                                pioneering research not only in physics and material science but also in life science,
+                                laboratory
+                                astrophysics, chemistry with strong application potential.
+                            </p>
+                            <p>
+                                Currently, several of the main laser beamlines are operational and are being expanded
+                                and upgraded to
+                                reach their full performance and maximum availability. Other laser beamlines are in
+                                commissioning and
+                                new cutting-edge laser sources are in the design and development phase. The ELI
+                                Beamlines Facility
+                                builds on 350 researchers, engineers and other professionals from more than 38
+                                countries.
+                            </p>
+                        {case 385}
+                            <p>
+                                Tokamak GOLEM was the first functional experimental device designed for basic research
+                                on microwave
+                                plasma heating in Tokamak-type vessels. In terms of size, the TM-1 MH is classified as a
+                                small tokamak.
+                                Until May 1976, the facility was located at the Institute of Atomic Energy I. V.
+                                Kurchatov in Moscow.
+                                Then it was handed over to the Institute of Plasma Physics of the Academy of Sciences of
+                                the Czech
+                                Republic on the basis of a contract on cooperation and division of labour in the field
+                                of high-frequency
+                                plasma heating, concluded between the institutes in 1974. The device was installed in
+                                the Tokamak Hall
+                                of the Institute of Plasma Physics in the Academy's premises at Mazanka in Prague 8. It
+                                was put into
+                                operation there in September 1977 and subsequently named CASTOR The aim of the work on
+                                this device was
+                                to determine the conditions for efficient absorption of high-frequency waves in the
+                                region between the
+                                lower hybrid and electron cyclotron frequencies and to investigate the possibility of
+                                excitation of
+                                toroidal current by means of high-frequency waves. The new tokamak is located in the
+                                building of CTU,
+                                Faculty of Nuclear and Physical Engineering under the name GOLEM and is used for study
+                                purposes.
+                            </p>
+                        {case 386}
+                            <p>
+                                Department of Physical Chemistry was established at the Faculty of Science in 1921 as
+                                the first
+                                department of physical chemistry in Czechoslovakia. Department was founded by Prof.
+                                Jaroslav Heyrovsky,
+                                who was later awarded a Nobel price (1959) for his discovery of polarography (1926).
+                                Prof. Heyrovsky was
+                                a Head of the department until 1952, when he has become a director of newly established
+                                Institute of
+                                Polarography of the Academy of Sciences.
+                            </p>
+                            <p>
+                                The research in the department was primarily focused on electrochemistry; other branches
+                                of physical
+                                chemistry has become popular in 60's. Due to a strong interest in polymer science the
+                                department has
+                                been renamed to the Department of Physical and Macromolecular Chemistry in 1992.
+                                Currently, variety of
+                                branches of modern physical chemistry, ranging from experimental to theoretical physical
+                                chemistry and
+                                chemical physics, biophysical chemistry and macromolecular chemistry, are actively
+                                investigated in the
+                                department.
+                            </p>
+                        {case 387}
+                            <p>
+                                In the context of Czech (and European) science, BIOCEV represents a cutting-edge
+                                comprehensive platform
+                                for the development of modern biotechnology and biomedicine. Thanks to the establishment
+                                of this centre,
+                                it has been possible to combine traditionally strong fields of engineering and natural
+                                sciences, such as
+                                virology or chemistry. The quality of the scientific model is also reflected in the
+                                highest rating of
+                                the five large projects submitted to the Research and Development for Innovation
+                                Programme.
+                            </p>
+                            <p>
+                                BIOCEV research groups focus on detailed understanding of organisms at the molecular
+                                level. Their
+                                results are directed towards applied research and the development of new treatments for
+                                serious health
+                                problems. The end results of the research work at the BIOCEV centre include drugs
+                                targeted to the
+                                precise site of damaged metabolism or protein and tissue engineering. More than 440
+                                scientific and
+                                technical staff currently work at the centre. Almost a third of them come from abroad,
+                                e.g. Australia,
+                                Canada, China, France, Ukraine, Poland or Germany. BIOCEV research teams have already
+                                published more
+                                than 590 scientific outputs, including articles in prestigious international journals
+                                (e.g. Cell,
+                                Molecular Cell, Nature Communication and Gastroenterology, among others).
+                            </p>
+                        {case 395}
+                            <p>
+                                Laboratory of Rotational Laser Vibrometry (M. L. Mekhalfia) – non-contact measurement of
+                                vibrations of
+                                rotating blades in turbomachinery
+                            </p>
+                            <p>
+                                Opto-Acoustic Laboratory (K. Zoubková) – laser-ultrasound techniques for evaluation of
+                                mechanical
+                                properties of materials
+                            </p>
+                            <p>
+                                Laboratory of Hydrogen Technologies (M. S. Garapati) – nanostructured catalytic layers
+                                for hydrogen fuel
+                                cells
+                            </p>
+                        {/switch}
                     {/foreach}
                 {/if}
-            {/foreach*}
+            {/foreach}
+            {*
             <h2>ELI Beamlines</h2>
-            <p>
-                ELI Beamlines Facility is a leading laser research centre and part of The Extreme Light Infrastructure
-                ERIC, pan-European research Infrastructure hosting the world’s most intense lasers. ELI provides unique
-                tools of support for scientific excellence in Europe. ELI Beamlines has developed and operates four
-                leading edge high-power femtosecond laser systems reaching unprecedent intensities. ELI Beamlines offers
-                to its users unique femtosecond sources of X-rays and accelerated particles. These beamlines enable
-                pioneering research not only in physics and material science but also in life science, laboratory
-                astrophysics, chemistry with strong application potential.
-            </p>
-            <p>
-                Currently, several of the main laser beamlines are operational and are being expanded and upgraded to
-                reach their full performance and maximum availability. Other laser beamlines are in commissioning and
-                new cutting-edge laser sources are in the design and development phase. The ELI Beamlines Facility
-                builds on 350 researchers, engineers and other professionals from more than 38 countries.
-            </p>
+
             <h2>Tokamak GOLEM</h2>
-            <p>
-                Tokamak GOLEM was the first functional experimental device designed for basic research on microwave
-                plasma heating in Tokamak-type vessels. In terms of size, the TM-1 MH is classified as a small tokamak.
-                Until May 1976, the facility was located at the Institute of Atomic Energy I. V. Kurchatov in Moscow.
-                Then it was handed over to the Institute of Plasma Physics of the Academy of Sciences of the Czech
-                Republic on the basis of a contract on cooperation and division of labour in the field of high-frequency
-                plasma heating, concluded between the institutes in 1974. The device was installed in the Tokamak Hall
-                of the Institute of Plasma Physics in the Academy's premises at Mazanka in Prague 8. It was put into
-                operation there in September 1977 and subsequently named CASTOR The aim of the work on this device was
-                to determine the conditions for efficient absorption of high-frequency waves in the region between the
-                lower hybrid and electron cyclotron frequencies and to investigate the possibility of excitation of
-                toroidal current by means of high-frequency waves. The new tokamak is located in the building of CTU,
-                Faculty of Nuclear and Physical Engineering under the name GOLEM and is used for study purposes.
-            </p>
+
             <h2>Department of Physical and Macromolecular Chemistry UK</h2>
-            <p>
-                Department of Physical Chemistry was established at the Faculty of Science in 1921 as the first
-                department of physical chemistry in Czechoslovakia. Department was founded by Prof. Jaroslav Heyrovsky,
-                who was later awarded a Nobel price (1959) for his discovery of polarography (1926). Prof. Heyrovsky was
-                a Head of the department until 1952, when he has become a director of newly established Institute of
-                Polarography of the Academy of Sciences.
-            </p>
-            <p>
-                The research in the department was primarily focused on electrochemistry; other branches of physical
-                chemistry has become popular in 60's. Due to a strong interest in polymer science the department has
-                been renamed to the Department of Physical and Macromolecular Chemistry in 1992. Currently, variety of
-                branches of modern physical chemistry, ranging from experimental to theoretical physical chemistry and
-                chemical physics, biophysical chemistry and macromolecular chemistry, are actively investigated in the
-                department.
-            </p>
+
             <h2>Prague Asterix Laser System</h2>
 
-            <p>
-                The Prague Asterix Laser System facility is conceived as a laboratory providing the basis for
-                experimental research in the field of high-power lasers and their applications, notably in the physics
-                of laser plasmas. It became operational in spring 2000.
-            </p>
-            <p>
-                The principal experimental resource at PALS is the high-power iodine laser system Asterix IV. This
-                instrument was developed at the Max Planck Institute for Quantum Optics in Garching, Germany, and with
-                the latest upgrade in 1991 it provided irradiation facility at the 1 kJ energy level until May 1997. It
-                has been exploited by a wide international research community, within the European Large-Scale
-                Facilities scheme.
-            </p>
+
             <h2>Institute of mathematics (lectures)</h2>
             <p>
                 Tomáš Málek, About gravitational waves and detectors
@@ -361,31 +432,9 @@
                 preparation of permanent slides and view live samples under a confocal microscope.
             </p>
             <h2>Institute of Rock Structure and Mechanics</h2>
-            <p>
-                The Institute of Rock Structure and Mechanics of the Czech Academy of Sciences is an Academic
-                institution specialising in the study of the structure and properties of rocks and the rock environment.
-                It is also involved in research into glass, ceramic materials for technical use, composite materials and
-                biomaterials, their properties and application potential, and technological topics relating to the
-                processing of inorganic as well as organic waste.
-            </p>
+
             <h2>BIOCEV</h2>
-            <p>
-                In the context of Czech (and European) science, BIOCEV represents a cutting-edge comprehensive platform
-                for the development of modern biotechnology and biomedicine. Thanks to the establishment of this centre,
-                it has been possible to combine traditionally strong fields of engineering and natural sciences, such as
-                virology or chemistry. The quality of the scientific model is also reflected in the highest rating of
-                the five large projects submitted to the Research and Development for Innovation Programme.
-            </p>
-            <p>
-                BIOCEV research groups focus on detailed understanding of organisms at the molecular level. Their
-                results are directed towards applied research and the development of new treatments for serious health
-                problems. The end results of the research work at the BIOCEV centre include drugs targeted to the
-                precise site of damaged metabolism or protein and tissue engineering. More than 440 scientific and
-                technical staff currently work at the centre. Almost a third of them come from abroad, e.g. Australia,
-                Canada, China, France, Ukraine, Poland or Germany. BIOCEV research teams have already published more
-                than 590 scientific outputs, including articles in prestigious international journals (e.g. Cell,
-                Molecular Cell, Nature Communication and Gastroenterology, among others).
-            </p>
+
             <h2>Tokamak Compass</h2>
             <p>
                 COMPASS, short for Compact Assembly, is a compact tokamak fusion energy device originally completed at
@@ -398,19 +447,8 @@
                 once again in 2006. It officially ended its experimental runs on 20 August 2021 and will be disassembled
                 to leave room for a new device, COMPASS-U.
             </p>
-            <h2>Institute of thermomechanics</h2>
-            <p>
-                Laboratory of Rotational Laser Vibrometry (M. L. Mekhalfia) – non-contact measurement of vibrations of
-                rotating blades in turbomachinery
-            </p>
-            <p>
-                Opto-Acoustic Laboratory (K. Zoubková) – laser-ultrasound techniques for evaluation of mechanical
-                properties of materials
-            </p>
-            <p>
-                Laboratory of Hydrogen Technologies (M. S. Garapati) – nanostructured catalytic layers for hydrogen fuel
-                cells
-            </p>
+            *}
+
         </section>
     </div>
 
