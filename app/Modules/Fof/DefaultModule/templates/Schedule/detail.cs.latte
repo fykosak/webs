@@ -1,3 +1,4 @@
+{varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelSchedule[] $data}
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
@@ -285,20 +286,93 @@
         <section class="inner-container">
             <h1>Anotace exkurzí</h1>
 
-            {*foreach $data as $datum}
-                {if $datum->scheduleGroupId === 144}
+             {foreach $data as $datum}
+                {if $datum->scheduleGroupId === 122}
                     {foreach $datum->scheduleItems as $item}
-                        {dump $item}
-                        {if $lang === 'cs'}
-                            <h2>{$item->label['cs']}</h2>
-                        {else}
-                            <h2>{$item->label['en']}</h2>
-                        {/if}
+                        {continueIf $item->scheduleItemId === 331}
+                        <h2>{$item->label['cs']}</h2>
+                        <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
+                            {$item->totalCapacity-$item->usedCapacity} volných míst z {$item->totalCapacity}
+                        </div>
+                        {switch $item->scheduleItemId}
+                            {case 388}
+                            <p>
+                                Tokamak COMPASS je tokamak (magnetická nádoba pro uchovávání vysokoteplotního plazmatu), který od
+                				roku
+                                2008 provozuje Ústav fyziky plazmatu Akademie věd České republiky. Tokamak COMPASS byl největším
+                                zařízením toho druhu v České republice. Jedná se o experimentální zařízení pro výzkum termonukleární
+                                fúze, které je referenčním zařízením pro aktuálně budovaný tokamak ITER. Rozměrově Tokamak COMPASS
+                                pracuje s jednou desetinou velikosti plazmatu, než zmíněný ITER.
+                            </p>
+                        {case 389}
+                            <p>
+                                Badatelské centrum PALS (Prague Asterix Laser System), založené v listopadu 1998 jako společné
+                                pracoviště Fyzikálního ústavu AV ČR a Ústavu fyziky plazmatu AV ČR, je koncipováno jako uživatelská
+                                laboratoř poskytující základnu pro experimentální výzkum v oboru výkonových laserů a fyziky laserem
+                                vytvářeného plazmatu. Centrum bylo zpřístupněno externím uživatelům v září roku 2000.
+                            </p>
+          					<p>
+                                Základním experimentálním zařízením Centra PALS je výkonový pulsní laserový systém Asterix IV. Tento
+                                laser byl vyvinut v německém Ústavu Maxe Plancka pro kvantovou optiku (MPQ) v Garchingu u Mnichova.
+                                Od
+                                poslední modernizace v roce 1991 byl schopen generovat laserové paprsky s výstupní energií v
+                                jednotlivém
+                                pulzu až 1 kJ. Až do dubna 1997 byl laser v MPQ využíván širokou mezinárodní badatelskou komunitou v
+                                rámci evropského programu European Large Scale Facilities.
+                            </p>
+                        {case 390}
+                            <p>
+                                Tomáš Málek, O gravitačních vlnách a detektorech
+                            </p>
+                            <p>
+                                Jan Papež, Kde se vezme vědecký (matematický) článek a jak vlastně vypadá?
+                            </p>
+                        {case 391}
+                            <p>
+                                Na tomto ústavu navštívíte dvě výzkumné skupiny: Výzkumná skupina řasové a mikrobiální
+                                biotechnologie,
+                                která je zaměřená na využití mikroorganismů v různých technologiích (např. v potravinářství) a
+                                Výzkumná
+                                skupina bioorganické chemie a biomateriálů, kde se seznámíte s analytickou chemií.
+                            </p>
+                        {case 392}
+                            <p>
+                                V laboratoři biologie pylu se seznámíte s pylovými zrny a prohlédnete si je pod mikroskopem. Na
+                                druhém
+                                stanovišti v Laboratoři biologicky aktivních látek si vyzkoušíte přípravu trvalých preparátů a
+                                prohlédnete si živé vzorky pod konfokálním mikroskopem.
+                            </p>
+          				{case 393}
+          					<p>
+                                Ústav struktury a mechaniky hornin AV ČR, v. v. i. je vědecké pracoviště zaměřené na studium
+                                struktury a
+                                vlastností hornin a horninového prostředí. Dále se zabývá výzkumem skel, technické keramiky,
+                                kompozitů a
+                                biomateriálů, jejich vlastnostmi i aplikačním potenciálem a technologickými otázkami zpracování
+                                anorganických i organických odpadů.
+                            </p>
+          				{case 394}
+          					<p>
+                                Laboratory of Rotational Laser Vibrometry (M. L. Mekhalfia) – non-contact measurement of vibrations
+                                of
+                                rotating blades in turbomachinery
+                            </p>
+                            <p>
+                                Opto-Acoustic Laboratory (K. Zoubková) – laser-ultrasound techniques for evaluation of mechanical
+                                properties of materials
+                            </p>
+                            <p>
+                                Laboratory of Hydrogen Technologies (M. S. Garapati) – nanostructured catalytic layers for hydrogen
+                                fuel
+                                cells
+                            </p>
+                        {/switch}
                     {/foreach}
                 {/if}
-            {/foreach*}
+            {/foreach}
 
-            <h2>ELI Beamlines</h2>
+            {*
+          	<h2>ELI Beamlines</h2>
             <p>
                 ELI Beamlines je výzkumné laserové centrum, které je součástí evropské vědecko-výzkumné organizace
                 The
@@ -450,6 +524,7 @@
             </p>
         </section>
     </div>
+	*}
 
 
 
