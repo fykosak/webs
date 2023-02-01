@@ -174,7 +174,7 @@
                     <tbody>
                     <tr>
                         <th>ELI</th>
-                        <td>ELI Beamlines</td>
+                        <td><a href="#item384">ELI Beamlines</a></td>
                         <td>20</td>
                         <td>EN</td>
                         <td>Metro C Kačerov - behind the subway exit - 13:25</td>
@@ -182,7 +182,7 @@
                     </tr>
                     <tr>
                         <th>GOL</th>
-                        <td>Tokamak GOLEM</td>
+                        <td><a href="#item395">Tokamak GOLEM</a></td>
                         <td>10</td>
                         <td>EN</td>
                         <td>In front of the lecture hall - Albertov 6 - 13:35</td>
@@ -190,7 +190,7 @@
                     </tr>
                     <tr>
                         <th>MACH</th>
-                        <td>Department of Physical and Macromolecular Chemistry UK</td>
+                        <td><a href="#item386">Department of Physical and Macromolecular Chemistry UK</a></td>
                         <td>15</td>
                         <td>EN</td>
                         <td>In front of the lecture hall - Albertov 6 - 13:50</td>
@@ -222,7 +222,7 @@
                     </tr>
                     <tr>
                         <th>UT</th>
-                        <td>Institute of thermomechanics</td>
+                        <td><a href="#item395">Institute of thermomechanics</a></td>
                         <td>15 CZ + 30 EN</td>
                         <td>CZ + EN</td>
                         <td>Metro C Ládví - behind the subway exit - 13:40</td>
@@ -238,7 +238,7 @@
                     </tr>
                     <tr>
                         <th>BIO</th>
-                        <td>BIOCEV</td>
+                        <td><a href="#item387">BIOCEV</a></td>
                         <td>20</td>
                         <td>EN</td>
                         <td>Metro C Kačerov - behind the subway exit - 14:00</td>
@@ -269,7 +269,8 @@
                 {if $datum->scheduleGroupId === 144}
                     {foreach $datum->scheduleItems as $item}
                         {continueIf $item->scheduleItemId === 396}
-                        <h2>{$item->label['en']}</h2>
+                        {var $id = 'item' . $item->scheduleItemId}
+                        <h2 id="{$id}">{$item->label['en']}</h2>
                         <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
                             {$item->totalCapacity-$item->usedCapacity} free places of {$item->totalCapacity}
                         </div>
