@@ -1,4 +1,3 @@
-{varType string $lang}
 {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelSchedule[] $data}
 {block main}
     <div class="panel color-auto">
@@ -278,28 +277,21 @@
                             {case 384}
                             <p>
                                 ELI Beamlines Facility is a leading laser research centre and part of The Extreme Light
-                                Infrastructure
-                                ERIC, pan-European research Infrastructure hosting the world’s most intense lasers. ELI
-                                provides unique
-                                tools of support for scientific excellence in Europe. ELI Beamlines has developed and
-                                operates four
-                                leading edge high-power femtosecond laser systems reaching unprecedent intensities. ELI
-                                Beamlines offers
-                                to its users unique femtosecond sources of X-rays and accelerated particles. These
-                                beamlines enable
-                                pioneering research not only in physics and material science but also in life science,
-                                laboratory
-                                astrophysics, chemistry with strong application potential.
+                                Infrastructure ERIC, pan-European research Infrastructure hosting the world’s most
+                                intense lasers. ELI provides unique tools of support for scientific excellence in
+                                Europe. ELI Beamlines has developed and operates four leading edge high-power
+                                femtosecond laser systems reaching unprecedent intensities. ELI
+                                Beamlines offers to its users unique femtosecond sources of X-rays and accelerated
+                                particles. These beamlines enable pioneering research not only in physics and material
+                                science but also in life science, laboratory astrophysics, chemistry with strong
+                                application potential.
                             </p>
                             <p>
                                 Currently, several of the main laser beamlines are operational and are being expanded
-                                and upgraded to
-                                reach their full performance and maximum availability. Other laser beamlines are in
-                                commissioning and
-                                new cutting-edge laser sources are in the design and development phase. The ELI
-                                Beamlines Facility
-                                builds on 350 researchers, engineers and other professionals from more than 38
-                                countries.
+                                and upgraded to reach their full performance and maximum availability. Other laser
+                                beamlines are in commissioning and new cutting-edge laser sources are in the design and
+                                development phase. The ELI Beamlines Facility builds on 350 researchers, engineers and
+                                other professionals from more than 38 countries.
                             </p>
                         {case 385}
                             <p>
@@ -461,7 +453,8 @@
     {if false}
         <div class="panel color-auto">
             <section class="inner-container">
-                <h1>Game and Accompanying Program Schedule</h1>{include "../schedule.latte"}
+                <h1>Game and Accompanying Program Schedule</h1>
+                {include "../schedule.latte"}
             </section>
         </div>
 
@@ -534,7 +527,7 @@
                         <tr>
                             <th></th>
                             <th>1.</th>
-                            <th>2.{if $lang == 'en'} (EN){/if}</th>
+                            <th>2.(EN)</th>
                             <th>3.</th>
                             <th>4.</th>
                             <th>5.<br></th>
