@@ -123,64 +123,43 @@
         </section>
     </div>
 
-
-
-
-    <div class="panel color-auto" id="teachers">
-        <section class="inner-container">
-            <div class="subheader">Friday</div>
-            <h1>Program for teachers 10. 2.</h1>
-            <table class="inline table" style="text-align: center;">
-                <thead style="border-bottom: 1px solid;">
-                <tr>
-                    <th></th>
-                    <th><strong>PVA Letňany</strong></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th>10:30</th>
-                    <td>Ing. Petr Dvořák, Ph.D.: Elektronová mikroskopie: vstupenka do nanosvěta? [CZ]</td>
-                </tr>
-                <tr>
-                    <th>11:20</th>
-                    <td colspan="3">Break</td>
-                </tr>
-                <tr>
-                    <th>11:35</th>
-                    <td>Ing. Petr Dvořák, Ph.D.: Optické metapovrchy: optické komponenty budoucnosti? [CZ]</td>
-                </tr>
-                <tr>
-                    <th>12:30</th>
-                    <td colspan="3">End</td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
     <div class="panel color-auto">
         <section class="inner-container">
-            <h1>Annotation of lectures for teachers</h1>
-            <h2><strong>Ing. Petr Dvořák, Ph.D.:</strong> Elektronová mikroskopie: vstupenka do nanosvěta? [CZ]</h2>
-            <p>
-                V&nbsp;první samostatné části přednášky se zaměříme na elektronovou mikroskopii a její využití v&nbsp;nanotechnologiích.
-                Vysvětlíme si základní principy elektronové a iontové mikroskopie a představíme si pokročilé
-                technologie,
-                které najdeme v&nbsp;nejnovějších elektronových mikroskopech. Budeme si prezentovat i moderní technické
-                a
-                vědecké aplikace, kde elektronová mikroskopie nachází své uplatnění.
-            </p>
-            <h2><strong>Ing. Petr Dvořák, Ph.D.:</strong> Optické metapovrchy: optické komponenty budoucnosti? [CZ]</h2>
-            <p>
-                V&nbsp;druhé části přednášky si představíme jednu z&nbsp;moderních aplikací nanotechnologií, kde se
-                využívá
-                elektronová mikroskopie, a to optické metapovrchy. O nich se hovoří jako o nové generaci optických
-                komponent. Vysvětlíme si fyzikální principy jak takové optické metapovrchy fungují a ukážeme si širokou
-                škálu jejich aplikací.
-            </p>
+            <div class="subheader">Thursday</div>
+            <h1>Excursion annotation</h1>
+            {foreach $data as $datum}
+                {if $datum->scheduleGroupId === 114}
+                    {foreach $datum->scheduleItems as $item}
+                        {continueIf $item->scheduleItemId === 324}
+                        {continueIf $item->scheduleItemId === 325}
+                        {var $id = 'item' . $item->scheduleItemId}
+                        <h2 id="{$id}">{$item->label['en']}</h2>
+                        <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
+                            {$item->totalCapacity-$item->usedCapacity} free places of {$item->totalCapacity}
+                        </div>
+                        {switch $item->scheduleItemId}
+                            {case 397}
+                            <p>
+
+                            </p>
+                        {case 398}
+                            <p>
+                            </p>
+                        {case 399}
+                            <p>
+                            </p>
+                        {case 400}
+                            <p>
+                            </p>
+                        {case 401}
+                            <p>
+                            </p>
+                        {/switch}
+                    {/foreach}
+                {/if}
+            {/foreach}
         </section>
     </div>
-
 
     <div class="panel color-auto" id="lectures">
         <section class="inner-container">
