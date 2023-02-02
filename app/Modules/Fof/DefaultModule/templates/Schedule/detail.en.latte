@@ -29,93 +29,209 @@
                     <thead style="border-bottom: 1px solid">
                     <tr>
                         <th>Code</th>
+                        <th>Capacity</th>
                         <th>10:00-10:30</th>
                         <th>10:45-11:15</th>
                         <th>11:30-12:00</th>
                     </tr>
                     </thead>
                     <tbody>
+                    {foreach $data as $datum}
+                    {if $datum->scheduleGroupId === 114}
+                    {foreach $datum->scheduleItems as $item}
+                    {continueIf $item->scheduleItemId === 324}
+                    {continueIf $item->scheduleItemId === 325}
+                    {var $id = 'item' . $item->scheduleItemId}
+
+                    {switch $item->scheduleItemId}
+                    {case 397}
                     <tr>
-                        <th>Alfa</th>
+                        <th>
+                            {$item->label['en']}
+                        </th>
+                        <td>
+                            <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
+                                {$item->totalCapacity-$item->usedCapacity} free places of {$item->totalCapacity}
+                            </div>
+                        </td>
                         <td>SFPo</td>
                         <td>STM</td>
                         <td>SFPl</td>
                     </tr>
+                    {case 398}
+                        <tr>
+                            <th>
+                                {$item->label['en']}
+                            </th>
+                            <td>
+                                <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
+                                    {$item->totalCapacity-$item->usedCapacity} free places of {$item->totalCapacity}
+                                </div>
+                            </td>
+                            <td>IFL</td>
+                            <td>SFPo</td>
+                            <td>STM</td>
+                        </tr>
+                    {case 399}
+                        <tr>
+                            <th>
+                                {$item->label['en']}
+                            </th>
+                            <td>
+                                <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
+                                    {$item->totalCapacity-$item->usedCapacity} free places of {$item->totalCapacity}
+                                </div>
+                            </td>
+                            <td>SKF</td>
+                            <td>IFL</td>
+                            <td>SFPo</td>
+                        </tr>
+                    {case 400}
+                        <tr>
+                            <th>
+                                {$item->label['en']}
+                            </th>
+                            <td>
+                                <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
+                                    {$item->totalCapacity-$item->usedCapacity} free places of {$item->totalCapacity}
+                                </div>
+                            </td>
+                            <td>NAP</td>
+                            <td>SKF</td>
+                            <td>IFL</td>
+                        </tr>
+                    {case 401}
+                        <tr>
+                            <th>
+                                {$item->label['en']}
+                            </th>
+                            <td>
+                                <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
+                                    {$item->totalCapacity-$item->usedCapacity} free places of {$item->totalCapacity}
+                                </div>
+                            </td>
+                            <td colspan="3">National Technical Museum</td>
+                        </tr>
+                    {/switch}
+                    {/foreach}
+                    {/if}
+                    {/foreach}
                     <tr>
-                        <th>Bravo</th>
-                        <td>IFL</td>
-                        <td>SFPo</td>
-                        <td>STM</td>
-                    </tr>
-                    <tr>
-                        <th>Charlie</th>
-                        <td>SKF</td>
-                        <td>IFL</td>
-                        <td>SFPo</td>
-                    </tr>
-                    <tr>
-                        <th>Delta</th>
-                        <td>NAP</td>
-                        <td>SKF</td>
-                        <td>IFL</td>
-                    </tr>
-                    <tr>
-                        <th>Echo</th>
+                        <th>
+                            Echo
+                        </th>
+                        <td>
+                            <div class="badge bg-danger mb-3">
+                                not available
+                            </div>
+                        </td>
                         <td>KFA</td>
                         <td>NAP</td>
                         <td>SKF</td>
                     </tr>
                     <tr>
-                        <th>Foxtrot</th>
+                        <th>
+                            Foxtrot
+                        </th>
+                        <td>
+                            <div class="badge bg-danger mb-3">
+                                not available
+                            </div>
+                        </td>
                         <td>SKD</td>
                         <td>KFA</td>
                         <td>NAP</td>
                     </tr>
                     <tr>
-                        <th>Golf</th>
+                        <th>
+                            Golf
+                        </th>
+                        <td>
+                            <div class="badge bg-danger mb-3">
+                                not available
+                            </div>
+                        </td>
                         <td>MbS I</td>
                         <td>SKD</td>
                         <td>KFA</td>
                     </tr>
                     <tr>
-                        <th>Hotel</th>
+                        <th>
+                            Hotel
+                        </th>
+                        <td>
+                            <div class="badge bg-danger mb-3">
+                                not available
+                            </div>
+                        </td>
                         <td>MbS II</td>
                         <td>MbS I</td>
                         <td>SKD</td>
                     </tr>
                     <tr>
-                        <th>India</th>
+                        <th>
+                            India
+                        </th>
+                        <td>
+                            <div class="badge bg-danger mb-3">
+                                not available
+                            </div>
+                        </td>
                         <td>RfS</td>
                         <td>MbS II</td>
                         <td>MbS I</td>
                     </tr>
                     <tr>
-                        <th>Juliette</th>
+                        <th>
+                            Juliette
+                        </th>
+                        <td>
+                            <div class="badge bg-danger mb-3">
+                                not available
+                            </div>
+                        </td>
                         <td>VDG</td>
                         <td>RfS</td>
                         <td>MbS II</td>
                     </tr>
                     <tr>
-                        <th>Kilo</th>
+                        <th>
+                            Kilo
+                        </th>
+                        <td>
+                            <div class="badge bg-danger mb-3">
+                                not available
+                            </div>
+                        </td>
                         <td>AU</td>
                         <td>VDG</td>
                         <td>RfS</td>
                     </tr>
-		    <tr>
-                        <th>Lima</th>
-                        <td>SFPl</td>
-                        <td>AU</td>
-                        <td>VDG</td>
+		            <tr>
+                        <th>
+                            Lima
+                        </th>
+                    <td>
+                        <div class="badge bg-danger mb-3">
+                            not available
+                        </div>
+                    </td>
+                    <td>SFPl</td>
+                    <td>AU</td>
+                    <td>VDG</td>
                     </tr>
 		    <tr>
-                        <th>Mike</th>
+                        <th>
+                            Mike
+                        </th>
+                <td>
+                    <div class="badge bg-danger mb-3">
+                        not available
+                    </div>
+                </td>
                         <td>STM</td>
                         <td>SFPl</td>
                         <td>AU</td>
-                    </tr>
-		    <tr>
-                        <th>November</th>
-                        <td>National Technical Museum</td>
                     </tr>
                     </tbody>
                 </table>
@@ -225,46 +341,6 @@
             </p>
         </section>
     </div>
-
-
-    <div class="panel color-auto">
-        <section class="inner-container">
-            <div class="subheader">Thursday</div>
-            <h1>Excursion annotation</h1>
-            {foreach $data as $datum}
-                {if $datum->scheduleGroupId === 114}
-                    {foreach $datum->scheduleItems as $item}
-                        {continueIf $item->scheduleItemId === 324}
-                        {continueIf $item->scheduleItemId === 325}
-                        {var $id = 'item' . $item->scheduleItemId}
-                        <h2 id="{$id}">{$item->label['en']}</h2>
-                        <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
-                            {$item->totalCapacity-$item->usedCapacity} free places of {$item->totalCapacity}
-                        </div>
-                        {switch $item->scheduleItemId}
-                            {case 397}
-                            <p>
-
-                            </p>
-                        {case 398}
-                            <p>
-                            </p>
-                        {case 399}
-                            <p>
-                            </p>
-                        {case 400}
-                            <p>
-                            </p>
-                        {case 401}
-                            <p>
-                            </p>
-                        {/switch}
-                    {/foreach}
-                {/if}
-            {/foreach}
-        </section>
-    </div>
-
 
     <div class="panel color-auto" id="lectures">
         <section class="inner-container">
