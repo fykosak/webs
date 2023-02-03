@@ -259,10 +259,24 @@
 
         <div>
             <span class="timeline-element-icon"></span>
-            <div class="timeline-element-content">
-                <div class="timeline-title">{switch $lang}{case cs}Speciální program{default}Special program{/switch}</div>
-                <time class="timeline-element-date">13:45 - 14:00</time>
-            </div>
+            {switch $lang}
+                  {case cs}
+                  <div class="timeline-element-content">
+                      <div class="timeline-title">Prezentace o FYKOSu</div>
+                      <time class="timeline-element-date">13:45 - 14:00</time>
+                      <p>
+                         Seznámení se s FYKOSem během čekání na výsledky.
+                      </p>
+                  </div>
+              {default}
+                  <div class="timeline-element-content">
+                      <div class="timeline-title">Presentation of FYKOS</div>
+                      <time class="timeline-element-date">13:45 - 14:00</time>
+                      <p>
+                         Presentation about FYKOS during the break before announcement of results.
+                      </p>
+                  </div>
+              {/switch}       
         </div>
 
         <div>
