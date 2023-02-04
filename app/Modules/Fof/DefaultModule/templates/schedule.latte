@@ -98,7 +98,7 @@
                 {case cs}
                 <div class="timeline-element-content">
                     <time class="timeline-element-date">17:30 - 18:30</time>
-                    <div class="timeline-title"><a n:href="Schedule:Detail#evening">Přípravy pro Večer národů</a></div>
+                    <div class="timeline-title">Přípravy pro Večer národů</div>
                     <p>
                         Sál pro národní večer se otevře a účastníci budou mít možnost přípravy jejich stánků.
                     </p>
@@ -106,7 +106,7 @@
             {default}
                 <div class="timeline-element-content">
                     <time class="timeline-element-date">17:30 - 18:30</time>
-                    <div class="timeline-title"><a n:href="Schedule:Detail#evening">Nation's evening preparations</a></div>
+                    <div class="timeline-title">Nations Evening Preparations</div>
                     <p>
                         The hall for the Nation's evening will open and participants will have the opportunity to prepare their stands.
                     </p>
@@ -179,11 +179,10 @@
     </div>
     <div>
         <div class="timeline-group">{switch $lang}{case cs}Čtvrtek 9. 2.{default}Thursday, Feb 9{/switch}</div>
-
+        {switch $lang}
+        {case cs}
         <div>
             <span class="timeline-element-icon"></span>
-            {switch $lang}
-                {case cs}
                 <div class="timeline-element-content">
                     <div class="timeline-title"><a n:href="Schedule:Detail#jdf">Jeden den s fyzikou</a></div>
                     <time class="timeline-element-date">09:00 - 16:00</time>
@@ -191,16 +190,30 @@
                         Den plný přednášek a exkurzí do laboratoří na MFF UK
                     </p>
                 </div>
-            {default}
+        </div>
+        {default}
+        <div>
+            <span class="timeline-element-icon"></span>
                 <div class="timeline-element-content">
-                    <div class="timeline-title"><a n:href="Schedule:Detail#excursions-troja">One Day with Physics at FMP CUNI</a></div>
-                    <time class="timeline-element-date">09:00 - 16:00</time>
+                    <div class="timeline-title"><a n:href="Schedule:Detail#excursions-troja">Thursday Excursions at FMP CUNI</a></div>
+                    <time class="timeline-element-date">09:00 - 12:00</time>
                     <p>
-                        Day full of lectures and excursions at FMP CUNI
+                        Morning full of excursions at FMP CUNI
                     </p>
                 </div>
-            {/switch}
         </div>
+        <div>
+            <span class="timeline-element-icon"></span>
+                <div class="timeline-element-content">
+                    <div class="timeline-title"><a n:href="Schedule:Detail#lecture-thursday">Thursday Lecture</a></div>
+                    <time class="timeline-element-date">14:00 - 15:30</time>
+                    <p>
+                        Afternoon lecture at FMP CUNI
+                    </p>
+                </div>
+        </div>
+        {/switch}
+
         <div>
             <span class="timeline-element-icon"></span>
             {switch $lang}
@@ -210,9 +223,9 @@
                     <div class="timeline-element-content">
                     <div class="timeline-title"><a n:href="Schedule:Detail#paneldiscussion">Panelová diskuse s vědci</a></div>
                     <time class="timeline-element-date">19:00 - 20:30</time>
-                 <p>
+                    <p>
                         Diskuze s českými vědci o fyzice a jejich práci
-                </p>
+                    </p>
             </div>
         </div>
             {default}
@@ -221,11 +234,11 @@
                     <div class="timeline-element-content">
                     <div class="timeline-title"><a n:href="Schedule:Detail#paneldiscussion">Panel Discussion with Scientists</a></div>
                     <time class="timeline-element-date">19:00 - 20:30</time>
-                 <p>
+                    <p>
                         Discussion with Czech scientists about their work in physics
-                </p>
+                    </p>
+                </div>
             </div>
-        </div>
             {/switch}
         </div>
     </div>
