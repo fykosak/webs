@@ -6,5 +6,43 @@
 {/block}
 
 {block content}
-Fykosí Merch
+<div class="panel color-auto">
+    <section class="inner-container">
+     {switch $lang}
+                {case 'cs'}
+                <h1>Hrnky</h1>
+                <div class="col-md-8 offset-md-2"> 
+                    <img src = "Slava_Elenka.JPG">
+                </div>
+                <div class="row strips">
+                    <div class="col-lg-6">
+                        <img src="modry.JPG">
+                    </div>
+                    <div class="col-md-4">
+                        <img src = "cerveny.JPG">
+                    </div>
+                </div>
+               {default}
+                <div class="subheader">Rules Briefly</div>
+                <h1>What is Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y'}?</h1>
+                <div class="row strips">
+                    <div class="col-md-4">
+                        Up to five high school students compete in Prague in a three-hour-long contest in solving physics
+                        problems.
+                    </div>
+                    <div class="col-md-4">
+                        There are 7 problems available for you. As soon as you solve one, you get another problem
+                        immediately. For each solved problem the team is awarded with points.
+                    </div>
+                    <div class="col-md-4">
+                        The best teams win prizes and undying glory in our competition, which has been held
+                        annually for 17 years now.
+                    </div>
+                </div>
+                <a n:href="Rules:" class="btn btn-panel-action">How does it work</a>
+            {/switch}
+    </section>
+</div>
+
+
 {/block}
