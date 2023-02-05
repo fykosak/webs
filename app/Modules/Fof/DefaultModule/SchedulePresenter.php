@@ -19,5 +19,4 @@ class SchedulePresenter extends BasePresenter
     {
         $this->template->data = $this->serviceEvent->getSchedule(173);
     }
-
 }
