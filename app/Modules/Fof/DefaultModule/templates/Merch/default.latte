@@ -2,62 +2,84 @@
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
-     {switch $lang}    
-        {case 'cs'}
-        <h1>Fykosí merch</h1>
+        <h1>
+            {switch $lang}    
+            {case 'cs'}FYKOSí merch
+            {default}FYKOS merch
+            {/switch}
+        </h1>
         <div>
+            {switch $lang}
+            {case 'cs'}
             Na letošním fyziklání bude poprvé možnost koupit si krásné FYKOSí hrníček, tričko, čapku či mikinu a podpořit tak samotné Fyziklání.
+            {case 'en'}
+            This year's Fyziklání is the first opportunity to buy a beautiful FYKOS mug, T-Shirt, beanie or hoodie and support Fyziklání iteself while you're at it!
+            {/switch}
         </div> 
-        <h2>Hrnky</h2>
+
+        <h2>
+        {switch $lang}
+        {case 'cs'}Hrnky
+        {default}Mugs
+        {/switch}
+        </h2>
         <div class="col-md-12"> 
             <img src = "{$basePath}/images/merch/Slava_Elenka.JPG" class="img-fluid" >
         </div>
         <div class="row strips">
-           
             <div class="col-md-6">
-                <h3>Červený</h3>
+                <h3>
+                {switch $lang}
+                    {case 'cs'}Červený
+                    {default}Red
+                {/switch}
+                </h3>
                 <img src = "{$basePath}/images/merch/cerveny.JPG" class="img-fluid"><br>
-                Krásný červený hrneček! Z mytrilu!
+                {switch $lang}
+                    {case 'cs'} Červený hrnek
+                    {case 'en'} Red mug, duh
+                {/switch}
                 <div style="text-align: center;">
-                <strong>Milion korun</strong>
+                {switch $lang}
+                    {case 'cs'} <strong>320 Kč</strong>
+                    {case 'en'} <strong>320 CZK</strong>
+                {/switch}
                 </div>
             </div>
 
             <div class="col-md-6">
-                <h3>Modrý</h3>
-                <img src="{$basePath}/images/merch/modry.JPG" class="img-fluid"><br>
-                Krásný modrý hrneček! Z mytrilu!
+                <h3>
+                {switch $lang}
+                    {case 'cs'}Modrý
+                    {default}Blue
+                {/switch}
+                </h3>
+                <img src = "{$basePath}/images/merch/modry.JPG" class="img-fluid"><br>
+                {switch $lang}
+                    {case 'cs'} Modrý hrnek
+                    {case 'en'} Blue mug, duh
+                {/switch}    
                 <div style="text-align: center;">
-                <strong>Milion korun</strong>
+                {switch $lang}
+                    {case 'cs'} <strong>320 Kč</strong>
+                    {case 'en'} <strong>320 CZK</strong>
+                {/switch}
                 </div>
-
             </div>
         </div>
-       {default}
-       <h1>FYKOS merch</h1>
-        This year's Fyziklání is the first opportunity to buy a beautiful FYKOS mug, T-Shirt, beanie or hoodie and support Fyziklání iteself while you're at it!
-        <h1>Mugs</h1>
-        <div class="col-md-12"> 
-            <img src = "{$basePath}/images/merch/Slava_Elenka.JPG" class="img-fluid">
-        </div>
-        <div class="row strips">
-            <div class="col-md-6">
-                <img src = "{$basePath}/images/merch/cerveny.JPG" class="img-fluid"><br>
-                Krásný červený hrneček! Z mytrilu!
-            </div>
-            <div class="col-md-6">
-                <img src="{$basePath}/images/merch/modry.JPG" class="img-fluid"> <br>
-                Krásný modrý hrneček! Z mytrilu!
-            </div>
-        </div>
-    {/switch}
-    {switch $lang}    
-        {case 'cs'}
-
-        <h2>Trička</h2>
+    
+        <h2>
+        {switch $lang}
+            {case 'cs'}Trička
+            {default}T-Shirts
+        {/switch}    
+        </h2>
         <div class="col-md-8 offset-md-2"> 
             <img src = "{$basePath}/images/merch/triko.png" class="img-fluid"> <br>
-            Trička je tady cool nosit, čumte.
+            {switch $lang}
+                {case 'cs'} Cool triko!
+                {case 'en'} Cool T!
+            {/switch}  
         </div>
         {*<div class="row strips">
            <div class="col-md-6">
@@ -67,22 +89,6 @@
                 <img src = "cerveny.JPG">
             </div>
         </div>*}
-       {default}
-        <h2>T-Shirts</h2>
-        <div class="col-md-8 offset-md-2"> 
-            <img src = "{$basePath}/images/merch/triko.png" class="img-fluid"> <br>
-            Trička je tady cool nosit, čumte.
-        </div>
-        {*<div class="row strips">
-           <div class="col-md-6">
-                <img src="modry.JPG">
-            </div>
-            <div class="col-md-6">
-                <img src = "cerveny.JPG">
-            </div>
-        </div>*}
-    {/switch}
-
     </section>
 </div>
 
