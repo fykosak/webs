@@ -110,14 +110,21 @@
         {control countdown}
     </div>
     <div class="upper-home-registration-deadline">
-        {switch $lang}
-            {case cs}
-            Registrace je otevřena do
-                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
-        {default}
-            Registration is open until
-                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
-        {/switch}
+    	{if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::AFTER)}
+		{switch $lang}
+		    {case cs} Registrace je již uzavřena. Soutěžíme <strong>{$gamePhaseCalculator->getGameBegin() |date:'j. n. G:i'}</strong>.
+		    {default} Registration is already closed. The competition starts <strong>{$gamePhaseCalculator->getGameBegin() |date:'F j, G:i'} CET</strong>.
+		{/switch}
+	{elseif true}
+		{switch $lang}
+		    {case cs}
+		    Registrace je otevřena do
+			<strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
+		{default}
+		    Registration is open until
+			<strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
+		{/switch}
+	{/if}
     </div>
 {*    <div style="margin-top: 1rem; text-align: center;">*}
 {*    {switch $lang}*}
