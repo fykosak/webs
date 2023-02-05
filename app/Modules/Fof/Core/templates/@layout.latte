@@ -73,10 +73,17 @@
                             {default} Registration will open soon!
                         {/switch}
                     {else}
-                        {switch $lang}
-                            {case 'cs'}Registrace na další ročník ještě není otevřena.
-                            {default} Registration for the next year is not open yet.
-                        {/switch}
+                        {if $gamePhaseCalculator->isLongAfterTheGame()}
+                            {switch $lang}
+                                {case 'cs'}Registrace na další ročník ještě není otevřena.
+                                {default} Registration for the next year is not open yet.
+                            {/switch}
+                        {else}
+                            {switch $lang}
+                                {case 'cs'}Registrace je uzavřena.
+                                {default} Registration is closed.
+                            {/switch}
+                        {/if}
                     {/if}
                 {/if}
             </div>
