@@ -23,8 +23,8 @@
         {default}Mugs
         {/switch}
         </h2>
-        <div class="col-md-112"> 
-            <img src = "{$basePath}/images/merch/Slava_Elenka.JPG" class="img-fluid my-2" >
+        <div class="col-md-12"> 
+            <img src = "{$basePath}/images/merch/Slava_Elenka.JPG" class="img-fluid my-2">
         </div>
         <div class="row strips">
             <div class="col-md-6">
@@ -138,8 +138,12 @@
                 <img src = "{$basePath}/images/merch/hoodie_red.png" class="img-fluid my-2" style="height: 40rem;"> <br>
             </div>
         </div>
-        <div>
+        <div class="col-md-4 offset-md-4">
             <p>
+            {switch $lang}
+                {case 'cs'}Mikiny
+                {default}Hoodies
+            {/switch} 
             </p>
         </div>
         <div style="text-align: center;">
