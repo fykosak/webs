@@ -17,65 +17,65 @@
             {/switch}
         </div> 
 
-        <h2>
+        <h2 class="my-3"> <!--- margin, y direction, size 3 --->
         {switch $lang}
         {case 'cs'}Hrnky
         {default}Mugs
         {/switch}
         </h2>
-        <div class="col-md-12"> 
-            <img src = "{$basePath}/images/merch/Slava_Elenka.JPG" class="img-fluid" >
+        <div class="col-md-112"> 
+            <img src = "{$basePath}/images/merch/Slava_Elenka.JPG" class="img-fluid my-2" >
         </div>
         <div class="row strips">
             <div class="col-md-6">
-                <h3>
+                <h3 class="my-2">
                 {switch $lang}
                     {case 'cs'}Červený
                     {default}Red
                 {/switch}
                 </h3>
-                <img src = "{$basePath}/images/merch/cerveny.JPG" class="img-fluid"><br>
+                <img src = "{$basePath}/images/merch/cerveny.JPG" class="img-fluid my-2"><br>
                 {switch $lang}
                     {case 'cs'} Červený hrnek
                     {case 'en'} Red mug, duh
                 {/switch}
                 <div style="text-align: center;">
                 {switch $lang}
-                    {case 'cs'} <strong>320 Kč</strong>
-                    {case 'en'} <strong>320 CZK</strong>
+                    {case 'cs'} <strong>249 Kč</strong>
+                    {case 'en'} <strong>249 CZK</strong>
                 {/switch}
                 </div>
             </div>
 
             <div class="col-md-6">
-                <h3>
+                <h3 class="my-2">
                 {switch $lang}
                     {case 'cs'}Modrý
                     {default}Blue
                 {/switch}
                 </h3>
-                <img src = "{$basePath}/images/merch/modry.JPG" class="img-fluid"><br>
+                <img src = "{$basePath}/images/merch/modry.JPG" class="img-fluid my-2"><br>
                 {switch $lang}
                     {case 'cs'} Modrý hrnek
                     {case 'en'} Blue mug, duh
                 {/switch}    
                 <div style="text-align: center;">
                 {switch $lang}
-                    {case 'cs'} <strong>320 Kč</strong>
-                    {case 'en'} <strong>320 CZK</strong>
+                    {case 'cs'} <strong>249 Kč</strong>
+                    {case 'en'} <strong>249 CZK</strong>
                 {/switch}
                 </div>
             </div>
         </div>
     
-        <h2>
+        <h2 class="my-3">
         {switch $lang}
             {case 'cs'}Trička
             {default}T-Shirts
         {/switch}    
         </h2>
         <div class="col-md-8 offset-md-2"> 
-            <img src = "{$basePath}/images/merch/triko.png" class="img-fluid"> <br>
+            <img src = "{$basePath}/images/merch/triko.png" class="img-fluid my-2"> <br>
             {switch $lang}
                 {case 'cs'} Cool triko!
                 {case 'en'} Cool T!
@@ -89,6 +89,65 @@
                 <img src = "cerveny.JPG">
             </div>
         </div>*}
+        <div style="text-align: center;">
+            {switch $lang}
+                {case 'cs'} <strong>249 Kč</strong>
+                {case 'en'} <strong>249 CZK</strong>
+            {/switch}
+        </div>
+
+        <h2 class="my-3">
+        {switch $lang}
+            {case 'cs'}Čepice
+            {default}Beanies
+        {/switch}    
+        </h2>
+        <div class="col-md-4 offset-md-4"> 
+            <img src = "{$basePath}/images/merch/beanie.jpg" class="img-fluid my-2" style="height: 30rem;"> <br>
+            {switch $lang}
+                {case 'cs'} Kdo má pod čepicí...
+                {case 'en'} Keep your head warm in style.
+            {/switch}  
+        </div>
+        {*<div class="row strips">
+           <div class="col-md-6">
+                <img src="modry.JPG">
+            </div>
+            <div class="col-md-6">
+                <img src = "cerveny.JPG">
+            </div>
+        </div>*}
+        <div style="text-align: center;">
+            {switch $lang}
+                {case 'cs'} <strong>199 Kč</strong>
+                {case 'en'} <strong>199 CZK</strong>
+            {/switch}            
+        </div>
+
+        <h2 class="my-3">
+        {switch $lang}
+            {case 'cs'}Mikiny
+            {default}Hoodies
+        {/switch}    
+        </h2>
+        <div class="row strips">
+           <div class="col-md-6">
+                <img src="{$basePath}/images/merch/hoodie_black.png" class="img-fluid my-2" style="height: 40rem;"> <br>
+            </div>
+            <div class="col-md-6">
+                <img src = "{$basePath}/images/merch/hoodie_red.png" class="img-fluid my-2" style="height: 40rem;"> <br>
+            </div>
+        </div>
+        <div>
+            <p>
+            </p>
+        </div>
+        <div style="text-align: center;">
+            {switch $lang}
+                {case 'cs'} <strong>199 Kč</strong>
+                {case 'en'} <strong>199 CZK</strong>
+            {/switch}            
+        </div>
     </section>
 </div>
 
