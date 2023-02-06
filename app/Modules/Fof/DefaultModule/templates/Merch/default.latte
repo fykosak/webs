@@ -9,12 +9,14 @@
             {/switch}
         </h1>
         <div>
+        <p>
             {switch $lang}
             {case 'cs'}
             Na letošním fyziklání bude poprvé možnost koupit si krásné FYKOSí hrníček, tričko, čapku či mikinu a podpořit tak samotné Fyziklání.
             {case 'en'}
             This year's Fyziklání is the first opportunity to buy a beautiful FYKOS mug, T-Shirt, beanie or hoodie and support Fyziklání iteself while you're at it!
             {/switch}
+        </p>    
         </div> 
 
         <h2 class="my-3"> <!--- margin, y direction, size 3 --->
@@ -37,10 +39,12 @@
                 {/switch}
                 </h3>
                 <img src = "{$basePath}/images/merch/cerveny.JPG" class="img-fluid my-2"><br>
+                <p>
                 {switch $lang}
                     {case 'cs'} Červený hrnek
                     {case 'en'} Red mug, duh
                 {/switch}
+                </p>
                 <div style="text-align: center;">
                 <h5><strong> {*docela prasárna, ale funguje...*}
                 {switch $lang}
@@ -61,10 +65,12 @@
                 {/switch}
                 </h3>
                 <img src = "{$basePath}/images/merch/modry.JPG" class="img-fluid my-2"><br>
+                <p>
                 {switch $lang}
                     {case 'cs'} Modrý hrnek
                     {case 'en'} Blue mug, duh
                 {/switch}    
+                </p>
                 <div style="text-align: center;">
                 <h5><strong>
                 {switch $lang}
@@ -86,10 +92,12 @@
         </h2>
         <div class="col-md-10 offset-md-1"> 
             <img src = "{$basePath}/images/merch/triko.png" class="img-fluid my-2"> <br>
+            <p>
             {switch $lang}
                 {case 'cs'} Cool triko!
                 {case 'en'} Cool T!
-            {/switch}  
+            {/switch}
+            </p>  
         </div>
         {*<div class="row strips">
            <div class="col-md-6">
@@ -116,10 +124,12 @@
         </h2>
         <div class="col-md-6 offset-md-3"> 
             <img src = "{$basePath}/images/merch/beanie.jpg" class="img-fluid my-2"> <br>
+            <p>
             {switch $lang}
                 {case 'cs'} Kdo má pod čepicí...
                 {case 'en'} Keep your head warm in style.
-            {/switch}  
+            {/switch}
+            </p>  
         </div>
         {*<div class="row strips">
            <div class="col-md-6">
