@@ -30,6 +30,12 @@
         {default}Mugs
         {/switch}
         </h2>
+        <p>
+            {switch $lang}
+                {case 'cs'} Hrnky s logy Fyziklání a FYKOSu.
+                {case 'en'} Red mug with the logos of Fyziklání and FYKOS.
+            {/switch}
+        </p>
         <div class="col-md-8 offset-md-2" > 
             <img src = "{$basePath}/images/merch/Slava_Elenka.JPG" class="img-fluid my-2">
         </div>
@@ -39,17 +45,12 @@
             <div class="col-md-4">
                 <h3 class="my-2">
                 {switch $lang}
-                    {case 'cs'}Červený
-                    {default}Red
+                    {case 'cs'}Fyziklání
+                    {default}Fyziklání
                 {/switch}
                 </h3>
                 <img src = "{$basePath}/images/merch/cerveny.JPG" class="img-fluid my-2"><br>
-                <p>
-                {switch $lang}
-                    {case 'cs'} Červený hrnek s logem Fyziklání
-                    {case 'en'} Red mug with the Fyziklání logo
-                {/switch}
-                </p>
+
                 <div style="text-align: center;">
                 <h5><strong> {*docela prasárna, ale funguje...*}
                 {switch $lang}
@@ -64,17 +65,11 @@
             <div class="col-md-4">
                 <h3 class="my-2">
                 {switch $lang}
-                    {case 'cs'}Modrý
-                    {default}Blue
+                    {case 'cs'}FYKOS
+                    {default}FYKOS
                 {/switch}
                 </h3>
                 <img src = "{$basePath}/images/merch/modry.JPG" class="img-fluid my-2"><br>
-                <p>
-                {switch $lang}
-                    {case 'cs'} Modrý hrnek s logem FYKOS.
-                    {case 'en'} Blue mug with the FYKOS logo.
-                {/switch}    
-                </p>
                 <div style="text-align: center;">
                 <h5><strong>
                 {switch $lang}
@@ -97,14 +92,15 @@
             {default}T-Shirts
         {/switch}    
         </h2>
-        <div class="col-md-8 offset-md-2"> 
-            <img src = "{$basePath}/images/merch/triko.png" class="img-fluid my-2"> <br>
             <p>
             {switch $lang}
-                {case 'cs'} S tímhle trikem ze 100% bavlny bude hned jasné, pro co bije tvoje srdce.
-                {case 'en'} This pure cotton T-Shirt will clearly show where your heart lies.
+                {case 'cs'} S tímhle trikem ze 100% bavlny s logy Fyziklání, FYKOSu a Fyziklání Online bude hned jasné, pro co bije tvoje srdce.
+                {case 'en'} This pure cotton T-Shirt with the logos of Fyziklání, FYKOS and Physics Brawl will clearly show where your heart lies.
             {/switch}
-            </p>  
+            </p> 
+        <div class="col-md-8 offset-md-2"> 
+            <img src = "{$basePath}/images/merch/triko.png" class="img-fluid my-2"> <br>
+ 
         </div>
         {*<div class="row strips">
            <div class="col-md-6">
@@ -132,14 +128,15 @@
             {default}Beanies
         {/switch}    
         </h2>
-        <div class="col-md-4 offset-md-4"> 
-            <img src = "{$basePath}/images/merch/beanie.jpg" class="img-fluid my-2"> <br>
             <p>
             {switch $lang}
                 {case 'cs'} Čepice s vyšívaným logem FYKOSu tvoji hlavu spolehlivě udrží v teple.
                 {case 'en'} Beanie with embroided FYKOS logo will keep your head warm in style.
             {/switch}
             </p>  
+        <div class="col-md-4 offset-md-4"> 
+            <img src = "{$basePath}/images/merch/beanie.jpg" class="img-fluid my-2"> <br>
+
         </div>
         {*<div class="row strips">
            <div class="col-md-6">
@@ -167,6 +164,12 @@
             {default}Hoodies
         {/switch}    
         </h2>
+            <p>
+            {switch $lang}
+                {case 'cs'}V bavlněné mikině můžeš ukázat podporu FYKOSu nebo Fyziklání ve stylu. Pro maximální pohodlí při studiu fyziky má v kapse díru na sluchátka.
+                {default}Show your support for FYKOS or Fyziklání in big style in this cotton hoodie. Hole in the pocket for headphones included for maximum comfort while studying physics.
+            {/switch} 
+            </p>
         <div class="row strips">
             <div class="col-md-2"></div>
             <div class="col-md-4">
@@ -178,12 +181,7 @@
             <div class="col-md-2">
         </div>
         <div class="col-md-6 offset-md-3">
-            <p>
-            {switch $lang}
-                {case 'cs'}V bavlněné mikině můžeš ukázat podporu FYKOSu nebo Fyziklání ve stylu. Pro maximální pohodlí při studiu fyziky má v kapse díru na sluchátka.
-                {default}Show your support for FYKOS or Fyziklání in big style in this cotton hoodie. Hole in the pocket for headphones included for maximum comfort while studying physics.
-            {/switch} 
-            </p>
+
         </div>
         <div style="text-align: center;">
         <h5><strong>
