@@ -1,10 +1,200 @@
-{block title}
-    {switch $lang}
-        {case 'cs'} FYKOSí merch
-        {default} FYKOS merch
-    {/switch}
-{/block}
 
-{block content}
-Fykosí Merch
+{block main}
+
+    
+    <div class="panel color-auto">
+    <section class="inner-container">
+        <h1>
+            {switch $lang}    
+            {case 'cs'}FYKOSí merch
+            {default}FYKOS merch
+            {/switch}
+        </h1>
+        <div>
+        <p>
+            {switch $lang}
+            {case 'cs'}
+            Na letošním fyziklání bude poprvé možnost koupit si krásné FYKOSí hrníček, tričko, čapku či mikinu a podpořit tak samotné Fyziklání.
+            {case 'en'}
+            This year's Fyziklání is the first opportunity to buy a beautiful FYKOS mug, T-Shirt, beanie or hoodie and support Fyziklání iteself while you're at it!
+            {/switch}
+        </p>    
+        </div> 
+    </section>
+    </div>
+    <div class="panel color-auto">
+    <section class="inner-container">
+        <h2 class="my-3"> <!--- margin, y direction, size 3 --->
+        {switch $lang}
+        {case 'cs'}Hrnky
+        {default}Mugs
+        {/switch}
+        </h2>
+        <p>
+            {switch $lang}
+                {case 'cs'} Hrnky s logy Fyziklání a FYKOSu.
+                {case 'en'} Red mug with the logos of Fyziklání and FYKOS.
+            {/switch}
+        </p>
+        <div class="col-md-8 offset-md-2" > 
+            <img src = "{$basePath}/images/merch/Slava_Elenka.JPG" class="img-fluid my-2">
+        </div>
+        <div class="row strips">
+            <div class=col-md-2></div>
+
+            <div class="col-md-4">
+                <h3 class="my-2">
+                {switch $lang}
+                    {case 'cs'}Fyziklání
+                    {default}Fyziklání
+                {/switch}
+                </h3>
+                <img src = "{$basePath}/images/merch/cerveny.JPG" class="img-fluid my-2"><br>
+
+                <div style="text-align: center;">
+                <h5><strong> {*docela prasárna, ale funguje...*}
+                {switch $lang}
+                    {case 'cs'} 249 Kč
+                    {case 'en'} 249 CZK
+                {/switch}
+                </h5></strong>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <h3 class="my-2">
+                {switch $lang}
+                    {case 'cs'}FYKOS
+                    {default}FYKOS
+                {/switch}
+                </h3>
+                <img src = "{$basePath}/images/merch/modry.JPG" class="img-fluid my-2"><br>
+                <div style="text-align: center;">
+                <h5><strong>
+                {switch $lang}
+                    {case 'cs'} 249 Kč
+                    {case 'en'} 249 CZK
+                {/switch}
+                </h5></strong>
+                </div>
+            </div>
+
+            <div class=col-md-2></div>
+        </div>
+    </section>
+    </div>    
+    <div class="panel color-auto">
+    <section class="inner-container">
+        <h2 class="my-3">
+        {switch $lang}
+            {case 'cs'}Trička
+            {default}T-Shirts
+        {/switch}    
+        </h2>
+            <p>
+            {switch $lang}
+                {case 'cs'} S tímhle trikem ze 100% bavlny s logy Fyziklání, FYKOSu a Fyziklání Online bude hned jasné, pro co bije tvoje srdce.
+                {case 'en'} This pure cotton T-Shirt with the logos of Fyziklání, FYKOS and Physics Brawl will clearly show where your heart lies.
+            {/switch}
+            </p> 
+        <div class="col-md-8 offset-md-2"> 
+            <img src = "{$basePath}/images/merch/triko.png" class="img-fluid my-2"> <br>
+ 
+        </div>
+        {*<div class="row strips">
+           <div class="col-md-6">
+                <img src="modry.JPG">
+            </div>
+            <div class="col-md-6">
+                <img src = "cerveny.JPG">
+            </div>
+        </div>*}
+        <div style="text-align: center;">
+        <h5><strong>
+            {switch $lang}
+                {case 'cs'} <strong>299 Kč</strong>
+                {case 'en'} <strong>299 CZK</strong>
+            {/switch}
+        </h5></strong>
+        </div>
+    </section>
+    </div>    
+    <div class="panel color-auto">
+    <section class="inner-container">
+        <h2 class="my-3">
+        {switch $lang}
+            {case 'cs'}Čepice
+            {default}Beanies
+        {/switch}    
+        </h2>
+            <p>
+            {switch $lang}
+                {case 'cs'} Čepice s vyšívaným logem FYKOSu tvoji hlavu spolehlivě udrží v teple.
+                {case 'en'} Beanie with embroided FYKOS logo will keep your head warm in style.
+            {/switch}
+            </p>  
+        <div class="col-md-4 offset-md-4"> 
+            <img src = "{$basePath}/images/merch/beanie.jpg" class="img-fluid my-2"> <br>
+
+        </div>
+        {*<div class="row strips">
+           <div class="col-md-6">
+                <img src="modry.JPG">
+            </div>
+            <div class="col-md-6">
+                <img src = "cerveny.JPG">
+            </div>
+        </div>*}
+        <div style="text-align: center;">
+        <h5><strong>
+            {switch $lang}
+                {case 'cs'} <strong>199 Kč</strong>
+                {case 'en'} <strong>199 CZK</strong>
+            {/switch} 
+        </h5></strong>           
+        </div>
+    </section>    
+    </div>    
+    <div class="panel color-auto">
+    <section class="inner-container">
+        <h2 class="my-3">
+        {switch $lang}
+            {case 'cs'}Mikiny
+            {default}Hoodies
+        {/switch}    
+        </h2>
+            <p>
+            {switch $lang}
+                {case 'cs'}V bavlněné mikině můžeš ukázat podporu FYKOSu nebo Fyziklání ve stylu. Pro maximální pohodlí při studiu fyziky má v kapse díru na sluchátka.
+                {default}Show your support for FYKOS or Fyziklání in big style in this cotton hoodie. Hole in the pocket for headphones included for maximum comfort while studying physics.
+            {/switch} 
+            </p>
+        <div class="row strips">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <img src="{$basePath}/images/merch/hoodie-black.png" class="img-fluid my-2"> <br>
+            </div>
+            <div class="col-md-4">
+                <img src = "{$basePath}/images/merch/hoodie-red.png" class="img-fluid my-2"> <br>
+            </div>
+            <div class="col-md-2">
+        </div>
+        <div class="col-md-6 offset-md-3">
+
+        </div>
+        <div style="text-align: center;">
+        <h5><strong>
+            {switch $lang}
+                {case 'cs'} <strong>799 Kč</strong>
+                {case 'en'} <strong>799 CZK</strong>
+            {/switch}   
+        </h5></strong>         
+        </div>
+    </section>
+    </div>
+
+</div>
+
+
 {/block}
