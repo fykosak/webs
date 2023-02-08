@@ -63,6 +63,28 @@
         <section class="inner-container">
             {switch $lang}
                 {case 'cs'}
+{*                <div class="subheader">Organizátoři</div>*}
+                <h1>Záštita</h1>
+                <p>Kromě hlavních pořadatelů soutěže a sponzorů se na soutěži podílí i významné osobnosti veřejného života a hlavní město Praha, kteří soutěži poskytli svou záštitu. Chtěli bychom jim zde jmenovitě poděkovat.</p>
+                <p><b>Hlavní město</b> Praha (HMP) je historické město s srdci Evropy. Je hlavním městem České republiky, dříve Československa, a v minulosti bylo sídelním městem monarchů Ruldofa II. či Karla IV. Je hlavním turististickým cílem ČR a má letiště s největším provozem v ČR. Ve městě se nachází jedna z mezinárodně nejlépe hodnocených ZOO na světě.</p>
+                <p>Záštitu nad akcí přijal primátor HMP <b>MUDr. Zdeněk Hřib</b>. Na Univerzitě Karlově vystudoval na 3. lékařské fakultě obor všeobecné lékařství. Během studia absolvoval i stáž na Tchaj-wanu. Je ředitelem obecně prospěšné společnosti Institut pro aplikovaný výzkum, edukaci a řízení ve zdravotnictví. Je autorem mnoha článků jak v odborných periodicích, tak laickém tisku. Také je angažovaný na politické scéně, jakožto člen České pirátské strany.</p>
+                <p>Záštitu nad soutěží přijala také <b>prof. Lenka Zdeborová</b>, úspěšná vědkyně zabývající se statistickou fyzikou a jejím mezioborovým využitím. Jednou z náplní její práce je například studium vlivu fázových přechodů ve výpočetních problémech na jejich časovou složitost. Za svou práci získala mnoho významných vědeckých ocenění. V neposlední řadě také vyhrála Cenu Neuron 2021 pro mladé nadějné vědce v oboru fyzika. Prof. Zdeborová se svou výhru prostřednictvím nadace Neuron rozhodla věnovat na rozvoj talentovaných studentů a podpořila tak náš seminář, který v minulosti řešila a také organizovala. Tímto bychom chtěli paní profesorce Zdeborové mnohokrát poděkovat za podporu soutěže její záštitou a také za velkou finanční pomoc, díky které může Fyziklání nadále růst.</p>
+
+                {default}
+{*                <div class="subheader">Organizers</div>*}
+                <h1>Patronage</h1>
+                <p>Besides the main organizers and the sponsors, some important public figures and the capital city Prague significantly contributed and offered their patronage to the competition. We would like to thank them here.</p>
+                <p><b>Capital city Prague</b> (Prague) is a historical city in the heart of Europe. It is the capital city of the Czech Republic, formerly Czechoslovakia, and it was the residential city of kings Rudolf II and Charles IV. Prague is the main tourist destination in the Czech Republic and home to one of the most famous ZOOs in the world. Thanks to the patronage of Prague, you will be able to enjoy a banquet in the mayor’s residence.</p>
+                <p>The patronage was taken over by the mayor of Prague <b>MUDr. Zdeněk Hřib</b> who studied general medicine at the Third Faculty of Medicine at Charles University. During his studies, he completed an internship in Taiwan. He is the director of a public service company Institution for applied research, education and management in health care. He is the author of many articles in the professional and lay press. Furthermore, he is also active on the political scene as a member of the Czech Pirate Party.</p>
+                <p>The patronage of the competition has also been accepted by <b>prof. Lenka Zdeborová</b>, a successful scientist studying statistical physics and its interdisciplinary use. One of the focuses of her work is, for example, the study of the influence of phase transitions in computational problems on their time complexity. She has received many prominent scientific awards for her work. Last but not least, she won the Neuron 2021 Prize for promising young scientists in physics. Prof. Zdeborová decided to donate her prize money to developing talented students through the Neuron Foundation. In this way, she supported our seminar, which she had participated in and also organized in the past. We would like to thank prof. Zdeborová very much for supporting the competition through her patronage and also for her generous financial support, thanks to which Fyziklani can continue to grow.</p>
+            {/switch}
+        </section>
+    </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            {switch $lang}
+                {case 'cs'}
 {*                <div class="subheader">Datum a místo konání</div>*}
                 <h1>Kdy a kde to bude?</h1>
                 <p>Soutěž se bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'d.m.Y'}. Stejně jako minulý rok se sejdeme na výstavišti PVA Letňany v Praze. Výstaviště se nachází v dochozí vzdálenosti (1 zastávka) od konečné metra C Letňany. Na soutěži letos rádi přivítáme přes 200 týmů.</p>
