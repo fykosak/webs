@@ -107,7 +107,7 @@ export const ForVisibleResults: React.FC<{data: DataInterface<true>, teams: Team
 export const ForHiddenResults: React.FC<{data: DataInterface}> = memo(({data}) => {
   const lang = useContext(LangContext);
   return <div className={"hidden-results"}>
-    {lang === 'cs' ? "Výsledky soutěže jsou 20 minut před koncem soutěže skryté." : "Competition results are hidden 20 minutes before the end of the competition."}
+    {lang === 'cs' ? "Výsledky jsou před koncem soutěže skryté." : "Results are hidden before the end of the competition."}
   </div>;
 });
 
