@@ -46,7 +46,24 @@
         </div>
     </div>
 
-    <div>{* Changes parity of color-auto *}</div>
+    <div class="panel registration" style="background-color: black">
+        <div class="inner-container">
+            <div class="text">
+                {switch $lang}
+                    {case 'cs'}Doufáme, že jste si soutěž užili
+                    {default}We hope you have enjoyed the competition
+                {/switch}
+            </div>
+        {switch $lang}
+            {case cs}
+            <a class="btn btn-primary" href="/2023/vysledky/">Výsledky soutěže</a>
+{*            <a class="btn btn-primary" href="/download/2023/reseni.pdf">Úlohy a řešení</a>*}
+        {default}
+            <a class="btn btn-primary" href="/2023/results/">Competition results</a>
+{*            <a class="btn btn-primary" href="/download/2023/solutions.pdf">Problem assignment and solutions</a>*}
+        {/switch}
+        </div>
+    </div>
 
     <div class="panel color-auto">
         <section class="inner-container">
