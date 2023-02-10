@@ -47,6 +47,7 @@ const fofConfiguration = {
     ...commonConfiguration,
     entry: {
         main: path.resolve(__dirname, './app/main-fof.js'),
+        results: "./app/Components/ResultsPanel/main.tsx",
     },
     output: {
         path: path.resolve(__dirname, './www/fof/assets'),

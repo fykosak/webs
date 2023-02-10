@@ -48,6 +48,10 @@
 
     <div>{* Changes parity of color-auto *}</div>
 
+    {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheGame()}
+        {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}
+    {/if}
+
     <div class="panel color-auto">
         <section class="inner-container">
             {switch $lang}
@@ -274,7 +278,7 @@
                                 The Kaldashians
                             </div>
                             <div class="members">
-                                David Constantinescu, Robert Stănescu, Vladimir George Necula, Miruna Neacsu, Vlad-Ștefan Oros 
+                                David Constantinescu, Robert Stănescu, Vladimir George Necula, Miruna Neacsu, Vlad-Ștefan Oros
                             </div>
                         </div>
                     </div>
@@ -293,7 +297,7 @@
                         <div class="legends-year">2020</div>
                         <div class="legends-item" n:syntax="off">
                             <div>
-                               Teorie všeho se jede rozloučit 
+                               Teorie všeho se jede rozloučit
                             </div>
                             <div class="members">
                                 Viktor Materna, Lubor Čech, Václav Zvoníček, Jaroslav Herman, Jiří Kalvoda

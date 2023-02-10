@@ -3,7 +3,6 @@ import {DataInterface} from "./data-interface";
 
 export const useData = (url: string, initialData: DataInterface | null = null): DataInterface | null => {
   const [data, setData] = useState<DataInterface | null>(initialData);
-  console.log(data, url);
   const reload = async () => {
     const response = await fetch(url);
     setData(await response.json())

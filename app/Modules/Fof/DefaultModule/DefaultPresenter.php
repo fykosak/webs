@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\DefaultModule;
 
+use App\Components\ResultsPanel\ResultsPanelComponent;
 use App\Components\UpperHomeBeforeRegistration\UpperHomeBeforeRegistrationComponent;
 use App\Components\UpperHomePrague\UpperHomePrague;
 
@@ -17,5 +18,10 @@ class DefaultPresenter extends BasePresenter
     protected function createComponentUpperHomeBeforeRegistration(): UpperHomeBeforeRegistrationComponent
     {
         return new UpperHomeBeforeRegistrationComponent($this->gamePhaseCalculator);
+    }
+
+    protected function createComponentResultsPanel(): ResultsPanelComponent
+    {
+        return new ResultsPanelComponent($this->getContext());
     }
 }
