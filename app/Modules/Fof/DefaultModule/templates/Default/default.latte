@@ -48,9 +48,9 @@
 
     <div>{* Changes parity of color-auto *}</div>
 
-    {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheGame()}
-        {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}
-    {/if}
+{*    {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheGame()}*}
+{*        {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}*}
+{*    {/if}*}
 
     <div class="panel color-auto">
         <section class="inner-container">
