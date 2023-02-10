@@ -54,14 +54,17 @@
                     {default}We hope you have enjoyed the competition
                 {/switch}
             </div>
-        {switch $lang}
-            {case cs}
-            <a class="btn btn-primary" href="/2023/vysledky/">Výsledky soutěže</a>
-{*            <a class="btn btn-primary" href="/download/2023/reseni.pdf">Úlohy a řešení</a>*}
-        {default}
-            <a class="btn btn-primary" href="/2023/results/">Competition results</a>
-{*            <a class="btn btn-primary" href="/download/2023/solutions.pdf">Problem assignment and solutions</a>*}
-        {/switch}
+            <div class="buttons">
+                {switch $lang}
+                    {case cs}
+                    <a class="btn btn-primary m-1" href="/2023/vysledky/">Výsledky soutěže</a>
+                    <a class="btn btn-primary m-1" href="/download/2023/reseni.pdf">Úlohy a řešení</a>
+                {default}
+                    <a class="btn btn-primary m-1" href="/2023/results/">Competition results</a>
+                    <a class="btn btn-primary m-1" href="/download/2023/solutions.pdf">Problem assignment and solutions</a>
+                {/switch}
+
+            </div>
         </div>
     </div>
 
@@ -291,7 +294,7 @@
                                 The Kaldashians
                             </div>
                             <div class="members">
-                                David Constantinescu, Robert Stănescu, Vladimir George Necula, Miruna Neacsu, Vlad-Ștefan Oros 
+                                David Constantinescu, Robert Stănescu, Vladimir George Necula, Miruna Neacsu, Vlad-Ștefan Oros
                             </div>
                         </div>
                     </div>
@@ -310,7 +313,7 @@
                         <div class="legends-year">2020</div>
                         <div class="legends-item" n:syntax="off">
                             <div>
-                               Teorie všeho se jede rozloučit 
+                               Teorie všeho se jede rozloučit
                             </div>
                             <div class="members">
                                 Viktor Materna, Lubor Čech, Václav Zvoníček, Jaroslav Herman, Jiří Kalvoda
