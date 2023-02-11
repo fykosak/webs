@@ -70,11 +70,11 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
                 new PageTitle(null, _('results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
                 ':Archive:Results:default',
             ),
-            new NavItem(
-                new PageTitle(null, _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
-                // TODO
-                ':Archive:DetailedResults:default',
-            ),
+            //new NavItem(
+            //    new PageTitle(null, _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
+            //    // TODO
+            //    ':Archive:DetailedResults:default',
+            //),
         ];
     }
 
