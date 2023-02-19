@@ -110,7 +110,12 @@
         {control countdown}
     </div>
     <div class="upper-home-registration-deadline">
-    	{if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::AFTER)}
+        {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+        {switch $lang}
+            {case cs} Soutěž proběhla <strong>{$gamePhaseCalculator->getGameBegin() |date:'j. n. G:i'}</strong>.
+            {default} The competition took place on <strong>{$gamePhaseCalculator->getGameBegin() |date:'F j, G:i'} CET</strong>.
+        {/switch}
+    	{elseif $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::AFTER)}
 		{switch $lang}
 		    {case cs} Registrace je již uzavřena. Soutěžíme <strong>{$gamePhaseCalculator->getGameBegin() |date:'j. n. G:i'}</strong>.
 		    {default} Registration is already closed. The competition starts <strong>{$gamePhaseCalculator->getGameBegin() |date:'F j, G:i'} CET</strong>.

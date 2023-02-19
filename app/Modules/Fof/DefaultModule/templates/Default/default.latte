@@ -50,8 +50,8 @@
         <div class="inner-container">
             <div class="text">
                 {switch $lang}
-                    {case 'cs'}Doufáme, že jste si soutěž užili
-                    {default}We hope you have enjoyed the competition
+                    {case 'cs'}Doufáme, že jste si soutěž užili!
+                    {default}We hope you have enjoyed the competition!
                 {/switch}
             </div>
             <div class="buttons">
@@ -247,11 +247,13 @@
             {switch $lang}
                 {case cs}
                 <div class="subheader">Harmonogram Fyziklání</div>
-                <h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}.</h1>
+                {*<h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}.</h1>*}
+                <h1>V Praze se můžete zdržet i déle</h1>
                 <p>Doprovodný program Fyziklání je volitelný, lze se zúčastnit i pouze samotné soutěže.</p>
             {default}
                 <div class="subheader">Fyziklani Schedule</div>
-                <h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}.</h1>
+                {*<h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}.</h1>*}
+                <h1>You can stay in Prague a little longer</h1>
                 <p>The accompanying program is optional, it is possible to take part only in the competition itself.</p>
             {/switch}
 
@@ -263,34 +265,45 @@
         <section class="inner-container">
             {switch $lang}
                 {case cs}
-                <div class="subheader">Registrace</div>
+                <div class="subheader">Vítězové minulých ročníků</div>
                 <h1>Přihlaste se a staňte se legendami!</h1>
             {default}
                 <div class="subheader">Registration</div>
                 <h1>Sign up and become a legend!</h1>
             {/switch}
 
-            <ul class="stylized">
-                {switch $lang}
-                    {case cs}
-                    <li>Soutěž je určena pro středoškoláky a je zdarma!</li>
-                    <li>
-                        Registrace je otevřena od
-                        {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'} do
-                        <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
-                    </li>
-                {default}
-                    <li>The competition is for high school students and is free of charge!</li>
-                    <li>
-                        Registration is open from
-                        {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'} until
-                        <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
-                    </li>
-                {/switch}
-            </ul>
+            {*<ul class="stylized">*}
+                {*{switch $lang}*}
+                    {*{case cs}*}
+                    {*<li>Soutěž je určena pro středoškoláky a je zdarma!</li>*}
+                    {*<li>*}
+                        {*Registrace je otevřena od*}
+                        {*{$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'} do*}
+                        {*<strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.*}
+                    {*</li>*}
+                {*{default}*}
+                    {*<li>The competition is for high school students and is free of charge!</li>*}
+                    {*<li>*}
+                        {*Registration is open from*}
+                        {*{$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'} until*}
+                        {*<strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.*}
+                    {*</li>*}
+                {*{/switch}*}
+            {*</ul>*}
 
             <div class="row legends">
                 <div class="col-md-6">
+                    <div class="legends-row">
+                        <div class="legends-year">2023</div>
+                        <div class="legends-item">
+                            <div>
+                                CaminBaieti
+                            </div>
+                            <div class="members">
+                                Alexandru Momoiu, Rares Marinescu, Andrei-Darius Dragomir, Alexandru Iorga, Razvan-Gabriel Marcu
+                            </div>
+                        </div>
+                    </div>
                     <div class="legends-row">
                         <div class="legends-year">2022</div>
                         <div class="legends-item">
@@ -313,6 +326,9 @@
                             </div>
                         </div>
                     </div>
+                    
+                </div>
+                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2020</div>
                         <div class="legends-item" n:syntax="off">
@@ -324,8 +340,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2019</div>
                         <div class="legends-item">
@@ -345,17 +359,6 @@
                             </div>
                             <div class="members">
                                 Matúš Kopunec, Mikuláš Mikula, Marek Kadlečík, Róbert Jurčo, Martin Babača
-                            </div>
-                        </div>
-                    </div>
-                    <div class="legends-row">
-                        <div class="legends-year">2017</div>
-                        <div class="legends-item">
-                            <div>
-                                กกก
-                            </div>
-                            <div class="members">
-                                Matěj Mezera, Jáchym Bártík, Matěj Coufal, Jan Hlaváč, Vít Beran
                             </div>
                         </div>
                     </div>
