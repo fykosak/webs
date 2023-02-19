@@ -111,10 +111,16 @@
     </div>
     <div class="upper-home-registration-deadline">
         {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+        <div style="margin-top: 1rem; text-align: center;">
         {switch $lang}
-            {case cs} Soutěž proběhla <strong>{$gamePhaseCalculator->getGameBegin() |date:'j. n. G:i'}</strong>.
-            {default} The competition took place on <strong>{$gamePhaseCalculator->getGameBegin() |date:'F j, G:i'} CET</strong>.
+            {case cs}
+            <a class="btn btn-primary" href="/2023/vysledky/">Výsledky soutěže</a>
+            <a class="btn btn-primary" href="/download/2023/reseni.pdf">Úlohy a řešení</a>
+        {default}
+            <a class="btn btn-primary" href="/2023/results/">Competition results</a>
+            <a class="btn btn-primary" href="/download/2023/solutions.pdf">Problem assignment and solutions</a>
         {/switch}
+        </div>
     	{elseif $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::AFTER)}
 		{switch $lang}
 		    {case cs} Registrace je již uzavřena. Soutěžíme <strong>{$gamePhaseCalculator->getGameBegin() |date:'j. n. G:i'}</strong>.
@@ -131,14 +137,5 @@
 		{/switch}
 	{/if}
     </div>
-{*    <div style="margin-top: 1rem; text-align: center;">*}
-{*    {switch $lang}*}
-{*            {case cs}*}
-{*            <a class="btn btn-primary" href="/2022/vysledky/">Výsledky soutěže</a>*}
-{*            <a class="btn btn-primary" href="/download/2022/reseni.pdf">Úlohy a řešení</a>*}
-{*        {default}*}
-{*            <a class="btn btn-primary" href="/2022/results/">Competition results</a>*}
-{*            <a class="btn btn-primary" href="/download/2022/solutions.pdf">Problem assignment and solutions</a>*}
-{*        {/switch}*}
-{*        </div>*}
+    
 {/block}

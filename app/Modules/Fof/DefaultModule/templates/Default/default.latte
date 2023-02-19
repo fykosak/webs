@@ -46,27 +46,27 @@
         </div>
     </div>
 
-    <div class="panel registration" style="background-color: black">
-        <div class="inner-container">
-            <div class="text">
-                {switch $lang}
-                    {case 'cs'}Doufáme, že jste si soutěž užili!
-                    {default}We hope you have enjoyed the competition!
-                {/switch}
-            </div>
-            <div class="buttons">
-                {switch $lang}
-                    {case cs}
-                    <a class="btn btn-primary m-1" href="/2023/vysledky/">Výsledky soutěže</a>
-                    <a class="btn btn-primary m-1" href="/download/2023/reseni.pdf">Úlohy a řešení</a>
-                {default}
-                    <a class="btn btn-primary m-1" href="/2023/results/">Competition results</a>
-                    <a class="btn btn-primary m-1" href="/download/2023/solutions.pdf">Problem assignment and solutions</a>
-                {/switch}
-
-            </div>
-        </div>
-    </div>
+    {*<div class="panel registration" style="background-color: black">*}
+        {*<div class="inner-container">*}
+            {*<div class="text">*}
+                {*{switch $lang}*}
+                    {*{case 'cs'}Doufáme, že jste si soutěž užili!*}
+                    {*{default}We hope you have enjoyed the competition!*}
+                {*{/switch}*}
+            {*</div>*}
+            {*<div class="buttons">*}
+                {*{switch $lang}*}
+                    {*{case cs}*}
+                    {*<a class="btn btn-primary m-1" href="/2023/vysledky/">Výsledky soutěže</a>*}
+                    {*<a class="btn btn-primary m-1" href="/download/2023/reseni.pdf">Úlohy a řešení</a>*}
+                {*{default}*}
+                    {*<a class="btn btn-primary m-1" href="/2023/results/">Competition results</a>*}
+                    {*<a class="btn btn-primary m-1" href="/download/2023/solutions.pdf">Problem assignment and solutions</a>*}
+                {*{/switch}*}
+{**}
+            {*</div>*}
+        {*</div>*}
+    {*</div>*}
 
 {*    {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheGame()}*}
 {*        {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}*}
