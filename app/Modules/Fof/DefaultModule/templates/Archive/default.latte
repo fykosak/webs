@@ -56,18 +56,22 @@
                             </a></li>
                     </ul>
                     <ul>
+                        {if file_exists(__DIR__.'/../../../../www/fof/download/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/reseni.pdf')}
                         <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/reseni.pdf">
                                 {switch $lang}
                                     {case "cs"}Zadání a řešení úloh v českém jazyce
                                     {default}Problems and solutions in Czech
                                 {/switch}
                             </a></li>
+                        {/if}
+                        {if file_exists(__DIR__.'/../../../../www/fof/download/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/solutions.pdf')}
                         <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/solutions.pdf">
                                 {switch $lang}
                                     {case "cs"}Zadání a řešení úloh v anglickém jazyce
                                     {default}Problems and solutions in English
                                 {/switch}
                             </a></li>
+                        {/if}
                     </ul>
                 </div>
                 {if in_array($eventKey['key'], ["2022"])}
