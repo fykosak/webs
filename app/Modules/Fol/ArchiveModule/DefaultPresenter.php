@@ -10,6 +10,6 @@ class DefaultPresenter extends BasePresenter
 {
     protected function createComponentMap(): MapComponent
     {
-        return new MapComponent($this->getContext(), $this->gamePhaseCalculator);
+        return new MapComponent($this->getContext(), $this->gamePhaseCalculator, $this->getEvent());
     }
 }

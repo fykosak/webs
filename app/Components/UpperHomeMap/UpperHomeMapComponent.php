@@ -7,6 +7,7 @@ namespace App\Components\UpperHomeMap;
 use App\Components\Countdown\CountdownComponent;
 use App\Components\Map\MapComponent;
 use App\Models\GamePhaseCalculator;
+use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
@@ -15,11 +16,13 @@ class UpperHomeMapComponent extends BaseComponent
 {
     protected ServiceEventDetail $serviceTeam;
     protected GamePhaseCalculator $gamePhaseCalculator;
+    protected ModelEvent $event;
 
-    public function __construct(Container $container, GamePhaseCalculator $calculator)
+    public function __construct(Container $container, GamePhaseCalculator $calculator, ModelEvent $event)
     {
         parent::__construct($container);
         $this->gamePhaseCalculator = $calculator;
+        $this->event = $event;
     }
 
     /**
@@ -34,7 +37,7 @@ class UpperHomeMapComponent extends BaseComponent
 
     protected function createComponentMap(): MapComponent
     {
-        return new MapComponent($this->getContext(), $this->gamePhaseCalculator);
+        return new MapComponent($this->getContext(), $this->gamePhaseCalculator, $this->event);
     }
 
     protected function createComponentCountdown(): CountdownComponent

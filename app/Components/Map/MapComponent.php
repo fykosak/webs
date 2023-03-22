@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Components\Map;
 
 use App\Models\GamePhaseCalculator;
+use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
@@ -26,10 +27,10 @@ class MapComponent extends BaseComponent
         $this->serviceTeam = $serviceTeam;
     }
 
-    public function __construct(Container $container, GamePhaseCalculator $calculator)
+    public function __construct(Container $container, GamePhaseCalculator $calculator, ModelEvent $event)
     {
         parent::__construct($container);
-        $this->forEventId = $calculator->getFKSDBEvent()->eventId;
+        $this->forEventId = $event->eventId;
         $this->gamePhaseCalculator = $calculator;
     }
 
