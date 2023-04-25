@@ -44,7 +44,7 @@
     <div class="container">
         <div class="row">
             <div style="padding-top: 1rem;padding-left: 0;" class="col-lg-4 col-md-10 col-sm-10 col-xs-10">
-                <a class="page-header" href="{*TODO*}">
+                <a class="page-header" n:href="Default:default">
                     <div class="row">
                         <div class="col-lg-7 h1 fykos" style="align-self: center;">
                             {App\Models\OldFykos\FYKOSTemplate::getFYKOSLogo()|noescape}
@@ -60,20 +60,12 @@
     <div class="container-fluid">
         <div class="row d-lg-none d-block">{control fullNav}</div>
     </div>
-    {if !$jumbotron}
-        <div class="container-fluid header mb-3">
-            <div class="row nav-container hidden-md-down second-nav">
-                {control secondaryNav}
-            </div>
+
+    <div class="container-fluid header mb-3">
+        <div class="row nav-container hidden-md-down second-nav">
+            {control secondaryNav}
         </div>
-    {else}
-        <div class="container-fluid header-image jumbotron position-relative">
-            {control jumbotron}
-            <div class="row nav-container hidden-md-down second-nav">
-                {control secondaryNav}
-            </div>
-        </div>
-    {/if}
+    </div>
 </header>
 <main class="container">
     <div class="row">

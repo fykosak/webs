@@ -1,11 +1,25 @@
 {varType string $lang}
-{block title}
-    {switch $lang}
-        {case 'cs'} Hlavní stránka
-        {default} Main page
-    {/switch}
-{/block}
+{*{block title}*}
+{*    {switch $lang}*}
+{*        {case 'cs'} Hlavní stránka*}
+{*        {default} Main page*}
+{*    {/switch}*}
+{*{/block}*}
 {block content}
+    {if $jumbotron}
+        <div class="title-panel container-fluid header-image jumbotron position-relative">
+            {control jumbotron}
+        </div>
+    {/if}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h2>Gimme some content</h2>
+            <p>
+                Gimme, gimme, gimme some good FYKOS content<br>
+                Can somebody help me chase our brand new website?<br>
+                Gimme, gimme, gimme some quality content<br>
+                Help me fill this page so students don't go away
+            </p>
 {/block}
 {block main}
     <div class="panel color-primary title-panel">
@@ -15,4 +29,7 @@
             </h1>
         </div>
     </div>
+
+
 {/block}
+
