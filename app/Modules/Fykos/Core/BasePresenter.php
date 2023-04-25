@@ -87,12 +87,12 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                     'O FYKOSu',
                     'fa fa-group'
                 ),
-                ':o-nas:co-je-fykos',
+                '#',
                 [],
                 [
-                    new NavItem(new PageTitle(null, 'Co je FYKOS?'), ':o-nas:co-je-fykos'),
+                    new NavItem(new PageTitle(null, 'Co je FYKOS?'), ':about:fykos-group'),
                     new NavItem(new PageTitle(null, 'Organizátoři'), ':o-nas:organizatori'),
-                    new NavItem(new PageTitle(null, 'Historie'), ':o-nas:historie'),
+                    new NavItem(new PageTitle(null, 'Historie'), 'about:history'),
                     new NavItem(new PageTitle(null, 'Kontakt'), ':o-nas:kontakt'),
                 ],
             ),
