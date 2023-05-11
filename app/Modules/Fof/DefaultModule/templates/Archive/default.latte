@@ -82,20 +82,28 @@
                 {/if}
 
                 <div class="mt-5">
+                    <h2>{switch $lang}{case "cs"}Soutěž{default}Competition{/switch}</h2>
                     {control gallery:oneLine "/photos/" . $eventKey['key'] . "/"}
                 </div>
 
-                {if in_array($eventKey['key'], ["2022"])}
+                {if in_array($eventKey['key'], ["2022", "2023"])}
                     <div class="mt-5">
                         <h2>{switch $lang}{case "cs"}Týmy{default}Teams{/switch}</h2>
-                        {control gallery:oneLine "/photos/" . $eventKey['key'] . "/teams"}
+                        {control gallery:oneLine "/photos/" . $eventKey['key'] . "/teams/"}
                     </div>
                 {/if}
 
-                {if in_array($eventKey['key'], ["2022"])}
+                {if in_array($eventKey['key'], ["2023"])}
                     <div class="mt-5">
-                        <h2>{switch $lang}{case "cs"}Víkendový program Fyziklání{default}Weekend Program of Fyziklani{/switch}</h2>
-                        {control gallery:oneLine "/photos/" . $eventKey['key'] . "/weekend"}
+                        <h2>{switch $lang}{case "cs"}Vítězové{default}Winners{/switch}</h2>
+                        {control gallery:oneLine "/photos/" . $eventKey['key'] . "/winners/"}
+                    </div>
+                {/if}
+
+                {if in_array($eventKey['key'], ["2022", "2023"])}
+                    <div class="mt-5">
+                        <h2>{switch $lang}{case "cs"}Doprovodný program Fyziklání{default}Accompanying Program of Fyziklani{/switch}</h2>
+                        {control gallery:oneLine "/photos/" . $eventKey['key'] . "/weekend/"}
                     </div>
                 {/if}
             </section>
