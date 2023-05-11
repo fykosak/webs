@@ -99,7 +99,7 @@
                     </div>
                 {/if}
 
-                {if is_dir(__DIR__.'/../../../../www/fof/photos/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/winners')}
+                {if is_dir(__DIR__.'/../../../../www/fof/photos/'.$eventKey.'/winners')}
                     <div class="mt-5">
                         <h2>{switch $lang}{case "cs"}Vítězové{default}Winners{/switch}</h2>
                         {if in_array($eventKey['key'], ["2023"])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}

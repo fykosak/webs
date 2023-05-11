@@ -37,13 +37,13 @@
                 </ul>
 
                 <ul>
-                    <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($event)}/reseni.pdf">
+                    <li><a href="{$basePath}/download/{$eventKey}/reseni.pdf">
                             {switch $lang}
                                 {case "cs"}Zadání a řešení úloh v českém jazyce
                                 {default}Problems and solutions in Czech
                             {/switch}
                         </a></li>
-                    <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($event)}/solutions.pdf">
+                    <li><a href="{$basePath}/download/{$eventKey}/solutions.pdf">
                             {switch $lang}
                                 {case "cs"}Zadání a řešení úloh v anglickém jazyce
                                 {default}Problems and solutions in English
@@ -70,7 +70,7 @@
         </section>
     </div>
 
-    {if in_array($eventKey, ["2022"])}
+    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/teams')}
         <div class="panel color-auto">
             <section class="inner-container">
                 <h1>{switch $lang}
@@ -82,7 +82,19 @@
         </div>
     {/if}
 
-    {if in_array($eventKey, ["2022"])}
+    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/winners')}
+        <div class="panel color-auto">
+            <section class="inner-container">
+                <h1>{switch $lang}
+                    {case "cs"}Fotografie vítězů
+                    {default}Photos of the winners
+                    {/switch}</h1>
+                {control gallery "/photos/" . $eventKey . "/teams"}
+            </section>
+        </div>
+    {/if}
+
+    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/weekend')}
         <div class="panel color-auto">
             <section class="inner-container">
                 <h1>{switch $lang}
