@@ -80,7 +80,7 @@ class ImageGalleryControl extends BaseComponent
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'default.latte');
     }
 
-    public function renderOneLine(string $path): void
+    public function renderRandomLine(string $path): void
     {
         $this->template->images = $this->cache->load(
             [$path, $this->wwwDir],
@@ -95,6 +95,6 @@ class ImageGalleryControl extends BaseComponent
                 $this->template->previewImages[] = $this->template->images[(int) ($i * $step)];
             }
         }
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'randomLine.latte');
     }
 }
