@@ -95,6 +95,20 @@ class ImageGalleryControl extends BaseComponent
                 $this->template->previewImages[] = $this->template->images[(int) ($i * $step)];
             }
         }
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'randomLine.latte');
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
+    }
+
+    public function renderOrderedLine(string $path): void
+    {
+        $this->template->images = $this->cache->load(
+            [$path, $this->wwwDir],
+            fn() => self::getImages($path, $this->wwwDir)
+        );
+        $this->template->previewImages = [];
+        for ($i = 0; $i < 6; $i++) {
+            $this->template->previewImages[] = $this->template->images[$i];
+        }
+
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
     }
 }
