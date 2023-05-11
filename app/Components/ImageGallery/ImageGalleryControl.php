@@ -82,33 +82,38 @@ class ImageGalleryControl extends BaseComponent
 
     public function renderRandomLine(string $path): void
     {
-        $this->template->images = $this->cache->load(
-            [$path, $this->wwwDir],
-            fn() => self::getImages($path, $this->wwwDir)
-        );
-        if (count($this->template->images) <= 6) {
-            $this->template->previewImages = $this->template->images;
-        } else {
-            $step = count($this->template->images) / 6;
-            $this->template->previewImages = [];
-            for ($i = 0; $i < 6; $i++) {
-                $this->template->previewImages[] = $this->template->images[(int) ($i * $step)];
+        if ($this->hasPhotos($path)) {
+            $this->template->images = $this->cache->load(
+                [$path, $this->wwwDir],
+                fn() => self::getImages($path, $this->wwwDir)
+            );
+            if (count($this->template->images) <= 6) {
+                $this->template->previewImages = $this->template->images;
+            } else {
+                $step = count($this->template->images) / 6;
+                $this->template->previewImages = [];
+                for ($i = 0; $i < 6; $i++) {
+                    $this->template->previewImages[] = $this->template->images[(int)($i * $step)];
+                }
             }
+            $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
         }
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
     }
 
     public function renderOrderedLine(string $path): void
     {
-        $this->template->images = $this->cache->load(
-            [$path, $this->wwwDir],
-            fn() => self::getImages($path, $this->wwwDir)
-        );
-        $this->template->previewImages = [];
-        for ($i = 0; $i < 6; $i++) {
-            $this->template->previewImages[] = $this->template->images[$i];
-        }
+        if ($this->hasPhotos($path))
+        {
+            $this->template->images = $this->cache->load(
+                [$path, $this->wwwDir],
+                fn() => self::getImages($path, $this->wwwDir)
+            );
+            $this->template->previewImages = [];
+            for ($i = 0; $i < 6; $i++) {
+                $this->template->previewImages[] = $this->template->images[(int) ($i)];
+            }
 
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
+            $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
+        }
     }
 }
