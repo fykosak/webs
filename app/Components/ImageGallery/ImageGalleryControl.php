@@ -102,8 +102,7 @@ class ImageGalleryControl extends BaseComponent
 
     public function renderOrderedLine(string $path): void
     {
-        if ($this->hasPhotos($path))
-        {
+        if ($this->hasPhotos($path)) {
             $this->template->images = $this->cache->load(
                 [$path, $this->wwwDir],
                 fn() => self::getImages($path, $this->wwwDir)
