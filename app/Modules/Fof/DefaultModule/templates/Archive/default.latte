@@ -90,7 +90,7 @@
 
                 {if is_dir(__DIR__.'/../../../../www/fof/photos/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/teams')}
                     <div class="mt-5">
-                        <h2>{switch $lang}{case "cs"}Týmy{default}Teams{/switch}</h2>
+                        <h2>{switch $lang}{case "cs"}Fotostěna{default}Fyziklani Backdrop{/switch}</h2>
                         {if in_array($eventKey['key'], ["2023"])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
                             {control gallery:orderedLine "/photos/" . $eventKey['key'] . "/teams/"}
                         {else}

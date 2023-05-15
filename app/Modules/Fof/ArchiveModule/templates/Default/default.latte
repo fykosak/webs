@@ -48,8 +48,51 @@
                                 {case "cs"}Zadání a řešení úloh v anglickém jazyce
                                 {default}Problems and solutions in English
                             {/switch}
-                        </a></li>
+                        </a>
+                    </li>
                 </ul>
+            {if is_dir(__DIR__.'/../../../../www/fof/photos/'.$eventKey)}
+                <ul>
+                    <li>
+                        <a href="#competition">
+                            {switch $lang}
+                                {case "cs"}Fotky ze soutěže
+                                {default}Photos from the competition
+                            {/switch}
+                        </a>
+                    </li>
+                    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/teams')}
+                        <li>
+                            <a href="#backdrop">
+                                {switch $lang}
+                                    {case "cs"}Fotostěna
+                                    {default}Fyziklani Backdrop
+                                {/switch}
+                            </a>
+                        </li>
+                    {/if}
+                    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/winners')}
+                        <li>
+                            <a href="#winners">
+                                {switch $lang}
+                                    {case "cs"}Fotky vítězů
+                                    {default}Photos of the winners
+                                {/switch}
+                            </a>
+                        </li>
+                    {/if}
+                    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/weekend')}
+                        <li>
+                            <a href="#weekend">
+                                {switch $lang}
+                                    {case "cs"}Fotky z doprovodného programu
+                                    {default}Photos from the accompanying program
+                                {/switch}
+                            </a>
+                        </li>
+                    {/if}
+                </ul>
+            {/if}
             {if in_array($eventKey, ["2022"])}
                 <div>
                     <a class="btn btn-primary" n:href=":Archive:Erasmus: eventYear:$eventKey">
@@ -60,22 +103,24 @@
         </section>
     </div>
 
-    <div class="panel color-auto">
-        <section class="inner-container">
-            <h1>{switch $lang}
-                {case "cs"}Fotografie ze soutěže
-                {default}Photos from the competition
-            {/switch}</h1>
-            {control gallery "/photos/" . $eventKey . "/"}
-        </section>
-    </div>
-
-    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/teams')}
-        <div class="panel color-auto">
+    {if is_dir(__DIR__.'/../../../../www/fof/photos/'.$eventKey)}
+        <div class="panel color-auto" id="competition">
             <section class="inner-container">
                 <h1>{switch $lang}
-                    {case "cs"}Fotografie týmů
-                    {default}Photos of teams
+                    {case "cs"}Fotografie ze soutěže
+                    {default}Photos from the competition
+                {/switch}</h1>
+                {control gallery "/photos/" . $eventKey . "/"}
+            </section>
+        </div>
+    {/if}
+
+    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/teams')}
+        <div class="panel color-auto" id="backdrop">
+            <section class="inner-container">
+                <h1>{switch $lang}
+                    {case "cs"}Fotostěna
+                    {default}Fyziklani Backdrop
                     {/switch}</h1>
                 {control gallery "/photos/" . $eventKey . "/teams"}
             </section>
@@ -83,7 +128,7 @@
     {/if}
 
     {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/winners')}
-        <div class="panel color-auto">
+        <div class="panel color-auto" id="winners">
             <section class="inner-container">
                 <h1>{switch $lang}
                     {case "cs"}Fotografie vítězů
@@ -95,11 +140,11 @@
     {/if}
 
     {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/weekend')}
-        <div class="panel color-auto">
+        <div class="panel color-auto" id="weekend">
             <section class="inner-container">
                 <h1>{switch $lang}
-                    {case "cs"}Víkend po Fyziklání
-                    {default}Weekend after Fyziklani
+                    {case "cs"}Doprovodný program Fyziklání
+                    {default}Accompanying program of Fyziklani
                     {/switch}</h1>
                 {control gallery "/photos/" . $eventKey . "/weekend"}
             </section>
