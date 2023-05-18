@@ -8,7 +8,6 @@ use App\Models\OldFykos\BootstrapNavBar;
 use App\Models\OldFykos\Jumbotron;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
-use Nette;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
@@ -58,18 +57,18 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 
     private function getSecondaryRightItems(): array
     {
-        return [new NavItem(new PageTitle(null, 'Přihlásit se', 'fa fa-sign-in'), 'https://db.fykos.cz')];
+        return [new NavItem(new PageTitle(null, _('Upload solutions'), 'fa fa-sign-in'), 'https://db.fykos.cz')];
     }
 
     private function getSecondaryLeftItems(): array
     {
         return [
-            new NavItem(new PageTitle(null, 'Zadání', 'fa fa-pencil-square-o'), ':zadani'),
-            new NavItem(new PageTitle(null, 'Pořadí', 'fa fa-trophy'), ':poradi:start'),
-            new NavItem(new PageTitle(null, 'Fyziklání 2023', 'fa fa-paper-plane'), 'https://fyziklani.cz/'),
-            new NavItem(new PageTitle(null, 'Fyziklání Online', 'fa fa-tv'), 'https://online.fyziklani.cz/'),
-            new NavItem(new PageTitle(null, 'DSEF', 'fa fa-magnet'), 'https://dsef.cz/'),
-            new NavItem(new PageTitle(null, 'Experimenty', 'fa fa-flask'), ':sex:start'),
+            new NavItem(new PageTitle(null, _('Zadání'), 'fa fa-pencil-square-o'), ':zadani'),
+            new NavItem(new PageTitle(null, _('Pořadí'), 'fa fa-trophy'), ':poradi:start'),
+            new NavItem(new PageTitle(null, _('Fyziklání 2023'), 'fa fa-paper-plane'), 'https://fyziklani.cz/'),
+            new NavItem(new PageTitle(null, _('Fyziklání Online'), 'fa fa-tv'), 'https://online.fyziklani.cz/'),
+            new NavItem(new PageTitle(null, _('DSEF'), 'fa fa-magnet'), 'https://dsef.cz/'),
+            new NavItem(new PageTitle(null, _('Experimenty'), 'fa fa-flask'), ':sex:start'),
         ];
     }
 
