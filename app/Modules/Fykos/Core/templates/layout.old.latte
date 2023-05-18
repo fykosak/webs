@@ -75,23 +75,24 @@
         </div>
     {/if}
 </header>
-<main class="container">
-    <div class="row">
-        <main class="content container-fluid col-lg-12 col-md-12 col-sm-12 col-xs-12" data-spy="scroll">
-            {ifset subtitle}
-                <div class="subheader">{include subtitle}</div>
-            {/ifset}
+<main>
+    {block main}
+        <div class="panel color-light">
+            <section class="inner-container">
+                {ifset subtitle}
+                    <div class="subheader">{include subtitle}</div>
+                {/ifset}
                 {ifset title}
-                <h1>{include title}</h1>
-            {/ifset}
+                    <h1>{include title}</h1>
+                {/ifset}
                 {include content}
-        </main>
-        <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
-        <footer class="dokuwiki_footbar col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="clearer"></div>
-        </footer>
-    </div>
+            </section>
+        </div>
+    {/block}
 </main>
+<footer>
+
+</footer>
 <hr/>
 <address class="container">
     Created with &lt;love/&gt; by &copy;FYKOS &ndash; <a

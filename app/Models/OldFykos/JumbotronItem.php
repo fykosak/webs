@@ -4,12 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models\OldFykos;
 
-/**
- * @property-read string $headline
- * @property-read string $text
- * @property-read array[] $buttons
- * @property-read string[]|int[] backgrounds
- */
 class JumbotronItem
 {
     public string $headline;
