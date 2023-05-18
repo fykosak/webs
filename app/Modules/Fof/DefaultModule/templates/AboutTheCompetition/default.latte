@@ -58,7 +58,7 @@
             {/switch}
         </section>
     </div>
-
+{if false}
     <div class="panel color-auto">
         <section class="inner-container">
             {switch $lang}
@@ -80,18 +80,18 @@
             {/switch}
         </section>
     </div>
-
+{/if}
     <div class="panel color-auto">
         <section class="inner-container">
             {switch $lang}
                 {case 'cs'}
 {*                <div class="subheader">Datum a místo konání</div>*}
                 <h1>Kdy a kde to bude?</h1>
-                <p>Soutěž se bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'d. m. Y'}. Stejně jako minulý rok se sejdeme na výstavišti PVA Letňany v Praze. Výstaviště se nachází v dochozí vzdálenosti (1 zastávka) od konečné metra C Letňany. Na soutěži letos rádi přivítáme přes 200 týmů.</p>
+                <p>Soutěž se bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'d. m. Y'}. Stejně jako minulé roky se sejdeme na výstavišti PVA Letňany v Praze. Výstaviště se nachází v dochozí vzdálenosti (1 zastávka) od konečné metra C Letňany. Na soutěži letos rádi přivítáme přes 250 týmů.</p>
                 {default}
 {*                <div class="subheader">Date and Place</div>*}
                 <h1>When and where will it take place?</h1>
-                <p>Fyziklani will take place {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'d. m. Y'}. Just like last year, we will meet at PVA Letňany Exbihition Grounds in Prague, Czech Republic. The hall is located near (0.5 km) the final station of metro C line „Letňany“. We would happily invite over 200 teams to this year's competition.</p>
+                <p>Fyziklani will take place {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'d. m. Y'}. Just like last years, we will meet at PVA Letňany Exbihition Grounds in Prague, Czech Republic. The hall is located near (0.5 km) the final station of metro C line „Letňany“. We would happily invite over 250 teams to this year's competition.</p>
             {/switch}
 
             <div class="ratio" style="--bs-aspect-ratio: 30%; min-height: 12rem">
@@ -102,7 +102,7 @@
             </div>
         </section>
     </div>
-
+{if false}
     <div class="panel color-auto" id="covid-measures">
         <section class="inner-container">
             {switch $lang}
@@ -121,4 +121,5 @@
             {/switch}
         </section>
     </div>
+{/if}
 {/block}
