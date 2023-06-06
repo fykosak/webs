@@ -51,6 +51,26 @@
                         </a>
                     </li>
                 </ul>
+                {if file_exists(__DIR__.'/../../../../www/fof/download/'.$eventKey.'/infobooklet-cs.pdf')}
+                    <ul class="stylized">
+                        <li><a href="{$basePath}/download/{$eventKey}/infobooklet-cs.pdf">
+                            {switch $lang}
+                                {case "cs"}Průvodce Fyzikláním {$eventKey} v českém jazyce
+                                {default}Guidebook of Fyziklani {$eventKey} in Czech
+                            {/switch}
+                        </a></li>
+
+                        {if file_exists(__DIR__.'/../../../../www/fof/download/'.$eventKey.'/infobooklet-en.pdf')}
+                            <li><a href="{$basePath}/download/{$eventKey}/infobooklet-en.pdf">
+                                {switch $lang}
+                                    {case "cs"}Průvodce Fyzikláním {$eventKey} v anglickém jazyce
+                                    {default}Guidebook of Fyziklani {$eventKey} in English
+                                {/switch}
+                            </a>
+                            </li>
+                        {/if}
+                    </ul>
+                {/if}
             {if is_dir(__DIR__.'/../../../../www/fof/photos/'.$eventKey)}
                 <ul class="stylized">
                     <li>

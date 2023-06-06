@@ -73,6 +73,25 @@
                             </a></li>
                         {/if}
                     </ul>
+                    <ul class="stylized">
+                        {if file_exists(__DIR__.'/../../../../www/fof/download/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/infobooklet-cs.pdf')}
+                            <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/infobooklet-cs.pdf">
+                                    {switch $lang}
+                                        {case "cs"}Průvodce Fyzikláním {App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])} v českém jazyce
+                                        {default}Guidebook of Fyziklani {App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])} in Czech
+                                    {/switch}
+                                </a></li>
+                        {/if}
+                        {if file_exists(__DIR__.'/../../../../www/fof/download/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/infobooklet-en.pdf')}
+                            <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/infobooklet-en.pdf">
+                                    {switch $lang}
+                                        {case "cs"}Průvodce Fyzikláním {App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])} v anglickém jazyce
+                                        {default}Guidebook of Fyziklani {App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])} in English
+                                    {/switch}
+                                </a>
+                            </li>
+                        {/if}
+                    </ul>
                 </div>
                 {if in_array($eventKey['key'], ["2022"])}
                     <div>
