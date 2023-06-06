@@ -41,7 +41,7 @@
                 </h1>
 
                 <div>
-                    <ul>
+                    <ul class="stylized">
                         <li><a n:href=":Archive:Teams: eventYear:$eventKey['key']">
                                 {switch $lang}
                                     {case "cs"}Seznam přihlášených týmů
@@ -55,7 +55,7 @@
                                 {/switch}
                             </a></li>
                     </ul>
-                    <ul>
+                    <ul class="stylized">
                         {if file_exists(__DIR__.'/../../../../www/fof/download/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/reseni.pdf')}
                         <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/reseni.pdf">
                                 {switch $lang}

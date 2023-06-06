@@ -21,7 +21,7 @@
         <section class="inner-container">
             {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
                 {ifset title}<h1>{include title}</h1>{/ifset}
-                <ul>
+                <ul class="stylized">
                     <li><a n:href="Teams:">
                             {switch $lang}
                                 {case "cs"}Seznam přihlášených týmů
@@ -36,7 +36,7 @@
                         </a></li>
                 </ul>
 
-                <ul>
+                <ul class="stylized">
                     <li><a href="{$basePath}/download/{$eventKey}/reseni.pdf">
                             {switch $lang}
                                 {case "cs"}Zadání a řešení úloh v českém jazyce
@@ -52,7 +52,7 @@
                     </li>
                 </ul>
             {if is_dir(__DIR__.'/../../../../www/fof/photos/'.$eventKey)}
-                <ul>
+                <ul class="stylized">
                     <li>
                         <a href="#competition">
                             {switch $lang}
