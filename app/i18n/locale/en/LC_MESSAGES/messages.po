@@ -20,7 +20,7 @@ msgstr ""
 #: ../../app/Modules/Fol/ArchiveModule/BasePresenter.php:66
 #: ../../app/Modules/Fof/ArchiveModule/BasePresenter.php:66
 msgid "archive_home.menu"
-msgstr "Archive home"
+msgstr "Archive"
 
 #: ../../app/Modules/Fol/ArchiveModule/BasePresenter.php:70
 #: ../../app/Modules/Fol/DefaultModule/BasePresenter.php:52

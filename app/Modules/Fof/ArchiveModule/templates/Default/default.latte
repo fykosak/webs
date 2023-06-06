@@ -123,6 +123,18 @@
         </section>
     </div>
 
+{* TODO dodělat archiv, aby to vypadalo nějak dobře*}
+{*    {if in_array($eventKey, ["2023"])}*}
+{*        <div class="panel color-auto" id="competition">*}
+{*            <section class="inner-container">*}
+{*                <h1>{switch $lang}*}
+{*                    {case "cs"}Partneři ročníku {$eventKey}*}
+{*                    {default}Partners of the year {$eventKey}*}
+{*                    {/switch}</h1>*}
+{*            </section>*}
+{*        </div>*}
+{*    {/if}*}
+
     {if is_dir(__DIR__.'/../../../../www/fof/photos/'.$eventKey)}
         <div class="panel color-auto" id="competition">
             <section class="inner-container">
