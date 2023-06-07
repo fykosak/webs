@@ -48,18 +48,16 @@ nav.navbar {
 
 ul.stylized {
   list-style: none;
-
-  li::before {
-    content: " ";
-    background-color: $primary;
-    display: block;
-    width: .5rem;
-    height: .5rem;
-    margin-left: -1.5rem;
-    position: absolute;
-    margin-top: 0.5rem;
-  }
-
+    li::before {
+      content: " ";
+      background-color: #000;
+      display: block;
+      width: .5rem;
+      height: .5rem;
+      margin-left: -1.5rem;
+      position: absolute;
+      margin-top: 0.5rem;
+    }
   &.correction {
     @media screen and (max-width: 1280px) {
       padding-left: 3rem;

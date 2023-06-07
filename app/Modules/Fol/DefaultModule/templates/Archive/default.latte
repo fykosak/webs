@@ -29,19 +29,19 @@
                 <h1>
                     {switch $lang}
                         {case "cs"}Fyziklání Online {$eventKey["event"]->begin|date: "Y"}
-                        {default}Physics Brawl Online{$eventKey["event"]->begin|date: "Y"}
+                        {default}Physics Brawl Online {$eventKey["event"]->begin|date: "Y"}
                     {/switch}
 
                     <a class="btn btn-primary" n:href=":Archive:Default: eventYear:$eventKey['key']">
                         {switch $lang}
-                            {case cs}více
-                            {default}more
+                            {case cs}Více
+                            {default}More
                         {/switch}
                     </a>
                 </h1>
 
                 <div>
-                    <ul>
+                    <ul class="stylized">
                         <li><a n:href=":Archive:Teams: eventYear:$eventKey['key']">
                                 {switch $lang}
                                     {case "cs"}Seznam přihlášených týmů
@@ -55,7 +55,7 @@
                                 {/switch}
                             </a></li>
                     </ul>
-                    <ul>
+                    <ul class="stylized">
                         {if file_exists(__DIR__.'/../../../../www/fol/download/'.App\Modules\Fol\Core\BasePresenter::createEventKey($eventKey["event"]).'/reseni.pdf')}
                         <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/reseni.pdf">
                                 {switch $lang}
