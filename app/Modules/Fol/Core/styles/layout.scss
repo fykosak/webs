@@ -12,6 +12,29 @@ body {
   color: $text-on-primary;
 }
 
+.btn-outline {
+  @extend .btn-outline;
+  text-align: center;
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+
+  &:hover {
+    background-color: #fff;
+  }
+}
+
+.btn-white {
+  @extend .btn-white;
+  background-color: #fff;
+  color: #000;
+  border-color: transparent;
+
+  &:hover {
+    border-color: #fff;
+  }
+}
+
 .panel {
   color: #4a4a4a;
   h1, h2, h3, h4, h5, h6 {
