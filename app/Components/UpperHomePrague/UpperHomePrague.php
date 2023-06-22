@@ -15,14 +15,14 @@ class UpperHomePrague extends BaseComponent
     protected ServiceEventDetail $serviceTeam;
     protected GamePhaseCalculator $gamePhaseCalculator;
 
-    public function injectGamePhaseCalculator(GamePhaseCalculator $gamePhaseCalculator): void
-    {
-        $this->gamePhaseCalculator = $gamePhaseCalculator;
-    }
-
     public function __construct(Container $container)
     {
         parent::__construct($container);
+    }
+
+    public function injectGamePhaseCalculator(GamePhaseCalculator $gamePhaseCalculator): void
+    {
+        $this->gamePhaseCalculator = $gamePhaseCalculator;
     }
 
     /**

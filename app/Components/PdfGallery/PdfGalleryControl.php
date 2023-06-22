@@ -15,16 +15,18 @@ class PdfGalleryControl extends BaseComponent
     private string $wwwDir;
     private Cache $cache;
 
-    public function injectStorage(Storage $storage)
-    {
-        $this->cache = new Cache($storage, 'App\Components\PdfGallery');
-    }
 
     public function __construct(Container $container)
     {
         parent::__construct($container);
         $this->wwwDir = $container->getParameters()['wwwDir'];
     }
+
+    public function injectStorage(Storage $storage): void
+    {
+        $this->cache = new Cache($storage, __NAMESPACE__);
+    }
+
 // TODO typy!!!!!
     public static function getPdfs($path, $wwwDir): array
     {

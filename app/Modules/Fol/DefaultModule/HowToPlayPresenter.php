@@ -6,5 +6,4 @@ namespace App\Modules\Fol\DefaultModule;
 
 class HowToPlayPresenter extends BasePresenter
 {
-
 }

@@ -26,7 +26,7 @@ class ApiResultsComponent extends BaseComponent
         $this->eventId = $eventId;
     }
 
-    public function injectGameServerApiConnector(Connector $connector)
+    public function injectGameServerApiConnector(Connector $connector): void
     {
         $this->gameServerApiConnector = $connector;
     }
@@ -82,14 +82,14 @@ class ApiResultsComponent extends BaseComponent
         return $data;
     }
 
-    public function render()
+    public function render(): void
     {
     }
 
     /**
      * @throws JsonException
      */
-    public function renderTeamsData()
+    public function renderTeamsData(): void
     {
         echo Json::encode($this->serialiseTeams());
     }
@@ -98,7 +98,7 @@ class ApiResultsComponent extends BaseComponent
      * @throws Throwable
      * @throws JsonException
      */
-    public function renderResultsData()
+    public function renderResultsData(): void
     {
         echo Json::encode($this->serialiseResults());
     }

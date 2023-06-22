@@ -12,7 +12,7 @@ use Nette\DI\Container;
 
 class MapComponent extends BaseComponent
 {
-    private static $uniqueId = 0;
+    private static int $uniqueId = 0;
 
     protected ServiceEventDetail $serviceTeam;
     protected int $forEventId;
@@ -22,16 +22,16 @@ class MapComponent extends BaseComponent
 
     protected GamePhaseCalculator $gamePhaseCalculator;
 
-    public function injectServiceTeam(ServiceEventDetail $serviceTeam): void
-    {
-        $this->serviceTeam = $serviceTeam;
-    }
-
     public function __construct(Container $container, GamePhaseCalculator $calculator, ModelEvent $event)
     {
         parent::__construct($container);
         $this->forEventId = $event->eventId;
         $this->gamePhaseCalculator = $calculator;
+    }
+
+    public function injectServiceTeam(ServiceEventDetail $serviceTeam): void
+    {
+        $this->serviceTeam = $serviceTeam;
     }
 
     /**

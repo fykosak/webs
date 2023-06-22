@@ -10,21 +10,22 @@ use Nette\Caching\Storage;
 use Nette\DI\Container;
 use Nette\Utils\Finder;
 use Nette\Utils\Image;
+use Nette\Utils\UnknownImageFileException;
 
 class ImageGalleryControl extends BaseComponent
 {
     private string $wwwDir;
     private Cache $cache;
 
-    public function injectStorage(Storage $storage)
-    {
-        $this->cache = new Cache($storage, 'App\Components\ImageGallery');
-    }
-
     public function __construct(Container $container)
     {
         parent::__construct($container);
         $this->wwwDir = $container->getParameters()['wwwDir'];
+    }
+
+    public function injectStorage(Storage $storage): void
+    {
+        $this->cache = new Cache($storage, __NAMESPACE__);
     }
 
     public static function getImages($path, $wwwDir): array
@@ -68,7 +69,7 @@ class ImageGalleryControl extends BaseComponent
     }
 
     /**
-     * @throws \Nette\Utils\UnknownImageFileException|\Throwable
+     * @throws UnknownImageFileException|\Throwable
      */
     public function render(string $path): void
     {

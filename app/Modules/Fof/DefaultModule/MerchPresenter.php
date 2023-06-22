@@ -6,6 +6,4 @@ namespace App\Modules\Fof\DefaultModule;
 
 class MerchPresenter extends BasePresenter
 {
-
-
 }

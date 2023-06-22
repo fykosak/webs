@@ -21,7 +21,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         return true;
     }
 
-    protected function beforeRender()
+    protected function beforeRender(): void
     {
         parent::beforeRender();
         $this->template->jumbotron = $this->includeJumbotron();

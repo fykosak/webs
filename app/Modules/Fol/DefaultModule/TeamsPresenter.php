@@ -23,7 +23,7 @@ class TeamsPresenter extends BasePresenter
      * @throws BadRequestException
      * @throws \Throwable
      */
-    public function actionDefault()
+    public function actionDefault(): void
     {
         if (!self::isVisible($this->gamePhaseCalculator)) {
             $this->error();

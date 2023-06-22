@@ -6,5 +6,4 @@ namespace App\Modules\Fof\DefaultModule;
 
 class FyziklaniInternationalPresenter extends BasePresenter
 {
-
 }

@@ -11,12 +11,6 @@ use Nette\DI\Container;
 
 class FlagsComponent extends BaseComponent
 {
-
-    public function __construct(Container $container)
-    {
-        parent::__construct($container);
-    }
-
     public function getFlagForParticipant(ModelParticipant $participant): string
     {
         return $participant->countryIso;

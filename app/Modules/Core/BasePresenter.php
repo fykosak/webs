@@ -8,8 +8,6 @@ use App\Components\ImageGallery\ImageGalleryControl;
 use App\Components\Navigation\Navigation;
 use App\Components\PdfGallery\PdfGalleryControl;
 use App\Models\Exceptions\UnderConstructionException;
-use App\Models\GamePhaseCalculator;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Fykosak\Utils\UI\PageTitle;
@@ -24,9 +22,8 @@ abstract class BasePresenter extends Presenter
 
     public GettextTranslator $translator;
 
-    public function injectServices(
-        GettextTranslator $translator
-    ): void {
+    public function injectServices(GettextTranslator $translator): void
+    {
         $this->translator = $translator;
     }
 

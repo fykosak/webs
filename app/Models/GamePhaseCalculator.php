@@ -24,6 +24,13 @@ class GamePhaseCalculator
     public const NOW = 2;
     private int $eventTypeId;
 
+    public function __construct(int $eventTypeId, ServiceEventList $serviceEventList, Container $container)
+    {
+        $this->eventTypeId = $eventTypeId;
+        $this->serviceEventList = $serviceEventList;
+        $this->container = $container;
+    }
+
     protected function checkEvent(int $period, DateTimeInterface $start, DateTimeInterface $end): bool
     {
         $now = new \DateTime();
@@ -37,13 +44,6 @@ class GamePhaseCalculator
             default:
                 throw new ArgumentOutOfRangeException('Invalid period');
         }
-    }
-
-    public function __construct(int $eventTypeId, ServiceEventList $serviceEventList, Container $container)
-    {
-        $this->eventTypeId = $eventTypeId;
-        $this->serviceEventList = $serviceEventList;
-        $this->container = $container;
     }
 
     /**
