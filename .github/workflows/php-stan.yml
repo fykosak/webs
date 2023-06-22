@@ -1,10 +1,10 @@
-name: PSR12 (PHP codesniffer)
+name: PHPStan
 
 on: [ push, pull_request ]
 
 jobs:
   test:
-    name: PHPStan
+    name: PHPStan ${{ matrix.php }}
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false

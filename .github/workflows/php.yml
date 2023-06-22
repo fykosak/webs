@@ -4,12 +4,12 @@ on: [ push, pull_request ]
 
 jobs:
   test:
-    name: PHP 7.4
+    name: PSR12 ${{ matrix.php }}
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
-        php: ['8.0']
+        php: ['7.4' , '8.0' , '8.1']
     steps:
       - uses: actions/checkout@v2
         name: Checkout
