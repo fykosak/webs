@@ -25,15 +25,6 @@ class BootstrapNavBar extends BaseComponent
         $this->className = $className;
     }
 
-    public function addBrand(string $href = '', ?string $text = null, ?string $imageSrc = null): void
-    {
-        $this->brand = '<a class="navbar-brand" href="' . wl(cleanID($href)) . '">' .
-        ($imageSrc ? '<img src="' . tpl_basedir() . $imageSrc .
-            '" width="30" height="30" class="d-inline-block align-top" alt="">' : '')
-        . $text ?? '' . '</a>';
-    }
-
-
     public function render(): void
     {
         $this->template->brand = $this->brand;
