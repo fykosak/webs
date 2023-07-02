@@ -1,0 +1,33 @@
+nav {
+  text-align: center;
+  //.navbar-brand img {
+  //  height: 1.25em;
+  //}
+
+  //@include media-breakpoint-up(lg) {
+    > div {
+      max-width: $page-width;
+      margin: 0 auto !important;
+      padding: 0.3rem !important;
+    }
+
+    .navbar-brand {
+      flex-grow: 1;
+
+      img {
+        height: 2em;
+      }
+    }
+
+    .navbar-collapse {
+      flex-grow: 1;
+    }
+  //}
+
+  .nav-item {
+    padding: 0 1rem;
+    //@include media-breakpoint-up(lg) { padding: 0 .1rem; }
+    //@include media-breakpoint-up(xl) { padding: 0 .3rem; }
+    //@include media-breakpoint-up(xxl) { padding: 0 1rem; }
+  }
+}

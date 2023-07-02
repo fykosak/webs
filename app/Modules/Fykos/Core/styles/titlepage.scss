@@ -1,0 +1,102 @@
+.panel.title-panel {
+  h1 {
+    font-size: 2.8rem;
+    color: white;
+  }
+
+  time.competition-date {
+    font-weight: bold;
+    display: block;
+    font-size: 1.3rem;
+    color: $complementary-color;
+  }
+
+  .subheader {
+    font-weight: normal;
+    color: inherit;
+    font-size: 1.3rem;
+  }
+
+  .buttons {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  //.topic-panel {
+  //  margin-top: 2rem;
+  //  @include media-breakpoint-up(md) {
+  //    margin-top: 0;
+  //  }
+  //}
+
+  &>.row {
+    --bs-gutter-x: 0;
+  }
+}
+
+.prices {
+  &.row {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 0;
+  }
+
+  .price-box {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 2rem;
+    padding: 1.5rem;
+    transition: all .5s ease;
+    font-weight: 500;
+    line-height: 1.45;
+
+    &.small {
+      height: 16rem;
+    }
+
+    &.large {
+      height: 21rem;
+    }
+  }
+}
+
+.upper-home-countdown {
+  text-align: center;
+
+  .info-text {
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
+
+  .countdown-value {
+    font-size: 2.2rem;
+  }
+}
+
+.upper-home-registration-deadline {
+  margin-top: .5rem;
+  text-align: center;
+}
+
+.title-page-problem {
+  border-left: .25rem solid $primary-color;
+  margin-bottom: 2rem;
+  padding: .5rem 1rem;
+}
+
+.begin-countdown {
+  text-align: center;
+  font-size: 1.5rem;
+  .countdown-value {
+    font-weight: bold;
+  }
+  .countdown-value, .countdown-text {
+    font-size: 1rem;
+  }
+}
+
+// @import "../../DefaultModule/styles/legends"; pozůstatek folu

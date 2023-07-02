@@ -11,6 +11,8 @@ $text-dimmed: #CCCCCC;
 
 $page-width: 77rem;
 
+$base-font-size: 16px;
+
 // Use the following font weights.
 // To change them you need to modify fonts.googleapis.com link in <head> tag
 $font-weight-light: 100;
@@ -26,7 +28,9 @@ $border-radius: 0;
 $navbar-dark-color: $text-on-primary;
 $navbar-dark-hover-color: $text-on-primary;
 
-
+@import "./layout";
+@import "./titlepage";
+@import "./navigation";
 @import "node_modules/bootstrap/scss/bootstrap";
 $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import '../../../../../node_modules/flag-icon-css/sass/flag-icon';
@@ -35,17 +39,17 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 // @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 // @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
 
-@import "./../../../Fol/Core/styles/layout";
-@import "./../../../Fol/Core/styles/titlepage";
-@import "./../../../Fol/Core/styles/navigation";
+// @import "./../../../Fol/Core/styles/layout";
+// @import "./../../../Fol/Core/styles/titlepage";
+// @import "./../../../Fol/Core/styles/navigation";
 
-@import "./../../../Fof/DefaultModule/styles/organisers";
-@import "./../../../Fof/DefaultModule/styles/rules";
-@import "./../../../Fof/DefaultModule/styles/timeline";
+// @import "./../../../Fof/DefaultModule/styles/organisers";
+// @import "./../../../Fof/DefaultModule/styles/rules";
+// @import "./../../../Fof/DefaultModule/styles/timeline";
 
 
-@import '../../../../Components/ResultsPanel/styles';
-@import '../../../../Components/UpperHomePrague/styles';
-@import '../../../../Components/TeamResults/styles';
+// @import '../../../../Components/ResultsPanel/styles';
+// @import '../../../../Components/UpperHomePrague/styles';
+// @import '../../../../Components/TeamResults/styles';
 
 @import '../../../../Models/OldFykos/css/cssAll';

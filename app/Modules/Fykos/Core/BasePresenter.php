@@ -32,7 +32,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         $fullMenu = new BootstrapNavBar(
             $this->getContext(),
             'full',
-            'col-xs-12 col-md-12 col-sm-12  navbar-dark bg-light-fykos'
+            'col-xs-12 col-md-12 col-sm-12 navbar-dark bg-light-fykos'
         );
         $fullMenu->addMenuText(self::getPrimaryItems());
         $fullMenu->addMenuText(self::getSecondaryLeftItems());
@@ -57,18 +57,19 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 
     private function getSecondaryRightItems(): array
     {
-        return [new NavItem(new PageTitle(null, _('Upload solutions'), 'fa fa-sign-in'), 'https://db.fykos.cz')];
+        return [];
+        //return [new NavItem(new PageTitle(null, _('Upload solutions'), 'fa fa-sign-in'), 'https://db.fykos.cz')];
     }
 
     private function getSecondaryLeftItems(): array
     {
         return [
-            new NavItem(new PageTitle(null, _('Zadání'), 'fa fa-pencil-square-o'), ':zadani'),
-            new NavItem(new PageTitle(null, _('Pořadí'), 'fa fa-trophy'), ':poradi:start'),
-            new NavItem(new PageTitle(null, _('Fyziklání 2023'), 'fa fa-paper-plane'), 'https://fyziklani.cz/'),
-            new NavItem(new PageTitle(null, _('Fyziklání Online'), 'fa fa-tv'), 'https://online.fyziklani.cz/'),
-            new NavItem(new PageTitle(null, _('DSEF'), 'fa fa-magnet'), 'https://dsef.cz/'),
-            new NavItem(new PageTitle(null, _('Experimenty'), 'fa fa-flask'), ':sex:start'),
+//            new NavItem(new PageTitle(null, _('Zadání'), 'fa fa-pencil-square-o'), ':zadani'),
+//            new NavItem(new PageTitle(null, _('Pořadí'), 'fa fa-trophy'), ':poradi:start'),
+//            new NavItem(new PageTitle(null, _('Fyziklání 2023'), 'fa fa-paper-plane'), 'https://fyziklani.cz/'),
+//            new NavItem(new PageTitle(null, _('Fyziklání Online'), 'fa fa-tv'), 'https://online.fyziklani.cz/'),
+//            new NavItem(new PageTitle(null, _('DSEF'), 'fa fa-magnet'), 'https://dsef.cz/'),
+//            new NavItem(new PageTitle(null, _('Experimenty'), 'fa fa-flask'), ':sex:start'),
         ];
     }
 
@@ -80,10 +81,12 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     private function getPrimaryItems(): array
     {
         return [
+            new NavItem(new PageTitle(null, 'Zadání', 'fa fa-pencil-square-o'), ':zadani'),
+            new NavItem(new PageTitle(null, 'Pořadí', 'fa fa-trophy'), ':poradi:start'),
             new NavItem(
                 new PageTitle(
                     null,
-                    'O FYKOSu',
+                    'O nás',
                     'fa fa-group'
                 ),
                 ':about:fykos-group',
@@ -126,20 +129,20 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                 ]
             ),
             new NavItem(new PageTitle(null, 'Akce', 'fa fa-calendar-check-o'), ':akce:start'),
-            new NavItem(
-                new PageTitle(
-                    null,
-                    'Odkazy',
-                    'fa fa-external-link-square'
-                ),
-                ':odkazy',
-                [],
-                [
-                    new NavItem(new PageTitle(null, 'Doporučené odkazy'), ':odkazy'),
-                    new NavItem(new PageTitle(null, 'Náměty ke čtení'), ':dopoknihy'),
-                    new NavItem(new PageTitle(null, 'Fyzikální olympiáda'), 'https://fyzikalniolympiada.cz/'),
-                ],
-            ),
+            new NavItem(new PageTitle(null, 'Login', 'fa fa-sign-in'), 'https://db.fykos.cz'),
+//            new NavItem(
+//                new PageTitle(
+//                    null,
+//                    'Odkazy',
+//                    'fa fa-external-link-square'
+//                ),
+//                ':odkazy',
+//                [],
+//                [
+//                    new NavItem(new PageTitle(null, 'Doporučené odkazy'), ':odkazy'),
+//                    new NavItem(new PageTitle(null, 'Náměty ke čtení'), ':dopoknihy'),
+//                ],
+//            ),
         ];
     }
 }
