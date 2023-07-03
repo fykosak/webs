@@ -101,14 +101,14 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
         if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
                 new PageTitle(null, "Registrace", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-                'Registration:',
+                ':Default:Registration:',
             );
         }
 
         if (CurrentPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
                 new PageTitle(null, "Aktuální ročník", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-                'Current:',
+                ':Default:Current:',
             );
         }
 
