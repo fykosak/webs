@@ -81,13 +81,13 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     private function getPrimaryItems(): array
     {
         return [
-            new NavItem(new PageTitle(null, 'Zadání', 'fa fa-pencil-square-o'), ':zadani'),
-            new NavItem(new PageTitle(null, 'Pořadí', 'fa fa-trophy'), ':poradi:start'),
+            new NavItem(new PageTitle(null, 'Zadání', ''), ':zadani'), //fa fa-pencil-square-o
+            new NavItem(new PageTitle(null, 'Pořadí', ''), ':poradi:start'), //fa fa-trophy
             new NavItem(
                 new PageTitle(
                     null,
                     'O nás',
-                    'fa fa-group'
+                    '' //fa fa-group
                 ),
                 ':about:fykos-group',
                 [],
@@ -102,7 +102,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                 new PageTitle(
                     null,
                     'Jak řešit',
-                    'fa fa-book'
+                    '' //fa fa-book
                 ),
                 '#',
                 [],
@@ -116,7 +116,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                 new PageTitle(
                     null,
                     'Úlohy',
-                    'fa fa-tasks'
+                    '' //fa fa-tasks
                 ),
                 ':ulohy:start',
                 [],
@@ -128,8 +128,8 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                     new NavItem(new PageTitle(null, 'Experimenty'), ':sex:start'),
                 ]
             ),
-            new NavItem(new PageTitle(null, 'Akce', 'fa fa-calendar-check-o'), ':akce:start'),
-            new NavItem(new PageTitle(null, 'Login', 'fa fa-sign-in'), 'https://db.fykos.cz'),
+            new NavItem(new PageTitle(null, 'Akce', ''), ':akce:start'), //fa fa-calendar-check-o
+            new NavItem(new PageTitle(null, 'Login', ''), 'https://db.fykos.cz'), //fa fa-sign-in
 //            new NavItem(
 //                new PageTitle(
 //                    null,
