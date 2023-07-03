@@ -42,7 +42,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 
     public function createComponentPrimaryNav(): BootstrapNavBar
     {
-        $primaryMenu = new BootstrapNavBar($this->getContext(), 'primary', 'navbar bg-light');
+        $primaryMenu = new BootstrapNavBar($this->getContext(), 'primary', 'navbar bg-white'); //bg-light
         $primaryMenu->addMenuText(self::getPrimaryItems(), 'mr-auto');
         return $primaryMenu;
     }
@@ -96,6 +96,9 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                     new NavItem(new PageTitle(null, 'Organizátoři'), ':o-nas:organizatori'),
                     new NavItem(new PageTitle(null, 'Historie'), 'about:history'),
                     new NavItem(new PageTitle(null, 'Kontakt'), ':o-nas:kontakt'),
+                    new NavItem(new PageTitle(null, 'Pro partnery'), ':o-nas:kontakt'),
+                    new NavItem(new PageTitle(null, 'Pro učitele'), ':o-nas:kontakt'),
+                    new NavItem(new PageTitle(null, 'Merch'), ':o-nas:kontakt'),
                 ],
             ),
             new NavItem(
