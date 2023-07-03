@@ -1,10 +1,10 @@
 {varType string $lang}
-{block title}
-    {switch $lang}
-        {case 'cs'} Hlavní stránka
-        {default} Main page
-    {/switch}
-{/block}
+{*{block title}*}
+{*    {switch $lang}*}
+{*        {case 'cs'} Hlavní stránka*}
+{*        {default} Main page*}
+{*    {/switch}*}
+{*{/block}*}
 {block content}
 {*    {if $jumbotron}*}
 {*        <div class="title-panel container-fluid header-image jumbotron position-relative">*}
@@ -13,7 +13,30 @@
 {*    {/if}*}
     <div class="panel color-auto">
         <section class="inner-container">
-            something up there
+            <div class="contest-container">
+                <h1 class="title-heading">Pořádáme vzdělávací akce pro středoškoláky.</h1>
+                <p class="title-sub-text">Tady nějaký kratší inspirativní text vysvětlující to trochu líp a že si můžou vybrat z tadytěch tří obdélníků.</p>
+            </div>
+            <div class="clear"></div>
+
+            <div class="contest-container">
+                <div class="contest-rectangle">
+                    <a n:href="About:fykos-competition"><img src="{$basePath}/logos/fykos_logo.png" alt="FYKOS"></a>
+                    <p>Nějaký zajímavý textík o FYKOSu, je to pěkná soutěž, probíhá celý rok.</p>
+                    <a n:href="About:fykos-competition" class="btn-fykos">More information</a>
+                </div>
+                <div class="contest-rectangle">
+                    <a href="https://fyziklani.org"><img src="{$basePath}/logos/fyziklani_logo.png" alt="Fyziklani"></a>
+                    <p>Nějaký text o Fyziklání, bude v únoru, bude to cool.</p>
+                    <a href="https://fyziklani.org" class="btn-fof">More information</a>
+                </div>
+                <div class="contest-rectangle">
+                    <a href="https://physicsbrawl.org"><img src="{$basePath}/logos/fyziklani_online_logo.png" alt="Physics Brawl Online"></a>
+                    <p>Nějaký textík o Fyziklání Online, je to jako Fyziklání, ale je to Online.</p>
+                    <a href="https://physicsbrawl.org" class="btn-fol">More information</a>
+                </div>
+            </div>
+
             <h2>Gimme some content</h2>
             <p>
                 Gimme, gimme, gimme some good FYKOS content<br>
