@@ -202,4 +202,9 @@ class RouterFactory
 
         return $router;
     }
+
+    public static function createVyfukRouter(?array $domainList, array $routerMapping): Router
+    {
+        return self::createFykosRouter($domainList, $routerMapping);
+    }
 }

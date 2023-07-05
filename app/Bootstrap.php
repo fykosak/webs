@@ -49,4 +49,9 @@ class Bootstrap
     {
         return self::boot('fykos');
     }
+
+    public static function bootVyfuk(): Configurator
+    {
+        return self::boot('vyfuk');
+    }
 }
