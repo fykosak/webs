@@ -28,7 +28,8 @@
   },
   "scripts": {
     "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 app/",
-    "testPHPStan": "vendor/bin/phpstan analyse app"
+    "testPHPStan": "vendor/bin/phpstan analyse app",
+    "test": "vendor/bin/tester tests/ -p php -s -c tests/php.ini -j 8"
   },
   "autoload": {
     "psr-4": {
