@@ -20,7 +20,7 @@ database:
     conventions: 'discovered'
 
 extensions:
-    assets: h4kuna\Assets\DI\AssetsExtension
+    asset: SixtyEightPublishers\Asset\Bridge\Nette\DI\AssetExtension
 
 parameters:
     gameApiURL: "/dev/null"
