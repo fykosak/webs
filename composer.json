@@ -27,14 +27,28 @@
     "phpstan/phpstan": "1.10.21"
   },
   "scripts": {
+    "clearTestCache": "rm -rf temp/tester/",
+    "startMockApi": "python3 tests/api/api.py 2> /dev/null &",
+    "killMockApi": "kill -9 $(ps aux | grep 'python3 tests/api/api.py' | head -n1 | awk '{print $2}')",
     "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 app/",
     "testPHPStan": "vendor/bin/phpstan analyse app tests",
-    "test": "vendor/bin/tester tests/ -p php -s -c tests/php.ini -j 8",
-    "testCoverage": "vendor/bin/tester tests -p php --coverage coverage.html --coverage-src app -s -c tests/php.ini -j 8"
+    "test": [
+      "@clearTestCache",
+      "@startMockApi",
+      "vendor/bin/tester tests/ -p php -s -c tests/php.ini -j 8",
+      "@killMockApi"
+    ],
+    "testCoverage": [
+      "@clearTestCache",
+      "@startMockApi",
+      "vendor/bin/tester tests -p php --coverage coverage.html --coverage-src app -s -c tests/php.ini -j 8",
+      "@killMockApi"
+    ]
   },
   "autoload": {
     "psr-4": {
-      "App\\": "app/"
+      "App\\": "app/",
+      "Tests\\": "tests/"
     }
   }
 }

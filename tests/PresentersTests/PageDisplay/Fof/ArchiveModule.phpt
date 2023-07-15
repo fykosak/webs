@@ -16,7 +16,7 @@ class ArchiveModule extends AbstractPageDisplayTestCase
     protected function transformParams(string $presenterName, string $action, array $params): array
     {
         [$presenterName, $action, $params] = parent::transformParams($presenterName, $action, $params);
-        $params['eventYear'] = '2022';
+        $params['eventYear'] = '1970';
         return [$presenterName, $action, $params];
     }
 
