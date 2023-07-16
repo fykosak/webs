@@ -28,7 +28,7 @@
   },
   "scripts": {
     "clearTestCache": "rm -rf temp/tester/",
-    "startMockApi": "python3 tests/api/api.py 2> /dev/null &",
+    "startMockApi": "nohup python3 tests/api/api.py > temp/tester/log/api-info.log 2> temp/tester/log/api-err.log < /dev/null &",
     "killMockApi": "kill -9 $(ps aux | grep 'python3 tests/api/api.py' | head -n1 | awk '{print $2}')",
     "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 app/",
     "testPHPStan": "vendor/bin/phpstan analyse app tests",
