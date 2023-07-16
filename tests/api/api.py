@@ -37,5 +37,3 @@ def getEventList():
 @app.get("/GetEvent")
 def getEvent():
     return events["8"]
-
-app.run(host="0.0.0.0", port=8082, debug=True)

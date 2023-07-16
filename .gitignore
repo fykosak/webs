@@ -11,3 +11,4 @@ www/*/documents
 www/*/assets
 node_modules
 coverage.html
+**__pycache__
