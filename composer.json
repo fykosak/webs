@@ -28,24 +28,15 @@
   },
   "scripts": {
     "clearTestCache": "rm -rf temp/tester/",
-    "startMockApi": [
-      "mkdir -p temp/tester/log",
-      "nohup flask --app tests/api/api.py run -h 0.0.0.0 -p 8082 > temp/tester/log/api.log 2>&1 < /dev/null &"
-    ],
-    "killMockApi": "kill -9 $(ps aux | grep 'flask --app tests/api/api.py' | head -n1 | awk '{print $2}')",
-    "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 app/",
+    "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 app/ tests/",
     "testPHPStan": "vendor/bin/phpstan analyse app tests",
     "test": [
       "@clearTestCache",
-      "@startMockApi",
-      "vendor/bin/tester tests/ -p php -s -c tests/php.ini -j 8",
-      "@killMockApi"
+      "tests/api/commandWithApi.sh vendor/bin/tester tests/ -p php -s -c tests/php.ini -j 8"
     ],
     "testCoverage": [
       "@clearTestCache",
-      "@startMockApi",
-      "vendor/bin/tester tests -p php --coverage coverage.html --coverage-src app -s -c tests/php.ini -j 8",
-      "@killMockApi"
+      "tests/api/commandWithApi.sh vendor/bin/tester tests -p php --coverage coverage.html --coverage-src app -s -c tests/php.ini -j 8"
     ]
   },
   "autoload": {
