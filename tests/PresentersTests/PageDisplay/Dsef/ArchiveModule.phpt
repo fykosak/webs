@@ -18,15 +18,14 @@ class ArchiveModule extends AbstractPageDisplayTestCase
     public function getPages(): array
     {
         $pages = [];
-        //foreach (Finder::findFiles('simple.*.latte')->from(__DIR__ . '/../../../../app/Modules/Dsef/ArchiveModule/templates/Default') as $filename => $file) {
-        //    $eventKey = basename($filename, '.latte');
-        //    $eventKey = substr($eventKey, strlen('simple.'));
-        //    $params = explode("-", $eventKey);
-        //    Assert::count(2, $params, "Event key in filename not valid");
-        //    [$eventYear, $eventMonth] = $params;
-        //    $pages[] = ['Archive:Default', 'default', ['eventYear' => $eventYear, 'eventMonth' => $eventMonth]];
-        //}
-        $pages[] = ['Archive:Default', 'default', ['eventYear' => 2014, 'eventMonth' => 'unor']];
+        foreach (Finder::findFiles('simple.*.latte')->from(__DIR__ . '/../../../../app/Modules/Dsef/ArchiveModule/templates/Default') as $filename => $file) {
+            $eventKey = basename($filename, '.latte');
+            $eventKey = substr($eventKey, strlen('simple.'));
+            $params = explode("-", $eventKey);
+            Assert::count(2, $params, "Event key in filename not valid");
+            [$eventYear, $eventMonth] = $params;
+            $pages[] = ['Archive:Default', 'default', ['eventYear' => $eventYear, 'eventMonth' => $eventMonth]];
+        }
         return $pages;
     }
 }

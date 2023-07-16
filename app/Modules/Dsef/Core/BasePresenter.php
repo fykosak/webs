@@ -10,10 +10,6 @@ use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends \App\Modules\Core\EventWebPresenter
 {
-    public static $months = [
-        "leden", "unor", "brezen", "duben", "kveten", "cerven",
-        "cervenec", "srpen", "zari", "rijen", "listopad", "prosinec"];
-
     public static function getEventYear(ModelEvent $event): string
     {
         return $event->begin->format('Y');
@@ -21,7 +17,7 @@ abstract class BasePresenter extends \App\Modules\Core\EventWebPresenter
 
     public static function getEventMonth(ModelEvent $event): string
     {
-        return self::$months[(int)$event->begin->format('n') - 1];
+        return $event->begin->format('m');
     }
 
     public static function getEventKey(ModelEvent $event): string

@@ -26,23 +26,22 @@ class Bootstrap
         $configurator->setDebugMode(false);
         Debugger::$logDirectory = __DIR__ . '/../temp/tester/log';
         Environment::setup();
-        error_reporting(~E_USER_DEPRECATED &
-            ~E_USER_WARNING & ~E_USER_NOTICE & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED
+        error_reporting(
+            ~E_USER_DEPRECATED & ~E_USER_WARNING & ~E_USER_NOTICE & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED
         );
 
-// Enable RobotLoader - this will load all classes automatically
+        // Enable RobotLoader - this will load all classes automatically
         $configurator->setTempDirectory(__DIR__ . '/../temp/tester');
-        error_reporting(~E_USER_DEPRECATED &
-            ~E_USER_WARNING & ~E_USER_NOTICE & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED
+        error_reporting(
+            ~E_USER_DEPRECATED & ~E_USER_WARNING & ~E_USER_NOTICE & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED
         );
         $configurator->createRobotLoader()
             ->addDirectory(__DIR__ . '/../app/')
             ->addDirectory(__DIR__)
             ->register();
 
-// Create Dependency Injection container from config.neon file
+        // Create Dependency Injection container from config.neon file
         $configurator->addConfig(__DIR__ . "/../app/config/config." . $moduleName . ".neon");
-        //$configurator->addConfig(__DIR__ . "/../app/config/config." . $moduleName . ".local.neon");
         $configurator->addConfig(__DIR__ . "/../app/config/config.tester.neon");
 
         return $configurator;

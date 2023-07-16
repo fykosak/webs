@@ -22,7 +22,7 @@ class DefaultModule extends AbstractPageDisplayTestCase
             ['Default:Cooperation', 'default'],
             ['Default:Default', 'default'],
             ['Default:Default', 'lastYears'],
-            //['Default:Default', 'otherYears'],
+            ['Default:Default', 'otherEvents'],
             ['Default:Faq', 'default'],
             ['Default:FyziklaniInternational', 'default', ['lang' => 'cs']],
             ['Default:HowToPlay', 'default'],
