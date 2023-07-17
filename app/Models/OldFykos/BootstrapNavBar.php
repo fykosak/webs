@@ -37,7 +37,7 @@ class BootstrapNavBar extends BaseComponent
     public function addMenuText(array $items, ?string $class = null): void
     {
         $this->data[] = [
-            'class' => 'nav ' . $class ?? '',
+            'class' => 'nav ' . ($class ?? ''),
             'data' => $items,
         ];
     }

@@ -34,6 +34,7 @@ abstract class AbstractPageDisplayTestCase extends TestCase
     {
         $_COOKIE['_nss'] = '1';
         $presenterFactory = $this->container->getByType(IPresenterFactory::class);
+        /** @var \Nette\Application\UI\Presenter */
         $presenter = $presenterFactory->createPresenter($presenterName);
         $presenter->autoCanonicalize = false;
         return $presenter;

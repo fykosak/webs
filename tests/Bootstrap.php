@@ -48,8 +48,10 @@ class Bootstrap
     }
 }
 
-// phpcs:disable
 // Configure application
+
+// phpcs:disable
+/* @phpstan-ignore-next-line */
 $configurator = Bootstrap::boot(MODULE_NAME);
 $container = $configurator->createContainer();
 

@@ -43,7 +43,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
                 $month = $this->eventMonth;
                 $events = $this->serviceEvent->getEventsByYear(
                     [$this->context->getParameters()["eventTypeId"]],
-                    +$year
+                    intval($year)
                 );
                 $events = array_filter($events, function ($event) use ($month) {
                     return $event->begin->format('m') === $month;
