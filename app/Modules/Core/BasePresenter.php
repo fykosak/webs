@@ -57,6 +57,7 @@ abstract class BasePresenter extends Presenter
     {
         $template = parent::createTemplate();
         $template->lang = $this->lang;
+        /** @var \Nette\Bridges\ApplicationLatte\Template $template */
         $template->setTranslator($this->translator);
 
         return $template;

@@ -65,9 +65,9 @@ class TeamResultsComponent extends BaseComponent
 
         ksort($teams);
 
-//      remove categories that are empty after the filtering
+        // remove categories that are empty after the filtering
         foreach ($teams as $category => $teamsForCategory) {
-            if (empty($teamsForCategory)) {
+            if ($teamsForCategory == []) {
                 unset($teams[$category]);
             }
         }
@@ -83,8 +83,7 @@ class TeamResultsComponent extends BaseComponent
 
     protected function passesOneMemberFilter(ModelTeam $team): bool
     {
-        return !$this->filterData['OneMemberTeams']
-            || ($this->filterData['OneMemberTeams'] && count($team->members) == 1);
+        return !$this->filterData['OneMemberTeams'] || count($team->members) == 1;
     }
 
     protected function passesCountryFilter(ModelTeam $team): bool

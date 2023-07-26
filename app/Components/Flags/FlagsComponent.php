@@ -4,23 +4,22 @@ declare(strict_types=1);
 
 namespace App\Components\Flags;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant;
+use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelMember;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam;
 use Fykosak\Utils\BaseComponent\BaseComponent;
-use Nette\DI\Container;
 
 class FlagsComponent extends BaseComponent
 {
-    public function getFlagForParticipant(ModelParticipant $participant): string
+    public function getFlagForMember(ModelMember $member): string
     {
-        return $participant->countryIso;
+        return $member->countryIso;
     }
 
     public function getFlagsForTeam(ModelTeam $team): array
     {
         $flags = [];
-        foreach ($team->participants as $participant) {
-            $flags[] = $this->getFlagForParticipant($participant);
+        foreach ($team->members as $member) {
+            $flags[] = $this->getFlagForMember($member);
         }
         return $flags;
     }
@@ -30,9 +29,9 @@ class FlagsComponent extends BaseComponent
         return array_unique($this->getFlagsForTeam($team));
     }
 
-    public function renderFlag(ModelParticipant $participant): void
+    public function renderFlag(ModelMember $member): void
     {
-        $this->template->flags = [$this->getFlagForParticipant($participant)];
+        $this->template->flags = [$this->getFlagForMember($member)];
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'flags.latte');
     }
 

@@ -19,7 +19,7 @@ class RouterFactory
             // todo fix code duplication
             Route::FILTER_IN => function (array $params) use ($languages, $domainList) {
                 // From where to extract the language
-                if ($domainList && count($domainList)) {
+                if (isset($domainList) && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
                     // In case of accessing from unknown domain (which should not happen)
                     if ($domainLang === null) {
@@ -51,7 +51,7 @@ class RouterFactory
             // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
             Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList): array {
                 // From where to extract the language
-                if ($domainList && count($domainList)) {
+                if (isset($domainList) && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
                     // In case of accessing from unknown domain (which should not happen), dsef is an exception
                     if (
@@ -99,7 +99,7 @@ class RouterFactory
 
                 // Either set the language in the domain, or in lang parameter
 
-                if ($domainList && count($domainList)) {
+                if (isset($domainList) && count($domainList)) {
                     $params['domain'] = array_search($params['lang'], $domainList);
                     if ($params['domain'] === false) {
                         return [];

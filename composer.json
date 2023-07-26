@@ -18,21 +18,32 @@
     "ext-soap": "*",
     "ext-dom": "*",
     "ext-gettext": "*",
-    "h4kuna/assets": "^1.1",
-    "ext-json": "*"
+    "ext-json": "*",
+    "68publishers/asset": "^3.3"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.6.0",
     "nette/tester": "^v2.4.1",
-    "phpstan/phpstan": "1.10.21"
+    "phpstan/phpstan": "1.10.21",
+    "phpstan/phpstan-nette": "^1.2"
   },
   "scripts": {
-    "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 app/",
-    "testPHPStan": "vendor/bin/phpstan analyse app"
+    "clearTestCache": "rm -rf temp/tester/",
+    "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 app/ tests/",
+    "testPHPStan": "vendor/bin/phpstan analyse --level 5 app tests",
+    "test": [
+      "@clearTestCache",
+      "tests/api/commandWithApi.sh vendor/bin/tester tests/ -p php -s -c tests/php.ini -j 8"
+    ],
+    "testCoverage": [
+      "@clearTestCache",
+      "tests/api/commandWithApi.sh vendor/bin/tester tests -p php --coverage coverage.html --coverage-src app -s -c tests/php.ini -j 8"
+    ]
   },
   "autoload": {
     "psr-4": {
-      "App\\": "app/"
+      "App\\": "app/",
+      "Tests\\": "tests/"
     }
   }
 }

@@ -60,12 +60,31 @@ class ImageGalleryControl extends BaseComponent
         return $images;
     }
 
-    public function hasPhotos(string $path): bool
+    private function getCachedImages(string $path): array
     {
-        return count($this->cache->load(
+        return $this->cache->load(
             [$path, $this->wwwDir],
             fn() => self::getImages($path, $this->wwwDir)
-        )) > 0;
+        );
+    }
+
+    private function getPreviewImages(array $images, int $step): array
+    {
+        if (count($images) <= 6) {
+            return $images;
+        }
+
+        $previewImages = [];
+        for ($i = 0; $i < 6; $i++) {
+            $previewImages[] = $images[(int)($i * $step)];
+        }
+
+        return $previewImages;
+    }
+
+    public function hasPhotos(string $path): bool
+    {
+        return count($this->getCachedImages($path)) > 0;
     }
 
     /**
@@ -73,47 +92,30 @@ class ImageGalleryControl extends BaseComponent
      */
     public function render(string $path): void
     {
-        $this->template->images = $this->cache->load(
-            [$path, $this->wwwDir],
-            fn() => self::getImages($path, $this->wwwDir)
-        );
+        $this->template->images = $this->getCachedImages($path);
         $this->template->lang = $this->getPresenter()->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'default.latte');
     }
 
     public function renderRandomLine(string $path): void
     {
-        if ($this->hasPhotos($path)) {
-            $this->template->images = $this->cache->load(
-                [$path, $this->wwwDir],
-                fn() => self::getImages($path, $this->wwwDir)
-            );
-            if (count($this->template->images) <= 6) {
-                $this->template->previewImages = $this->template->images;
-            } else {
-                $step = count($this->template->images) / 6;
-                $this->template->previewImages = [];
-                for ($i = 0; $i < 6; $i++) {
-                    $this->template->previewImages[] = $this->template->images[(int)($i * $step)];
-                }
-            }
-            $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
+        if (!$this->hasPhotos($path)) {
+            return;
         }
+
+        $images = $this->getCachedImages($path);
+        $this->template->previewImages = $this->getPreviewImages($images, (int)(count($images) / 6));
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
     }
 
     public function renderOrderedLine(string $path): void
     {
-        if ($this->hasPhotos($path)) {
-            $this->template->images = $this->cache->load(
-                [$path, $this->wwwDir],
-                fn() => self::getImages($path, $this->wwwDir)
-            );
-            $this->template->previewImages = [];
-            for ($i = 0; $i < 6; $i++) {
-                $this->template->previewImages[] = $this->template->images[(int) ($i)];
-            }
-
-            $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
+        if (!$this->hasPhotos($path)) {
+            return;
         }
+
+        $images = $this->getCachedImages($path);
+        $this->template->previewImages = $this->getPreviewImages($images, 1);
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
     }
 }
