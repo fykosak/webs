@@ -2,11 +2,11 @@
 {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelSchedule[] $scheduleGroups}
 {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelPersonSchedule[][] $personGroups}
 {foreach $scheduleGroups as $group}
-    <h3>{$group->label[$lang]}</h3>
+    <h3>{$group->name[$lang]}</h3>
     <div class="row">
         {foreach $group->scheduleItems as $scheduleItem}
             <div class="col col-md-3">
-                <h4>{$scheduleItem->label[$lang]}</h4>
+                <h4>{$scheduleItem->name[$lang]}</h4>
                 {if isset($personGroups[$scheduleItem->scheduleItemId])}
                     <ul>
                         {foreach $personGroups[$scheduleItem->scheduleItemId] as $person}
