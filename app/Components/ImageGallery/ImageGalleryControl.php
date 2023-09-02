@@ -104,6 +104,7 @@ class ImageGalleryControl extends BaseComponent
         }
 
         $images = $this->getCachedImages($path);
+        $this->template->images = $images;
         $this->template->previewImages = $this->getPreviewImages($images, (int)(count($images) / 6));
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
     }
@@ -115,6 +116,7 @@ class ImageGalleryControl extends BaseComponent
         }
 
         $images = $this->getCachedImages($path);
+        $this->template->images = $images;
         $this->template->previewImages = $this->getPreviewImages($images, 1);
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
     }
