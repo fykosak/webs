@@ -34,7 +34,7 @@
 <body>
 
 {block body}
-    {control navigation null, "DSEF.cz", false}
+    {control navigation "/images/logos/dsef2023_logo_white.png", "DSEF " . $gamePhaseCalculator->getFKSDBEvent()->begin->format('Y')}
     <main>
         {block main}
             <div class="panel color-light">
