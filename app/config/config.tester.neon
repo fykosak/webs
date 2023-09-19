@@ -1,0 +1,18 @@
+database:
+    default:
+        dsn: ''
+        user: ''
+        password: ''
+    problems:
+        dsn: ''
+        user: ''
+        password: ''
+parameters:
+    fksdbDownloader:
+        login: ''
+        password: ''
+        url: "http://127.0.0.1:8082/"
+    database:
+         user: ''
+         password: ''
+    gameApiURL: ''

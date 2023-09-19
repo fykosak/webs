@@ -37,6 +37,9 @@ class UpperHomePrague extends BaseComponent
 
     protected function createComponentCountdown(): CountdownComponent
     {
+        if ($this->gamePhaseCalculator->isRegistration($this->gamePhaseCalculator::BEFORE)) {
+            return new CountdownComponent($this->gamePhaseCalculator->getFKSDBEvent()->registrationBegin);
+        }
         return new CountdownComponent($this->gamePhaseCalculator->getGameBegin());
     }
 }

@@ -161,7 +161,7 @@
                     {case 397}
                     <tr>
                         <th>
-                            {$item->label['en']}
+                            {$item->name['en']}
                         </th>
                         <td>
                             <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
@@ -175,7 +175,7 @@
                     {case 398}
                         <tr>
                             <th>
-                                {$item->label['en']}
+                                {$item->name['en']}
                             </th>
                             <td>
                                 <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
@@ -189,7 +189,7 @@
                     {case 399}
                         <tr>
                             <th>
-                                {$item->label['en']}
+                                {$item->name['en']}
                             </th>
                             <td>
                                 <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
@@ -203,7 +203,7 @@
                     {case 400}
                         <tr>
                             <th>
-                                {$item->label['en']}
+                                {$item->name['en']}
                             </th>
                             <td>
                                 <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
@@ -217,7 +217,7 @@
                     {case 401}
                         <tr>
                             <th>
-                                {$item->label['en']}
+                                {$item->name['en']}
                             </th>
                             <td>
                                 <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
@@ -752,7 +752,7 @@
                     {foreach $datum->scheduleItems as $item}
                         {continueIf $item->scheduleItemId === 396}
                         {var $id = 'item' . $item->scheduleItemId}
-                        <h2 id="{$id}">{$item->label['en']}</h2>
+                        <h2 id="{$id}">{$item->name['en']}</h2>
                         <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
                             {$item->totalCapacity-$item->usedCapacity} free places of {$item->totalCapacity}
                         </div>

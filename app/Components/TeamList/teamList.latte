@@ -65,30 +65,28 @@
                                         $members = $team->members;
                                         usort($members, fn($a, $b) => $a->schoolId <=> $b->schoolId)
                                     }
-                                    {foreach $members as $key => $participant}
-                                        {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
-                                        {$participant->name
-                                        }{do $inSchool++
-                                    }{if $iterator->isLast() || (!is_null($members[$key + 1]) && $participant->schoolId != $members[$key + 1]->schoolId)
-                                    }
-                                        <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$participant->schoolName}{if (strtolower($participant->countryIso) != "zz")} <span
-                                                    class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>{/if})</span>
-                                        {do $inSchool = 0
-                                        }{/if
-                                    }{if !$iterator->isLast()
-                                    }, {/if}
+                                    {foreach $members as $key => $member}
+                                        {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelMember $member}
+                                        {$member->name}
+                                        {do $inSchool++}
+                                        {if $iterator->isLast() || (!is_null($members[$key + 1]) && $member->schoolId != $members[$key + 1]->schoolId)}
+                                            <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$member->schoolName}{if (strtolower($member->countryIso) != "zz")} <span
+                                                        class="flag-icon flag-icon-{$member->countryIso|lower}"></span>{/if})</span>
+                                            {do $inSchool = 0}
+                                        {/if}
+                                    {if !$iterator->isLast()}, {/if}
                                     {/foreach}
                                 {else}
                                     {switch $lang}
                                         {case cs}informace o členech týmu nejsou dostupné
-                                        {default}no info avaiable
+                                        {default}no info available
                                     {/switch}
                                 {/if}
 
                                 {if count($team->teachers)}
                                     {switch $lang}
-                                        {case cs}doprovod
-                                        {default}teacher
+                                        {case cs}, doprovod
+                                        {default}, teacher
                                     {/switch}
                                     <span class="text-muted">
                                         {foreach $team->teachers as $teacher}{$teacher->name}{sep}, {/sep}{/foreach}

@@ -16,6 +16,6 @@ class DefaultPresenter extends BasePresenter
 
     protected function createComponentTestovaciaKokotina(): AllScheduleListComponent
     {
-        return new AllScheduleListComponent(null, 163, $this->getContext());
+        return new AllScheduleListComponent(163, $this->getContext());
     }
 }

@@ -1,6 +1,18 @@
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 
 {block content}
+
+{if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
+    <div class="upper-home-countdown countdown-panel subheader justify-content-center">
+        <div class="info-text">
+            {switch $lang}
+                {case "cs"} Registraci otevíráme {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'}
+                {default} Registration opens on {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'}.
+            {/switch}
+        </div>
+    </div>
+{/if}
+
     <div class="prague">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
              viewBox="0 0 930 550" style="enable-background:new 0 0 930 550;" xml:space="preserve">
@@ -105,37 +117,36 @@
 		"/>
             </g>
 </svg>
-    </div>
-    <div class="upper-home-countdown">
-        {control countdown}
-    </div>
-    <div class="upper-home-registration-deadline">
-        {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+</div>
+<div class="upper-home-countdown">
+    {control countdown}
+</div>
+<div class="upper-home-registration-deadline">
+    {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
         <div style="margin-top: 1rem; text-align: center;">
+            {switch $lang}
+                {case cs}
+                    <a class="btn btn-primary" href="/2023/vysledky/">Výsledky soutěže</a>
+                    <a class="btn btn-primary" href="/download/2023/reseni.pdf">Úlohy a řešení</a>
+                {default}
+                    <a class="btn btn-primary" href="/2023/results/">Competition results</a>
+                    <a class="btn btn-primary" href="/download/2023/solutions.pdf">Problem assignment and solutions</a>
+            {/switch}
+        </div>
+    {elseif $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::AFTER)}
+        {switch $lang}
+            {case cs} Registrace je již uzavřena. Soutěžíme <strong>{$gamePhaseCalculator->getGameBegin() |date:'j. n. G:i'}</strong>.
+            {default} Registration is already closed. The competition starts <strong>{$gamePhaseCalculator->getGameBegin() |date:'F j, G:i'} CET</strong>.
+        {/switch}
+    {elseif !$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
         {switch $lang}
             {case cs}
-            <a class="btn btn-primary" href="/2023/vysledky/">Výsledky soutěže</a>
-            <a class="btn btn-primary" href="/download/2023/reseni.pdf">Úlohy a řešení</a>
-        {default}
-            <a class="btn btn-primary" href="/2023/results/">Competition results</a>
-            <a class="btn btn-primary" href="/download/2023/solutions.pdf">Problem assignment and solutions</a>
+                Registrace je otevřena do
+                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
+            {default}
+                Registration is open until
+                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
         {/switch}
-        </div>
-    	{elseif $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::AFTER)}
-		{switch $lang}
-		    {case cs} Registrace je již uzavřena. Soutěžíme <strong>{$gamePhaseCalculator->getGameBegin() |date:'j. n. G:i'}</strong>.
-		    {default} Registration is already closed. The competition starts <strong>{$gamePhaseCalculator->getGameBegin() |date:'F j, G:i'} CET</strong>.
-		{/switch}
-	{elseif true}
-		{switch $lang}
-		    {case cs}
-		    Registrace je otevřena do
-			<strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
-		{default}
-		    Registration is open until
-			<strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
-		{/switch}
-	{/if}
-    </div>
-    
+    {/if}
+</div>
 {/block}

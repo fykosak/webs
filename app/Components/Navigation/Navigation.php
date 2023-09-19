@@ -18,7 +18,6 @@ class Navigation extends BaseComponent
         $this->template->items = $this->items;
         $this->template->lang = $this->getPresenter()->lang;
         $this->template->hasI18n = $hasI18n;
-        $this->template->supportedLangs = $this->translator->getSupportedLanguages();
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'navigation.latte');
     }
 

@@ -28,7 +28,7 @@
     <meta property="og:locale" content="{$presenter->translator->locales[$presenter->lang]}"/>
     <meta property="og:url" content="{plink //this}"/>
     <link href="{$basePath}/images/icon.png" rel="icon" type="image/png"/>
-    <link href="{='assets/main.css'|asset}" rel="stylesheet"/>
+    <link href="{asset 'assets/main.css'}" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     <script src="https://kit.fontawesome.com/f424cd1bbe.js" crossorigin="anonymous"></script>
     {block head}{/block}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="{='assets/main.js'|asset}"></script>
+    <script src="{asset 'assets/main.js'}"></script>
     {block scripts}{/block}
 </head>
 
@@ -111,17 +111,17 @@
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Platinoví partneři{default}Platinum Partners{/switch}</div>
+                    <div class="category-title">{switch $lang}{case cs}Platinový partneř{default}Platinum Partner{/switch}</div>
                     <div class="category-sponsors">
-                      	<a href="https://www.nadacecez.cz/" style="text-align: center">
+                        {*<a href="https://www.nadacecez.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/nadaceCEZ-logo.png" alt="Nadace CEZ logo" style="max-width: 5rem">
-                        </a> 
+                        </a>*}
                         <a href="https://www.nfneuron.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/neuron-logo.jpg" alt="Neuron logo" style="max-width: 10rem">
                         </a>                         
                     </div>
                 </div>
-                <div class="category">
+                {*<div class="category">
                     <div class="category-title">{switch $lang}{case cs}Partneři soutěže{default}Partners of the Competition{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.humusoft.cz/" style="text-align: center">
@@ -162,8 +162,8 @@
                         </a>      
                         <a href="https://www.natur.cuni.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/prfuk-logo.jpeg" alt="Přírodovědecká fakulta" style="max-width: 12rem">
-                        </a>                  
-                    </div>
+                        </a>
+                    </div>*}
                 </div>
             </div>
         </div>
@@ -175,7 +175,7 @@
                     {switch $lang}
                         {case 'cs'}
                         <p>
-                            Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 36. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
+                            Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 37. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
                             <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                         </p>
                         <p>
@@ -183,7 +183,7 @@
                         </p>
                         {default}
                         <p>
-                            Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a group of university students organizing already 36th year of educational events with focus on physics. FYKOS is made up mostly of students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
+                            Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a group of university students organizing already 37th year of educational events with focus on physics. FYKOS is made up mostly of students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
                         </p>
                         <p>
                             The realization of the competition was supported by the Ministry of Education, Youth and Sports of the Czech Republic.
@@ -200,6 +200,7 @@
                     <div class="other-logos">
                         <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/logos/fykos_logo_white.png" alt="FYKOS" style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
                         <a target="_blank" href="{switch $lang}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
+                        {if $lang=='cs'}<a target="_blank" href="https://dsef.cz/"><img class="other-logo" src="{$basePath}/images/logos/dsef_logo_white.png"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>{/if}
                     </div>
                 </div>
                 <div class="col-md-3">

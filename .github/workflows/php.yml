@@ -1,10 +1,10 @@
-name: PSR12 (PHP codesniffer)
+name: PHP (Nette Tester)
 
 on: [ push, pull_request ]
 
 jobs:
   test:
-    name: PSR12 ${{ matrix.php }}
+    name: PHP ${{ matrix.php }}
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
@@ -24,7 +24,14 @@ jobs:
           ini-values: session.gc_probability=0, date.timezone="Europe/Prague", display_startup_errors = Off
       - name: Composer install
         run: composer install --no-progress --prefer-dist
-      - run: composer run-script testPSR
+      - uses: actions/setup-python@v4
+        name: Setup Python
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - run: pip install -r tests/api/requirements.txt
+        name: Pip install
+      - run: composer run-script test
         name: Test
       - if: failure()
         name: Failure output

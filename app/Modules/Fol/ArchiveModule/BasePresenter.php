@@ -41,16 +41,12 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
                 }
                 $events = $this->serviceEvent->getEventsByYear(
                     [$this->context->getParameters()["eventTypeId"]],
-                    +$year
+                    intval($year)
                 );
                 if (count($events)) {
                     $event = isset($month) ? reset($events) : end($events);
                 }
             }
-            if (!isset($event)) {
-                $event = $this->serviceEvent->getNewest([$this->context->getParameters()["eventTypeId"]]);
-            }
-
             if (!isset($event)) {
                 throw new BadRequestException(_('Event not found'), IResponse::S404_NOT_FOUND);
             }
