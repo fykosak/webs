@@ -1,0 +1,47 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Models\Problems;
+
+class ProblemModel
+{
+    public string $contest;
+    public int $year;
+    public int $series;
+    public int $number;
+    /**
+     * @var string[]
+     */
+    public array $name;
+    /**
+     * @var string[]
+     */
+    public array $origin;
+    public int $points;
+    /**
+     * @var string[]
+     */
+    public array $topics;
+    /**
+     * @var string[]
+     */
+    public array $authors;
+    /**
+     * @var int[]
+     */
+    public ?array $studyYears;
+    /**
+     * @var string[]
+     */
+    public array $task;
+    /**
+     * @var string[]
+     */
+    public array $solution;
+    public ?float $machineResult;
+    /**
+     * @var string[]
+     */
+    public array $humanResult;
+}

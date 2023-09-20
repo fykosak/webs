@@ -15,6 +15,7 @@ services:
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList('10 minutes')
     - App\Models\GamePhaseCalculator(%eventTypeId%)
     - App\Models\Game\Connector(%gameApiURL%, %gameApiUser%, %gameApiPass%)
+    - App\Models\Problems\ProblemService('10 minutes')
 
 database:
     conventions: 'discovered'
