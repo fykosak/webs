@@ -57,7 +57,7 @@ class ProblemModel
                 case 8:
                     return 'S';
             }
-        } else if ($this->contest === "vyfuk") {
+        } elseif ($this->contest === "vyfuk") {
             switch ($this->number) {
                 case 6:
                     return 'E';
