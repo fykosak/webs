@@ -44,4 +44,28 @@ class ProblemModel
      * @var string[]
      */
     public array $humanResult;
+
+    // TODO tahat z PM nebo ponechat takto?
+    public function getLabel(): string
+    {
+        if ($this->contest === "fykos") {
+            switch ($this->number) {
+                case 6:
+                    return 'P';
+                case 7:
+                    return 'E';
+                case 8:
+                    return 'S';
+            }
+        } else if ($this->contest === "vyfuk") {
+            switch ($this->number) {
+                case 6:
+                    return 'E';
+                case 7:
+                    return 'V';
+            }
+        }
+
+        return (string)$this->number;
+    }
 }

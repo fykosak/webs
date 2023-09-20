@@ -8,8 +8,13 @@ use Fykosak\NetteFKSDBDownloader\ORM\Services\AbstractJSONService;
 
 final class ProblemService extends AbstractJSONService
 {
-    public function getProblem(string $contest, int $year, int $series, int $number, ?string $explicitExpiration = null): ProblemModel
-    {
+    public function getProblem(
+        string $contest,
+        int $year,
+        int $series,
+        int $number,
+        ?string $explicitExpiration = null
+    ): ProblemModel {
         return $this->getItem(
             new ProblemRequest($contest, $year, $series, $number),
             [],
@@ -19,4 +24,3 @@ final class ProblemService extends AbstractJSONService
         );
     }
 }
-
