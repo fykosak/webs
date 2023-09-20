@@ -1,9 +1,21 @@
 {block main}
-    <div class="panel color-auto">
-        <section class="inner-container">
-            <h1>Další ročník DSEFu</h1>
-            <p>Letos se DSEF bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'j. n. Y'}. Informace o tomto ročníku zveřejníme koncem léta. Do té doby se můžete podívat na naše další akce, jako je <a href="https://online.fyziklani.cz">Fyziklání Online</a>, <a href="https://fyziklani.cz">Fyziklání</a> a <a href="https://fykos.cz">FYKOS</a>.</p>
 
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="subheader">Archivní stránka akce z {$event->begin|date: "j. n. Y"}</div>
+        <h1>DSEF {$event->begin|date: "Y"}</h1>
+
+        <p>Den s experimentální fyzikou {$event->begin|date: "Y"} se konal {$event->begin|date: "j. n. Y"}, tentokrát v Troji. Účastníci se opět dostali do špičkových výzkumných laboratoří na MFF UK i jinde v Praze a blízkém okolí. Pro účastníky z daleka bylo také k dispozici ubytování v hostelu Elf z neděle na pondělí. Rozvržení jednotlivých exkurzí a doplňující informace k programu naleznete níže na stránce.
+        </p>
+        <p>
+            Partnerem tohoto ročníku DSEFu byla asociace <a href="https://www.iaps.info" class="urlextern"
+                title="https://www.iaps.info">IAPS</a> (International Association of Physics Students), která nás podpořila grantem IAPS Outreach Grant. Díky tomu jsme mohli akci snadněji zorganizovat a rozložit prostředky na
+            zajištění exkurzí a např. levnějšího ubytování pro účastníky.
+        </p>
+    </section>
+</div>          
+          
+          
 {*            *}{*Nechávám tu z minulého roku pro inspiraci:*}
 {*            <h1>Základní informace</h1>*}
 {*            <p>DSEF 2022 se bude*}
