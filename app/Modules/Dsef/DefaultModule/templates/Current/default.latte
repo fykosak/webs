@@ -1,8 +1,22 @@
-     <div class="panel color-auto">
-         <section class="inner-container">
-             <h1>Další ročník DSEFu</h1>
--            <p>Informace o novém  ročníku zveřejníme začátkem podzimu. Do té doby se můžete účastnit našich dalších akcí, jako je <a href="https://online.fyziklani.cz">Fyziklání Online</a>, <a href="https://fyziklani.cz">Fyziklání</a> a <a href="https://fykos.cz">FYKOS</a>.</p>
-+            <p>Letos se DSEF bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'j. n. Y'}. Informace o tomto ročníku zveřejníme koncem léta. Do té doby se můžete podívat na naše další akce, jako je <a href="https://online.fyziklani.cz">Fyziklání Online</a>, <a href="https://fyziklani.cz">Fyziklání</a> a <a href="https://fykos.cz">FYKOS</a>.</p>
- 
- {*            *}{*Nechávám tu z minulého roku pro inspiraci:*}
- {*            <h1>Základní informace</h1>*}
+{block main}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>Další ročník DSEFu</h1>
+            <p>Letos se DSEF bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'j. n. Y'}. Informace o tomto ročníku zveřejníme koncem léta. Do té doby se můžete podívat na naše další akce, jako je <a href="https://online.fyziklani.cz">Fyziklání Online</a>, <a href="https://fyziklani.cz">Fyziklání</a> a <a href="https://fykos.cz">FYKOS</a>.</p>
+
+{*            *}{*Nechávám tu z minulého roku pro inspiraci:*}
+{*            <h1>Základní informace</h1>*}
+{*            <p>DSEF 2022 se bude*}
+{*                konat {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'j. n. Y'} v Troji. Registrace začala {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin|date:'j. n. Y'} a končí {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd|date:'j. n. Y'}*}
+{*                . Rozvržení jednotlivých exkurzí a doplňující informace k programu naleznete níže na stránce, informace*}
+{*                k přihlašování pak v sekci <a href="#prihlasovani">Přihlašování</a>. Pokud máte nějaký dotaz nebo*}
+{*                problém, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.*}
+{*            </p>*}
+{*            <p>*}
+{*                Partnerem letošního DSEFu je asociace <a href="https://www.iaps.info" class="urlextern" title="https://www.iaps.info">IAPS</a> (International Association of Physics Students), která nás podpořila grantem IAPS Outreach Grant. Díky tomu můžeme akci snadněji zorganizovat a rozložit prostředky na zajištění exkurzí a např. levnějšího ubytování pro účastníky.*}
+{*            </p>*}
+{*        </section>*}
+{*    </div>*}
+
+
+{/block}
