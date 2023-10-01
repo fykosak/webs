@@ -14,8 +14,7 @@ class CurrentPresenter extends BasePresenter
      */
     public static function isVisible(GamePhaseCalculator $gamePhaseCalculator): bool
     {
-        //return $gamePhaseCalculator->isRegistration(GamePhaseCalculator::BEFORE);
-		return true;
+        return !$gamePhaseCalculator->isLongAfterTheEvent();
     }
 
     /**
