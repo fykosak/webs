@@ -124,10 +124,10 @@ class GamePhaseCalculator
     }
 
     /**
-     * Returns true about a week after the competition when no one is interested in game already.
+     * Returns true about a week after the event when no one is interested in game already.
      * @throws Throwable
      */
-    public function isLongAfterTheGame(): bool
+    public function isLongAfterTheEvent(): bool
     {
         $event = (new \DateTime())->setTimestamp($this->getFKSDBEvent()->end->getTimestamp())
             ->add(new \DateInterval('P7D'));

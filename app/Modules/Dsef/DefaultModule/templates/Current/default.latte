@@ -1,107 +1,568 @@
+{block title}Aktuální ročník{/block}
+
 {block main}
-    <div class="panel color-auto">
-        <section class="inner-container">
-            <h1>Další ročník DSEFu</h1>
-            <p>Letos se DSEF bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'j. n. Y'}. Informace o tomto ročníku zveřejníme koncem léta. Do té doby se můžete podívat na naše další akce, jako je <a href="https://online.fyziklani.cz">Fyziklání Online</a>, <a href="https://fyziklani.cz">Fyziklání</a> a <a href="https://fykos.cz">FYKOS</a>.</p>
 
-{*            *}{*Nechávám tu z minulého roku pro inspiraci:*}
-{*            <h1>Základní informace</h1>*}
-{*            <p>DSEF 2022 se bude*}
-{*                konat {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'j. n. Y'} v Troji. Registrace začala {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin|date:'j. n. Y'} a končí {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd|date:'j. n. Y'}*}
-{*                . Rozvržení jednotlivých exkurzí a doplňující informace k programu naleznete níže na stránce, informace*}
-{*                k přihlašování pak v sekci <a href="#prihlasovani">Přihlašování</a>. Pokud máte nějaký dotaz nebo*}
-{*                problém, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.*}
-{*            </p>*}
-{*            <p>*}
-{*                Partnerem letošního DSEFu je asociace <a href="https://www.iaps.info" class="urlextern" title="https://www.iaps.info">IAPS</a> (International Association of Physics Students), která nás podpořila grantem IAPS Outreach Grant. Díky tomu můžeme akci snadněji zorganizovat a rozložit prostředky na zajištění exkurzí a např. levnějšího ubytování pro účastníky.*}
-{*            </p>*}
-{*        </section>*}
-{*    </div>*}
+<div class="panel color-auto">
+    <section class="inner-container">
+        <!-- <div class="subheader">Aktuální stránka akce z {*$event->begin|date: "j. n. Y"*}</div>
+        <h1>DSEF {*$event->begin|date: "Y"*}</h1> -->
+        <h1>Základní informace</h1>
 
-{*    <div class="panel color-auto">*}
-{*        <section class="inner-container">*}
-{*            <h1>Harmonogram dne</h1>*}
+        <p>Den s experimentální fyzikou {$gamePhaseCalculator->getFKSDBEvent()->begin|date: "Y"} se bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin|date: "j. n. Y"}, tentokrát na Karlově.
+            Registrace začne {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin|date:'j. n. Y'} a končí {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd|date:'j. n. Y'}.
+            Rozvržení jednotlivých exkurzí a doplňující informace k programu naleznete níže na stránce.
+            Pro účastníky z daleka bude letos k dispozici ubytování z neděle na pondělí v hostelu PLUS. 
+            <!-- <a href="#prihlasovani">Přihlašování</a> -->
+            Pokud máte nějaký dotaz nebo problém, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.
+        </p>
+        <!-- <p>
+            Partnerem tohoto ročníku DSEFu je asociace <a href="https://www.iaps.info" class="urlextern"
+                title="https://www.iaps.info">IAPS</a> (International Association of Physics Students), která nás podpořila grantem IAPS Outreach Grant. Díky tomu jsme mohli akci snadněji zorganizovat a rozložit prostředky na
+            zajištění exkurzí a např. levnějšího ubytování pro účastníky.
+        </p> -->
+    </section>
+</div>          
 
-{*            <h4 id="zacatek-dsefu">Začátek DSEFu</h4>*}
-{*            <ul>*}
-{*                <li>Příjezd pro ubytované v hostelu je v neděli od 16:00 do večera. Pondělní snídaně (pouze pro ubytované) je plánovaná na*}
-{*                    7:00.*}
-{*                </li>*}
-{*                <li>DSEF začne v pondělí registrací účastníků, která proběhne mezi <strong>8:00 a 8:30 na*}
-{*                        Matematicko-fyzikální fakultě ve vestibulu budovy T na adrese V Holešovičkách 2</strong>.*}
-{*                    Následovat pak bude oficiální zahájení a ranní přednáška.*}
-{*                </li>*}
-{*            </ul>*}
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Harmonogram dne</h1>
 
-{*            <h4 id="ranni-prednaska">Ranní přednáška (9:15-10:00)</h4>*}
-{*            <p>*}
-{*              <b> Fotosyntéza jako inspirace pro nové způsoby využití sluneční energie </b> <br>*}
-{*              doc. RNDr. Jakub Pšenčík, Ph.D.*}
-{*            </p>*}
+        <h4 id="zacatek-dsefu">Začátek DSEFu</h4>
+        <ul>
+            <li>Příjezd pro ubytované v hostelu bude v neděli od 16:00 až do půlnoci. Pondělní snídaně (pouze pro ubytované) je plánovaná na 7:00.
+            </li>
+            <li>Registrace účastníků začíná mezi <strong>8:00 a 8:30 na
+                    Matematicko-fyzikální fakultě ve vestibulu budovy F na Karlově na adrese Ke Karlovu 2026/5</strong>. Po registraci bude následovat zahájení DSEFu a ranní přednáška. 
+            </li>
+        </ul>
 
-{*            <h4 id="exkurze">Exkurze</h4>*}
-{*            <p>*}
-{*                Při přihlášení si zvolíte jednu dopolední a odpolední skupinu; níže naleznete informace, jaké exkurze*}
-{*                vás čekají. Dopolední program probíhá na pracovištích MFF a odpolední na různých vědeckých institucích v*}
-{*                Praze a okolí. Skupinu bude možné v přihlášce změnit do konce registrace,*}
-{*                tj. {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd|date:'j. n. Y'}.*}
-{*            </p>*}
-{*            *}{*Tabulku najdete na archivních stránkách*}
+        <h4 id="ranni-prednaska">Ranní přednáška (9:15-10:00)</h4>
+        <p>
+            <b> Geofyzika Marsu</b> <br>
+            Mgr. Petr Brož, Ph.D.
+        </p>
 
-{*    <div class="panel color-auto">*}
-{*        <section class="inner-container" id="prihlasovani">*}
-{*            <h1>Přihlašování</h1>*}
-{*            <p>*}
-{*                Exkurze mají dopolední a odpolední část, v každé z nich jsou účastníci rozdělení do několika skupin,*}
-{*                jejichž program se liší. Svoji skupinu si zvolíte už v přihlášce a pokud bude volná kapacita, je možné*}
-{*                ji později změnit podle vašich preferencí.*}
-{*            </p>*}
-{*            <p>*}
-{*                Odkaz na přihlášení naleznete na liště dole na stránce nebo na <a n:href=":Default:Registration:">tomto*}
-{*                    odkazu</a>. Tam také naleznete všechny podmínky a informace k přihlašování.*}
-{*            </p>*}
-{*        </section>*}
-{*    </div>*}
+        <h4 id="exkurze">Exkurze</h4>
+        <p>
+            Při přihlášení si zvolíte jednu dopolední a odpolední skupinu; níže naleznete informace, jaké exkurze
+            vás čekají. Dopolední program probíhá na pracovištích MFF a odpolední na různých vědeckých institucích v
+            Praze a okolí. Skupinu bude možné v přihlášce změnit do konce registrace,
+            tzn. {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd|date:'j. n. Y'}.
+        </p>
+     </section>
+</div>
+        <div class="panel color-auto">
+            <section class="inner-container" id="prihlasovani">
+                <h1>Přihlašování</h1>
+                <p>
+                    Exkurze mají dopolední a odpolední část, v každé z nich jsou účastníci rozdělení do několika skupin,
+                    jejichž program se liší. Výjimku tvoří exkurze do ELI, která bude celodenní. Svou skupinu si zvolíte už v přihlášce a pokud bude volná kapacita, je možné
+                    si ji do konce registrace změnit podle vašich preferencí.
+                </p>
+            <p>
+                <a href="{plink :Default:Registration:Default}" type="button"
+                   class="btn btn-primary btn-block" style="border-radius: 0">Registrovat se</a>
+            </p>
+            </section>
+        </div>
+            
+        <div class="panel color-auto">
+            <section class="inner-container">
+                <h1>Ubytování</h1>
+            
+                <h5 id="kde-je-ubytovani-a-jake">Kde je ubytování a jaké?</h5>
+                    <div class="level5">
+                        	<ul>
+                                <li class="level1"><div class="li"> Ubytování je v <a href="https://plushostels.com/cs/praha" class="urlextern" title="https://plushostels.com/cs/praha">Hostelu PLUS</a> na Holešovicích. </div>
+                                </li>
+                                <li class="level1"><div class="li"> Ubytováni budete pohromadě na velkých pokojích (7 až 8 lůžkové).</div>
+                                </li>
+                                <li class="level1"><div class="li"> V ceně ubytování jsou malé ručníky.</div>
+                                </li>
+                            </ul>
+                    </div>
+            
+                <h5 id="placeni-za-ubytovani">Placení za ubytování</h5>
+                    <div class="level5">
+                        <ul>
+                            <!--<li class="level1"><div class="li"> Poplatek za ubytování je <strong>130 Kč</strong></div>
+                            </li> -->
+                            <li class="level1"><div class="li"> Ubytování se bude platit na místě.</div>
+                            </li>
+                        </ul>
+            
+                    </div>
+                    <h5 id="prijezd-na-ubytovani">Příjezd na ubytování</h5>
+                    <div class="level5">
+                        <ul>
+                            <li class="level1"><div class="li"> Přijet na ubytování můžete od <strong>16 hodin</strong>.</div>
+                            </li>
+                            <li class="level1"><div class="li"> Recepce na hotelu je otevřená nonstop, během večera můžete dorazit kdykoliv.</div>
+            				</li>
+                        </ul>
+                    </div>
+            </section>
+        </div>
 
-{*	<div class="panel color-auto">*}
-{*    	<section class="inner-container">*}
-{*        	<h1>Ubytování</h1>*}
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Exkurze</h1>
+        <div class="table sectionedit3">
+            <table class="inline table">
+                <thead>
+                    <tr class="row0">
+                        <th class="col0 header" colspan="2"></th>
+                        <th class="col2 header" colspan="2"> Dopolední exkurze</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row1">
+                        <td class="col0"></td>
+                        <td class="col1"> 10:15 – 10:40</td>
+                        <td class="col2"> 10:55 – 11:20</td>
+                        <td class="col3"> 11:35 – 12:00</td>
+                    </tr>
+                    <tr class="row2">
+                        <th class="col0">Alfa</th>
+                        <td class="col1"><a href="#Biofyzika-zivych-bunek" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">BFYZ</a></td>
+                        <td class="col2"><a href="#SEM" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">SEM</a></td>
+                        <td class="col3"><a href="#Meteorologicka-laborator"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">METEO</a></td>
+                    </tr>
+                    <tr class="row3">
+                        <th class="col0">Beta</th>
+                        <td class="col1"><a href="#Resistometricka-laborator" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">RES</a></td>
+                        <td class="col2"><a href="#Laserova-laborator" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">OPT1</a></td>
+                        <td class="col3"><a href="#Laborator-ts" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">OPT2</a></td>
+                    </tr>
+                    <tr class="row4">
+                        <th class="col0">Gama</th>
+                        <td class="col1"><a href="#Meteorologicka-laborator" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">METEO</a></td>
+                        <td class="col2"><a href="#Seismicka-laborator" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">SEIS</a></td>
+                        <td class="col3"><a href="#Pohled-do-Nanosveta" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">AFM</a></td>
+                    </tr>
+                    <tr class="row5">
+                        <th class="col0">Delta</th>
+                        <td class="col1"><a href="#Laserova-laborator" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">OPT1</a></td>
+                        <td class="col2"><a href="#Priprava-monokrystalu" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">MKRYS</a></td>
+                        <td class="col3"><a href="#Biofyzika-zivych-bunek" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">BFYZ</a></td>
+                    </tr>
+                    <tr class="row6">
+                        <th class="col0">Epsilon</th>
+                        <td class="col1"><a href="#Deformacni-mechanismy-kovu" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">DEF</a></td>
+                        <td class="col2"><a href="#Rust-monokrystalu" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">RKRYS</a></td>
+                        <td class="col3"><a href="#SEM" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">SEM</a></td>
+                    </tr>
+                    <tr class="row7">
+                        <th class="col0">Kappa</th>
+                        <td class="col1"><a href="#Pocitacove-modelovani" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">MOL</a></td>
+                        <td class="col2"><a href="#Meteorologicka-laborator" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">METEO</a></td>
+                        <td class="col3"><a href="#Laserova-laborator" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">OPT1</a></td>
+                    </tr>
+                    <tr class="row8">
+                        <th class="col0">Ióta</th>
+                        <td class="col1"><a href="#Seismicka-laborator" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">SEIS</a></td>
+                        <td class="col2"><a href="#Ramanova-spektroskopie" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">RAM</a></td>
+                        <td class="col3"><a href="#TEM" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">TEM</a></td>
+                    </tr>
+                    <tr class="row9">
+                        <th class="col0">Fí</th>
+                        <td class="col1"><a href="#Pohled-do-Nanosveta" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">AFM</a></td>
+                        <td class="col2"><a href="#Resistometricka-laborator" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">RES</a></td>
+                        <td class="col3"><a href="#Pocitacove-modelovani" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">MOL</a></td>
+                    </tr>
+                    <tr class="row10">
+                        <th class="col0">Mí</th>
+                        <td class="col1"><a href="#Laborator-ts" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">OPT2</a></td>
+                        <td class="col2"><a href="#Pohled-do-Nanosveta" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">AFM</a></td>
+                        <td class="col3"><a href="#Seismicka-laborator" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">SEIS</a></td>
+                    </tr>
+                    <tr class="row11">
+                        <th class="col0">Ró</th>
+                        <td class="col1"><a href="#TEM" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">TEM</a></td>
+                        <td class="col2"><a href="#Deformacni-mechanismy-kovu" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">DEF</a></td>
+                        <td class="col3"><a href="#Priprava-monokrystalu" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">MKRYS</a></td>
+                    </tr>
+                    <tr class="row12">
+                        <th class="col0">Psí</th>
+                        <td class="col1"><a href="#SEM" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">SEM</a></td>
+                        <td class="col2"><a href="#TEM" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">TEM</a></td>
+                        <td class="col3"><a href="#Deformacni-mechanismy-kovu" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">DEF</a></td>
+                    </tr>
+                    <tr class="row13">
+                        <th class="col0">Ný</th>
+                        <td class="col1"><a href="#Priprava-monokrystalu" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">MKRYS</a></td>
+                        <td class="col2"><a href="#Pocitacove-modelovani" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">MOL</a></td>
+                        <td class="col3"><a href="#Ramanova-spektroskopie" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">RAM</a></td>
+                    </tr>
+                    <tr class="row14">
+                        <th class="col0">Eta</th>
+                        <td class="col1"><a href="#Ramanova-spektroskopie" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">RAM</a></td>
+                        <td class="col2"><a href="#Biofyzika-zivych-bunek" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">BFYZ</a></td>
+                        <td class="col3"><a href="#Rust-monokrystalu" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">RKRYS</a></td>
+                    </tr>
+                    <tr class="row15">
+                        <th class="col0">Phí</th>
+                        <td class="col1"><a href="#Rust-monokrystalu" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">RKRYS</a></td>
+                        <td class="col2"><a href="#Laborator-ts" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">OPT2</a></td>
+                        <td class="col3"><a href="#Meteorologicka-laborator" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">METEO</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-{*        	<h5 id="kde-je-ubytovani-a-jake">Kde je ubytování a jaké?</h5>*}
-{*        	<div class="level5">*}
-{*            	<ul>*}
-{*                	<li class="level1"><div class="li"> Ubytování je v <a href="https://www.hostelelf.com" class="urlextern" title="https://www.hostelelf.com">Hostelu Elf</a> na Žižkově. </div>*}
-{*                	</li>*}
-{*                	<li class="level1"><div class="li"> Ubytováni budete pohromadě na velkých pokojích (6 až 9 lůžkové).</div>*}
-{*                	</li>*}
-{*                	<li class="level1"><div class="li"> Hostel nepůjčuje ručníky, přivezte si vlastní.</div>*}
-{*                	</li>*}
-{*            	</ul>*}
-{*        	</div>*}
+        <div class="table sectionedit4">
+            <table class="inline table">
+                <thead>
+                    <tr class="row16">
+                        <th class="col0 header" colspan="2"></th>
+                        <th class="col2 header" colspan="2"> Odpolední exkurze</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row17">
+                        <td class="col0" colspan="2"></td>
+                        <td class="col2" colspan="2"> 13:30 – 16:00</td>
+                        <!-- <td class="col3"> 14:30 – cca 16:00</td> -->
+                    </tr>
+                    <!-- <tr class="row3">
+                        <th class="col0" colspan="2"></th>
+                        <td class="col2" colspan="2"><a href="#MACH"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">MACH</a></td>
+                    </tr> -->
+                    <tr class="row18">
+                        <th class="col0" colspan="2">Omega</th>
+                        <td class="col2" colspan="2"><a href="#MACH"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">MACH</a></td>
+                    </tr>
+                    <tr class="row19">
+                        <th class="col0" colspan="2">Ypsilon</th>
+                        <td class="col2" colspan="2"><a
+                                href="#JH-INST"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">JHIN</a></td>
+                    </tr>
+                    <tr class="row20">
+                        <th class="col0" colspan="2">Omikron</th>
+                        <td class="col2" colspan="2"><a
+                                href="#PALS"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">PALS</a></td>
+                    </tr>
+                    <tr class="row21">
+                        <th class="col0" colspan="2">Ksí</th>
+                        <td class="col2" colspan="2"><a
+                                href="#FZUS"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">FZUS</a></td>
+                    </tr>
+                    <tr class="row22">
+                        <th class="col0" colspan="2">Pí</th>
+                        <td class="col2" colspan="2"><a
+                                href="#MIKR"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">MIK</a></td>
+                    </tr>
+                    <tr class="row23">
+                        <th class="col0" colspan="2">Tau</th>
+                        <td class="col2" colspan="2"><a
+                                href="#RfS"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">RfS</a></td>
+                    </tr>
+                    <tr class="row24">
+                        <th class="col0" colspan="2">Chí</th>
+                        <td class="col2" colspan="2"><a
+                                href="#VDG"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">VDG</a></td>
+                    </tr>
+                    <tr class="row25">
+                        <th class="col0" colspan="2">Digama</th>
+                        <td class="col2" colspan="2"><a
+                                href="#COMP"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">COMP</a></td>
+                    </tr>
+                    <tr class="row26">
+                        <th class="col0" colspan="2">Koppa</th>
+                        <td class="col2" colspan="2"><a
+                                href="#UEXB"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">UEXB</a></td>
+                    </tr>
+                    <!--
+                    <tr class="row4">
+                        <th class="col0">Pí</th>
+                        <td class="col1" colspan="2"><a href="#Prague-Asterix-Laser-System"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">PALS</a></td>
+                        <td class="col3"><a href="#THz-spektroskopie" title="rocnik35:dsef:start ↵"
+                                class="wikilink1">THz</a></td>
+                    </tr>
 
-{*        	<h5 id="placeni-za-ubytovani">Placení za ubytování</h5>*}
-{*        	<div class="level5">*}
-{*            	<ul>*}
-{*                	<li class="level1"><div class="li"> Poplatek za ubytování je <strong>250 Kč</strong> pro nezletilé účastníky a <strong>300 Kč</strong> pro účastníky stařší 18 let.</div>*}
-{*                	</li>*}
-{*					<li class="level1"><div class="li"> Ubytování se bude platit na místě.</div>*}
-{*					</li>*}
-{*            	</ul>*}
+                    <tr class="row6">
+                        <th class="col0" colspan="2">Omega</th>
+                        <td class="col2" colspan="2"><a href="#ELI-Beamlines"
+                                title="rocnik37:dsef:start ↵" class="wikilink1">ELI</a></td>
+                    </tr>
+                    -->
+                    
+                </tbody>
+            </table>
+        </div>
 
-{*        	</div>*}
-{*          *}
-{*          	<h5 id="prijezd-na-ubytovani">Příjezd na ubytování</h5>*}
-{*        	<div class="level5">*}
-{*            	<ul>*}
-{*                	<li class="level1"><div class="li"> Přijet na ubytování můžete od <strong>16 hodin</strong>.</div>*}
-{*                	</li>*}
-{*					<li class="level1"><div class="li"> Recepce na hotelu je otevřená nonstop, během večera můžete dorazit kdykoliv.</div>*}
-{*					</li>*}
-{*            	</ul>*}
-{*        	</div>*}
-{*    	</section>*}
-{*	</div>*}
+        <div class="table sectionedit5">
+            <table class="inline table">
+                <thead>
+                    <tr class="row27">
+                        <th class="col0 header" colspan="2"></th>
+                        <th class="col2 header" colspan="2"> Celodenní exkurze</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row28">
+                        <td class="col0" colspan="2"></td>
+                        <td class="col2" colspan="2"> 10:15 – 16:00</td>
+                    </tr>
+                    <tr class="row29">
+                        <th class="col0" colspan="2">Sigma</th>
+                        <td class="col2" colspan="2"><a href="#ELI-Beamlines" title="rocnik37:dsef:start ↵"
+                                class="wikilink1">ELI</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
 
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Anotace exkurzí</h1>
+
+        <h4 id="Ramanova-spektroskopie">Ramanova spektroskopie (RAM)</h4>
+
+        <p>
+            V rámci exkurze předvedeme možnosti Ramanovy spektroskopie a Ramanovy mikroskopie v biofyzikálním, biochemickém, biomedicínském, ale taky materiálovém výzkumu. 
+            Ramanova spektroskopie umožňuje studovat vibrační přechody molekul. Využívá se pro studium struktury látek v různém skupenství. 
+            V kombinaci s optickou mikroskopii umožňuje určovat chemické složení různých mikroskopických objektů, včetně chemického složení organel mikroorganizmů. 
+            V rámci exkurze předvedeme, jak se pomocí Ramanovy mikroskopie vytváří chemické mapy fotosyntetických mikrořas.
+
+
+        </p>
+
+
+        <h4 id="Resistometricka-laborator">Resistometrická laboratoř (RES)</h4>
+
+        <p>Resistometrická laboratoř je vybavena vysoce přesnými přístroji k měření
+            elektrického odporu, čehož využíváme zejména k měření odporu kovových
+            slitin.
+            
+            Díky unikátní aparatuře vyvinuté na MFF můžeme detailně proměřit
+            závislost odporu na teplotě pro široký obor teplot.
+            
+            Ukazuje se, že elektrický odpor se  pro některé materiály chová opravdu
+            překvapivě a dodnes nevíme, jak takovéto procesy pořádně teoreticky
+            uchopit.
+            
+        </p>
+
+        <h4 id="Laserova-laborator">Laserová laboratoř (OPT1)</h4>
+        <p>V rámci exkurze navštívíme naše optické laboratoře ultrarychlé laserové spektroskopie 
+            a povíme si něco o femtosekundových laserových pulzech a jejich využití v materiálovém výzkumu.
+        </p>
+
+        <h4 id="Laborator-ts">Laboratoř terahertzové spintroniky (OPT2)</h4>
+        <p>
+            Laboratoř terahertzové spintroniky na Katedře chemické fyziky a optiky
+            se zaměřuje na studium a využitelnost ultrarychlých procesů v magneticky
+            uspořádaných látkách pro informační technologie nové generace. Kromě
+            konvenčních feromagnetických materiálů zkoumáme za použití moderních
+            laserových systémů potenciál antiferomagnetických látek pro účely
+            rychlých permanentních pamětí a také zcela nové třídy magnetického
+            uspořádání – tzv. altermagnetů.
+
+        </p>
+
+        <h4 id="Seismicka-laborator">Seismická laboratoř (SEIS)</h4>
+        <p>Kromě prohlídky nejstarší seismické stanice v ČR, virtuálně navštívíme Řecko, kde má katedra geofyziky MFFUK vlastní seismografy.
+            Seznámíme se s posledním výzkumem řeckých zemětřesení z oblasti Korintského zálivu, 
+            ale můžeme si i povídat o letošním ničivém zemětřesení v Turecku a Sýrii.
+
+        </p>
+
+        <h4 id="Pocitacove-modelovani">Počítačové modelování biomolekul (MOL)</h4>
+        <p>Počítačové modelování biomolekul slouží k interpretaci experimentů
+            a k racionálnímu designu léků.
+            Během exkurze budou představeny ukázk základních technik:
+            dockingu, molekulárně-dynamických simulaci a kvantově-chemických výpočtů.            
+
+        </p>
+
+        <h4 id="Meteorologicka-laborator">Meteorologická laboratoř Karlov (METEO)</h4>
+        <p>
+            V rámci exkurze se studenti podívají do meteorologické stanice na Karlově a seznámí se s tamními měřícími přístroji.
+        </p>
+
+        <h4 id="Pohled-do-Nanosveta">Pohled do Nanosvěta (AFM)</h4>
+        <p>
+            Navštivte s námi nano-svět. Společně se podíváme jaké optické signály 
+            vysílají nano-objekty směrem k našemu makro-světu pomocí 
+            mikro-spektroskopie. Dále nahlédneme i do světa nanostruktur pomocí 
+            mikroskopie atomárních sil, která nám umožňuje ohmatat nano-povrchy a 
+            změřit jejich fyzikální vlastnosti
+            
+        </p>
+
+        <h4 id="Deformacni-mechanismy-kovu">Deformační mechanismy kovů (DEF)</h4>
+        <p> Změna tvaru mřížky kovu záleží na mnoha faktorech, k nimž patří složení, teplota, rychlost zatěžování a další.
+             Pozorované deformace lze rozdělit na elastické a plastické, u obou rozeznáváme různé mechanismy vzniku, 
+             například dvojčatěním nebo kluzem. 
+
+        </p>
+
+        <h4 id="Biofyzika-zivych-bunek">Biofyzika živých buněk (BFYZ)</h4>
+        <p>V laboratořích na Oddělení biofyziky se věnujeme výzkumu procesů probíhajících v živých buňkách, a to jak uvnitř buněk, 
+            tak na jejich membránách. Ke studiu využíváme nejenom biofyzikální metody (zejména fluorescenční), ale také metody biologické. Různé metody fluorescence nám poskytují neinvazivní nástroj vhodný ke sledování konkrétních buněčných procesů v reálném čase. 
+            Naše skupina s využitím fluorescenční sondy diS-C3(3) mapuje funkci a uspořádání nespecifických
+             membránových MDR (Multi-Drug Resistance) transportérů, jejichž nadprodukce v membránách buněk vede 
+             k fenoménu nazvanému „Mnohočetná léková rezistence“. Tento fenomén se projevuje jak odolností (nejen)
+              patogenních (např. kvasinkových) buněk vůči antibiotikům, tak odolností lidských rakovinných buněk vůči 
+              chemoterapeutikům. Naše fluorescenční metoda nám umožňuje sledovat změny v chování těchto MDR proteinů v modelovém 
+              organismu kvasinek Saccharomyces cerevisiae (tzv. pekařské nebo pivní kvasinky). Naše laboratoře jsou perfektně 
+              vybaveny pro kultivaci kvasinek a následnou práci s nimi (fluorescenční spektroskopie a mikroskopie).
+            
+        </p>
+
+        <h4 id="Rust-monokrystalu">Růst monokrystalů (RKRYS)</h4>
+        <p>
+            Podíváme se, jak probíhá výroba velmi čistých monokrystalů slitin metodou tažení, kdy je rotující zárodek ponořen a následně pomalu vytahován z taveniny. 
+            Při procesu je potřeba velmi přesně kontrolovat teplotu a koncentrace jednotlivých složek, aby nedocházelo ke tvorbě defektů.
+        </p>
+
+        <h4 id="Priprava-monokrystalu">Příprava monokrystalů (MKRYS)</h4>
+        <p>
+
+        </p>
+
+        <h4 id="SEM">Skenovací elektronová mikrostopie (SEM)</h4>
+        <p>
+            Elektronový mikroskop využívající odrazu pohyblivého paprsku elektronů od vzorku. 
+            Výsledný obraz je sestavován na základě úrovně signálu v detektoru, který se mění dle charakteru povrchu. 
+            Vzorek může být větší než v případě TEM, ale musí být vodivý, aby nedocházelo k hromadění náboje. 
+        </p>
+        <h4 id="TEM">Transmisní elektronová mikrostopie (TEM)</h4>
+        <p>
+            Transmisní elektronový mikroskop (TEM) pracuje se svazkem elektronů, který proniká skrz pozorovaný vzorek. 
+            Narozdíl od SEM umožňuje pozorovat vnitřní strukturu materiálů, vzorek však musí být dostatečně tenký, aby jím svazek elektronů pronikl. 
+            High Resolution TEM umožňuje pozorování jednotlivých atomů. 
+        </p>
+
+        <h4 id="ELI-Beamlines">ELI Beamlines Dolní Břežany (ELI)</h4>
+        <p>
+
+        </p>
+
+        <h4 id="FZUS">Prohlídka vybraných laboratoří
+            Fyzikálního ústavu AV ČR Na Slovance (FZUS)</h4>
+        <p>
+            Fyzikální ústav AV ČR je skutečně gigantem co do počtu sekcí a jejich dělení. Při prohlížení vybraných
+            laboratoří
+            se dozvíte spoustu zajímavých věcí a poznáte instituci, která nemá daleko k Mekce české vědy.
+
+        </p>
+
+
+        <h4 id="MACH">Katedra fyzikální a makromolekulární chemie (MACH)</h4>
+        <p>
+            Katedra fyzikální chemie byla založena na Přírodovědecké fakultě UK v roce 1921 jako první katedra fyzikální chemie v Československu. 
+            Katedru založil profesor Jaroslav Heyrovský, který byl později oceněn Nobelovou cenou (1959) za objev polarografie (1926). 
+            Prof. Heyrovský byl vedoucím katedry až do roku 1952, kdy se stal ředitelem nově založeného Polarografického ústavu Akademie věd. 
+            Výzkum na katedře byl zaměřen především na elektrochemii, ostatní obory fyzikální chemie se staly populárními až v 60. letech. 
+            Vzhledem k velkému zájmu o polymerní vědu bylo oddělení v roce 1992 přejmenováno na Ústav fyzikální a makromolekulární chemie. 
+            V současné době se na katedře aktivně zkoumají nejrůznější odvětví moderní fyzikální chemie,
+            od experimentální přes teoretickou fyzikální chemii a chemickou fyziku až po biofyzikální chemii a makromolekulární chemii.
+
+        </p>
+        <h4 id="PALS">Prague asteerix laser system (PALS)</h4>
+        <p>
+            APALSX Badatelské centrum PALS (Prague Asterix Laser System), založené v listopadu 1998 jako společné pracoviště Fyzikálního ústavu AV ČR a Ústavu fyziky plazmatu AV ČR,
+            je koncipováno jako uživatelská laboratoř poskytující základnu pro experimentální výzkum v oboru výkonových laserů a fyziky laserem vytvářeného plazmatu.
+            Centrum bylo zpřístupněno externím uživatelům v září roku 2000.
+        </p>
+
+        <h4 id="JH-INST">Ústav fyzikální chemie Jaroslava Heyrovského (JHIN)</h4>
+        <p>
+            Fyzikální chemie je oborem, kterým se zabývají vědkyně a vědci v ÚFCH J. Heyrovského. 
+            Je to obor rozsáhlý od výpočetní a teoretické chemie až po návrh nových nanomateriálů třeba pro energetické aplikace či do ochrany životního prostředí. Studenti budou mít možnost nahlédnout do některých laboratoří, 
+            kde vědci bádají například nad přípravou nových katalyzátorů, vylepšují elektrochemické metody či využívají různou spektroskopickou nebo mikroskopickou techniku k návrhu a charakterizaci připravených nanomateriálů.
+        </p>
+
+        <h4 id="MIKR">Mikrotron - oddělení urychlovačů ÚJF AV (MIK)</h4>
+        <p>
+
+        </p>
+
+        <h4 id="RfS">Oddělení radiofrekvenční spektroskopie MFF UK (RfS)</h4>
+        <p>
+
+        </p>
+        <h4 id="VDG">Urychlovač Van Der Graaf (VDG)</h4>
+        <p>
+            V areálu těžkých laboratoří v Troji provozuje ÚTEF elektrostatický urychlovač iontů Van de Graaf HV2500 (dále VdG)
+             s maximální energií protonů 2,5 MeV. 
+            Na urychlovači lze provádět fyzikální experimenty základního výzkumu
+             – v současné době se měří interakce polarizovaných neutronů na polarizovaných terčích, dále jaderné reakce pro astrofyzikální výzkum.
+        </p>
+        <h4 id="COMP"> Tokamak Compass (COMP)</h4>
+        <p>
+            Tokamak COMPASS je tokamak (magnetická nádoba pro uchovávání vysokoteplotního plazmatu), který od roku 2008 provozuje Ústav fyziky plazmatu Akademie věd České republiky. Tokamak COMPASS byl největším zařízením toho
+            druhu v České republice. Jedná se o experimentální zařízení pro výzkum termonukleární fúze, které je referenčním zařízením pro aktuálně budovaný tokamak ITER. Rozměrově Tokamak COMPASS pracuje s jednou desetinou velikosti
+            plazmatu, než zmíněný ITER
+        </p>
+        <h4 id="UEXB"> Ústav experimentální botaniky (UEXB)</h4>
+        <p>
+            V laboratoři biologie pylu se seznámíte s pylovými zrny a prohlédnete si je pod mikroskopem.
+            Na druhém stanovišti v Laboratoři biologicky aktivních látek si vyzkoušíte přípravu trvalých preparátů 
+            a prohlédnete si živé vzorky pod konfokálním mikroskopem.
+
+        </p>
+        
+    </section>
+</div>
+          
 
 {/block}
 

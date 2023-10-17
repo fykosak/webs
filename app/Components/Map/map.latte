@@ -24,7 +24,7 @@
         </div>
         <div class="team-counts">
             <strong>{$teamCount}</strong>
-            {if $gamePhaseCalculator->isLongAfterTheGame($gamePhaseCalculator::AFTER)}
+            {if $gamePhaseCalculator->isLongAfterTheEvent($gamePhaseCalculator::AFTER)}
                 {switch $lang}
                     {case cs}
                     {if $teamCount === 1}
