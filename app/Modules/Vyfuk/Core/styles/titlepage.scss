@@ -1,0 +1,30 @@
+.panel.title-panel {
+  h1 {
+    font-size: 5rem;
+  }
+
+  .subheader {
+    font-weight: normal;
+    color: inherit;
+    font-size: 1.3rem;
+  }
+
+  &>.row {
+    --bs-gutter-x: 0;
+  }
+}
+
+.heading-container {
+  //justify-content: space-between;
+  //align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.clear {
+  flex-basis: 100%;
+  height: 0;
+  overflow: hidden;
+  clear: both;
+}

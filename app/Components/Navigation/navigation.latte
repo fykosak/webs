@@ -8,9 +8,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{plink :Default:Default:default}">
-                {*<img class="FOL-logo" src="{$basePath}/images/fyziklani_online{$lang !== "cs" ? "_en" : null}_logo_white.svg" alt="{_'Fyziklani online'}" />*}
                 {if $logoPath}
-                    <img class="FOL-logo" src="{$basePath}{$logoPath}" alt="{$logoAlt}" />
+                    <img src="{$basePath}{$logoPath}" alt="{$logoAlt}" />
                     {else}
                     <h1>{$logoAlt}</h1>
                 {/if}
@@ -21,15 +20,47 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav">
                     {foreach $items as $item}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{plink $item->destination,(expand)$item->linkParams}"
-                               title="{$item->title->title}">
+                        {var $isDropdown = count($item->children)}
+                        <div
+                            {if $isDropdown}
+                                class="nav-item dropdown"
+                                aria-expanded="false"
+                            {else}
+                                class="nav-item"
+                            {/if}>
+                            <a
+                                {if preg_match('#https?://#', $item->destination)}
+                                    href="{$item->destination}"
+                                {else}
+                                    href="{plink $item->destination, (expand)$item->linkParams}"
+                                {/if}
+                                {if $isDropdown}
+                                    class="nav-link dropdown-toggle"
+                                    data-bs-toggle="dropdown"
+                                {else}
+                                    class="nav-link"
+                                {/if}
+                                title="{$item->title->title}">
                                 <span class="hidden-sm">{$item->title->title}</span>
                                 {if $item->title->icon}
-                                    <span class="{$item->title->icon}" title="{$item->title->title}"></span>
+                                    <i class="{$item->title->icon}" title="{$item->title->title}"></i>
                                 {/if}
                             </a>
-                        </li>
+                            {if $isDropdown}
+                                <div class="dropdown-menu">
+                                    {foreach $item->children as $subItem}
+                                        <a class="dropdown-item"
+                                            {if preg_match('#https?://#', $subItem->destination)}
+                                                href="{$subItem->destination}"
+                                            {else}
+                                                href="{plink $subItem->destination, (expand)$subItem->linkParams}"
+                                            {/if}>
+                                            {$subItem->title->toHtml()}
+                                        </a>
+                                    {/foreach}
+                                </div>
+                            {/if}
+                        </div>
                     {/foreach}
                 </ul>
                 {if $hasI18n}
