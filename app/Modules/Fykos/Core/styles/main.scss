@@ -39,7 +39,9 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 // @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 // @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
 
-// @import "./../../../Fol/Core/styles/layout";
+@import '../../../../Models/OldFykos/css/cssAll';
+
+@import "./../../../Fol/Core/styles/layout";
 // @import "./../../../Fol/Core/styles/titlepage";
 // @import "./../../../Fol/Core/styles/navigation";
 
@@ -51,5 +53,3 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 // @import '../../../../Components/ResultsPanel/styles';
 // @import '../../../../Components/UpperHomePrague/styles';
 // @import '../../../../Components/TeamResults/styles';
-
-@import '../../../../Models/OldFykos/css/cssAll';
