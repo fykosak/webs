@@ -58,7 +58,8 @@
                     <a href="https://online.fyziklani.cz" target="_blank">
                         <div class="event fol-color">
                             <div class="event-header">
-                                <h3><img src="/images/logos/fyziklani_online_symbol_white.svg" class="inline-logo"> Fyziklání
+                                <h3><img src="/images/logos/fyziklani_online_symbol_white.svg" class="inline-logo">
+                                    Fyziklání
                                     Online</h3>
                                 <span class="event-date">22.11.</span>
                             </div>
@@ -89,7 +90,8 @@
                     <a href="https://fyziklani.cz" target="_blank">
                         <div class="event fof-color">
                             <div class="event-header">
-                                <h3><img src="/images/logos/fyziklani_symbol_white.svg" class="inline-logo"> Fyziklání</h3>
+                                <h3><img src="/images/logos/fyziklani_symbol_white.svg" class="inline-logo"> Fyziklání
+                                </h3>
                                 <span class="event-date">16. 2.</span>
                             </div>
                             <div>
@@ -273,14 +275,14 @@
             logo.addEventListener('mouseover', () => {
                 const associatedEventBox = document.getElementById(logo.dataset.eventBox);
                 if (associatedEventBox) {
-                    associatedEventBox.classList.add('active');
+                    associatedEventBox.querySelector('.event').classList.add('active');
                 }
             });
 
             logo.addEventListener('mouseout', () => {
                 const associatedEventBox = document.getElementById(logo.dataset.eventBox);
                 if (associatedEventBox) {
-                    associatedEventBox.classList.remove('active');
+                    associatedEventBox.querySelector('.event').classList.remove('active');
                 }
             });
         });
