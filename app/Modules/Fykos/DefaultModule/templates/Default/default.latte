@@ -221,17 +221,36 @@
 <script n:syntax=off>
     document.addEventListener("DOMContentLoaded", function () {
 
-        function positionLogo(dateStr, classStr, eventBoxId, imageUrl = null) {
+        function calculatePositionPercentages(dates) {
             const startDate = new Date("2023-10-01");
             const endDate = new Date("2024-05-30");
-            const totalDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
-            const eventDate = new Date(dateStr);
-            const elapsedDays = (eventDate - startDate) / (1000 * 60 * 60 * 24);
-            const positionPercentage = (elapsedDays / totalDays) * 100;
+            const totalDays = (endDate - startDate);
+            let positions = [];
 
+            // Phase 1: Calculate initial positions
+            for (let dateStr of dates) {
+                const eventDate = new Date(dateStr);
+                const elapsedDays = (eventDate - startDate);
+                const positionPercentage = (elapsedDays / totalDays) * 100;
+                positions.push(positionPercentage);
+            }
+
+            // Phase 2: Adjust overlapping positions
+            const logoWidthPercentage = 30 / document.querySelector('.timeline-container').offsetWidth * 100;
+            for (let i = 0; i < positions.length - 1; i++) {
+                if (Math.abs(positions[i] - positions[i + 1]) < logoWidthPercentage) {
+                    const avgPosition = (positions[i] + positions[i + 1]) / 2;
+                    positions[i] = avgPosition - logoWidthPercentage / 2;
+                    positions[i + 1] = avgPosition + logoWidthPercentage / 2;
+                }
+            }
+
+            return positions;
+        }
+
+        function positionLogo(positionPercentage, classStr, eventBoxId, imageUrl = null) {
             let logoElem;
 
-            // If imageUrl is null, create a div for today-block, otherwise create an img
             if (imageUrl) {
                 logoElem = document.createElement("img");
                 logoElem.src = imageUrl;
@@ -241,35 +260,38 @@
 
             logoElem.classList.add(classStr);
 
-            // position the images horizontally according to dates
+            // Update position
             if (window.innerWidth <= 768) {
-                // vertically on small screens
                 logoElem.style.top = `${positionPercentage}%`;
             } else {
                 logoElem.style.left = `${positionPercentage}%`;
             }
 
             logoElem.dataset.eventBox = eventBoxId;
-
             document.querySelector('.timeline-container').appendChild(logoElem);
         }
 
         let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
-        let images_events = ["/images/logos/dsef_symbol.svg", "/images/logos/fykos_symbol.svg", "/images/logos/fyziklani_online_symbol.svg", "/images/logos/fyziklani_symbol.svg"];
+        let images_events = ["/images/logos/fykos_symbol.svg", "/images/logos/dsef_symbol.svg", "/images/logos/fyziklani_online_symbol.svg", "/images/logos/fyziklani_symbol.svg"];
 
         let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09", "2024-05-14"];
         let images_series = ["/images/logos/1.svg", "/images/logos/2.svg", "/images/logos/3.svg", "/images/logos/4.svg", "/images/logos/5.svg", "/images/logos/6.svg"];
 
-        dates_events.forEach((num, index) => {
-            positionLogo(num, "logo-event", `event-${index + 1}`, images_events[index]);
-        });
-
-        dates_series.forEach((num, index) => {
-            positionLogo(num, "logo-series", `series-${index + 1}`, images_series[index]);
-        });
+        let positions_events = calculatePositionPercentages(dates_events);
+        let positions_series = calculatePositionPercentages(dates_series);
 
         const today = new Date();
-        positionLogo(today, "today-block", "today-block");
+        let position_today = calculatePositionPercentages([today])
+
+        positions_events.forEach((position, index) => {
+            positionLogo(position, "logo-event", `event-${index + 1}`, images_events[index]);
+        });
+        positions_series.forEach((position, index) => {
+            positionLogo(position, "logo-series", `series-${index + 1}`, images_series[index]);
+        });
+        position_today.forEach((position, index) => {
+            positionLogo(position, "today-block", "today-block");
+        });
 
         document.querySelectorAll('.logo-event, .logo-series').forEach((logo) => {
             logo.addEventListener('mouseover', () => {
