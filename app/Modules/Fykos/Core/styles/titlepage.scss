@@ -214,7 +214,7 @@
    align-items: center; /* To vertically align items */
    position: relative; /* Setting to relative to ensure z-index works */
    text-align: left;
-   height: 75vh;
+   height: 65vh;
    justify-content: space-between; /* To maximize space between text-container and image */
    color: $text-on-primary !important;
 }
@@ -241,7 +241,8 @@ h2.header-text {
 
 .event {
   // flex: 0 0 40%;
-  width: 90%;
+  width: 95%;
+
   border: 3px solid $primary-color;
   padding: 10px 30px;
   display: inline-block;
@@ -257,75 +258,111 @@ h2.header-text {
     font-weight: bolder;
     font-size: 1.2rem;
   }
-
+  
+  .event-date {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 5px;
+    color: $primary-color;
+  }
 }
 
-// .event.series {
-//   width: 100%;
-// }
 
-.event:hover {
-  transform: scale(1.05);  /* Slightly enlarge the event block on hover */
+.event.active, .event:hover {
+  transform: scale(1.05);  /* Makes the box slightly larger */
+  transition: transform 0.2s ease-in-out;  /* Smooth transition */
 }
 
-
-.event-date {
-  font-size: .8rem;
-  margin-right: 5px;
+.start-timeline-text, .end-timeline-text {
+  font-weight: bold;
   color: $primary-color;
+  padding: 0;
+  margin: 0;
+
+  p {
+    margin: 0;
+  }
 }
 
+.end-timeline-text {
+  text-align: right;
+}
+
+.timeline-container {
+  position: relative;
+  width: 100%;
+  height: 100px; /* Adjust as needed */
+}
+
+$middle-line-half-border-width: 5px;
+$timeline-logo-height: 30px;
+$buffer-logo-timeline: 10px;
+$top-offset: $middle-line-half-border-width + $timeline-logo-height + $buffer-logo-timeline;
 
 
-// .timeline-container {
-//   width: 100%;
-//   height: 140px;
-//   position: relative;
-// }
+.start-timeline-text,
+.end-timeline-text {
+  position: absolute;
+  top: calc(50% - $buffer-logo-timeline - 1.5rem );
+  z-index: 1; /* Make sure this is above the line */
+}
+
+.start-timeline-text {
+  left: 0;
+}
+
+.end-timeline-text {
+  right: 0;
+}
 
 .middle-line {
   width: 100%;          /* Makes the line span the full width of its container */
   border: 0;            /* Removes default border */
-  border-top: 5px solid white; /* Adds a border to the top side only */
-  border-bottom: 5px solid white; /* Adds a border to the top side only */
-  // position: absolute;
-  top: 42%;
+  border-top: $middle-line-half-border-width solid white; /* Adds a border to the top side only */
+  border-bottom: $middle-line-half-border-width solid white; /* Adds a border to the top side only */
+  margin: 10px 0;
+  position: absolute;
+  top: calc( 50% - $middle-line-half-border-width - $buffer-logo-timeline );
+  z-index: 1;
   opacity: 1;
   border-color: $primary-color;
 }
 
-
-.timeline-container {
-  width: 100%;
-  height: 140px;
-  position: relative;
-}
-
 .logo-series, .logo-event, .today-block {
-  width: 50px !important;
   position: absolute;
   z-index: 5; /* To ensure it's above the line and other elements */
-
 }
 
-.logo-series {
-  bottom: 20%;
+.logo-event, .logo-series {
+  height: $timeline-logo-height !important;
 }
 
 .logo-event {
-  top: 20%;
+  top: calc(50% - $top-offset); /* 50% aligns with the middle line; minus 10px moves it up */
 }
+
+.logo-series {
+  bottom: calc(50% - $top-offset); /* 50% aligns with the middle line; plus 10px moves it down */
+}
+
+
 
 .today-block{
-  width: 25px;
-  bottom: 50%;
+  $today-block-height: 24px;
+  background-color: $primary-color;
+  height: $today-block-height !important;
+  width: $today-block-height;
+  top: calc(50% - $today-block-height / 2);
 }
 
+.inline-logo {
+  margin-left: 5px;
+  height: 1.8rem;
+}
 
 .panel {
   margin-bottom: 0;
 }
-
 
 .header-text-container {
   z-index: 2; /* Higher z-index to ensure text is above the image */

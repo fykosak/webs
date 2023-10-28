@@ -80,7 +80,7 @@
                     <div class="col-md-5 order-md-2 order-3 mt-4" id="event-3">
                         <a href="https://online.fyziklani.cz" target="_blank">
                             <div class="event">
-                                <h3><span class="event-date">22.11.</span> Fyzikální Online</h3>
+                                <h3><span class="event-date">22.11.</span><img src="/logos/fyziklani_online_logo.svg" class="inline-logo"></h3>
                                 <p>Celosvětová soutěž, které se může účastnit každý</p>
                                 <p>Registrace od 1. 9. do 2 hodin před soutěží.</p>
                             </div>
@@ -90,7 +90,7 @@
                     <div class="col-md-5 offset-md-2 order-md-3 order-2 mt-4" id="event-2">
                         <a href="https://dsef.cz" target="_blank">
                             <div class="event">
-                                <h3><span class="event-date">6. 11.</span> DSEF</h3>
+                                <h3><span class="event-date">6. 11.</span><img src="/logos/dsef_logo.svg" class="inline-logo"></h3>
                                 <p>Den s experimentální fyzikou na Matfyzu</p>
                                 <p>Registrace od 2. 10. do 3. 11.</p>
                             </div>
@@ -99,25 +99,28 @@
                     <div class="col-md-5 order-md-4 order-4 mt-4" id="event-4">
                         <a href="https://fyziklani.cz" target="_blank">
                             <div class="event">
-                                <h3><span class="event-date">16. 2.</span> Fyzikální 2024</h3>
+                                <h3><span class="event-date">16. 2.</span><img src="/logos/fyziklani_logo.svg" class="inline-logo"></h3>
                                 <p>Mezinárodní týmová soutěž v Praze</p>
                                 <p>Registrace od 22. 11. do 9. 2.</p>
                             </div>
                         </a>
                     </div>
                 </div>
-
-                <div class="timeline-container row">
-                    <div class="col-12">
-                        <div class="start-timeline-text">
-                            <p>1. 10. 2023</p>
-                        </div> 
-                        <hr class="middle-line">
-                        <div class="end-timeline-text">
-                            <p>30. 5. 2024</p>
+                
+                <div class="row">
+                    <div class="col-12 my-4">
+                        <div class="timeline-container position-relative"> <!-- Added position-relative class -->
+                            <div class="start-timeline-text position-absolute">
+                                <p>1. 10. 2023</p>
+                            </div>
+                            <hr class="middle-line">
+                            <div class="end-timeline-text position-absolute">
+                                <p>30. 5. 2024</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
 
                 <div class="row">
                     <!-- Third Row -->
@@ -198,69 +201,74 @@
 
 <script n:syntax=off>
     document.addEventListener("DOMContentLoaded", function() {
-        
-        // Your existing JavaScript function
-        function positionLogo(dateStr, classStr, eventBoxId) {
-            // Define the timeline start and end dates
+
+        function positionLogo(dateStr, classStr, eventBoxId, imageUrl = null) {
             const startDate = new Date("2023-10-01");
             const endDate = new Date("2024-05-30");
             const totalDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
-
             const eventDate = new Date(dateStr);
             const elapsedDays = (eventDate - startDate) / (1000 * 60 * 60 * 24);
-
-            // Calculate the position for the logo
             const positionPercentage = (elapsedDays / totalDays) * 100;
 
-            // Create the logo element and set its position
-            const logoElem = document.createElement("img");
-            logoElem.src = "/logos/fykos_symbol.png";
+            let logoElem;
+
+            // If imageUrl is null, create a div for today-block, otherwise create an img
+            if (imageUrl) {
+                logoElem = document.createElement("img");
+                logoElem.src = imageUrl;
+            } else {
+                logoElem = document.createElement("div");
+            }
+
             logoElem.classList.add(classStr);
 
-            if (window.innerWidth <= 768) {  /* Small screen */
+            // position the images horizontally according to dates
+            if (window.innerWidth <= 768) {
+                // vertically on small screens
                 logoElem.style.top = `${positionPercentage}%`;
-            } else {  /* Large screen */
+            } else {
                 logoElem.style.left = `${positionPercentage}%`;
-            } 
+            }
 
             logoElem.dataset.eventBox = eventBoxId;
-            // Append the logo to the body (or the container div you wish)
-            document.querySelector('.timeline-container').appendChild(logoElem);        }
-        
-        // Position logos for each event
-        let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
-        let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09","2024-05-14"];
 
-        dates_events.forEach(function(num, index) {
-            positionLogo(num, "logo-event", `event-${index + 1}`);
+            document.querySelector('.timeline-container').appendChild(logoElem);
+        }
+
+        let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
+        let images_events = ["/logos/dsef_symbol.svg", "/logos/fykos_symbol.svg", "/logos/fyziklani_online_symbol.svg", "/logos/fyziklani_symbol.svg"];
+        
+        let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09","2024-05-14"];
+        let images_series = ["/logos/1.svg", "/logos/2.svg", "/logos/3.svg", "/logos/4.svg", "/logos/5.svg", "/logos/6.svg"];
+
+        dates_events.forEach((num, index) => {
+            positionLogo(num, "logo-event", `event-${index + 1}`, images_events[index]);
         });
 
-        dates_series.forEach(function(num, index) {
-            positionLogo(num, "logo-series", `series-${index + 1}`);
+        dates_series.forEach((num, index) => {
+            positionLogo(num, "logo-series", `series-${index + 1}`, images_series[index]);
         });
 
         const today = new Date();
-        positionLogo(today.toISOString().split('T')[0], "today-block", "today-block");
+        positionLogo(today, "today-block", "today-block");
 
-        positionLogo(today,"today-block","today-block")
-
-        document.querySelectorAll('.logo-event, .logo-series').forEach(function(logo) {
-            logo.addEventListener('mouseover', function() {
+        document.querySelectorAll('.logo-event, .logo-series').forEach((logo) => {
+            logo.addEventListener('mouseover', () => {
                 const associatedEventBox = document.getElementById(logo.dataset.eventBox);
                 if (associatedEventBox) {
                     associatedEventBox.classList.add('active');
                 }
             });
 
-            logo.addEventListener('mouseout', function() {
+            logo.addEventListener('mouseout', () => {
                 const associatedEventBox = document.getElementById(logo.dataset.eventBox);
                 if (associatedEventBox) {
                     associatedEventBox.classList.remove('active');
                 }
             });
         });
-        
-    });
+});
+
 </script>
 
 
