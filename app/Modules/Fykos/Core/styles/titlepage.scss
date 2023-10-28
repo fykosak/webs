@@ -249,7 +249,6 @@ h2.header-text {
   // flex: 0 0 40%;
   width: 95%;
 
-
   // this ensures the event blocks always have the same height
   display: flex;
   flex-direction: column;
@@ -260,15 +259,17 @@ h2.header-text {
 
   padding: 10px;
 
-  border: 3px solid $primary-color;
+  // border: 3px solid $primary-color;
+
+  background-color: $primary-color;
+  color: $text-on-primary !important;
+
   // padding: 10px 30px;
   display: inline-block;
   transition: transform 0.2s;
 
   p {
     margin-bottom: .3rem;
-    color: black;
-
   }
 
   .series {
@@ -278,19 +279,22 @@ h2.header-text {
   .event-header {
     display: flex;
     justify-content: space-between;
+    color: $text-on-primary;
   }
 
 
   h3 {
     font-weight: bolder;
     font-size: 1.2rem;
+    color: $text-on-primary !important;
   }
 
   .event-date {
     font-size: 1rem;
     font-weight: bold;
     margin-right: 5px;
-    color: $primary-color;
+    // color: $primary-color;
+    color: $text-on-primary;
   }
 
   .inline-logo {
@@ -298,6 +302,19 @@ h2.header-text {
     margin-right: 7px;
   }
   
+}
+
+
+.fof-color {
+  background-color: #e6060d;
+}
+
+.fol-color {
+  background-color: #00ae6b;
+}
+
+.dsef-color {
+  background-color: #f2b72b;
 }
 
 
@@ -359,16 +376,15 @@ $top-offset: $middle-line-half-border-width + $timeline-logo-height + $buffer-lo
   /* Makes the line span the full width of its container */
   border: 0;
   /* Removes default border */
-  border-top: $middle-line-half-border-width solid white;
+  border-top: $middle-line-half-border-width solid black;
   /* Adds a border to the top side only */
-  border-bottom: $middle-line-half-border-width solid white;
+  border-bottom: $middle-line-half-border-width solid black;
   /* Adds a border to the top side only */
   margin: 10px 0;
   position: absolute;
   top: calc(50% - $middle-line-half-border-width - $buffer-logo-timeline );
   z-index: 1;
   opacity: 1;
-  border-color: $primary-color;
 }
 
 .logo-series,
