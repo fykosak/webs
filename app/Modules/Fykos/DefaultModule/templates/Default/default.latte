@@ -1,206 +1,254 @@
 {varType string $lang}
 {*{block title}*}
-{*    {switch $lang}*}
-{*        {case 'cs'} Hlavní stránka*}
-{*        {default} Main page*}
-{*    {/switch}*}
+{* {switch $lang}*}
+{* {case 'cs'} Hlavní stránka*}
+{* {default} Main page*}
+{* {/switch}*}
 {*{/block}*}
 {* {block content} *}
-{*    {if $jumbotron}*}
-{*        <div class="title-panel container-fluid header-image jumbotron position-relative">*}
-{*            {control jumbotron}*}
-{*        </div>*}
-{*    {/if}*}
+{* {if $jumbotron}*}
+{* <div class="title-panel container-fluid header-image jumbotron position-relative">*}
+    {* {control jumbotron}*}
+    {* </div>*}
+{* {/if}*}
 {block main}
-    <div class="panel color-primary title-panel">
-        <section class="inner-container">
-            <div class="header-container">
-                <div class="header-text-container">
-                    <h1 class="header-text">FYKOS</h1>
-                    <h2 class="header-text">Inspirujeme a vzděláváme<br>středoškoláky ve fyzice.</h2>
-                    <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve fyzice již více než 35 let.
+<div class="panel color-primary title-panel">
+    <section class="inner-container">
+        <div class="header-container">
+            <div class="header-text-container">
+                <h1 class="header-text">FYKOS</h1>
+                <h2 class="header-text">Inspirujeme a vzděláváme<br>středoškoláky ve fyzice.</h2>
+                <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve fyzice již více než 35 let.
                     Zjistěte více na stránce <a n:href="About:fykos-group">o nás</a>.</p>
-                    <!-- <button class="custom-button">About FYKOS</button> -->
-                </div>
-                <img id="header-image" class="header-image" src="{$basePath}/logos/fykos_symbol_no_border.svg" alt="FYKOS logo">
+                <!-- <button class="custom-button">About FYKOS</button> -->
+            </div>
+            <img id="header-image" class="header-image" src="{$basePath}/images/logos/fykos_symbol_no_border.svg"
+                alt="FYKOS logo">
+        </div>
+
+        {* <div class="heading-container">
+            <div class="title-container">
+                <h1 class="title">Pořádáme vzdělávací akce pro středoškoláky.</h1>
+                <p class="title-sub-text">Tady nějaký kratší inspirativní text vysvětlující to trochu líp a že si můžou
+                    vybrat z tadytěch tří obdélníků. Všechny akce najdete <a n:href="Default:Events">zde</a>.</p>
+            </div>
+            <div class="jumbotron-container">
+                <div class="jumbotron">Tady do toho prostoru pak přidáme novinky jako na starém webu (možná trochu
+                    hezčí).</div>
+            </div>
+        </div> *}
+        {*
+        <div class="clear"></div>
+
+        <div class="contest-container">
+            <div class="contest-rectangle">
+                <a n:href="About:fykos-competition"><img src="{$basePath}/images/logos/fykos_logo.png" alt="FYKOS"></a>
+                <p>Nějaký zajímavý textík o FYKOSu, je to pěkná soutěž, probíhá celý rok.</p>
+                <a n:href="About:fykos-competition" class="btn-fykos">Více informací</a>
+            </div>
+            <div class="contest-rectangle">
+                <a href="https://fyziklani.org"><img src="{$basePath}/images/logos/fyziklani_logo.png" alt="Fyziklani"></a>
+                <p>Nějaký text o Fyziklání, bude v únoru, bude to cool.</p>
+                <a href="https://fyziklani.org" class="btn-fof">Více informací</a>
+            </div>
+            <div class="contest-rectangle">
+                <a href="https://physicsbrawl.org"><img src="{$basePath}/images/logos/fyziklani_online_logo.png"
+                        alt="Physics Brawl Online"></a>
+                <p>Nějaký textík o Fyziklání Online, je to jako Fyziklání, ale je to Online.</p>
+                <a href="https://physicsbrawl.org" class="btn-fol">Více informací</a>
+            </div>
+        </div> *}
+    </section>
+</div>
+
+<div class="panel color-light">
+    <section class="inner-container">
+        <h1 class="section-header">Naše akce</h1>
+        <p>Toto jsou hlavní akce, které organizujeme. Zjistěte více na <a href="#">stránce akcí</a>.</p>
+        <!-- <button class="custom-button">FYKOS Events</button> -->
+        <!-- Vertical line for small screens -->
+        <div class="position-relative">
+            <div class="vertical-timeline d-block d-md-none border-left position-absolute h-100" style="width: 5px;">
             </div>
 
-            {* <div class="heading-container">
-                <div class="title-container">
-                    <h1 class="title">Pořádáme vzdělávací akce pro středoškoláky.</h1>
-                    <p class="title-sub-text">Tady nějaký kratší inspirativní text vysvětlující to trochu líp a že si můžou vybrat z tadytěch tří obdélníků. Všechny akce najdete <a n:href="Default:Events">zde</a>.</p>
-                </div>
-                <div class="jumbotron-container">
-                    <div class="jumbotron">Tady do toho prostoru pak přidáme novinky jako na starém webu (možná trochu hezčí).</div>
-                </div>
-            </div> *}
-{* 
-            <div class="clear"></div>
-
-            <div class="contest-container">
-                <div class="contest-rectangle">
-                    <a n:href="About:fykos-competition"><img src="{$basePath}/logos/fykos_logo.png" alt="FYKOS"></a>
-                    <p>Nějaký zajímavý textík o FYKOSu, je to pěkná soutěž, probíhá celý rok.</p>
-                    <a n:href="About:fykos-competition" class="btn-fykos">Více informací</a>
-                </div>
-                <div class="contest-rectangle">
-                    <a href="https://fyziklani.org"><img src="{$basePath}/logos/fyziklani_logo.png" alt="Fyziklani"></a>
-                    <p>Nějaký text o Fyziklání, bude v únoru, bude to cool.</p>
-                    <a href="https://fyziklani.org" class="btn-fof">Více informací</a>
-                </div>
-                <div class="contest-rectangle">
-                    <a href="https://physicsbrawl.org"><img src="{$basePath}/logos/fyziklani_online_logo.png" alt="Physics Brawl Online"></a>
-                    <p>Nějaký textík o Fyziklání Online, je to jako Fyziklání, ale je to Online.</p>
-                    <a href="https://physicsbrawl.org" class="btn-fol">Více informací</a>
-                </div>
-            </div> *}
-        </section>
-    </div>
-
-    <div class="panel color-light">
-        <section class="inner-container">
-            <h1 class="section-header">Naše akce</h1>
-            <p>Toto jsou hlavní akce, které organizujeme. Zjistěte více na <a href="#">stránce akcí</a>.</p>
-            <!-- <button class="custom-button">FYKOS Events</button> -->
-            <!-- Vertical line for small screens -->
-            <div class="position-relative"> <!-- Added position-relative -->
-                <div class="vertical-timeline d-block d-md-none border-left position-absolute h-100" style="width: 5px;"></div>
-
-                <div class="row">
-                    <!-- First Row -->
-                    <div class="col-md-5 offset-md-1 order-md-1 order-1 mt-4" id="event-1">
-                        <a href="https://physics.naboj.org" target="_blank">
-                            <div class="event">
-                                <h3><span class="event-date">3. 11.</span> Fyzikální Náboj</h3>
+            <div class="row">
+                <!-- First Row -->
+                <div class="col-md-5 offset-md-1 order-md-1 order-1 mt-4" id="event-1">
+                    <a href="https://physics.naboj.org" target="_blank">
+                        <div class="event">
+                            <div class="event-header">
+                                <h3>Fyzikální Náboj</h3>
+                                <span class="event-date">3. 11.</span>
+                            </div>
+                            <div>
                                 <p>Týmová soutěž v Praze, Ostravě a jinde ve světě</p>
                                 <p>Otevření registrace sledujte na webu</p>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-md-5 order-md-2 order-3 mt-4" id="event-3">
-                        <a href="https://online.fyziklani.cz" target="_blank">
-                            <div class="event">
-                                <h3><span class="event-date">22.11.</span><img src="/logos/fyziklani_online_logo.svg" class="inline-logo"></h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-5 order-md-2 order-3 mt-4" id="event-3">
+                    <a href="https://online.fyziklani.cz" target="_blank">
+                        <div class="event">
+                            <div class="event-header">
+                                <h3><img src="/images/logos/fyziklani_online_symbol.svg" class="inline-logo"> Fyziklání Online</h3>
+                                <span class="event-date">22.11.</span>
+                            </div>
+                            <div>
                                 <p>Celosvětová soutěž, které se může účastnit každý</p>
                                 <p>Registrace od 1. 9. do 2 hodin před soutěží.</p>
                             </div>
-                        </a>
-                    </div>
-                    <!-- Second Row -->
-                    <div class="col-md-5 offset-md-2 order-md-3 order-2 mt-4" id="event-2">
-                        <a href="https://dsef.cz" target="_blank">
-                            <div class="event">
-                                <h3><span class="event-date">6. 11.</span><img src="/logos/dsef_logo.svg" class="inline-logo"></h3>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Second Row -->
+                <div class="col-md-5 offset-md-2 order-md-3 order-2 mt-4" id="event-2">
+                    <a href="https://dsef.cz" target="_blank">
+                        <div class="event">
+                            <div class="event-header">
+                                <h3><img src="/images/logos/dsef_symbol.svg" class="inline-logo"> DSEF</h3>
+                                <span class="event-date">6. 11.</span>
+                            </div>
+                            <div>
                                 <p>Den s experimentální fyzikou na Matfyzu</p>
                                 <p>Registrace od 2. 10. do 3. 11.</p>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-md-5 order-md-4 order-4 mt-4" id="event-4">
-                        <a href="https://fyziklani.cz" target="_blank">
-                            <div class="event">
-                                <h3><span class="event-date">16. 2.</span><img src="/logos/fyziklani_logo.svg" class="inline-logo"></h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-5 order-md-4 order-4 mt-4" id="event-4">
+                    <a href="https://fyziklani.cz" target="_blank">
+                        <div class="event">
+                            <div class="event-header">
+                                <h3><img src="/images/logos/fyziklani_symbol.svg" class="inline-logo"> Fyziklání</h3>
+                                <span class="event-date">16. 2.</span>
+                            </div>
+                            <div>
                                 <p>Mezinárodní týmová soutěž v Praze</p>
                                 <p>Registrace od 22. 11. do 9. 2.</p>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
-                
-                <div class="row">
-                    <div class="col-12 my-4">
-                        <div class="timeline-container position-relative"> <!-- Added position-relative class -->
-                            <div class="start-timeline-text position-absolute">
-                                <p>1. 10. 2023</p>
-                            </div>
-                            <hr class="middle-line">
-                            <div class="end-timeline-text position-absolute">
-                                <p>30. 5. 2024</p>
-                            </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 my-4">
+                    <div class="timeline-container position-relative"> <!-- Added position-relative class -->
+                        <div class="start-timeline-text position-absolute">
+                            <p>1. 10. 2023</p>
+                        </div>
+                        <hr class="middle-line">
+                        <div class="end-timeline-text position-absolute">
+                            <p>30. 5. 2024</p>
                         </div>
                     </div>
                 </div>
+            </div>
 
-
-                <div class="row">
-                    <!-- Third Row -->
-                    <div class="col-md-3 offset-md-1 mt-4 order-md-1 order-1" id="series-1">
-                        <div class="event w-md-100 w-90">
-                            <h3><span class="event-date">10. 10.</span> 1. série</h3>
+            <div class="row">
+                <!-- Third Row -->
+                <div class="col-md-3 offset-md-1 mt-4 order-md-1 order-1" id="series-1">
+                    <div class="event w-md-100 w-90">
+                        <div class="event-header">
+                            <h3>1. série</h3>
+                            <span class="event-date">10. 10.</span>
+                        </div>
+                        <div>
                             <p>Velryba, nové kolo a tření papíru</p>
                         </div>
                     </div>
-                    <div class="col-md-3 mt-4 order-md-2 order-3" id="series-3">
-                        <div class="event w-md-100 w-90">
-                            <h3><span class="event-date">2. 1.</span> 3. série</h3>
+                </div>
+                <div class="col-md-3 mt-4 order-md-2 order-3" id="series-3">
+                    <div class="event w-md-100 w-90">
+                        <div class="event-header">
+                            <h3>3. série</h3>
+                            <span class="event-date">2. 1.</span>
+                        </div>
+                        <div>
                             <p>Zvlhčovač, blesky a proteinový motor</p>
                         </div>
                     </div>
-                    <div class="col-md-3 mt-4 order-md-3 order-5" id="series-5">
-                        <div class="event w-md-100 w-90">
-                            <h3><span class="event-date">9. 4.</span> 5. série</h3>
-                            <p>Bowling, med a potápějící se člun</p>
+                </div>
+                <div class="col-md-3 mt-4 order-md-3 order-5" id="series-5">
+                    <div class="event w-md-100 w-90">
+                        <div class="event-header">
+                            <h3>5. série</h3>
+                            <span class="event-date">9. 4.</span>
                         </div>
+                        <p>Bowling, med a potápějící se člun</p>
                     </div>
-                
-                    <!-- Fourth Row -->
-                    <div class="col-md-3 offset-md-2 mt-4 order-md-4 order-2" id="series-2">
-                        <div class="event w-md-100 w-90">
-                            <h3><span class="event-date">21. 11.</span> 2. série</h3>
-                            <p>Pneumatika, cola a perpetuum mobile</p>
+                </div>
+
+                <!-- Fourth Row -->
+                <div class="col-md-3 offset-md-2 mt-4 order-md-4 order-2" id="series-2">
+                    <div class="event w-md-100 w-90">
+                        <div class="event-header">
+                            <h3>2. série</h3>
+                            <span class="event-date">21. 11.</span>
                         </div>
+                        <p>Pneumatika, cola a perpetuum mobile</p>
                     </div>
-                    <div class="col-md-3 mt-4 order-md-5 order-4" id="series-4">
-                        <div class="event w-md-100 w-90">
-                            <h3><span class="event-date">27. 2.</span> 4. série</h3>
-                            <p>Hokejista, svítilna a pozorování letadla</p>
+                </div>
+                <div class="col-md-3 mt-4 order-md-5 order-4" id="series-4">
+                    <div class="event w-md-100 w-90">
+                        <div class="event-header">
+                            <h3>4. série</h3>
+                            <span class="event-date">27. 2.</span>
                         </div>
+                        <p>Hokejista, svítilna a pozorování letadla</p>
                     </div>
-                    <div class="col-md-3 mt-4 order-6" id="series-6">
-                        <div class="event w-md-100 w-90">
-                            <h3><span class="event-date">14. 5.</span> 6. série</h3>
-                            <p>Antineutrína, ponorka a magnety</p>
+                </div>
+                <div class="col-md-3 mt-4 order-6" id="series-6">
+                    <div class="event w-md-100 w-90">
+                        <div class="event-header">
+                            <h3>6. série</h3>
+                            <span class="event-date">14. 5.</span>
                         </div>
+                        <p>Antineutrína, ponorka a magnety</p>
                     </div>
                 </div>
             </div>
+        </div>
+</div>
 
-        </section>
-    </div>
+</section>
+</div>
 
-    <div class="panel color-dark">
-        <section class="inner-container">
-            <h1 class="title">Fyzikální korespondenční seminář</h1>
-            <p>Fyzikální korespondenční seminář je naší nejstarší a původní akcí.</p>
-                <p>Bla bla stručné info o semináři a jak funguje</p>
-                <p>Link na další info o semináři...</p>
-            <div class="description-box left">
-                <div class="step">Podívejte se na úlohy aktuální série</div>
-                <p class="step-text">Podívejte se na zadání na webu.</p>
-            </div>
+<div class="panel color-dark">
+    <section class="inner-container">
+        <h1 class="title">Fyzikální korespondenční seminář</h1>
+        <p>Fyzikální korespondenční seminář je naší nejstarší a původní akcí.</p>
+        <p>Bla bla stručné info o semináři a jak funguje</p>
+        <p>Link na další info o semináři...</p>
+        <div class="description-box left">
+            <div class="step">Podívejte se na úlohy aktuální série</div>
+            <p class="step-text">Podívejte se na zadání na webu.</p>
+        </div>
 
-            <div class="description-box right">
-                <div class="step">Nahrajte řešení do databáze</div>
-                <p class="step-text">Nelekejte se errorů, Mišo to brzo opraví a pak vás zabanuje.</p>
-            </div>
+        <div class="description-box right">
+            <div class="step">Nahrajte řešení do databáze</div>
+            <p class="step-text">Nelekejte se errorů, Mišo to brzo opraví a pak vás zabanuje.</p>
+        </div>
 
-            <div class="description-box left">
-                <div class="step">Prohlédněte si svá opravená řešení</div>
-                <p class="step-text">Naši organizátoři vám řešení opraví a pošlou zpátky s individuální zpětnou vazbou.</p>
-            </div>
+        <div class="description-box left">
+            <div class="step">Prohlédněte si svá opravená řešení</div>
+            <p class="step-text">Naši organizátoři vám řešení opraví a pošlou zpátky s individuální zpětnou vazbou.</p>
+        </div>
 
-            <div class="description-box right">
-                <div class="step">Pojeďte s námi na soustředění</div>
-                <p class="step-text">Pro nejlepší řešitele pořádáme dvakrát do roka soustředění.</p>
-            </div>
+        <div class="description-box right">
+            <div class="step">Pojeďte s námi na soustředění</div>
+            <p class="step-text">Pro nejlepší řešitele pořádáme dvakrát do roka soustředění.</p>
+        </div>
 
-        </section>
-    </div>
+    </section>
+</div>
 
-    
+
 
 <script n:syntax=off>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
 
         function positionLogo(dateStr, classStr, eventBoxId, imageUrl = null) {
             const startDate = new Date("2023-10-01");
@@ -236,10 +284,10 @@
         }
 
         let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
-        let images_events = ["/logos/dsef_symbol.svg", "/logos/fykos_symbol.svg", "/logos/fyziklani_online_symbol.svg", "/logos/fyziklani_symbol.svg"];
-        
-        let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09","2024-05-14"];
-        let images_series = ["/logos/1.svg", "/logos/2.svg", "/logos/3.svg", "/logos/4.svg", "/logos/5.svg", "/logos/6.svg"];
+        let images_events = ["/images/logos/dsef_symbol.svg", "/images/logos/fykos_symbol.svg", "/images/logos/fyziklani_online_symbol.svg", "/images/logos/fyziklani_symbol.svg"];
+
+        let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09", "2024-05-14"];
+        let images_series = ["/images/logos/1.svg", "/images/logos/2.svg", "/images/logos/3.svg", "/images/logos/4.svg", "/images/logos/5.svg", "/images/logos/6.svg"];
 
         dates_events.forEach((num, index) => {
             positionLogo(num, "logo-event", `event-${index + 1}`, images_events[index]);
@@ -267,20 +315,19 @@
                 }
             });
         });
-});
+    });
 
 </script>
 
 
 {/block}
 {*{block main}*}
-{*    <div class="panel color-primary title-panel">*}
-{*        <div class="inner-container row align-items-center">*}
-{*            dělá to něco*}
-{*            <h1>*}
-{*                FYKOS.cz*}
-{*            </h1>*}
-{*        </div>*}
-{*    </div>*}
+{* <div class="panel color-primary title-panel">*}
+    {* <div class="inner-container row align-items-center">*}
+        {* dělá to něco*}
+        {* <h1>*}
+            {* FYKOS.cz*}
+            {* </h1>*}
+        {* </div>*}
+    {* </div>*}
 {*{/block}*}
-
