@@ -410,15 +410,18 @@ $top-offset: $middle-line-half-border-width + $timeline-logo-height + $buffer-lo
   /* 50% aligns with the middle line; plus 10px moves it down */
 }
 
-
-
 .today-block {
   $today-block-height: 24px;
-  background-color: $primary-color;
+  background-color: black;
+  color: white;
   height: $today-block-height !important;
   width: $today-block-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: calc(50% - $today-block-height / 2);
 }
+
 
 
 .panel {

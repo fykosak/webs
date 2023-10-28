@@ -221,6 +221,8 @@
 <script n:syntax=off>
     document.addEventListener("DOMContentLoaded", function () {
 
+        // Init the timeline and set logos around it
+
         function calculatePositionPercentages(dates) {
             const startDate = new Date("2023-10-01");
             const endDate = new Date("2024-05-30");
@@ -254,6 +256,16 @@
             if (imageUrl) {
                 logoElem = document.createElement("img");
                 logoElem.src = imageUrl;
+            } else if (classStr === 'today-block') {
+                // Create the outer div
+                logoElem = document.createElement("div");
+
+                // Create the inner <i> element
+                const iconElem = document.createElement("i");
+                iconElem.classList.add('fas', 'fa-map-marker-alt');
+
+                // Append the <i> element to the div
+                logoElem.appendChild(iconElem);
             } else {
                 logoElem = document.createElement("div");
             }
@@ -293,6 +305,7 @@
             positionLogo(position, "today-block", "today-block");
         });
 
+        // Make an event block become larger if you hover over its corresponding logo on the timeline
         document.querySelectorAll('.logo-event, .logo-series').forEach((logo) => {
             logo.addEventListener('mouseover', () => {
                 const associatedEventBox = document.getElementById(logo.dataset.eventBox);
