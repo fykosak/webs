@@ -19,8 +19,10 @@
                 <h1 class="header-text">FYKOS</h1>
                 <h2 class="header-text">Inspirujeme a vzděláváme<br>středoškoláky ve fyzice.</h2>
                 <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve fyzice již více než 35 let.
-                    Zjistěte více na stránce <a n:href="About:fykos-group">o nás</a>.</p>
-                <!-- <button class="custom-button">About FYKOS</button> -->
+                    {* Zjistěte více na stránce <a n:href="About:fykos-group">o nás</a>.*}</p>
+                    <a class="btn btn-outline" {* n:href="Rules:OrganisationalRegulations" *}>
+                        O nás
+                    </a>
             </div>
             <img id="header-image" class="header-image" src="{$basePath}/images/logos/fykos_symbol_no_border.svg"
                 alt="FYKOS logo">
@@ -31,10 +33,14 @@
 <div class="panel color-light">
     <section class="inner-container">
         <h1 class="section-header">Naše akce</h1>
-        <p>Toto jsou hlavní akce, které organizujeme. Zjistěte více na <a href="#">stránce akcí</a>.</p>
+        <p>Toto jsou hlavní akce, které organizujeme. {* Zjistěte více na <a href="#">stránce akcí</a>. *}</p>
+        <a class="btn btn-primary" {* n:href="Events" *}>
+            Stránka akcí
+        </a>
+
         <!-- <button class="custom-button">FYKOS Events</button> -->
         <!-- Vertical line for small screens -->
-        <div class="position-relative">
+        <div class="position-relative mt-5">
             <div class="vertical-timeline d-block d-md-none border-left position-absolute h-100" style="width: 5px;">
             </div>
 
@@ -190,9 +196,62 @@
     <section class="inner-container">
         <h1 class="title">Fyzikální korespondenční seminář</h1>
         <p>Fyzikální korespondenční seminář je naší nejstarší tradiční akcí. Probíhá celý rok a každý ročník je rozdělen
-            do 6 sérií (které jsou na časové ose výše znázorněny jejich čísly). Zde je stručný popis fungování semináře.
-            Více informací najdete v <a n:href="About:fykos-competition">pravidlech</a>.
-        </p>
+            do 6 sérií (které jsou na časové ose výše znázorněny jejich čísly). Zde je stručný popis fungování semináře.        </p>
+        <a class="btn btn-primary" {* n:href="Rules:complete" *} >
+            Úplná pravidla
+        </a>
+        <a class="btn btn-primary" {* n:href="Rules:OrganisationalRegulations" *}>
+            O semináři
+        </a>
+
+
+        <div class="row mt-4">
+            <!-- Block 1 -->
+            <div class="col-md-6 mb-4">
+                <div class="info-block p-3">
+                    <h4> <i class="info-icon fas fa-book-open mb-2"></i>
+                        Podívejte se na úlohy aktuální série</h4>
+                    <p>Zadání vám přijde poštou nebo ho najdete přímo tady na webu. {* TODO: add link to problems *}
+                        Nemusíte vyřešit všechny úlohy. Každý pokus se počítá.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Block 2 -->
+            <div class="col-md-6 mb-4">
+                <div class="info-block p-3">
+                    <h4> <i class="info-icon fas fa-upload mb-2"></i>
+                        Nahrajte řešení do <a href="https://db.fykos.cz">databáze</a></h4>
+                    <p>Můžete psát ručně a nascanovat nebo psát rovnou elektronicky. {* TODO: add link to the latex guide *}
+                        Akceptujeme pouze formát pdf.</p>
+
+                </div>
+            </div>
+
+            <!-- Block 3 -->
+            <div class="col-md-6 mb-4">
+                <div class="info-block p-3">
+                    <h4> <i class="info-icon fas fa-search mb-2"></i>
+                        Prohlédněte si svá opravená řešení</h4>
+                    <p>Naši organizátoři vám řešení opraví a pošlou zpátky a pomůžou vám se zlepšit.</p>
+
+                </div>
+            </div>
+
+            <!-- Block 4 -->
+            <div class="col-md-6 mb-4">
+                <div class="info-block p-3">
+
+                    <h4><i class="info-icon fas fa-bus mb-2"></i> Pojeďte s námi na soustředění</h4>
+                    <p>Pro nejlepší řešitele pořádáme dvakrát do roka soustředění {* TODO: add link to sous *}
+                        plné fyziky, přednášek, experimentů,
+                        ale i her a další zábavy.</p>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- 
         <div class="description-box left">
             <div class="step">Podívejte se na úlohy aktuální série</div>
             <p class="step-text">Podívejte se na zadání na webu.</p>
@@ -211,7 +270,7 @@
         <div class="description-box right">
             <div class="step">Pojeďte s námi na soustředění</div>
             <p class="step-text">Pro nejlepší řešitele pořádáme dvakrát do roka soustředění.</p>
-        </div>
+        </div> -->
 
     </section>
 </div>

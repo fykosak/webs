@@ -41,7 +41,6 @@
 }
 
 
-
 // .heading-container {
 //   //justify-content: space-between;
 //   //align-items: center;
@@ -91,22 +90,22 @@
 .description-box {
   position: relative;
   width: 60%;
-  text-align: center;
   background-color: $primary-color;
   color: $text-on-primary;
-  border-radius: 8px;
   padding: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
 .left {
+  text-align: left;
   justify-self: left;
   margin-right: auto;
   margin-left: 0;
 }
 
 .right {
+  text-align: right;
   justify-self: right;
   margin-left: auto;
   margin-right: 0;
@@ -253,10 +252,7 @@ h2.header-text {
   display: flex;
   flex-direction: column;
   height: 100%;
-  .col-md-5 {
-    display: flex;
-  }
-
+  
   padding: 10px;
 
   // border: 3px solid $primary-color;
@@ -346,7 +342,6 @@ h2.header-text {
   position: relative;
   width: 100%;
   height: 100px;
-  /* Adjust as needed */
 }
 
 $middle-line-half-border-width: 5px;
@@ -412,7 +407,7 @@ $top-offset: $middle-line-half-border-width + $timeline-logo-height + $buffer-lo
 
 .today-block {
   $today-block-height: 24px;
-  background-color: black;
+  background-color: $primary-color;
   color: white;
   height: $today-block-height !important;
   width: $today-block-height;
@@ -443,3 +438,38 @@ $top-offset: $middle-line-half-border-width + $timeline-logo-height + $buffer-lo
   border: 5px solid $primary-color;
   z-index: 0;
 }
+
+
+
+.info-block {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  background-color: $primary-color;
+  color: $text-on-primary !important;
+
+  // this ensures the event blocks always have the same height
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  a {
+    color: $text-on-primary;
+  }
+
+  h4 {
+    color: $text-on-primary !important;
+  }
+
+}
+.info-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+
+}
+.info-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+
