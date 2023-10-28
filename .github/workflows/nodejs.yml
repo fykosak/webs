@@ -1,0 +1,40 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on: [ push, pull_request ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 16.x , 18.x ]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - uses: shivammathur/setup-php@v2
+      name: Setup PHP
+      with:
+        php-version: 8.1
+        extensions: curl, mbstring, mysql, soap, xml
+        tools: composer
+        ini-values: session.gc_probability=0, date.timezone="Europe/Prague", display_startup_errors = Off
+    - uses: actions/setup-python@v4
+      name: Setup Python
+    - run: composer install # netteForms.js
+    - run: npm ci
+      name: NPM clean install
+    - run: npm run compile_translation
+      name: Compile translations
+    - run: npm run build
+      env:
+        CI: true
