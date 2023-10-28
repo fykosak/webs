@@ -33,7 +33,7 @@ jobs:
     - run: composer install # netteForms.js
     - run: npm ci
       name: NPM clean install
-    - run: npm run compile_translation
+    - run: python3 ./app/i18n/compile-js.py
       name: Compile translations
     - run: npm run build
       env:
