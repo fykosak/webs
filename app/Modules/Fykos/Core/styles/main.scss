@@ -11,7 +11,7 @@ $text-dimmed: #CCCCCC;
 
 $page-width: 77rem;
 
-$base-font-size: 18px;
+// $base-font-size: 18px;
 
 // Use the following font weights.
 // To change them you need to modify fonts.googleapis.com link in <head> tag
@@ -28,9 +28,6 @@ $border-radius: 0;
 $navbar-dark-color: $text-on-primary;
 $navbar-dark-hover-color: $text-on-primary;
 
-@import "./layout";
-@import "./titlepage";
-@import "./navigation";
 @import "node_modules/bootstrap/scss/bootstrap";
 $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import '../../../../../node_modules/flag-icon-css/sass/flag-icon';
@@ -43,7 +40,7 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 
 @import "./../../../Fol/Core/styles/layout";
 @import "./../../../Fol/Core/styles/titlepage";
-// @import "./../../../Fol/Core/styles/navigation";
+@import "./../../../Fol/Core/styles/navigation";
 
 @import "./../../../Fof/Core/styles/sponsors";
 
@@ -55,3 +52,8 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 // @import '../../../../Components/ResultsPanel/styles';
 // @import '../../../../Components/UpperHomePrague/styles';
 // @import '../../../../Components/TeamResults/styles';
+
+
+// @import "./layout";
+@import "./titlepage";
+// @import "./navigation"; // use the one from FOL and FOF
