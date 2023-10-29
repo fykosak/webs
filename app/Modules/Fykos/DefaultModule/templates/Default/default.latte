@@ -328,7 +328,6 @@
     document.addEventListener("DOMContentLoaded", function () {
 
         // Init the timeline and set logos around it
-
         function calculatePositionPercentages(dates, timelineId) {
             const startDate = new Date("2023-10-01");
             const endDate = new Date("2024-05-30");
@@ -391,44 +390,6 @@
             document.querySelector(timelineId).appendChild(logoElem);
         }
 
-        let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
-        let images_events = ["/images/logos/naboj_symbol.svg", "/images/logos/dsef_symbol.svg", "/images/logos/fyziklani_online_symbol.svg", "/images/logos/fyziklani_symbol.svg"];
-
-        let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09", "2024-05-14"];
-        let images_series = ["/images/logos/1.svg", "/images/logos/2.svg", "/images/logos/3.svg", "/images/logos/4.svg", "/images/logos/5.svg", "/images/logos/6.svg"];
-
-        let timelineId;
-        let mdBreakpoint = 768;
-        let isBelowThreshold = window.innerWidth <= mdBreakpoint;
-
-        function updateTimelineIdAndPositionElements() {
-            const newIsBelowThreshold = window.innerWidth <= mdBreakpoint;
-            // if (newIsBelowThreshold !== isBelowThreshold) {
-
-            // Update the current state
-            isBelowThreshold = newIsBelowThreshold;
-
-            if (isBelowThreshold) {
-                timelineId = "#timeline-vertical";
-            } else {
-                timelineId = "#timeline-horizontal";
-            };
-            positionTimelineElements(timelineId);
-
-            // }
-        }
-
-        // Initial execution
-        if (isBelowThreshold) {
-            timelineId = "#timeline-vertical";
-        } else {
-            timelineId = "#timeline-horizontal";
-        };
-        positionTimelineElements(timelineId);
-
-        // Re-execute when window resizes
-        window.addEventListener("resize", updateTimelineIdAndPositionElements);
-
         function positionTimelineElements(timelineId) {
 
             // Remove existing dynamically added elements first
@@ -461,26 +422,65 @@
             });
         });
 
-        document.querySelectorAll('.fade-in-section').forEach(section => {
-            observer.observe(section);
-        });
-
 
         // Make an event block become larger if you hover over its corresponding logo on the timeline
-        document.querySelectorAll('.logo-event, .logo-series').forEach((logo) => {
-            logo.addEventListener('mouseover', () => {
-                const associatedEventBox = document.getElementById(logo.dataset.eventBox);
-                if (associatedEventBox) {
-                    associatedEventBox.querySelector('.event').classList.add('active');
-                }
-            });
+        function attachLogoHoverEvents() {
+            document.querySelectorAll('.logo-event, .logo-series').forEach((logo) => {
+                logo.addEventListener('mouseover', () => {
+                    const associatedEventBox = document.getElementById(logo.dataset.eventBox);
+                    if (associatedEventBox) {
+                        associatedEventBox.querySelector('.event').classList.add('active');
+                    }
+                });
 
-            logo.addEventListener('mouseout', () => {
-                const associatedEventBox = document.getElementById(logo.dataset.eventBox);
-                if (associatedEventBox) {
-                    associatedEventBox.querySelector('.event').classList.remove('active');
-                }
+                logo.addEventListener('mouseout', () => {
+                    const associatedEventBox = document.getElementById(logo.dataset.eventBox);
+                    if (associatedEventBox) {
+                        associatedEventBox.querySelector('.event').classList.remove('active');
+                    }
+                });
             });
+        }
+
+
+        let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
+        let images_events = ["/images/logos/naboj_symbol.svg", "/images/logos/dsef_symbol.svg", "/images/logos/fyziklani_online_symbol.svg", "/images/logos/fyziklani_symbol.svg"];
+
+        let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09", "2024-05-14"];
+        let images_series = ["/images/logos/1.svg", "/images/logos/2.svg", "/images/logos/3.svg", "/images/logos/4.svg", "/images/logos/5.svg", "/images/logos/6.svg"];
+
+        let timelineId; // vertical or horizontal
+        let mdBreakpoint = 768;
+        let isBelowThreshold;
+
+        function updateTimelineIdAndPositionElements() {
+            isBelowThreshold = window.innerWidth <= mdBreakpoint;
+
+            // Update the current state
+            if (isBelowThreshold) {
+                timelineId = "#timeline-vertical";
+            } else {
+                timelineId = "#timeline-horizontal";
+            };
+
+            // Create logos and position them
+            positionTimelineElements(timelineId);
+
+            // Attach hover events to newly created logos
+            attachLogoHoverEvents();
+        }
+
+        // Initial execution
+        updateTimelineIdAndPositionElements();
+
+        // Re-execute when window resizes
+        window.addEventListener("resize", updateTimelineIdAndPositionElements);
+
+
+
+        // Fading in of the sections
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
         });
     });
 
