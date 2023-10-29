@@ -240,22 +240,34 @@
     /* Higher z-index to ensure text is above the image */
     position: relative;
     /* Needed for z-index to take effect */
+
+
+    h1.header-text {
+      font-size: 8rem;
+      margin-bottom: 0;
+      margin-left: -6px;
+    }
+
+    h2.header-text {
+      font-size: 3rem;
+      color: $text-on-primary;
+      margin-bottom: 0;
+    }
+
+    
+    @media screen and (max-width: 768px) {
+      h1.header-text {
+        font-size: 5rem;
+      }
+      h2.header-text {
+        font-size: 2rem;
+      }
+      
+    }
   }
 
 }
 
-
-h1.header-text {
-  font-size: 8rem !important;
-  margin-bottom: 0 !important;
-  margin-left: -5px !important;
-}
-
-h2.header-text {
-  font-size: 3rem !important;
-  color: $text-on-primary;
-  margin-bottom: 0;
-}
 
 .header-image,
 .header-container {
