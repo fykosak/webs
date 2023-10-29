@@ -254,9 +254,9 @@
             <div class="col-md-6 mb-4">
                 <div class="info-block p-3">
                     <h4> <i class="info-icon fas fa-book-open mb-2"></i>
-                        Podívejte se na úlohy aktuální série</h4>
+                        Podívejte se na <a n:href=":zadani">úlohy aktuální série</a></h4>
                     <p>Zadání vám přijde poštou nebo ho najdete přímo tady na webu. {* TODO: add link to problems *}
-                        Nemusíte vyřešit všechny úlohy. Každý pokus se počítá.
+                        Nemusíte vyřešit všechny úlohy, každý pokus se počítá.
                     </p>
                 </div>
             </div>
@@ -277,8 +277,9 @@
             <div class="col-md-6 mb-4">
                 <div class="info-block p-3">
                     <h4> <i class="info-icon fas fa-search mb-2"></i>
-                        Prohlédněte si svá opravená řešení</h4>
-                    <p>Naši organizátoři vám řešení opraví a pošlou zpátky a pomůžou vám se zlepšit.</p>
+                        Prohlédněte si svá <a href="https://db.fykos.cz">opravená řešení</a></h4>
+                    <p>Naši organizátoři vám řešení opraví a pošlou zpátky a pomůžou vám se zlepšit. Zároveň publikujeme
+                        vzorová řešení.</p>
 
                 </div>
             </div>
@@ -287,7 +288,7 @@
             <div class="col-md-6 mb-4">
                 <div class="info-block p-3">
 
-                    <h4><i class="info-icon fas fa-bus mb-2"></i> Pojeďte s námi na soustředění</h4>
+                    <h4><i class="info-icon fas fa-bus mb-2"></i> Pojeďte s námi na <a href="#">soustředění</a></h4>
                     <p>Pro nejlepší řešitele pořádáme dvakrát do roka soustředění {* TODO: add link to sous *}
                         plné fyziky, přednášek, experimentů,
                         ale i her a další zábavy.</p>
@@ -347,7 +348,7 @@
             // Phase 2: Adjust overlapping positions
             if (timelineId == "#timeline-vertical-container") {
                 const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
-                logoSizePercentage = logoSizePx  / verticalTimelineHeight * 100;
+                logoSizePercentage = logoSizePx / verticalTimelineHeight * 100;
             } else {
                 logoSizePercentage = logoSizePx / document.querySelector(timelineId).offsetWidth * 100;
             }
@@ -393,7 +394,7 @@
                 const timelineContainerHeight = document.querySelector('#timeline-vertical-container').offsetHeight;
                 const topOffset = document.querySelector('.start-timeline-text').offsetHeight;
 
-                const newPositionPercentage = ( verticalTimelineHeight * positionPercentage + topOffset ) / timelineContainerHeight ;
+                const newPositionPercentage = (verticalTimelineHeight * positionPercentage + topOffset) / timelineContainerHeight;
 
                 logoElem.style.top = `${newPositionPercentage}%`;
             } else {
