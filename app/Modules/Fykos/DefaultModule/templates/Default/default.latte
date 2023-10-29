@@ -41,7 +41,6 @@
             Stránka všech akcí
         </a>
 
-
         <div class="fade-in-section mt-5 mt-md-0">
             <div class="row">
 
@@ -64,7 +63,6 @@
                     <!-- Row for events -->
                     <div class="row">
 
-                        {* Timeline header -- show on small screens *}
                         <div class="col-12 timeline-section-header mt-5">
                             <h3>Soutěže a exkurze</h3>
                         </div>
@@ -327,6 +325,9 @@
 <script n:syntax=off>
     document.addEventListener("DOMContentLoaded", function () {
 
+
+        const logoSizePx = 30;
+
         // Init the timeline and set logos around it
         function calculatePositionPercentages(dates, timelineId) {
             const startDate = new Date("2023-10-01");
@@ -342,13 +343,18 @@
                 positions.push(positionPercentage);
             }
 
+            let logoSizePercentage
             // Phase 2: Adjust overlapping positions
-            const logoWidthPercentage = 30 / document.querySelector(timelineId).offsetWidth * 100;
+            if (timelineId == "#timeline-vertical") {
+                logoSizePercentage = logoSizePx / document.querySelector(timelineId).offsetHeight * 100;
+            } else {
+                logoSizePercentage = logoSizePx / document.querySelector(timelineId).offsetWidth * 100;
+            }
             for (let i = 0; i < positions.length - 1; i++) {
-                if (Math.abs(positions[i] - positions[i + 1]) < logoWidthPercentage) {
+                if (Math.abs(positions[i] - positions[i + 1]) < logoSizePercentage) {
                     const avgPosition = (positions[i] + positions[i + 1]) / 2;
-                    positions[i] = avgPosition - logoWidthPercentage / 2;
-                    positions[i + 1] = avgPosition + logoWidthPercentage / 2;
+                    positions[i] = avgPosition - logoSizePercentage / 2;
+                    positions[i + 1] = avgPosition + logoSizePercentage / 2;
                 }
             }
 
@@ -380,7 +386,15 @@
 
             // Update position
             if (timelineId == "#timeline-vertical") {
-                logoElem.style.top = `${positionPercentage}%`;
+                // Adjust for the fact that now we have the logos as a children of an element
+                // that also in its height contains texts
+                const verticalTimelineHeight = document.querySelector('.vertical-timeline').offsetHeight;
+                const timelineContainerHeight = document.querySelector('#timeline-vertical').offsetHeight;
+                const topOffset = document.querySelector('.start-timeline-text').offsetHeight;
+
+                const newPositionPercentage = ( verticalTimelineHeight * positionPercentage + topOffset ) / timelineContainerHeight ;
+
+                logoElem.style.top = `${newPositionPercentage}%`;
             } else {
                 logoElem.style.left = `${positionPercentage}%`;
             }

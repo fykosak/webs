@@ -1,6 +1,6 @@
 // .panel h1 {
 //   margin-bottom: 1rem !important;
-// // }
+// }
 
 // .panel.title-panel {
 //   h1 {
@@ -45,13 +45,13 @@
 // }
 
 
-// // .heading-container {
-// //   //justify-content: space-between;
-// //   //align-items: center;
-// //   display: grid;
-// //   grid-template-columns: 1fr 1fr;
-// //   gap: 1rem;
-// // }
+.heading-container {
+  //justify-content: space-between;
+  //align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
 
 // .title-container {
 //   flex-basis: 100%;
@@ -121,9 +121,9 @@
 //   margin-bottom: 10px;
 // }
 
-// // .step-text {
-// //   // font-size: $base-font-size;
-// // }
+.step-text {
+  // font-size: $base-font-size;
+}
 
 // .line {
 //   position: absolute;
@@ -384,14 +384,14 @@ $top-offset: $middle-line-half-border-width + $timeline-logo-height + $buffer-lo
     z-index: 1;
     /* Make sure this is above the line */
   }
-}
 
-.start-timeline-text {
-  left: 0;
-}
+  .start-timeline-text {
+    left: 0;
+  }
 
-.end-timeline-text {
-  right: 0;
+  .end-timeline-text {
+    right: 0;
+  }
 }
 
 .middle-line {
@@ -424,18 +424,9 @@ $top-offset: $middle-line-half-border-width + $timeline-logo-height + $buffer-lo
   height: $timeline-logo-height !important;
 }
 
-.logo-event {
-  top: calc(50% - $top-offset);
-  /* 50% aligns with the middle line; minus 10px moves it up */
-}
-
-.logo-series {
-  bottom: calc(50% - $top-offset);
-  /* 50% aligns with the middle line; plus 10px moves it down */
-}
+$today-block-height: 24px;
 
 .today-block {
-  $today-block-height: 24px;
   background-color: $primary-color;
   color: white;
   height: $today-block-height !important;
@@ -443,15 +434,42 @@ $top-offset: $middle-line-half-border-width + $timeline-logo-height + $buffer-lo
   display: flex;
   align-items: center;
   justify-content: center;
-  top: calc(50% - $today-block-height / 2);
 }
 
+// Larger screen positioning
+@media screen and (min-width: 768px) {
+  .logo-event {
+    top: calc(50% - $top-offset);
+    /* 50% aligns with the middle line; minus 10px moves it up */
+  }
 
+  .logo-series {
+    bottom: calc(50% - $top-offset);
+    /* 50% aligns with the middle line; plus 10px moves it down */
+  }
 
-.panel {
-  margin-bottom: 0;
+  .today-block {
+    top: calc(50% - $today-block-height / 2);
+  }
 }
 
+// Smaller screen positioning
+@media screen and (max-width: 768px) {
+
+  .logo-event {
+    right: calc(50% - $top-offset);
+    /* 50% aligns with the middle line; minus 10px moves it up */
+  }
+
+  .logo-series {
+    left: calc(50% - $top-offset);
+    /* 50% aligns with the middle line; plus 10px moves it down */
+  }
+
+  .today-block {
+    right: calc(50% - $today-block-height / 2);
+  }
+}
 
 .order-6 {
   order: 6 !important;
@@ -461,8 +479,6 @@ $top-offset: $middle-line-half-border-width + $timeline-logo-height + $buffer-lo
   border: 5px solid $primary-color;
   z-index: 0;
 }
-
-
 
 .info-block {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
