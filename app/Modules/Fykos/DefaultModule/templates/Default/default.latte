@@ -45,12 +45,12 @@
             <div class="row">
 
                 {* Vertical timeline *}
-                <div id="timeline-vertical"
+                <div id="timeline-vertical-container"
                     class="col-3 col-md-0 d-md-none position-relative d-flex flex-column align-items-center mt-5">
                     <div class="start-timeline-text mb-3">
                         <p>1. 10. 2023</p>
                     </div>
-                    <div class="vertical-timeline d-block border-left h-100">
+                    <div id="timeline-vertical" class="d-block border-left h-100">
                     </div>
                     <div class="end-timeline-text mt-3">
                         <p>30. 5. 2024</p>
@@ -139,12 +139,12 @@
                     {* Horizontal timeline -- hide on small screens *}
                     <div class="row d-none d-md-block">
                         <div class="col-12 my-4">
-                            <div id="timeline-horizontal" class="timeline-container position-relative">
+                            <div id="timeline-horizontal-container" class="position-relative">
                                 <!-- Added position-relative class -->
                                 <div class="start-timeline-text position-absolute">
                                     <p>1. 10. 2023</p>
                                 </div>
-                                <hr class="middle-line">
+                                <hr id="timeline-horizontal">
                                 <div class="end-timeline-text position-absolute">
                                     <p>30. 5. 2024</p>
                                 </div>
@@ -345,8 +345,9 @@
 
             let logoSizePercentage
             // Phase 2: Adjust overlapping positions
-            if (timelineId == "#timeline-vertical") {
-                logoSizePercentage = logoSizePx / document.querySelector(timelineId).offsetHeight * 100;
+            if (timelineId == "#timeline-vertical-container") {
+                const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
+                logoSizePercentage = logoSizePx  / verticalTimelineHeight * 100;
             } else {
                 logoSizePercentage = logoSizePx / document.querySelector(timelineId).offsetWidth * 100;
             }
@@ -371,12 +372,12 @@
                 // Create the outer div
                 logoElem = document.createElement("div");
 
-                // Create the inner <i> element
-                const iconElem = document.createElement("i");
-                iconElem.classList.add('fas', 'fa-map-marker-alt');
+                // // Create the inner <i> element
+                // const iconElem = document.createElement("i");
+                // iconElem.classList.add('fas', 'fa-map-marker-alt');
 
-                // Append the <i> element to the div
-                logoElem.appendChild(iconElem);
+                // // Append the <i> element to the div
+                // logoElem.appendChild(iconElem);
             } else {
                 logoElem = document.createElement("div");
             }
@@ -385,11 +386,11 @@
             logoElem.id = "logo-" + eventBoxId;
 
             // Update position
-            if (timelineId == "#timeline-vertical") {
+            if (timelineId == "#timeline-vertical-container") {
                 // Adjust for the fact that now we have the logos as a children of an element
                 // that also in its height contains texts
-                const verticalTimelineHeight = document.querySelector('.vertical-timeline').offsetHeight;
-                const timelineContainerHeight = document.querySelector('#timeline-vertical').offsetHeight;
+                const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
+                const timelineContainerHeight = document.querySelector('#timeline-vertical-container').offsetHeight;
                 const topOffset = document.querySelector('.start-timeline-text').offsetHeight;
 
                 const newPositionPercentage = ( verticalTimelineHeight * positionPercentage + topOffset ) / timelineContainerHeight ;
@@ -472,9 +473,9 @@
 
             // Update the current state
             if (isBelowThreshold) {
-                timelineId = "#timeline-vertical";
+                timelineId = "#timeline-vertical-container";
             } else {
-                timelineId = "#timeline-horizontal";
+                timelineId = "#timeline-horizontal-container";
             };
 
             // Create logos and position them

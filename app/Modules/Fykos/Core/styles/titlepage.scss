@@ -335,6 +335,13 @@ h2.header-text {
 }
 
 
+#logo-event-1,
+.naboj-color {
+  background-color: purple !important;
+}
+
+
+
 .event.active,
 .event:hover {
   transform: scale(1.05);
@@ -364,18 +371,20 @@ h2.header-text {
   margin-bottom: 0;
 }
 
-.timeline-container {
+
+$timeline-color: black;
+$timeline-horizontal-half-border-width: 4px;
+$timeline-logo-height: 30px;
+$buffer-logo-timeline: 10px;
+$top-offset: $timeline-horizontal-half-border-width + $timeline-logo-height + $buffer-logo-timeline;
+
+$today-block-height: 22px;
+
+#timeline-horizontal-container {
+
   position: relative;
   width: 100%;
   height: 100px;
-}
-
-$middle-line-half-border-width: 5px;
-$timeline-logo-height: 30px;
-$buffer-logo-timeline: 10px;
-$top-offset: $middle-line-half-border-width + $timeline-logo-height + $buffer-logo-timeline;
-
-#timeline-horizontal {
 
   .start-timeline-text,
   .end-timeline-text {
@@ -394,19 +403,20 @@ $top-offset: $middle-line-half-border-width + $timeline-logo-height + $buffer-lo
   }
 }
 
-.middle-line {
+#timeline-horizontal {
   width: 100%;
   /* Makes the line span the full width of its container */
   border: 0;
   /* Removes default border */
 
-  border-top: $middle-line-half-border-width solid black;
+  border-top: $timeline-horizontal-half-border-width solid $timeline-color;
   /* Adds a border to the top side only */
-  border-bottom: $middle-line-half-border-width solid black;
+  border-bottom: $timeline-horizontal-half-border-width solid $timeline-color;
+  background-color: $timeline-color;
   /* Adds a border to the top side only */
   margin: 10px 0;
   position: absolute;
-  top: calc(50% - $middle-line-half-border-width - $buffer-logo-timeline );
+  top: calc(50% - $timeline-horizontal-half-border-width - $buffer-logo-timeline );
   z-index: 1;
   opacity: 1;
 }
@@ -424,7 +434,6 @@ $top-offset: $middle-line-half-border-width + $timeline-logo-height + $buffer-lo
   height: $timeline-logo-height !important;
 }
 
-$today-block-height: 24px;
 
 .today-block {
   background-color: $primary-color;
@@ -475,8 +484,9 @@ $today-block-height: 24px;
   order: 6 !important;
 }
 
-.vertical-timeline {
-  border: 5px solid $primary-color;
+#timeline-vertical {
+  border-right: $timeline-horizontal-half-border-width solid $timeline-color;
+  border-left: $timeline-horizontal-half-border-width solid $timeline-color;
   z-index: 0;
 }
 
@@ -524,11 +534,4 @@ $today-block-height: 24px;
 .fade-in-section.active {
   opacity: 1;
   transform: translateY(0);
-}
-
-$naboj-color: purple;
-
-#logo-event-1,
-.naboj-color {
-  background-color: $naboj-color !important;
 }
