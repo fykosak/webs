@@ -17,6 +17,22 @@ abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
     protected function getNavItems(): array
     {
         $items = [];
+
+        $items[] = new NavItem(
+            new PageTitle(null, "O nás", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            'About:fykosGroup',
+        );
+
+        $items[] = new NavItem(
+            new PageTitle(null, "Akce", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            'Events:',
+        );
+
+        $items[] = new NavItem(
+            new PageTitle(null, "Seminář", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            'About:fykosCompetition',
+        );
+
         $items[] = new NavItem(
             new PageTitle(null, "Zadání", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             'Default',
@@ -28,23 +44,8 @@ abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, "O nás", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'About:fykosGroup',
-        );
-
-        $items[] = new NavItem(
-            new PageTitle(null, "Jak řešit", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, "Archiv úloh", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             'Default',
-        );
-
-        $items[] = new NavItem(
-            new PageTitle(null, "Úlohy", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Default',
-        );
-
-        $items[] = new NavItem(
-            new PageTitle(null, "Akce", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Events:',
         );
 
         $items[] = new NavItem(
