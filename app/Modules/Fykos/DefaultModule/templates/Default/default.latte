@@ -17,8 +17,8 @@
         <div class="header-container">
             <div class="header-text-container">
                 <h1 class="header-text">FYKOS</h1>
-                <h2 class="header-text">Inspirujeme a vzděláváme<br>středoškoláky ve fyzice.</h2>
-                <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve fyzice již více než 35 let.
+                <h2 class="header-text">Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2>
+                <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již více než 35&nbsp;let.
                     {* Zjistěte více na stránce <a n:href="About:fykos-group">o nás</a>.*}</p>
                 <a class="btn btn-outline" {* n:href="Rules:OrganisationalRegulations" *}>
                     O nás
@@ -42,7 +42,7 @@
 
         <!-- Vertical line for small screens -->
 
-        <div class=" fade-in-section">
+        <div class="fade-in-section">
 
             <div class="position-relative mt-5">
                 <div class="vertical-timeline d-block d-md-none border-left position-absolute h-100"
@@ -53,9 +53,11 @@
                     <!-- First Row -->
                     <div class="col-md-5 offset-md-1 order-md-1 order-1 mt-4" id="event-1">
                         <a href="https://physics.naboj.org" target="_blank">
-                            <div class="event">
+                            <div class="event naboj-color">
                                 <div class="event-header">
-                                    <h3>Fyzikální Náboj</h3>
+                                    <h3><img src="/images/logos/naboj_symbol_white.svg" class="inline-logo">
+                                        Fyzikální Náboj
+                                    </h3>
                                     <span class="event-date">3. 11.</span>
                                 </div>
                                 <div>
@@ -208,6 +210,9 @@
         <a class="btn btn-primary" {* n:href="Rules:complete" *}>
             Úplná pravidla
         </a>
+        <a class="btn btn-primary" {* n:href="Rules:complete" *}>
+            Zadání aktuální série
+        </a>
         <a class="btn btn-primary" {* n:href="Rules:OrganisationalRegulations" *}>
             O semináři
         </a>
@@ -339,6 +344,7 @@
             }
 
             logoElem.classList.add(classStr);
+            logoElem.id = "logo-"+eventBoxId;
 
             // Update position
             if (window.innerWidth <= 768) {
@@ -352,7 +358,7 @@
         }
 
         let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
-        let images_events = ["/images/logos/fykos_symbol.svg", "/images/logos/dsef_symbol.svg", "/images/logos/fyziklani_online_symbol.svg", "/images/logos/fyziklani_symbol.svg"];
+        let images_events = ["/images/logos/naboj_symbol.svg", "/images/logos/dsef_symbol.svg", "/images/logos/fyziklani_online_symbol.svg", "/images/logos/fyziklani_symbol.svg"];
 
         let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09", "2024-05-14"];
         let images_series = ["/images/logos/1.svg", "/images/logos/2.svg", "/images/logos/3.svg", "/images/logos/4.svg", "/images/logos/5.svg", "/images/logos/6.svg"];

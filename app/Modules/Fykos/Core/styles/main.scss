@@ -39,11 +39,13 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 // @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 // @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
 
-@import '../../../../Models/OldFykos/css/cssAll';
+// @import '../../../../Models/OldFykos/css/cssAll';
 
 @import "./../../../Fol/Core/styles/layout";
 @import "./../../../Fol/Core/styles/titlepage";
 // @import "./../../../Fol/Core/styles/navigation";
+
+@import "./../../../Fof/Core/styles/sponsors";
 
 // @import "./../../../Fof/DefaultModule/styles/organisers";
 // @import "./../../../Fof/DefaultModule/styles/rules";
