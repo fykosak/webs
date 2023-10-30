@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  webs:
+    image: webs
+    container_name: webs
+    build:
+      context: ./.docker
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 8080:8080
+    user: 1000:1000
