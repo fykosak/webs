@@ -374,9 +374,6 @@
   }
 }
 
-.end-timeline-text {
-  text-align: right;
-}
 
 .timeline-section-header>h3 {
   font-weight: $font-weight-normal;
@@ -494,6 +491,12 @@ $today-block-height: 22px;
 
 .order-6 {
   order: 6 !important;
+}
+
+#timeline-vertical-container {
+  .start-timeline-text, .end-timeline-text {
+    text-align: center;
+  }
 }
 
 #timeline-vertical {
