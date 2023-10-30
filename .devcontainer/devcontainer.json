@@ -13,7 +13,9 @@
 		"vscode": {
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"xdebug.php-pack"
+				"xdebug.php-pack",
+				"streetsidesoftware.code-spell-checker-czech",
+				"streetsidesoftware.code-spell-checker"
 			]
 		}
 	},
