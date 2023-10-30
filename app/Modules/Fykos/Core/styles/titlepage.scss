@@ -315,7 +315,13 @@
   h3 {
     font-weight: bolder;
     font-size: 1.2rem;
-    color: $text-on-primary !important;
+    color: $text-on-primary;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
+
+
   }
 
   .event-date {
@@ -328,7 +334,7 @@
 
   .inline-logo {
     height: 1.8rem;
-    margin-right: 7px;
+    margin-right: 4px;
   }
 
 }
@@ -436,18 +442,19 @@ $today-block-height: 22px;
   position: absolute;
   z-index: 5;
   /* To ensure it's above the line and other elements */
+  max-width: 30% !important;
 }
 
 .logo-event,
 .logo-series {
-  height: $timeline-logo-height !important;
+  height: $timeline-logo-height;
 }
 
 
 .today-block {
   background-color: $primary-color;
   color: white;
-  height: $today-block-height !important;
+  height: $today-block-height;
   width: $today-block-height;
   display: flex;
   align-items: center;
