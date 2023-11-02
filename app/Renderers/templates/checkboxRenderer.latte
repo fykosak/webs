@@ -1,30 +1,33 @@
 
-<div class="row">
-        <div class="col-12">
-    <!-- The button that triggers the collapsible content -->
-        <button class="btn btn-primary button-collapse-header" type="button" data-toggle="collapse" data-target="#resultFilters" aria-expanded="false" aria-controls="resultFilters">
-            Toggle Filters
-        </button>
-
-        <!-- The collapsible content -->
-        <div class="collapse" id="resultFilters">
-            {foreach $controls as $control}
-                {if $control->getName() === 'OneMemberTeams'}
-                    <div class="country-container special">
-                        {$control->getControl()|noescape}
-                        {$control->getCaption()}
+<form>
+    <div class="row">
+        {foreach $controls['special'] as $item}
+            <div class="col-12 p-3">
+                <div class="country-container special">
+                    {$item['html']}
+                </div>
+            </div>
+        {/foreach}
+    </div>
+    <div class="row">
+        {foreach $controls['countries'] as $item}
+            <div class="col-lg-3 col-md-4 p-3">
+                <div class="country-container">
+                    {$item['html']}
+                    <div class="text-country-container">
+                        <span class="flag-icon flag-icon-{strtolower($item['control']->getName())}"></span>
+                        {$item['control']->getCaption()}<br>
+                        {$item['control']->getOption('count')} participants
                     </div>
-                {elseif $control instanceof Nette\Forms\Controls\Checkbox}
-                    <div class="country-container">
-                        {$control->getControl()->addAttributes(['class' => 'checkbox-input'])|noescape}
-                        <div class="text-country-container">
-                            <span class="flag-icon flag-icon-{strtolower($control->getName())}"></span>
-                            {$control->getCaption()}<br>
-                            {$control->getOption('count')} participants
-                        </div>
-                    </div>
-                {/if}
-            {/foreach}
+                </div>
+            </div>
+        {/foreach}
+    </div>
+    <div class="row">
+        <div class="col-12 py-3">
+        {foreach $controls['buttons'] as $item}
+                {$item['html']}
+        {/foreach}
         </div>
     </div>
-</div>
+</form>

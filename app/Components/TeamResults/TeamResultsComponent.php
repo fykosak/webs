@@ -147,16 +147,17 @@ class TeamResultsComponent extends BaseComponent
         }
 
         // one member teams
-        $form->addCheckbox('OneMemberTeams');
+        $form->addCheckbox('OneMemberTeams', _('One member teams only'));
 
         // countries
         arsort($countryISOs);
         
         $countryISOContainer = $form->addContainer('country_iso');
         foreach ($countryISOs as $countryISO => $count) {
-            $countryISOContainer->addCheckbox($countryISO)
+            $countryISOContainer->addCheckbox($countryISO, $countryISO)
                 ->setOption('count', $count);
         }        
+
         
         $form->addButton('reset')->setHtmlAttribute('type', 'reset')->setHtmlAttribute('class', 'btn btn-dark');
 

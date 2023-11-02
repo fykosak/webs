@@ -19,16 +19,38 @@ class CustomFormRenderer implements IFormRenderer
 
     public function render(Form $form, $mode = null): string
     {
-        $controls = [];
+        $controls = [
+            'buttons' => [],
+            'countries' => [],
+            'special' => []
+        ];
+        
         foreach ($form->getControls() as $control) {
-            $controls[] = $control;
+            if ($control instanceof Nette\Forms\Controls\Button) {
+                $controls['buttons'][] = [
+                    'control' => $control,
+                    'html' => $control->getControl()
+                ];
+            } elseif ($control->getName() === 'OneMemberTeams') {
+                $controls['special'][] = [
+                    'control' => $control,
+                    'html' => $control->getControl()
+                ];
+            } elseif ($control instanceof Nette\Forms\Controls\Checkbox) {
+                $controls['countries'][] = [
+                    'control' => $control,
+                    'html' => $control->getControlPart()->addAttributes(['class' => 'checkbox-input'])
+                ];
+            }
         }
         
-        // Pass all controls to the template
+
+        // Pass controls to the template
         $params = ['controls' => $controls];
         
         ob_start();
         $this->latte->render(__DIR__ . '/templates/checkboxRenderer.latte', $params);
         return ob_get_clean();
     }
+
 }
