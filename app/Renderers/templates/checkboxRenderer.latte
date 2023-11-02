@@ -1,0 +1,30 @@
+
+<div class="row">
+        <div class="col-12">
+    <!-- The button that triggers the collapsible content -->
+        <button class="btn btn-primary button-collapse-header" type="button" data-toggle="collapse" data-target="#resultFilters" aria-expanded="false" aria-controls="resultFilters">
+            Toggle Filters
+        </button>
+
+        <!-- The collapsible content -->
+        <div class="collapse" id="resultFilters">
+            {foreach $controls as $control}
+                {if $control->getName() === 'OneMemberTeams'}
+                    <div class="country-container special">
+                        {$control->getControl()|noescape}
+                        {$control->getCaption()}
+                    </div>
+                {elseif $control instanceof Nette\Forms\Controls\Checkbox}
+                    <div class="country-container">
+                        {$control->getControl()->addAttributes(['class' => 'checkbox-input'])|noescape}
+                        <div class="text-country-container">
+                            <span class="flag-icon flag-icon-{strtolower($control->getName())}"></span>
+                            {$control->getCaption()}<br>
+                            {$control->getOption('count')} participants
+                        </div>
+                    </div>
+                {/if}
+            {/foreach}
+        </div>
+    </div>
+</div>
