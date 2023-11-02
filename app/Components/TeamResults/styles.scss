@@ -49,7 +49,11 @@
     height: 20px;
     margin-right: 15px;
     margin-left: 5px;
+  }
 
+  .text-country-container{
+    border-left: 3px solid $text-on-primary;
+    padding-left: 10px;
   }
 }
 
@@ -64,7 +68,6 @@
 }
 
 .toggle-content{
-  padding: 5px;
   border: 3px solid $primary-color;
 }
 

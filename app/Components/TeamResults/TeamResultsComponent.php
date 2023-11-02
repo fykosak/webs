@@ -118,7 +118,7 @@ class TeamResultsComponent extends BaseComponent
 
         return false;
     }
-
+    
     /**
      * @throws \Throwable
      */
@@ -145,6 +145,9 @@ class TeamResultsComponent extends BaseComponent
                 }
             }
         }
+
+        Debugger::log('onFormSuccess was called.', Debugger::INFO);
+
 
         // one member teams
         $form->addCheckbox('OneMemberTeams', _('One member teams only'));
