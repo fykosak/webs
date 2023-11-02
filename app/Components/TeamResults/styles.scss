@@ -41,6 +41,7 @@
   display: flex;
   align-items: center;
   padding: 10px;
+  // border: 3px solid $primary-color;
   background-color: $primary-color;
   color: $text-on-primary; 
 
@@ -52,14 +53,17 @@
   }
 
   .text-country-container{
+    // border-left: 3px solid $primary-color;
     border-left: 3px solid $text-on-primary;
     padding-left: 10px;
   }
+  
+  .flag-icon { 
+    margin-right: 5px; /* Space between flag and country code */
+    border: 1px solid black;
+  }
 }
 
-.flag-icon {
-  margin-right: 5px; /* Space between flag and country code */
-}
 
 .button-collapse-header{
   width: 100%;
