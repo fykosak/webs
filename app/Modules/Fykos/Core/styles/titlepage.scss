@@ -121,9 +121,9 @@
 //   margin-bottom: 10px;
 // }
 
-.step-text {
+// .step-text {
   // font-size: $base-font-size;
-}
+// }
 
 // .line {
 //   position: absolute;
@@ -276,6 +276,40 @@
   flex-direction: column;
   height: 100%;
 }
+
+
+.embed-responsive-16by9 {
+  position: relative;
+  width: 90%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  margin: 0 auto; /* Centering the video embed */
+  overflow: hidden;
+}
+
+.embed-responsive-16by9::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.embed-responsive-item {
+  position: absolute;
+  top: 0;
+  left: 5%; /* (100% - 90%) / 2 */
+  width: 90%;
+  height: 100%;
+}
+
+.right {
+  align-self: flex-end; /* Align right */
+}
+
+
+
+
+
+
+
 
 .event {
   // flex: 0 0 40%;
