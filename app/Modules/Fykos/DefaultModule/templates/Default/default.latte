@@ -33,11 +33,14 @@
 
 <div class="panel color-dark">
     <section class="inner-container">
-        <div class="container mt-5">
+        <div class="subheader">Ochutnávka našich akcí</div>
+        <h1 class="section-header">Co s námi můžete zažít?</h1>
+        
+        <div class="container fade-in-section">
             <div class="row">
                 <!-- First video -->
-                <div class="col-lg-6">
-                    <h2>Akce...</h2>
+                <div class="col-lg-6 video-container">
+                    <h2>Soutěže...</h2>
                     <div class="embed-responsive embed-responsive-16by9">
                         <video class="embed-responsive-item left" controls>
                             <source src="{$basePath}/videos/FOF.mp4" type="video/mp4">
@@ -46,8 +49,8 @@
                     </div>
                 </div>
                 <!-- Second video -->
-                <div class="col-lg-6">
-                    <h2 class="text-right">...a věda</h2>
+                <div class="col-lg-6 video-container">
+                    <h2 class="text-right">...a vědu!</h2>
                     <div class="embed-responsive embed-responsive-16by9">
                         <video class="embed-responsive-item right" controls>
                             <source src="{$basePath}/videos/DSEF.mp4" type="video/mp4">
@@ -184,6 +187,8 @@
 
 
                     <!-- Row for series -->
+                    {* TODO: if its before the deadline of a given series, link to the generic task assignent page.
+                        If it's after, link to the assignment page of the specific series *}
                     <div class="row">
 
                         {* Timeline header -- show on small screens *}
