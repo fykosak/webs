@@ -42,13 +42,13 @@
     {control navigation "/images/logo.svg", "FYKOS"}
     <main>
         {block main}
-        <div class="panel color-light">
-            <section class="inner-container">
-                {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
-                {ifset title}<h1>{include title}</h1>{/ifset}
-                {include content}
-            </section>
-        </div>
+            <div class="panel color-light">
+                <section class="inner-container">
+                    {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+                    {ifset title}<h1>{include title}</h1>{/ifset}
+                    {include content}
+                </section>
+            </div>
         {/block}
     </main>
     <footer>
