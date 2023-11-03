@@ -290,14 +290,12 @@
 }
 
 .embed-responsive-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  width: 90%;
+  display: block;
 }
 
 .right {
-  align-self: flex-end; /* Align right */
+  margin-left: auto;
 }
 
 .text-right {
