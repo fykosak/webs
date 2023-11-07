@@ -172,11 +172,12 @@
   background-color: black;
   background-image: url("./space.png");
   background-repeat: no-repeat;
-  background-position: bottom right;
-  background-size: 50%;
+  background-size: 40%;
+  background-position: bottom 120% right -15%;
 
   &:hover {
-    background-size: 50%*1.1;
+    background-size: 40%*1.1;
+    background-position: bottom 40% right -10%;
   }
 }
 
