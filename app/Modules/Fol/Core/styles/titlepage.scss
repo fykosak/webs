@@ -167,6 +167,19 @@
   }
 }
 
+.price-box.kerbal-box {
+  color: white;
+  background-color: black;
+  background-image: url("./space.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 50%;
+
+  &:hover {
+    background-size: 50%*1.1;
+  }
+}
+
 .price-box.avast-box {
   color: black;
   background-color: #FFDDBF;
