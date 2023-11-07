@@ -20,7 +20,7 @@ abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
 
         $items[] = new NavItem(
             new PageTitle(null, "O nás", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'About:fykosGroup',
+            'About:',
         );
 
         $items[] = new NavItem(
@@ -30,7 +30,7 @@ abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
 
         $items[] = new NavItem(
             new PageTitle(null, "Seminář", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'About:fykosCompetition',
+            'Events:fykos',
         );
 
         $items[] = new NavItem(
