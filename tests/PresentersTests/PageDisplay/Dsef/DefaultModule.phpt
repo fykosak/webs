@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tests\PresentersTests\PageDisplay\Fol;
+namespace Tests\PresentersTests\PageDisplay\Dsef;
 
 use Tests\PresentersTests\PageDisplay\AbstractPageDisplayTestCase;
 
 // phpcs:disable
-define("MODULE_NAME", "dsef");
+const MODULE_NAME = 'dsef';
 $container = require '../../../Bootstrap.php';
 
 // phpcs:enable

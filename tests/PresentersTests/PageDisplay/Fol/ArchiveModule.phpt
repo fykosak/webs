@@ -7,7 +7,7 @@ namespace Tests\PresentersTests\PageDisplay\Fol;
 use Tests\PresentersTests\PageDisplay\AbstractPageDisplayTestCase;
 
 // phpcs:disable
-define("MODULE_NAME", "fol");
+const MODULE_NAME = 'fol';
 $container = require '../../../Bootstrap.php';
 
 // phpcs:enable

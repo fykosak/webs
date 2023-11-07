@@ -73,7 +73,7 @@ abstract class BasePresenter extends Presenter
     {
         // Lang is null in error presenter because no rote rule was applied
         if (!isset($this->lang) || $this->lang == null) {
-            $this->lang = "en"; // todo guess language by domain
+            $this->lang = 'en'; // todo guess language by domain
         }
 
         $this->translator->setLang($this->lang);

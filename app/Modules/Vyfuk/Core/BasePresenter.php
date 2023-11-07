@@ -26,7 +26,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 
     protected function localize(): void
     {
-        $this->lang = "cs";
+        $this->lang = 'cs';
         parent::localize();
     }
 
