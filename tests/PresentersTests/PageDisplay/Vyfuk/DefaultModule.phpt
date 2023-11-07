@@ -7,7 +7,7 @@ namespace Tests\PresentersTests\PageDisplay\Vyfuk;
 use Tests\PresentersTests\PageDisplay\AbstractPageDisplayTestCase;
 
 // phpcs:disable
-const MODULE_NAME = 'vyfuk';
+define('MODULE_NAME', 'vyfuk');
 $container = require '../../../Bootstrap.php';
 
 // phpcs:enable

@@ -7,7 +7,7 @@ namespace Tests\PresentersTests\PageDisplay\Fof;
 use Tests\PresentersTests\PageDisplay\AbstractPageDisplayTestCase;
 
 // phpcs:disable
-const MODULE_NAME = 'fof';
+define('MODULE_NAME', 'fof');
 $container = require '../../../Bootstrap.php';
 
 // phpcs:enable

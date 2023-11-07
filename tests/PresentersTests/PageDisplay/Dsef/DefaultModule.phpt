@@ -7,7 +7,7 @@ namespace Tests\PresentersTests\PageDisplay\Dsef;
 use Tests\PresentersTests\PageDisplay\AbstractPageDisplayTestCase;
 
 // phpcs:disable
-const MODULE_NAME = 'dsef';
+define('MODULE_NAME', 'dsef');
 $container = require '../../../Bootstrap.php';
 
 // phpcs:enable
