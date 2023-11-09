@@ -64,15 +64,16 @@
   }
 }
 
-.fyziklani-international-box {
+.fyziklani-box {
   background-color: #F44336;
-  background-image: url("https://fyziklani.cz/lib/tpl/redfoftpl/images/prague.svg");
+  //background-image: url("https://fyziklani.cz/lib/tpl/redfoftpl/images/prague.svg");
+  background-image: url(./scholarship.png);
   background-repeat: no-repeat;
   background-position: bottom;
-  background-size: 60rem;
+  background-size: 45rem;
 
   &:hover {
-    background-size: 60rem*1.1;
+    background-size: 45rem*1.1;
   }
 }
 
