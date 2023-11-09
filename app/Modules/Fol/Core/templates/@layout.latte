@@ -107,12 +107,27 @@
 
         <div class="panel sponsors">
             <div class="inner-container">
-                <div class="sponsors-row">
-                    <a href="https://www.mff.cuni.cz/"><img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-height: 5rem; max-width: 12rem"></a>
-                    <a href="https://www.msmt.cz/"><img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 5rem; max-width: 12rem"></a>
-                    <a href="https://orgpad.com/"><img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad logo" style="max-height: 5rem; max-width: 12rem"></a>
-                    <a href="https://www.wolfram.com/mathematica/"><img src="{$basePath}/images/logos/wolfram.png" alt="Wolfram logo" style="max-height: 5rem; max-width: 12rem"></a>
-                    <a {switch $lang}{case 'cs'}href="https://www.avast.com/"{default}href="https://www.avast.com/en-us/index"{/switch}><img src="{$basePath}/images/logos/avast.png" alt="Avast logo" style="max-height: 5rem; max-width: 12rem"></a>
+                <div class="category">
+                    <div class="category-title">{switch $lang}{case cs}Organizátoři{default}Organizers{/switch}</div>
+                        <div class="category-sponsors">
+                            <a href="https://www.mff.cuni.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-width: 8rem">
+                            </a>
+                            <a href="https://www.msmt.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="category-title">{switch $lang}{case cs}Partneři{default}Partners{/switch}</div>
+                    <div class="category-sponsors">
+                        <a href="https://www.chess.com/"><img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Chess logo" style="max-height: 5rem; max-width: 12rem"></a>
+                        <a href="https://www.factorio.com/"><img src="{$basePath}/images/logos/factorio.png" alt="Factorio logo" style="max-height: 5rem; max-width: 12rem"></a>
+                        <a href="https://www.wolfram.com/mathematica/"><img src="{$basePath}/images/logos/wolfram.png" alt="Wolfram logo" style="max-height: 5rem; max-width: 12rem"></a>
+                        <a href="https://www.kerbalspaceprogram.com/games-kerbal-space-program"><img src="{$basePath}/images/logos/Kerbal.png" alt="Kerbal logo" style="max-height: 5rem; max-width: 12rem"></a>
+                        <a {switch $lang}{case 'cs'}href="https://www.avast.com/"{default}href="https://www.avast.com/en-us/index"{/switch}><img src="{$basePath}/images/logos/avast.png" alt="Avast logo" style="max-height: 5rem; max-width: 12rem"></a>
+                    </div>
                 </div>
             </div>
         </div>

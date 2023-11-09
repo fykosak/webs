@@ -17,20 +17,20 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
         $items = [];
         if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
-                new PageTitle(null, "Registrace", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(null, 'Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 'Registration:',
             );
         }
 
         if (CurrentPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
-                new PageTitle(null, "Aktuální ročník", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(null, 'Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 'Current:',
             );
         }
 
         $items[] = new NavItem(
-            new PageTitle(null, "Minulé ročníky", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, 'Minulé ročníky', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             'Archive:',
         );
         return $items;
