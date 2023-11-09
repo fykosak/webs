@@ -1,18 +1,6 @@
-database:
-    default:
-        dsn: 'mysql:host=localhost;dbname=fol-web'
-        user: %database.user%
-        password: %database.password%
-    problems:
-        dsn: 'mysql:host=localhost;dbname=problems'
-        user: %database.user%
-        password: %database.password%
 parameters:
     fksdbDownloader:
         login:
         password:
         url:
-    database:
-         user:
-         password:
     gameApiURL:

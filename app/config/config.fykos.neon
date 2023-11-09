@@ -12,9 +12,3 @@ parameters:
     router-mapping:
         default:
             cs:
-
-database:
-    default:
-        dsn: ''
-    problems:
-        dsn: ''

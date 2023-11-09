@@ -12,7 +12,6 @@ use Nette\Application\UI\Template;
 use Nette\DI\Container;
 use Tester\Assert;
 use Tester\TestCase;
-use Tracy\Debugger;
 
 abstract class AbstractPageDisplayTestCase extends TestCase
 {
@@ -34,7 +33,7 @@ abstract class AbstractPageDisplayTestCase extends TestCase
     {
         $_COOKIE['_nss'] = '1';
         $presenterFactory = $this->container->getByType(IPresenterFactory::class);
-        /** @var \Nette\Application\UI\Presenter */
+        /** @var Presenter $presenter */
         $presenter = $presenterFactory->createPresenter($presenterName);
         $presenter->autoCanonicalize = false;
         return $presenter;

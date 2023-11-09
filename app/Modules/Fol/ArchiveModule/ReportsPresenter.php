@@ -16,7 +16,7 @@ class ReportsPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $data = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . "reports.json");
+        $data = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'reports.json');
         $query = json_decode($data);
         $this->template->reports = array_filter($query, function ($item) {
             return $item->lang === $this->lang && $item->event_id === $this->getEvent()->eventId;

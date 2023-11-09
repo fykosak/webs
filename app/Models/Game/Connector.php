@@ -37,10 +37,10 @@ class Connector
         return $this->getCache()->load('results', function (?array &$dependencies): array {
             $context = null;
             if ($this->httpAuthUser) {
-                $auth = base64_encode($this->httpAuthUser . ":" . $this->httpAuthPassword);
+                $auth = base64_encode($this->httpAuthUser . ':' . $this->httpAuthPassword);
                 $context = stream_context_create([
-                    "http" => [
-                        "header" => "Authorization: Basic $auth"
+                    'http' => [
+                        'header' => "Authorization: Basic $auth"
                     ]
                 ]);
             }
