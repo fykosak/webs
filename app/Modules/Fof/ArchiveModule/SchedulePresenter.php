@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\ArchiveModule;
 
-use App\Components\ImageGallery\ImageGalleryControl;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
 
 
-class ErasmusPresenter extends BasePresenter
-{   
 
+use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+
+class SchedulePresenter extends BasePresenter
+{   
+    
     /**
      * @throws BadRequestException
      * @throws \Throwable
@@ -22,13 +24,9 @@ class ErasmusPresenter extends BasePresenter
         parent::startup();
 
         // Check if it is the correct event year, otherwise throw 404
-        if ($this->eventYear !== '2022') {
+        if ($this->eventYear !== '2023') {
             throw new BadRequestException('Event not found', IResponse::S404_NOT_FOUND);
         }
     }
     
-    protected function createComponentGallery(): ImageGalleryControl
-    {
-        return new ImageGalleryControl($this->context);
-    }
 }
