@@ -7,13 +7,12 @@ namespace Tests\PresentersTests\PageDisplay\Fol;
 use Tests\PresentersTests\PageDisplay\AbstractPageDisplayTestCase;
 
 // phpcs:disable
-define("MODULE_NAME", "fol");
+define('MODULE_NAME', 'fol');
 $container = require '../../../Bootstrap.php';
 
 // phpcs:enable
 class DefaultModule extends AbstractPageDisplayTestCase
 {
-
     public function getPages(): array
     {
         return self::getPageLangVariants([

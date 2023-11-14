@@ -31,14 +31,13 @@
                         {case "cs"}Fyziklání {$eventKey["event"]->begin|date: "Y"}
                         {default}Fyziklani {$eventKey["event"]->begin|date: "Y"}
                     {/switch}
-
-                    <a class="btn btn-primary" n:href=":Archive:Default: eventYear:$eventKey['key']">
-                        {switch $lang}
-                            {case cs}Více
-                            {default}More
-                        {/switch}
-                    </a>
                 </h1>
+                <a class="btn btn-primary mb-2" n:href=":Archive:Default: eventYear:$eventKey['key']">
+                    {switch $lang}
+                        {case cs}Více
+                        {default}More
+                    {/switch}
+                </a>
 
                 <div>
                     <ul class="stylized">

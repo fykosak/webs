@@ -1,19 +1,14 @@
-{block title}Aktuální ročník{/block}
-
-{block main}
+{varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent $event}
 
 <div class="panel color-auto">
     <section class="inner-container">
-        <!--<div class="alert alert-warning">9. 10. 2023 došlo ke změně orientačních názvů (nikoliv obsahu) odpoledních exkurzí a několik exkurzí bylo přidáno. Kromě názvu exkurze se pro přihlášené nic nemění. Změny skupin jsou možné do konce registrace ve <a href="https://db.fykos.cz">FKSDB</a> přes editaci přihlášky.</div>
-		-->
-        <!-- <div class="subheader">Aktuální stránka akce z {*$event->begin|date: "j. n. Y"*}</div>
-        <h1>DSEF {*$event->begin|date: "Y"*}</h1> -->
-        <h1>Základní informace</h1>
+        <div class="subheader">Archivní stránka akce z {$event->begin|date: "j. n. Y"}</div>
+        <h1>DSEF {$event->begin|date: "Y"}</h1>
 
         <p>Den s experimentální fyzikou {$gamePhaseCalculator->getFKSDBEvent()->begin|date: "Y"} se bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin|date: "j. n. Y"}, tentokrát na Karlově.
             Registrace na letošní ročník již skončila.
             Rozvržení jednotlivých exkurzí a doplňující informace k programu naleznete níže na stránce.
-            Pro účastníky z daleka je letos připravené ubytování z neděle na pondělí v hostelu PLUS. 
+            Pro účastníky z daleka je letos připravené ubytování z neděle na pondělí v hostelu PLUS.
             <!-- <a href="#prihlasovani">Přihlašování</a> -->
             Pokud máte nějaký dotaz nebo problém, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.
         </p>
@@ -21,9 +16,9 @@
             Partnerem tohoto ročníku DSEFu je asociace <a href="https://www.iaps.info" class="urlextern"
                 title="https://www.iaps.info">IAPS</a> (International Association of Physics Students), která nás podpořila grantem IAPS Outreach Grant. Díky tomu jsme mohli akci snadněji zorganizovat a rozložit prostředky na
             zajištění levnějšího ubytování pro účastníky.
-        </p> 
+        </p>
     </section>
-</div>          
+</div>
 
 <div class="panel color-auto">
     <section class="inner-container">
@@ -37,7 +32,7 @@
                     Matematicko-fyzikální fakultě ve vestibulu budovy F na Karlově na adrese Ke Karlovu 2026/5</strong>. Po registraci bude následovat zahájení DSEFu a ranní přednáška. 
             </li>
         </ul>
-		<h4 id="ranni-prednaska">Slavnostní zahájení DSEFu (9:00-9:15)</h4>
+        <h4 id="ranni-prednaska">Slavnostní zahájení DSEFu (9:00-9:15)</h4>
         <h4 id="ranni-prednaska">Ranní přednáška (9:15-10:00)</h4>
         <p>
             <b> Základy do soptění Marsu</b> <br>
@@ -670,6 +665,3 @@
       
     </section>
 </div>
-          
-
-{/block}

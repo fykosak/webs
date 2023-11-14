@@ -74,9 +74,9 @@ class ApiResultsComponent extends BaseComponent
         }
         if (!$data['times']['visible']) {
             // results are hidden
-            $data["submits"] = null;
-            foreach ($data["teams"] as &$team) {
-                $team["bonus"] = null;
+            $data['submits'] = null;
+            foreach ($data['teams'] as &$team) {
+                $team['bonus'] = null;
             }
         }
         return $data;
