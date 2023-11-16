@@ -77,6 +77,18 @@
   }
 }
 
+.factorio-box {
+  background-color: #222222;
+  background-image: url("https://cdn.factorio.com/assets/img/artwork/substation.png");
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: center;
+
+  &:hover {
+    background-size: 110%*1.1;
+  }
+}
+
 .mathematica-box {
   background-color: #222222;
   background-image: url("wolfram.png");
