@@ -54,9 +54,5 @@ class Bootstrap
 /* @phpstan-ignore-next-line */
 $configurator = Bootstrap::boot(MODULE_NAME);
 $container = $configurator->createContainer();
-
-/* Always acquire locks in the order as below! */
-const LOCK_DB = __DIR__ . '/tmp/database.lock';
-const LOCK_UPLOAD = __DIR__ . '/tmp/upload.lock';
 return $container;
 // phpcs:enable

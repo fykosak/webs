@@ -10,23 +10,22 @@ use Nette\Http\IResponse;
 
 
 class ErasmusPresenter extends BasePresenter
-{   
-
+{
     /**
      * @throws BadRequestException
      * @throws \Throwable
      */
 
-     public function startup(): void
+    public function startUp(): void
     {
-        parent::startup();
+        parent::startUp();
 
         // Check if it is the correct event year, otherwise throw 404
         if ($this->eventYear !== '2022') {
             throw new BadRequestException('Event not found', IResponse::S404_NOT_FOUND);
         }
     }
-    
+
     protected function createComponentGallery(): ImageGalleryControl
     {
         return new ImageGalleryControl($this->context);
