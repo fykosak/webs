@@ -1,17 +1,14 @@
 {varType string $lang}
-{*{block title}*}
-{* {switch $lang}*}
-{* {case 'cs'} Hlavní stránka*}
-{* {default} Main page*}
-{* {/switch}*}
-{*{/block}*}
-{* {block content} *}
-{* {if $jumbotron}*}
-{* <div class="title-panel container-fluid header-image jumbotron position-relative">*}
-    {* {control jumbotron}*}
-    {* </div>*}
-{* {/if}*}
+{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{block title}
+    {switch $lang}
+        {case 'cs'} Hlavní stránka
+        {default} Main page
+    {/switch}
+{/block}
+
 {block main}
+
 <div class="panel color-primary title-panel">
     <section class="inner-container">
         <div class="header-container">
@@ -27,6 +24,40 @@
             </div>
             <img id="header-image" class="header-image" src="{$basePath}/images/logos/fykos_symbol_no_border.svg"
                 alt="FYKOS logo">
+        </div>
+    </section>
+</div>
+
+<div class="panel color-dark">
+    <section class="inner-container">
+        <div class="subheader">Ochutnávka našich akcí</div>
+        <h1 class="section-header">Co s námi můžete zažít?</h1>
+
+        <div class="row fade-in-section video-row">
+            <!-- First video -->
+            <div class="col-lg-6">
+                <div class=" video-container left">
+                    <h2>Soutěže...</h2>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video class="embed-responsive-item left" controls>
+                            <source src="{$basePath}/videos/FOF.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <!-- Second video -->
+            <div class="col-lg-6">
+                <div class="video-container right pt-4 pt-lg-0">
+                    <h2>...a vědu!</h2>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video class="embed-responsive-item" controls>
+                            <source src="{$basePath}/videos/DSEF.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </div>
@@ -155,6 +186,8 @@
 
 
                     <!-- Row for series -->
+                    {* TODO: if its before the deadline of a given series, link to the generic task assignent page.
+                    If it's after, link to the assignment page of the specific series *}
                     <div class="row">
 
                         {* Timeline header -- show on small screens *}
@@ -343,13 +376,13 @@
                 positions.push(positionPercentage);
             }
 
-            
+
             let logoSizePercentage;
             // Phase 2: Adjust overlapping positions
             if (timelineId == "#timeline-vertical-container") {
                 const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
                 const containerWidth = document.querySelector('#timeline-vertical-container').offsetWidth;
-                let effectiveLogoSizePx = Math.min( logoSizePx, containerWidth * 0.3 )
+                let effectiveLogoSizePx = Math.min(logoSizePx, containerWidth * 0.3)
 
                 logoSizePercentage = effectiveLogoSizePx / verticalTimelineHeight * 100;
             } else {

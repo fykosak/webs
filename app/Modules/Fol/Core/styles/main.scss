@@ -39,6 +39,8 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import "./titlepage";
 @import "./navigation";
 
+@import "./../../../Fof/Core/styles/sponsors";
+
 @import '../../DefaultModule/styles/rules';
 @import '../../DefaultModule/styles/faq';
 @import '../../DefaultModule/styles/timeline';

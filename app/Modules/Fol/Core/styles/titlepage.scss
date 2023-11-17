@@ -64,15 +64,16 @@
   }
 }
 
-.fyziklani-international-box {
+.fyziklani-box {
   background-color: #F44336;
-  background-image: url("https://fyziklani.cz/lib/tpl/redfoftpl/images/prague.svg");
+  //background-image: url("https://fyziklani.cz/lib/tpl/redfoftpl/images/prague.svg");
+  background-image: url(./scholarship.png);
   background-repeat: no-repeat;
   background-position: bottom;
-  background-size: 60rem;
+  background-size: 45rem;
 
   &:hover {
-    background-size: 60rem*1.1;
+    background-size: 45rem*1.1;
   }
 }
 
@@ -88,10 +89,10 @@
   }
 }
 
-.price-box.orgpad-box {
+.price-box.chess-box {
   color: black;
   background-color: white;
-  background-image: url("./orgpad.png");
+  background-image: url("./chess-removebg-preview (1).png");
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 50%;
@@ -164,6 +165,20 @@
   &:hover {
     background-size: 65%;
     background-position: 120% 2.9rem;
+  }
+}
+
+.price-box.kerbal-box {
+  color: white;
+  background-color: black;
+  background-image: url("./space.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: bottom 100% right -15%;
+
+  &:hover {
+    background-size: 50%*1.1;
+    background-position: bottom 40% right -10%;
   }
 }
 

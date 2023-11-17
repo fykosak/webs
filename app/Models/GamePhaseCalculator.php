@@ -91,7 +91,7 @@ class GamePhaseCalculator
         return $this->checkEvent(
             $period,
             $this->getGameBegin(),
-            $this->getGameBegin()->add(new \DateInterval("PT3H")),
+            $this->getGameBegin()->add(new \DateInterval('PT3H')),
         );
     }
 
