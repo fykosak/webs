@@ -8,7 +8,6 @@ use App\Components\ImageGallery\ImageGalleryControl;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
 
-
 class ErasmusPresenter extends BasePresenter
 {
     /**
