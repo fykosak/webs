@@ -49,7 +49,7 @@ class CustomFormRenderer implements IFormRenderer
         $params = ['controls' => $controls];
         
         ob_start();
-        $this->latte->render(__DIR__ . '/templates/checkboxRenderer.latte', $params);
+        $this->latte->render(__DIR__ . '/templates/formRender.latte', $params);
         return ob_get_clean();
     }
 
