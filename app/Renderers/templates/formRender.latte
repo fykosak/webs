@@ -1,0 +1,33 @@
+
+<form>
+    <div class="row">
+        {foreach $controls['special'] as $item}
+            <div class="col-12 p-3">
+                <div class="country-container special">
+                    {$item['html']}
+                </div>
+            </div>
+        {/foreach}
+    </div>
+    <div class="row">
+        {foreach $controls['countries'] as $item}
+            <div class="col-lg-3 col-md-4 p-3">
+                <div class="country-container">
+                    {$item['html']}
+                    <div class="text-country-container">
+                        <span class="flag-icon flag-icon-{strtolower($item['control']->getName())}"></span>
+                        {$item['control']->getCaption()}<br>
+                        {$item['control']->getOption('count')} participants
+                    </div>
+                </div>
+            </div>
+        {/foreach}
+    </div>
+    <div class="row">
+        <div class="col-12 py-3">
+        {foreach $controls['buttons'] as $item}
+                {$item['html']}
+        {/foreach}
+        </div>
+    </div>
+</form>

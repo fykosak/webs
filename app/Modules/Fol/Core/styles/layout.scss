@@ -12,6 +12,13 @@ body {
   color: $text-on-primary;
 }
 
+.btn-primary-inverted {
+  @extend .btn-primary;
+  color: $primary-color;
+  background-color: $text-on-primary;
+}
+
+
 .btn-outline {
   @extend .btn-outline;
   text-align: center;

@@ -1,5 +1,5 @@
 .team-results-control {
-  column-count: 4;
+  // column-count: 4;
 
   form table tr {
     @extend .form-check;
@@ -29,3 +29,77 @@
     background-color: #00000010;
   }
 }
+
+.team-results-control form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Container for each box */
+.country-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  // border: 3px solid $primary-color;
+  background-color: $primary-color;
+  color: $text-on-primary; 
+
+  input {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    margin-left: 5px;
+  }
+
+  .text-country-container{
+    // border-left: 3px solid $primary-color;
+    border-left: 3px solid $text-on-primary;
+    padding-left: 10px;
+  }
+  
+  .flag-icon { 
+    margin-right: 5px; /* Space between flag and country code */
+    border: 1px solid black;
+  }
+}
+
+
+.button-collapse-header{
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.toggle-content{
+  border: 3px solid $primary-color;
+}
+
+// .country-container {
+//   display: flex;
+//   align-items: flex-start;
+//   width: 200px;  /* Adjust width as needed */
+//   border: 1px solid $primary-color; /* Border styling */
+//   background-color: $primary-color;
+//   color: $text-on-primary;
+//   padding: 8px;
+//   margin: 5px;
+//   vertical-align: top;  /* To ensure blocks align at the top */
+//   box-sizing: border-box; /* This ensures that padding and border are included in the total width */
+//   text-align: center; /* Center text and flag icon */
+// }
+
+
+// .country-container.special {
+//   margin-bottom: 20px; /* This will give a larger gap after the "One member teams only" checkbox. */
+// }
+
+// .flag-icon {
+//   margin-right: 5px;  /* Space between flag and country name */
+// }
+
+// input[type="checkbox"] {
+//   float: center;  /* Position checkbox to the left */
+//   margin-right: 5px;  /* Space between checkbox and flag */
+//   vertical-align: middle;
+// }

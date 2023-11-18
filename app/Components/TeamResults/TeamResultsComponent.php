@@ -118,7 +118,7 @@ class TeamResultsComponent extends BaseComponent
 
         return false;
     }
-
+    
     /**
      * @throws \Throwable
      */
@@ -151,17 +151,22 @@ class TeamResultsComponent extends BaseComponent
 
         // countries
         arsort($countryISOs);
+        
         $countryISOContainer = $form->addContainer('country_iso');
         foreach ($countryISOs as $countryISO => $count) {
-            $countryISOContainer->addCheckbox($countryISO, sprintf(_('%s:%s participants'), $countryISO, $count));
-        }
+            $countryISOContainer->addCheckbox($countryISO, $countryISO)
+                ->setOption('count', $count);
+        }        
 
+        
         $form->addButton('reset')->setHtmlAttribute('type', 'reset')->setHtmlAttribute('class', 'btn btn-dark');
 
         $form->addSubmit('applyFilters', 'Apply')->setHtmlAttribute('class', 'btn btn-primary');
 
         $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
 
+        $form->setRenderer(new \App\Renderers\CustomFormRenderer());
+        
         return $form;
     }
 }
