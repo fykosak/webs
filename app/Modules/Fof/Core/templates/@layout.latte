@@ -100,6 +100,9 @@
                         <a href="https://www.msmt.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
                         </a>
+                        <a href="https://www.fykos.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/fykos_logo.png" alt="logo FYKOSu" style="max-width: 9rem">
+                        </a>
                     </div>
                 </div>
                 {* <div class="category">
@@ -236,8 +239,6 @@
                             {/switch}
                         </ul>
                     </nav>
-                </div>
-                <div class="col-md-3">
                     <nav>
                         <ul>
                             {switch $lang}
@@ -258,6 +259,30 @@
                                     </ul>
                                 </li>
                             {/switch}
+                        </ul>
+                    </nav>
+
+                </div>
+                <div class="col-md-3">
+                    <nav>
+                        <ul>
+                            {switch $lang}
+                                {case cs}
+                                <li>Zustňme v kontaktu
+                                {default}
+                                <li>Follow us on social media
+                            {/switch}
+                            <ul>
+                                <li>
+                                    <a class="social-sites" href="https://www.facebook.com/FYKOS">
+                                    <i class="fa fa-facebook fa-2x"></i>
+                                    </a>
+                                    <a class="social-sites" href="https://www.instagram.com/fykosak/">
+                                    <i class="fa fa-instagram fa-2x"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            </li>
                         </ul>
                     </nav>
                 </div>
