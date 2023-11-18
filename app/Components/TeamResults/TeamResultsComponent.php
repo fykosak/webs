@@ -37,6 +37,8 @@ class TeamResultsComponent extends BaseComponent
      */
     public function render(): void
     {
+        $this->filterData = $this->getParameter('filterData');
+        $this->template->filterData = $this->filterData;
         $this->template->teams = $this->loadTeams();
         $this->template->lang = $this->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamResults.latte');
