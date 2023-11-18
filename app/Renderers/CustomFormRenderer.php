@@ -1,60 +1,59 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Renderers;
 
-use Nette\Forms\IFormRenderer;
-use Nette;
-use Nette\Forms\Form;
-use Nette\Utils\Html;
 use Latte\Engine;
+use Nette\Forms\Controls\Button;
+use Nette\Forms\Controls\Checkbox;
+use Nette\Forms\Form;
+use Nette\Forms\IFormRenderer;
 
 class CustomFormRenderer implements IFormRenderer
 {
-    private $latte;
+    private Engine $latte;
     private string $lang;
 
-    public function __construct($lang)
+    public function __construct(string $lang)
     {
         $this->latte = new Engine();
         $this->lang = $lang;
     }
 
-    public function render(Form $form, $mode = null): string
+    public function render(Form $form): string
     {
         $controls = [
             'buttons' => [],
             'countries' => [],
-            'special' => []
+            'special' => [],
         ];
-        
+
         foreach ($form->getControls() as $control) {
-            if ($control instanceof Nette\Forms\Controls\Button) {
+            if ($control instanceof Button) {
                 $controls['buttons'][] = [
                     'control' => $control,
-                    'html' => $control->getControl()
+                    'html' => $control->getControl(),
                 ];
             } elseif ($control->getName() === 'OneMemberTeams') {
                 $controls['special'][] = [
                     'control' => $control,
-                    'html' => $control->getControl()
+                    'html' => $control->getControl(),
                 ];
-            } elseif ($control instanceof Nette\Forms\Controls\Checkbox) {
+            } elseif ($control instanceof Checkbox) {
                 $controls['countries'][] = [
                     'control' => $control,
-                    'html' => $control->getControlPart()->addAttributes(['class' => 'checkbox-input'])
+                    'html' => $control->getControlPart()->addAttributes(['class' => 'checkbox-input']),
                 ];
             }
         }
-        
 
         // Pass controls to the template
-        $params = ['controls' => $controls];
-        $params['lang'] = $this->lang;
 
-        ob_start();
-        
-        $this->latte->render(__DIR__ . '/templates/formRender.latte', $params);
-        return ob_get_clean();
+        return $this->latte->renderToString(__DIR__ . '/templates/formRender.latte', [
+            'controls' => $controls,
+            'form' => $form,
+            'lang' => $this->lang,
+        ]);
     }
-
 }

@@ -1,4 +1,3 @@
-
 <form method="post">
     <div class="row">
         {foreach $controls['special'] as $item}
@@ -24,7 +23,7 @@
                             <span class="flag-icon flag-icon-{strtolower($item['control']->getName())}"></span>
                             {$item['control']->getCaption()}
                         {/if}<br>
-                        {$item['control']->getOption('count')} 
+                        {$item['control']->getOption('count')}
                         {switch $lang}
                             {case cs}účastníků
                             {default}participants
