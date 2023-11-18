@@ -37,8 +37,8 @@ class TeamResultsComponent extends BaseComponent
      */
     public function render(): void
     {
-        $this->filterData = $this->getParameter('filterData');
-        $this->template->filterData = $this->filterData;
+        // $this->filterData = $this->getParameter('filterData');
+        // $this->template->filterData = $this->filterData;
         $this->template->teams = $this->loadTeams();
         $this->template->lang = $this->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamResults.latte');
@@ -165,13 +165,13 @@ class TeamResultsComponent extends BaseComponent
 
         $form->addSubmit('applyFilters', 'Apply')->setHtmlAttribute('class', 'btn btn-primary');
 
-        // $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
-        $form->onSuccess[] = function(Form $form) {
-            $this->filterData = $form->getValues('array');
-            $this->redirect('this', ['filterData' => $this->filterData]);
-        };
+        $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
+        // $form->onSuccess[] = function(Form $form) {
+        //     $this->filterData = $form->getValues('array');
+        //     $this->redirect('this', ['filterData' => $this->filterData]);
+        // };
 
-        $form->setRenderer(new \App\Renderers\CustomFormRenderer($this->lang));
+        // $form->setRenderer(new \App\Renderers\CustomFormRenderer($this->lang));
         
         return $form;
     }
