@@ -11,10 +11,12 @@ use Latte\Engine;
 class CustomFormRenderer implements IFormRenderer
 {
     private $latte;
+    private string $lang;
 
-    public function __construct()
+    public function __construct($lang)
     {
         $this->latte = new Engine();
+        $this->lang = $lang;
     }
 
     public function render(Form $form, $mode = null): string
@@ -47,8 +49,10 @@ class CustomFormRenderer implements IFormRenderer
 
         // Pass controls to the template
         $params = ['controls' => $controls];
-        
+        $params['lang'] = $this->lang;
+
         ob_start();
+        
         $this->latte->render(__DIR__ . '/templates/formRender.latte', $params);
         return ob_get_clean();
     }

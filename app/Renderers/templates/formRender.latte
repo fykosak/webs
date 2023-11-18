@@ -15,9 +15,20 @@
                 <div class="country-container">
                     {$item['html']}
                     <div class="text-country-container">
-                        <span class="flag-icon flag-icon-{strtolower($item['control']->getName())}"></span>
-                        {$item['control']->getCaption()}<br>
-                        {$item['control']->getOption('count')} participants
+                        {if $item['control']->getCaption() === 'ZZ'}
+                            {switch $lang}
+                                {case cs}Neznámá
+                                {default}Unknown
+                            {/switch}
+                        {else}
+                            <span class="flag-icon flag-icon-{strtolower($item['control']->getName())}"></span>
+                            {$item['control']->getCaption()}
+                        {/if}<br>
+                        {$item['control']->getOption('count')} 
+                        {switch $lang}
+                            {case cs}účastníků
+                            {default}participants
+                        {/switch}
                     </div>
                 </div>
             </div>

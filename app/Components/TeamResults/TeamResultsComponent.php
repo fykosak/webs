@@ -163,9 +163,13 @@ class TeamResultsComponent extends BaseComponent
 
         $form->addSubmit('applyFilters', 'Apply')->setHtmlAttribute('class', 'btn btn-primary');
 
-        $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
+        // $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
+        $form->onSuccess[] = function(Form $form) {
+            $this->filterData = $form->getValues('array');
+            $this->redirect('this', ['filterData' => $this->filterData]);
+        };
 
-        $form->setRenderer(new \App\Renderers\CustomFormRenderer());
+        $form->setRenderer(new \App\Renderers\CustomFormRenderer($this->lang));
         
         return $form;
     }
