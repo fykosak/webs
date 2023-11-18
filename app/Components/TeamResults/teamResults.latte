@@ -69,8 +69,8 @@
                                 }{if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->schoolId != $participants[$key + 1]->schoolId)
                                 }
                                     <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$participant->schoolName}{if ($participant->countryIso != "ZZ")} <span
-                                            class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>{/if})</span>
-                                    {do $inSchool = 0
+                                            class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>{/if})</span>{* this is to remove the space before the comma
+                                    *}{do $inSchool = 0
                                     }{/if
                                 }{if !$iterator->isLast()
                                 }, {/if}
