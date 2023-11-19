@@ -21,16 +21,27 @@ services:
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
     extra_hosts:
-      - "vyfuk.org:127.0.1.1"
-      - "online.fyziklani.cz:127.0.1.1"
-      - "online.fyziklani.org:127.0.1.1"
-      - "fyziklani.cz:127.0.1.1"
-      - "fyziklani.org:127.0.1.1"
-      - "dsef.cz:127.0.1.1"
-      - "dsef.org:127.0.1.1"
-      - "fykos.cz:127.0.1.1"
-      - "fykos.org:127.0.1.1"
+      - "vyfuk.org.local:127.0.1.1"
+      - "online.fyziklani.cz.local:127.0.1.1"
+      - "online.fyziklani.org.local:127.0.1.1"
+      - "fyziklani.cz.local:127.0.1.1"
+      - "fyziklani.org.local:127.0.1.1"
+      - "dsef.cz.local:127.0.1.1"
+      - "dsef.org.local:127.0.1.1"
+      - "fykos.cz.local:127.0.1.1"
+      - "fykos.org.local:127.0.1.1"
 
+    ports:
+      - 80:80
+      - 8080:8080
+      - 8081:8081
+      - 8082:8082
+      - 8083:8083
+      - 8084:8084
+      - 8085:8085
+      - 8086:8086
+      - 8087:8087
+      - 8088:8088
 
   #db:
   #  image: mysql

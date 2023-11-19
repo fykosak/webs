@@ -25,39 +25,39 @@
 	],
 	"portsAttributes": {
 		"8080": {
-			"label": "http://vyfuk.org",
+			"label": "http://vyfuk.org.local",
 			"requireLocalPort": true
 		},
 		"8081": {
-			"label": "http://online.fyziklani.cz",
+			"label": "http://online.fyziklani.cz.local",
 			"requireLocalPort": true
 		},
 		"8082": {
-			"label": "http://online.fyziklani.org",
+			"label": "http://online.fyziklani.org.local",
 			"requireLocalPort": true
 		},
 		"8083": {
-			"label": "http://fyziklani.cz",
+			"label": "http://fyziklani.cz.local",
 			"requireLocalPort": true
 		},
 		"8084": {
-			"label": "http://fyziklani.org",
+			"label": "http://fyziklani.org.local",
 			"requireLocalPort": true
 		},
 		"8085": {
-			"label": "http://dsef.cz",
+			"label": "http://dsef.cz.local",
 			"requireLocalPort": true
 		},
 		"8086": {
-			"label": "http://dsef.org",
+			"label": "http://dsef.org.local",
 			"requireLocalPort": true
 		},
 		"8087": {
-			"label": "http://fykos.cz",
+			"label": "http://fykos.cz.local",
 			"requireLocalPort": true
 		},
 		"8088": {
-			"label": "http://fykos.org",
+			"label": "http://fykos.org.local",
 			"requireLocalPort": true
 		}
 	},
