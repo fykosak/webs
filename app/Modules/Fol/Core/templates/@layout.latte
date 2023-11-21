@@ -110,13 +110,14 @@
                 <div class="category">
                     <div class="category-title">{switch $lang}{case cs}Organizátoři{default}Organizers{/switch}</div>
                     <div class="category-sponsors">
-                        <a href="https://www.mff.cuni.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-width: 8rem">
+                        <a {switch $lang}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
+                                style="max-width: 8rem">
                         </a>
                         <a href="https://www.msmt.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
                         </a>
-                        <a href="https://www.fykos.cz/" style="text-align: center">
+                        <a {switch $lang}{case cs}href="https://www.fykos.cz/"{default}href="https://www.fykos.org/"{/switch} style="text-align: center">
                             <img src="{$basePath}/images/logos/fykos_logo.png" alt="logo FYKOSu" style="max-width: 9rem">
                         </a>
                     </div>
