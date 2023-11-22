@@ -155,9 +155,12 @@ class TeamResultsComponent extends BaseComponent
         arsort($countryISOs);
 
         $countryISOContainer = $form->addContainer('country_iso');
+        // foreach ($countryISOs as $countryISO => $count) {
+        //     $countryISOContainer->addCheckbox($countryISO, $countryISO)
+        //         ->setOption('count', $count);
+        // }
         foreach ($countryISOs as $countryISO => $count) {
-            $countryISOContainer->addCheckbox($countryISO, $countryISO)
-                ->setOption('count', $count);
+            $countryISOContainer->addCheckbox($countryISO, sprintf(_('%s:%s participants'), $countryISO, $count));
         }
 
 
