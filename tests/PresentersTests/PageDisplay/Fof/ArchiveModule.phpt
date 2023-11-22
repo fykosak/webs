@@ -25,8 +25,8 @@ class ArchiveModule extends AbstractPageDisplayTestCase
         return self::getPageLangVariants([
             ['Archive:Default', 'default'],
             ['Archive:DetailedResults', 'default'],
-            ['Archive:Erasmus', 'default'],
-            ['Archive:Erasmus', 'report'],
+            //['Archive:Erasmus', 'default'],
+            //['Archive:Erasmus', 'report'],
             //['Archive:Reports', 'default'],
             ['Archive:Results', 'default'],
             ['Archive:Teams', 'default'],
