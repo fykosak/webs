@@ -87,8 +87,8 @@ export const ForVisibleResults: React.FC<{data: DataInterface<true>, teams: Team
 
   return <>
     <div className="row strips">
-      {["A", "B", "C"].map(c =>
-        <div className="col-md-4">
+      {["A", "B", "C", "O"].map(c =>
+        <div className="col-md-3">
           <CategoryColumn category={c} points={points} showFull={showFull} mappedTeams={mappedTeams} />
         </div>
       )}
@@ -160,7 +160,7 @@ const CategoryColumn: React.FC<{
           <div className="team-name">{mappedTeams[p.team.teamId]?.name ?? p.team.name}</div>
           <div className="flags">
             {[...new Set(mappedTeams[p.team.teamId]?.participants.map(p => p.countryIso))].filter(iso => iso !== "ZZ").map(iso =>
-              <span className={`flag-icon flag-icon-${iso.toLowerCase()}`} />
+              <span className={`flag-icon flag-icon-${iso?.toLowerCase()}`} />
             )}
           </div>
         </td>
