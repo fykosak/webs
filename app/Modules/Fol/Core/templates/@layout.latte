@@ -50,8 +50,7 @@
 </head>
 
 <body>
-{if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER) && !$gamePhaseCalculator->isLongAfterTheEvent()}
-    <div class="fyziklani-banner">
+<div class="fyziklani-banner">
         <div class="inner-container">
             <div class="text">
                 {switch $lang}
@@ -61,6 +60,7 @@
             </div>
         </div>
     </div>
+{if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER) && !$gamePhaseCalculator->isLongAfterTheEvent()}
     <div class="fyziklani-banner">
         <div class="inner-container">
             <div class="text">
