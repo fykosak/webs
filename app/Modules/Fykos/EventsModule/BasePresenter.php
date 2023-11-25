@@ -18,7 +18,7 @@ abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
 
         $items[] = new NavItem(
             new PageTitle(null, "O nás", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'About:',
+            ':Default:About:',
         );
 
         $items[] = new NavItem(
@@ -33,17 +33,17 @@ abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
 
         $items[] = new NavItem(
             new PageTitle(null, 'Zadání', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Problems:',
+            ':Default:Problems:',
         );
 
         $items[] = new NavItem(
             new PageTitle(null, 'Pořadí', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Results:',
+            ':Default:Results:',
         );
 
         $items[] = new NavItem(
             new PageTitle(null, 'Archiv úloh', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Default',
+            ':Default:Default',
         );
 
         $items[] = new NavItem(
