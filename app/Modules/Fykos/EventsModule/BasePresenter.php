@@ -40,7 +40,7 @@ abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
             [
                 new NavItem(new PageTitle(null, 'Základní informace'), 'Fykos:default'),
                 new NavItem(new PageTitle(null, 'Pravidla'), 'Fykos:rules'),
-                new NavItem(new PageTitle(null, 'Jak na experimenty'), 'Fykos:textutorial'),
+                new NavItem(new PageTitle(null, 'Jak na experimenty'), 'Fykos:experiments'),
                 new NavItem(new PageTitle(null, 'Jak psát řešení'), 'Fykos:textutorial')
             ],
         );
