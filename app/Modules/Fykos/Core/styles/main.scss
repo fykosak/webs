@@ -50,7 +50,7 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 
 @import "./../../../Fof/Core/styles/sponsors";
 
-@import "./../../../Fof/DefaultModule/styles/organisers";
+
 // @import "./../../../Fof/DefaultModule/styles/rules";
 // @import "./../../../Fof/DefaultModule/styles/timeline";
 
@@ -61,4 +61,5 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 
 @import "./layout";
 @import "./titlepage";
+@import "./organizers.scss";
 // @import "./navigation"; // use the one from FOL and FOF
