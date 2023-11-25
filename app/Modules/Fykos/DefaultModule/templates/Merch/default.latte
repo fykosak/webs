@@ -1,16 +1,201 @@
 {block title}Merch{/block}
-{block main}
-<div class="panel color-auto">
-    <section class="inner-container">
-        <h1>Lorem ipsum</h1>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel est magna. Proin a vestibulum risus.
-            Aenean quis nulla at nisi elementum euismod id a nunc. Mauris placerat ex non urna consequat, a porta justo
-            blandit. Fusce quis leo imperdiet, viverra ipsum at, aliquet odio.</p>
-        <p>Phasellus commodo convallis velit, vitae tempus elit hendrerit nec. Sed et erat laoreet, interdum quam vel,
-            consequat justo. Etiam lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis
-            libero dolor a purus. Sed vel lacus magna. Nulla facilisi. Integer quis auctor elit, sed ultrices ipsum.
-            Morbi id urna felis. In vel nulla quis libero vehicula molestie.</p>
-    </section>
-</div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>
+                {switch $lang}
+                {case 'cs'}FYKOSí merch
+                {default}FYKOS merch
+                {/switch}
+            </h1>
+            <div>
+                <p>
+                    {switch $lang}
+                    {case 'cs'}
+                  	Naši činnost můžete podpořit koupí krásného FYKOSího hrnečku, trička, čepice či mikiny. Merch si můžete 
+                  	koupit jak na různých prezenčních akcích, tak prostřednictvím objednávacího formuláře.
+                    {case 'en'}
+                  	You can support our work by buying a beautiful FYKOS mug, t-shirt, hat or hoodie. You can purchase our 
+                  	merch either at the various in-person events or through the order form.
+                    {/switch}
+                </p>
+            </div>
+        </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="my-3"> <!--- margin, y direction, size 3 --->
+                        {switch $lang}
+                        {case 'cs'}Hrnky
+                        {default}Mugs
+                        {/switch}
+                    </h2>
+                    <p>
+                        {switch $lang}
+                        {case 'cs'} Hrnky s logy Fyziklání a FYKOSu.
+                        {case 'en'} Mugs with the logos of Fyziklani and FYKOS.
+                        {/switch}
+                    </p>
 
+                    <img src="{$basePath}/images/merch/Slava_Elenka.JPG" class="img-fluid my-2">
+
+                    <div class="row strips">
+
+
+                        <div class="col-md-6    ">
+                            <h3 class="my-2">
+                                {switch $lang}
+                                {case 'cs'}Fyziklání
+                                {default}Fyziklani
+                                {/switch}
+                            </h3>
+                            <img src="{$basePath}/images/merch/cerveny.JPG" class="img-fluid my-2"><br>
+
+                            <div style="text-align: center;">
+                                <h5><strong> {*docela prasárna, ale funguje...*}
+                                        {switch $lang}
+                                        {case 'cs'} 249 Kč
+                                  					11 €
+                                        {case 'en'} 11 €
+                                        {/switch}
+                                </h5></strong>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <h3 class="my-2">
+                                {switch $lang}
+                                {case 'cs'}FYKOS
+                                {default}FYKOS
+                                {/switch}
+                            </h3>
+                            <img src="{$basePath}/images/merch/modry.JPG" class="img-fluid my-2"><br>
+                            <div style="text-align: center;">
+                                <h5><strong>
+                                        {switch $lang}
+                                        {case 'cs'} 249 Kč
+                                  					11 €
+                                        {case 'en'} 11 €
+                                        {/switch}
+                                </h5></strong>
+                            </div>
+                        </div>
+
+                        <div class=col-md-2></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+        <!-- </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container"> -->
+                    <h2 class="my-3">
+                        {switch $lang}
+                        {case 'cs'}Trička
+                        {default}T-Shirts
+                        {/switch}
+                    </h2>
+                    <p>
+                        {switch $lang}
+                        {case 'cs'} S tímhle trikem ze 100% bavlny s logy Fyziklání, FYKOSu a Fyziklání Online bude hned
+                        jasné, pro
+                        co bije tvoje srdce.
+                        {case 'en'} This pure cotton T-Shirt with the logos of Fyziklani, FYKOS and Physics Brawl Online
+                        will
+                        clearly show where your heart lies.
+                        {/switch}
+                    </p>
+
+                    <img src="{$basePath}/images/merch/tricka_Kuba_Sima.JPG" class="img-fluid my-2"> <br>
+
+
+                    {*<div class="row strips">
+                        <div class="col-md-6">
+                            <img src="modry.JPG">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="cerveny.JPG">
+                        </div>
+                    </div>*}
+                    <div style="text-align: center;">
+                        <h5><strong>
+                                {switch $lang}
+                                {case 'cs'} <strong>299 Kč</strong>
+                          					13 €
+                                {case 'en'} <strong>13 €</strong>
+                                {/switch}
+                        </h5></strong>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="my-3">
+                        {switch $lang}
+                        {case 'cs'}Čepice
+                        {default}Beanies
+                        {/switch}
+                    </h2>
+                    <p>
+                        {switch $lang}
+                        {case 'cs'} Čepice s vyšívaným logem FYKOSu tvoji hlavu spolehlivě udrží v teple.
+                        {case 'en'} Beanie with embroided FYKOS logo will keep your head warm in style.
+                        {/switch}
+                    </p>
+                        <img src="{$basePath}/images/merch/cepice_tomas.JPG" class="img-fluid my-2" style="width: 100%;"> <br>
+
+                    {*<div class="row strips">
+                        <div class="col-md-6">
+                            <img src="modry.JPG">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="cerveny.JPG">
+                        </div>
+                    </div>*}
+                    <div style="text-align: center;">
+                        <h5><strong>
+                                {switch $lang}
+                                {case 'cs'} <strong>199 Kč</strong>
+                          					9 €
+                                {case 'en'} <strong>9 €</strong>
+                                {/switch}
+                        </h5></strong>
+                    </div>
+                </div>
+                <div class="col-md-6">
+        <!-- </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container"> -->
+                    <h2 class="my-3">
+                        {switch $lang}
+                        {case 'cs'}Mikiny
+                        {default}Hoodies
+                        {/switch}
+                    </h2>
+                    <p>
+                        {switch $lang}
+                        {case 'cs'}V bavlněné mikině můžeš ukázat podporu FYKOSu nebo Fyziklání ve stylu.
+                        {default}Show your support for FYKOS or Fyziklani in big style in this cotton hoodie.
+                        {/switch}
+                    </p>
+                    <img src="{$basePath}/images/merch/mikiny_Vojta_Tomas.JPG" class="img-fluid my-2">
+                    <div style="text-align: center;">
+                        <h5><strong>
+                                {switch $lang}
+                                {case 'cs'} <strong>799 Kč</strong>
+                          					34 €
+                                {case 'en'} <strong>34 €</strong>
+                                {/switch}
+                        </h5></strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 {/block}
