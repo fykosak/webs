@@ -1,4 +1,5 @@
 {block title}Merch{/block}
+{block main}
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>
@@ -13,7 +14,7 @@
                     {case 'cs'}
                   	Naši činnost můžete podpořit koupí krásného FYKOSího hrnečku, trička, čepice či mikiny. Merch si můžete 
                   	koupit jak na různých prezenčních akcích, tak prostřednictvím objednávacího formuláře.
-                    {case 'en'}
+                    {default}
                   	You can support our work by buying a beautiful FYKOS mug, t-shirt, hat or hoodie. You can purchase our 
                   	merch either at the various in-person events or through the order form.
                     {/switch}
@@ -34,7 +35,7 @@
                     <p>
                         {switch $lang}
                         {case 'cs'} Hrnky s logy Fyziklání a FYKOSu.
-                        {case 'en'} Mugs with the logos of Fyziklani and FYKOS.
+                        {default} Mugs with the logos of Fyziklani and FYKOS.
                         {/switch}
                     </p>
 
@@ -57,7 +58,7 @@
                                         {switch $lang}
                                         {case 'cs'} 249 Kč
                                   					11 €
-                                        {case 'en'} 11 €
+                                        {default} 11 €
                                         {/switch}
                                 </h5></strong>
                             </div>
@@ -102,7 +103,7 @@
                         {case 'cs'} S tímhle trikem ze 100% bavlny s logy Fyziklání, FYKOSu a Fyziklání Online bude hned
                         jasné, pro
                         co bije tvoje srdce.
-                        {case 'en'} This pure cotton T-Shirt with the logos of Fyziklani, FYKOS and Physics Brawl Online
+                        {default} This pure cotton T-Shirt with the logos of Fyziklani, FYKOS and Physics Brawl Online
                         will
                         clearly show where your heart lies.
                         {/switch}
