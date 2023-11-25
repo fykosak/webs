@@ -3,7 +3,7 @@
 <div class="panel color-auto">
     <section class="inner-container">
 
-        <div class="container mt-3 problems">
+        <div class="container mt-3">
             <div class="row">
 
                 <h1>Zadání 1. série 37. ročníku</h1>
@@ -14,32 +14,34 @@
 
                 {foreach $problems as $problem}
                 <div class="col-md-12">
-                    <div class="card mb-3">
-                        <div class="card-header">
-                            {$problem["number"]} {$problem["name"]["cs"]} {$problem["points"]} bodů
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                {$problem["task"]["cs"]}
-                        </div>
-                        <div class="card-footer">
-                            {foreach $problem["topics"] as $topic}
-                            {$topic}
-                            {/foreach}
+                    <div class="card mb-3 problem-card">
+                        <div class="card-header header-problem-{$problem['number']}">
+                            <div style="display: flex; justify-content: space-between;">
+                                <strong>{$problem["number"]} {$problem["name"]["cs"]}</strong>
+                                <div>{$problem["points"]} bod{if $problem["points"] == 1}{elseif $problem["points"] > 1
+                                    && $problem["points"] < 5}y{else}ů{/if}</div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {$problem["task"]["cs"]}
+                                </h5>
+                                {if $problem["number"] == 7}
+                                <a class="btn btn-primary" n:href=":Events:Fykos:Experiments:default"
+                                    target="_blank">Návod pro řešení experimentálních úloh</a>
+                                {/if}
+                            </div>
+
+                            <div class="card-footer">
+                                {foreach $problem["topics"] as $topic}
+                                <i class="fas fa-tag"></i> {$topic}
+                                {/foreach}
+                            </div>
                         </div>
                     </div>
                     {/foreach}
                 </div>
             </div>
-        </div>
-
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        </body>
-
-        </html>
-
     </section>
 </div>
 {/block}
