@@ -11,6 +11,7 @@ use App\Models\Exceptions\UnderConstructionException;
 use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Fykosak\Utils\UI\PageTitle;
+use Nette\Application\BadRequestException;
 use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Template;
 
@@ -99,15 +100,16 @@ abstract class BasePresenter extends Presenter
     }
 
     /**
+     * @throws BadRequestException
      * @throws \Throwable
      */
     protected function createComponentGallery(): ImageGalleryControl
     {
-        return new ImageGalleryControl($this->getContext());
+        return new ImageGalleryControl($this->context);
     }
 
     protected function createComponentPdfGallery(): PdfGalleryControl
     {
-        return new PdfGalleryControl($this->getContext());
+        return new PdfGalleryControl($this->context);
     }
 }

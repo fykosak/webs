@@ -9,6 +9,8 @@ use App\Modules\Dsef\DefaultModule\CurrentPresenter;
 use App\Modules\Dsef\DefaultModule\RegistrationPresenter;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
+use Fykosak\Utils\UI\Navigation\NavItem;
+use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
 use Nette\Application\UI\Template;
 use Nette\Http\IResponse;

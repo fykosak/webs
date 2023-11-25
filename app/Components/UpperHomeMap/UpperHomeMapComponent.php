@@ -35,17 +35,11 @@ class UpperHomeMapComponent extends BaseComponent
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomeMap.latte');
     }
 
-    /**
-     * @throws \Throwable
-     */
     protected function createComponentMap(): MapComponent
     {
         return new MapComponent($this->getContext(), $this->gamePhaseCalculator, $this->event);
     }
 
-    /**
-     * @throws \Throwable
-     */
     protected function createComponentCountdown(): CountdownComponent
     {
         return new CountdownComponent($this->gamePhaseCalculator->getGameBegin());

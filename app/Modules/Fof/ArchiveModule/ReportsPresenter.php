@@ -10,8 +10,8 @@ use Nette\Application\BadRequestException;
 
 class ReportsPresenter extends BasePresenter
 {
-//    private ReportService $reportService;
 
+//    private ReportService $reportService;
 
     /*  public function injectReportService(ReportService $reportService): void
       {

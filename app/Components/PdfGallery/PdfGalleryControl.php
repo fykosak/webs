@@ -9,7 +9,6 @@ use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\DI\Container;
 use Nette\Utils\Finder;
-use Nette\Utils\UnknownImageFileException;
 
 class PdfGalleryControl extends BaseComponent
 {
@@ -32,6 +31,7 @@ class PdfGalleryControl extends BaseComponent
     public static function getPdfs($path, $wwwDir): array
     {
         $pdfs = [];
+        $iterator = null;
 
         try {
             $iterator = Finder::findFiles('*.pdf')->in($wwwDir . $path)->getIterator();
@@ -59,8 +59,7 @@ class PdfGalleryControl extends BaseComponent
     }
 
     /**
-     * @throws UnknownImageFileException
-     * @throws \Throwable
+     * @throws \Nette\Utils\UnknownImageFileException
      */
     public function render(string $path): void
     {

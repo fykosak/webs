@@ -31,6 +31,8 @@ class ImageGalleryControl extends BaseComponent
     public static function getImages($path, $wwwDir): array
     {
         $images = [];
+        $iterator = null;
+
         try {
             $iterator = Finder::findFiles('*.jpg')->in($wwwDir . $path)->getIterator();
         } catch (\Exception $e) {
