@@ -15,6 +15,7 @@ services:
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList('10 minutes')
     - App\Models\GamePhaseCalculator(%eventTypeId%)
     - App\Models\Game\Connector(%gameApiURL%, %gameApiUser%, %gameApiPass%)
+    - App\Models\Downloader\FKSDBDownloader\FKSDBDownloader(%fksdbDownloader.url%,%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes')
 
 extensions:
     asset: SixtyEightPublishers\Asset\Bridge\Nette\DI\AssetExtension
