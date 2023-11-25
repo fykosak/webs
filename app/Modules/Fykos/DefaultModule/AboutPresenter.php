@@ -79,7 +79,7 @@ final class AboutPresenter extends BasePresenter
             $this->template->currentOrganizers = $currentOrganizers;
     }
 
-    public function renderFame(): void {
+    public function renderAllPastOrganizers(): void {
         $allOrganizers = $this->parseOrganizers();
 
         if ($allOrganizers !== []) {
