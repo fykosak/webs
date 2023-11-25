@@ -5,14 +5,17 @@
         <div class="subheader">Organizátoři FYKOSu</div>
         <h1>Kdo za tím stojí?</h1>
         <p>
-            FYKOS je organizován primárně dobrovolníky, kteří se účastnili soutěží jako studenti a pak se vracejí, aby
-            tyto skvělé akce přinesly i pro další "generaci". Většina z nich je
-            studenty nebo absolventy Matematicko-fyzikální fakulty Univerzity Karlovy v Praze.
+            FYKOS je organizován primárně dobrovolníky, kteří se účastnili soutěží jako studenti a pak se vracejí, aby tyto skvělé akce přinesli i dalším generacím. Většina z nich je studenty nebo absolventy Matematicko-fyzikální fakulty Univerzity Karlovy v Praze.
         </p>
         <p>
-            Akce FYKOSu oficiálně zaštiťují i odborní akademici z mnoha pracovišť Matematicko-fyzikální fakulty UK, od
-            Ústavu teoretické fyziky přes Ústav částicové a jaderné fyziky až po Katedru didaktiky fyziky.
+            Akce FYKOSu oficiálně zaštiťují i odborní akademici z mnoha pracovišť Matematicko-fyzikální fakulty UK, od Ústavu teoretické fyziky přes Ústav částicové a jaderné fyziky až po Katedru didaktiky fyziky.
         </p>
+        <p>
+            Pokud vás zajímá, kdo se o chod FYKOSu zasloužil v minulosti, můžete si také projít seznam všech organizátorů.
+        </p>
+        <a class="btn btn-primary" n:href="About:fame">
+            Síň slávy
+        </a>
     </section>
 </div>
 
@@ -43,7 +46,7 @@
                     </div>
                 </div>
 
-                {foreach $organizers as $organizer}
+                {foreach $currentOrganizers as $organizer}
                     <div class="col-md-4 mb-4">
                         <div class="card h-100">
                             <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg" class="card-img-top"
