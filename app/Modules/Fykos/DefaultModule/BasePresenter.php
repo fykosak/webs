@@ -49,7 +49,7 @@ abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Login', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, 'Přihlásit se', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             'https://db.fykos.cz',
         );
         return $items;

@@ -28,41 +28,6 @@
     </section>
 </div>
 
-<div class="panel color-dark">
-    <section class="inner-container">
-        <div class="subheader">Ochutnávka našich akcí</div>
-        <h1 class="section-header">Co s námi můžete zažít?</h1>
-
-        <div class="row fade-in-section video-row">
-            <!-- First video -->
-            <div class="col-lg-6">
-                <div class=" video-container left">
-                    <h2>Soutěže...</h2>
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video class="embed-responsive-item left" controls>
-                            <source src="{$basePath}/videos/FOF.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-            </div>
-            <!-- Second video -->
-            <div class="col-lg-6">
-                <div class="video-container right pt-4 pt-lg-0">
-                    <h2>...a vědu!</h2>
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video class="embed-responsive-item" controls>
-                            <source src="{$basePath}/videos/DSEF.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-
 <div class="panel color-light">
     <section class="inner-container">
         <div class="subheader">Naše hlavní akce</div>
@@ -94,16 +59,16 @@
                     <!-- Row for events -->
                     <div class="row">
 
-                        <div class="col-12 timeline-section-header mt-5">
+                        <div class="col-12 timeline-section-header mt-5 d-md-none">
                             <h3>Soutěže a exkurze</h3>
                         </div>
 
                         <!-- First Row -->
                         <div class="col-md-5 offset-md-1 order-md-1 order-1 mt-4" id="event-1">
                             <a href="https://physics.naboj.org" target="_blank">
-                                <div class="event naboj-color">
+                                <div class="event naboj-color-left-border">
                                     <div class="event-header">
-                                        <h3><img src="/images/logos/naboj_symbol_white.svg" class="inline-logo">
+                                        <h3><img src="/images/logos/naboj_symbol.svg" class="inline-logo">
                                             Fyzikální Náboj
                                         </h3>
                                         <span class="event-date">3.&nbsp;11.</span>
@@ -117,9 +82,9 @@
                         </div>
                         <div class="col-md-5 order-md-2 order-3 mt-4" id="event-3">
                             <a href="https://online.fyziklani.cz" target="_blank">
-                                <div class="event fol-color">
+                                <div class="event fol-color-left-border">
                                     <div class="event-header">
-                                        <h3><img src="/images/logos/fyziklani_online_symbol_white.svg"
+                                        <h3><img src="/images/logos/fyziklani_online_symbol.svg"
                                                 class="inline-logo">
                                             Fyziklání
                                             Online</h3>
@@ -136,9 +101,9 @@
                         <!-- Second Row -->
                         <div class="col-md-5 offset-md-2 order-md-3 order-2 mt-4" id="event-2">
                             <a href="https://dsef.cz" target="_blank">
-                                <div class="event dsef-color">
+                                <div class="event dsef-color-left-border">
                                     <div class="event-header">
-                                        <h3><img src="/images/logos/dsef_symbol_white.svg" class="inline-logo"> DSEF
+                                        <h3><img src="/images/logos/dsef_symbol.svg" class="inline-logo"> DSEF
                                         </h3>
                                         <span class="event-date">6.&nbsp;11.</span>
                                     </div>
@@ -151,9 +116,9 @@
                         </div>
                         <div class="col-md-5 order-md-4 order-4 mt-4" id="event-4">
                             <a href="https://fyziklani.cz" target="_blank">
-                                <div class="event fof-color">
+                                <div class="event fof-color-left-border">
                                     <div class="event-header">
-                                        <h3><img src="/images/logos/fyziklani_symbol_white.svg" class="inline-logo">
+                                        <h3><img src="/images/logos/fyziklani_symbol.svg" class="inline-logo">
                                             Fyziklání
                                         </h3>
                                         <span class="event-date">16.&nbsp;2.</span>
@@ -191,13 +156,13 @@
                     <div class="row">
 
                         {* Timeline header -- show on small screens *}
-                        <div class="timeline-section-header mt-5 mt-md-0">
+                        <div class="timeline-section-header mt-5 mt-md-0 d-md-none">
                             <h3>Série semináře</h3>
                         </div>
 
                         <!-- Third Row -->
                         <div class="col-md-3 offset-md-1 mt-4 order-md-1 order-1" id="series-1">
-                            <div class="event w-md-100 w-90">
+                            <div class="event series w-md-100 w-90">
                                 <div class="event-header">
                                     <h3>1. série</h3>
                                     <span class="event-date">10.&nbsp;10.</span>
@@ -208,7 +173,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 mt-4 order-md-2 order-3" id="series-3">
-                            <div class="event w-md-100 w-90">
+                            <div class="event series w-md-100 w-90">
                                 <div class="event-header">
                                     <h3>3. série</h3>
                                     <span class="event-date">2.&nbsp;1.</span>
@@ -219,7 +184,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 mt-4 order-md-3 order-5" id="series-5">
-                            <div class="event w-md-100 w-90">
+                            <div class="event series w-md-100 w-90">
                                 <div class="event-header">
                                     <h3>5. série</h3>
                                     <span class="event-date">9.&nbsp;4.</span>
@@ -230,7 +195,7 @@
 
                         <!-- Fourth Row -->
                         <div class="col-md-3 offset-md-2 mt-4 order-md-4 order-2" id="series-2">
-                            <div class="event w-md-100 w-90">
+                            <div class="event series w-md-100 w-90">
                                 <div class="event-header">
                                     <h3>2. série</h3>
                                     <span class="event-date">21.&nbsp;11.</span>
@@ -239,7 +204,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 mt-4 order-md-5 order-4" id="series-4">
-                            <div class="event w-md-100 w-90">
+                            <div class="event series w-md-100 w-90">
                                 <div class="event-header">
                                     <h3>4. série</h3>
                                     <span class="event-date">27.&nbsp;2.</span>
@@ -248,7 +213,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 mt-4 order-6" id="series-6">
-                            <div class="event w-md-100 w-90">
+                            <div class="event series w-md-100 w-90">
                                 <div class="event-header">
                                     <h3>6. série</h3>
                                     <span class="event-date">14.&nbsp;5.</span>
@@ -353,6 +318,40 @@
     </section>
 </div>
 
+
+<div class="panel color-light">
+    <section class="inner-container">
+        <div class="subheader">Ochutnávka našich akcí</div>
+        <h1 class="section-header">Co s námi můžete zažít?</h1>
+
+        <div class="row fade-in-section video-row">
+            <!-- First video -->
+            <div class="col-lg-6">
+                <div class=" video-container left">
+                    <h2>Soutěže...</h2>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video class="embed-responsive-item left" controls>
+                            <source src="{$basePath}/videos/FOF.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <!-- Second video -->
+            <div class="col-lg-6">
+                <div class="video-container right pt-4 pt-lg-0">
+                    <h2>...a vědu!</h2>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video class="embed-responsive-item" controls>
+                            <source src="{$basePath}/videos/DSEF.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 
 <script n:syntax=off>
