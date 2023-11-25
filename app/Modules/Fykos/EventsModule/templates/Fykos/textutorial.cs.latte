@@ -4,29 +4,75 @@
         <section class="inner-container">
             <h1>Jak psát řešení</h1>
             <h2>Sice dostaneš co vidíš, ale vážně to chceš?</h2>
-            <p>Jistě jste už mnohokrát připravovali nějaké texty na počítači a nejspíš jste k tomu používali program Word či
+            <p>
+                Jistě jste už mnohokrát připravovali nějaké texty na počítači a nejspíš jste k tomu používali program Word či
                 nějakého jeho příbuzného. Word je tzv.<abbr title="What You See Is What You Get">WYSIWYG</abbr> editor, což
                 znamená, že editujeme přímo výstupní podobu (z anglického What You See Is What You Get). Toto však porušuje
-                princip oddělení formy a obsahu (kdo pracoval někdy na větším projektu, ví, o čem je řeč).</p>
-            <p>Vytváření dokumentů v TeXu je podobné psaní programů. Pracuje se zdrojovým kódem (v textovém editoru), který
+                princip oddělení formy a obsahu (kdo pracoval někdy na větším projektu, ví, o čem je řeč).
+            </p>
+            <p>
+                Vytváření dokumentů v TeXu je podobné psaní programů. Pracuje se zdrojovým kódem (v textovém editoru), který
                 se překládá (to dělá právě TeX) do výsledné podoby, např. PDF. K vytváření dokumentů pomocí TeXu tedy
-                potřebujeme editor, překladač (TeX) a prohlížeč (třeba Adobe Reader).</p>
-            <p>K čemu si takto komplikovat práci oproti Wordu? Jak již bylo zmíněno, tento postup vede k lepšímu oddělení
-                obsahu a formy (snadná případná změna výsledné podoby), můžete využít naši šablonu řešení, která obsahuje
-                vše nutné a jedná-li se o sazbu matematických výrazů, je TeX jasná volba.</p>
+                potřebujeme editor, překladač (TeX) a prohlížeč (třeba Adobe Reader).
+            </p>
+            <p>
+                K čemu si takto komplikovat práci oproti Wordu? Jak již bylo zmíněno, tento postup vede k lepšímu oddělení
+                obsahu a formy (snadná případná změna výsledné podoby), můžete využít <a href="#">naši šablonu řešení, která obsahuje
+                vše nutné a jedná-li se o sazbu matematických výrazů, je TeX jasná volba.
+            </p>
         </section>
     </div>
 
     <div class="panel color-auto" id="Overleaf">
         <section class="inner-container">
-            <h1>Overleaf</h1>
-            <p>Overleaf je online prostředí pro tvorbu a správu dokumentů v LaTeXu, schopné překládat. Výhodou je, že není potřeba nic instalovat – šablonu jsme pro vás připravili, stačí se jen přihlásit, zkopírovat projekt a můžete TeXat. Další výhodou je přítomnost online úložiště (které může být použito jako remote git repozitář) a otevírání v prohlížeči, takže se dá TeXat z libovolného zařízení s prohlížečem.</p>
+            <h2>Overleaf</h2>
+            <p>
+            Overleaf je online prostředí pro tvorbu a správu dokumentů v LaTeXu, schopné překládat. Výhodou je, že není potřeba nic instalovat, šablonu jsme pro vás připravili, stačí se jen přihlásit, zkopírovat projekt a můžete TeXat.
+            Další výhodou je přítomnost online úložiště (které může být použito jako remote git repozitář) a otevírání v prohlížeči, takže se dá TeXat z libovolného zařízení s prohlížečem.
+            </p>
             <p>Nevýhodou pak je, že online se předpokládá s kompilací TeXu, ale součástí TeXání někdy může být generování zdrojového souboru pomocí skriptu, což by na Overleafu nemuselo být spustitelné.</p>
             <h3>Postup</h3>
-            
+            <ul>
+                <li>Zaregistrujte se na <a href="https://www.overleaf.com">Overleaf</a>, buď pomocí googlu nebo pomocí mailové adresy</li>
+                <li>Otevřete <a href="#">naši šablonu</li>
+                <li>Začnete editovat šablonu (jméno, typ úlohy, číslo serie)</li>
+                <li>
+                    Můžete začít TeXat. Návody k samotnému LaTeXu si vygooglete dle potřeby (Hint: pro začátečníky má Overleaf celkem dobré tutoriály. Pak StackOverflow.)
+                </li>
+            </ul>
         </section>
     </div>
-    <div class="panel color-auto" id="Overleaf">
+    <div class="panel color-auto" id="Local-compiler">
+        <section class="inner-container">
+            <h2>Instalace lokálního kompilátoru</h2>
+            <p>Lokální instalace poskytuje více možností, větší kontrolu a funkčnost i offline.</p>
+            <p>Výše jsme uvedli, kolik programů je potřeba pro překlad TeXových dokumentů. Nemusíte se obávat, že byste je museli všechny shánět a konfigurovat. Pro Windows existuje TeXová distribuce MiKTeX, která vše vyřeší za vás.</p>
+            <p><strong>Z webu MiKTeXu si stáhněte klikací instalátor.</strong></p>
+            <p>Součástí distribuce je i editor TeXworks. Tento spustíme a napíšeme následující dokument v UTF-8 (kódování zvolíme vpravo dole):</p>
+            <code>
+            \include{sablona_fykos.tex}
+            \name = David
+            \surname = Skrob
+            \rocnik = 38
+            \serie = 1
+            \priklad = P
+            \begin{document}
+
+            \section{Nadpis}
+            Moje první stránka v TeXu.
+            
+            \end{document}
+            </code>
+            <p>
+            <strong>Spustíme překlad zeleným tlačítkem.</strong> Je-li vše v pořádku, napravo od editoru se zobrazí vaše první stránka vysázená TeXem. Je to normální soubor PDF otevřený v integrovaném prohlížeči. Pomocí Ctrl+klik můžete přecházet mezi zdrojovým kódem a odpovídajícím místem v PDF, a obráceně.
+            </p>
+            <h3>Zmínka o jiných editorech<h3>
+            <ul>
+                <li>neco </li>
+            </ul>
+        </section>
+    </div>
+    <div class="panel color-auto" id="jej">
         <section class="inner-container">
 
         </section>
