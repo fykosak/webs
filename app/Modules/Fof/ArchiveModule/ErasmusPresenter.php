@@ -11,6 +11,7 @@ use Nette\Http\IResponse;
 class ErasmusPresenter extends BasePresenter
 {
     /**
+     * @throws BadRequestException
      * @throws \Throwable
      */
 
@@ -26,6 +27,6 @@ class ErasmusPresenter extends BasePresenter
 
     protected function createComponentGallery(): ImageGalleryControl
     {
-        return new ImageGalleryControl($this->getContext());
+        return new ImageGalleryControl($this->context);
     }
 }
