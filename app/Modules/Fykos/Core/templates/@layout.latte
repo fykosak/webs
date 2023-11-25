@@ -42,13 +42,13 @@
     {control navigation "/images/logo.svg", "FYKOS"}
     <main>
         {block main}
-            <div class="panel color-light">
-                <section class="inner-container">
-                    {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
-                    {ifset title}<h1>{include title}</h1>{/ifset}
-                    {include content}
-                </section>
-            </div>
+        <div class="panel color-light">
+            <section class="inner-container">
+                {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+                {ifset title}<h1>{include title}</h1>{/ifset}
+                {include content}
+            </section>
+        </div>
         {/block}
     </main>
     <footer>
@@ -58,7 +58,7 @@
                     Chcete vědět více?
                 </div>
                 <div style="btn-container">
-                    <a class="btn btn-outline m-2" n:href=":Default:About:default" >
+                    <a class="btn btn-outline m-2" n:href=":Default:About:default">
                         O&nbsp;nás
                     </a>
                     <a class="btn btn-outline m-2" n:href=":Events:Default:default">
@@ -76,7 +76,8 @@
                 <div class="category">
                     <div class="category-title">{switch $lang}{case cs}Pořadatelé{default}Organizers{/switch}</div>
                     <div class="category-sponsors">
-                        <a {switch $lang}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
+                        <a {switch $lang}{case cs}href="https://www.mff.cuni.cz/"
+                            {default}href="https://www.mff.cuni.cz/en" {/switch} style="text-align: center">
                             <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
                                 style="max-width: 8rem">
                         </a>
@@ -135,24 +136,27 @@
                     <nav>
                         <ul>
                             {switch $lang}
-                                {case cs}
-                                <li>Sledujte nás
+                            {case cs}
+                            <li>Sledujte nás
                                 {default}
-                                <li>Follow us on social media
-                            {/switch}
-                            <ul>
-                                <li>
-                                    <a class="social-sites" href="https://www.facebook.com/FYKOS">
-                                    <i class="fa fa-facebook fa-2x"></i>
-                                    </a>
-                                    <a class="social-sites" href="https://www.instagram.com/fykosak/">
-                                    <i class="fa fa-instagram fa-2x"></i>
-                                    </a>
-                                </li>
-                            </ul>
+                            <li>Follow us on social media
+                                {/switch}
+                                <ul>
+                                    <li>
+                                        <a class="social-sites" href="https://www.facebook.com/FYKOS">
+                                            <i class="fa fa-facebook fa-2x"></i>
+                                        </a>
+                                        <a class="social-sites" href="https://www.instagram.com/fykosak/">
+                                            <i class="fa fa-instagram fa-2x"></i>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </nav>
+                </div>
+                <div class="col-md-3" style="position: relative;">
+                    <a href="#top" style="position: absolute; bottom: 0; right: 0;"><i class="fas fa-arrow-up"></i></a>
                 </div>
             </div>
         </div>

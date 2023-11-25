@@ -17,7 +17,7 @@
                     <div class="card mb-3 problem-card">
                         <div class="card-header header-problem-{$problem['number']}">
                             <div style="display: flex; justify-content: space-between;">
-                                <strong>{$problem["number"]} {$problem["name"]["cs"]}</strong>
+                                <strong>{$problem["number"]}...  {$problem["name"]["cs"]}</strong>
                                 <div>{$problem["points"]} bod{if $problem["points"] == 1}{elseif $problem["points"] > 1
                                     && $problem["points"] < 5}y{else}ů{/if}</div>
                                 </div>
@@ -34,7 +34,7 @@
 
                             <div class="card-footer">
                                 {foreach $problem["topics"] as $topic}
-                                <i class="fas fa-tag"></i> {$topic}
+                                <span style="margin-right: 1rem;"><i class="fas fa-tag"></i> {$topic}</span>
                                 {/foreach}
                             </div>
                         </div>
