@@ -20,15 +20,20 @@
   }
 
   .points {
-    display: inline-block;
+    display: flex;
     border-radius: .25rem;
-    width: 2rem;
-    height: 2rem;
+    width: 1.2rem;
+    height: 1.2rem;
     text-align: center;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
   }
 
   .points-ok {
+    font-size: 0.75rem;
     background-color: var(--task-color);
+    color: white;
   }
 
   .points-no {
@@ -45,21 +50,28 @@
   }
 
   [data-series="1"] {
-    --series-color: hsl(0, 100%, 90%);
+    --series-color: hsl(0, 100%, 95%);
   }
   [data-series="2"] {
-    --series-color: hsl(60, 100%, 90%);
+    --series-color: hsl(60, 100%, 95%);
   }
   [data-series="3"] {
-    --series-color: hsl(120, 100%, 90%);
+    --series-color: hsl(120, 100%, 95%);
   }
+
   [data-series="4"] {
-    --series-color: hsl(180, 100%, 90%);
+    --series-color: hsl(180, 100%, 95%);
   }
+
   [data-series="5"] {
-    --series-color: hsl(240, 100%, 90%);
+    --series-color: hsl(240, 100%, 95%);
   }
+
   [data-series="6"] {
-    --series-color: hsl(300, 100%, 90%);
+    --series-color: hsl(300, 100%, 95%);
+  }
+
+  td {
+    vertical-align: middle;
   }
 }
