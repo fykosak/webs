@@ -17,7 +17,7 @@
             </p>
             <p>
                 K čemu si takto komplikovat práci oproti Wordu? Jak již bylo zmíněno, tento postup vede k lepšímu oddělení
-                obsahu a formy (snadná případná změna výsledné podoby), můžete využít <a href="#">naši šablonu řešení, která obsahuje
+                obsahu a formy (snadná případná změna výsledné podoby), můžete využít <a href="#">naši šablonu řešení</a>, která obsahuje
                 vše nutné a jedná-li se o sazbu matematických výrazů, je TeX jasná volba.
             </p>
         </section>
@@ -49,7 +49,7 @@
             <p>Výše jsme uvedli, kolik programů je potřeba pro překlad TeXových dokumentů. Nemusíte se obávat, že byste je museli všechny shánět a konfigurovat. Pro Windows existuje TeXová distribuce MiKTeX, která vše vyřeší za vás.</p>
             <p><strong>Z webu MiKTeXu si stáhněte klikací instalátor.</strong></p>
             <p>Součástí distribuce je i editor TeXworks. Tento spustíme a napíšeme následující dokument v UTF-8 (kódování zvolíme vpravo dole):</p>
-            {*<>
+            <pre>{='
             \include{sablona_fykos.tex}
             \name = David
             \surname = Skrob
@@ -61,8 +61,8 @@
             \section{Nadpis}
             Moje první stránka v TeXu.
             
-            \end{document}
-            </>*}
+            \end{document}'}
+            </pre>
             <p>
             <strong>Spustíme překlad zeleným tlačítkem.</strong> Je-li vše v pořádku, napravo od editoru se zobrazí vaše první stránka vysázená TeXem. Je to normální soubor PDF otevřený v integrovaném prohlížeči. Pomocí Ctrl+klik můžete přecházet mezi zdrojovým kódem a odpovídajícím místem v PDF, a obráceně.
             </p>
