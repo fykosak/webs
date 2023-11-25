@@ -13,49 +13,22 @@
                 <p>Zde najdete zadání 1. série 37. ročníku Fyzikálního korespondenčního semináře.</p>
 
                 {foreach $problems as $problem}
-                    <div class="col-md-12">
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                {$problem["number"]} {$problem["name"]["cs"]} {$problem["points"]} bodů
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    {$problem["task"]["cs"]}
-                            </div>
-                            <div class="card-footer">
-                                {foreach $problem["topics"] as $topic}
-                                {$topic}
-                                {/foreach}
-                            </div>
-                        </div>
-                {/foreach}
-
-                    <!-- Card 2 -->
+                <div class="col-md-12">
                     <div class="card mb-3">
                         <div class="card-header">
-                            <span class="badge badge-primary mr-2">2.</span> stabilní ovečka
+                            {$problem["number"]} {$problem["name"]["cs"]} {$problem["points"]} bodů
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Májme obdélníkovou desku a na ní položený blok dřeva o rozměrech a =
-                                20 cm...</h5>
-                            <!-- Card content goes here -->
+                            <h5 class="card-title">
+                                {$problem["task"]["cs"]}
                         </div>
                         <div class="card-footer">
-                            <span class="badge badge-info">mechanika tuhého tělesa</span>
+                            {foreach $problem["topics"] as $topic}
+                            {$topic}
+                            {/foreach}
                         </div>
                     </div>
-
-                    <!-- Card 3 -->
-                    <div class="card mb-3">
-                        <div class="card-header">
-                            <span class="badge badge-primary mr-2">3.</span> náhodně dál dojdeš
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">V mikrosvětě buněk roližujeme dva typy transportu...</h5>
-                            <!-- Card content goes here -->
-                        </div>
-                    </div>
-
+                    {/foreach}
                 </div>
             </div>
         </div>
