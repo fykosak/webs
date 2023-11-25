@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App;
 
-use Nette\Routing\Route;
 use Nette\Application\Routers\RouteList;
+use Nette\Routing\Route;
 use Nette\Routing\Router;
 
 class RouterFactory
@@ -192,9 +192,7 @@ class RouterFactory
     public static function createFykosRouter(?array $domainList, array $routerMapping): Router
     {
         $router = new RouteList();
-
-        $router->withModule('Events')
-            ->addRoute('//<domain>/events/[<presenter>[/<action>]]', [
+        $router->addRoute('//<domain>/<module events>/[<presenter>[/<action>]]', [
                 'presenter' => 'Default',
                 'action' => 'default',
                 null => self::useTranslateFilter($domainList, $routerMapping['events']),
@@ -206,6 +204,7 @@ class RouterFactory
                 'action' => 'default',
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
+
 
         return $router;
     }

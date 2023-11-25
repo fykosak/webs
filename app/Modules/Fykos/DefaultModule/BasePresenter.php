@@ -25,12 +25,12 @@ abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
 
         $items[] = new NavItem(
             new PageTitle(null, 'Akce', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            ':Events:',
+            ':Events:Default:',
         );
 
         $items[] = new NavItem(
             new PageTitle(null, "Seminář", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            ':Events:Fykos',
+            ':Events:Fykos:default',
         );
 
         $items[] = new NavItem(
