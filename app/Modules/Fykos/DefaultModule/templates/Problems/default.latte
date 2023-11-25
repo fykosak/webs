@@ -6,11 +6,11 @@
         <div class="container mt-3">
             <div class="row">
 
-                <h1>Zadání 1. série 37. ročníku</h1>
+                <h1>Zadání {$series["number"]}. série {$series["year"]}. ročníku</h1>
 
-                <p>Deadline pro odeslání: <strong>21. 11. 2023</strong></p>
+                <p>Deadline pro odeslání: <strong>{$series["deadline"]|date:"d. m. Y, H:i"}</strong></p>
 
-                <p>Zde najdete zadání 1. série 37. ročníku Fyzikálního korespondenčního semináře.</p>
+                <p>Zde najdete zadání {$series["number"]}. série {$series["year"]}. ročníku Fyzikálního korespondenčního semináře.</p>
 
                 {foreach $problems as $problem}
                 <div class="col-md-12">
