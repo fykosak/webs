@@ -45,7 +45,7 @@ abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
 
         $items[] = new NavItem(
             new PageTitle(null, 'Archiv úloh', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Default',
+            ':Default:ProblemsArchive:',
         );
 
         $items[] = new NavItem(
