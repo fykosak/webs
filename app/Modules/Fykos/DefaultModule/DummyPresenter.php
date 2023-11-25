@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
+use App\Models\Downloader\FKSDBDownloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
-use Fykosak\NetteFKSDBDownloader\NetteFKSDBDownloader;
 
 class DummyPresenter extends BasePresenter
 {
-    private NetteFKSDBDownloader $downloader;
+    private FKSDBDownloader $downloader;
 
-    public function injectDownloader(NetteFKSDBDownloader $downloader): void
+    public function injectDownloader(FKSDBDownloader $downloader): void
     {
         $this->downloader = $downloader;
     }
@@ -21,6 +21,6 @@ class DummyPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $this->template->results = json_decode($this->downloader->download(new SeriesResultsRequest(1, 35, 1)), true);
+        $this->template->results = json_decode($this->downloader->download(new SeriesResultsRequest(1, 37, 1)), true);
     }
 }

@@ -1,0 +1,65 @@
+.contest-results {
+  [data-label="1"], [data-label="2"] {
+    --task-color: #8AC75A;
+  }
+
+  [data-label="3"], [data-label="4"], [data-label="5"] {
+    --task-color: #37C4E5;
+  }
+
+  [data-label="P"] {
+    --task-color: #F47A69;
+  }
+
+  [data-label="E"] {
+    --task-color: #F08BAA;
+  }
+
+  [data-label="S"] {
+    --task-color: #F5BF69;
+  }
+
+  .points {
+    display: inline-block;
+    border-radius: .25rem;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+  }
+
+  .points-ok {
+    background-color: var(--task-color);
+  }
+
+  .points-no {
+    color: var(--task-color);
+  }
+
+  .points-na {
+    border: solid 1px var(--task-color);
+    color: var(--task-color);
+  }
+
+  td[data-series] {
+    background-color: var(--series-color);
+  }
+
+  [data-series="1"] {
+    --series-color: hsl(0, 100%, 90%);
+  }
+  [data-series="2"] {
+    --series-color: hsl(60, 100%, 90%);
+  }
+  [data-series="3"] {
+    --series-color: hsl(120, 100%, 90%);
+  }
+  [data-series="4"] {
+    --series-color: hsl(180, 100%, 90%);
+  }
+  [data-series="5"] {
+    --series-color: hsl(240, 100%, 90%);
+  }
+  [data-series="6"] {
+    --series-color: hsl(300, 100%, 90%);
+  }
+}
