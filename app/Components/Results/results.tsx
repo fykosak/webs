@@ -62,7 +62,7 @@ function CategoryResults({submits, tasks}: { submits: Submits, tasks: Tasks }) {
         head.push(<th onClick={() => setActiveSeries({...activeSeries, [series]: !active})}>Series {series}</th>);
 
     }
-    return <table className="table table-hover contest-results">
+    return <table className="table table-hover contest-results table-sm">
         <thead>
         <tr>
             <th>Name</th>
