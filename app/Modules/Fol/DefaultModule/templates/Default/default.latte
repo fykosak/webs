@@ -12,26 +12,52 @@
     <div class="panel color-primary title-panel">
         <div class="inner-container row align-items-center">
             <div class="col-md-6 left-block">
-                <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
-                    {switch $lang}
-                        {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} 17:00 - 20:00
-                        {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j Y'} 5:00 - 8:00 p.m. CET
-                    {/switch}
-                </time>
+                {if !$gamePhaseCalculator->isLongAfterTheEvent()}
+                    <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
+                        {switch $lang}
+                            {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} 17:00 - 20:00
+                            {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j, Y'}, 5:00 - 8:00 p.m. CET
+                        {/switch}
+                    </time>
+                {else}
+                    <time class="competition-date">
+                        {switch $lang}
+                            {case 'cs'} Listopad {(new \DateTime())->setTimestamp($gamePhaseCalculator->getFKSDBEvent()->begin->getTimestamp())->add(new \DateInterval("P1Y")) |date:'Y'}
+                            {default} November {(new \DateTime())->setTimestamp($gamePhaseCalculator->getFKSDBEvent()->begin->getTimestamp())->add(new \DateInterval("P1Y")) |date:'Y'}
+                        {/switch}
+                    </time>
+                {/if}
                 <h1>
                     {switch $lang}
                         {case 'cs'} Mezinárodní<br>internetová<br>fyzikální soutěž
-                        {default} International<br>online<br>physics competition
+                        {default} International<br>Online<br>Physics Competition
                     {/switch}
                 </h1>
                 <div class="subheader">
                     {switch $lang}
-                        {case 'cs'}<p>Přihlašte se společně až s pětičlenným týmem.</p>
-                        {default}<p>Sign up with a team of up to five.</p>
+                        {case 'cs'}<p>
+                            Přihlašte se společně až s pětičlenným týmem.
+                            {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                                <br> Registrace končí {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. \v G:i'}.
+                            {/if}
+                        </p>
+                        {default}<p>
+                            Sign up with a team of up to five.
+                            {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                                <br> Registration is open until {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET.
+                            {/if}
+                        </p>
                     {/switch}
                 </div>
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
+                    {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+                    <a href="{$basePath}/download/2023/{switch $lang}{case 'cs'}reseni{default}solutions{/switch}.pdf" class="btn btn-secondary">{switch $lang}{case 'cs'}Řešení úloh{default}Solutions{/switch}</a>
+                    {/if}
+                    {* todo: phase - results are final and in FKSDB *}
+                    {if false && $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+                        <a n:href=":Archive:Results: eventYear:2023" class="btn btn-secondary">{switch $lang}{case 'cs'}Pořadí týmů{default}Results list{/switch}</a>
+                    {/if}
                     <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
                     {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
                         <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $lang}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>
@@ -48,9 +74,20 @@
         </div>
     </div>
 
-    {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheGame()}
+{*    <div class="fyziklani-banner">*}
+{*        <div class="inner-container">*}
+{*            <div class="text">*}
+{*                {switch $lang}*}
+{*                    {case 'cs'}Stále pracujeme na zveřejnění oficiálních výsledků. Omlouváme se za komplikace.*}
+{*                    {default}We are still working on the official results of the competition. We are sorry for the inconvenience.*}
+{*                {/switch}*}
+{*            </div>*}
+{*        </div>*}
+{*    </div>*}
+
+     {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheEvent()}
         {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}
-    {/if}
+     {/if}
 
     {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
     <div class="panel color-dark" id="{$anchorBeforeCompetition}">
@@ -169,14 +206,20 @@
                 {default}We have rewards for the best of you.{/switch}</h1>
             <div class="row prices">
                 <div class="col-md-4">
-                    <div class="price-box small" style="background-color: #666666">
-                        {switch $lang}{case cs}FYKOSí<br/>trička a mikiny{default}T-shirts<br/>and hoodies{/switch}
+                    {switch $lang}{case cs}
+                    <div class="price-box propagacni-box small">
+                        FYKOSí lahve,<br/>trička a mikiny
                     </div>
+                    {default}
+                    <a class="price-box factorio-box small" href="https://www.factorio.com/">
+                        Factorio license
+                    </a>
+                    {/switch}
 
                     {switch $lang}
                         {case cs}
-                        <a class="price-box large fyziklani-international-box" href="{plink :Default:FyziklaniInternational:default}">
-                            Účast ve<br/>Fyziklání<br/>International
+                        <a class="price-box large mathematica-box" href="https://www.wolfram.com/mathematica/">
+                            Wolfram<br/>Mathematica<br/>software
                         </a>
                         {default}
                         <a class="price-box large mathematica-box" href="https://www.wolfram.com/mathematica/">
@@ -191,29 +234,29 @@
                                 Knihy<br/>podle<br/>výběru
                             </div>
                         {default}
-                            <div class="price-box large" style="background-color: #ba7743">
-                                Mugs<br/>and towels
-                            </div>
+                            <a class="price-box large fyziklani-box" href="https://fyziklani.org/scholarship">
+                                Scholarships for<br/>Fyziklani
+                            </a>
                     {/switch}
 
-{*                    <a class="price-box small orgpad-box" href="https://orgpad.com/">*}
-{*                        {switch $lang}*}
-{*                            {case cs}Licence na<br/>*}
-{*                            <img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad" style="max-height: 3rem">*}
-{*                            {default}License to<br/>*}
-{*                            <img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad" style="max-height: 3rem">*}
-{*                        {/switch}*}
-{*                    </a>*}
+                      <a class="price-box small chess-box" href="https://www.chess.com/">
+                          {switch $lang}
+                              {case cs}Diamantové členství na<br/>
+                              <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad" style="max-height: 3rem">
+                              {default}Diamond membership on<br/>
+                              <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad" style="max-height: 3rem">
+                          {/switch}
+                      </a>
 
                     {switch $lang}
-                        {case cs}
-                        <div class="price-box large"  style="background-color: #666666">
-                            FYKOSí<br/>ponožky, plecháčky<br/>a další propagační předměty
-                        </div>
-                    {default}
-                        <div class="price-box large" style="background-color: #666666">
-                            FYKOS's socks, and other promotional items
-                        </div>
+  {*                      {case cs}*}
+  {*                      <div class="price-box large"  style="background-color: #666666">*}
+  {*                          FYKOSí<br/>ponožky, plecháčky<br/>a další propagační předměty*}
+  {*                      </div>*}
+  {*                  {default}*}
+  {*                      <div class="price-box large" style="background-color: #666666">*}
+  {*                          FYKOS' socks and other promotional items*}
+  {*                      </div>*}
                     {/switch}
                 </div>
                 <div class="col-md-4">
@@ -223,9 +266,9 @@
                                 Deskovky<br>a karetní<br>hry
                             </div>
                         {default}
-                            <div class="price-box small" style="background-color: #666666">
-                                Canvas bags
-                            </div>
+                            <a class="price-box small kerbal-box" href="http://www.kerbalspaceprogram.com/games-kerbal-space-program/">
+                                Kerbal Space Program game license  
+                            </a>
                     {/switch}
 
 {*                    <a class="price-box large" href="http://www.graphmatica.com/" style="background-color: #019A69">*}
@@ -233,16 +276,25 @@
 {*                            {default}Software<br/>Graphmatica<br/>{/switch}*}
 {*                    </a>*}
 
-                    {switch $lang}
+{*                    {switch $lang}
                         {case cs}
-                        <div class="price-box large" style="background-color: #ba7743; display: flex; align-items: center;">
-                            O dalších cenách jednáme se sponzory...
-                        </div>
-                    {default}
-                        <div class="price-box large" style="background-color: #ba7743; display: flex; align-items: center;">
-                            We are preparing more prizes...
-                        </div>
-                    {/switch}
+                            <div class="price-box large" style="background-color: #00ae6b; display: flex; align-items: center;">
+                                O dalších cenách jednáme se sponzory...
+                            </div>
+                        {default}
+                            <div class="price-box large" style="background-color: #00ae6b; display: flex; align-items: center;">
+                                We are preparing more prizes...
+                            </div>
+                    {/switch}*}
+
+                    <a class="price-box large avast-box" href="https://avast.com/">
+                        {switch $lang}
+                            {case cs}Licence na<br/>
+                                <img src="{$basePath}/images/logos/avast.png" alt="Avast" style="max-height: 3rem">
+                            {default}License to<br/>
+                                <img src="{$basePath}/images/logos/avast.png" alt="Avast" style="max-height: 3rem">
+                        {/switch}
+                    </a>
                 </div>
             </div>
         </section>
@@ -320,7 +372,7 @@
                 <h1>Soutěžíme ve středu {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}</h1>
             {default}
                 <div class="subheader">Competition schedule</div>
-                <h1>The contest takes place on Wednesday {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j Y'}</h1>
+                <h1>The contest takes place on Wednesday {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}</h1>
             {/switch}
 
             {include "../schedule.latte"}
@@ -361,6 +413,18 @@
             <div class="row legends">
                 <div class="col-md-6">
                     <div class="legends-row">
+                        <div class="legends-year">2022</div>
+                        <div class="legends-item">
+                            <div>
+                                <span class="flag-icon flag-icon-us"></span>
+                                S.I.M.P.S.
+                            </div>
+                            <div class="members">
+                                Đức Huy Trần, Eddie Chen, Quan Nguyen, Tung Tran, Zhening Li
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legends-row">
                         <div class="legends-year">2021</div>
                         <div class="legends-item">
                             <div>
@@ -388,6 +452,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2019</div>
                         <div class="legends-item" n:syntax="off">
@@ -400,8 +466,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2018</div>
                         <div class="legends-item">
@@ -429,18 +493,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="legends-row">
-                        <div class="legends-year">2016</div>
-                        <div class="legends-item">
-                            <div>
-                                <span class="flag-icon flag-icon-in"></span>
-                                Castrambe
-                            </div>
-                            <div class="members">
-                                Mikail Khona, Karan Jain, Basuhi Ravi, Sandesh Kalantre, Pavan Hebbar
-                            </div>
-                        </div>
-                    </div>
+{*                    <div class="legends-row">*}
+{*                        <div class="legends-year">2016</div>*}
+{*                        <div class="legends-item">*}
+{*                            <div>*}
+{*                                <span class="flag-icon flag-icon-in"></span>*}
+{*                                Castrambe*}
+{*                            </div>*}
+{*                            <div class="members">*}
+{*                                Mikail Khona, Karan Jain, Basuhi Ravi, Sandesh Kalantre, Pavan Hebbar*}
+{*                            </div>*}
+{*                        </div>*}
+{*                    </div>*}
                 </div>
             </div>
         </section>

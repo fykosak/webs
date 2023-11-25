@@ -40,8 +40,8 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
                     [$year, $month] = explode('-', $this->eventYear);
                 }
                 $events = $this->serviceEvent->getEventsByYear(
-                    [$this->getContext()->getParameters()["eventTypeId"]],
-                    +$year
+                    [$this->context->getParameters()['eventTypeId']],
+                    intval($year)
                 );
                 if (count($events)) {
                     $event = isset($month) ? reset($events) : end($events);
@@ -70,11 +70,11 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
                 new PageTitle(null, _('results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
                 ':Archive:Results:default',
             ),
-            new NavItem(
-                new PageTitle(null, _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
-                // TODO
-                ':Archive:DetailedResults:default',
-            ),
+            //new NavItem(
+            //    new PageTitle(null, _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
+            //    // TODO
+            //    ':Archive:DetailedResults:default',
+            //),
         ];
     }
 

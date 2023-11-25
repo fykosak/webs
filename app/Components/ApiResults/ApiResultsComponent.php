@@ -26,7 +26,7 @@ class ApiResultsComponent extends BaseComponent
         $this->eventId = $eventId;
     }
 
-    public function injectGameServerApiConnector(Connector $connector)
+    public function injectGameServerApiConnector(Connector $connector): void
     {
         $this->gameServerApiConnector = $connector;
     }
@@ -45,7 +45,7 @@ class ApiResultsComponent extends BaseComponent
             }
 
             $participants = [];
-            foreach ($team->participants as $participant) {
+            foreach ($team->members as $participant) {
                 $participants[] = [
                     'name' => $participant->name,
                     'schoolName' => $participant->schoolName,
@@ -74,22 +74,22 @@ class ApiResultsComponent extends BaseComponent
         }
         if (!$data['times']['visible']) {
             // results are hidden
-            $data["submits"] = null;
-            foreach ($data["teams"] as &$team) {
-                $team["bonus"] = null;
+            $data['submits'] = null;
+            foreach ($data['teams'] as &$team) {
+                $team['bonus'] = null;
             }
         }
         return $data;
     }
 
-    public function render()
+    public function render(): void
     {
     }
 
     /**
      * @throws JsonException
      */
-    public function renderTeamsData()
+    public function renderTeamsData(): void
     {
         echo Json::encode($this->serialiseTeams());
     }
@@ -98,7 +98,7 @@ class ApiResultsComponent extends BaseComponent
      * @throws Throwable
      * @throws JsonException
      */
-    public function renderResultsData()
+    public function renderResultsData(): void
     {
         echo Json::encode($this->serialiseResults());
     }

@@ -6,5 +6,4 @@ namespace App\Modules\Fof\DefaultModule;
 
 class ErasmusPresenter extends BasePresenter
 {
-
 }

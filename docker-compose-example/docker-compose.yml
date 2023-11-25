@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+  app:
+    build: ..
+    ports:
+      - "8080:80"
+    user: "1000:1000"
+    volumes:
+      # Cache directory
+      - "./temp:/var/www/webs/temp/"
+      # Error logs
+      - "./log:/var/www/webs/log/"
+      # Apache configuration
+      - "./config/webs.conf:/etc/apache2/sites-enabled/000-default.conf"
+      # App configuration
+      - "./config/app:/var/www/webs/app/config/local/"

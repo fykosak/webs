@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App;
 
-use Nette\Routing\Route;
 use Nette\Application\Routers\RouteList;
+use Nette\Routing\Route;
 use Nette\Routing\Router;
 
 class RouterFactory
@@ -19,7 +19,7 @@ class RouterFactory
             // todo fix code duplication
             Route::FILTER_IN => function (array $params) use ($languages, $domainList) {
                 // From where to extract the language
-                if ($domainList && count($domainList)) {
+                if (isset($domainList) && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
                     // In case of accessing from unknown domain (which should not happen)
                     if ($domainLang === null) {
@@ -51,10 +51,14 @@ class RouterFactory
             // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
             Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList): array {
                 // From where to extract the language
-                if ($domainList && count($domainList)) {
+                if (isset($domainList) && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
-                    // In case of accessing from unknown domain (which should not happen)
-                    if ($domainLang === null) {
+                    // In case of accessing from unknown domain (which should not happen), dsef is an exception
+                    if (
+                        $domainLang === null
+                        and $params['domain'] !== 'dsef.cz'
+                        and $params['domain'] !== 'dsef.fykos.cz'
+                    ) {
                         trigger_error(
                             'Domain \'' . $params['domain'] . '\' has no language assigned. Fallback to en.',
                             E_USER_WARNING
@@ -95,7 +99,7 @@ class RouterFactory
 
                 // Either set the language in the domain, or in lang parameter
 
-                if ($domainList && count($domainList)) {
+                if (isset($domainList) && count($domainList)) {
                     $params['domain'] = array_search($params['lang'], $domainList);
                     if ($params['domain'] === false) {
                         return [];
@@ -188,6 +192,11 @@ class RouterFactory
     public static function createFykosRouter(?array $domainList, array $routerMapping): Router
     {
         $router = new RouteList();
+        $router->addRoute('//<domain>/<module events>/[<presenter>[/<action>]]', [
+                'presenter' => 'Default',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['events']),
+            ]);
 
         $router->withModule('Default')
             ->addRoute('//<domain>/<presenter>[/<action>]', [
@@ -196,6 +205,12 @@ class RouterFactory
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
 
+
         return $router;
+    }
+
+    public static function createVyfukRouter(?array $domainList, array $routerMapping): Router
+    {
+        return self::createFykosRouter($domainList, $routerMapping);
     }
 }

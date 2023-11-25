@@ -22,6 +22,6 @@ class ResultsPresenter extends BasePresenter
      */
     protected function createComponentTeamResults(): TeamResultsComponent
     {
-        return new TeamResultsComponent($this->getContext(), $this->getEvent()->eventId);
+        return new TeamResultsComponent($this->getContext(), $this->getEvent()->eventId, $this->lang);
     }
 }

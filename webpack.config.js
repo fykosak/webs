@@ -16,7 +16,8 @@ const commonConfiguration = {
                     loader: 'sass-loader',
                     options: {
                         sourceMap: true
-                    }}],
+                    }
+                }],
             },
             {
                 test: /\.tsx?$/,
@@ -47,6 +48,7 @@ const fofConfiguration = {
     ...commonConfiguration,
     entry: {
         main: path.resolve(__dirname, './app/main-fof.js'),
+        results: "./app/Components/ResultsPanel/main.tsx",
     },
     output: {
         path: path.resolve(__dirname, './www/fof/assets'),
@@ -78,4 +80,16 @@ const fykosConfiguration = {
         filename: '[name].js',
     },
 };
-module.exports = [folConfiguration, fofConfiguration, dsefConfiguration, fykosConfiguration];
+
+const vyfukConfiguration = {
+    ...commonConfiguration,
+    entry: {
+        main: path.resolve(__dirname, './app/main-vyfuk.js'),
+    },
+    output: {
+        path: path.resolve(__dirname, './www/vyfuk/assets'),
+        assetModuleFilename: 'media/[path][name][ext]',
+        filename: '[name].js',
+    },
+};
+module.exports = [folConfiguration, fofConfiguration, dsefConfiguration, fykosConfiguration, vyfukConfiguration];

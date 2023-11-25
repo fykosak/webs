@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC
+"-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+    <title>401 Unauthorized</title>
+    <style type="text/css">
+    #powered_by {
+        margin-top: 20px;
+        border-top: 2px solid black;
+        font-style: italic;
+    }
+
+    #traceback {
+        color: red;
+    }
+    </style>
+</head>
+    <body>
+        <h2>401 Unauthorized</h2>
+        <p>You are not authorized to access that resource</p>
+        <pre id="traceback">Traceback (most recent call last):
+  File "/network/home/astrid/.local/lib/python3.5/site-packages/CherryPy-18.1.1-py3.5.egg/cherrypy/_cprequest.py", line 628, in respond
+    self._do_respond(path_info)
+  File "/network/home/astrid/.local/lib/python3.5/site-packages/CherryPy-18.1.1-py3.5.egg/cherrypy/_cprequest.py", line 684, in _do_respond
+    self.hooks.run('before_handler')
+  File "/network/home/astrid/.local/lib/python3.5/site-packages/CherryPy-18.1.1-py3.5.egg/cherrypy/_cprequest.py", line 114, in run
+    raise exc
+  File "/network/home/astrid/.local/lib/python3.5/site-packages/CherryPy-18.1.1-py3.5.egg/cherrypy/_cprequest.py", line 104, in run
+    hook()
+  File "/network/home/astrid/.local/lib/python3.5/site-packages/CherryPy-18.1.1-py3.5.egg/cherrypy/_cprequest.py", line 63, in __call__
+    return self.callback(**self.kwargs)
+  File "/network/home/astrid/.local/lib/python3.5/site-packages/CherryPy-18.1.1-py3.5.egg/cherrypy/lib/auth_basic.py", line 111, in basic_auth
+    401, 'You are not authorized to access that resource')
+cherrypy._cperror.HTTPError: (401, 'You are not authorized to access that resource')
+</pre>
+    <div id="powered_by">
+      <span>
+        Powered by <a href="http://www.cherrypy.org">CherryPy 18.1.1</a>
+      </span>
+    </div>
+    </body>
+</html>

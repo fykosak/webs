@@ -9,6 +9,7 @@
 {/block}
 
 {block main}
+
     <div class="panel color-auto">
         <section class="inner-container">
             {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
@@ -30,17 +31,16 @@
                         {case "cs"}Fyziklání {$eventKey["event"]->begin|date: "Y"}
                         {default}Fyziklani {$eventKey["event"]->begin|date: "Y"}
                     {/switch}
-
-                    <a class="btn btn-primary" n:href=":Archive:Default: eventYear:$eventKey['key']">
-                        {switch $lang}
-                            {case cs}více
-                            {default}more
-                        {/switch}
-                    </a>
                 </h1>
+                <a class="btn btn-primary mb-2" n:href=":Archive:Default: eventYear:$eventKey['key']">
+                    {switch $lang}
+                        {case cs}Více
+                        {default}More
+                    {/switch}
+                </a>
 
                 <div>
-                    <ul>
+                    <ul class="stylized">
                         <li><a n:href=":Archive:Teams: eventYear:$eventKey['key']">
                                 {switch $lang}
                                     {case "cs"}Seznam přihlášených týmů
@@ -54,19 +54,42 @@
                                 {/switch}
                             </a></li>
                     </ul>
-                    <ul>
+                    <ul class="stylized">
+                        {if file_exists(__DIR__.'/../../../../www/fof/download/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/reseni.pdf')}
                         <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/reseni.pdf">
                                 {switch $lang}
                                     {case "cs"}Zadání a řešení úloh v českém jazyce
                                     {default}Problems and solutions in Czech
                                 {/switch}
                             </a></li>
+                        {/if}
+                        {if file_exists(__DIR__.'/../../../../www/fof/download/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/solutions.pdf')}
                         <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/solutions.pdf">
                                 {switch $lang}
                                     {case "cs"}Zadání a řešení úloh v anglickém jazyce
                                     {default}Problems and solutions in English
                                 {/switch}
                             </a></li>
+                        {/if}
+                    </ul>
+                    <ul class="stylized">
+                        {if file_exists(__DIR__.'/../../../../www/fof/download/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/infobooklet-cs.pdf')}
+                            <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/infobooklet-cs.pdf">
+                                    {switch $lang}
+                                        {case "cs"}Průvodce Fyzikláním {App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])} v českém jazyce
+                                        {default}Guidebook of Fyziklani {App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])} in Czech
+                                    {/switch}
+                                </a></li>
+                        {/if}
+                        {if file_exists(__DIR__.'/../../../../www/fof/download/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/infobooklet-en.pdf')}
+                            <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/infobooklet-en.pdf">
+                                    {switch $lang}
+                                        {case "cs"}Průvodce Fyzikláním {App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])} v anglickém jazyce
+                                        {default}Guidebook of Fyziklani {App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])} in English
+                                    {/switch}
+                                </a>
+                            </li>
+                        {/if}
                     </ul>
                 </div>
                 {if in_array($eventKey['key'], ["2022"])}
@@ -76,21 +99,43 @@
                         </a></div>
                 {/if}
 
-                <div class="mt-5">
-                    {control gallery:oneLine "/photos/" . $eventKey['key'] . "/"}
-                </div>
-
-                {if in_array($eventKey['key'], ["2022"])}
+                {if is_dir(__DIR__.'/../../../../www/fof/photos/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]))}
                     <div class="mt-5">
-                        <h2>{switch $lang}{case "cs"}Týmy{default}Teams{/switch}</h2>
-                        {control gallery:oneLine "/photos/" . $eventKey['key'] . "/teams"}
+                        <h2>{switch $lang}{case "cs"}Soutěž{default}Competition{/switch}</h2>
+                        {control gallery:orderedLine "/photos/" . $eventKey['key'] . "/"}
                     </div>
                 {/if}
 
-                {if in_array($eventKey['key'], ["2022"])}
+                {if is_dir(__DIR__.'/../../../../www/fof/photos/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/teams')}
                     <div class="mt-5">
-                        <h2>{switch $lang}{case "cs"}Víkendový program Fyziklání{default}Weekend Program of Fyziklani{/switch}</h2>
-                        {control gallery:oneLine "/photos/" . $eventKey['key'] . "/weekend"}
+                        <h2>{switch $lang}{case "cs"}Fotostěna{default}Fyziklani Backdrop{/switch}</h2>
+                        {if in_array($eventKey['key'], ["2023"])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
+                            {control gallery:orderedLine "/photos/" . $eventKey['key'] . "/teams/"}
+                        {else}
+                            {control gallery:randomLine "/photos/" . $eventKey['key'] . "/teams/"}
+                        {/if}
+                    </div>
+                {/if}
+
+                {if is_dir(__DIR__.'/../../../../www/fof/photos/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/winners')}
+                    <div class="mt-5">
+                        <h2>{switch $lang}{case "cs"}Vítězové{default}Winners{/switch}</h2>
+                        {if in_array($eventKey['key'], ["2023"])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
+                            {control gallery:orderedLine "/photos/" . $eventKey['key'] . "/winners/"}
+                        {else}
+                            {control gallery:randomLine "/photos/" . $eventKey['key'] . "/winners/"}
+                        {/if}
+                    </div>
+                {/if}
+
+                {if is_dir(__DIR__.'/../../../../www/fof/photos/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"]).'/weekend')}
+                    <div class="mt-5">
+                        <h2>{switch $lang}{case "cs"}Doprovodný program Fyziklání{default}Accompanying Program of Fyziklani{/switch}</h2>
+                        {if in_array($eventKey['key'], ["2023"])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
+                            {control gallery:orderedLine "/photos/" . $eventKey['key'] . "/weekend/"}
+                        {else}
+                            {control gallery:randomLine "/photos/" . $eventKey['key'] . "/weekend/"}
+                        {/if}
                     </div>
                 {/if}
             </section>

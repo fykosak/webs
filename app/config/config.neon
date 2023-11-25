@@ -14,17 +14,14 @@ services:
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail('10 minutes')
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList('10 minutes')
     - App\Models\GamePhaseCalculator(%eventTypeId%)
-    - App\Models\Game\Connector(%gameApiURL%)
-
-database:
-    conventions: 'discovered'
+    - App\Models\Game\Connector(%gameApiURL%, %gameApiUser%, %gameApiPass%)
+    - App\Models\Downloader\FKSDBDownloader\FKSDBDownloader(%fksdbDownloader.url%,%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes')
 
 extensions:
-    orm: Fykosak\NetteORM\Extension
-    assets: h4kuna\Assets\DI\AssetsExtension
+    asset: SixtyEightPublishers\Asset\Bridge\Nette\DI\AssetExtension
 
 parameters:
-    gameApiURL: "/dev/null"
+    gameApiURL: /dev/null
     i18n:
         locales:
             cs: cs_CZ.utf-8
@@ -35,11 +32,5 @@ parameters:
     domains:
         # domain: lang
     eventTypeId: 0
-
-orm:
-    faq:
-        service: App\Models\ORM\FaqService
-        model: App\Models\ORM\FaqModel
-    report:
-        service: App\Models\ORM\ReportService
-        model: App\Models\ORM\ReportModel
+    gameApiUser:
+    gameApiPass:

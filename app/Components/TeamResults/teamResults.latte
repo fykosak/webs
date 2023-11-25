@@ -1,57 +1,91 @@
 {layout '../@layout.latte'}
+{varType string $lang}
 {block content}
-    <div class="team-results-control">
-        {control filterForm}
-    </div>
-    {foreach $teams AS $category => $teamsForCategory}
-        <h2 id="{$category}">{$category}</h2>
 
-        <div class="results-first-row results-header">
-            <div class="result-column" style="width: 5rem">#</div>
-            <div class="result-column" style="flex-grow: 1">{_'Team'}</div>
-            <div class="result-column" style="width: 5rem">{_'Points'}</div>
-            <div class="result-column" style="width: 5rem">{_'Rank total'}</div>
+<div class="row">
+    <div class="col-12">
+        
+        <!-- The button that triggers the collapsible content -->
+        <button class="btn btn-primary-inverted button-collapse-header" type="button" data-bs-toggle="collapse"
+        data-bs-target="#resultFilters" aria-expanded="false" aria-controls="resultFilters">
+        {switch $lang}
+            {case cs}Zobrazit / skrýt filtry
+            {default}Toggle filters
+        {/switch}
+        </button>
+
+
+        <!-- The collapsible content -->
+        <div class="collapse toggle-content px-3" id="resultFilters">
+            {control filterForm}
         </div>
-        {do usort($teamsForCategory, fn($a, $b) => ($a->rankCategory ? $a->rankCategory : PHP_INT_MAX) <=> ($b->rankCategory ? $b->rankCategory : PHP_INT_MAX))}
-        {foreach $teamsForCategory AS $index => $team}
-            <div class="results-row">
-                <div class="results-first-row">
-                    {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
-                    <div class="result-column" style="width: 5rem">{if $team->status === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</div>
-                    <div class="result-column" style="flex-grow: 1"><strong>{$team->name}</strong></div>
-                    <div class="result-column" style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->points}{/if}</div>
-                    <div class="result-column" style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->rankTotal}.{/if}</div>
-                </div>
-                <div class="results-second-row">
-                    <div class="result-column text-muted" style="flex-grow: 1; margin-left: 5rem; margin-right: 10rem">
-                        {var $inSchool = 0}
-                        {if $team->members && count($team->members)}
-                            {do
-                                $participants = $team->members;
-                                usort($participants, fn($a, $b) => $a->schoolId <=> $b->schoolId)
-                            }
-                            {foreach $participants as $key => $participant}
-                                {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
-                                {$participant->name
-                                }{do $inSchool++
-                            }{if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->schoolId != $participants[$key + 1]->schoolId)
-                            }
-                                <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$participant->schoolName}{if (strtolower($participant->countryIso) != "zz")} <span
-                                        class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>{/if})</span>
-                                {do $inSchool = 0
-                                }{/if
-                            }{if !$iterator->isLast()
-                            }, {/if}
-                            {/foreach}
-                        {else}
-                            {switch $lang}
-                                {case cs}informace o členech týmu nejsou dostupné
-                                {default}no info avaiable
-                            {/switch}
-                        {/if}
+    </div>
+</div>
+<div class="team-results-control">            
+    {foreach $teams AS $category => $teamsForCategory}
+        <button class="btn btn-primary button-collapse-header" type="button" data-bs-toggle="collapse"
+        data-bs-target="#collapse-category-{$category}" aria-expanded="false" aria-controls="collapse-category-{$category}">
+        {switch $lang}
+            {case cs}Kategorie
+            {default}Category
+        {/switch} {$category}
+        </button>
+
+        <!-- The collapsible content -->
+        <div class="collapse toggle-content" id="collapse-category-{$category}">
+            <!-- <h2 id="{$category}">{$category}</h2> -->
+
+            <div class="results-first-row results-header">
+                <div class="result-column" style="width: 5rem">#</div>
+                <div class="result-column" style="flex-grow: 1">{_'Team'}</div>
+                <div class="result-column" style="width: 5rem">{_'Points'}</div>
+                <div class="result-column" style="width: 5rem">{_'Rank total'}</div>
+            </div>
+            {do usort($teamsForCategory, fn($a, $b) => ($a->rankCategory ? $a->rankCategory : PHP_INT_MAX) <=> ($b->rankCategory ? $b->rankCategory : PHP_INT_MAX))}
+            {foreach $teamsForCategory AS $index => $team}
+                <div class="results-row">
+                    <div class="results-first-row">
+                        {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
+                        <div class="result-column"
+                            style="width: 5rem">{if $team->status === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</div>
+                        <div class="result-column" style="flex-grow: 1"><strong>{$team->name}</strong></div>
+                        <div class="result-column"
+                            style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->points}{/if}</div>
+                        <div class="result-column"
+                            style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->rankTotal}.{/if}</div>
+                    </div>
+                    <div class="results-second-row">
+                        <div class="result-column text-muted" style="flex-grow: 1; margin-left: 5rem; margin-right: 10rem">
+                            {var $inSchool = 0}
+                            {if $team->members && count($team->members)}
+                                {do
+                                    $participants = $team->members;
+                                    usort($participants, fn($a, $b) => $a->schoolId <=> $b->schoolId)
+                                }
+                                {foreach $participants as $key => $participant}
+                                    {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
+                                    {$participant->name
+                                    }{do $inSchool++
+                                }{if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->schoolId != $participants[$key + 1]->schoolId)
+                                }
+                                    <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$participant->schoolName}{if ($participant->countryIso != "ZZ")} <span
+                                            class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>{/if})</span>{* this is to remove the space before the comma
+                                    *}{do $inSchool = 0
+                                    }{/if
+                                }{if !$iterator->isLast()
+                                }, {/if}
+                                {/foreach}
+                            {else}
+                                {switch $lang}
+                                    {case cs}informace o členech týmu nejsou dostupné
+                                    {default}no info avaiable
+                                {/switch}
+                            {/if}
+                        </div>
                     </div>
                 </div>
-            </div>
-        {/foreach}
+            {/foreach}
+        </div>
     {/foreach}
 {/block}
+</div>

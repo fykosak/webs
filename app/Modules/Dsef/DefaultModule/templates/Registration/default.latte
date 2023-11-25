@@ -1,0 +1,30 @@
+{varType string $lang}
+{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+
+{block title}
+        Důležité informace před registrací
+{/block}
+
+{block content}
+
+    <ul class="stylized">
+{*        <li><strong>Kapacita akce je momentálně plná.</strong> Pokud se chcete přihlásit jako náhradníci, napište nám na <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a> a my vám dáme vědět v případě, že se uvolní místo.</li>*}
+        <li>Jedná se o jednodenní prezenční akci v Praze.</li>
+        <li>V přihlášce se budete rovnou hlásit na danou skupinu. Rozdělení programu jednotlivých skupin naleznete na <a n:href="Current:default">stránce aktuálního ročníku</a>.</li>
+        <li>Uzávěrka přihlášek bude {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. Y'} o půlnoci či v okamžiku zaplnění akce. Kapacita akce je zhruba 100 účastníků.</li>
+        <li>Předpokládáme účast na celé akci. Pokud byste se chtěli zúčastnit jen části, můžete se přihlásit na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a> jako náhradníci.</li>
+        <li>Účast na akci je <strong>zdarma</strong>.</li>
+        <li>Před odesláním formuláře zkontrolujte správnost zadaných údajů, zejména e-mail. Údaje můžete sice po přihlášení (v případě potřeby) upravit, byli bychom ale rádi, aby byly definitivní hned po přihlášení.</li>
+        <li>Pokud by měl zájem se účastnit váš učitel, tak se nejprve ozvěte na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>, ale neměl by být problém, aby se účastnil jako běžný účastník.</li>
+        <li>Osoby s jiným místem trvalého bydliště než ČR a SR se před přihlášením ozvou na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</li>
+        <li>Stávající řešitelé FYKOSu (či registrované osoby) se hlásí pod e-mailem, pod kterým jsou u nás registrovaní – nebudete muset vyplňovat všechno znovu. Noví účastníci musí vyplnit i svoje základní údaje.</li>
+        <li>Pokud by při vyplňování přihlášky nastal nějaký problém, neváhejte se co nejdřív ozvat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</li>
+        <li>Po naplnění kapacity můžete napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a> a zapsat se jako náhradník.</li>
+        </ul>
+
+
+    <div class="d-grid gap-2">
+        <a href="https://db.fykos.cz/event{$gamePhaseCalculator->getFKSDBEvent()->eventId}/application/create" type="button"
+           class="btn btn-primary btn-lg btn-block" style="border-radius: 0">Registrovat se</a>
+    </div>
+{/block}

@@ -20,10 +20,10 @@ class ArchivePresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $events = array_reverse($this->serviceEvent->getEvents([$this->getContext()->getParameters()["eventTypeId"]]));
-        $events = array_filter($events, function ($event): bool {
-            return true;
-            //return $event->end < new \DateTime('now');
+        $events = array_reverse($this->serviceEvent->getEvents([$this->context->getParameters()['eventTypeId']]));
+        $events = array_filter($events, function ($event) {
+            //return true;
+            return $event->end < new \DateTime('now');
         });
         $eventKeys = [];
         foreach ($events as $event) {

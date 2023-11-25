@@ -40,17 +40,13 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
                     [$year, $month] = explode('-', $this->eventYear);
                 }
                 $events = $this->serviceEvent->getEventsByYear(
-                    [$this->getContext()->getParameters()["eventTypeId"]],
-                    +$year
+                    [$this->context->getParameters()['eventTypeId']],
+                    intval($year)
                 );
                 if (count($events)) {
                     $event = isset($month) ? reset($events) : end($events);
                 }
             }
-            if (!isset($event)) {
-                $event = $this->serviceEvent->getNewest([$this->getContext()->getParameters()["eventTypeId"]]);
-            }
-
             if (!isset($event)) {
                 throw new BadRequestException(_('Event not found'), IResponse::S404_NOT_FOUND);
             }
@@ -63,8 +59,8 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
     {
         return [
             new NavItem(
-                new PageTitle(null, _('archive_home.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-                ':Archive:Default:default',
+                new PageTitle(null, _('archive.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                ':Default:Archive:default',
             ),
             new NavItem(
                 new PageTitle(null, _('teams.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO

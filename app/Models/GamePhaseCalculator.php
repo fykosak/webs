@@ -24,6 +24,13 @@ class GamePhaseCalculator
     public const NOW = 2;
     private int $eventTypeId;
 
+    public function __construct(int $eventTypeId, ServiceEventList $serviceEventList, Container $container)
+    {
+        $this->eventTypeId = $eventTypeId;
+        $this->serviceEventList = $serviceEventList;
+        $this->container = $container;
+    }
+
     protected function checkEvent(int $period, DateTimeInterface $start, DateTimeInterface $end): bool
     {
         $now = new \DateTime();
@@ -37,13 +44,6 @@ class GamePhaseCalculator
             default:
                 throw new ArgumentOutOfRangeException('Invalid period');
         }
-    }
-
-    public function __construct(int $eventTypeId, ServiceEventList $serviceEventList, Container $container)
-    {
-        $this->eventTypeId = $eventTypeId;
-        $this->serviceEventList = $serviceEventList;
-        $this->container = $container;
     }
 
     /**
@@ -72,7 +72,7 @@ class GamePhaseCalculator
     public function isNearTheCompetition(int $period): bool
     {
         $begin = (new \DateTime())->setTimestamp($this->getFKSDBEvent()->begin->getTimestamp())
-            ->sub(new \DateInterval('P12D'));
+            ->sub(new \DateInterval('P3D'));
         $end = (new \DateTime())->setTimestamp($this->getFKSDBEvent()->begin->getTimestamp())
             ->add(new \DateInterval('P1D'));
         return $this->checkEvent(
@@ -91,7 +91,7 @@ class GamePhaseCalculator
         return $this->checkEvent(
             $period,
             $this->getGameBegin(),
-            $this->getGameBegin()->add(new \DateInterval("PT3H")),
+            $this->getGameBegin()->add(new \DateInterval('PT3H')),
         );
     }
 
@@ -124,10 +124,10 @@ class GamePhaseCalculator
     }
 
     /**
-     * Returns true about a week after the competition when no one is interested in game already.
+     * Returns true about a week after the event when no one is interested in game already.
      * @throws Throwable
      */
-    public function isLongAfterTheGame(): bool
+    public function isLongAfterTheEvent(): bool
     {
         $event = (new \DateTime())->setTimestamp($this->getFKSDBEvent()->end->getTimestamp())
             ->add(new \DateInterval('P7D'));

@@ -6,5 +6,4 @@ namespace App\Modules\Fol\DefaultModule;
 
 class AboutTheCompetitionPresenter extends BasePresenter
 {
-
 }

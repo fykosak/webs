@@ -4,26 +4,18 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\DefaultModule;
 
-use App\Models\ORM\FaqModel;
-use App\Models\ORM\FaqService;
-
 class FaqPresenter extends BasePresenter
 {
-
-    private FaqService $faqService;
-
-    public function injectFaqService(FaqService $faqService): void
-    {
-        $this->faqService = $faqService;
-    }
-
     private function loadQuestions(): void
     {
-        $query = $this->faqService->getTable()->where('lang', $this->lang);
+        $data = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'faq.json');
+        $query = json_decode($data);
+        $query = array_filter($query, function ($item) {
+            return $item->lang === $this->lang;
+        });
 
         // questions sorted by category
         $questions = [];
-        /** @var FaqModel $question */
         foreach ($query as $question) {
             $category = $question->category;
 

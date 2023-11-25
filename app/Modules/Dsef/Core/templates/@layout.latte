@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <meta name="theme-color" content="#FF7431">
+    <meta name="theme-color" content="#f2b72b">
 
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Den s experimentální fyzikou"/>
@@ -18,8 +18,8 @@
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:locale" content="cs"/>
     <meta property="og:url" content="{plink //this}"/>
-    <link href="{$basePath}/images/icon.svg" rel="icon" type="image/svg"/>
-    <link href="{='assets/main.css'|asset}" rel="stylesheet"/>
+    <link href="{$basePath}/images/icon.png" rel="icon" type="image/png"/>
+    <link href="{asset 'assets/main.css'}" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;800&display=swap" rel="stylesheet">
@@ -27,14 +27,14 @@
     <script src="https://kit.fontawesome.com/f424cd1bbe.js" crossorigin="anonymous"></script>
     {block head}{/block}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="{='assets/main.js'|asset}"></script>
+    <script src="{asset 'assets/main.js'}"></script>
     {block scripts}{/block}
 </head>
 
 <body>
 
 {block body}
-    {control navigation null, "DSEF.cz", false}
+    {control navigation "/images/logos/dsef2023_logo_white.png", "DSEF " . $gamePhaseCalculator->getFKSDBEvent()->begin->format('Y'), false}
     <main>
         {block main}
             <div class="panel color-light">
@@ -60,8 +60,8 @@
                 {else}
                     {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
                         {switch $lang}
-                            {case 'cs'}Registrace se brzy otevře!
-                            {default} Registration will open soon!
+                            {case 'cs'}Registrace se otevře v říjnu!
+                            {default} Registration will open in October!
                         {/switch}
                     {else}
                         {switch $lang}
@@ -92,7 +92,17 @@
                                 {default}Competition Organizer
                             {/switch}
                         </div>
-                        <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 6rem; max-width: 13rem"></a>
+                        <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 6rem; max-width: 13rem">
+                    </a>
+                    <a href="https://www.iaps.info/" style="text-align: center">
+                        <div class="text">
+                            {switch $lang}
+                                {case 'cs'}Partner
+                                {default}Partner
+                            {/switch}
+                        </div>
+                        <img src="{$basePath}/images/logos/iaps_logo.png" alt="IAPS logo" style="max-height: 6rem; max-width: 13rem">
+                    </a>
                 </div>
             </div>
         </div>
@@ -102,7 +112,7 @@
 {*                    <img class="logo" src="{$basePath}/images/logo.svg" alt="DSEF" />*}
                     <div class="logo" style="font-size: 1cm; font-weight: bold">DSEF<small>.cz</small></div>
                     <p>
-                        DSEF je organizován <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 36. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
+                        DSEF je organizován <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 37. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
                         <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                     </p>
                     <p>
@@ -116,6 +126,29 @@
                         <a target="_blank" href="{switch $lang}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                         <a target="_blank" href="{switch $lang}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_white_logo.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                     </div>
+                </div>
+                <div class="col-md-3">
+                    <nav>
+                        <ul>
+                            {switch $lang}
+                                {case cs}
+                                <li>Sledujte nás
+                                {default}
+                                <li>Follow us on social media
+                            {/switch}
+                            <ul>
+                                <li>
+                                    <a class="social-sites" href="https://www.facebook.com/FYKOS">
+                                    <i class="fa fa-facebook fa-2x"></i>
+                                    </a>
+                                    <a class="social-sites" href="https://www.instagram.com/fykosak/">
+                                    <i class="fa fa-instagram fa-2x"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
 {*                <div class="col-md-3">
                     <nav>

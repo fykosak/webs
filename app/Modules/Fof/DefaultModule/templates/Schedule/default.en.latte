@@ -1,0 +1,30 @@
+{block main}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="subheader">Optional Program</div>
+            <h1>The Accompanying Program</h1>
+            <p>In addition to the competition itself, we have prepared a rich accompanying programme including lectures,
+                excursions to various scientific workplaces, meetings with scientists and many other activities to have
+                fun not only with your friends, but also with other people of similar interests.</p>
+            <p>Teams from many different countries are taking part in the event, so you can look forward to lots of
+                exciting encounters with people from all over the world, so don't hesitate and enjoy Fyziklani with
+                us.</p>
+            <p>You can see the preliminary shape of the accompanying program on the schedule below. We will publish
+                specific information during January.</p>
+            {*<a class="btn btn-primary my-2" n:href="Schedule:detail">Program description
+            </a>*}
+        </section>
+    </div>
+
+
+    <div class="panel color-auto">
+        <section class="inner-container"><h1>Game and Accompanying Program Schedule</h1>
+            <p>The accompanying program is optional, it is possible to take part only in the competition itself.</p>
+            {*<a class="btn btn-primary mb-2" n:href=":Archive:Schedule: eventYear:2023">
+                    Schedule of Last Year
+            </a>*}
+          
+            {include "../schedule.latte"}
+        </section>
+    </div>
+{/block}

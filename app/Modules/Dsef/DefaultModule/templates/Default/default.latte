@@ -11,9 +11,9 @@
                 <div class="subheader">
                     <p>Den plný přednášek a exkurzí po fyzikálních laboratořích (nejen) MFF UK.</p>
                 </div>
-                <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
+                {if $gamePhaseCalculator->isRegistration($gamePhaseCalculator::BEFORE)}<time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
                     {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}
-                </time>
+                </time>{/if}
 {*                <div class="buttons">*}
 {*                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>*}
 {*                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>*}
@@ -35,13 +35,13 @@
             <div class="row strips">
                 <div class="col-md-4">
                     <p>
-                        Tradiční podzimní jednodenní FYKOSí akce pro středoškoláky s cílem představit žákům skutečnou vědeckou práci v laboratořích.
+                        Tradiční podzimní jednodenní akce pro středoškoláky pořádana FYKOSem s cílem představit žákům skutečnou vědeckou práci v laboratořích.
                     </p>
                     <a href="https://fykos.cz/" class="btn btn-panel-action">Více o FYKOSu</a>
                 </div>
                 <div class="col-md-4">
                     <p>
-                        Vedle zajímavé přednášky se můžete zúčastnit exkurzí po špičkových vědeckých pracovištích v Praze a okolí.
+                        Kromě zajímavé přednášky se můžete zúčastnit exkurzí po špičkových vědeckých pracovištích v Praze a okolí.
                     </p>
                     <a n:href="Archive:" class="btn btn-panel-action">Podívejte se na minulé ročníky</a>
                 </div>
@@ -60,7 +60,7 @@
             <div class="subheader">Z minulých let</div>
             <h1>Nepřesvědčili jsme vás?</h1>
             <div class="row strips">
-                {control gallery:oneLine "/photos/front-page/"}
+                {control gallery:randomLine "/photos/front-page/"}
             </div>
             <div>
                 <a href="https://www.matfyz.cz/clanky/den-s-experimentalni-fyzikou-ukazal-jak-se-dela-veda" class="btn btn-panel-action text-start">Den s experimentální fyzikou ukázal, jak se dělá věda</a>
@@ -71,9 +71,9 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
-            <div class="subheader">DSEF 2022</div>
-            <h1>K aktuálnímu ročníku</h1>
-            <p>DSEF 2022 se bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} v Troji. Registraci spustíme {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n. Y'}. Podrobnější informace naleznete po zveřejnění na <a n:href="Current:default">stránce letošního ročníku</a>. Pokud máte nějaký dotaz, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</p>
+            <div class="subheader">DSEF 2023</div>
+            <h1>K nadcházejícímu ročníku</h1>
+            <p>DSEF 2023 pro vás začneme připravovat v létě. Začátkem podzimu zveřejníme více informací a spustíme přihlašování. Pro aktuální informace sledujte tyto stránky. Pokud máte nějaký dotaz, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</p>
         </section>
     </div>
 

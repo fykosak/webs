@@ -64,15 +64,28 @@
   }
 }
 
-.fyziklani-international-box {
+.fyziklani-box {
   background-color: #F44336;
-  background-image: url("https://fyziklani.cz/lib/tpl/redfoftpl/images/prague.svg");
+  //background-image: url("https://fyziklani.cz/lib/tpl/redfoftpl/images/prague.svg");
+  background-image: url(./scholarship.png);
   background-repeat: no-repeat;
   background-position: bottom;
-  background-size: 60rem;
+  background-size: 45rem;
 
   &:hover {
-    background-size: 60rem*1.1;
+    background-size: 45rem*1.1;
+  }
+}
+
+.factorio-box {
+  background-color: #222222;
+  background-image: url("https://cdn.factorio.com/assets/img/artwork/substation.png");
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: center;
+
+  &:hover {
+    background-size: 110%*1.1;
   }
 }
 
@@ -88,10 +101,10 @@
   }
 }
 
-.price-box.orgpad-box {
+.price-box.chess-box {
   color: black;
   background-color: white;
-  background-image: url("./orgpad.png");
+  background-image: url("./chess-removebg-preview (1).png");
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 50%;
@@ -113,6 +126,44 @@
   }
 }
 
+.price-box.propagacni-box {
+  background-color: #666666;
+  background-image: url("./hrnecek.png");
+  background-repeat: no-repeat;
+  background-size: 44%;
+  background-position: 109% -17%;
+
+  &:hover {
+    background-size: 44%*1.1;
+    background-position: 119% 14%;
+  }
+}
+
+.price-box.bag-box {
+  background-color: #ffe67d;
+  background-image: url("./taska.png");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: bottom 120% right -15%;
+
+  &:hover {
+    background-size: 40%*1.1;
+    background-position: bottom 40% right -10%;
+  }
+}
+
+.price-box.hoodie-box {
+  background-color: #830e0e;
+  background-image: url("./mikina.png");
+  background-repeat: no-repeat;
+  background-size: 65%;
+  background-position: bottom -50% right -50%;
+
+  &:hover {
+    background-size: 65%*1.1;
+  }
+}
+
 .price-box.knihy-box {
   background-color: #5a83c5;
   background-image: url("./blue_book.png");
@@ -126,6 +177,33 @@
   &:hover {
     background-size: 65%;
     background-position: 120% 2.9rem;
+  }
+}
+
+.price-box.kerbal-box {
+  color: white;
+  background-color: black;
+  background-image: url("./space.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: bottom 100% right -15%;
+
+  &:hover {
+    background-size: 50%*1.1;
+    background-position: bottom 40% right -10%;
+  }
+}
+
+.price-box.avast-box {
+  color: black;
+  background-color: #FFDDBF;
+  background-image: url("./avast_pc.png");
+  background-repeat: no-repeat;
+  background-position: 125% 100%;
+  background-size: 80%;
+
+  &:hover {
+    background-size: 80%*1.1;
   }
 }
 
@@ -162,6 +240,10 @@
   .countdown-value, .countdown-text {
     font-size: 1rem;
   }
+}
+
+.social-sites{
+  margin-right: 1.5rem
 }
 
 @import "../../DefaultModule/styles/legends";

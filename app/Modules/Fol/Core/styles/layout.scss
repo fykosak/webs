@@ -12,6 +12,36 @@ body {
   color: $text-on-primary;
 }
 
+.btn-primary-inverted {
+  @extend .btn-primary;
+  color: $primary-color;
+  background-color: $text-on-primary;
+}
+
+
+.btn-outline {
+  @extend .btn-outline;
+  text-align: center;
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+
+  &:hover {
+    background-color: #fff;
+  }
+}
+
+.btn-white {
+  @extend .btn-white;
+  background-color: #fff;
+  color: #000;
+  border-color: transparent;
+
+  &:hover {
+    border-color: #fff;
+  }
+}
+
 .panel {
   color: #4a4a4a;
   h1, h2, h3, h4, h5, h6 {
@@ -25,16 +55,20 @@ nav.navbar {
 
 ul.stylized {
   list-style: none;
-
-  li::before {
-    content: " ";
-    background-color: $primary;
-    display: block;
-    width: .5rem;
-    height: .5rem;
-    margin-left: -1.5rem;
-    position: absolute;
-    margin-top: 0.5rem;
+    li::before {
+      content: " ";
+      background-color: #000;
+      display: block;
+      width: .5rem;
+      height: .5rem;
+      margin-left: -1.5rem;
+      position: absolute;
+      margin-top: 0.5rem;
+    }
+  &.correction {
+    @media screen and (max-width: 1280px) {
+      padding-left: 3rem;
+    }
   }
 }
 
@@ -93,7 +127,9 @@ a:hover {
     color: white;
 
     .row {
-      --bs-gutter-x: 3rem;
+      @media screen and (min-width: 600px) {
+        --bs-gutter-x: 3rem;
+      }
     }
 
     a {
@@ -165,7 +201,7 @@ a:hover {
     }
 
     .btn-primary {
-      background: $secondary;
+      @include button-variant($secondary, darken($secondary, 7.5%), darken($secondary, 10%), lighten($secondary,5%), lighten($secondary, 10%), darken($secondary,30%));
       color: black;
     }
   }
@@ -214,6 +250,10 @@ a:hover {
   @keyframes blink-target {
     100% { background-color: rgba($complementary-color, 0); }
   }
+}
+
+.team-list .team-status-pending {
+  opacity: .5;
 }
 
 .btn-panel-action {

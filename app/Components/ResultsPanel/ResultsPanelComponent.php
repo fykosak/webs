@@ -12,7 +12,7 @@ class ResultsPanelComponent extends BaseComponent
 {
     private GamePhaseCalculator $gamePhaseCalculator;
 
-    public function injectGamePhaseCalculator(GamePhaseCalculator $calculator)
+    public function injectGamePhaseCalculator(GamePhaseCalculator $calculator): void
     {
         $this->gamePhaseCalculator = $calculator;
     }

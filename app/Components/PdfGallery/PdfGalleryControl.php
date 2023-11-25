@@ -16,10 +16,6 @@ class PdfGalleryControl extends BaseComponent
     private string $wwwDir;
     private Cache $cache;
 
-    public function injectStorage(Storage $storage)
-    {
-        $this->cache = new Cache($storage, 'App\Components\PdfGallery');
-    }
 
     public function __construct(Container $container)
     {
@@ -27,7 +23,13 @@ class PdfGalleryControl extends BaseComponent
         $this->wwwDir = $container->getParameters()['wwwDir'];
     }
 
-    public static function getPdfs(string $path, string $wwwDir): array
+    public function injectStorage(Storage $storage): void
+    {
+        $this->cache = new Cache($storage, __NAMESPACE__);
+    }
+
+// TODO typy!!!!!
+    public static function getPdfs($path, $wwwDir): array
     {
         $pdfs = [];
 
@@ -41,7 +43,7 @@ class PdfGalleryControl extends BaseComponent
             $wwwPath = substr($file->getPathname(), strlen($wwwDir));
             $pdfs[] = [
                 'src' => $wwwPath,
-                'name' => $file->getBasename(".pdf"),
+                'name' => $file->getBasename('.pdf'),
             ];
         }
 

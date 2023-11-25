@@ -11,21 +11,6 @@ use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends EventWebPresenter
 {
-    public static array $months = [
-        "leden",
-        "unor",
-        "brezen",
-        "duben",
-        "kveten",
-        "cerven",
-        "cervenec",
-        "srpen",
-        "zari",
-        "rijen",
-        "listopad",
-        "prosinec",
-    ];
-
     public static function getEventYear(ModelEvent $event): string
     {
         return $event->begin->format('Y');
@@ -33,7 +18,7 @@ abstract class BasePresenter extends EventWebPresenter
 
     public static function getEventMonth(ModelEvent $event): string
     {
-        return self::$months[(int)$event->begin->format('n') - 1];
+        return $event->begin->format('m');
     }
 
     public static function getEventKey(ModelEvent $event): string
@@ -43,7 +28,7 @@ abstract class BasePresenter extends EventWebPresenter
 
     protected function localize(): void
     {
-        $this->lang = "cs";
+        $this->lang = 'cs';
         parent::localize();
     }
 
@@ -53,14 +38,17 @@ abstract class BasePresenter extends EventWebPresenter
     protected function getNavItems(): array
     {
         $items = [];
-
         $items[] = new NavItem(
-            new PageTitle(null, "Minulé ročníky", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Archive:',
+            new PageTitle(null, 'Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            'Registration:',
         );
         $items[] = new NavItem(
-            new PageTitle(null, "Aktuální ročník", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, 'Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             'Current:',
+        );
+        $items[] = new NavItem(
+            new PageTitle(null, 'Minulé ročníky', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            'Archive:',
         );
 
         return $items;

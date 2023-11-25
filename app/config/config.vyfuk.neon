@@ -1,0 +1,14 @@
+application:
+    mapping:
+        *: App\Modules\Vyfuk\*Module\*Presenter
+
+services:
+    - App\RouterFactory::createVyfukRouter(%domains%, %router-mapping%)
+
+includes:
+    - config.neon
+
+parameters:
+    router-mapping:
+        default:
+            cs:

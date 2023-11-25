@@ -1,4 +1,5 @@
 {varType string $lang}
+
 {block title}
     {switch $lang}
         {case 'cs'} Hlavní organizátoři
@@ -6,37 +7,27 @@
     {/switch}
 {/block}
 
-{block content}
-    <div class="panel color-light">
+{block main}
+    <div class="panel color-auto">
         <section class="inner-container">
+            <h1>{switch $lang}
+                    {case 'cs'}Hlavní organizátoři
+                    {default}Main Organizers
+                {/switch}</h1>
             <div class="row justify-content-center">
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person3501.jpg')"></div>
-                    <div class="name">Daniel Dupkala</div>
+                <div class="col-md-5 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person2762.jpg')"></div>
+                    <div class="name">Vojtěch David</div>
                     <div class="role">
                         {switch $lang}{case cs}Hlavní organizátor Fyziklání{default}Head organizer of Fyziklani{/switch}
                     </div>
                     <div class="about">
-                        {switch $lang}{case cs}Studuje 2. ročník NMgr. Učitelství fyziky a matematiky na MFF UK.
-                            {default}Studies 2nd year of MSc. Teaching physics and math at FMP CUNI.{/switch}
+                        {switch $lang}{case cs}Studuje 3. ročník Bc. Obecné matematiky na MFF UK.
+                            {default}Studies 3rd year of BSc. Mathematics at CUNI MFF.{/switch}
                     </div>
                 </div>
-
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person3083.jpg')"></div>
-                    <div class="name">Lubor Čech</div>
-                    <div class="role">
-                        {switch $lang}{case cs}Zástupce hlavního organizátora Fyziklání
-                            {default}Deputy head organizer of Fyziklani
-                        {/switch}
-                    </div>
-                    <div class="about">
-                        {switch $lang}{case cs}Studuje 1. ročník Obecné informatiky na MFF UK.
-                            {default}Studies 1st year of BSc. Informatics at FMP CUNI.{/switch}
-                    </div>
-                </div>
-
-                <div class="col-md-4 organiser">
+              
+              	<div class="col-md-5 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person11295.jpg')"></div>
                     <div class="name">Martin Vaněk</div>
                     <div class="role">
@@ -44,64 +35,203 @@
                             {default}Head organizer of FYKOS{/switch}
                     </div>
                     <div class="about">
-                        {switch $lang}{case cs}Studuje 3. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 3rd year of BSc. Physics at FMP CUNI.{/switch}
+                        {switch $lang}{case cs}Studuje 1. ročník NMgr. Teoretické fyziky na MFF UK.
+                            {default}Studies 1st year of MSc. Physics at CUNI MFF.{/switch}
                     </div>
                 </div>
 
                 <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person1838.jpg')"></div>
-                    <div class="name">Daniela Pittnerová</div>
-                    <div class="role">{switch $lang}{case cs}Zástupkyně hl. organizátora FYKOSu, konzultantka Fyziklání
-                        {default}Deputy head organizer of FYKOS, consultant of Fyziklani{/switch}</div>
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person3501.jpg')"></div>
+                    <div class="name">Daniel Dupkala</div>
+                    <div class="role">
+                        {switch $lang}{case cs}Konzultant Fyziklání
+                            {default}Consultant of Fyziklani
+                        {/switch}
+                    </div>
+                    <div class="about">
+                        {switch $lang}{case cs}Absolvent NMgr. Učitelství fyziky a matematiky na MFF UK. Pracuje na Oddělení propagace a mediální komunikace MFF UK.
+                            {default}Graduated from MSc. Teaching physics and math at CUNI MFF. Works at Media Communications and PR Office of CUNI MFF.{/switch}
+                    </div>
+                </div>
+              
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person324.jpg')"></div>
+                    <div class="name">Michal Červeňák</div>
+                  	<div class="role">
+                        {switch $lang}{case cs}IT, vedení Fyziklání
+                            {default}IT, management of Fyziklani{/switch}
+                    </div>
+                    <div class="about">
+                      {switch $lang}{case cs}Pracuje na AV ČR.
+                      	{default}Works at the Academy of Sciences of the Czech Republic.{/switch}</div>
+                </div>
+              
+				<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person4855.jpg')"></div>
+                    <div class="name">Jakub Dřevo</div>
+                    <div class="role">
+                        {switch $lang}{case cs}Propagace, doprovodný program, vedení Fyziklání
+                        {default}Publicity, PR, accompanying program, management of Fyziklani{/switch}
+                    </div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 3. ročník Bc. Fyziky na MFF UK.
+                            {default}Studies 3rd year of BSc. Physics at CUNI MFF.{/switch}
+                    </div>
+                </div>
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person1656.jpg')"></div>
+                    <div class="name">Kateřina Rosická</div>
+                    <div class="role">{switch $lang}{case cs}Fyziklani Scholarship, konzultantka Fyziklání
+                        {default}Fyziklani Scholarship, consultant of Fyziklani{/switch}</div>
                     <div class="about">
                         {switch $lang}{case cs}Studuje 2. ročník NMgr. Fyziky povrchů a plazmatu na MFF UK.
-                            {default}Studies 2nd year of MSc. Surface and Plasma Physics at FMP CUNI.{/switch}</div>
+                            {default}Studies 2nd year of MSc. Surface and Plasma Physics at CUNI MFF.{/switch}</div>
                 </div>
-
-                <div class="col-md-3 organiser">
+              
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person11368.jpg')"></div>
+                    <div class="name">Veronika Hendrychová</div>
+                    <div class="role">
+                        {switch $lang}{case cs}IT, správa přihlášek, konzultantka Fyziklání
+                        {default}IT, administration of registration, consultant of Fyziklani{/switch}
+                    </div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 1. ročník Ing. oboru Science de l'Informatique na Université de Rennes ve Francii.
+                            {default}Studies 1st year of Eng. Science de l'Informatique at Université de Rennes, France.{/switch}
+                    </div>
+                </div>
+              
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person11301.jpg')"></div>
+                    <div class="name">Elena Chochoľaková</div>
+                    <div class="role">{switch $lang}{case cs}Konzultantka Fyziklání
+                        {default}Consultant of Fyziklani{/switch}</div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
+                            {default}Studies 2nd year of BSc. Physics at CUNI MFF.{/switch}</div>
+                </div>
+           		<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person14779.jpg')"></div>
+                    <div class="name">Petr Kahan</div>
+                    <div class="role">{switch $lang}{case cs}Vedoucí doprovodného programu
+                        {default}Head of accompanying program{/switch}</div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 2. ročník Bc. Inženýrství pevných látek na FJFI ČVUT.
+                            {default}Studies 2nd year of BSc. Solid State Engineering at FNSPE CTU.{/switch}</div>
+                </div>
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person4352.jpg')"></div>
+                    <div class="name">Adam Krška</div>
+                    <div class="role">
+                        {switch $lang}{case cs}IT
+                            {default}IT{/switch}
+                    </div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 2. ročník Bc. Informačních technologií FIT VUT.
+                            {default}Studies 2nd year of BSc. IT at FIT VUT.{/switch}
+                    </div>
+                </div>
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person15214.jpg')"></div>
+                    <div class="name">David Škrob</div>
+                    <div class="role">
+                        {switch $lang}{case cs}Komunikace s týmy, IT
+                            {default}Communication with teams, IT{/switch}
+                    </div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 1. ročník Bc. Fyziky na MFF UK.
+                            {default}Studies 1st year of BSc. Physics at CUNI MFF.{/switch}
+                    </div>
+                </div>
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person3056.jpg')"></div>
+                    <div class="name">Radomír Mielec</div>
+                    <div class="role">{switch $lang}{case cs}Komunikace s týmy, Fyziklani Scholarship
+                        {default}Communication with teams, Fyziklani Scholarship{/switch}</div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
+                            {default}Studies 2nd year of BSc. Physics at CUNI MFF.{/switch}</div>
+                </div>
+              	<div class="col-md-3 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person8331.jpg')"></div>
                     <div class="name">Jaroslav Herman</div>
                     <div class="role">
-                        {switch $lang}{case cs}Správce výběru úloh a hlavní korektor
-                            {default}Physics problems administrator and chief editor{/switch}
+                        {switch $lang}{case cs}Hlavní korektor úloh
+                            {default}Chief problem editor{/switch}
                     </div>
                     <div class="about">
-                        {switch $lang}{case cs}Studuje 2. ročník Bc. studia Fyziky na MFF UK.
-                            {default}Studies 2nd year of BSc. Physics at FMP CUNI.{/switch}
+                        {switch $lang}{case cs}Studuje 1. ročník NMgr. Fyziky povrchů a plazmatu na MFF UK.
+                            {default}Studies 1st year of MSc. Surface and Plasma Physics at CUNI MFF.{/switch}
                     </div>
                 </div>
-
-
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person324.jpg')"></div>
-                    <div class="name">Michal Červeňák</div>
-                    <div class="role">IT</div>
-                    <div class="about">{switch $lang}{case cs}Pracuje na AV ČR.{default}Works at the Academy of Sciences of the Czech Republic.{/switch}</div>
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person15364.jpg')"></div>
+                    <div class="name">Dávid Brodňanský</div>
+                    <div class="role">{switch $lang}{case cs}Vedoucí překladů, partneři Fyziklání
+                        {default}Head of translations, partners of Fyziklani{/switch}</div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 2. ročník Bc. Fyziky - nanotechnologie na MUNI.
+                            {default}Studies 2nd year of BSc. Physics - nanotechnologies at MUNI.{/switch}
+                    </div>
                 </div>
-
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person22358.jpg')"></div>
+                    <div class="name">Petr Sacher</div>
+                    <div class="role">{switch $lang}{case cs}Partneři Fyziklání
+                        {default}Partners of Fyziklani{/switch}</div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 1. ročník Bc. Fyziky na MFF UK.
+                            {default}Studies 1st year of BSc. Physics at CUNI MFF.{/switch}
+                    </div>
+                </div>
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person16739.jpg')"></div>
+                    <div class="name">Tereza Hochmanová</div>
+                    <div class="role">{switch $lang}{case cs}Propagace, sociální sítě
+                        {default}PR, social networks{/switch}</div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 1. ročník Bc. Fyziky na MFF UK.
+                            {default}Studies 1st year of BSc. Physics at CUNI MFF.{/switch}</div>
+                
+               	</div>
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person20090.jpg')"></div>
+                    <div class="name">Viačeslavas Šinkonis</div>
+                    <div class="role">{switch $lang}{case cs}Doprovodný program Fyziklání
+                        {default}Accompanying program of Fyziklani{/switch}</div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 3. ročník Bc. Fyziky na MFF UK.
+                            {default}Studies 3rd year of BSc. Physics at CUNI MFF.{/switch}</div>
+                </div>
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person13618.jpg')"></div>
+                    <div class="name">Marek Milička</div>
+                    <div class="role">{switch $lang}{case cs}IT
+                            {default}IT{/switch}</div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 3. ročník Bc. studia Fyziky na MFF UK.
+                            {default}Studies 3rd year of BSc. Physics at CUNI MFF.{/switch}</div>
+                </div>
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person7395.jpg')"></div>
+                    <div class="name">Tomáš Červeň</div>
+                    <div class="role">{switch $lang}{case cs}Grafika
+                        {default}Graphics{/switch}</div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 3. ročník NMgr. Fyziky na MFF UK.
+                            {default}Studies 3rd year of MSc. Physics at CUNI MFF.{/switch}</div>
+                </div>
+              
+{* 
                 <div class="col-md-3 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person1833.jpg')"></div>
                     <div class="name">Štěpán Stenchlák</div>
                     <div class="role">
-                        {switch $lang}{case cs}IT, propagace
-                        {default}IT, publicity{/switch}</div>
+                        {switch $lang}{case cs}IT
+                        {default}IT{/switch}</div>
                     <div class="about">
-                        {switch $lang}{case cs}Studuje 2. ročník NMgr. studia Softwarového a datového inženýrství na MFF UK.
-                            {default}Studies 2nd year of MSc. Software and data engineering at FMP CUNI.{/switch}</div>
-                </div>
-
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person11368.jpg')"></div>
-                    <div class="name">Veronika Hendrychová</div>
-                    <div class="role">
-                        {switch $lang}{case cs}IT, úlohy
-                        {default}IT, Physics problems{/switch}
-                    </div>
-                    <div class="about">
-                        {switch $lang}{case cs}Studuje 2. ročník Bc. Matematické informatiky na FJFI ČVUT.
-                            {default}Studies 2nd year of BSc. Mathematical informatics at FNSPI CTU.{/switch}
-                    </div>
+                        {switch $lang}{case cs}Studuje 2. ročník doktorského studia Softwarových systémů na MFF UK.
+                            {default}Studies 2nd year of Ph.D. Computer Science at CUNI MFF.{/switch}</div>
                 </div>
 
                 <div class="col-md-3 organiser">
@@ -110,42 +240,23 @@
                     <div class="role">{switch $lang}{case cs}Vedoucí doprovodného programu
                         {default}Leader of the accompanying program{/switch}</div>
                     <div class="about">
-                        {switch $lang}{case cs}Studuje 1. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 1st year of BSc. Physics at FMP CUNI.{/switch}
-                    </div>
-                </div>
-
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person12904.jpg')"></div>
-                    <div class="name">Marcel Vasiľák</div>
-                    <div class="role">{switch $lang}{case cs}Propagace
-                        {default}Publicity, PR{/switch}</div>
-                    <div class="about">
-                        {switch $lang}{case cs}Studuje 2. ročník Bc. Energetika na Žilinské univerzitě.
-                            {default}Studies 2nd year of BSc. Energetics at Žilina University in Slovakia.{/switch}
-                    </div>
-                </div>
-
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person7395.jpg')"></div>
-                    <div class="name">Tomáš Červeň</div>
-                    <div class="role">{switch $lang}{case cs}Grafika
-                        {default}Graphics{/switch}</div>
-                    <div class="about">
-                        {switch $lang}{case cs}Studuje 1. ročník NMgr. Fyziky na MFF UK.
-                            {default}Studies 1st year of MSc. Physics at FMP CUNI.{/switch}</div>
-                </div>
-
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person4792.jpg')"></div>
-                    <div class="name">Kateřina Charvátová</div>
-                    <div class="role">{switch $lang}{case cs}Komunikace s týmy, správa přihlášek
-                            {default}Communication with teams, applications administration{/switch}</div>
-                    <div class="about">
                         {switch $lang}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 2nd year of BSc. Physics at FMP CUNI.{/switch}
-                        </div>
+                            {default}Studies 2nd year of BSc. Physics at CUNI MFF.{/switch}
+                    </div>
                 </div>
+                </div>
+     
+              	<div class="col-md-3 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person4274.jpg')"></div>
+                    <div class="name">Jiří Kohl</div>
+                    <div class="role">{switch $lang}{case cs}Zástupce koordinátora úloh
+                        {default}Deputy coordinator of physics problems{/switch}</div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 1. ročník Bc. Fyziky na MFF UK.
+                            {default}Studies 1st year of BSc. Physics at CUNI MFF.{/switch}</div>
+                </div>
+
+
 
                 <div class="col-md-3 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person6177.jpg')"></div>
@@ -154,39 +265,22 @@
                         {default}Communication with teams, Erasmus+ program{/switch}</div>
                     <div class="about">
                         {switch $lang}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 2nd year of BSc. Physics at FMP CUNI.{/switch}</div>
+                            {default}Studies 2nd year of BSc. Physics at CUNI MFF.{/switch}</div>
                 </div>
-
+              
                 <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person18608.jpg')"></div>
-                    <div class="name">Anežka Bakočová</div>
-                    <div class="role">{switch $lang}{case cs}Komunikace s týmy, program Erasmus+
-                        {default}Communication with teams, Erasmus+ program{/switch}</div>
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person12950.jpg')"></div>
+                    <div class="name">Simona Švecová</div>
+                    <div class="role">{switch $lang}{case cs}Doprovodný program Fyziklání
+                        {default}Accompanying program of Fyziklani{/switch}</div>
                     <div class="about">
-                        {switch $lang}{case cs}Studuje 1. ročník Bc. Obecné fyziky na MFF UK.
-                            {default}Studies 1st year of BSc. Physics at FMP CUNI.{/switch}</div>
-                </div>
-
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person15522.jpg')"></div>
-                    <div class="name">Ema Wayan Danielová</div>
-                    <div class="role">{switch $lang}{case cs}Komunikace s týmy, správa přihlášek
-                        {default}Communication with teams, applications administration{/switch}</div>
-                    <div class="about">
-                        {switch $lang}{case cs}Studuje 1. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 1st year of BSc. Physics at FMP CUNI.{/switch}</div>
-                </div>
-
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person20093.jpg')"></div>
-                    <div class="name">Daniel Broško</div>
-                    <div class="role">{switch $lang}{case cs}Překlady, obsah webu
-                            {default}Translations, web content{/switch}</div>
-                    <div class="about">{switch $lang}{case cs}Studuje 1. ročník NMgr. Ekonomie a finance na IES UK.
-                            {default}Studies 1st year of MSc. Economics and finances at IES CUNI.{/switch}
-                        </div>
-                </div>
-
+                        {switch $lang}{case cs}
+                            {default}.{/switch}</div>
+          		</div>
+                
+  
+<!-- Níže neaktuální -->
+<!--
                 <div class="col-md-3 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person13129.jpg')"></div>
                     <div class="name">Josef Trojan</div>
@@ -197,25 +291,8 @@
                             {default}Studies 1st year of BSc. Experimental Nuclear and Particle Physics at FNSPE CTU.{/switch}</div>
                 </div>
 
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person13618.jpg')"></div>
-                    <div class="name">Marek Milička</div>
-                    <div class="role">{switch $lang}{case cs}Propagace, doprovodný program
-                            {default}Publicity, accompanying program{/switch}</div>
-                    <div class="about">
-                        {switch $lang}{case cs}Studuje 1. ročník Bc. studia Fyziky na MFF UK.
-                            {default}Studies 1st year of BSc. Physics at FMP CUNI.{/switch}</div>
-                </div>
-
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person12309.jpg')"></div>
-                    <div class="name">Robert Jurenka</div>
-                    <div class="role">{switch $lang}{case cs}Partneři Fyziklání, prostory soutěže
-                            {default}Partners of Fyziklani, competition premises{/switch}</div>
-                    <div class="about">
-                        {switch $lang}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 2nd year of BSc. Physics at FMP CUNI.{/switch}</div>
-                </div>
+                
+-->
 
                 <div class="col-md-3 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person1957.jpg')"></div>
@@ -223,61 +300,178 @@
                     <div class="role">{switch $lang}{case cs}Finance
                             {default}Finances{/switch}</div>
                     <div class="about">
-                        {switch $lang}{case cs}Studuje 2. ročník Bc. Obecné informatiky na MFF UK.
-                            {default}Studies 2nd year of BSc. Informatics at FMP CUNI.{/switch}</div>
+                        {switch $lang}{case cs}Studuje 3. ročník Bc. Obecné informatiky na MFF UK.
+                            {default}Studies 3rd year of BSc. Informatics at CUNI MFF.{/switch}</div>
                 </div>
+              	
+            </div>
+        </section>
+    </div>
 
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person44.jpg')"></div>
-                    <div class="name">Karel Kolář</div>
-                    <div class="role">{switch $lang}{case cs}Program Erasmus+
-                            {default}Erasmus+ program{/switch}</div>
-                    <div class="about">
-                        {switch $lang}{case cs}Vystudoval Bc. obecnou fyziku a Mgr./RNDr./Ph.D. učitelství fyziky. Pracuje jako redaktor v Nakladatelství Prometheus, spol. s r. o.
-                            {default}Works as editor at Prometheus publishing house.{/switch}</div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>{switch $lang}
+                {case cs}Na úlohách se podíleli:
+                {default}Authors and editors of physics problems:
+            {/switch}</h1>
+            <div class="row justify-content-center">
+                <ul class="col-sm-4 stylized correction">
+                    <li>Jaroslav Herman</li>
+                    <li>Daniel Broško</li>
+                    <li>Nicolas Gavorník</li>
+                    <li>Šimon Pajger</li>
+                    <li>Vojtěch David</li>
+                    <li>Ema Wayan Danielová</li>
+                    <li>Daniela Dupkalová</li>
+                    <li>Dávid Brodňanský</li>
+                    <li>Jindřich Jelínek</li>
+                    <li>Adam Krška</li>
+                </ul>
+                <ul class="col-sm-4 stylized correction">
+                    <li>Jan Bajer</li>
+                    <li>Radka Křížová</li>
+                    <li>Anežka Bakočová</li>
+                    <li>Jáchym Bártík</li>
+                    <li>Karel Kolář</li>
+                    <li>Matěj Mezera</li>
+                    <li>Daniel Fousek</li>
+                    <li>Albert Havliček</li>
+                    <li>Elena Chochoľaková</li>
+                    <li>Veronika Hendrychová</li>
+                </ul>
+                <ul class="col-sm-4 stylized correction">
+                    <li>Jiří Kohl</li>
+                    <li>Daniel Dupkala</li>
+                    <li>Aneta Pjatkanová</li>
+                    <li>Kateřina Rosická</li>
+                    <li>Josef Trojan</li>
+                    <li>Tomáš Tuleja</li>
+                    <li>Martin Vaněk</li>
+                    <li>Vojtěch Votruba</li>
+                    <li>Denisa Zdvořilá</li>
+                </ul>
+            </div> *}
+        </section>
+    </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>{switch $lang}{case cs}Ústřední komise{default}Central Committee{/switch}</h1>
+            
+            
+            <div class="organiser">
+                     <div class="name">Vojtěch David</div>
+                     <div class="role">
+                        {switch $lang}{case cs}předseda
+                            {default}President{/switch}
+                     </div>
+                     <div class="about">
+                        {switch $lang}{case cs}Student MFF UK, hlavní organizátor Fyziklání. Působí také jako zástupce hlavního organizátora Fyzikálního korespondenčního semináře a aktivně se tak podílí na chodu Fyziklání Online a dalších akcí FYKOSu. Též po odborné či organizační stránce přispívá k fungování dalších předmětových soutěží v ČR a působí jako přednášející na několika odborných soustředěních a táborech pro žáky ZŠ a SŠ.
+                            {default}Mr. David is a student at the Faculty of Mathematics and Physics of Charles University (CUNI MFF) and the head organizer of Fyziklani. He is also the deputy head organizer of FYKOS and thus actively participates in the running of Physics Brawl Online and other FYKOS events. He also organizes other STEM competitions in the Czech Republic and is a lecturer at several camps for elementary and high school students.{/switch}
+                     </div>
+            </div>
+                    
+            <div class="organiser">
+               <div class="name"><small>Mgr. </small>Daniel Dupkala</div>
+               <div class="role">
+                    {switch $lang}{case cs}místopředseda
+                        {default}Vice-President{/switch}
+               </div>
+               <div class="about">
+                    {switch $lang}{case cs}Absolvent MFF UK, šest let byl hlavním organizátorem Fyziklání. Působí také jako aktivní organizátor Fyzikálního korespondenčního semináře a Fyzikálního Náboje v ČR. Je členem propagační komise MFF UK. Pracoval také jako učitel matematiky na SPŠST Panská.
+                        {default}Mgr. Dupkala is a graduate of CUNI MFF, and he has been the head organizer of Fyziklani for 6 years. He is an active organizer of FYKOS and Náboj Physics in the Czech Republic and a member of the Media Communications and PR Office of CUNI MFF. He used to be a mathematics teacher at SPŠST Panská high school.{/switch}
                 </div>
-
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person20090.jpg')"></div>
-                    <div class="name">Viačeslavas Šinkonis</div>
-                    <div class="role">{switch $lang}{case cs}Program Erasmus+
-                        {default}Erasmus+ program{/switch}</div>
-                    <div class="about">
-                        {switch $lang}{case cs}Studuje 1. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 1st year of BSc. Physics at FMP CUNI.{/switch}</div>
+            </div>
+                    
+            <div class="organiser">
+                <div class="name">Michal Červeňák</div>
+                <div class="about">
+                    {switch $lang}{case cs}Zaměstnanec Ústavu fyziky plazmatu AV ČR v.v.i. Dlouholetý organizátor Fyzikálního korespondenčního semináře. Dlouhodobě zabezpečuje organizaci Fyziklání i Fyziklání Online zvláště po technické stránce, připravuje a spravuje herní systémy.
+                        {default}Mr. Červeňák works at the Institute of Plasma Physics of the Czech Academy of Sciences. He is one of the most experienced organizers of FYKOS. For a long time, he has been technically responsible for the organization of Fyziklani and Physics Brawl Online as he develops and maintains the game systems.{/switch}
                 </div>
-
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person4855.jpg')"></div>
-                    <div class="name">Jakub Dřevo</div>
-                    <div class="role">{switch $lang}{case cs}Program Erasmus+
-                        {default}Erasmus+ program{/switch}</div>
-                    <div class="about">
-                        {switch $lang}{case cs}Studuje 1. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 1st year of BSc. Physics at FMP CUNI.{/switch}</div>
+            </div>
+                    
+            <div class="organiser">
+                <div class="name"><small>doc. RNDr. </small>Martin Čížek<small>, Ph.D.</small></div>
+                <div class="about">
+                    {switch $lang}{case cs}Zaměstnanec MFF UK – ÚTF, zabývá se kolizemi atomů a molekul a molekulární elektronikou. Účastní se odborného testování úloh do Fyziklání a Fyziklání Online.
+                        {default}Doc. Čížek is an employee of CUNI MFF - ITP. He examines collisions of atoms and molecules and molecular electronics. He takes part in the testing of problem assignments for Fyziklani and Physics Brawl Online.{/switch}
                 </div>
+            </div>
 
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person6142.jpg')"></div>
-                    <div class="name">Jitka Vysloužilová</div>
-                    <div class="role">{switch $lang}{case cs}Program Erasmus+
-                        {default}Erasmus+ program{/switch}</div>
-                    <div class="about">
-                        {switch $lang}{case cs}Studuje 1. ročník Bc. Biofyzika na PřF JČU.
-                            {default}Studies 1st year of BSc. Biophysics at FS USB.{/switch}</div>
+            <div class="organiser">
+                <div class="name"><small>Mgr. </small>Daniela Dupkalová</div>
+                <div class="about">
+                    {switch $lang}{case cs}Absolventka MFF UK, čtyři roky byla hlavní organizátorkou Fyzikálního korespondenčního semináře. Má bohaté zkušenosti s organizací soutěží Fyziklání, Fyziklání Online a Fyzikální Náboj.
+                        {default}Mgr. Dupkalová is a graduate of CUNI MFF. She was the main organizer of FYKOS for four years. She has extensive experience with organizing events such as Fyziklani, Physics Brawl Online, and Náboj Physics.{/switch}
                 </div>
+            </div>
 
-                <div class="col-md-3 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person2762.jpg')"></div>
-                    <div class="name">Vojtěch David</div>
-                    <div class="role">{switch $lang}{case cs}Odborné korektury, tisk úloh
-                        {default}Physics problems editor, problems administration{/switch}</div>
-                    <div class="about">
-                        {switch $lang}{case cs}Studuje 1. ročník Bc. Obecné matematiky na MFF UK.
-                            {default}Studies 1st year of BSc. Mathematics at FMP CUNI.{/switch}</div>
+            <div class="organiser">
+                <div class="name"><small>Bc. </small>Kateřina Charvátová</div>
+                <div class="about">
+                    {switch $lang}{case cs}Studentka MFF UK, je hlavní organizátorkou Fyziklání Online a je aktivní organizátorkou soutěže Fyziklání a Fyzikálního korespondenčního semináře.
+                        {default}Bc. Charvátová is a student at CUNI MFF. She is the main organizer of Physics Brawl Online and an active organizer of Fyziklani and FYKOS.{/switch}
+                </div>
+            </div>
+
+            <div class="organiser">
+                <div class="name"><small>RNDr. </small>Karel Kolář<small>, Ph.D.</small></div>
+                <div class="about">
+                    {switch $lang}{case cs}Redaktor v nakladatelství Prometheus, spol s r. o., vedl několik let FYKOS jako hlavní organizátor. Má zkušenosti s přípravou a realizací Fyziklání od 3. ročníku a všech ročníků Fyziklání Online. Byl hlavním koordinátorem MF náboje (dnes Náboj Junior). Podílel se na organizaci Dnů s experimentální fyzikou, Týdnů s aplikovanou fyzikou, Týdne vědy na Jaderce a dalších aktivit pro SŠ. Je porotcem TMF.
+                        {default}RNDr Kolář is an editor in the Prometheus publishing house and he ran FYKOS for several years as the main organizer. He has prior experience in the preparation and execution of Fyziklani since its 3rd year and of every edition of Physics Brawl Online. He was the main coordinator of MF Naboj (currently Naboj Junior). He was instrumental in organizing DSEF (Experimental Physics Day), Applied Physics Week, Science Week at Jaderka, and other activities for high schools. He is a TMF judge.{/switch}
+                </div>
+            </div>
+
+            <div class="organiser">
+                <div class="name"><small>doc. RNDr. </small>Přemysl Kolorenč<small>, Ph.D.</small></div>
+                <div class="about">
+                    {switch $lang}{case cs}Zaměstnanec MFF UK – ÚTF, od 21. ročníku je vedoucím Fyzikálního korespondenčního semináře a zaštiťuje všechny jeho aktivity. Je členem propagační komise MFF UK.
+                        {default}Doc. Kolorenč is an employee of CUNI MFF - ITP. He has been the head of FYKOS since its 21st year and is responsible for all its activities. He is a member of the Media Communications and PR Office of CUNI MFF.{/switch}
+                </div>
+            </div>
+
+            <div class="organiser">
+                <div class="name"><small>Mgr. </small>Štěpán Stenchlák</div>
+                <div class="about">
+                    {switch $lang}{case cs}Student MFF UK, je organizátorem Fyzikálního korespondenčního semináře. Zabezpečuje technickou podporu a propagaci soutěží Fyziklání a Fyziklání Online.
+                       {default}Mgr. Stenchlák is a student at CUNI MFF and he organizes FYKOS. He provides technical support and handles the promotion of Fyziklani and Physics Brawl Online.{/switch}
+                </div>
+            </div>
+
+            <div class="organiser">
+                <div class="name"><small>Bc. </small>Martin Vaněk</div>
+                <div class="about">
+                    {switch $lang}{case cs}Student MFF UK, je hlavním organizátorem Fyzikálního korespondenčního semináře, pod který spadají jak soutěže Fyziklání a Fyziklání Online, tak také další vzdělávací akce jako Den s experimentální fyzikou, odborná soustředění či stáže na MFF UK.
+                        {default}Bc. Vaněk is a student of CUNI MFF. He is the main organizer of FYKOS, which runs both Fyziklani and Physics Brawl Online and other educational events such as DSEF (Experimental Physics Day), educational camps, or internships at CUNI MFF.{/switch}
+               </div>
+            </div>
+
+            <div class="organiser">
+                <div class="name"><small>doc. RNDr. Mgr. </small>Vojtěch Žák<small>, Ph.D.</small></div>
+                <div class="about">
+                    {switch $lang}{case cs}Vedoucí KDF MFF UK, je odborným konzultantem Fyzikálního korespondenčního semináře. Ve své vědecké práci se věnuje kvalitě fyzikálního vzdělávání a fyzikálním kurikulem. Je členem propagační komise MFF UK a jejím koordinátorem pro fyzikální sekci v Troji.
+                        {default}Doc. Žák is the head of DPD CUNI MFF and he is a consultant of FYKOS. In his work, he focuses on the quality of physics education and the physics curriculum. He is a member of the Promotion Committee of CUNI MFF and also its coordinator for the physics section in Troja.{/switch}
                 </div>
             </div>
         </section>
     </div>
 
+    <div class="panel color-auto">
+        <section class="inner-container">
+            {switch $lang}
+                {case cs}
+                <h1>Odborní garanti</h1>
+                <p>
+                 Odbornými garanty soutěže jsou pracoviště Fyzikální sekce Matematicko-fyzikální fakulty Univerzity Karlovy, konkrétně Ústav teoretické fyziky (ÚTF), Katedra didaktiky fyziky (KDF) a Ústav částicové a jaderné fyziky (ÚČJF). Dále konkrétní osoby, které převzaly garanci odborné úrovně úloh, jsou pak jmenovitě (v abecedním pořadí) doc. RNDr. Martin Čížek, Ph.D. (ÚTF), doc. RNDr. Jiří Dolejší, CSc. (ÚČJF), doc. RNDr. Zdeněk Drozd, Ph.D. (KDF), doc. RNDr. Karel Houfek, Ph.D. (ÚTF), doc. RNDr. Přemysl Kolorenč, Ph.D. (ÚTF), doc. Mgr. Tomáš Ledvinka, Ph.D. (ÚTF), RNDr. Dana Mandíková, CSc. (KDF), RNDr. Jiří Novotný, CSc. (ÚČJF), Mgr. Martin Rybář, Ph.D. (ÚČJF) a doc. RNDr. Vojtěch Žák, Ph.D. (KDF).   
+                </p>
+                {default}
+                 <h1>Guarantors</h1>
+                 <p>
+                  The guarantors of the competition are the workplaces of the Physics Section of the Faculty of Mathematics and Physics of Charles University, specifically the Institute of Theoretical Physics (ITP), the Department of Physics Didactics (DPD), and the Institute of Particle and Nuclear Physics (IPNP). Furthermore, distinct persons who have taken over the guarantee of the physics level of the competition problems are then nominally (in alphabetical order) doc. RNDr. Martin Cizek, Ph.D. (ITP), doc. RNDr. Jiří Dolejší, CSc. (IPNP), doc. RNDr. Zdenek Drozd, Ph.D. (DPD), doc. RNDr. Karel Houfek, Ph.D. (ITP), doc. RNDr. Přemysl Kolorenč, Ph.D. (ITP), doc. Mgr. Tomáš Ledvinka, Ph.D. (ITP), RNDr. Dana Mandikova, CSc. (DPD), RNDr. Jiří Novotný, CSc. (IPNP), Mgr. Martin Rybář Ph.D. (IPNP) and doc. RNDr. Vojtech Zak, Ph.D. (DPD).
+
+                 </p>
+            {/switch}
+        </section>
+    </div>
 {/block}

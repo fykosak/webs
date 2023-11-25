@@ -39,7 +39,7 @@ export interface DataInterface<Visible extends boolean = false> {
   basePath: string;
   teams: Team<Visible>[];
   tasks: Task[];
-  submits: Visible extends true ? Submit[] : null;
+  submits: Visible extends true ? Submit[] | Record<string, Submit> : null;
   refreshDelay: number;
   times: Times<Visible>;
 }

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Modules\Dsef\ArchiveModule;
 
 use App\Components\PersonSchedule\AllScheduleListComponent;
+use App\Modules\Dsef\DefaultModule\CurrentPresenter;
+use App\Modules\Dsef\DefaultModule\RegistrationPresenter;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Nette\Application\BadRequestException;
@@ -38,12 +40,11 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
                 $year = $this->eventYear;
                 $month = $this->eventMonth;
                 $events = $this->serviceEvent->getEventsByYear(
-                    [$this->getContext()->getParameters()["eventTypeId"]],
-                    +$year
+                    [$this->context->getParameters()['eventTypeId']],
+                    intval($year)
                 );
-                $monthNumber = array_search($month, BasePresenter::$months);
-                $events = array_filter($events, function ($event) use ($monthNumber) {
-                    return (int)$event->begin->format('n') - 1 === $monthNumber;
+                $events = array_filter($events, function ($event) use ($month) {
+                    return $event->begin->format('m') === $month;
                 });
                 if (count($events) === 1) {
                     $event = end($events);
@@ -89,5 +90,29 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     protected function createComponentScheduleParticipants(): AllScheduleListComponent
     {
         return new AllScheduleListComponent($this->event->eventId, $this->getContext());
+    }
+
+    protected function getNavItems(): array
+    {
+        $items = [];
+        if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
+            $items[] = new NavItem(
+                new PageTitle(null, 'Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                ':Default:Registration:',
+            );
+        }
+
+        if (CurrentPresenter::isVisible($this->gamePhaseCalculator)) {
+            $items[] = new NavItem(
+                new PageTitle(null, 'Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                ':Default:Current:',
+            );
+        }
+
+        $items[] = new NavItem(
+            new PageTitle(null, 'Archiv', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            ':Default:Archive:default',
+        );
+        return $items;
     }
 }

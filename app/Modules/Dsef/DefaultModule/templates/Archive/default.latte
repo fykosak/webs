@@ -21,21 +21,21 @@
                     {/switch}
                 </div>
                 <h1>
-                    {* todo, fix this with localized PHP funcitons *}
-                    {["leden", "únor", "březen", "duben", "květen", "červen", "červenec", "srpen", "září", "říjen", "listopad", "prosinec"][$eventKey["event"]->begin->format("m")-1]}
+                    {* todo, fix this with localized PHP functions *}
+                    {["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"][$eventKey["event"]->begin->format("m")-1]}
                     {$eventKey["event"]->begin|date: "Y"}
 
                     <a class="btn btn-primary" n:href=":Archive:Default: eventYear:$eventKey['year'], eventMonth:$eventKey['month']">
                         {switch $lang}
-                            {case cs}více
-                            {default}more
+                            {case cs}Více
+                            {default}More
                         {/switch}
                     </a>
                 </h1>
 
                 {if $control->getComponent('gallery')->hasPhotos("/photos/" . $eventKey['fykos-year'] . "/")}
                     <div class="mt-5">
-                        {control gallery:oneLine "/photos/" . $eventKey['fykos-year'] . "/"}
+                        {control gallery:randomLine "/photos/" . $eventKey['fykos-year'] . "/"}
                     </div>
                 {/if}
             </section>

@@ -1,0 +1,433 @@
+/// Generic
+
+
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform .5s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/// Header section
+
+.header-container {
+  display: flex;
+  /* To vertically align items */
+  position: relative;
+  /* Setting to relative to ensure z-index works */
+  text-align: left;
+  align-items: stretch;
+  height: 55vh !important;
+  justify-content: center;
+  /* To maximize space between text-container and image */
+  color: $text-on-primary !important;
+
+
+  .header-image {
+    opacity: .3;
+    z-index: 0;
+    /* Lower z-index to let it be behind the text */
+    position: absolute;
+    align-self: stretch;
+    /* Stretches the image to fit the height of the .header-container */
+    right: 0;
+    /* Absolute positioning */
+  }
+
+  .header-text-container {
+    z-index: 2;
+    /* Higher z-index to ensure text is above the image */
+    position: relative;
+    /* Needed for z-index to take effect */
+
+
+    h1.header-text {
+      font-size: 8rem;
+      margin-bottom: 0;
+      margin-left: -6px;
+    }
+
+    h2.header-text {
+      font-size: 3rem;
+      color: $text-on-primary;
+      margin-bottom: 0;
+    }
+
+
+    @media screen and (max-width: 768px) {
+      h1.header-text {
+        font-size: 5rem;
+      }
+
+      h2.header-text {
+        font-size: 2rem;
+      }
+
+    }
+  }
+
+}
+
+
+.header-image,
+.header-container {
+  // this ensures the event blocks always have the same height
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+
+/// Videos section
+
+
+.video-row {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .col-lg-6 {
+    padding: 0;
+  }
+}
+
+.video-container {
+  padding: 0;
+  width: 95%;
+
+  .embed-responsive-16by9 {
+    position: relative;
+    margin: 0;
+    /* Centering the video embed */
+  }
+
+  .embed-responsive-16by9::before {
+    content: "";
+    display: block;
+  }
+
+
+
+  .embed-responsive-item {
+    display: block;
+    width: 100%;
+  }
+
+}
+
+.video-container.right {
+
+  margin-left: auto;
+
+  h2 {
+    text-align: right;
+  }
+
+  @media screen and (max-width: 992px) {
+    margin-left: 0;
+
+  }
+}
+
+/// events section
+
+
+.event {
+  // flex: 0 0 40%;
+  width: 95%;
+
+  // this ensures the event blocks always have the same height
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  padding: 10px;
+
+  // border: 3px solid $primary-color;
+
+  background-color: $panel-color-dark;
+  color: black;
+
+  // padding: 10px 30px;
+  display: inline-block;
+  transition: transform 0.2s;
+
+  p {
+    margin-bottom: .3rem;
+  }
+
+
+  .event-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  h3 {
+    font-weight: bolder;
+    font-size: 1.2rem;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  .event-date {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .inline-logo {
+    height: 1.8rem;
+    margin-right: 4px;
+  }
+
+}
+
+
+.series {
+  border-left: 5px solid $primary-color;
+  h3 {
+    color: $primary-color;
+  }
+}
+
+
+.fof-color {
+  background-color: $fof-color;
+}
+
+.fol-color {
+  background-color: $fol-color;
+}
+
+.dsef-color {
+  background-color: $dsef-color;
+}
+
+
+#logo-event-1,
+.naboj-color {
+  background-color: $naboj-color !important;
+}
+
+
+.naboj-color-left-border {
+  border-left: 5px solid $naboj-color !important;
+}
+
+.fol-color-left-border {
+  border-left: 5px solid $fol-color !important;
+}
+
+.fof-color-left-border {
+  border-left: 5px solid $fof-color !important;
+}
+
+.dsef-color-left-border {
+  border-left: 5px solid $dsef-color !important;
+}
+
+
+
+.event.active,
+.event:hover {
+  transform: scale(1.05);
+  /* Makes the box slightly larger */
+  transition: transform 0.2s ease-in-out;
+  /* Smooth transition */
+}
+
+.start-timeline-text,
+.end-timeline-text {
+  font-weight: bold;
+  color: $primary-color;
+  padding: 0;
+  margin: 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+
+.timeline-section-header>h3 {
+  font-weight: $font-weight-normal;
+  margin-bottom: 0;
+}
+
+
+$timeline-color: #8b8282;
+$timeline-horizontal-half-border-width: 4px;
+$timeline-logo-height: 30px;
+$buffer-logo-timeline: 10px;
+$top-offset: $timeline-horizontal-half-border-width + $timeline-logo-height + $buffer-logo-timeline;
+
+$today-block-height: 18px;
+
+#timeline-horizontal-container {
+
+  position: relative;
+  width: 100%;
+  height: 100px;
+
+  .start-timeline-text,
+  .end-timeline-text {
+    position: absolute;
+    top: calc(50% - $buffer-logo-timeline - 1.5rem);
+    z-index: 1;
+    /* Make sure this is above the line */
+  }
+
+  .start-timeline-text {
+    left: 0;
+  }
+
+  .end-timeline-text {
+    right: 0;
+  }
+}
+
+#timeline-horizontal {
+  width: 100%;
+  /* Makes the line span the full width of its container */
+  border: 0;
+  /* Removes default border */
+
+  border-top: $timeline-horizontal-half-border-width solid $timeline-color;
+  /* Adds a border to the top side only */
+  border-bottom: $timeline-horizontal-half-border-width solid $timeline-color;
+  background-color: $timeline-color;
+  /* Adds a border to the top side only */
+  margin: 10px 0;
+  position: absolute;
+  top: calc(50% - $timeline-horizontal-half-border-width - $buffer-logo-timeline );
+  z-index: 1;
+  opacity: 1;
+}
+
+.logo-series,
+.logo-event,
+.today-block {
+  position: absolute;
+  z-index: 5;
+  /* To ensure it's above the line and other elements */
+  max-width: 30% !important;
+}
+
+.logo-event,
+.logo-series {
+  height: $timeline-logo-height;
+}
+
+
+.today-block {
+  background-color: $primary-color;
+  color: white;
+  height: $today-block-height;
+  width: $today-block-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Larger screen positioning
+@media screen and (min-width: 768px) {
+  .logo-event {
+    top: calc(50% - $top-offset);
+    /* 50% aligns with the middle line; minus 10px moves it up */
+  }
+
+  .logo-series {
+    bottom: calc(50% - $top-offset);
+    /* 50% aligns with the middle line; plus 10px moves it down */
+  }
+
+  .today-block {
+    top: calc(50% - $today-block-height / 2);
+  }
+}
+
+// Smaller screen positioning
+@media screen and (max-width: 768px) {
+
+  .logo-event {
+    right: calc(50% - $top-offset);
+    /* 50% aligns with the middle line; minus 10px moves it up */
+  }
+
+  .logo-series {
+    left: calc(50% - $top-offset);
+    /* 50% aligns with the middle line; plus 10px moves it down */
+  }
+
+  .today-block {
+    right: calc(50% - $today-block-height / 2);
+  }
+}
+
+.order-6 {
+  order: 6 !important;
+}
+
+#timeline-vertical-container {
+
+  .start-timeline-text,
+  .end-timeline-text {
+    text-align: center;
+  }
+}
+
+#timeline-vertical {
+  border-right: $timeline-horizontal-half-border-width solid $timeline-color;
+  border-left: $timeline-horizontal-half-border-width solid $timeline-color;
+  z-index: 0;
+}
+
+
+// Fykos correspondence competition section
+
+.info-block {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  background-color: $primary-color;
+  color: $text-on-primary !important;
+
+  // this ensures the event blocks always have the same height
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  a {
+    color: $text-on-primary;
+  }
+
+  h4 {
+    color: $text-on-primary !important;
+  }
+
+}
+
+.info-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+
+}
+
+.info-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}

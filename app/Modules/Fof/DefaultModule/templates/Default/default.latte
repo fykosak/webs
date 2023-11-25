@@ -13,7 +13,7 @@
             <div class="col-md-6 left-block">
                 <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
                     {switch $lang}
-                        {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} Praha, Česká Republika
+                        {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} Praha, Česká republika
                         {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j, Y'} Prague, Czech Republic
                     {/switch}
                 </time>
@@ -25,45 +25,75 @@
                 </h1>
                 <div class="subheader col-md-10">
                     {switch $lang}
-                        {case 'cs'}<p>Přihlas se společně až s pětičlenným týmem a přijeďte si do Prahy zasoutěžit.</p>
-                        {default}<p>Sign up with a team of up to five and come to Prague, Czech Republic to compete with others.</p>
+                        {*{case 'cs'}<p>Přihlas se společně až s pětičlenným týmem a&nbsp;přijeďte si do Prahy zasoutěžit.</p>*}
+                        {*{default}<p>Sign up with a team of up to five and come to Prague, Czech Republic to compete with others.</p>*}
+                        {case 'cs'}<p>Registace pro rok 2024 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 20 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>
+                        {default}<p>Registration for the year 2024 is open!<br>Last year, almost 1200 of us gathered from more than 20 countries around the world. Come and enjoy this physics feast with us again this year!</p>
                     {/switch}
                 </div>
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
-                    <a target="_blank" href="https://static.fykos.cz/fyziklani2022/{switch $lang}{case 'cs'}pruvodce{default}guidebook{/switch}.pdf" class="btn btn-primary">{switch $lang}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>
-                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
+{*                    <a target="_blank" href="https://static.fykos.cz/fyziklani2023/{switch $lang}{case 'cs'}pruvodce{default}guidebook{/switch}.pdf" class="btn btn-outline">{switch $lang}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>*}
+                    <a n:href="Merch:" class="btn btn-light">Merch</a>
+                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-primary">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
             </div>
             <div class="col-md-6 right-block topic-panel">
-                {control prague}
+                {*{if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
+                    {control upperHomeBeforeRegistration}
+                {elseif true}*}
+                    {control prague}
+                {*/if}*}
             </div>
         </div>
     </div>
 
-    <div>{* Changes parity of color-auto *}</div>
+    {*<div class="panel registration" style="background-color: black">*}
+        {*<div class="inner-container">*}
+            {*<div class="text">*}
+                {*{switch $lang}*}
+                    {*{case 'cs'}Doufáme, že jste si soutěž užili!*}
+                    {*{default}We hope you have enjoyed the competition!*}
+                {*{/switch}*}
+            {*</div>*}
+            {*<div class="buttons">*}
+                {*{switch $lang}*}
+                    {*{case cs}*}
+                    {*<a class="btn btn-primary m-1" href="/2023/vysledky/">Výsledky soutěže</a>*}
+                    {*<a class="btn btn-primary m-1" href="/download/2023/reseni.pdf">Úlohy a řešení</a>*}
+                {*{default}*}
+                    {*<a class="btn btn-primary m-1" href="/2023/results/">Competition results</a>*}
+                    {*<a class="btn btn-primary m-1" href="/download/2023/solutions.pdf">Problem assignment and solutions</a>*}
+                {*{/switch}*}
+{**}
+            {*</div>*}
+        {*</div>*}
+    {*</div>*}
+
+{*    {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheEvent()}*}
+{*        {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}*}
+{*    {/if}*}
 
     <div class="panel color-auto">
         <section class="inner-container">
             {switch $lang}
                 {case 'cs'}
                 <div class="subheader">Shrnutí pravidel</div>
-                <h1>Co je to Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y'}?</h1>
+                <h1>Co je to Fyziklání?</h1>
                 <div class="row strips">
-                    <div class="col-md-4">Až 5 středoškoláků soutěží v Praze ve 3 hodiny dlouhé soutěži v počítání
-                        fyzikálních příkladů.
+                    <div class="col-md-4">Stovky týmů složené z 5 středoškoláků soutěží v Praze ve 3 hodiny dlouhé soutěži v počítání fyzikálních příkladů.
                     </div>
-                    <div class="col-md-4">Neustále máte k dispozici 7 úloh. Jakmile nějakou vyřešíte, okamžitě dostáváte
-                        další. Za každou úlohu sbíráte body.
+                    <div class="col-md-4">Neustále je k dispozici 7 úloh. Jakmile nějakou vyřeší, okamžitě dostávají
+                        další. Za každou úlohu sbírají body.
                     </div>
                     <div class="col-md-4">Nejlepší týmy vyhrávají věcné ceny a nehynoucí slávu v naší soutěži,
-                        která se koná každoročně už 16 let.
+                        která se koná každý rok, letos máme již 17. ročník.
                     </div>
                 </div>
-                <a n:href="Rules:" class="btn btn-panel-action">Pravidla</a>
+                <a n:href="Rules:" class="btn btn-panel-action">Jak to funguje</a>
             {default}
                 <div class="subheader">Rules Briefly</div>
-                <h1>What is Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y'}?</h1>
+                <h1>What Is Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y'}?</h1>
                 <div class="row strips">
                     <div class="col-md-4">
                         Up to five high school students compete in Prague in a three-hour-long contest in solving physics
@@ -75,10 +105,10 @@
                     </div>
                     <div class="col-md-4">
                         The best teams win prizes and undying glory in our competition, which has been held
-                        annually for 16 years now.
+                        annually for 17 years now.
                     </div>
                 </div>
-                <a n:href="Rules:" class="btn btn-panel-action">Rules</a>
+                <a n:href="Rules:" class="btn btn-panel-action">How does it work</a>
             {/switch}
         </section>
     </div>
@@ -182,7 +212,7 @@
                 </div>
             {default}
                 <div class="subheader">Problem Examples</div>
-                <h1>Everyone finds suitable difficulty.</h1>
+                <h1>Everyone Finds a Suitable Difficulty.</h1>
                 <div>
                     <div class="title-page-problem">
                         A coniferous tree could be (from a mechanical point of view) approximated by a homogeneous
@@ -218,11 +248,17 @@
         <section class="inner-container">
             {switch $lang}
                 {case cs}
-                <div class="subheader">Harmonogram soutěže</div>
-                <h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}.</h1>
+                <div class="subheader">Harmonogram Fyziklání</div>
+                {*<h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}.</h1>*}
+                <h1>V Praze se můžete zdržet i déle</h1>
+          		<p>Kromě soutěže se můžete těšit i na bohatý doprovodný program plný přednášek, exkurzí a mnoha dalšího. Podrobnosti budou zveřejněny časem.</p>
+                {*<p>Doprovodný program Fyziklání je volitelný, lze se zúčastnit i pouze samotné soutěže.</p>*}
             {default}
-                <div class="subheader">Competition Schedule</div>
-                <h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}.</h1>
+                <div class="subheader">Fyziklani Schedule</div>
+                {*<h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}.</h1>*}
+                <h1>You Can Stay in Prague a Little Longer</h1>
+                <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more. Stay tuned for more details in the future!</p>
+                {*<p>The accompanying program is optional, it is possible to take part only in the competition itself.</p>*}
             {/switch}
 
             {include "../schedule.latte"}
@@ -233,34 +269,56 @@
         <section class="inner-container">
             {switch $lang}
                 {case cs}
-                <div class="subheader">Registrace</div>
-                <h1>Přihlašte se a staňte se legendami!</h1>
+                <div class="subheader">Vítězové minulých ročníků</div>
+                <h1>Přihlaste se a staňte se legendami!</h1>
             {default}
                 <div class="subheader">Registration</div>
-                <h1>Sign up and become a legend!</h1>
+                <h1>Sign Up and Become a Legend!</h1>
             {/switch}
 
-            <ul class="stylized">
-                {switch $lang}
-                    {case cs}
-                    <li>Soutěž je určena pro středoškoláky a je zdarma!</li>
-                    <li>
-                        Registrace je otevřena od
-                        {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'} do
-                        <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
-                    </li>
-                {default}
-                    <li>The competition is for high school students and is free of charge!</li>
-                    <li>
-                        Registration is open from
-                        {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'} until
-                        <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
-                    </li>
-                {/switch}
-            </ul>
+            {*<ul class="stylized">*}
+                {*{switch $lang}*}
+                    {*{case cs}*}
+                    {*<li>Soutěž je určena pro středoškoláky a je zdarma!</li>*}
+                    {*<li>*}
+                        {*Registrace je otevřena od*}
+                        {*{$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'} do*}
+                        {*<strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.*}
+                    {*</li>*}
+                {*{default}*}
+                    {*<li>The competition is for high school students and is free of charge!</li>*}
+                    {*<li>*}
+                        {*Registration is open from*}
+                        {*{$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'} until*}
+                        {*<strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.*}
+                    {*</li>*}
+                {*{/switch}*}
+            {*</ul>*}
 
             <div class="row legends">
                 <div class="col-md-6">
+                    <div class="legends-row">
+                        <div class="legends-year">2023</div>
+                        <div class="legends-item">
+                            <div>
+                                CaminBaieti
+                            </div>
+                            <div class="members">
+                                Alexandru Momoiu, Rares Marinescu, Andrei-Darius Dragomir, Alexandru Iorga, Razvan-Gabriel Marcu
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legends-row">
+                        <div class="legends-year">2022</div>
+                        <div class="legends-item">
+                            <div>
+                                The Kaldashians
+                            </div>
+                            <div class="members">
+                                David Constantinescu, Robert Stănescu, Vladimir George Necula, Miruna Neacsu, Vlad-Ștefan Oros
+                            </div>
+                        </div>
+                    </div>
                     <div class="legends-row">
                         <div class="legends-year">2021<br>online</div>
                         <div class="legends-item">
@@ -272,11 +330,14 @@
                             </div>
                         </div>
                     </div>
+                    
+                </div>
+                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2020</div>
-                        <div class="legends-item">
+                        <div class="legends-item" n:syntax="off">
                             <div>
-                                Teorie všeho se jede rozloučit
+                               Teorie všeho se jede rozloučit
                             </div>
                             <div class="members">
                                 Viktor Materna, Lubor Čech, Václav Zvoníček, Jaroslav Herman, Jiří Kalvoda
@@ -285,7 +346,7 @@
                     </div>
                     <div class="legends-row">
                         <div class="legends-year">2019</div>
-                        <div class="legends-item" n:syntax="off">
+                        <div class="legends-item">
                             <div>
                                 Jaderný reaktor IV. generace
                             </div>
@@ -294,8 +355,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2018</div>
                         <div class="legends-item">
@@ -307,33 +366,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="legends-row">
-                        <div class="legends-year">2017</div>
-                        <div class="legends-item">
-                            <div>
-                                กกก
-                            </div>
-                            <div class="members">
-                                Matěj Mezera, Jáchym Bártík, Matěj Coufal, Jan Hlaváč, Vít Beran
-                            </div>
-                        </div>
-                    </div>
-                    <div class="legends-row">
-                        <div class="legends-year">2016</div>
-                        <div class="legends-item">
-                            <div>
-                                Parenica tím
-                            </div>
-                            <div class="members">
-                                Martin Gažo, Adam Škrlec, Juraj Halabrin, Simona Veselá, Peter Ralbovský
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
     </div>
-
     <script type="application/ld+json" n:syntax="double">
         {
             "@context": "https://schema.org",

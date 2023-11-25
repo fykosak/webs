@@ -20,7 +20,7 @@ class RegistrationPresenter extends BasePresenter
     /**
      * @throws BadRequestException|\Throwable
      */
-    public function actionDefault()
+    public function actionDefault(): void
     {
         if (!self::isVisible($this->gamePhaseCalculator)) {
             $this->error();

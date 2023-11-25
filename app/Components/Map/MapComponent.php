@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Components\Map;
 
+use App\Models\GamePhaseCalculator;
+use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
@@ -18,15 +20,18 @@ class MapComponent extends BaseComponent
     protected int $teamCount;
     protected array $teamCountries;
 
+    protected GamePhaseCalculator $gamePhaseCalculator;
+
+    public function __construct(Container $container, GamePhaseCalculator $calculator, ModelEvent $event)
+    {
+        parent::__construct($container);
+        $this->forEventId = $event->eventId;
+        $this->gamePhaseCalculator = $calculator;
+    }
+
     public function injectServiceTeam(ServiceEventDetail $serviceTeam): void
     {
         $this->serviceTeam = $serviceTeam;
-    }
-
-    public function __construct(Container $container, int $forEventId)
-    {
-        parent::__construct($container);
-        $this->forEventId = $forEventId;
     }
 
     /**
@@ -38,8 +43,14 @@ class MapComponent extends BaseComponent
         $this->teamCountries = [];
 
         foreach ($this->serviceTeam->getTeams($this->forEventId) as $team) {
+            if (!in_array($team->status, ['participated', 'disqualified', 'applied', 'pending', 'approved'])) {
+                continue;
+            }
             $this->teamCount++;
             foreach ($team->members as $member) {
+                if (is_null($member->countryIso)) {
+                    continue;
+                }
                 if (
                     !in_array($member->countryIso, $this->teamCountries) &&
                     strtolower($member->countryIso) !== 'zz'
@@ -64,6 +75,7 @@ class MapComponent extends BaseComponent
         $this->template->inverseColors = $inverseColors;
 
         $this->template->lang = $this->getPresenter()->lang;
+        $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'map.latte');
     }
 }

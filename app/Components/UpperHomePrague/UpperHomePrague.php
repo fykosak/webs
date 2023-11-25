@@ -14,14 +14,14 @@ class UpperHomePrague extends BaseComponent
 {
     protected GamePhaseCalculator $gamePhaseCalculator;
 
-    public function injectGamePhaseCalculator(GamePhaseCalculator $gamePhaseCalculator): void
-    {
-        $this->gamePhaseCalculator = $gamePhaseCalculator;
-    }
-
     public function __construct(Container $container)
     {
         parent::__construct($container);
+    }
+
+    public function injectGamePhaseCalculator(GamePhaseCalculator $gamePhaseCalculator): void
+    {
+        $this->gamePhaseCalculator = $gamePhaseCalculator;
     }
 
     /**
@@ -31,7 +31,7 @@ class UpperHomePrague extends BaseComponent
     {
         $this->template->lang = $this->getPresenter()->lang;
         $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . "upperHomePrague.latte");
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomePrague.latte');
     }
 
     /**
@@ -39,6 +39,9 @@ class UpperHomePrague extends BaseComponent
      */
     protected function createComponentCountdown(): CountdownComponent
     {
+        if ($this->gamePhaseCalculator->isRegistration($this->gamePhaseCalculator::BEFORE)) {
+            return new CountdownComponent($this->gamePhaseCalculator->getFKSDBEvent()->registrationBegin);
+        }
         return new CountdownComponent($this->gamePhaseCalculator->getGameBegin());
     }
 }

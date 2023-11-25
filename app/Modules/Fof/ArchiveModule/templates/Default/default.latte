@@ -21,7 +21,7 @@
         <section class="inner-container">
             {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
                 {ifset title}<h1>{include title}</h1>{/ifset}
-                <ul>
+                <ul class="stylized">
                     <li><a n:href="Teams:">
                             {switch $lang}
                                 {case "cs"}Seznam přihlášených týmů
@@ -36,20 +36,83 @@
                         </a></li>
                 </ul>
 
-                <ul>
-                    <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($event)}/reseni.pdf">
+                <ul class="stylized">
+                    <li><a href="{$basePath}/download/{$eventKey}/reseni.pdf">
                             {switch $lang}
                                 {case "cs"}Zadání a řešení úloh v českém jazyce
                                 {default}Problems and solutions in Czech
                             {/switch}
                         </a></li>
-                    <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($event)}/solutions.pdf">
+                    <li><a href="{$basePath}/download/{$eventKey}/solutions.pdf">
                             {switch $lang}
                                 {case "cs"}Zadání a řešení úloh v anglickém jazyce
                                 {default}Problems and solutions in English
                             {/switch}
-                        </a></li>
+                        </a>
+                    </li>
                 </ul>
+                {if file_exists(__DIR__.'/../../../../www/fof/download/'.$eventKey.'/infobooklet-cs.pdf')}
+                    <ul class="stylized">
+                        <li><a href="{$basePath}/download/{$eventKey}/infobooklet-cs.pdf">
+                            {switch $lang}
+                                {case "cs"}Průvodce Fyzikláním {$eventKey} v českém jazyce
+                                {default}Guidebook of Fyziklani {$eventKey} in Czech
+                            {/switch}
+                        </a></li>
+
+                        {if file_exists(__DIR__.'/../../../../www/fof/download/'.$eventKey.'/infobooklet-en.pdf')}
+                            <li><a href="{$basePath}/download/{$eventKey}/infobooklet-en.pdf">
+                                {switch $lang}
+                                    {case "cs"}Průvodce Fyzikláním {$eventKey} v anglickém jazyce
+                                    {default}Guidebook of Fyziklani {$eventKey} in English
+                                {/switch}
+                            </a>
+                            </li>
+                        {/if}
+                    </ul>
+                {/if}
+            {if is_dir(__DIR__.'/../../../../www/fof/photos/'.$eventKey)}
+                <ul class="stylized">
+                    <li>
+                        <a href="#competition">
+                            {switch $lang}
+                                {case "cs"}Fotografie ze soutěže
+                                {default}Photos from the competition
+                            {/switch}
+                        </a>
+                    </li>
+                    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/teams')}
+                        <li>
+                            <a href="#backdrop">
+                                {switch $lang}
+                                    {case "cs"}Fotostěna
+                                    {default}Fyziklani Backdrop
+                                {/switch}
+                            </a>
+                        </li>
+                    {/if}
+                    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/winners')}
+                        <li>
+                            <a href="#winners">
+                                {switch $lang}
+                                    {case "cs"}Fotografie vítězů
+                                    {default}Photos of the winners
+                                {/switch}
+                            </a>
+                        </li>
+                    {/if}
+                    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/weekend')}
+                        <li>
+                            <a href="#weekend">
+                                {switch $lang}
+                                    {case "cs"}Fotografie z doprovodného programu
+                                    {default}Photos from the accompanying program
+                                {/switch}
+                            </a>
+                        </li>
+                    {/if}
+                </ul>
+            {/if}
             {if in_array($eventKey, ["2022"])}
                 <div>
                     <a class="btn btn-primary" n:href=":Archive:Erasmus: eventYear:$eventKey">
@@ -60,34 +123,60 @@
         </section>
     </div>
 
-    <div class="panel color-auto">
-        <section class="inner-container">
-            <h1>{switch $lang}
-                {case "cs"}Fotografie ze soutěže
-                {default}Photos from the competition
-            {/switch}</h1>
-            {control gallery "/photos/" . $eventKey . "/"}
-        </section>
-    </div>
+{* TODO dodělat archiv, aby to vypadalo nějak dobře*}
+{*    {if in_array($eventKey, ["2023"])}*}
+{*        <div class="panel color-auto" id="competition">*}
+{*            <section class="inner-container">*}
+{*                <h1>{switch $lang}*}
+{*                    {case "cs"}Partneři ročníku {$eventKey}*}
+{*                    {default}Partners of the year {$eventKey}*}
+{*                    {/switch}</h1>*}
+{*            </section>*}
+{*        </div>*}
+{*    {/if}*}
 
-    {if in_array($eventKey, ["2022"])}
-        <div class="panel color-auto">
+    {if is_dir(__DIR__.'/../../../../www/fof/photos/'.$eventKey)}
+        <div class="panel color-auto" id="competition">
             <section class="inner-container">
                 <h1>{switch $lang}
-                    {case "cs"}Fotografie týmů
-                    {default}Photos of teams
+                    {case "cs"}Fotografie ze soutěže
+                    {default}Photos from the competition
+                {/switch}</h1>
+                {control gallery "/photos/" . $eventKey . "/"}
+            </section>
+        </div>
+    {/if}
+
+    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/teams')}
+        <div class="panel color-auto" id="backdrop">
+            <section class="inner-container">
+                <h1>{switch $lang}
+                    {case "cs"}Fotostěna
+                    {default}Fyziklani Backdrop
                     {/switch}</h1>
                 {control gallery "/photos/" . $eventKey . "/teams"}
             </section>
         </div>
     {/if}
 
-    {if in_array($eventKey, ["2022"])}
-        <div class="panel color-auto">
+    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/winners')}
+        <div class="panel color-auto" id="winners">
             <section class="inner-container">
                 <h1>{switch $lang}
-                    {case "cs"}Víkend po Fyziklání
-                    {default}Weekend after Fyziklani
+                    {case "cs"}Fotografie vítězů
+                    {default}Photos of the winners
+                    {/switch}</h1>
+                {control gallery "/photos/" . $eventKey . "/winners"}
+            </section>
+        </div>
+    {/if}
+
+    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/weekend')}
+        <div class="panel color-auto" id="weekend">
+            <section class="inner-container">
+                <h1>{switch $lang}
+                    {case "cs"}Doprovodný program Fyziklání
+                    {default}Accompanying program of Fyziklani
                     {/switch}</h1>
                 {control gallery "/photos/" . $eventKey . "/weekend"}
             </section>

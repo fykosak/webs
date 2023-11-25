@@ -15,11 +15,15 @@ class Connector
 
     private ?string $url;
     private Storage $storage;
+    private ?string $httpAuthUser;
+    private ?string $httpAuthPassword;
 
-    public function __construct(?string $url, Storage $storage)
+    public function __construct(?string $url, ?string $httpAuthUser, ?string $httpAuthPassword, Storage $storage)
     {
         $this->storage = $storage;
         $this->url = $url;
+        $this->httpAuthUser = $httpAuthUser;
+        $this->httpAuthPassword = $httpAuthPassword;
     }
 
     /**
@@ -31,7 +35,17 @@ class Connector
             throw new BadRequestException('Game URL is not set');
         }
         return $this->getCache()->load('results', function (?array &$dependencies): array {
-            $data = json_decode(file_get_contents($this->url), true);
+            $context = null;
+            if ($this->httpAuthUser) {
+                $auth = base64_encode($this->httpAuthUser . ':' . $this->httpAuthPassword);
+                $context = stream_context_create([
+                    'http' => [
+                        'header' => "Authorization: Basic $auth"
+                    ]
+                ]);
+            }
+
+            $data = json_decode(file_get_contents($this->url, false, $context), true);
             if ($data['times']['toEnd'] > 0) {
                 $dependencies[Cache::EXPIRE] = min($data['refreshDelay'] / 1000, $data['times']['toEnd']) . ' seconds';
             } else {

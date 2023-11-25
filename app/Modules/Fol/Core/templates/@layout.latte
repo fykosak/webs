@@ -10,7 +10,7 @@
         {ifset title}{include title} | {/ifset}
         {switch $lang}
             {case "cs"} Fyziklání Online
-            {default} Online Physics Brawl
+            {default} Physics Brawl Online
         {/switch}
     </title>
     <meta charset="utf-8"/>
@@ -28,7 +28,7 @@
     <meta property="og:locale" content="{$presenter->translator->locales[$presenter->lang]}"/>
     <meta property="og:url" content="{plink //this}"/>
     <link href="{$basePath}/images/fol_symbol.svg" rel="icon" type="image/svg"/>
-    <link href="{='assets/main.css'|asset}" rel="stylesheet"/>
+    <link href="{asset 'assets/main.css'}" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;800&display=swap" rel="stylesheet">
@@ -45,18 +45,28 @@
     </script>
     {block head}{/block}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="{='assets/main.js'|asset}"></script>
+    <script src="{asset 'assets/main.js'}"></script>
     {block scripts}{/block}
 </head>
 
 <body>
-{if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER) && !$gamePhaseCalculator->isLongAfterTheGame()}
+<div class="fyziklani-banner">
+        <div class="inner-container">
+            <div class="text">
+                {switch $lang}
+                    {case 'cs'}<strong>Z důvodu chyby nalezené v řešení úlohy 21 se organizátoři soutěže rozhodli tuto úlohu vyřadit ze soutěže. Všem postiženým týmům se omlouváme za způsobené komplikace.</strong>
+                    {default}<strong>Due to an error found in the solution of problem 21, the organizers of the competition decided to eliminate this problem from the competition. We apologize to all affected teams for the complications caused.</strong>
+                {/switch}
+            </div>
+        </div>
+    </div>
+{if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER) && !$gamePhaseCalculator->isLongAfterTheEvent()}
     <div class="fyziklani-banner">
         <div class="inner-container">
             <div class="text">
                 {switch $lang}
-                    {case 'cs'}Líbilo se vám Fyziklání Online? Přijeďte do Prahy 11. 2. na <strong>Fyziklani 2022</strong>.
-                    {default}Did you enjoy Physics Brawl Online? Come to <strong>Fyziklani 2022</strong>, held on February 11, in Prague, the Czech Republic.
+                    {case 'cs'}Líbilo se vám Fyziklání Online? Přijeďte do Prahy 16. 2. na <strong>Fyziklani 2024</strong>.
+                    {default}Did you enjoy Physics Brawl Online? Come to <strong>Fyziklani 2024</strong>, held on February 10 in Prague, the Czech Republic.
                 {/switch}
             </div>
 
@@ -92,8 +102,8 @@
                 {else}
                     {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
                         {switch $lang}
-                            {case 'cs'}Registrace se otevře brzy!
-                            {default} Registration will open soon!
+                            {case 'cs'}Registrace se otevře v září!
+                            {default} Registration will open in September!
                         {/switch}
                     {else}
                         {switch $lang}
@@ -107,12 +117,35 @@
 
         <div class="panel sponsors">
             <div class="inner-container">
-                <div class="sponsors-row">
-                    <a href="https://www.mff.cuni.cz/"><img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-height: 5rem; max-width: 12rem"></a>
-                    <a href="https://www.msmt.cz/"><img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 5rem; max-width: 12rem"></a>
-                    <a href="https://orgpad.com/"><img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad logo" style="max-height: 5rem; max-width: 12rem"></a>
-                    <a href="https://www.wolfram.com/mathematica/"><img src="{$basePath}/images/logos/wolfram.png" alt="Wolfram logo" style="max-height: 5rem; max-width: 12rem"></a>
-                    <a href="http://www.graphmatica.com/" style="font-size: 1.8rem; color: black; font-weight: bold;">Graphmatica</a>
+                <div class="category">
+                    <div class="category-title">{switch $lang}{case cs}Organizátoři{default}Organizers{/switch}</div>
+                    <div class="category-sponsors">
+                        <a {switch $lang}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
+                                style="max-width: 8rem">
+                        </a>
+                        <a href="https://www.msmt.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
+                        </a>
+                        <a {switch $lang}{case cs}href="https://www.fykos.cz/"{default}href="https://www.fykos.org/"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/fykos_logo.png" alt="logo FYKOSu" style="max-width: 9rem">
+                        </a>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="category-title">{switch $lang}{case cs}Partneři{default}Partners{/switch}</div>
+                    <div class="category-sponsors">
+                        <a href="https://www.chess.com/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Chess logo" style="max-height: 5rem; max-width: 12rem"></a>
+                        <a href="https://www.factorio.com/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/factorio.png" alt="Factorio logo" style="max-height: 5rem; max-width: 12rem"></a>
+                        <a href="https://www.wolfram.com/mathematica/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/wolfram.png" alt="Wolfram logo" style="max-height: 5rem; max-width: 12rem"></a>
+                        <a href="https://www.kerbalspaceprogram.com/games-kerbal-space-program" style="text-align: center">
+                            <img src="{$basePath}/images/logos/Kerbal.png" alt="Kerbal logo" style="max-height: 5rem; max-width: 12rem"></a>
+                        <a {switch $lang}{case 'cs'}href="https://www.avast.com/"{default}href="https://www.avast.com/en-us/index"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/avast.png" alt="Avast logo" style="max-height: 5rem; max-width: 12rem"></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,7 +157,7 @@
                     {switch $lang}
                         {case 'cs'}
                         <p>
-                            Fyziklání Online je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající již 36. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
+                            Fyziklání Online je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající již 37. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
                             <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                         </p>
                         <p>
@@ -132,9 +165,7 @@
                         </p>
                         {default}
                         <p>
-                            Physics Brawl Online is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a competition for
-                            high school students with a 36-year tradition. FYKOS' organisers are mainly students from
-                            the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
+                            Physics Brawl Online is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a group of university students organizing already 37th year of educational events with focus on physics. FYKOS is made up mostly of students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
                         </p>
                         <p>
                             The realisation of the competition was supported by the Ministry of Education, Youth and Sports of the Czech Republic.
@@ -152,6 +183,7 @@
                     <div class="other-logos">
                         <a target="_blank" href="{switch $lang}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/en{/switch}"><img class="other-logo" src="{$basePath}/images/fyziklani_white_logo.svg" alt="Fyziklani" style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                         <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/fykos_logo_white.png" alt="FYKOS" style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
+                        {if $lang=='cs'}<a target="_blank" href="https://dsef.cz/"><img class="other-logo" src="{$basePath}/images/logos/dsef_logo_white.png"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>{/if}
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -186,6 +218,31 @@
                         </ul>
                     </nav>
                 </div>
+                <div class="col-md-3">
+                    <nav>
+                        <ul>
+                            {switch $lang}
+                                {case cs}
+                                <li>Sledujte nás
+                                {default}
+                                <li>Follow us on social media
+                            {/switch}
+                            <ul>
+                                <li>
+                                    <a class="social-sites" href="https://www.facebook.com/FYKOS">
+                                    <i class="fa fa-facebook fa-2x"></i>
+                                    </a>
+                                    <a class="social-sites" href="https://www.instagram.com/fykosak/">
+                                    <i class="fa fa-instagram fa-2x"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                    
+                    
                 {*<div class="col-md-3">
                     <nav>
                         <ul>

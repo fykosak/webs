@@ -21,9 +21,8 @@ abstract class BasePresenter extends Presenter
 
     public GettextTranslator $translator;
 
-    public function injectServices(
-        GettextTranslator $translator
-    ): void {
+    public function injectServices(GettextTranslator $translator): void
+    {
         $this->translator = $translator;
     }
 
@@ -57,6 +56,7 @@ abstract class BasePresenter extends Presenter
     {
         $template = parent::createTemplate();
         $template->lang = $this->lang;
+        /** @var \Nette\Bridges\ApplicationLatte\Template $template */
         $template->setTranslator($this->translator);
 
         return $template;
@@ -72,7 +72,7 @@ abstract class BasePresenter extends Presenter
     {
         // Lang is null in error presenter because no rote rule was applied
         if (!isset($this->lang) || $this->lang == null) {
-            $this->lang = "en"; // todo guess language by domain
+            $this->lang = 'en'; // todo guess language by domain
         }
 
         $this->translator->setLang($this->lang);

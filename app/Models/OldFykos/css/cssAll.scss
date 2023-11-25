@@ -1,0 +1,29 @@
+@import './carousel';
+@import './footer';
+@import './fykos-class';
+@import './header-images';
+@import './normalize';
+@import './sous-lectures';
+
+.page-header .fykos {
+  font-weight: bold;
+  text-decoration: none !important;
+}
+
+.navbar-brand img {
+  margin: -15px -5px;
+}
+
+.header .nav-container {
+  margin-bottom: 2rem;
+}
+
+.org .org-image {
+  height: 15rem;
+  background-size: cover;
+  background-position-y: 0.5;
+}
+
+body {
+  background-color: white;
+}

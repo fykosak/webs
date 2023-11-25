@@ -9,6 +9,7 @@ use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\Application\UI\Form;
 use Nette\DI\Container;
+use Tracy\Debugger;
 
 class TeamResultsComponent extends BaseComponent
 {
@@ -16,11 +17,13 @@ class TeamResultsComponent extends BaseComponent
     protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
     protected ?array $filterData = null;
+    private string $lang;
 
-    public function __construct(Container $container, int $eventId)
+    public function __construct(Container $container, int $eventId, string $lang)
     {
         parent::__construct($container);
         $this->eventId = $eventId;
+        $this->lang = $lang;
     }
 
     public function injectServiceTeam(ServiceEventDetail $serviceTeam): void
@@ -34,7 +37,10 @@ class TeamResultsComponent extends BaseComponent
      */
     public function render(): void
     {
+        // $this->filterData = $this->getParameter('filterData');
+        // $this->template->filterData = $this->filterData;
         $this->template->teams = $this->loadTeams();
+        $this->template->lang = $this->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamResults.latte');
     }
 
@@ -61,9 +67,9 @@ class TeamResultsComponent extends BaseComponent
 
         ksort($teams);
 
-//      remove categories that are empty after the filtering
+        // remove categories that are empty after the filtering
         foreach ($teams as $category => $teamsForCategory) {
-            if (empty($teamsForCategory)) {
+            if ($teamsForCategory == []) {
                 unset($teams[$category]);
             }
         }
@@ -79,8 +85,7 @@ class TeamResultsComponent extends BaseComponent
 
     protected function passesOneMemberFilter(ModelTeam $team): bool
     {
-        return !$this->filterData['OneMemberTeams']
-            || ($this->filterData['OneMemberTeams'] && count($team->members) == 1);
+        return !$this->filterData['OneMemberTeams'] || count($team->members) == 1;
     }
 
     protected function passesCountryFilter(ModelTeam $team): bool
@@ -135,8 +140,10 @@ class TeamResultsComponent extends BaseComponent
                     $categories[] = $category;
                 }
                 foreach ($team->members as $participant) {
-                    $countryISOs[$participant->countryIso] ??= 0;
-                    $countryISOs[$participant->countryIso]++;
+                    if ($participant->countryIso) {
+                        $countryISOs[$participant->countryIso] ??= 0;
+                        $countryISOs[$participant->countryIso]++;
+                    }
                 }
             }
         }
@@ -146,16 +153,28 @@ class TeamResultsComponent extends BaseComponent
 
         // countries
         arsort($countryISOs);
+
         $countryISOContainer = $form->addContainer('country_iso');
+        // foreach ($countryISOs as $countryISO => $count) {
+        //     $countryISOContainer->addCheckbox($countryISO, $countryISO)
+        //         ->setOption('count', $count);
+        // }
         foreach ($countryISOs as $countryISO => $count) {
             $countryISOContainer->addCheckbox($countryISO, sprintf(_('%s:%s participants'), $countryISO, $count));
         }
+
 
         $form->addButton('reset')->setHtmlAttribute('type', 'reset')->setHtmlAttribute('class', 'btn btn-dark');
 
         $form->addSubmit('applyFilters', 'Apply')->setHtmlAttribute('class', 'btn btn-primary');
 
-        $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
+        $form->onSuccess[] = fn (Form $form) => $this->filterData = $form->getValues('array');
+        // $form->onSuccess[] = function(Form $form) {
+        //     $this->filterData = $form->getValues('array');
+        //     $this->redirect('this', ['filterData' => $this->filterData]);
+        // };
+
+        // $form->setRenderer(new \App\Renderers\CustomFormRenderer($this->lang));
 
         return $form;
     }

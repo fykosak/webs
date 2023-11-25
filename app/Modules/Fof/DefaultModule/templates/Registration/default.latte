@@ -32,7 +32,6 @@
                 </li>
             </ul>
         {default}
-            {* Myslet na to, že jsou více cizinci, dal bych tady i to, že kromě FOLu existuje i FOF a FYKOS, aby si to fakt nepletli *}
 
             <ul class="stylized">
                 <li>Please, do not confuse this competition with <strong><a href="https://physicsbrawl.org/">Physics Brawl Online</a></strong>, or the <strong><a href="https://fykos.org">FYKOS</a></strong> competition.</li>
@@ -62,6 +61,7 @@ Thank you
                 <li>Read the <a n:href="Rules:complete">Full Rules of Fyziklani</a>.</li>
                 <li>A few days before the contest, we will send you an e-mail with information about the <a n:href="AboutTheCompetition:default#covid-measures">current pandemic measures</a> and other important details.</li>
                 <li>You can reach us at <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>.</li>
+                <li>For those who would like to participate in Fyziklani but you cannot cover their travel and accommodation expenses, we created a <a n:href="Scholarship:default">scholarship opportunity</a>. The application form is already closed.</li>
             </ul>
 
             <ul class="stylized">
@@ -71,9 +71,8 @@ Thank you
                 </li>
             </ul>
     {/switch}
-
     <div class="d-grid gap-2">
-        <a href="https://db.fykos.cz/public/application/?eventId={$gamePhaseCalculator->getFKSDBEvent()->eventId}&lang={$lang}" type="button"
+        <a href="https://db.fykos.cz/event{$gamePhaseCalculator->getFKSDBEvent()->eventId}/TeamApplication/create?lang={$lang}" type="button"
            class="btn btn-primary btn-lg btn-block" style="border-radius: 0">{switch $lang}{case cs}Registrovat tým{default}Register team{/switch}</a>
     </div>
 {/block}
