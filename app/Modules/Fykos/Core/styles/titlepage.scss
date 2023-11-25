@@ -206,19 +206,18 @@
 
 
 .fof-color {
-  background-color: #e6060d;
+  background-color: $fof-color;
 }
 
 .fol-color {
-  background-color: #00ae6b;
+  background-color: $fol-color;
 }
 
 .dsef-color {
-  background-color: #f2b72b;
+  background-color: $dsef-color;
 }
 
 
-$naboj-color: purple;
 #logo-event-1,
 .naboj-color {
   background-color: $naboj-color !important;
@@ -230,15 +229,15 @@ $naboj-color: purple;
 }
 
 .fol-color-left-border {
-  border-left: 5px solid #00ae6b !important;
+  border-left: 5px solid $fol-color !important;
 }
 
 .fof-color-left-border {
-  border-left: 5px solid #e6060d !important;
+  border-left: 5px solid $fof-color !important;
 }
 
 .dsef-color-left-border {
-  border-left: 5px solid #f2b72b !important;
+  border-left: 5px solid $dsef-color !important;
 }
 
 

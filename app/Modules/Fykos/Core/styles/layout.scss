@@ -4,3 +4,27 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.btn-primary-fof {
+  @extend .btn-primary;
+  background-color: $fof-color;
+  border-color: $fof-color;
+}
+
+.btn-primary-fol {
+  @extend .btn-primary;
+  background-color: $fol-color;
+  border-color: $fol-color;
+}
+
+.btn-primary-dsef {
+  @extend .btn-primary;
+  background-color: $dsef-color;
+  border-color: $dsef-color;
+}
+
+.btn-primary-naboj {
+  @extend .btn-primary;
+  background-color: $naboj-color;
+  border-color: $naboj-color;
+}
