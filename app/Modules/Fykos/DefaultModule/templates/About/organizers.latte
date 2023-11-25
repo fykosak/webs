@@ -16,6 +16,42 @@
     </section>
 </div>
 
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>{switch $lang}
+            {case 'cs'}Organizátoři FYKOSu
+            {default}Organizers of FYKOS
+            {/switch}
+        </h1>
+
+        <div class="container mt-5">
+            <div class="row">
+                {foreach $organizers as $organizer}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{$basePath}/person-{$organizer['personId']}.png" class="card-img-top"
+                            alt="{$organizer['name']}">
+                        <div class="card-body">
+                            <h5 class="card-title">{$organizer['name']}</h5>
+                            <p class="card-text">{$organizer['career']}</p>
+                            <p class="card-text">{$organizer['role']}</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            {if $organizer['email']}
+                            <a href="mailto:{$organizer['email']}">{$organizer['email']}</a>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!-- 
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>{switch $lang}
@@ -145,6 +181,6 @@
                  </p>
             {/switch}
         </section>
-    </div>
+    </div> -->
 
 {/block}
