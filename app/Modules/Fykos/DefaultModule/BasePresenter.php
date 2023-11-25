@@ -21,6 +21,13 @@ abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
         $items[] = new NavItem(
             new PageTitle(null, "O nás", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             'About:',
+            [],
+            [
+                new NavItem(new PageTitle(null, 'Co je FYKOS?'), 'About:default'),
+                new NavItem(new PageTitle(null, 'Organizátoři'), 'About:organizers'),
+                new NavItem(new PageTitle(null, 'Historie'), 'About:history'),
+                new NavItem(new PageTitle(null, 'Kontakt'), 'About:contact')
+            ],
         );
 
         $items[] = new NavItem(
@@ -31,6 +38,13 @@ abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
         $items[] = new NavItem(
             new PageTitle(null, "Seminář", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Events:Fykos:default',
+            [],
+            [
+                new NavItem(new PageTitle(null, 'Základní informace'), ':Events:Fykos:default'),
+                new NavItem(new PageTitle(null, 'Pravidla'), ':Events:Fykos:rules'),
+                new NavItem(new PageTitle(null, 'Jak na experimenty'), ':Events:Fykos:sex'),
+                new NavItem(new PageTitle(null, 'Jak psát řešení'), ':Events:Fykos:textutorial')
+            ],
         );
 
         $items[] = new NavItem(
