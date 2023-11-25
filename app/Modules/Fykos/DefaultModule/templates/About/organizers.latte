@@ -44,26 +44,26 @@
                 </div>
 
                 {foreach $organizers as $organizer}
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg" class="card-img-top"
-                            alt="{$organizer['name']}">
-                        <h3 class="card-header">{$organizer['name']}</h3>
-                        <div class="card-body">
-                            {if $organizer['role']}
-                            <p class="card-text"><span class="icon"><i
-                                        class="fas fa-briefcase"></i></span>{$organizer['role']}</p>
-                            {/if}
-                            {if $organizer['career']}
-                            <p class="card-text"><span class="icon"><i
-                                        class="fas fa-school"></i></span>{$organizer['career']}</p>
-                            {/if}
-                            <p class="card-text"><span class="icon"><i class="fas fa-envelope"></i></span><a
-                                    href="mailto:{$organizer['domainAlias']}@fykos.cz">{$organizer['domainAlias']}@fykos.cz</a>
-                            </p>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg" class="card-img-top"
+                                alt="{$organizer['name']}">
+                            <h3 class="card-header">{$organizer['name']}</h3>
+                            <div class="card-body">
+                                {if $organizer['role']}
+                                <p class="card-text"><span class="icon"><i
+                                            class="fas fa-briefcase"></i></span>{$organizer['role']}</p>
+                                {/if}
+                                {if $organizer['career']}
+                                <p class="card-text"><span class="icon"><i
+                                            class="fas fa-school"></i></span>{$organizer['career']}</p>
+                                {/if}
+                                <p class="card-text"><span class="icon"><i class="fas fa-envelope"></i></span><a
+                                        href="mailto:{$organizer['domainAlias']}@fykos.cz">{$organizer['domainAlias']}@fykos.cz</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {/foreach}
             </div>
         </div>

@@ -2,15 +2,71 @@
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
-        <h1>Lorem ipsum</h1>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel est magna. Proin a vestibulum risus.
-            Aenean quis nulla at nisi elementum euismod id a nunc. Mauris placerat ex non urna consequat, a porta justo
-            blandit. Fusce quis leo imperdiet, viverra ipsum at, aliquet odio.</p>
-        <p>Phasellus commodo convallis velit, vitae tempus elit hendrerit nec. Sed et erat laoreet, interdum quam vel,
-            consequat justo. Etiam lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis
-            libero dolor a purus. Sed vel lacus magna. Nulla facilisi. Integer quis auctor elit, sed ultrices ipsum.
-            Morbi id urna felis. In vel nulla quis libero vehicula molestie.</p>
+
+        <div class="container mt-3 problems">
+            <div class="row">
+
+                <h1>Zadání 1. série 37. ročníku</h1>
+
+                <p>Deadline pro odeslání: <strong>21. 11. 2023</strong></p>
+
+                <p>Zde najdete zadání 1. série 37. ročníku Fyzikálního korespondenčního semináře.</p>
+
+                {foreach $problems as $problem}
+                    <div class="col-md-12">
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                {$problem["number"]} {$problem["name"]["cs"]} {$problem["points"]} bodů
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {$problem["task"]["cs"]}
+                            </div>
+                            <div class="card-footer">
+                                {foreach $problem["topics"] as $topic}
+                                {$topic}
+                                {/foreach}
+                            </div>
+                        </div>
+                {/foreach}
+
+                    <!-- Card 2 -->
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <span class="badge badge-primary mr-2">2.</span> stabilní ovečka
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Májme obdélníkovou desku a na ní položený blok dřeva o rozměrech a =
+                                20 cm...</h5>
+                            <!-- Card content goes here -->
+                        </div>
+                        <div class="card-footer">
+                            <span class="badge badge-info">mechanika tuhého tělesa</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <span class="badge badge-primary mr-2">3.</span> náhodně dál dojdeš
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">V mikrosvětě buněk roližujeme dva typy transportu...</h5>
+                            <!-- Card content goes here -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </body>
+
+        </html>
+
     </section>
 </div>
-
 {/block}
