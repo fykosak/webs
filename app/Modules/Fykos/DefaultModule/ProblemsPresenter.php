@@ -27,7 +27,16 @@ class ProblemsPresenter extends BasePresenter
             "deadline" => new DateTime("2023-11-25 23:59:59"),
         ];
         
-        
+        $this->template->problemIcons = [
+            1 => "fas fa-smile",
+            2 => "fas fa-smile",
+            3 => "fas fa-brain",
+            4 => "fas fa-brain",
+            5 => "fas fa-brain",
+            6 => "fas fa-lightbulb",
+            7 => "fas fa-flask",
+            8 => "fas fa-book"
+        ];
         $this->template->series = $series;
         $this->template->problems = $data;
     }
