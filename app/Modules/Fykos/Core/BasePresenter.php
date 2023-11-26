@@ -22,9 +22,9 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             [],
             [
                 new NavItem(new PageTitle(null, 'Co je FYKOS?'), ':Default:About:default'),
-                new NavItem(new PageTitle(null, 'Organizátoři'), ':Default:About:organizers'),
-                new NavItem(new PageTitle(null, 'Historie'), ':Default:About:history'),
-                new NavItem(new PageTitle(null, 'Kontakt'), ':Default:About:contact')
+                new NavItem(new PageTitle(null, 'Organizátoři'), ':Default:About:Organizers'),
+                new NavItem(new PageTitle(null, 'Historie'), ':Default:About:History'),
+                new NavItem(new PageTitle(null, 'Kontakt'), ':Default:About:Contact')
             ],
         );
 
@@ -39,9 +39,9 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             [],
             [
                 new NavItem(new PageTitle(null, 'Základní informace'), ':Events:Fykos:'),
-                new NavItem(new PageTitle(null, 'Pravidla'), ':Events:Fykos:rules'),
-                new NavItem(new PageTitle(null, 'Jak na experimenty'), ':Events:Fykos:experiments'),
-                new NavItem(new PageTitle(null, 'Jak psát řešení'), ':Events:Fykos:textutorial')
+                new NavItem(new PageTitle(null, 'Pravidla'), ':Events:Fykos:Rules'),
+                new NavItem(new PageTitle(null, 'Jak na experimenty'), ':Events:Fykos:Experiments'),
+                new NavItem(new PageTitle(null, 'Jak psát řešení'), ':Events:Fykos:TexTutorial')
             ],
         );
 

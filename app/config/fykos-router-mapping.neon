@@ -10,7 +10,16 @@ parameters:
                 ONas: About
                 Pravidla: Rules
                 Organizatori: Organizers
+                Historie: History
+                Kontakt: Contact
+                Zadani: Problems
+                Poradi: Results
+                ArchivUloh: ProblemsArchive
         events:
             cs:
+                Default: Default
+                Akce: Events
+                Experimenty: Experiments
                 Pravidla: Rules
+                jakPsat: TexTutorial
                 
