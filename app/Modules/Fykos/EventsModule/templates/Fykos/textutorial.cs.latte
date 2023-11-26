@@ -48,9 +48,8 @@
             <p>Lokální instalace poskytuje více možností, větší kontrolu a funkčnost i offline.</p>
             <p>Výše jsme uvedli, kolik programů je potřeba pro překlad TeXových dokumentů. Nemusíte se obávat, že byste je museli všechny shánět a konfigurovat. Pro Windows existuje TeXová distribuce MiKTeX, která vše vyřeší za vás.</p>
             <p><strong>Z webu MiKTeXu si stáhněte klikací instalátor.</strong></p>
-            <p>Součástí distribuce je i editor TeXworks. Tento spustíme a napíšeme následující dokument v UTF-8 (kódování zvolíme vpravo dole):</p>
-            <pre>{='
-\include{sablona_fykos.tex}
+            <p>Součástí distribuce je i editor TeXworks. Tento spustíme a napíšeme následující dokument v UTF-8 (kódování zvolíme vpravo dole):</p> 
+            <pre>{='\include{sablona_fykos.tex}
 \name = Fykuláš
 \surname = Kos
 \rocnik = 38
@@ -88,13 +87,15 @@ Moje první stránka v TeXu.
             <code>{='Síla je dána jako
 $$
     F = mg \sin(\alpha)\,.
-$$'}<code>
+$$'}</code>
             <p>Argumenty maker se uzavírají mezi složené závorky (je-li argument jeden znak, je možné je vynechat). Nejčastěji používanými příkazy jsou</p>
             <ul>
                 <li>mocnění  <code>{='$2^5 = 32$'}</code></li>
                 <li>odmocňování {='$\sqrt{1-\sin^2(x)} = |\cos(x)|$'}</li>
                 <li>zlomky {='$\frac{p}{q}$'}</li>
             </ul>
+            <p>Pokud nechcete instalovat celou TeXovou mašinérii, lze použít podobnou syntaxi v editoru rovnic v OO Writeru i v MS Wordu.</p>
+            
         </section>
     </div>
 
