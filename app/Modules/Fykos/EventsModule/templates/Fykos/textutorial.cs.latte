@@ -49,19 +49,20 @@
             <p>Výše jsme uvedli, kolik programů je potřeba pro překlad TeXových dokumentů. Nemusíte se obávat, že byste je museli všechny shánět a konfigurovat. Pro Windows existuje TeXová distribuce MiKTeX, která vše vyřeší za vás.</p>
             <p><strong>Z webu MiKTeXu si stáhněte klikací instalátor.</strong></p>
             <p>Součástí distribuce je i editor TeXworks. Tento spustíme a napíšeme následující dokument v UTF-8 (kódování zvolíme vpravo dole):</p> 
-            <pre>{='\include{sablona_fykos.tex}
-\name = Fykuláš
-\surname = Kos
-\rocnik = 38
-\serie = 1
-\priklad = P
-\begin{document}
+            <code>
+                {='\include{sablona_fykos.tex}'}
+                {='\name = Fykuláš Kos'}
+                {='\rocnik = 38'}
+                {='\serie = 1'}
+                {='\priklad = P'}
+                {='\begin{document}'}
 
-\section{Nadpis}
-Moje první stránka v TeXu.
+                {='\section{Nadpis}'}
+                {='Moje první stránka v TeXu.'}
 
-\end{document}'}
-            </pre>
+                {='\end{document}'}
+            </code>
+            <p>Musíme však ale ještě použít naši šablonu. To uděláme tak, že ...</p>
             <p>
             <strong>Spustíme překlad zeleným tlačítkem.</strong> Je-li vše v pořádku, napravo od editoru se zobrazí vaše první stránka vysázená TeXem. Je to normální soubor PDF otevřený v integrovaném prohlížeči. Pomocí Ctrl+klik můžete přecházet mezi zdrojovým kódem a odpovídajícím místem v PDF, a obráceně.
             </p>
