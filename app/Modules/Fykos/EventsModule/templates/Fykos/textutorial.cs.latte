@@ -6,9 +6,9 @@
             <h2>Sice dostaneš co vidíš, ale vážně to chceš?</h2>
             <p>
                 Jistě jste už mnohokrát připravovali nějaké texty na počítači a nejspíš jste k tomu používali program Word či
-                nějakého jeho příbuzného. Word je tzv.<abbr title="What You See Is What You Get">WYSIWYG</abbr> editor, což
-                znamená, že editujeme přímo výstupní podobu (z anglického What You See Is What You Get). Toto však porušuje
-                princip oddělení formy a obsahu (kdo pracoval někdy na větším projektu, ví, o čem je řeč).
+                nějakého jeho příbuzného. Word je tzv. WYSIWYG editor, což znamená, že editujeme přímo výstupní podobu 
+                (z anglického What You See Is What You Get). Toto však porušuje princip oddělení formy a obsahu 
+                (kdo pracoval někdy na větším projektu, ví, o čem je řeč).
             </p>
             <p>
                 Vytváření dokumentů v TeXu je podobné psaní programů. Pracuje se zdrojovým kódem (v textovém editoru), který
@@ -67,6 +67,7 @@
             <strong>Spustíme překlad zeleným tlačítkem.</strong> Je-li vše v pořádku, napravo od editoru se zobrazí vaše první stránka vysázená TeXem. Je to normální soubor PDF otevřený v integrovaném prohlížeči. Pomocí Ctrl+klik můžete přecházet mezi zdrojovým kódem a odpovídajícím místem v PDF, a obráceně.
             </p>
             <h3>Zmínka o jiných editorech<h3>
+                <p>Za zmínku stojí ještě </p>
                 {*<a class="btn btn-primary my-2" href="http://www.winshell.de" >Win-shell</a>
                 <a class="btn btn-primary my-2" href="http://notepad-plus-plus.org" >Notepad++</a>
                 <a class="btn btn-primary my-2" href="http://www.tug.org/texworks">TeXworks</a>*}
@@ -84,10 +85,11 @@
             <p>Kvůli sazbě matematiky jsme si zvolili TeX. Řekněme si tedy, jak na to. Krátké vzorečky, vztahy a proměnné se sází v řádkovém režimu mezi dolary</p>
             <code>Pro čísla na kostce platí {='$0 < n < 7$'}.</code>
             <p>Větší a složitější vzorce sázíme v blokovém režimu mezi dvojice dolarů.</p>
-            <code>{='Síla je dána jako
-$$
-    F = mg \sin(\alpha)\,.
-$$'}</code>
+            <code>Síla je dána jako<br>
+                {='$$'}<br>
+                {='    F = mg \sin(\alpha)\,.'}<br>
+                {='$$'}
+            </code>
             <p>Argumenty maker se uzavírají mezi složené závorky (je-li argument jeden znak, je možné je vynechat). Nejčastěji používanými příkazy jsou</p>
             <ul>
                 <li>mocnění  <code>{='$2^5 = 32$'}</code></li>
