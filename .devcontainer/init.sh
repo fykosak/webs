@@ -2,7 +2,7 @@ set -xe
 
 git submodule init && git submodule update
 composer install
-npm install
+npm install --no-save
 #npm run build
 
 if [ ! -f app/config/config.fof.local.neon ]; then
