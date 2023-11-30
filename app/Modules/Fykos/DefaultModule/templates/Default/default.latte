@@ -1,10 +1,10 @@
 {varType string $lang}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 {block title}
-    {switch $lang}
-        {case 'cs'} Hlavní stránka
-        {default} Main page
-    {/switch}
+{switch $lang}
+{case 'cs'} Hlavní stránka
+{default} Main page
+{/switch}
 {/block}
 
 {block main}
@@ -90,8 +90,7 @@
                             <a href="https://online.fyziklani.cz" target="_blank">
                                 <div class="event fol-color-left-border">
                                     <div class="event-header">
-                                        <h3><img src="/images/logos/fyziklani_online_symbol.svg"
-                                                class="inline-logo">
+                                        <h3><img src="/images/logos/fyziklani_online_symbol.svg" class="inline-logo">
                                             Fyziklání
                                             Online</h3>
                                         <span class="event-date">22.&nbsp;11.</span>
@@ -255,7 +254,7 @@
         <div class="row mt-5 fade-in-section">
             <!-- Block 1 -->
             <div class="col-md-6">
-                <div class="info-block p-3">
+                <div class="info-block p-3 mb-4">
                     <h4><i class="info-icon fas fa-book-open mb-2"></i>
                         Podívejte se na <a n:href=":Default:Problems:">úlohy aktuální série</a></h4>
                     <p>Zadání vám přijde poštou nebo ho najdete přímo tady na webu. {* TODO: add link to problems *}
@@ -265,8 +264,8 @@
             </div>
 
             <!-- Block 2 -->
-            <div class="col-md-6 mb-4 mt-md-5">
-                <div class="info-block p-3">
+            <div class="col-md-6">
+                <div class="info-block p-3 mb-4 mt-md-5">
                     <h4><i class="info-icon fas fa-upload mb-2"></i>
                         Nahrajte řešení do <a href="https://db.fykos.cz">fksdb</a></h4>
                     <p>Můžete psát ručně a nascanovat nebo psát rovnou elektronicky. {* TODO: add link to the latex
@@ -277,8 +276,8 @@
             </div>
 
             <!-- Block 3 -->
-            <div class="col-md-6 mb-4">
-                <div class="info-block p-3 mt-md-n5">
+            <div class="col-md-6">
+                <div class="info-block p-3 mb-4 mt-md-n5">
                     <h4><i class="info-icon fas fa-search mb-2"></i>
                         Prohlédněte si svá <a href="https://db.fykos.cz">opravená řešení</a></h4>
                     <p>Naši organizátoři vám řešení opraví a pošlou zpátky a pomůžou vám se zlepšit. Zároveň publikujeme
@@ -287,8 +286,8 @@
             </div>
 
             <!-- Block 4 -->
-            <div class="col-md-6 mb-4">
-                <div class="info-block p-3">
+            <div class="col-md-6">
+                <div class="info-block p-3 mb-4">
 
                     <h4><i class="info-icon fas fa-bus mb-2"></i> Pojeďte s námi na <a href="#">soustředění</a></h4>
                     <p>Pro nejlepší řešitele pořádáme dvakrát do roka soustředění {* TODO: add link to sous *}
@@ -337,6 +336,44 @@
     </section>
 </div>
 
+<div class="panel color-light">
+    <section class="inner-container" id="testimonials">
+        <div class="subheader">Reference</div>
+        <h1 class="section-header">Co o nás říkají?</h1>
+        <div class="row fade-in-section">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                            aliquam, velit ut dapibus aliquet, mauris nunc aliquam nunc, nec lacinia nisl nunc id
+                            justo.</p>
+                        <p class="card-signature"><em>~ Jane Smith</em></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                            ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                            velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <p class="card-signature"><em>~ Jane Smith</em></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                            veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                        <p class="card-signature"><em>~ Mike Johnson</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 <script n:syntax=off>
     document.addEventListener("DOMContentLoaded", function () {
