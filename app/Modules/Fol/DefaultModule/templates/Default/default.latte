@@ -55,7 +55,7 @@
                     <a href="{$basePath}/download/2023/{switch $lang}{case 'cs'}reseni{default}solutions{/switch}.pdf" class="btn btn-secondary">{switch $lang}{case 'cs'}Řešení úloh{default}Solutions{/switch}</a>
                     {/if}
                     {* todo: phase - results are final and in FKSDB *}
-                    {if false && $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+                    {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
                         <a n:href=":Archive:Results: eventYear:2023" class="btn btn-secondary">{switch $lang}{case 'cs'}Pořadí týmů{default}Results list{/switch}</a>
                     {/if}
                     <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
