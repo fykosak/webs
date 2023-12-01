@@ -20,7 +20,8 @@ abstract class BasePresenter extends \App\Modules\Core\EventWebPresenter
 
     private ServiceEventList $serviceEventList;
 
-    public function injectServiceEventList(ServiceEventList $serviceEventList) {
+    public function injectServiceEventList(ServiceEventList $serviceEventList)
+    {
         $this->serviceEventList = $serviceEventList;
     }
 
