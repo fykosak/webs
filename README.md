@@ -78,7 +78,6 @@ These domains need to be configured in `app/config/config.*.local.neon` under `p
 1. Run `composer install` to install php dependencies.
 2. Run `npm install` to install javascript dependencies and build tools.
 3. Run `npm run build` to compile css and js files.
-4. Run `npm run compile_translation`.
 
 You can use `npm run dev` to automatically rebuild files when they are changed.
 

@@ -13,7 +13,7 @@ final class AboutPresenter extends BasePresenter
     private FKSDBDownloader $downloader;
 
 
-    private int $currentCalendarYear = 2023; // TODO: get from db
+    //private int $currentCalendarYear = 2023; // TODO: get from db
     private int $currentFYKOSYear = 37; // TODO: get from db
     public function inject(FKSDBDownloader $downloader): void
     {
@@ -86,7 +86,8 @@ final class AboutPresenter extends BasePresenter
         $this->template->currentOrganizers = $currentOrganizers;
     }
 
-    public function renderAllPastOrganizers(): void {
+    public function renderAllPastOrganizers(): void
+    {
         $allOrganizers = $this->parseOrganizers();
 
         if ($allOrganizers !== []) {
@@ -109,5 +110,4 @@ final class AboutPresenter extends BasePresenter
     {
         $this->template->currentFYKOSYear = $this->currentFYKOSYear;
     }
-
 }

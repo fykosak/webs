@@ -149,7 +149,7 @@ class TeamResultsComponent extends BaseComponent
         }
 
         // one member teams
-        $form->addCheckbox('OneMemberTeams', _('One member teams only'));
+        $form->addCheckbox('OneMemberTeams', $this->lang == 'cs' ? 'Pouze jednočlenné týmy' : 'One member teams only');
 
         // countries
         arsort($countryISOs);
@@ -160,7 +160,7 @@ class TeamResultsComponent extends BaseComponent
         //         ->setOption('count', $count);
         // }
         foreach ($countryISOs as $countryISO => $count) {
-            $countryISOContainer->addCheckbox($countryISO, sprintf(_('%s:%s participants'), $countryISO, $count));
+            $countryISOContainer->addCheckbox($countryISO, sprintf($this->lang == 'cs' ? '%s:%s účastníků' : '%s:%s participants', $countryISO, $count));
         }
 
 

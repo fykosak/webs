@@ -48,7 +48,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
                 }
             }
             if (!isset($event)) {
-                throw new BadRequestException(_('Event not found'), IResponse::S404_NOT_FOUND);
+                throw new BadRequestException($this->csen('Akce nenalezena', 'Event not found'), IResponse::S404_NOT_FOUND);
             }
             $this->event = $event;
         }
@@ -59,19 +59,19 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
     {
         return [
             new NavItem(
-                new PageTitle(null, _('archive.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(null, $this->csen('Archiv', 'History'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Archive:default',
             ),
             new NavItem(
-                new PageTitle(null, _('teams.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(null, $this->csen('Týmy', 'Teams'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Archive:Teams:default',
             ),
             new NavItem(
-                new PageTitle(null, _('results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
+                new PageTitle(null, $this->csen('Pořadí', 'Results'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
                 ':Archive:Results:default',
             ),
             new NavItem(
-                new PageTitle(null, _('reports.menu'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'),
+                new PageTitle(null, $this->csen('Ohlasy účastníků', 'Reports'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'),
                 // TODO
                 ':Archive:Reports:default',
             ),

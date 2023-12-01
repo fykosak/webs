@@ -9,7 +9,7 @@ session:
     cookie_secure: true
 
 services:
-    - Fykosak\Utils\Localization\GettextTranslator(%i18n.locales%,%i18n.dir%)
+    - Fykosak\Utils\Localization\GettextTranslator(%i18n.locales%,"")
     - Fykosak\NetteFKSDBDownloader\NetteFKSDBDownloader(%fksdbDownloader.url%,%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes')
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail('10 minutes')
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList('10 minutes')
@@ -26,8 +26,6 @@ parameters:
         locales:
             cs: cs_CZ.utf-8
             en: en_US.utf-8
-        # path to gettext dir structure
-        dir: %appDir%/i18n/locale
     # Contains mapping from domain to language. If empty, ?lang is used
     domains:
         # domain: lang
