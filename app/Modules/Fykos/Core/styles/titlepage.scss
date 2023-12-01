@@ -270,11 +270,12 @@
 
 $timeline-color: #8b8282;
 $timeline-horizontal-half-border-width: 4px;
-$timeline-logo-height: 30px;
-$buffer-logo-timeline: 10px;
+$timeline-logo-width: 30px;
+$timeline-logo-height: 40px;
+$buffer-logo-timeline: 3px;
 $top-offset: $timeline-horizontal-half-border-width + $timeline-logo-height + $buffer-logo-timeline;
 
-$today-block-height: 18px;
+$today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-border-width);
 
 #timeline-horizontal-container {
 
@@ -285,7 +286,7 @@ $today-block-height: 18px;
   .start-timeline-text,
   .end-timeline-text {
     position: absolute;
-    top: calc(50% - $buffer-logo-timeline - 1.5rem);
+    top: calc(50% - 2* $buffer-logo-timeline - 1.5rem);
     z-index: 1;
     /* Make sure this is above the line */
   }
@@ -312,7 +313,7 @@ $today-block-height: 18px;
   /* Adds a border to the top side only */
   margin: 10px 0;
   position: absolute;
-  top: calc(50% - $timeline-horizontal-half-border-width - $buffer-logo-timeline );
+  top: calc(50% - 2 * ($timeline-horizontal-half-border-width + $buffer-logo-timeline));
   z-index: 1;
   opacity: 1;
 }
@@ -328,7 +329,7 @@ $today-block-height: 18px;
 
 .logo-event,
 .logo-series {
-  height: $timeline-logo-height;
+  width: $timeline-logo-width;
 }
 
 
@@ -355,7 +356,7 @@ $today-block-height: 18px;
   }
 
   .today-block {
-    top: calc(50% - $today-block-height / 2);
+    top: calc(50% - $today-block-height / 2 - 1px);
   }
 }
 
@@ -397,6 +398,11 @@ $today-block-height: 18px;
 
 
 // Fykos correspondence competition section
+
+a.link-no-decor{
+    text-decoration: none;
+    color: inherit;
+}
 
 .info-block {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -456,7 +462,6 @@ $today-block-height: 18px;
 
   .card-signature {
     text-align: right;
-    text-decoration: italic;
     margin: 0;
   }
 }

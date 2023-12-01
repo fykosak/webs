@@ -1,25 +1,41 @@
-.organizers{
-  .card{
+.organizers {
+  .card {
     border: 1px solid $primary-color;
   }
-  .card-img-top{
+
+  .card-img-top {
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 3/2;
     object-fit: cover;
   }
 
-  .card-header{
+  .card-header {
     background-color: $primary-color;
     color: $white;
   }
 
-  span.icon {
-    margin-right: 0.4rem;
-    color: $primary-color;
-    border-right: 2px solid $primary-color;s
-    i {
-      width: 1rem;
-      margin-right: 0.7rem;
-    }
+
+
+  .left-cell {
+    position: relative;
+    padding-right: .5rem;
   }
+
+  .left-cell::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    right: 0;
+    border-right: 2px solid #1175da;
+  }
+
+  .left-cell i {
+    color: #1175da;
+  }
+
+  .right-cell {
+    padding-left: .5rem;
+  }
+
 }

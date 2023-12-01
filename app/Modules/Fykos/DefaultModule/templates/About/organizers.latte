@@ -5,13 +5,17 @@
         <div class="subheader">Organizátoři FYKOSu</div>
         <h1>Kdo za tím stojí?</h1>
         <p>
-            FYKOS je organizován primárně dobrovolníky, kteří se účastnili soutěží jako studenti a pak se vracejí, aby tyto skvělé akce přinesli i dalším generacím. Většina z nich je studenty nebo absolventy Matematicko-fyzikální fakulty Univerzity Karlovy v Praze.
+            FYKOS je organizován primárně dobrovolníky, kteří se účastnili soutěží jako studenti a pak se vracejí, aby
+            tyto skvělé akce přinesli i dalším generacím. Většina z nich je studenty nebo absolventy
+            Matematicko-fyzikální fakulty Univerzity Karlovy v Praze.
         </p>
         <p>
-            Akce FYKOSu oficiálně zaštiťují i odborní akademici z mnoha pracovišť Matematicko-fyzikální fakulty UK, od Ústavu teoretické fyziky přes Ústav částicové a jaderné fyziky až po Katedru didaktiky fyziky.
+            Akce FYKOSu oficiálně zaštiťují i odborní akademici z mnoha pracovišť Matematicko-fyzikální fakulty UK, od
+            Ústavu teoretické fyziky přes Ústav částicové a jaderné fyziky až po Katedru didaktiky fyziky.
         </p>
         <p>
-            Pokud vás zajímá, kdo se o chod FYKOSu zasloužil v minulosti, můžete si také projít seznam všech organizátorů.
+            Pokud vás zajímá, kdo se o chod FYKOSu zasloužil v minulosti, můžete si také projít seznam všech
+            organizátorů.
         </p>
         <a class="btn btn-primary" n:href="About:allPastOrganizers">
             Seznam všech bývalých organizátorů
@@ -35,38 +39,53 @@
                     <div class="card h-100">
                         <img src="{$basePath}/images/people/person-kolorenc.jpg" class="card-img-top"
                             alt="Přemysl Kolorenč">
-                        <h3 class="card-header">Přemysl Kolorenč</h3>
+                        <h4 class="card-header">Přemysl Kolorenč</h4>
                         <div class="card-body">
-                            <p class="card-text"><span class="icon"><i class="fas fa-briefcase"></i></span>Vedoucí
-                                FYKOSu</p>
-                            <p class="card-text"><span class="icon"><i class="fas fa-school"></i></span>Vědecký
-                                pracovník na Ústavu teoretické fyziky MFF UK.</p>
-
+                            <table>
+                                <tr>
+                                    <td class="left-cell"><span class="icon"><i class="fas fa-briefcase"></i></span>
+                                    </td>
+                                    <td class="right-cell">Vedoucí FYKOSu</td>
+                                </tr>
+                                <tr>
+                                    <td class="left-cell"><span class="icon"><i class="fas fa-school"></i></span></td>
+                                    <td class="right-cell">Vědecký pracovník na Ústavu teoretické fyziky MFF UK.</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
 
                 {foreach $currentOrganizers as $organizer}
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg" class="card-img-top"
-                                alt="{$organizer['name']}">
-                            <h3 class="card-header">{$organizer['name']}</h3>
-                            <div class="card-body">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg" class="card-img-top"
+                            alt="{$organizer['name']}">
+                        <h4 class="card-header">{$organizer['name']}</h4>
+                        <div class="card-body">
+                            <table>
                                 {if $organizer['role']}
-                                <p class="card-text"><span class="icon"><i
-                                            class="fas fa-briefcase"></i></span>{$organizer['role']}</p>
+                                <tr>
+                                    <td class="left-cell"><span class="icon"><i class="fas fa-briefcase"></i></span>
+                                    </td>
+                                    <td class="right-cell">{$organizer['role']}</td>
+                                </tr>
                                 {/if}
                                 {if $organizer['career']}
-                                <p class="card-text"><span class="icon"><i
-                                            class="fas fa-school"></i></span>{$organizer['career']}</p>
+                                <tr>
+                                    <td class="left-cell"><span class="icon"><i class="fas fa-school"></i></span></td>
+                                    <td class="right-cell">{$organizer['career']}</td>
+                                </tr>
                                 {/if}
-                                <p class="card-text"><span class="icon"><i class="fas fa-envelope"></i></span><a
-                                        href="mailto:{$organizer['domainAlias']}@fykos.cz">{$organizer['domainAlias']}@fykos.cz</a>
-                                </p>
-                            </div>
+                                <tr>
+                                    <td class="left-cell"><span class="icon"><i class="fas fa-envelope"></i></span></td>
+                                    <td class="right-cell"><a
+                                        href="mailto:{$organizer['domainAlias']}@fykos.cz">{$organizer['domainAlias']}@fykos.cz</a></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
+                </div>
                 {/foreach}
             </div>
         </div>

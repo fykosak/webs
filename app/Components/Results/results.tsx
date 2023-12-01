@@ -36,17 +36,6 @@ interface Props<Category extends string = string> {
     };
 }
 
-function Results({resultsData}: Props) {
-    const categoryContainers = [];
-    for (const category in resultsData.submits) {
-        categoryContainers.push(<CategoryResults
-            submits={resultsData.submits[category]}
-            tasks={resultsData.tasks[category]}
-        />);
-    }
-    return <div>{categoryContainers}</div>;
-}
-
 function CategoryResults({submits, tasks}: { submits: Submits, tasks: Tasks }) {
     const [activeSeries, setActiveSeries] = useState<{ [key: string]: boolean }>({});
     const head = [];
@@ -136,4 +125,42 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+function Results({ resultsData }: Props) {
+    const [activeCategories, setActiveCategories] = useState<{ [key: string]: boolean }>({});
+
+        const toggleCategory = (category: string) => {
+            setActiveCategories((prevActiveCategories) => ({
+                ...prevActiveCategories,
+                [category]: !prevActiveCategories[category],
+            }));
+        };
+
+        const categoryContainers = Object.keys(resultsData.submits).map((category) => {
+            const categoryNumber = category.slice(-1);
+            return (
+                <div>
+                    <button
+                        className="btn btn-primary button-collapse-header"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target={`#collapse-category-${category}`}
+                        aria-expanded={activeCategories[category] ? "true" : "false"}
+                        aria-controls={`collapse-category-${category}`}
+                        onClick={() => toggleCategory(category)}
+                    >
+                        Kategorie {categoryNumber}. ročníků
+                    </button>
+                    <div
+                        className={`collapse toggle-content ${activeCategories[category] ? "show" : ""}`}
+                        id={`collapse-category-${category}`}
+                    >
+                        <CategoryResults submits={resultsData.submits[category]} tasks={resultsData.tasks[category]} />
+                    </div>
+                </div>
+            );
+        });
+
+        return <div>{categoryContainers}</div>;
+    }
 

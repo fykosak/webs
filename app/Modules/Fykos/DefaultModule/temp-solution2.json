@@ -21,9 +21,9 @@
     "cs": "Některé druhy živočichů, jako jsou kytovci, se orientují pomocí echolokace.\nPředpokládejme, že kytovec vydává zvukový signál hrtanem umístěným přesně mezi\nušima vzdálenýma~$a$. Uvažujme, že ve stejné hloubce jako velryba pluje\nponorka. Vydaný zvuk se od~ní odrazí a~k~bližšímu uchu dorazí za čas~$t$ od\nokamžiku vyslání. Je-li časový posun mezi zachycením zvuku pravým a~levým\nuchem~$\\Delta t$, jaká je vzdálenost a~směr k~ponorce?",
     "en": "Some species, such as~cetaceans, navigate by~echolocation. Let us~assume that\na~cetacean emits a~sound signal through a~larynx located precisely between\nthe~ears at~a~distance~$a$. Consider a~submarine is moving at~the~same depth\nas~the~whale. The~sound bounces off the~submarine and arrives at~the~closer ear\nof~the~whale at~time~$t$ from the moment of~transmission. If the~time delay\nbetween the~sound picked~up by the~right and the~left ear is~$\\Delta t$, what\nis the~distance and direction of~the~submarine?"
   },
-  "number": 1,
+  "number": 6,
   "series": 1,
-  "points": 5,
+  "points": 12,
   "machineResult": null,
   "authors": {
     "solution": "krizova",
