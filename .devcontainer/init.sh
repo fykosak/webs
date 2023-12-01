@@ -21,5 +21,4 @@ if [ ! -f app/config/config.fykos.local.neon ]; then
 cp .devcontainer/config.local.neon.example app/config/config.fykos.local.neon
 fi
 
-app/i18n/compile.sh
 rm -rf temp/cache
