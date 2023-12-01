@@ -54,7 +54,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
             }
 
             if (!isset($event)) {
-                throw new BadRequestException(_('Event not found'), IResponse::S404_NOT_FOUND);
+                throw new BadRequestException($this->csen('Akce nenalezena', 'Event not found'), IResponse::S404_NOT_FOUND);
             }
             $this->event = $event;
         }

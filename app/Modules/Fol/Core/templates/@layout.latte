@@ -21,9 +21,9 @@
     <meta name="theme-color" content="#00ae6b">
 
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="{_'Team competition in solving physics problems'}"/>
-    <meta property="og:image" content="{_'http://physicsbrawl.org/images/fyziklani-logo.png'}"/>
-    <meta property="og:description" content="{_'Online team competition in solving physics problems.'}"/>
+    <meta property="og:title" content="{switch $lang}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}"/>
+{*    <meta property="og:image" content="{_'http://physicsbrawl.org/images/fyziklani-logo.png'}"/>*}
+    <meta property="og:description" content="{switch $lang}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:locale" content="{$presenter->translator->locales[$presenter->lang]}"/>
     <meta property="og:url" content="{plink //this}"/>
@@ -76,7 +76,10 @@
 {/if}
 
 {block body}
-    {control navigation "/images/fyziklani_online" . ($lang !== "cs" ? "_en" : "") . "_logo_white.svg", _('Fyziklani online')}
+    {switch $lang}
+        {case 'cs'}{control navigation "/images/fyziklani_online_logo_white.svg", 'Fyziklani online'}
+        {default}{control navigation "/images/fyziklani_online_en_logo_white.svg", 'Physics Brawl Online'}
+    {/switch}
     <main>
         {block main}
             <div class="panel color-light">

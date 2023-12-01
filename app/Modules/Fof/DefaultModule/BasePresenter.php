@@ -18,36 +18,36 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
         $items = [];
 
         $items[] = new NavItem(
-            new PageTitle(null, _('about.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
+            new PageTitle(null, $this->csen("O soutěži", "About"), 'visible-sm-inline glyphicon glyphicon-info-sign'),
             ':Default:AboutTheCompetition:default',
         );
         $items[] = new NavItem(
-            new PageTitle(null, _('history.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
+            new PageTitle(null,$this->csen("Historie", "History"), 'visible-sm-inline glyphicon glyphicon-info-sign'),
             ':Default:History:default',
         );
         $items[] = new NavItem(
-            new PageTitle(null, _('rules.menu'), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'),
+            new PageTitle(null, $this->csen("Pravidla", "Rules"), 'visible-sm-inline glyphicon glyphicon-exclamation-sign'),
             ':Default:Rules:default',
         );
         $items[] = new NavItem(
-            new PageTitle(null, _('accommodation.menu'), 'visible-sm-inline glyphicon glyphicon-question-sign'),
+            new PageTitle(null, $this->csen("Ubytování", "Accommodation"), 'visible-sm-inline glyphicon glyphicon-question-sign'),
             ':Default:Accommodation:default',
         );
         $items[] = new NavItem(
-            new PageTitle(null, _('schedule.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
+            new PageTitle(null, $this->csen("Program", "Schedule"), 'visible-sm-inline glyphicon glyphicon-info-sign'),
             ':Default:Schedule:default',
         );
 
         if (TeamsPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
-                new PageTitle(null, _('teams.menu'), 'visible-sm-inline glyphicon glyphicon-edit'),
+                new PageTitle(null, $this->csen("Týmy", "Teams"), 'visible-sm-inline glyphicon glyphicon-edit'),
                 ':Default:Teams:',
             );
         }
 
         if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
-                new PageTitle(null, _('registration.menu'), 'visible-sm-inline glyphicon glyphicon-edit'),
+                new PageTitle(null, $this->csen("Registrace", "Registration"), 'visible-sm-inline glyphicon glyphicon-edit'),
                 ':Default:Registration:',
             );
         }
