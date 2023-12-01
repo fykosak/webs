@@ -155,9 +155,9 @@ class GamePhaseCalculator
     public function getFKSDBEvent(): ?ModelEvent
     {
         static $fksdbEvent;
-        if (!isset($fksdbEvent)) {
-            $fksdbEvent = $this->serviceEventList->getNewest([$this->eventTypeId]);
+        if (!isset($fksdbEvent[$this->eventTypeId])) {
+            $fksdbEvent[$this->eventTypeId] = $this->serviceEventList->getNewest([$this->eventTypeId]);
         }
-        return $fksdbEvent;
+        return $fksdbEvent[$this->eventTypeId];
     }
 }

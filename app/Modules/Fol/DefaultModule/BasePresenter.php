@@ -6,6 +6,7 @@ namespace App\Modules\Fol\DefaultModule;
 
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
+use Nette\Application\UI\Template;
 
 abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
 {
@@ -62,5 +63,13 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
         }
 
         return $items;
+    }
+
+    protected function createTemplate(): Template
+    {
+        $template = parent::createTemplate();
+        $template->event = $this->gamePhaseCalculator->getFKSDBEvent();
+        $template->eventKey = parent::createEventKey($this->gamePhaseCalculator->getFKSDBEvent());
+        return $template;
     }
 }

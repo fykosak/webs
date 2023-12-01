@@ -65,8 +65,8 @@
         <div class="inner-container">
             <div class="text">
                 {switch $lang}
-                    {case 'cs'}Líbilo se vám Fyziklání Online? Přijeďte do Prahy 16. 2. na <strong>Fyziklani 2024</strong>.
-                    {default}Did you enjoy Physics Brawl Online? Come to <strong>Fyziklani 2024</strong>, held on February 10 in Prague, the Czech Republic.
+                    {case 'cs'}Líbilo se vám Fyziklání Online? Přijeďte do Prahy {$fofEvent->begin->format('j. n.')} na <strong>Fyziklani {$fofEvent->begin->format('Y')}</strong>.
+                    {default}Did you enjoy Physics Brawl Online? Come to <strong>Fyziklani {$fofEvent->begin->format('Y')}</strong>, held on {$fofEvent->begin->format('F j')} in Prague, the Czech Republic.
                 {/switch}
             </div>
 

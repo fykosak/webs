@@ -8,6 +8,7 @@ services:
 parameters:
     competitionBegin: 17:00
     eventTypeId: 9
+    fofEventTypeId: 1
 
 includes:
     - fol-router-mapping.neon
