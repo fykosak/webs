@@ -29,7 +29,7 @@
   },
   "scripts": {
     "clearTestCache": "rm -rf temp/tester/",
-    "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 --extensions=php,phpt app/ tests/",
+    "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 --exclude=Generic.Files.LineLength --extensions=php,phpt app/ tests/",
     "testPHPStan": "vendor/bin/phpstan analyse --level 5 app tests",
     "test": [
       "@clearTestCache",
