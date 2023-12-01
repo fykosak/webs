@@ -30,4 +30,3 @@ RUN apt-get update && apt install -y \
 USER www-data
 WORKDIR /var/www/webs
 COPY --chown=www-data --from=composer-builder /usr/src/final /var/www/webs/
-RUN ./app/i18n/compile.sh
