@@ -48,7 +48,15 @@ function CategoryResults({submits, tasks}: { submits: Submits, tasks: Tasks }) {
             });
             head.push(<>{subTasks}</>);
         }
-        head.push(<th onClick={() => setActiveSeries({...activeSeries, [series]: !active})}>Series {series}</th>);
+        head.push(<th onClick={() => {
+            const newActiveSeries = { [series]: !active };
+            for (const s in activeSeries) {
+                if (s !== series) {
+                    newActiveSeries[s] = false;
+                }
+            }
+            setActiveSeries(newActiveSeries);
+        }}>Series {series}</th>);
 
     }
     return <table className="table table-hover contest-results table-sm">
@@ -163,4 +171,3 @@ function Results({ resultsData }: Props) {
 
         return <div>{categoryContainers}</div>;
     }
-
