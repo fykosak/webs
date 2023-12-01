@@ -12,3 +12,5 @@ parameters:
     router-mapping:
         default:
             cs:
+        events:
+            cs:
