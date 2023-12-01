@@ -86,7 +86,8 @@ final class AboutPresenter extends BasePresenter
         $this->template->currentOrganizers = $currentOrganizers;
     }
 
-    public function renderAllPastOrganizers(): void {
+    public function renderAllPastOrganizers(): void
+    {
         $allOrganizers = $this->parseOrganizers();
 
         if ($allOrganizers !== []) {
@@ -109,5 +110,4 @@ final class AboutPresenter extends BasePresenter
     {
         $this->template->currentFYKOSYear = $this->currentFYKOSYear;
     }
-
 }

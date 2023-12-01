@@ -82,5 +82,4 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     {
         return new Jumbotron($this->getContext());
     }
-
 }

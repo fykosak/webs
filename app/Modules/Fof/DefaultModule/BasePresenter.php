@@ -22,7 +22,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
             ':Default:AboutTheCompetition:default',
         );
         $items[] = new NavItem(
-            new PageTitle(null,$this->csen("Historie", "History"), 'visible-sm-inline glyphicon glyphicon-info-sign'),
+            new PageTitle(null, $this->csen("Historie", "History"), 'visible-sm-inline glyphicon glyphicon-info-sign'),
             ':Default:History:default',
         );
         $items[] = new NavItem(

@@ -2,16 +2,12 @@
 
 declare(strict_types=1);
 
-
 namespace App\Modules\Fykos\DefaultModule;
 
 use Nette\Utils\DateTime;
 
-
 class ProblemsPresenter extends BasePresenter
 {
-
-
     public function renderDefault(): void
     {
 
