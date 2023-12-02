@@ -35,6 +35,7 @@
     /* Lower z-index to let it be behind the text */
     position: absolute;
     align-self: stretch;
+    max-height: 30rem;
     /* Stretches the image to fit the height of the .header-container */
     right: 0;
     /* Absolute positioning */
