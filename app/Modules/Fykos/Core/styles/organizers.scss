@@ -5,7 +5,7 @@
 
   .card-img-top {
     width: 100%;
-    aspect-ratio: 3/2;
+    aspect-ratio: 4/3;
     object-fit: cover;
   }
 
@@ -13,8 +13,6 @@
     background-color: $primary-color;
     color: $white;
   }
-
-
 
   .left-cell {
     position: relative;
