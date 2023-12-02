@@ -33,6 +33,6 @@ class ArchivePresenter extends BasePresenter
             ];
         }
 
-        $this->template->eventKeys = $eventKeys;
+        $this->template->historicalEvents = $eventKeys;
     }
 }

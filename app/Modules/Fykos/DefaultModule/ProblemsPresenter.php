@@ -22,7 +22,7 @@ class ProblemsPresenter extends BasePresenter
             "year" => 37,
             "deadline" => new DateTime("2023-11-25 23:59:59"),
         ];
-        
+
         $this->template->problemIcons = [
             1 => "fas fa-smile",
             2 => "fas fa-smile",
