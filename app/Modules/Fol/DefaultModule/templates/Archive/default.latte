@@ -1,5 +1,5 @@
 {varType string $lang}
-{varType array $eventKeys}
+{varType array $historicalEvents}
 
 {block title}
     {switch $lang}
@@ -16,23 +16,23 @@
         </section>
     </div>
 
-    {foreach $eventKeys AS $eventKey}
+    {foreach $historicalEvents AS $historicalEvent}
         <div class="panel color-auto">
             <section class="inner-container">
 
                 <div class="subheader">
                     {switch $lang}
-                        {case "cs"}{$eventKey["event"]->begin|date: "j. n. Y"}
-                        {default}{$eventKey["event"]->begin|date: "j F, Y"}
+                        {case "cs"}{$historicalEvent["event"]->begin|date: "j. n. Y"}
+                        {default}{$historicalEvent["event"]->begin|date: "j F, Y"}
                     {/switch}
                 </div>
                 <h1>
                     {switch $lang}
-                        {case "cs"}Fyziklání Online {$eventKey["event"]->begin|date: "Y"}
-                        {default}Physics Brawl Online {$eventKey["event"]->begin|date: "Y"}
+                        {case "cs"}Fyziklání Online {$historicalEvent["event"]->begin|date: "Y"}
+                        {default}Physics Brawl Online {$historicalEvent["event"]->begin|date: "Y"}
                     {/switch}
 
-                    <a class="btn btn-primary" n:href=":Archive:Default: eventYear:$eventKey['key']">
+                    <a class="btn btn-primary" n:href=":Archive:Default: eventYear:$historicalEvent['key']">
                         {switch $lang}
                             {case cs}Více
                             {default}More
@@ -42,13 +42,13 @@
 
                 <div>
                     <ul class="stylized">
-                        <li><a n:href=":Archive:Teams: eventYear:$eventKey['key']">
+                        <li><a n:href=":Archive:Teams: eventYear:$historicalEvent['key']">
                                 {switch $lang}
                                     {case "cs"}Seznam přihlášených týmů
                                     {default}List of registered teams
                                 {/switch}
                             </a></li>
-                        <li><a n:href=":Archive:Results: eventYear:$eventKey['key']">
+                        <li><a n:href=":Archive:Results: eventYear:$historicalEvent['key']">
                                 {switch $lang}
                                     {case "cs"}Výsledky soutěže
                                     {default}Results of the competition
@@ -56,16 +56,16 @@
                             </a></li>
                     </ul>
                     <ul class="stylized">
-                        {if file_exists(__DIR__.'/../../../../www/fol/download/'.App\Modules\Fol\Core\BasePresenter::createEventKey($eventKey["event"]).'/reseni.pdf')}
-                        <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/reseni.pdf">
+                        {if file_exists(__DIR__.'/../../../../www/fol/download/'.App\Modules\Fol\Core\BasePresenter::createEventKey($historicalEvent["event"]).'/reseni.pdf')}
+                        <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($historicalEvent["event"])}/reseni.pdf">
                                 {switch $lang}
                                     {case "cs"}Zadání a řešení úloh v českém jazyce
                                     {default}Problems and solutions in Czech
                                 {/switch}
                             </a></li>
                         {/if}
-                        {if file_exists(__DIR__.'/../../../../www/fol/download/'.App\Modules\Fol\Core\BasePresenter::createEventKey($eventKey["event"]).'/solutions.pdf')}
-                        <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey["event"])}/solutions.pdf">
+                        {if file_exists(__DIR__.'/../../../../www/fol/download/'.App\Modules\Fol\Core\BasePresenter::createEventKey($historicalEvent["event"]).'/solutions.pdf')}
+                        <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($historicalEvent["event"])}/solutions.pdf">
                                 {switch $lang}
                                     {case "cs"}Zadání a řešení úloh v anglickém jazyce
                                     {default}Problems and solutions in English
@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="mt-5">
-                        {control gallery:randomLine "/photos/" . $eventKey['key'] . "/"}
+                        {control gallery:randomLine "/photos/" . $historicalEvent['key'] . "/"}
                 </div>
             </section>
         </div>
