@@ -21,7 +21,6 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                 new NavItem(new PageTitle(null, 'Co je Výfuk?'), ':Default:About:default'),
                 new NavItem(new PageTitle(null, 'Historie'), ':Default:About:History'),
                 new NavItem(new PageTitle(null, 'Organizátoři'), ':Default:About:Organizers'),
-                new NavItem(new PageTitle(null, 'Sponzoři'), ':Default:About:Sponsors'),
                 new NavItem(new PageTitle(null, 'Kontakt'), ':Default:About:Contact'),
             ],
         );
