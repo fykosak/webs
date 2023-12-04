@@ -16,6 +16,7 @@
 
   .left-cell {
     position: relative;
+    text-align: right;
     padding-right: .5rem;
   }
 
@@ -26,6 +27,7 @@
     bottom: 10%;
     right: 0;
     border-right: 2px solid $primary-color;
+    margin-right: -1px;
   }
 
   .left-cell i {
