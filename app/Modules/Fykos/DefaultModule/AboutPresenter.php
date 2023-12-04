@@ -12,9 +12,6 @@ final class AboutPresenter extends BasePresenter
 {
     private FKSDBDownloader $downloader;
 
-
-    //private int $currentCalendarYear = 2023; // TODO: get from db
-    private int $currentFYKOSYear = 37; // TODO: get from db
     public function inject(FKSDBDownloader $downloader): void
     {
         $this->downloader = $downloader;

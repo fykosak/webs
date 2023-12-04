@@ -6,4 +6,5 @@ namespace App\Modules\Fykos\DefaultModule;
 
 abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
 {
+    protected int $currentFYKOSYear = 37; // TODO: get from db
 }
