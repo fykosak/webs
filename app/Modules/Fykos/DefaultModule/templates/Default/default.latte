@@ -18,15 +18,15 @@
                 <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již více než
                     35&nbsp;let.
                     {* Zjistěte více na stránce <a n:href=":Default:About:default">o&nbsp;nás</a>.*}</p>
+                <a class="btn btn-light ml-2" href="#timeline">
+                    Jste tu poprvé?
+                </a>
+                <a class="btn btn-light ml-2" href="#news">
+                    Novinky
+                </a>
                 <a class="btn btn-outline" n:href=":Default:About:">
                     O&nbsp;nás
                 </a>
-                {* <a class="btn btn-outline ml-2" href="#timeline">
-                    Akce
-                </a>
-                <a class="btn btn-outline ml-2" href="#seminar">
-                    Seminář FYKOS
-                </a> *}
             </div>
             <img id="header-image" class="header-image" src="{$basePath}/images/logos/fykos_symbol_no_border.svg"
                 alt="FYKOS logo">
@@ -35,51 +35,51 @@
 </div>
 
 
-{*
-<div class="panel color-dark">
+
+<div class="panel color-dark" id="news">
     <section class="inner-container">
         <div class="subheader">Pro ty, kdo FYKOS dobře znají</div>
         <h1 class="section-header">Novinky a aktuality</h1>
         <!-- <div class="row mt-5"> -->
-            <!-- <div class="col-md-6"> -->
-                <div class="card">
-                    <div class="card-body news-card">
-                        <div style="display: flex; justify-content: space-between;">
-                            <h4 class="card-title">Nadpis zprávy</h4>
-                            <div><a href="#" class="btn btn-primary">Číst více</a></div>
-                        </div>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                            consectetur
-                            ligula euismod, aliquam nunc quis, tincidunt elit.</p>
-
-                    </div>
+        <!-- <div class="col-md-6"> -->
+        <div class="card">
+            <div class="card-body news-card">
+                <div style="display: flex; justify-content: space-between;">
+                    <h4 class="card-title">Nadpis zprávy</h4>
+                    <div><a href="#" class="btn btn-primary">Číst více</a></div>
                 </div>
-            <!-- </div> -->
-            <!-- <div class="col-md-6"> -->
-                <div class="card mt-3">
-                    <div class="card-body news-card">
-                        <div style="display: flex; justify-content: space-between;">
-                            <h4 class="card-title">Nadpis zprávy</h4>
-                            <div><a href="#" class="btn btn-primary">Číst více</a></div>
-                        </div>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                            consectetur
-                            ligula euismod, aliquam nunc quis, tincidunt elit.</p>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                    consectetur
+                    ligula euismod, aliquam nunc quis, tincidunt elit.</p>
 
-                    </div>
+            </div>
+        </div>
+        <!-- </div> -->
+        <!-- <div class="col-md-6"> -->
+        <div class="card mt-3">
+            <div class="card-body news-card">
+                <div style="display: flex; justify-content: space-between;">
+                    <h4 class="card-title">Nadpis zprávy</h4>
+                    <div><a href="#" class="btn btn-primary">Číst více</a></div>
                 </div>
-            <!-- </div> -->
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                    consectetur
+                    ligula euismod, aliquam nunc quis, tincidunt elit.</p>
+
+            </div>
+        </div>
+        <!-- </div> -->
         <!-- </div> -->
     </section>
 </div>
-*}
+
 
 <div class="panel color-light" id="timeline">
     <section class="inner-container">
         <div class="subheader">Naše hlavní akce</div>
         <h1 class="section-header">Co vše organizujeme?</h1>
         <p>FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní.</p>
-        <a class="btn btn-primary" {* n:href="Events" *}>
+        <a class="btn btn-primary" n:href=":Events:Default:">
             Stránka všech akcí
         </a>
 
