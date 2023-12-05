@@ -14,7 +14,7 @@
     <section class="inner-container">
         <div class="header-container">
             <div class="row">
-                <div class="col-md-6 header-text-container">
+                <div class="col-md-7 header-text-container">
                     <h1 class="header-text">FYKOS</h1>
                     <h2 class="header-text">Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2>
                     <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již
@@ -30,7 +30,7 @@
                         O&nbsp;nás
                     </a>
                 </div>
-                <div class="col-md-6 header-image-container">
+                <div class="col-md-5 header-image-container">
                     <div class="center-content-horizontally-md">
                         <img id="header-image" class="header-image"
                             src="{$basePath}/images/logos/fykos_symbol_no_border.svg" alt="FYKOS logo">
@@ -39,9 +39,10 @@
                         <div class="header-image-dates">
                             <h4 class="minor-event-heading">{* Previous: *}Fyziklání Online | 22. 11. 2023</h4>
                             <h2 class="next-event-heading">{* Upcoming: *}Deadline 3. série | 2. 1. 2024 |
-                                28:12:10:03</h2>
-                            <h4 class="minor-event-heading">{* Next: *}Fyziklání | 16. 2. 2024 | 73:10:05:03
-                            </h4>
+                                <span id="countdown-primary"></span>
+                            </h2>
+                            <h4 class="minor-event-heading">{* Previous: *}Fyziklání Online | 22. 11. 2023 | <span
+                                    id="countdown-secondary"></span></h4>
                         </div>
                     </div>
                 </div>
@@ -56,33 +57,39 @@
         <h1 class="section-header">Novinky a aktuality</h1>
         <!-- <div class="row mt-5"> -->
         <!-- <div class="col-md-6"> -->
-        <div class="card">
-            <div class="card-body news-card">
-                <div style="display: flex; justify-content: space-between;">
-                    <h4 class="card-title">Třetí série je tady!</h4>
-                    <div><a n:href=":Default:Problems:" class="btn btn-primary">Zadání</a></div>
+        <div class="fade-in-section">
+            <div class="card">
+                <div class="card-body news-card">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h4 class="card-title">Třetí série je tady!</h4>
+                        <div><a n:href=":Default:Problems:" class="btn btn-primary">Zadání</a></div>
+                    </div>
+                    <p class="card-text">Druhá série sice skončila, ale nezoufejte! Na webu je už zveřejněné zadání
+                        nových
+                        úloh! Můžete se ponořit do výpočtů účinnosti zvlhčovače vzduchu, rychlosti transportu v
+                        mikrosvětě
+                        buněk nebo práce nutné k ponoření skleničky pod vodu. Čas na vyřešení úloh a zaslání svých
+                        řešení
+                        máte do 2. 1.! </p>
                 </div>
-                <p class="card-text">Druhá série sice skončila, ale nezoufejte! Na webu je už zveřejněné zadání nových
-                    úloh! Můžete se ponořit do výpočtů účinnosti zvlhčovače vzduchu, rychlosti transportu v mikrosvětě
-                    buněk nebo práce nutné k ponoření skleničky pod vodu. Čas na vyřešení úloh a zaslání svých řešení
-                    máte do 2. 1.! </p>
             </div>
-        </div>
-        <!-- </div> -->
-        <!-- <div class="col-md-6"> -->
-        <div class="card mt-3">
-            <div class="card-body news-card fof-news-color">
-                <div style="display: flex; justify-content: space-between;">
-                    <h4 class="card-title">Přihlaste se na Fyziklání 2024</h4>
-                    <div><a href="fyziklani.cz" class="btn btn-primary">Fyziklání</a></div>
+            <!-- </div> -->
+            <!-- <div class="col-md-6"> -->
+            <div class="card mt-3">
+                <div class="card-body news-card fof-news-color">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h4 class="card-title">Přihlaste se na Fyziklání 2024</h4>
+                        <div><a href="fyziklani.cz" class="btn btn-primary">Fyziklání</a></div>
+                    </div>
+                    <p class="card-text"> Spouští registrace na Fyziklání 2024, které se bude konat 16. 2. v Praze. Čeká
+                        vás
+                        tam týmová soutěž v počítání zajímavých fyzikálních úloh, ale i bohatý doprovodný program! Tak
+                        neváhejte a přihlašte svůj tým!</p>
                 </div>
-                <p class="card-text"> Spouští registrace na Fyziklání 2024, které se bude konat 16. 2. v Praze. Čeká vás
-                    tam týmová soutěž v počítání zajímavých fyzikálních úloh, ale i bohatý doprovodný program! Tak
-                    neváhejte a přihlašte svůj tým!</p>
             </div>
+            <!-- </div> -->
+            <!-- </div> -->
         </div>
-        <!-- </div> -->
-        <!-- </div> -->
     </section>
 </div>
 
@@ -324,7 +331,7 @@
                 <a href="https://db.fykos.cz" class="link-no-decor">
                     <div class="info-block p-3 mb-4 mt-md-5">
                         <h4><i class="info-icon fas fa-upload mb-2"></i>
-                            Nahrajte řešení do fksdb</h4>
+                            Nahrajte řešení do FKSDB</h4>
                         <p>Můžete psát ručně a nascanovat nebo psát rovnou elektronicky. {* TODO: add link to the latex
                             guide *}
                             Akceptujeme pouze formát pdf.</p>
@@ -347,10 +354,10 @@
 
             <!-- Block 4 -->
             <div class="col-md-6">
-                <a href=":Events:fykosCamp:" class="link-no-decor">
+                <a n:href=":Events:Camps:" class="link-no-decor">
                     <div class="info-block p-3 mb-4">
                         <h4><i class="info-icon fas fa-bus mb-2"></i> Pojeďte s námi na soustředění</h4>
-                        <p>Pro nejlepší řešitele pořádáme dvakrát do roka soustředění {* TODO: add link to sous *}
+                        <p>Pro nejlepší řešitele pořádáme dvakrát do roka soustředění
                             plné fyziky, přednášek, experimentů,
                             ale i her a další zábavy.</p>
                     </div>
@@ -436,6 +443,47 @@
 </div>
 *}
 
+{* Countdown for the very top of the page *}
+<script>
+    function countdownTimer(countDownDate, elementId) {
+        // Update the countdown every 1 second
+        var countdown = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the countdown date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the countdown in the element with the specified id
+            document.getElementById(elementId).innerHTML = ("0" + days).slice(-2) + ":" + ("0" + hours).slice(-2) + ":"
+                + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+
+            // If the countdown is finished, display a message
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById(elementId).innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    }
+
+    // Set the date we're counting down to
+    var countDownDatePrimary = new Date("January 3, 2024 00:00:00").getTime();
+    var countDownDateSecondary = new Date("February 16, 2024 10:00:00").getTime();
+
+    // Call the countdownTimer function with the specified date and element id
+    countdownTimer(countDownDatePrimary, "countdown-primary");
+    countdownTimer(countDownDateSecondary, "countdown-secondary");
+</script>
+
+
+{* Timeline positioning *}
 <script n:syntax=off>
     document.addEventListener("DOMContentLoaded", function () {
 
