@@ -88,9 +88,16 @@
 /// News section
 
 .news-card {
-  border-left: 5px solid #1175da;
+  border-left: 5px solid $primary-color;
   a {
       margin-bottom: 10px;
+  }
+}
+.fof-news-color {
+  border-left: 5px solid $fof-color;
+  .btn-primary {
+    background-color: $fof-color;
+    border-color: $fof-color;
   }
 }
 
