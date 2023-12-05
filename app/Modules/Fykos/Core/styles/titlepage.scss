@@ -17,17 +17,7 @@
 /// Header section
 
 .header-container {
-  // display: flex;
-  /* To vertically align items */
-  // position: relative;
-  /* Setting to relative to ensure z-index works */
-
-  // align-items: stretch;
-  // height: 55vh !important;
-  // justify-content: center;
-  /* To maximize space between text-container and image */
-  color: $text-on-primary !important;
-
+  color: $text-on-primary;
 
   .header-text-container {
     z-index: 2;
@@ -58,6 +48,52 @@
         font-size: 2rem;
       }
 
+    }
+  }
+
+  .header-image-container {
+    .minor-event-heading {
+      font-size: .9rem;
+      font-weight: 400;
+      color: rgba(195, 192, 192, 0.5) !important;
+    }
+
+    .next-event-heading {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: white !important;
+
+    }
+
+    .header-image-dates {
+      z-index: 2;
+    }
+
+    .header-image {
+      position: absolute;
+      z-index: 0;
+      opacity: .2;
+      max-height: 20rem;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .center-content-horizontally-md {
+      @media screen and (min-width: 768px) {
+        display: flex;
+        justify-content: center;
+
+      }
+    }
+
+    .content-down {
+      display: flex;
+      align-items: flex-end;
+      /* Align content at the bottom */
+      height: 100%;
+      /* Set the height of the container to 100% */
     }
   }
 
@@ -388,9 +424,9 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
 
 // Fykos correspondence competition section
 
-a.link-no-decor{
-    text-decoration: none;
-    color: inherit;
+a.link-no-decor {
+  text-decoration: none;
+  color: inherit;
 }
 
 .info-block {
