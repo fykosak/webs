@@ -192,6 +192,14 @@ class RouterFactory
     public static function createFykosRouter(?array $domainList, array $routerMapping): Router
     {
         $router = new RouteList();
+
+        $router->withModule('Default')
+        ->addRoute('//<domain>/results/<year ([0-9]{2})(-.*)?>', [
+            'presenter' => 'Results',
+            'action' => 'default',
+            null => self::useTranslateFilter($domainList, $routerMapping['default']),
+        ]);
+
         $router->addRoute('//<domain>/<module events>/[<presenter>[/<action>]]', [
                 'presenter' => 'Default',
                 'action' => 'default',
@@ -205,7 +213,7 @@ class RouterFactory
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
 
-
+        
         return $router;
     }
 
