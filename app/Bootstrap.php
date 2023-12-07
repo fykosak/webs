@@ -25,7 +25,11 @@ class Bootstrap
             ->register();
 
         $configurator->addConfig(__DIR__ . '/config/config.' . $site . '.neon');
-        $configurator->addConfig(__DIR__ . '/config/config.' . $site . '.local.neon');
+        if (getenv('NETTE_EXTERNAL_LOCAL_CONFIG') === '1') {
+            $configurator->addConfig(__DIR__ . '/config/local/config.' . $site . '.local.neon');
+        } else {
+            $configurator->addConfig(__DIR__ . '/config/config.' . $site . '.local.neon');
+        }
 
         return $configurator;
     }

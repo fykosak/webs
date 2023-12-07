@@ -1,0 +1,41 @@
+.organizers {
+  .card {
+    border: 1px solid $primary-color;
+  }
+
+  .card-img-top {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+
+  .card-header {
+    background-color: $primary-color;
+    color: $white;
+  }
+
+  .left-cell {
+    position: relative;
+    text-align: right;
+    padding-right: .5rem;
+  }
+
+  .left-cell::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    right: 0;
+    border-right: 2px solid $primary-color;
+    margin-right: -1px;
+  }
+
+  .left-cell i {
+    color: $primary-color;
+  }
+
+  .right-cell {
+    padding-left: .5rem;
+  }
+
+}

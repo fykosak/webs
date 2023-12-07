@@ -1,322 +1,666 @@
 {varType string $lang}
-{*{block title}*}
-{* {switch $lang}*}
-{* {case 'cs'} Hlavní stránka*}
-{* {default} Main page*}
-{* {/switch}*}
-{*{/block}*}
-{* {block content} *}
-{* {if $jumbotron}*}
-{* <div class="title-panel container-fluid header-image jumbotron position-relative">*}
-    {* {control jumbotron}*}
-    {* </div>*}
-{* {/if}*}
+{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{block title}
+{switch $lang}
+{case 'cs'} Hlavní stránka
+{default} Main page
+{/switch}
+{/block}
+
 {block main}
+
+
 <div class="panel color-primary title-panel">
     <section class="inner-container">
         <div class="header-container">
-            <div class="header-text-container">
-                <h1 class="header-text">FYKOS</h1>
-                <h2 class="header-text">Inspirujeme a vzděláváme<br>středoškoláky ve fyzice.</h2>
-                <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve fyzice již více než 35 let.
-                    Zjistěte více na stránce <a n:href="About:fykos-group">o nás</a>.</p>
-                <!-- <button class="custom-button">About FYKOS</button> -->
+            <div class="row">
+                <div class="col-md-7 header-text-container">
+                    <h1 class="header-text">FYKOS</h1>
+                    <h2 class="header-text">Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2>
+                    <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již
+                        {$currentFYKOSYear}&nbsp;let.
+                        {* Zjistěte více na stránce <a n:href=":Default:About:default">o&nbsp;nás</a>.*}</p>
+                    <a class="btn btn-light" href="#timeline">
+                        Jste tu poprvé?
+                    </a>
+                    <a class="btn btn-light ml-2" href="#news">
+                        Novinky
+                    </a>
+                    <a class="btn btn-outline ml-2" n:href=":Default:About:">
+                        O&nbsp;nás
+                    </a>
+                </div>
+                <div class="col-md-5 header-image-container">
+                    <div class="center-content-horizontally-md">
+                        <img id="header-image" class="header-image"
+                            src="{$basePath}/images/logos/fykos_symbol_no_border.svg" alt="FYKOS logo">
+                    </div>
+                    <div class="center-content-horizontally-md content-down mt-3 mt-md-0">
+                        <div class="header-image-dates">
+                            <h4 class="minor-event-heading">{* Previous: *}Fyziklání Online | 22. 11. 2023</h4>
+                            <h2 class="next-event-heading">{* Upcoming: *}Deadline 3. série | 2. 1. 2024 |
+                                <span id="countdown-primary"></span>
+                            </h2>
+                            <h4 class="minor-event-heading">{* Previous: *}Fyziklání Online | 22. 11. 2023 | <span
+                                    id="countdown-secondary"></span></h4>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <img id="header-image" class="header-image" src="{$basePath}/images/logos/fykos_symbol_no_border.svg"
-                alt="FYKOS logo">
         </div>
-
-        {* <div class="heading-container">
-            <div class="title-container">
-                <h1 class="title">Pořádáme vzdělávací akce pro středoškoláky.</h1>
-                <p class="title-sub-text">Tady nějaký kratší inspirativní text vysvětlující to trochu líp a že si můžou
-                    vybrat z tadytěch tří obdélníků. Všechny akce najdete <a n:href="Default:Events">zde</a>.</p>
-            </div>
-            <div class="jumbotron-container">
-                <div class="jumbotron">Tady do toho prostoru pak přidáme novinky jako na starém webu (možná trochu
-                    hezčí).</div>
-            </div>
-        </div> *}
-        {*
-        <div class="clear"></div>
-
-        <div class="contest-container">
-            <div class="contest-rectangle">
-                <a n:href="About:fykos-competition"><img src="{$basePath}/images/logos/fykos_logo.png" alt="FYKOS"></a>
-                <p>Nějaký zajímavý textík o FYKOSu, je to pěkná soutěž, probíhá celý rok.</p>
-                <a n:href="About:fykos-competition" class="btn-fykos">Více informací</a>
-            </div>
-            <div class="contest-rectangle">
-                <a href="https://fyziklani.org"><img src="{$basePath}/images/logos/fyziklani_logo.png"
-                        alt="Fyziklani"></a>
-                <p>Nějaký text o Fyziklání, bude v únoru, bude to cool.</p>
-                <a href="https://fyziklani.org" class="btn-fof">Více informací</a>
-            </div>
-            <div class="contest-rectangle">
-                <a href="https://physicsbrawl.org"><img src="{$basePath}/images/logos/fyziklani_online_logo.png"
-                        alt="Physics Brawl Online"></a>
-                <p>Nějaký textík o Fyziklání Online, je to jako Fyziklání, ale je to Online.</p>
-                <a href="https://physicsbrawl.org" class="btn-fol">Více informací</a>
-            </div>
-        </div> *}
     </section>
 </div>
 
-<div class="panel color-light">
+<div class="panel color-dark" id="news">
     <section class="inner-container">
-        <h1 class="section-header">Naše akce</h1>
-        <p>Toto jsou hlavní akce, které organizujeme. Zjistěte více na <a href="#">stránce akcí</a>.</p>
-        <!-- <button class="custom-button">FYKOS Events</button> -->
-        <!-- Vertical line for small screens -->
-        <div class="position-relative">
-            <div class="vertical-timeline d-block d-md-none border-left position-absolute h-100" style="width: 5px;">
-            </div>
-
-            <div class="row">
-                <!-- First Row -->
-                <div class="col-md-5 offset-md-1 order-md-1 order-1 mt-4" id="event-1">
-                    <a href="https://physics.naboj.org" target="_blank">
-                        <div class="event">
-                            <div class="event-header">
-                                <h3>Fyzikální Náboj</h3>
-                                <span class="event-date">3. 11.</span>
-                            </div>
-                            <div>
-                                <p>Týmová soutěž v Praze, Ostravě a jinde ve světě</p>
-                                <p>Otevření registrace sledujte na webu</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-5 order-md-2 order-3 mt-4" id="event-3">
-                    <a href="https://online.fyziklani.cz" target="_blank">
-                        <div class="event">
-                            <div class="event-header">
-                                <h3><img src="/images/logos/fyziklani_online_symbol.svg" class="inline-logo"> Fyziklání
-                                    Online</h3>
-                                <span class="event-date">22.11.</span>
-                            </div>
-                            <div>
-                                <p>Celosvětová soutěž, které se může účastnit každý</p>
-                                <p>Registrace od 1. 9. do 2 hodin před soutěží.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Second Row -->
-                <div class="col-md-5 offset-md-2 order-md-3 order-2 mt-4" id="event-2">
-                    <a href="https://dsef.cz" target="_blank">
-                        <div class="event">
-                            <div class="event-header">
-                                <h3><img src="/images/logos/dsef_symbol.svg" class="inline-logo"> DSEF</h3>
-                                <span class="event-date">6. 11.</span>
-                            </div>
-                            <div>
-                                <p>Den s experimentální fyzikou na Matfyzu</p>
-                                <p>Registrace od 2. 10. do 3. 11.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-5 order-md-4 order-4 mt-4" id="event-4">
-                    <a href="https://fyziklani.cz" target="_blank">
-                        <div class="event">
-                            <div class="event-header">
-                                <h3><img src="/images/logos/fyziklani_symbol.svg" class="inline-logo"> Fyziklání</h3>
-                                <span class="event-date">16. 2.</span>
-                            </div>
-                            <div>
-                                <p>Mezinárodní týmová soutěž v Praze</p>
-                                <p>Registrace od 22. 11. do 9. 2.</p>
-                            </div>
-                        </div>
-                    </a>
+        <div class="subheader">Pro ty, kdo FYKOS dobře znají</div>
+        <h1 class="section-header">Novinky a aktuality</h1>
+        <!-- <div class="row mt-5"> -->
+        <!-- <div class="col-md-6"> -->
+        <div class="fade-in-section">
+            <div class="card">
+                <div class="card-body news-card">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h4 class="card-title">Třetí série je tady!</h4>
+                        <div><a n:href=":Default:Problems:" class="btn btn-primary">Zadání</a></div>
+                    </div>
+                    <p class="card-text">Druhá série sice skončila, ale nezoufejte! Na webu je už zveřejněné zadání
+                        nových
+                        úloh! Můžete se ponořit do výpočtů účinnosti zvlhčovače vzduchu, rychlosti transportu v
+                        mikrosvětě
+                        buněk nebo práce nutné k ponoření skleničky pod vodu. Čas na vyřešení úloh a zaslání svých
+                        řešení
+                        máte do 2. 1.! </p>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-12 my-4">
-                    <div class="timeline-container position-relative"> <!-- Added position-relative class -->
-                        <div class="start-timeline-text position-absolute">
-                            <p>1. 10. 2023</p>
-                        </div>
-                        <hr class="middle-line">
-                        <div class="end-timeline-text position-absolute">
-                            <p>30. 5. 2024</p>
-                        </div>
+            <!-- </div> -->
+            <!-- <div class="col-md-6"> -->
+            <div class="card mt-3">
+                <div class="card-body news-card fof-news-color">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h4 class="card-title">Přihlaste se na Fyziklání 2024</h4>
+                        <div><a href="fyziklani.cz" class="btn btn-primary">Fyziklání</a></div>
                     </div>
+                    <p class="card-text"> Spouští registrace na Fyziklání 2024, které se bude konat 16. 2. v Praze. Čeká
+                        vás
+                        tam týmová soutěž v počítání zajímavých fyzikálních úloh, ale i bohatý doprovodný program! Tak
+                        neváhejte a přihlašte svůj tým!</p>
                 </div>
             </div>
+            <!-- </div> -->
+            <!-- </div> -->
+        </div>
+    </section>
+</div>
 
-            <div class="row">
-                <!-- Third Row -->
-                <div class="col-md-3 offset-md-1 mt-4 order-md-1 order-1" id="series-1">
-                    <div class="event w-md-100 w-90">
-                        <div class="event-header">
-                            <h3>1. série</h3>
-                            <span class="event-date">10. 10.</span>
-                        </div>
-                        <div>
-                            <p>Velryba, nové kolo a tření papíru</p>
-                        </div>
+
+<div class="panel color-light" id="timeline">
+    <section class="inner-container">
+        <div class="subheader">Naše hlavní akce</div>
+        <h1 class="section-header">Co vše organizujeme?</h1>
+        <p>FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní.</p>
+        <a class="btn btn-primary" n:href=":Events:Default:">
+            Stránka všech akcí
+        </a>
+
+        <div class="fade-in-section mt-5 mt-md-0">
+            <div class="row mt-5">
+
+                {* Vertical timeline *}
+                <div id="timeline-vertical-container"
+                    class="col-3 col-md-0 d-md-none position-relative d-flex flex-column align-items-center mt-5">
+                    <div class="start-timeline-text mb-3">
+                        <p>1.&nbsp;10. 2023</p>
                     </div>
-                </div>
-                <div class="col-md-3 mt-4 order-md-2 order-3" id="series-3">
-                    <div class="event w-md-100 w-90">
-                        <div class="event-header">
-                            <h3>3. série</h3>
-                            <span class="event-date">2. 1.</span>
-                        </div>
-                        <div>
-                            <p>Zvlhčovač, blesky a proteinový motor</p>
-                        </div>
+                    <div id="timeline-vertical" class="d-block border-left h-100">
                     </div>
-                </div>
-                <div class="col-md-3 mt-4 order-md-3 order-5" id="series-5">
-                    <div class="event w-md-100 w-90">
-                        <div class="event-header">
-                            <h3>5. série</h3>
-                            <span class="event-date">9. 4.</span>
-                        </div>
-                        <p>Bowling, med a potápějící se člun</p>
+                    <div class="end-timeline-text mt-3">
+                        <p>30.&nbsp;5. 2024</p>
                     </div>
                 </div>
 
-                <!-- Fourth Row -->
-                <div class="col-md-3 offset-md-2 mt-4 order-md-4 order-2" id="series-2">
-                    <div class="event w-md-100 w-90">
-                        <div class="event-header">
-                            <h3>2. série</h3>
-                            <span class="event-date">21. 11.</span>
+
+                <div class="col-9 col-md-12">
+
+                    <!-- Row for events -->
+                    <div class="row">
+
+                        <div class="col-12 timeline-section-header mt-5 d-md-none">
+                            <h3>Soutěže a exkurze</h3>
                         </div>
-                        <p>Pneumatika, cola a perpetuum mobile</p>
+
+                        <!-- First Row -->
+                        <div class="col-md-5 offset-md-1 order-md-1 order-1 mt-4" id="event-1">
+                            <a href="https://physics.naboj.org" target="_blank">
+                                <div class="event naboj-color-left-border">
+                                    <div class="event-header">
+                                        <h3><img src="/images/logos/naboj_symbol.svg" class="inline-logo">
+                                            Fyzikální Náboj
+                                        </h3>
+                                        <span class="event-date">3.&nbsp;11.</span>
+                                    </div>
+                                    <div>
+                                        <p>Týmová soutěž v Praze, Ostravě a jinde ve světě</p>
+                                        <p>Otevření registrace sledujte na webu</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-5 order-md-2 order-3 mt-4" id="event-3">
+                            <a href="https://online.fyziklani.cz" target="_blank">
+                                <div class="event fol-color-left-border">
+                                    <div class="event-header">
+                                        <h3><img src="/images/logos/fyziklani_online_symbol.svg" class="inline-logo">
+                                            Fyziklání
+                                            Online</h3>
+                                        <span class="event-date">22.&nbsp;11.</span>
+                                    </div>
+                                    <div>
+                                        <p>Celosvětová soutěž, které se může účastnit každý</p>
+                                        <p>Registrace od 1.&nbsp;9. do 2&nbsp;hodin před soutěží.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Second Row -->
+                        <div class="col-md-5 offset-md-2 order-md-3 order-2 mt-4" id="event-2">
+                            <a href="https://dsef.cz" target="_blank">
+                                <div class="event dsef-color-left-border">
+                                    <div class="event-header">
+                                        <h3><img src="/images/logos/dsef_symbol.svg" class="inline-logo"> DSEF
+                                        </h3>
+                                        <span class="event-date">6.&nbsp;11.</span>
+                                    </div>
+                                    <div>
+                                        <p>Den s experimentální fyzikou na Matfyzu</p>
+                                        <p>Registrace od 2.&nbsp;10. do 3.&nbsp;11.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-5 order-md-4 order-4 mt-4" id="event-4">
+                            <a href="https://fyziklani.cz" target="_blank">
+                                <div class="event fof-color-left-border">
+                                    <div class="event-header">
+                                        <h3><img src="/images/logos/fyziklani_symbol.svg" class="inline-logo">
+                                            Fyziklání
+                                        </h3>
+                                        <span class="event-date">16.&nbsp;2.</span>
+                                    </div>
+                                    <div>
+                                        <p>Největší týmová fyzikální soutěž v Evropě</p>
+                                        <p>Registrace od 22.&nbsp;11. do 9.&nbsp;2.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 mt-4 order-md-5 order-4" id="series-4">
-                    <div class="event w-md-100 w-90">
-                        <div class="event-header">
-                            <h3>4. série</h3>
-                            <span class="event-date">27. 2.</span>
+
+                    {* Horizontal timeline -- hide on small screens *}
+                    <div class="row d-none d-md-block">
+                        <div class="col-12 my-4">
+                            <div id="timeline-horizontal-container" class="position-relative">
+                                <!-- Added position-relative class -->
+                                <div class="start-timeline-text position-absolute">
+                                    <p>1.&nbsp;10. 2023</p>
+                                </div>
+                                <hr id="timeline-horizontal">
+                                <div class="end-timeline-text position-absolute">
+                                    <p>30.&nbsp;5. 2024</p>
+                                </div>
+                            </div>
                         </div>
-                        <p>Hokejista, svítilna a pozorování letadla</p>
                     </div>
-                </div>
-                <div class="col-md-3 mt-4 order-6" id="series-6">
-                    <div class="event w-md-100 w-90">
-                        <div class="event-header">
-                            <h3>6. série</h3>
-                            <span class="event-date">14. 5.</span>
+
+
+
+                    <!-- Row for series -->
+                    {* TODO: if its before the deadline of a given series, link to the generic task assignent page.
+                    If it's after, link to the assignment page of the specific series *}
+                    <div class="row">
+
+                        {* Timeline header -- show on small screens *}
+                        <div class="timeline-section-header mt-5 mt-md-0 d-md-none">
+                            <h3>Série semináře</h3>
                         </div>
-                        <p>Antineutrína, ponorka a magnety</p>
+
+                        <!-- Third Row -->
+                        <div class="col-md-3 offset-md-1 mt-4 order-md-1 order-1" id="series-1">
+                            <div class="event series w-md-100 w-90">
+                                <div class="event-header">
+                                    <h3>1. série</h3>
+                                    <span class="event-date">10.&nbsp;10.</span>
+                                </div>
+                                <div>
+                                    <p>Velryba, nové kolo a&nbsp;tření papíru</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mt-4 order-md-2 order-3" id="series-3">
+                            <div class="event series w-md-100 w-90">
+                                <div class="event-header">
+                                    <h3>3. série</h3>
+                                    <span class="event-date">2.&nbsp;1.</span>
+                                </div>
+                                <div>
+                                    <p>Zvlhčovač, blesky a&nbsp;proteinový motor</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mt-4 order-md-3 order-5" id="series-5">
+                            <div class="event series w-md-100 w-90">
+                                <div class="event-header">
+                                    <h3>5. série</h3>
+                                    <span class="event-date">9.&nbsp;4.</span>
+                                </div>
+                                <p>Bowling, med a&nbsp;potápějící se člun</p>
+                            </div>
+                        </div>
+
+                        <!-- Fourth Row -->
+                        <div class="col-md-3 offset-md-2 mt-4 order-md-4 order-2" id="series-2">
+                            <div class="event series w-md-100 w-90">
+                                <div class="event-header">
+                                    <h3>2. série</h3>
+                                    <span class="event-date">21.&nbsp;11.</span>
+                                </div>
+                                <p>Pneumatika, cola a&nbsp;perpetuum mobile</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mt-4 order-md-5 order-4" id="series-4">
+                            <div class="event series w-md-100 w-90">
+                                <div class="event-header">
+                                    <h3>4. série</h3>
+                                    <span class="event-date">27.&nbsp;2.</span>
+                                </div>
+                                <p>Hokejista, svítilna a&nbsp;pozorování letadla</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mt-4 order-6" id="series-6">
+                            <div class="event series w-md-100 w-90">
+                                <div class="event-header">
+                                    <h3>6. série</h3>
+                                    <span class="event-date">14.&nbsp;5.</span>
+                                </div>
+                                <p>Antineutrína, ponorka a&nbsp;magnety</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+    </section>
 </div>
 
-</section>
-</div>
 
-<div class="panel color-dark">
+<div class="panel color-dark" id="seminar">
     <section class="inner-container">
+        <div class="subheader">Netradiční fyzikální problémy, které vám dají zabrat</div>
         <h1 class="title">Fyzikální korespondenční seminář</h1>
         <p>Fyzikální korespondenční seminář je naší nejstarší tradiční akcí. Probíhá celý rok a každý ročník je rozdělen
             do 6 sérií (které jsou na časové ose výše znázorněny jejich čísly). Zde je stručný popis fungování semináře.
-            Více informací najdete v <a n:href="About:fykos-competition">pravidlech</a>.
         </p>
-        <div class="description-box left">
-            <div class="step">Podívejte se na úlohy aktuální série</div>
-            <p class="step-text">Podívejte se na zadání na webu.</p>
-        </div>
+        <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:complete" *}>
+            Úplná pravidla
+        </a>
+        <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:complete" *}>
+            Zadání aktuální série
+        </a>
+        <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:OrganisationalRegulations" *}>
+            O semináři
+        </a>
 
-        <div class="description-box right">
-            <div class="step">Nahrajte řešení do databáze</div>
-            <p class="step-text">Nelekejte se errorů, Mišo to brzo opraví a pak vás zabanuje.</p>
-        </div>
+        <div class="row mt-5 fade-in-section">
+            <!-- Block 1 -->
+            <div class="col-md-6">
+                <a n:href=":Default:Problems:" class="link-no-decor">
+                    <div class="info-block p-3 mb-4">
+                        <h4><i class="info-icon fas fa-book-open mb-2"></i>
+                            Podívejte se na úlohy aktuální série</h4>
+                        <p>Zadání vám přijde poštou nebo ho najdete přímo tady na webu. {* TODO: add link to problems *}
+                            Nemusíte vyřešit všechny úlohy, každý pokus se počítá.
+                        </p>
+                    </div>
+                </a>
+            </div>
 
-        <div class="description-box left">
-            <div class="step">Prohlédněte si svá opravená řešení</div>
-            <p class="step-text">Naši organizátoři vám řešení opraví a pošlou zpátky s individuální zpětnou vazbou.</p>
-        </div>
+            <!-- Block 2 -->
+            <div class="col-md-6">
+                <a href="https://db.fykos.cz" class="link-no-decor">
+                    <div class="info-block p-3 mb-4 mt-md-5">
+                        <h4><i class="info-icon fas fa-upload mb-2"></i>
+                            Nahrajte řešení do FKSDB</h4>
+                        <p>Můžete psát ručně a nascanovat nebo psát rovnou elektronicky. {* TODO: add link to the latex
+                            guide *}
+                            Akceptujeme pouze formát pdf.</p>
+                    </div>
+                </a>
+            </div>
 
-        <div class="description-box right">
-            <div class="step">Pojeďte s námi na soustředění</div>
-            <p class="step-text">Pro nejlepší řešitele pořádáme dvakrát do roka soustředění.</p>
-        </div>
+            <!-- Block 3 -->
+            <div class="col-md-6">
+                <a href="https://db.fykos.cz" class="link-no-decor">
+                    <div class="info-block p-3 mb-4 mt-md-n5">
+                        <h4><i class="info-icon fas fa-search mb-2"></i>
+                            Prohlédněte si svá opravená řešení</h4>
+                        <p>Naši organizátoři vám řešení opraví a pošlou zpátky a pomůžou vám se zlepšit. Zároveň
+                            publikujeme
+                            vzorová řešení.</p>
+                    </div>
+                </a>
+            </div>
 
+            <!-- Block 4 -->
+            <div class="col-md-6">
+                <a n:href=":Events:Camps:" class="link-no-decor">
+                    <div class="info-block p-3 mb-4">
+                        <h4><i class="info-icon fas fa-bus mb-2"></i> Pojeďte s námi na soustředění</h4>
+                        <p>Pro nejlepší řešitele pořádáme dvakrát do roka soustředění
+                            plné fyziky, přednášek, experimentů,
+                            ale i her a další zábavy.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
     </section>
 </div>
 
 
+<div class="panel color-light">
+    <section class="inner-container">
+        <div class="subheader">Ochutnávka našich akcí</div>
+        <h1 class="section-header">Co s námi můžete zažít?</h1>
 
+        <div class="row fade-in-section video-row">
+            <!-- First video -->
+            <div class="col-lg-6">
+                <div class=" video-container left">
+                    <h2>Soutěže...</h2>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video class="embed-responsive-item left" controls>
+                            <source src="{$basePath}/videos/FOF.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <!-- Second video -->
+            <div class="col-lg-6">
+                <div class="video-container right pt-4 pt-lg-0">
+                    <h2>...a vědu!</h2>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video class="embed-responsive-item" controls>
+                            <source src="{$basePath}/videos/DSEF.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{*
+<div class="panel color-light">
+    <section class="inner-container" id="testimonials">
+        <div class="subheader">Reference</div>
+        <h1 class="section-header">Co o nás říkají?</h1>
+        <div class="row fade-in-section">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                            aliquam, velit ut dapibus aliquet, mauris nunc aliquam nunc, nec lacinia nisl nunc id
+                            justo.</p>
+                        <p class="card-signature"><em>~ Jane Smith</em></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                            ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                            velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <p class="card-signature"><em>~ Jane Smith</em></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                            veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                        <p class="card-signature"><em>~ Mike Johnson</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+*}
+
+{* Countdown for the very top of the page *}
+<script>
+    function countdownTimer(countDownDate, elementId) {
+        // Update the countdown every 1 second
+        var countdown = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the countdown date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the countdown in the element with the specified id
+            document.getElementById(elementId).innerHTML = ("0" + days).slice(-2) + ":" + ("0" + hours).slice(-2) + ":"
+                + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+
+            // If the countdown is finished, display a message
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById(elementId).innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    }
+
+    // Set the date we're counting down to
+    var countDownDatePrimary = new Date("January 3, 2024 00:00:00").getTime();
+    var countDownDateSecondary = new Date("February 16, 2024 10:00:00").getTime();
+
+    // Call the countdownTimer function with the specified date and element id
+    countdownTimer(countDownDatePrimary, "countdown-primary");
+    countdownTimer(countDownDateSecondary, "countdown-secondary");
+</script>
+
+
+{* Timeline positioning *}
 <script n:syntax=off>
     document.addEventListener("DOMContentLoaded", function () {
 
-        function positionLogo(dateStr, classStr, eventBoxId, imageUrl = null) {
+
+        const logoSizePx = 30;
+
+        // Init the timeline and set logos around it
+        function calculatePositionPercentages(dates, timelineId) {
             const startDate = new Date("2023-10-01");
             const endDate = new Date("2024-05-30");
-            const totalDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
-            const eventDate = new Date(dateStr);
-            const elapsedDays = (eventDate - startDate) / (1000 * 60 * 60 * 24);
-            const positionPercentage = (elapsedDays / totalDays) * 100;
+            const totalDays = (endDate - startDate);
+            let positions = [];
 
+            // Phase 1: Calculate initial positions
+            for (let dateStr of dates) {
+                const eventDate = new Date(dateStr);
+                const elapsedDays = (eventDate - startDate);
+                const positionPercentage = (elapsedDays / totalDays) * 100;
+                positions.push(positionPercentage);
+            }
+
+
+            let logoSizePercentage;
+            // Phase 2: Adjust overlapping positions
+            if (timelineId == "#timeline-vertical-container") {
+                const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
+                const containerWidth = document.querySelector('#timeline-vertical-container').offsetWidth;
+                let effectiveLogoSizePx = Math.min(logoSizePx, containerWidth * 0.3)
+
+                logoSizePercentage = effectiveLogoSizePx / verticalTimelineHeight * 100;
+            } else {
+                logoSizePercentage = logoSizePx / document.querySelector(timelineId).offsetWidth * 100;
+            }
+            for (let i = 0; i < positions.length - 1; i++) {
+                if (Math.abs(positions[i] - positions[i + 1]) < logoSizePercentage) {
+                    const avgPosition = (positions[i] + positions[i + 1]) / 2;
+                    positions[i] = avgPosition - logoSizePercentage / 2;
+                    positions[i + 1] = avgPosition + logoSizePercentage / 2;
+                }
+            }
+
+            return positions;
+        }
+
+        function positionLogo(positionPercentage, classStr, eventBoxId, timelineId, imageUrl = null) {
             let logoElem;
 
-            // If imageUrl is null, create a div for today-block, otherwise create an img
             if (imageUrl) {
                 logoElem = document.createElement("img");
                 logoElem.src = imageUrl;
+            } else if (classStr === 'today-block') {
+                // Create the outer div
+                logoElem = document.createElement("div");
+
+                // // Create the inner <i> element
+                // const iconElem = document.createElement("i");
+                // iconElem.classList.add('fas', 'fa-map-marker-alt');
+
+                // // Append the <i> element to the div
+                // logoElem.appendChild(iconElem);
             } else {
                 logoElem = document.createElement("div");
             }
 
             logoElem.classList.add(classStr);
+            logoElem.id = "logo-" + eventBoxId;
 
-            // position the images horizontally according to dates
-            if (window.innerWidth <= 768) {
-                // vertically on small screens
-                logoElem.style.top = `${positionPercentage}%`;
+            // Update position
+            if (timelineId == "#timeline-vertical-container") {
+                // Adjust for the fact that now we have the logos as a children of an element
+                // that also in its height contains texts
+                const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
+                const timelineContainerHeight = document.querySelector('#timeline-vertical-container').offsetHeight;
+                const topOffset = document.querySelector('.start-timeline-text').offsetHeight;
+
+                const newPositionPercentage = (verticalTimelineHeight * positionPercentage + topOffset) / timelineContainerHeight;
+
+                logoElem.style.top = `${newPositionPercentage}%`;
             } else {
                 logoElem.style.left = `${positionPercentage}%`;
             }
 
             logoElem.dataset.eventBox = eventBoxId;
 
-            document.querySelector('.timeline-container').appendChild(logoElem);
+            document.querySelector(timelineId).appendChild(logoElem);
         }
 
+        function positionTimelineElements(timelineId) {
+
+            // Remove existing dynamically added elements first
+            const existingLogos = document.querySelectorAll('.logo-event, .logo-series, .today-block');
+            existingLogos.forEach(logo => logo.remove());
+
+            let positions_events = calculatePositionPercentages(dates_events, timelineId);
+            let positions_series = calculatePositionPercentages(dates_series, timelineId);
+
+            const today = new Date();
+            let position_today = calculatePositionPercentages([today], timelineId)
+
+            positions_events.forEach((position, index) => {
+                positionLogo(position, "logo-event", `event-${index + 1}`, timelineId, images_events[index]);
+            });
+            positions_series.forEach((position, index) => {
+                positionLogo(position, "logo-series", `series-${index + 1}`, timelineId, images_series[index]);
+            });
+            position_today.forEach((position, index) => {
+                positionLogo(position, "today-block", "today-block", timelineId);
+            });
+        };
+
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        });
+
+
+        // Make an event block become larger if you hover over its corresponding logo on the timeline
+        function attachLogoHoverEvents() {
+            document.querySelectorAll('.logo-event, .logo-series').forEach((logo) => {
+                logo.addEventListener('mouseover', () => {
+                    const associatedEventBox = document.getElementById(logo.dataset.eventBox);
+                    if (associatedEventBox) {
+                        associatedEventBox.querySelector('.event').classList.add('active');
+                    }
+                });
+
+                logo.addEventListener('mouseout', () => {
+                    const associatedEventBox = document.getElementById(logo.dataset.eventBox);
+                    if (associatedEventBox) {
+                        associatedEventBox.querySelector('.event').classList.remove('active');
+                    }
+                });
+            });
+        }
+
+
         let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
-        let images_events = ["/images/logos/dsef_symbol.svg", "/images/logos/fykos_symbol.svg", "/images/logos/fyziklani_online_symbol.svg", "/images/logos/fyziklani_symbol.svg"];
+        let images_events = ["/images/logos/Naboj_pointer.svg", "/images/logos/DSEF_pointer.svg", "/images/logos/FOL_pointer.svg", "/images/logos/FOF_pointer.svg"];
 
         let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09", "2024-05-14"];
-        let images_series = ["/images/logos/1.svg", "/images/logos/2.svg", "/images/logos/3.svg", "/images/logos/4.svg", "/images/logos/5.svg", "/images/logos/6.svg"];
+        let images_series = ["/images/logos/1_pointer.svg", "/images/logos/2_pointer.svg", "/images/logos/3_pointer.svg",
+            "/images/logos/4_pointer.svg", "/images/logos/5_pointer.svg", "/images/logos/6_pointer.svg"];
 
-        dates_events.forEach((num, index) => {
-            positionLogo(num, "logo-event", `event-${index + 1}`, images_events[index]);
-        });
+        let timelineId; // vertical or horizontal
+        let mdBreakpoint = 768;
+        let isBelowThreshold;
 
-        dates_series.forEach((num, index) => {
-            positionLogo(num, "logo-series", `series-${index + 1}`, images_series[index]);
-        });
+        function updateTimelineIdAndPositionElements() {
+            isBelowThreshold = window.innerWidth <= mdBreakpoint;
 
-        const today = new Date();
-        positionLogo(today, "today-block", "today-block");
+            // Update the current state
+            if (isBelowThreshold) {
+                timelineId = "#timeline-vertical-container";
+            } else {
+                timelineId = "#timeline-horizontal-container";
+            };
 
-        document.querySelectorAll('.logo-event, .logo-series').forEach((logo) => {
-            logo.addEventListener('mouseover', () => {
-                const associatedEventBox = document.getElementById(logo.dataset.eventBox);
-                if (associatedEventBox) {
-                    associatedEventBox.classList.add('active');
-                }
-            });
+            // Create logos and position them
+            positionTimelineElements(timelineId);
 
-            logo.addEventListener('mouseout', () => {
-                const associatedEventBox = document.getElementById(logo.dataset.eventBox);
-                if (associatedEventBox) {
-                    associatedEventBox.classList.remove('active');
-                }
-            });
+            // Attach hover events to newly created logos
+            attachLogoHoverEvents();
+        }
+
+        // Initial execution
+        updateTimelineIdAndPositionElements();
+
+        // Re-execute when window resizes
+        window.addEventListener("resize", updateTimelineIdAndPositionElements);
+
+        // Fading in of the sections
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
         });
     });
 
@@ -324,13 +668,3 @@
 
 
 {/block}
-{*{block main}*}
-{* <div class="panel color-primary title-panel">*}
-    {* <div class="inner-container row align-items-center">*}
-        {* dělá to něco*}
-        {* <h1>*}
-            {* FYKOS.cz*}
-            {* </h1>*}
-        {* </div>*}
-    {* </div>*}
-{*{/block}*}

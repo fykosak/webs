@@ -1,0 +1,110 @@
+{block title}Jak psát řešení{/block}
+{block main}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>Jak psát řešení</h1>
+            <h2>Sice dostaneš co vidíš, ale vážně to chceš?</h2>
+            <p>
+                Jistě jste už mnohokrát připravovali nějaké texty na počítači a nejspíš jste k tomu používali program Word či
+                nějakého jeho příbuzného. Word je tzv. WYSIWYG editor, což znamená, že editujeme přímo výstupní podobu 
+                (z anglického What You See Is What You Get). Toto však porušuje princip oddělení formy a obsahu 
+                (kdo pracoval někdy na větším projektu, ví, o čem je řeč).
+            </p>
+            <p>
+                Vytváření dokumentů v TeXu je podobné psaní programů. Pracuje se zdrojovým kódem (v textovém editoru), který
+                se překládá (to dělá právě TeX) do výsledné podoby, např. PDF. K vytváření dokumentů pomocí TeXu tedy
+                potřebujeme editor, překladač (TeX) a prohlížeč (třeba Adobe Reader).
+            </p>
+            <p>
+                K čemu si takto komplikovat práci oproti Wordu? Jak již bylo zmíněno, tento postup vede k lepšímu oddělení
+                obsahu a formy (snadná případná změna výsledné podoby), můžete využít <a href="#">naši šablonu řešení</a>, která obsahuje
+                vše nutné a jedná-li se o sazbu matematických výrazů, je TeX jasná volba.
+            </p>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="Overleaf">
+        <section class="inner-container">
+            <h2>Overleaf</h2>
+            <p>
+            Overleaf je online prostředí pro tvorbu a správu dokumentů v LaTeXu, schopné překládat. Výhodou je, že není potřeba nic instalovat, šablonu jsme pro vás připravili, stačí se jen přihlásit, zkopírovat projekt a můžete TeXat.
+            Další výhodou je přítomnost online úložiště (které může být použito jako remote git repozitář) a otevírání v prohlížeči, takže se dá TeXat z libovolného zařízení s prohlížečem.
+            </p>
+            <p>Nevýhodou pak je, že online se předpokládá s kompilací TeXu, ale součástí TeXání někdy může být generování zdrojového souboru pomocí skriptu, což by na Overleafu nemuselo být spustitelné.</p>
+            <h3>Postup</h3>
+            <ul>
+                <li>Zaregistrujte se na <a href="https://www.overleaf.com">Overleaf</a>, buď pomocí googlu nebo pomocí mailové adresy</li>
+                <li>Otevřete <a href="#">naši šablonu</a></li>
+                <li>Začnete editovat šablonu (jméno, typ úlohy, číslo serie)</li>
+                <li>
+                    Můžete začít TeXat. Návody k samotnému LaTeXu si vygooglete dle potřeby (Hint: pro začátečníky má Overleaf celkem dobré tutoriály. Pak StackOverflow.)
+                </li>
+            </ul>
+        </section>
+    </div>
+    <div class="panel color-auto" id="Local-compiler">
+        <section class="inner-container">
+            <h2>Instalace lokálního kompilátoru</h2>
+            <p>Lokální instalace poskytuje více možností, větší kontrolu a funkčnost i offline.</p>
+            <p>Výše jsme uvedli, kolik programů je potřeba pro překlad TeXových dokumentů. Nemusíte se obávat, že byste je museli všechny shánět a konfigurovat. Pro Windows existuje TeXová distribuce MiKTeX, která vše vyřeší za vás.</p>
+            <p><strong>Z webu MiKTeXu si stáhněte klikací instalátor.</strong></p>
+            <p>Součástí distribuce je i editor TeXworks. Tento spustíme a napíšeme následující dokument v UTF-8 (kódování zvolíme vpravo dole):</p> 
+            <code>
+                {='\include{sablona_fykos.tex}'}<br>
+                {='\name = Fykuláš Kos'}<br>
+                {='\rocnik = 38'}<br>
+                {='\serie = 1'}<br>
+                {='\priklad = P'}<br>
+                {='\begin{document}'}<br>
+                <br>
+                {='\section{Nadpis}'}<br>
+                {='Moje první stránka v TeXu.'}<br>
+                <br>
+                {='\end{document}'}
+            </code>
+            <p>Musíme však ale ještě použít naši šablonu. To uděláme tak, že ...</p>
+            <p>
+            <strong>Spustíme překlad zeleným tlačítkem.</strong> Je-li vše v pořádku, napravo od editoru se zobrazí vaše první stránka vysázená TeXem. Je to normální soubor PDF otevřený v integrovaném prohlížeči. Pomocí Ctrl+klik můžete přecházet mezi zdrojovým kódem a odpovídajícím místem v PDF, a obráceně.
+            </p>
+            <h3>Zmínka o jiných editorech</h3>
+            <p>Za zmínku stojí ještě pár dalších editorů.</p>
+            <ul>
+                <li><p><a href="http://www.texstudio.org/">TeXstudio</a> - má našeptávač, který poradí se syntaxí LaTexových příkazů</p></li>
+                <li><p><a href="https://code.visualstudio.com/">Visual Studio Code</a> - univerzální textový editor, který má spoustu uźitečných rozšíření</p></li>
+            </ul>
+                {*
+                <a class="btn btn-primary my-2" href="http://www.winshell.de" >Win-shell</a>
+                <a class="btn btn-primary my-2" href="http://notepad-plus-plus.org">Notepad++</a>
+                <a class="btn btn-primary my-2" href="http://www.tug.org/texworks">TeXworks</a>
+                <a class="btn btn-primary my-2" href="http://www.texstudio.org/" >TeXstudio</a>
+                <a class="btn btn-primary my-2" href="http://www.latexeditor.org">LEd</a>
+                <a class="btn btn-primary my-2" href="https://www.xm1math.net/texmaker/">TeXmaker</a>
+                <a class="btn btn-primary my-2" href="https://code.visualstudio.com/">Visual Studio Code</a>
+                <a class="btn btn-primary my-2" href="https://www.vim.org/">Vim</a>
+                *}
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="sazba">
+        <section class="inner-container">
+            <h1>Sazba matematiky</h1>
+            <p>Kvůli sazbě matematiky jsme si zvolili TeX. Řekněme si tedy, jak na to. Krátké vzorečky, vztahy a proměnné se sází v řádkovém režimu mezi dolary</p>
+            <code>Pro čísla na kostce platí {='$0 < n < 7$'}.</code>
+            <p>Větší a složitější vzorce sázíme v blokovém režimu mezi dvojice dolarů.</p>
+            <code>Síla je dána jako<br>
+                {='$$'}<br>
+                {='    F = mg \sin(\alpha)\,.'}<br>
+                {='$$'}
+            </code>
+            <p>Argumenty maker se uzavírají mezi složené závorky (je-li argument jeden znak, je možné je vynechat). Nejčastěji používanými příkazy jsou</p>
+            <ul>
+                <li>mocnění  <code>{='$2^5 = 32$'}</code></li>
+                <li>odmocňování <code>{='$\sqrt{1-\sin^2(x)} = |\cos(x)|$'}</code></li>
+                <li>zlomky <code>{='$\frac{p}{q}$'}</code></li>
+            </ul>
+            <p>Pokud nechcete instalovat celou TeXovou mašinérii, lze použít podobnou syntaxi v editoru rovnic v OO Writeru i v MS Wordu.</p>
+            
+        </section>
+    </div>
+
+{/block}

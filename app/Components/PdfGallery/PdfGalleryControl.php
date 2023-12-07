@@ -43,7 +43,7 @@ class PdfGalleryControl extends BaseComponent
             $wwwPath = substr($file->getPathname(), strlen($wwwDir));
             $pdfs[] = [
                 'src' => $wwwPath,
-                'name' => $file->getBasename(".pdf"),
+                'name' => $file->getBasename('.pdf'),
             ];
         }
 

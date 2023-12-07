@@ -21,9 +21,9 @@
     <meta name="theme-color" content="#e6060d">
 
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="{_'Team competition in solving physics problems'}"/>
-    <meta property="og:image" content="{_'http://physicsbrawl.org/images/fyziklani-logo.png'}"/>
-    <meta property="og:description" content="{_'Team competition in solving physics problems.'}"/>
+    <meta property="og:title" content="{switch $lang}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}"/>
+{*    <meta property="og:image" content="{_'http://physicsbrawl.org/images/fyziklani-logo.png'}"/>*}
+    <meta property="og:description" content="{switch $lang}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:locale" content="{$presenter->translator->locales[$presenter->lang]}"/>
     <meta property="og:url" content="{plink //this}"/>
@@ -94,24 +94,28 @@
                 <div class="category">
                     <div class="category-title">{switch $lang}{case cs}Organizátoři{default}Organizers{/switch}</div>
                     <div class="category-sponsors">
-                        <a href="https://www.mff.cuni.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-width: 8rem">
+                        <a {switch $lang}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
+                                style="max-width: 8rem">
                         </a>
                         <a href="https://www.msmt.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
                         </a>
-                    </div>
-                </div>
-                <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Generální partner{default}General Partner{/switch}</div>
-                    <div class="category-sponsors">
-                        <a href="https://espr-camp.org/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/ESPR-logo.png" alt="ESPR logo" style="max-width: 5rem">
+                        <a {switch $lang}{case cs}href="https://www.fykos.cz/"{default}href="https://www.fykos.org/"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/fykos_logo.png" alt="logo FYKOSu" style="max-width: 9rem">
                         </a>
                     </div>
                 </div>
+                {* <div class="category">
+                    <div class="category-title">{switch $lang}{case cs}Generální partner{default}General Partner{/switch}</div>
+                    <div class="category-sponsors">
+                        <a href="https://www.fabric.camp/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/ESPR-logo.png" alt="ESPR logo" style="max-width: 5rem">
+                        </a>
+                    </div>
+                </div> *}
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Platinový partneř{default}Platinum Partner{/switch}</div>
+                    <div class="category-title">{switch $lang}{case cs}Platinový partner{default}Platinum Partner{/switch}</div>
                     <div class="category-sponsors">
                         {*<a href="https://www.nadacecez.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/nadaceCEZ-logo.png" alt="Nadace CEZ logo" style="max-width: 5rem">
@@ -199,7 +203,7 @@
                     </p>
                     <div class="other-logos">
                         <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/logos/fykos_logo_white.png" alt="FYKOS" style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        <a target="_blank" href="{switch $lang}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
+                        <a target="_blank" href="{switch $lang}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                         {if $lang=='cs'}<a target="_blank" href="https://dsef.cz/"><img class="other-logo" src="{$basePath}/images/logos/dsef_logo_white.png"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>{/if}
                     </div>
                 </div>
@@ -236,8 +240,6 @@
                             {/switch}
                         </ul>
                     </nav>
-                </div>
-                <div class="col-md-3">
                     <nav>
                         <ul>
                             {switch $lang}
@@ -260,6 +262,31 @@
                             {/switch}
                         </ul>
                     </nav>
+
+                </div>
+                <div class="col-md-3" style="position: relative;">
+                    <nav>
+                        <ul>
+                            {switch $lang}
+                                {case cs}
+                                <li>Sledujte nás
+                                {default}
+                                <li>Follow us on social media
+                            {/switch}
+                            <ul>
+                                <li>
+                                    <a class="social-sites" href="https://www.facebook.com/FYKOS">
+                                    <i class="fa fa-facebook fa-2x"></i>
+                                    </a>
+                                    <a class="social-sites" href="https://www.instagram.com/fykosak/">
+                                    <i class="fa fa-instagram fa-2x"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a href="#top" style="position: absolute; bottom: 0; right: 0;"><i class="fas fa-arrow-up"></i></a>
                 </div>
             </div>
         </div>

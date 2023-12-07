@@ -4,53 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
-use App\Modules\Dsef\DefaultModule\CurrentPresenter;
-use App\Modules\Dsef\DefaultModule\RegistrationPresenter;
-use Fykosak\Utils\UI\Navigation\NavItem;
-use Fykosak\Utils\UI\PageTitle;
-
 abstract class BasePresenter extends \App\Modules\Fykos\Core\BasePresenter
 {
-    /**
-     * @throws \Throwable
-     */
-    protected function getNavItems(): array
-    {
-        $items = [];
-        $items[] = new NavItem(
-            new PageTitle(null, "Zadání", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Default',
-        );
-
-        $items[] = new NavItem(
-            new PageTitle(null, "Pořadí", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Default',
-        );
-
-        $items[] = new NavItem(
-            new PageTitle(null, "O nás", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'About:fykosGroup',
-        );
-
-        $items[] = new NavItem(
-            new PageTitle(null, "Jak řešit", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Default',
-        );
-
-        $items[] = new NavItem(
-            new PageTitle(null, "Úlohy", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Default',
-        );
-
-        $items[] = new NavItem(
-            new PageTitle(null, "Akce", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Events:',
-        );
-
-        $items[] = new NavItem(
-            new PageTitle(null, "Login", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'https://db.fykos.cz',
-        );
-        return $items;
-    }
+    protected int $currentFYKOSYear = 37; // TODO: get from db
 }

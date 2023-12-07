@@ -12,6 +12,6 @@ class UnderConstructionException extends BadRequestException
     public function __construct()
     {
         // see https://stackoverflow.com/questions/4642923/http-status-code-for-temporarily-unavailable-pages
-        parent::__construct(_('This page is under construction'), IResponse::S503_SERVICE_UNAVAILABLE);
+        parent::__construct('This page is under construction', IResponse::S503_SERVICE_UNAVAILABLE);
     }
 }

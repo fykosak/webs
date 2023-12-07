@@ -1,0 +1,100 @@
+.contest-results {
+  [data-label="1"], [data-label="2"] {
+    --task-color: var(--task-color-1);
+  }
+
+  [data-label="3"], [data-label="4"], [data-label="5"] {
+    --task-color: var(--task-color-3);
+  }
+
+  [data-label="P"] {
+    --task-color: var(--task-color-P);
+  }
+
+  [data-label="E"] {
+    --task-color: var(--task-color-E);
+  }
+
+  [data-label="S"] {
+    --task-color: var(--task-color-S);
+  }
+
+  .points {
+    display: flex;
+    border-radius: .25rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    text-align: center;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .points-ok {
+    font-size: 0.75rem;
+    background-color: var(--task-color);
+    color: white;
+  }
+
+  .points-no {
+    color: var(--task-color);
+  }
+
+  .points-na {
+    border: solid 1px var(--task-color);
+    color: var(--task-color);
+  }
+
+  td[data-series] {
+    background-color: var(--series-color);
+  }
+
+  [data-series="1"] {
+    --series-color: hsl(0, 100%, 95%);
+  }
+  [data-series="2"] {
+    --series-color: hsl(60, 100%, 95%);
+  }
+  [data-series="3"] {
+    --series-color: hsl(120, 100%, 95%);
+  }
+
+  [data-series="4"] {
+    --series-color: hsl(180, 100%, 95%);
+  }
+
+  [data-series="5"] {
+    --series-color: hsl(240, 100%, 95%);
+  }
+
+  [data-series="6"] {
+    --series-color: hsl(300, 100%, 95%);
+  }
+
+  td {
+    vertical-align: middle;
+  }
+}
+
+
+.button-collapse-header{
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+// .toggle-content{
+//   border: 3px solid $primary-color;
+// }
+
+.centered-cell {
+  text-align: center;
+}
+
+.border-left {
+  border-left: 1px solid gray;
+}
+
+.border-right {
+  border-right: 1px solid gray;
+}

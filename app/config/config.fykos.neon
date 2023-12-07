@@ -5,16 +5,7 @@ application:
 services:
     - App\RouterFactory::createFykosRouter(%domains%, %router-mapping%)
 
+
 includes:
+    - fykos-router-mapping.neon
     - config.neon
-
-parameters:
-    router-mapping:
-        default:
-            cs:
-
-database:
-    default:
-        dsn: ''
-    problems:
-        dsn: ''

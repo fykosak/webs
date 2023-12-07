@@ -52,11 +52,11 @@
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
                     {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
-                    <a href="{$basePath}/download/2022/{switch $lang}{case 'cs'}reseni{default}solutions{/switch}.pdf" class="btn btn-secondary">{switch $lang}{case 'cs'}Řešení úloh{default}Solutions{/switch}</a>
+                    <a href="{$basePath}/download/{$eventKey}/{switch $lang}{case 'cs'}reseni{default}solutions{/switch}.pdf" class="btn btn-secondary">{switch $lang}{case 'cs'}Řešení úloh{default}Solutions{/switch}</a>
                     {/if}
                     {* todo: phase - results are final and in FKSDB *}
                     {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
-                        <a n:href=":Archive:Results: eventYear:2022" class="btn btn-secondary">{switch $lang}{case 'cs'}Pořadí týmů{default}Results list{/switch}</a>
+                        <a n:href=":Archive:Results: eventYear:$eventKey" class="btn btn-secondary">{switch $lang}{case 'cs'}Pořadí týmů{default}Results list{/switch}</a>
                     {/if}
                     <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
                     {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
@@ -206,9 +206,15 @@
                 {default}We have rewards for the best of you.{/switch}</h1>
             <div class="row prices">
                 <div class="col-md-4">
+                    {switch $lang}{case cs}
                     <div class="price-box propagacni-box small">
-                        {switch $lang}{case cs}FYKOSí lahve,<br/>trička a mikiny{default}Bottles<br/>and towels {/switch}
+                        FYKOSí lahve,<br/>trička a mikiny
                     </div>
+                    {default}
+                    <a class="price-box factorio-box small" href="https://www.factorio.com/">
+                        Factorio license
+                    </a>
+                    {/switch}
 
                     {switch $lang}
                         {case cs}
@@ -228,17 +234,17 @@
                                 Knihy<br/>podle<br/>výběru
                             </div>
                         {default}
-                            <div class="price-box large hoodie-box">
-                                T-shirts<br/>and hoodies
-                            </div>
+                            <a class="price-box large fyziklani-box" href="https://fyziklani.org/scholarship">
+                                Scholarships for<br/>Fyziklani
+                            </a>
                     {/switch}
 
-                      <a class="price-box small orgpad-box" href="https://orgpad.com/">
+                      <a class="price-box small chess-box" href="https://www.chess.com/">
                           {switch $lang}
-                              {case cs}Licence na<br/>
-                              <img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad" style="max-height: 3rem">
-                              {default}License to<br/>
-                              <img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad" style="max-height: 3rem">
+                              {case cs}Diamantové členství na<br/>
+                              <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad" style="max-height: 3rem">
+                              {default}Diamond membership on<br/>
+                              <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad" style="max-height: 3rem">
                           {/switch}
                       </a>
 
@@ -260,9 +266,9 @@
                                 Deskovky<br>a karetní<br>hry
                             </div>
                         {default}
-                            <div class="price-box small bag-box">
-                                Canvas bags
-                            </div>
+                            <a class="price-box small kerbal-box" href="http://www.kerbalspaceprogram.com/games-kerbal-space-program/">
+                                Kerbal Space Program game license  
+                            </a>
                     {/switch}
 
 {*                    <a class="price-box large" href="http://www.graphmatica.com/" style="background-color: #019A69">*}
@@ -407,6 +413,18 @@
             <div class="row legends">
                 <div class="col-md-6">
                     <div class="legends-row">
+                        <div class="legends-year">2023</div>
+                        <div class="legends-item">
+                            <div>
+                                <span class="flag-icon flag-icon-sg"></span>
+                                Puddle
+                            </div>
+                            <div class="members">
+                                Vishal Kannan, Wenkai Liu, Shanay Jindal, Luc Mazereeuw, Le Xi Ng
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legends-row">
                         <div class="legends-year">2022</div>
                         <div class="legends-item">
                             <div>
@@ -487,18 +505,18 @@
                             </div>
                         </div>
                     </div>
-{*                    <div class="legends-row">*}
-{*                        <div class="legends-year">2016</div>*}
-{*                        <div class="legends-item">*}
-{*                            <div>*}
-{*                                <span class="flag-icon flag-icon-in"></span>*}
-{*                                Castrambe*}
-{*                            </div>*}
-{*                            <div class="members">*}
-{*                                Mikail Khona, Karan Jain, Basuhi Ravi, Sandesh Kalantre, Pavan Hebbar*}
-{*                            </div>*}
-{*                        </div>*}
-{*                    </div>*}
+                    <div class="legends-row">
+                        <div class="legends-year">2016</div>
+                        <div class="legends-item">
+                            <div>
+                                <span class="flag-icon flag-icon-in"></span>
+                                Castrambe
+                            </div>
+                            <div class="members">
+                                Mikail Khona, Karan Jain, Basuhi Ravi, Sandesh Kalantre, Pavan Hebbar
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

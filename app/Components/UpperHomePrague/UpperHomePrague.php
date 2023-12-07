@@ -32,7 +32,7 @@ class UpperHomePrague extends BaseComponent
     {
         $this->template->lang = $this->getPresenter()->lang;
         $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . "upperHomePrague.latte");
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomePrague.latte');
     }
 
     protected function createComponentCountdown(): CountdownComponent

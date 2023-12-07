@@ -6,9 +6,19 @@
 {/block}
 
 {block main}
+    {var $translations = [
+        "registration" => ["Registrace na soutěž", "Registration to the competition"],
+        "game" => ["Hra", "The game"],
+        "tasks" => ["Úlohy", "Tasks"],
+        "submits" => ["Odevzdávání úloh", "Submits"],
+        "skipping" => ["Přeskakování úloh", "Task skipping"],
+        "scoring" => ["Bodování", "Scoring"],
+        "hurry-up" => ["Hurry up", "Hurry up"],
+        "otherFAQ" => ["Ostatní FAQ", "Other FAQ"]
+    ]}
     <script>
-        const showText = {_"faq.show_text_button"};
-        const hideText = {_"faq.hide_text_button"};
+        const showText = {switch $lang}{case cs}Zobrazit všechny odpovědi{default}Show all answers{/switch};
+        const hideText = {switch $lang}{case cs}Skrýt všechny odpovědi{default}Skrýt všechny odpovědi{/switch};
     </script>
     <script n:syntax="off">
         function collapseFAQ(btn) {
@@ -28,11 +38,16 @@
             <h1>FAQ</h1>
             <ul class="stylized">
             {foreach $questions AS $category => $questionsForCategory}
-                <li><a href="#{$category}">{_("faq_category." . $category)}</a></li>
+                <li><a href="#{$category}">{$translations[$category][$lang == 'cs' ? 0 : 1]}</a></li>
             {/foreach}
             </ul>
             <button onclick="collapseFAQ(this)" class="btn btn-primary"
-                    type="button">{_"faq.show_text_button"}</button>
+                    type="button">
+                {switch $lang}
+                    {case cs}Zobrazit všechny odpovědi
+                    {default}Show all answers
+                {/switch}
+            </button>
         </section>
     </div>
 
@@ -42,8 +57,13 @@
         {do $parityCounter = !$parityCounter}
         <div n:class="panel, $parityCounter ? color-light : color-dark">
             <section class="inner-container" id="{$category}">
-                <div class="subheader">{_"faq_category_text"}</div>
-                <h1>{_("faq_category." . $category)}</h1>
+                <div class="subheader">
+                    {switch $lang}
+                        {case cs}Kategorie
+                        {default}Category
+                    {/switch}
+                </div>
+                <h1>{$translations[$category][$lang == 'cs' ? 0 : 1]}</h1>
 
                 {foreach $questionsForCategory AS $question}
                     <div class="card faq-question-and-answer rounded-0">
@@ -67,14 +87,3 @@
     {/foreach}
 
 {/block}
-
-{* Force the extractor to find these keys
-    {_'faq_category.registration'}
-    {_'faq_category.game'}
-    {_'faq_category.tasks'}
-    {_'faq_category.submits'}
-    {_'faq_category.skipping'}
-    {_'faq_category.scoring'}
-    {_'faq_category.hurry-up'}
-    {_'faq_category.otherFAQ'}
-*}

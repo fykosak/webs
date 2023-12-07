@@ -25,6 +25,7 @@ parameters:
             cs:
                 Default: Default
                 Tymy: Teams
+                Program: Schedule
                 Vysledky: Results
                 PodrobneVysledky: DetailedResults
                 Reporty: Reports

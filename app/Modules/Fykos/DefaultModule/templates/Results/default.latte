@@ -1,0 +1,16 @@
+{block title}Výsledky FYKOSu{/block}
+{block main}
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>{switch $lang}
+            {case 'cs'}Výsledky FYKOSu
+            {default}Results of FYKOS
+            {/switch}
+        </h1>
+        <p>Zde najdete výsledkovou listinu aktuálního ročníku Fyzikálního korespondenčního semináře.</p>
+        
+        <p>Ze základu se zobrazuje suma výsledků za každou sérii. Kliknutím na nadpis série zobrazíte počty bodů za jednotlivé úlohy dané série.</p>
+        <div id="contest-results" data-data="{json_encode($results)}"></div>
+    </section>
+</div>
+{/block}

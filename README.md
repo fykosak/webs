@@ -78,7 +78,6 @@ These domains need to be configured in `app/config/config.*.local.neon` under `p
 1. Run `composer install` to install php dependencies.
 2. Run `npm install` to install javascript dependencies and build tools.
 3. Run `npm run build` to compile css and js files.
-4. Run `npm run compile_translation`.
 
 You can use `npm run dev` to automatically rebuild files when they are changed.
 
@@ -87,7 +86,7 @@ You can use `npm run dev` to automatically rebuild files when they are changed.
 Installing Prerequisites
 1. open wsl
 2. if not installed, install `apache2` (`sudo apt install apache2`)
-3. if not installed, install `php8.1` (`sudo apt install php8.1`)
+3. if not installed, install `php8.1` (`sudo apt install php8.1`, you might also need `php8.1-dom` and `php8.1-soap`)
 4. if not installed, install `mysql` (google how to do that - e.g. via `sudo apt install mysql-server`)
 5. if not installed, install `composer` (google how to do that - sudo apt install composer does not work as of July 2022)
 6. if not installed, install `node`, version at least 16. Alternatively, install nvm and then `nvm use 16`
