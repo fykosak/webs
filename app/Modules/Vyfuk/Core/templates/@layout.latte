@@ -21,9 +21,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/f424cd1bbe.js" crossorigin="anonymous"></script>
     {block head}{/block}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/f424cd1bbe.js" crossorigin="anonymous"></script>
     <script src="{asset 'assets/main.js'}"></script>
     {block scripts}{/block}
 </head>
@@ -43,26 +43,9 @@
             </div>
         {/block}
     </main>
+    {*TODO vizuální oddělení main a footer*}
+    <hr style="height: 20px; margin: 0px; color: #ff4800; background-color: #ff4800; opacity: 100%">
     <footer>
-        <div class="panel registration">
-            <div class="inner-container">
-                <div class="text">
-                    Chcete vědět více?
-                </div>
-                <div style="btn-container">
-                    <a class="btn btn-outline m-2">{* n:href=":Events:Fykos:default">*}
-                        O&nbsp;nás
-                    </a>
-                    <a class="btn btn-outline m-2">{* n:href=":Events:Fykos:default">*}
-                        Akce
-                    </a>
-                    <a class="btn btn-outline m-2">{* n:href=":Events:Fykos:default">*}
-                        Seminář
-                    </a>
-                </div>
-            </div>
-        </div>
-
         <div class="panel sponsors">
             <div class="inner-container">
                 <div class="category">
@@ -99,14 +82,72 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="panel footer">
             <div class="inner-container row">
                 <div class="col-md-6">
-                    <div class="logo" style="font-size: 1cm; font-weight: bold">vyfuk<small>.org</small></div>
+                    <div class="logo" style="font-size: 1cm; font-weight: bold"><img class="logo" style="margin-right: 1rem; margin-bottom: 0rem" src="{$basePath}/images/logo.svg" alt="Výfuk" />vyfuk<small>.org</small></div>
                     <p>
-                        Vyfuk
+                        Korespondenční seminář Výfuk je organizován studenty a přáteli <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
+                        Je zastřešen Oddělením propagace a mediální komunikace MFF UK a podporován Katedrou didaktiky
+                        fyziky MFF UK, jejími zaměstnanci a Jednotou českých matematiků a fyziků.
                     </p>
+                    <p>
+                        Realizace projektu byla podpořena Ministerstvem školství, mládeže a tělovýchovy.
+                    </p>
+                    <p>
+                        <strong>#vyfuk</strong> <a href="mailto:vyfuk@vyfuk.org">vyfuk@vyfuk.org</a>
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <nav>
+                        <ul>
+                            <li>Pro účastníky a učitele
+                                <ul>
+                                    <li><a n:href=":Default:About:default">O Nás</a></li>
+                                    <li><a n:href=":Default:Rules:default">Pravidla</a></li>
+                                    <li><a n:href=":default">Jak se zapojit</li>
+                                    <li><a n:href=":Default:Teachers:default">Pro učitele</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul>
+                            <li>Pro sponzory
+                                <ul>
+                                    <li><a n:href=":Default:Sponsors:default">Podpořte nás</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-md-3" style="position: relative">
+                    <nav>
+                        <ul>
+                            <li>Sledujte nás
+                                <ul>
+                                    <li>
+                                    <a style="margin-right: 1.5rem" href="https://www.instagram.com/ksvyfuk/">
+                                            <i class="fab fa-instagram fa-2x"></i>
+                                        </a>
+                                        <a style="margin-right: 1.5rem" href="https://vyfuk.org/discord">
+                                            <i class="fab fa-discord fa-2x"></i>
+                                        </a>
+                                        <a style="margin-right: 1.5rem;" href="https://facebook.com/ksvyfuk">
+                                            <i class="fab fa-facebook-f fa-2x"></i>
+                                        </a>
+                                        <a style="margin-right: 1.5rem" href="https://www.youtube.com/channel/UCUBv3Ydd-laLSY5DMimoE7w">
+                                            <i class="fab fa-youtube fa-2x"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a href="#top"style="position: absolute; bottom: 0; right: 0;"><i class="fas fa-arrow-up"></i></a>
                 </div>
             </div>
         </div>
