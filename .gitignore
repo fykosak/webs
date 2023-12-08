@@ -1,5 +1,5 @@
 /nbproject/
-app/config/config.*.local.neon
+app/config/local/*
 www/*/adminer/.htaccess
 vendor/*
 log/*

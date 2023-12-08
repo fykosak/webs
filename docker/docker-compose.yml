@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  webs:
+    image: webs
+    build:
+      context: . # path to docker dir in game-fyziklani
+    restart: on-failure:3
+    environment:
+      TZ: 'Europe/Prague'
+      NETTE_DEVEL: '1' # Nette log level, 1 to enable
+      MODE: 'dev' # dev/prod; prod default
+    volumes:
+      - ..:/var/www/html # path to webs repository
+      - ./apache.conf:/etc/apache2/sites-available/000-default.conf # site config
+    #  - ./conf/php.ini:/usr/local/etc/php/php-local.ini # custom php config
+    #  - ./conf/apache-dev.conf:/etc/apache2/conf-enabled/apache-local.conf # custom apache config
+    ports:
+      - 8080-8084:8080-8084 # opened ports mapping, not needed with proxy
+    user: 1000:1000 # expects the main user with uid:pid 1000:1000
+    extra_hosts:
+      - "vyfuk.local:127.0.1.1"
+      - "fykos.local:127.0.1.1"
+      - "fol.local:127.0.1.1"
+      - "fof.local:127.0.1.1"
+      - "dsef.local:127.0.1.1"
