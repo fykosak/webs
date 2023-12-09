@@ -21,7 +21,21 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                 new NavItem(new PageTitle(null, 'Co je Výfuk?'), ':Default:About:default'),
                 new NavItem(new PageTitle(null, 'Historie'), ':Default:About:History'),
                 new NavItem(new PageTitle(null, 'Organizátoři'), ':Default:About:Organizers'),
+                new NavItem(new PageTitle(null, 'Podpořte nás'), ':Default:About:Sponsors'),
                 new NavItem(new PageTitle(null, 'Kontakt'), ':Default:About:Contact'),
+            ],
+        );
+
+        $items[] = new NavItem(
+            new PageTitle(null, 'TODO název'), //TODO název sekce
+            ':default',
+            [],
+            [
+                new NavItem(new PageTitle(null, 'Pravidla'), ':Default:Section:Rules'),
+                new NavItem(new PageTitle(null, 'Jak se zapojit'), ':default'), //TODO
+                new NavItem(new PageTitle(null, 'Pro učitele'), ':Default:Section:Teachers'),
+                new NavItem(new PageTitle(null, 'Jak psát řešení'), ':default'), //TODO
+                new NavItem(new PageTitle(null, 'Rady a tipy'), ':default'),
             ],
         );
 
@@ -46,8 +60,13 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Archiv úloh'),
-            ':Default:Archive:default'
+            new PageTitle(null, 'Archiv'),
+            ':default',
+            [],
+            [
+                new NavItem(new PageTitle(null, 'Úlohy'), ':default'), //TODO
+                new NavItem(new PageTitle(null, 'Výfučtení'), ':default'), //TODO
+            ],
         );
 
         $items[] = new NavItem(
