@@ -211,6 +211,15 @@ class RouterFactory
 
     public static function createVyfukRouter(?array $domainList, array $routerMapping): Router
     {
-        return self::createFykosRouter($domainList, $routerMapping);
+        $router = new RouteList();
+
+        $router->withModule('Default')
+            ->addRoute('//<domain>/<presenter>[/<action>]', [
+                'presenter' => 'Default',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
+        return $router;
     }
 }

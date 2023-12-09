@@ -54,8 +54,9 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             ':default',
             [],
             [
-                new NavItem(new PageTitle(null, 'Tábor'), ':default'), //TODO
-                new NavItem(new PageTitle(null, 'Setkání'), ':default'), //TODO
+                new NavItem(new PageTitle(null, 'Akce'), ':Default:Events:default'), //TODO uspořádání odkazů
+                new NavItem(new PageTitle(null, 'Tábor'), ':Default:Events:camp'),
+                new NavItem(new PageTitle(null, 'Setkání'), ':Default:Events:meeting'),
             ],
         );
 
@@ -64,8 +65,8 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             ':default',
             [],
             [
-                new NavItem(new PageTitle(null, 'Úlohy'), ':default'), //TODO
-                new NavItem(new PageTitle(null, 'Výfučtení'), ':default'), //TODO
+                new NavItem(new PageTitle(null, 'Úlohy'), ':Default:Archive:default'),
+                new NavItem(new PageTitle(null, 'Výfučtení'), ':Default:Archive:serials'),
             ],
         );
 
