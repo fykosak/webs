@@ -1,0 +1,9 @@
+parameters:
+    router-mapping:
+        default:
+            cs:
+                ONas: About
+                Zadani: Problems
+                Poradi: Results
+                Akce: Events
+                Archiv: Archive
