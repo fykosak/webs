@@ -36,8 +36,10 @@ class CampsPresenter extends BasePresenter
         $content = $doc->getElementById('dokuwiki__content');
 
         // Display the extracted part
-        $doc->saveHTML($content);
+        $htmlContent = $doc->saveHTML($content);
 
-        $this->template->oldContent = $content;
+        $this->template->oldContent = $htmlContent;
+
+        
     }
 }

@@ -12,6 +12,8 @@ use Fykosak\Utils\UI\PageTitle;
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
 
+    protected int $currentFYKOSYear = 37; // TODO: get from db
+
     protected function getNavItems(): array
     {
         $items = [];
