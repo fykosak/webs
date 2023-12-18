@@ -2,8 +2,6 @@
   "scripts": {
     "build": "webpack --mode=\"production\"",
     "dev": "webpack --watch --mode=\"development\"",
-    "watch-dev": "webpack --watch --mode=\"development\"",
-    "watch-prod": "webpack --watch --mode=\"production\"",
     "clear_latte_cache": "rm -r temp/cache/latte"
   },
   "devDependencies": {

@@ -20,10 +20,15 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN EXTENSIONS="gettext soap opcache" \
 	&& docker-php-ext-install $EXTENSIONS \
 	&& docker-php-ext-enable $EXTENSIONS
-RUN a2enmod rewrite proxy proxy_http 
+RUN a2enmod rewrite proxy proxy_http
+
+# expose ports for all webs
+EXPOSE 80
+EXPOSE 8080
+EXPOSE 8081
+EXPOSE 8082
+EXPOSE 8083
+EXPOSE 8084
 
 ENV MODE=prod
 ENV NETTE_DEVEL=0
-
-COPY ./entrypoint.sh /
-CMD /entrypoint.sh

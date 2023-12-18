@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  webs:
+    image: ghcr.io/fykosak/webs:dev-docker
+    container_name: webs
+    restart: on-failure:3
+    environment:
+      TZ: 'Europe/Prague'
+    volumes:
+      - ..:/var/www/html # path to webs repository
+      - ./config/apache.conf:/etc/apache2/sites-available/000-default.conf # site config
+      - ./config/local/:/var/www/html/app/config/local
+      - ./temp/:/var/www/html/temp/
+      - ./log/:/var/www/html/log/
+    ports:
+      - 8080-8084:8080-8084 # opened ports mapping, not needed with proxy
+    user: 1000:1000 # expects the main user with uid:pid 1000:1000
+    extra_hosts:
+      - "vyfuk.local:127.0.1.1"
+      - "fykos.local:127.0.1.1"
+      - "fol.local:127.0.1.1"
+      - "fof.local:127.0.1.1"
+      - "dsef.local:127.0.1.1"
