@@ -98,7 +98,6 @@ class RouterFactory
                 }
 
                 // Either set the language in the domain, or in lang parameter
-
                 if (isset($domainList) && count($domainList)) {
                     $params['domain'] = array_search($params['lang'], $domainList);
                     if ($params['domain'] === false) {
