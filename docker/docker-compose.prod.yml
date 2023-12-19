@@ -14,9 +14,9 @@ services:
       - ./temp/:/var/www/html/temp/
       - ./log/:/var/www/html/log/
       # photos
-      - ./photos/dsef/:/www/html/www/dsef/photos/
-      - ./photos/fof/:/www/html/www/fof/photos/
-      - ./photos/fol/:/www/html/www/fol/photos/
-      - ./photos/fykos/:/www/html/www/fykos/photos/
-      - ./photos/vyfuk/:/www/html/www/vyfuk/photos/
+      - ./photos/dsef/:/var/www/html/www/dsef/photos/
+      - ./photos/fof/:/var/www/html/www/fof/photos/
+      - ./photos/fol/:/var/www/html/www/fol/photos/
+      - ./photos/fykos/:/var/www/html/www/fykos/photos/
+      - ./photos/vyfuk/:/var/www/html/www/vyfuk/photos/
     user: 1000:1000 # expects the main user with uid:pid
