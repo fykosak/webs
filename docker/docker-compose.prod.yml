@@ -8,11 +8,15 @@ services:
     environment:
       TZ: 'Europe/Prague'
     volumes:
-      - ..:/var/www/html # path to webs repository
+      - ./webs/:/var/www/html # path to webs repository
       - ./config/apache.conf:/etc/apache2/sites-available/000-default.conf # site config
       - ./config/local/:/var/www/html/app/config/local
       - ./temp/:/var/www/html/temp/
       - ./log/:/var/www/html/log/
-    ports:
-      - 8080-8084:8080-8084 # opened ports mapping, not needed with proxy
+      # photos
+      - ./photos/dsef/:/www/html/www/dsef/photos/
+      - ./photos/fof/:/www/html/www/fof/photos/
+      - ./photos/fol/:/www/html/www/fol/photos/
+      - ./photos/fykos/:/www/html/www/fykos/photos/
+      - ./photos/vyfuk/:/www/html/www/vyfuk/photos/
     user: 1000:1000 # expects the main user with uid:pid
