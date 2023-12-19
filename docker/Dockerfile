@@ -3,6 +3,9 @@ FROM php:8.1-apache
 # install needed packages
 RUN apt update && apt install -y \
 	gettext \
+	libfreetype-dev \
+	libjpeg62-turbo-dev \
+	libpng-dev \
 	libxml2-dev \
 	locales \
 	npm \
@@ -17,7 +20,8 @@ RUN echo 'cs_CZ.UTF-8 UTF-8' >> /etc/locale.gen && \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # install apache EXTENSIONS
-RUN EXTENSIONS="gettext soap opcache" \
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+RUN EXTENSIONS="gettext soap opcache gd" \
 	&& docker-php-ext-install $EXTENSIONS \
 	&& docker-php-ext-enable $EXTENSIONS
 RUN a2enmod rewrite proxy proxy_http
