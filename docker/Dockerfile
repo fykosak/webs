@@ -1,8 +1,5 @@
 FROM php:8.1-apache
 
-# install recommended config
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
-
 # install needed packages
 RUN apt update && apt install -y \
 	gettext \
@@ -29,13 +26,13 @@ RUN EXTENSIONS="gettext soap opcache gd" \
 	&& docker-php-ext-enable $EXTENSIONS
 RUN a2enmod rewrite proxy proxy_http
 
-# expose ports for all webs
+# install recommended config
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
+COPY ./entrypoint.sh /
+CMD /entrypoint.sh
+
 EXPOSE 80
-EXPOSE 8080
-EXPOSE 8081
-EXPOSE 8082
-EXPOSE 8083
-EXPOSE 8084
 
 ENV MODE=prod
 ENV NETTE_DEVEL=0
