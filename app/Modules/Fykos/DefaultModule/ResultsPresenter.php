@@ -7,14 +7,13 @@ namespace App\Modules\Fykos\DefaultModule;
 use App\Models\Downloader\FKSDBDownloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 
-
 class ResultsPresenter extends BasePresenter
 {
 
     private FKSDBDownloader $downloader;
 
     private int $FYKOSYear = 36; // TODO: get from URL
-    
+
     public function injectDownloader(FKSDBDownloader $downloader): void
     {
         $this->downloader = $downloader;
@@ -24,8 +23,7 @@ class ResultsPresenter extends BasePresenter
     {
         if ($year !== null) {
             $this->FYKOSYear = $year;
-        }
-        else {
+        } else {
             $this->FYKOSYear = $this->currentFYKOSYear;
         }
     }
@@ -37,8 +35,7 @@ class ResultsPresenter extends BasePresenter
     {
         $this->template->FYKOSYear = $this->FYKOSYear;
         $this->template->currentFYKOSYear = $this->currentFYKOSYear;
-        
+
         $this->template->results = json_decode($this->downloader->download(new SeriesResultsRequest(1, $this->FYKOSYear, 1)), true);
-        
     }
 }
