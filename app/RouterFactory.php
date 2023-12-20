@@ -212,7 +212,6 @@ class RouterFactory
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
 
-        
         return $router;
     }
 
