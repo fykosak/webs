@@ -12,6 +12,8 @@ use Fykosak\Utils\UI\PageTitle;
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
 
+    protected int $currentFYKOSYear = 37; // TODO: get from db
+
     protected function getNavItems(): array
     {
         $items = [];
@@ -40,8 +42,8 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             [
                 new NavItem(new PageTitle(null, 'Základní informace'), ':Events:Fykos:'),
                 new NavItem(new PageTitle(null, 'Pravidla'), ':Events:Fykos:Rules'),
-                new NavItem(new PageTitle(null, 'Jak na experimenty'), ':Events:Fykos:Experiments'),
-                new NavItem(new PageTitle(null, 'Jak psát řešení'), ':Events:Fykos:TexTutorial')
+                new NavItem(new PageTitle(null, 'Jak psát řešení'), ':Events:Fykos:TexTutorial'),
+                new NavItem(new PageTitle(null, 'Jak na experimenty'), ':Events:Fykos:Experiments')
             ],
         );
 
