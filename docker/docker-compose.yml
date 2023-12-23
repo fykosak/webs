@@ -13,8 +13,8 @@ services:
       MODE: 'dev' # dev/prod; prod default
     volumes:
       - ..:/var/www/html # path to webs repository
-      - ./apache.conf:/etc/apache2/sites-available/000-default.conf # site config
-      - ./php.ini:/usr/local/etc/php/php-local.ini # site config
+      - ./config/apache.conf:/etc/apache2/sites-available/000-default.conf # site config
+      - ./config/php.ini:/usr/local/etc/php/php-local.ini # site config
     ports:
       - 8080-8084:8080-8084 # opened ports mapping, not needed with proxy
     user: 1000:1000 # expects the main user with uid:pid

@@ -36,3 +36,4 @@ EXPOSE 80
 
 ENV MODE=prod
 ENV NETTE_DEVEL=0
+ENV npm_config_cache=/var/www/html/temp/cache/npm
