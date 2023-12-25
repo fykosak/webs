@@ -7,6 +7,7 @@ if [ ! -d $LOCAL ]; then
     mkdir $LOCAL
 fi
 
+# check neon configs existance and if not found, create it
 WEBS="dsef fof fol fykos vyfuk"
 for web in $WEBS; do
     if [ ! -f $LOCAL/$web.neon ]; then

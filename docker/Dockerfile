@@ -29,6 +29,7 @@ RUN a2enmod rewrite proxy proxy_http
 # install recommended config
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
+# copy and execute entrypoint
 COPY ./entrypoint.sh /
 CMD /entrypoint.sh
 
