@@ -18,20 +18,20 @@ class ProblemsPresenter extends BasePresenter
         $data2 = json_decode($fileContents2, true);
         $data = [$data1, $data2];
         $series = [
-            "number" => 1,
-            "year" => 37,
-            "deadline" => new DateTime("2023-11-25 23:59:59"),
+            'number' => 1,
+            'year' => 37,
+            'deadline' => new DateTime('2023-11-25 23:59:59'),
         ];
 
         $this->template->problemIcons = [
-            1 => "fas fa-smile",
-            2 => "fas fa-smile",
-            3 => "fas fa-brain",
-            4 => "fas fa-brain",
-            5 => "fas fa-brain",
-            6 => "fas fa-lightbulb",
-            7 => "fas fa-flask",
-            8 => "fas fa-book"
+            1 => 'fas fa-smile',
+            2 => 'fas fa-smile',
+            3 => 'fas fa-brain',
+            4 => 'fas fa-brain',
+            5 => 'fas fa-brain',
+            6 => 'fas fa-lightbulb',
+            7 => 'fas fa-flask',
+            8 => 'fas fa-book'
         ];
         $this->template->series = $series;
         $this->template->problems = $data;

@@ -6,7 +6,6 @@ namespace App\Modules\Fykos\DefaultModule;
 
 use App\Models\Downloader\FKSDBDownloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
-use Tracy\Debugger;
 
 final class AboutPresenter extends BasePresenter
 {
@@ -47,14 +46,6 @@ final class AboutPresenter extends BasePresenter
         return [];
     }
 
-    public function isCurrentOrganizer(array $organizer): bool
-    {
-        if ($organizer['until'] == null or $organizer['until'] == $this->currentFYKOSYear) {
-            return true;
-        }
-        return false;
-    }
-
     public function renderDefault(): void
     {
         $this->template->currentFYKOSYear = $this->currentFYKOSYear;
@@ -66,7 +57,11 @@ final class AboutPresenter extends BasePresenter
         $currentOrganizers = [];
 
         if ($allOrganizers !== []) {
-            $currentOrganizers = array_filter($allOrganizers, array($this, "isCurrentOrganizer"));
+            $currentOrganizers = array_filter(
+                $allOrganizers,
+                fn(array $organizer): bool => $organizer['until'] == null
+                    || $organizer['until'] == $this->currentFYKOSYear
+            );
 
             // sort by order
             usort($currentOrganizers, function ($a, $b) {
