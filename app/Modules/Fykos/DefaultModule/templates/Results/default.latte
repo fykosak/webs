@@ -1,14 +1,17 @@
+{varType int $year}
+{varType int $currentYear}
+{varType string $lang}
 {block title}Výsledky FYKOSu{/block}
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
         <h1>{switch $lang}
-            {case 'cs'}Výsledky {$FYKOSYear}. ročníku FYKOSu
-            {default}Results of FYKOS Year {$FYKOSYear}
+            {case 'cs'}Výsledky {$year}. ročníku FYKOSu
+            {default}Results of FYKOS Year {$year}
             {/switch}
         </h1>
 
-        <p>Zde najdete výsledkovou listinu {$FYKOSYear}. ročníku Fyzikálního korespondenčního semináře.</p>
+        <p>Zde najdete výsledkovou listinu {$year}. ročníku Fyzikálního korespondenčního semináře.</p>
 
         <button class="btn btn-primary-inverted button-collapse-header mb-3" type="button" data-bs-toggle="collapse"
         data-bs-target="#resultFilters" aria-expanded="false" aria-controls="resultFilters">
@@ -21,7 +24,7 @@
 
         <!-- The collapsible content -->
         <div class="collapse toggle-content px-3" id="resultFilters">
-            {for $year = $currentFYKOSYear; $year >= 1; $year--}
+            {for $year = $currentYear; $year >= 1; $year--}
                 <a class="btn btn-primary m-2" href="{plink 'this' 'year'=>$year}">{$year}</a>
             {/for}
         </div>

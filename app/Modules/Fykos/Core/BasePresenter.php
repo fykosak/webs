@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\Core;
 
-use App\Models\OldFykos\BootstrapNavBar;
 use App\Models\OldFykos\Jumbotron;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
-
-    protected int $currentFYKOSYear = 37; // TODO: get from db
+    public const CURRENT_YEAR = 37; // TODO: get from db
 
     protected function getNavItems(): array
     {
@@ -77,6 +75,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     protected function beforeRender(): void
     {
         parent::beforeRender();
+        $this->template->currentYear = self::CURRENT_YEAR;
         $this->template->jumbotron = $this->includeJumbotron();
     }
 
