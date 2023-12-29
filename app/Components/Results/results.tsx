@@ -107,7 +107,7 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                             Rank
                             {sortColumn === 'Rank' && (
                                 <span style={{ color: 'black' }}>
-                                    {sortDirection === 'asc' ?  '↓' : '↑'}
+                                    {sortDirection === 'asc' ? '↓' : '↑'}
                                 </span>
                             )}
                         </a>
@@ -193,9 +193,8 @@ function SeriesResults({
         }
         const isFirstSeries = index === 0;
         const isLastSeries = index === tasks.length - 1;
-        const classNames = `centered-cell ${isFirstSeries ? 'border-left' : ''} ${
-            isLastSeries ? 'border-right' : ''
-        }`;
+        const classNames = `centered-cell ${isFirstSeries ? 'border-left' : ''} ${isLastSeries ? 'border-right' : ''
+            }`;
         return (
             <td data-series={series} key={task.label} data-label={task.label} className={classNames}>
                 {badge}
@@ -228,9 +227,15 @@ function Results({ resultsData }: Props) {
             ...prevActiveCategories,
             [category]: !prevActiveCategories[category],
         }));
-    };
+    });
 
-    const categoryContainers = Object.keys(resultsData.submits).map((category) => {
+    const sortedCategories = Object.keys(resultsData.submits).sort((a, b) => {
+        const categoryNumberA = parseInt(a.slice(-1), 10);
+        const categoryNumberB = parseInt(b.slice(-1), 10);
+        return categoryNumberB - categoryNumberA;
+    });
+
+    const categoryContainers = sortedCategories.map((category) => {
         const categoryNumber = category.slice(-1);
         return (
             <div>
