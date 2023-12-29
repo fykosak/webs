@@ -10,10 +10,8 @@ use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 class ResultsPresenter extends BasePresenter
 {
     /** @persistent */
-    public ?int $year = self::CURRENT;
+    public ?int $year = self::CURRENT_YEAR;
     private FKSDBDownloader $downloader;
-
-    private const CURRENT = 37;
 
     public function injectDownloader(FKSDBDownloader $downloader): void
     {
@@ -25,10 +23,8 @@ class ResultsPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $year = $this->year ?? self::CURRENT;
-        $this->template->FYKOSYear = $year;
-        $this->template->currentFYKOSYear = $this->currentFYKOSYear;
-
+        $year = $this->year ?? self::CURRENT_YEAR;
+        $this->template->year = $year;
         $this->template->results = json_decode(
             $this->downloader->download(new SeriesResultsRequest(1, $year, 1)),
             true

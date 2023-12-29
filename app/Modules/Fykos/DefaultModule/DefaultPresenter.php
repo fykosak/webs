@@ -8,7 +8,6 @@ class DefaultPresenter extends BasePresenter
 {
     public function renderDefault(): void
     {
-        $this->template->currentFYKOSYear = $this->currentFYKOSYear;
 
         $this->template->events = [
             "previous" => [

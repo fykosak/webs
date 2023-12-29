@@ -46,11 +46,6 @@ final class AboutPresenter extends BasePresenter
         return [];
     }
 
-    public function renderDefault(): void
-    {
-        $this->template->currentFYKOSYear = $this->currentFYKOSYear;
-    }
-
     public function renderOrganizers(): void
     {
         $allOrganizers = $this->parseOrganizers();
@@ -60,7 +55,7 @@ final class AboutPresenter extends BasePresenter
             $currentOrganizers = array_filter(
                 $allOrganizers,
                 fn(array $organizer): bool => $organizer['until'] == null
-                    || $organizer['until'] == $this->currentFYKOSYear
+                    || $organizer['until'] == self::CURRENT_YEAR
             );
 
             // sort by order
@@ -96,10 +91,5 @@ final class AboutPresenter extends BasePresenter
             });
         }
         $this->template->allOrganizers = $allOrganizers;
-    }
-
-    public function renderHistory(): void
-    {
-        $this->template->currentFYKOSYear = $this->currentFYKOSYear;
     }
 }
