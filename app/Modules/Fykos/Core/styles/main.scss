@@ -20,6 +20,8 @@ $naboj-color: #C22D86;
   --task-color-P: #F47A69;
   --task-color-E: #F08BAA;
   --task-color-S: #F5BF69;
+  --panel-color-dark: #f5f5f5;
+  --panel-color-light: white;
 }
 
 $page-width: 77rem;
@@ -69,7 +71,8 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 
 @import "./layout";
 @import "./titlepage";
-@import "./organizers";
+@import "./about";
 @import "./problems";
 @import "./events";
+@import "./results";
 // @import "./navigation"; // use the one from FOL and FOF
