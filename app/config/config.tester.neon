@@ -2,5 +2,5 @@ parameters:
     fksdbDownloader:
         login: ''
         password: ''
-        url: http://127.0.0.1:8082/
+        url: http://127.0.0.1:8090/
     gameApiURL: ''
