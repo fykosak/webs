@@ -1,0 +1,35 @@
+.event-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: top;
+}
+
+.event-img-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-box {
+    margin: 3rem 0;
+}
+
+.event-text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    text-align: justify;
+}
+
+.event-text-box, .event-img-box {
+    padding: .5rem 0;
+}
+
+@media screen and (min-width: 768px) {
+    .event-text-box {
+        padding-right: 2rem;
+    }
+}

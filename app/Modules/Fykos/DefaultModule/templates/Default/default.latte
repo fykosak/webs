@@ -1,15 +1,13 @@
 {varType string $lang}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 {block title}
-{switch $lang}
-{case 'cs'} Hlavní stránka
-{default} Main page
-{/switch}
+    {switch $lang}
+        {case 'cs'} Hlavní stránka
+        {default} Main page
+    {/switch}
 {/block}
 
 {block main}
-
-
 <div class="panel color-primary title-panel">
     <section class="inner-container">
         <div class="header-container">
@@ -37,12 +35,13 @@
                     </div>
                     <div class="center-content-horizontally-md content-down mt-3 mt-md-0">
                         <div class="header-image-dates">
-                            <h4 class="minor-event-heading">{* Previous: *}Fyziklání Online | 22. 11. 2023</h4>
-                            <h2 class="next-event-heading">{* Upcoming: *}Deadline 3. série | 2. 1. 2024 |
-                                <span id="countdown-primary"></span>
+                            <h4 class="minor-event-heading">{$events['previous']['name']} | {$events['previous']['date-text']}</h4>
+                            <h2 class="next-event-heading">{$events['upcoming']['name']} | {$events['upcoming']['date-text']}
+                                | <span id="countdown-primary"></span>
                             </h2>
-                            <h4 class="minor-event-heading mb-0">{* Previous: *}Fyziklání | 16. 2. 2023 | <span
-                                    id="countdown-secondary"></span></h4>
+                            <h4 class="minor-event-heading mb-0">{$events['next']['name']} | {$events['next']['date-text']}
+                                | <span
+                                        id="countdown-secondary"></span></h4>
                         </div>
                     </div>
                 </div>
