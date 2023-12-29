@@ -394,7 +394,8 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
   }
 
   .today-block {
-    top: calc(50% - $today-block-height / 2 - 1px);
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -412,7 +413,8 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
   }
 
   .today-block {
-    right: calc(50% - $today-block-height / 2);
+    right: 50%;
+    transform: translateX(50%);
   }
 }
 
