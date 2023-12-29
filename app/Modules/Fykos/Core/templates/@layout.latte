@@ -136,6 +136,46 @@
                     <nav>
                         <ul>
                             {switch $lang}
+                                {case cs}
+                                <li>Pro účastníky a učitele
+                                    <ul>
+                                        <li><a n:href=":Default:About:">O nás</a></li>
+                                        <li><a n:href=":Events:Default:">Akce</a></li>
+                                        <li><a n:href=":Events:Fykos:">Seminář</a></li>
+                                    </ul>
+                                </li>
+                                {default}
+                                {* TODO *}
+                            {/switch}
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul>
+                            {switch $lang}
+                                {case cs}
+                                <li>Podpora FYKOSu
+                                    <ul>
+                                        <li><a n:href=":Default:SupportUs:">Jak podpořit FYKOS</a></li>
+                                        <li><a n:href=":Default:Merch:">Merch</a></li>
+                                    </ul>
+                                </li>
+                                {default}
+                                <li>For partners
+                                    <ul>
+                                        <li><a n:href=":Default:Partners:">Support us</a></li>
+{*                                        <li><a href="">Logos and materials</a></li>*}
+{*                                        <li><a href="">Contact</a></li>*}
+                                    </ul>
+                                </li>
+                            {/switch}
+                        </ul>
+                    </nav>
+
+                </div>
+                <div class="col-md-3">
+                    <nav>
+                        <ul>
+                            {switch $lang}
                             {case cs}
                             <li>Sledujte nás
                                 {default}
@@ -149,6 +189,22 @@
                                         <a class="social-sites" href="https://www.instagram.com/fykosak/">
                                             <i class="fa fa-instagram fa-2x"></i>
                                         </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul>
+                            {switch $lang}
+                            {case cs}
+                            <li>Kontakt
+                                {default}
+                            <li>Contact
+                                {/switch}
+                                <ul>
+                                    <li>
+                                        <a n:href=":Default:Contact:">Kontaktní informace</a>
                                     </li>
                                 </ul>
                             </li>
