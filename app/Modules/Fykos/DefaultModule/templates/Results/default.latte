@@ -25,19 +25,19 @@
 
             <!-- The collapsible content -->
             <div class="collapse toggle-content inverse-background p-3" id="resultFilters">
-                {for $year = $currentFYKOSYear; $year >= 1; $year--}
-                    {if $year % 10 == 0}
+                {for $y = $year; $y >= 1; $y--}
+                    {if $y % 10 == 0}
                         <div class="row">
-                    {elseif $year == $currentFYKOSYear}
+                    {elseif $y == $year}
                         <div class="row">
-                        {for $i = 0; $i < 10 - $currentFYKOSYear % 10; $i++}
+                        {for $i = 0; $i < 10 - $year % 10; $i++}
                             <div class="col"></div>
                         {/for}
                     {/if}
                     <div class="col">
-                        <a class="btn btn-primary m-2 yearbox" href="{plink 'this' 'year'=>$year}">{$year}</a>
+                        <a class="btn btn-primary m-2 yearbox" href="{plink 'this' 'year'=>$y}">{$y}</a>
                     </div>
-                    {if $year % 10 == 1}
+                    {if $y % 10 == 1}
                         </div>
                     {/if}
                 {/for}
