@@ -101,7 +101,12 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                 s{series} <br></br> {active ? <span className="inactive-arrow"><>&#8594;</></span> : <span className="inactive-arrow"><>&#8592;</></span>}
             </th>
         );
-    }
+    };
+    head.push(
+        <th className="centered-cell">
+            Total
+        </th>
+    )
 
     return (
         <table className="table table-hover contest-results table-sm">
@@ -170,6 +175,8 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                             <td>{contestant.contestant.name}</td>
                             <td>{contestant.contestant.school}</td>
                             {seriesContainers}
+                            <td className="centered-cell">
+                                <strong>{contestant.sum}</strong></td>
                         </tr>
                     );
                 })}
