@@ -113,7 +113,7 @@
   background-color: var(--panel-color-light);
 }
 
-.clickable-header:hover {
+.clickable-header:hover, .hovered {
   background-color: var(--panel-color-dark);
 
   .inactive-arrow {

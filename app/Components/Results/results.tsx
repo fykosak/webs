@@ -38,7 +38,7 @@ interface Props<Category extends string = string> {
 
 function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks }) {
     const [activeSeries, setActiveSeries] = useState<{ [key: string]: boolean }>({});
-    const [sortColumn, setSortColumn] = useState<string | null>('Rank');
+    const [sortColumn, setSortColumn] = useState<string | null>('Category Rank');
     const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
     const toggleSort = (column: string) => {
@@ -60,7 +60,7 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                     return sortDirection === 'asc' ? lastNameA.localeCompare(lastNameB) : lastNameB.localeCompare(lastNameA);
                 } else if (sortColumn === 'School') {
                     return sortDirection === 'asc' ? a.contestant.school.localeCompare(b.contestant.school) : b.contestant.school.localeCompare(a.contestant.school);
-                } else if (sortColumn === 'Rank') {
+                } else if (sortColumn === 'Category Rank') {
                     return sortDirection === 'asc' ? a.rank[0] - b.rank[0] : b.rank[0] - a.rank[0];
                 }
                 return 0;
@@ -102,27 +102,42 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
             </th>
         );
     };
-    head.push(
-        <th className="centered-cell">
-            Total
-        </th>
-    )
+    // head.push(
+    //     <th className="centered-cell">
+    //         Total<br/>Points
+    //     </th>
+    // )
+
+    const [hoveredColumn, setHoveredColumn] = useState(null);
+
+    const handleMouseEnter = (columnName: string) => {
+        setHoveredColumn(columnName);
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredColumn(null);
+    };
 
     return (
         <table className="table table-hover contest-results table-sm">
             <thead>
                 <tr>
-                    <th className="centered-cell clickable-header" onClick={() => toggleSort('Rank')}>
-                            Rank
-                            {sortColumn === 'Rank' ? (
-                                <span style={{ color: 'black' }}>
-                                    {sortDirection === 'asc' ? '↓' : '↑'}
-                                </span>
-                            ) : (
-                                <span className="inactive-arrow">
-                                    ↓
-                                </span>
-                            )}
+                    <th
+                        className={`centered-cell clickable-header ${hoveredColumn === 'Category Rank' || hoveredColumn === 'Total Points' ? 'hovered' : ''}`}
+                        onClick={() => toggleSort('Category Rank')}
+                        onMouseEnter={() => handleMouseEnter('Total Points')}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        Category<br />Rank
+                        {sortColumn === 'Category Rank' ? (
+                            <span style={{ color: 'black' }}>
+                                {sortDirection === 'asc' ? '↓' : '↑'}
+                            </span>
+                        ) : (
+                            <span className="inactive-arrow">
+                                ↓
+                            </span>
+                        )}
                     </th>
                     <th className="centered-cell clickable-header" onClick={() => toggleSort('Name')}>
                         Name
@@ -152,6 +167,23 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                         )}
                     </th>
                     {head}
+                    <th 
+                        className={`centered-cell clickable-header ${hoveredColumn === 'Category Rank' || hoveredColumn === 'Total Points' ? 'hovered' : ''}`}
+                        onClick={() => toggleSort('Category Rank')}
+                        onMouseEnter={() => handleMouseEnter('Category Rank')}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        Total<br />Points
+                        {sortColumn === 'Category Rank' ? (
+                            <span style={{ color: 'black' }}>
+                                {sortDirection === 'asc' ? '↓' : '↑'}
+                            </span>
+                        ) : (
+                            <span className="inactive-arrow">
+                                ↓
+                            </span>
+                        )}
+                    </th>
                 </tr>
             </thead>
             <tbody>
