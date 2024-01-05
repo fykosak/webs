@@ -1,6 +1,0 @@
-config/app/*
-!config/app/.gitkeep
-log/*
-!log/.gitkeep
-temp/*
-!temp/.gitkeep
