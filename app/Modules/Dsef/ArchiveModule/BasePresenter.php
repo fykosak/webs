@@ -42,7 +42,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
                 $year = $this->eventYear;
                 $month = $this->eventMonth;
                 $events = $this->serviceEvent->getEventsByYear(
-                    [$this->context->getParameters()["eventTypeId"]],
+                    [$this->context->getParameters()['eventTypeId']],
                     intval($year)
                 );
                 $events = array_filter($events, function ($event) use ($month) {
@@ -54,7 +54,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
             }
 
             if (!isset($event)) {
-                throw new BadRequestException(_('Event not found'), IResponse::S404_NOT_FOUND);
+                throw new BadRequestException($this->csen('Akce nenalezena', 'Event not found'), IResponse::S404_NOT_FOUND);
             }
             $this->event = $event;
         }
@@ -99,20 +99,20 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
         $items = [];
         if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
-                new PageTitle(null, "Registrace", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(null, 'Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Registration:',
             );
         }
 
         if (CurrentPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
-                new PageTitle(null, "Aktuální ročník", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(null, 'Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Current:',
             );
         }
 
         $items[] = new NavItem(
-            new PageTitle(null, "Archiv", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, 'Archiv', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Archive:default',
         );
         return $items;

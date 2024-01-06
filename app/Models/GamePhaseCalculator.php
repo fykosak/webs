@@ -91,7 +91,7 @@ class GamePhaseCalculator
         return $this->checkEvent(
             $period,
             $this->getGameBegin(),
-            $this->getGameBegin()->add(new \DateInterval("PT3H")),
+            $this->getGameBegin()->add(new \DateInterval('PT3H')),
         );
     }
 
@@ -124,10 +124,10 @@ class GamePhaseCalculator
     }
 
     /**
-     * Returns true about a week after the competition when no one is interested in game already.
+     * Returns true about a week after the event when no one is interested in game already.
      * @throws Throwable
      */
-    public function isLongAfterTheGame(): bool
+    public function isLongAfterTheEvent(): bool
     {
         $event = (new \DateTime())->setTimestamp($this->getFKSDBEvent()->end->getTimestamp())
             ->add(new \DateInterval('P7D'));
@@ -155,9 +155,9 @@ class GamePhaseCalculator
     public function getFKSDBEvent(): ?ModelEvent
     {
         static $fksdbEvent;
-        if (!isset($fksdbEvent)) {
-            $fksdbEvent = $this->serviceEventList->getNewest([$this->eventTypeId]);
+        if (!isset($fksdbEvent[$this->eventTypeId])) {
+            $fksdbEvent[$this->eventTypeId] = $this->serviceEventList->getNewest([$this->eventTypeId]);
         }
-        return $fksdbEvent;
+        return $fksdbEvent[$this->eventTypeId];
     }
 }

@@ -1,0 +1,79 @@
+{block title}Soustředění{/block}
+{block main}
+
+{* <div class="panel color-auto">
+    <section class="inner-container">
+        {$oldContent|noescape}
+    </section>
+</div> *}
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <!-- <div class="subheader">Základní informace</div> -->
+        <h1>Soustředění FYKOSu</h1>
+        <p>
+            Organizátoři FYKOSu pořádají dvakrát do roka, na jaře a na podzim, tradiční soustředění. Tato devítidenní
+            akce
+            je určena pro zhruba 40 nejlepších řešitelů FYKOSu (část vybereme z každé kategorie podle pořadí, část podle
+            celkového bodového zisku) a probíhá v nějakém krásném koutu naší vlasti. Sami se níže můžete podívat, kam
+            jsme v minulosti zavítali. Účastníci soustředění prožijí několik dní plných zajímavých přednášek z fyziky a
+            matematiky. A aby intelektuální zátěž v režii studentů, organizátorů FYKOSu, nebyla příliš vysoká, odpočinou
+            si všichni (řešitelé i organizátoři) při hrách, sportu a soutěžích. Odborná náplň soustředění není čistě
+            teoretická, účastníci si „osahají“ i opravdové fyzikální experimenty.
+        </p>
+
+        <p>
+            Na podzimní soustředění vybíráme řešitele podle výsledkové listiny z 4. až 6. série minulého školního roku
+            (kromě řešitelů z kategorie čtvrtých ročníků, které bohužel již nebereme) a taktéž některé řešitele první
+            série stávajícího roku, pokud
+            poslali svá řešení před stanoveným dřívějším deadlinem. Na jarní se dostanou ti nejlepší podle aktuálního
+            pořadí po třetí sérii daného ročníku (včetně maturantů).
+        </p>
+
+        <p>
+            Soustředění je výjimečnou možností, jak strávit týden s kamarády, kteří podobně smýšlí o fyzice i o životě,
+            týden plný řešení fyzikálních problémů, atraktivních přednášek, napínavých her, sportu a spousty další
+            zábavy. Jsou to právě soustředění, na která účastníci i organizátoři po letech vzpomínají.
+        </p>
+        <p>
+            Většinu ceny za soustředění se snažíme hradit z prostředků FYKOSu, zbytkovou částku si hradí účastníci.
+            Současný způsob výpočtu ceny najdete na speciální stránce.
+        </p>
+        <a n:href=":Events:Camps:price" class="btn btn-primary">Cena soustředění</a>
+    </section>
+</div>
+
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <!-- <div class="subheader">Základní informace</div> -->
+        <h1>Seznam minulých ročníků</h1>
+
+        {foreach $camps as $camp}
+        <div class="row event-box">
+            <div class="col-md-8 event-text-box">
+                <div>
+                    <h2>{$camp["title"]}</h2>
+                    <p>
+                        {$camp["description"]}
+                    </p>
+                </div>
+                <div>
+                    <a class="btn btn-primary"
+                        href="{$camp['link']}">
+                        Více o akci
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 event-img-box">
+                <a href="{$camp['link']}">
+                    <img src="{$basePath}{$camp['photo_path']}" alt="Fyziklání korespondenční seminář" class="event-img">
+                </a>
+            </div>
+        </div>
+        {/foreach}
+
+    </section>
+</div>
+
+{/block}

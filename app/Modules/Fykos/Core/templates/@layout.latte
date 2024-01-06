@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <title>
         {ifset title}{include title} | {/ifset} FYKOS
     </title>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <meta name="theme-color" content="#FF7431">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="theme-color" content="#1175DA">
 
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Den s experimentální fyzikou"/>
-{*    <meta property="og:image" content="{_'http://physicsbrawl.org/images/fyziklani-logo.png'}"/>*}
-{*    <meta property="og:description" content="{_'Team competition in solving physics problems.'}"/>*}
+    {*<meta property="og:image" content="{_'http://physicsbrawl.org/images/fyziklani-logo.png'}"/>*}
+    {*<meta property="og:description" content="{_'Team competition in solving physics problems.'}"/>*}
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:locale" content="cs"/>
     <meta property="og:url" content="{plink //this}"/>
@@ -26,90 +27,134 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script src="https://kit.fontawesome.com/f424cd1bbe.js" crossorigin="anonymous"></script>
     {block head}{/block}
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+        crossorigin="anonymous"></script>
     <script src="{asset 'assets/main.js'}"></script>
     {block scripts}{/block}
 </head>
 
 <body>
 
-{block body}
-    {control navigation null, "FYKOS.cz"}
+    {block body}
+    {control navigation "/images/logo.svg", "FYKOS"}
     <main>
         {block main}
-            <div class="panel color-light">
-                <section class="inner-container">
-                    {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
-                    {ifset title}<h1>{include title}</h1>{/ifset}
-                    {include content}
-                </section>
-            </div>
+        <div class="panel color-light">
+            <section class="inner-container">
+                {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+                {ifset title}<h1>{include title}</h1>{/ifset}
+                {include content}
+            </section>
+        </div>
         {/block}
     </main>
     <footer>
+        <div class="panel registration">
+            <div class="inner-container">
+                <div class="text">
+                    Chcete vědět více?
+                </div>
+                <div style="btn-container">
+                    <a class="btn btn-outline m-2" n:href=":Default:About:default">
+                        O&nbsp;nás
+                    </a>
+                    <a class="btn btn-outline m-2" n:href=":Events:Default:default">
+                        Akce
+                    </a>
+                    <a class="btn btn-outline m-2" n:href=":Events:Fykos:default">
+                        Seminář
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel sponsors">
+            <div class="inner-container">
+                <div class="category">
+                    <div class="category-title">{switch $lang}{case cs}Pořadatelé{default}Organizers{/switch}</div>
+                    <div class="category-sponsors">
+                        <a {switch $lang}{case cs}href="https://www.mff.cuni.cz/"
+                            {default}href="https://www.mff.cuni.cz/en" {/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
+                                style="max-width: 8rem">
+                        </a>
+                        <a href="https://www.msmt.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/msmt_cs.jpg" class="sponsor-logo" alt="MŠMT logo"
+                                style="width: 8rem">
+                        </a>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="category-title">{switch $lang}{case cs}Generální partner{default}General
+                        Partner{/switch}</div>
+                    <div class="category-sponsors">
+                        <a href="https://www.kellnerfoundation.cz" style="text-align: center">
+                            <img src="/images/logos/tkff.svg" class="sponsor-logo" alt="TKFF logo" style="width: 8rem;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="panel footer">
             <div class="inner-container row">
                 <div class="col-md-6">
-{*                    <img class="logo" src="{$basePath}/images/logo.svg" alt="DSEF" />*}
+                    {* <img class="logo" src="{$basePath}/images/logo.svg" alt="DSEF" />*}
                     <div class="logo" style="font-size: 1cm; font-weight: bold">FYKOS<small>.cz</small></div>
                     <p>
-                        FYKOS je soutěž pro
-                        středoškoláky ve fyzice s 36letou tradicí. FYKOS je tvořen převážně studenty
+                        FYKOS skupina pořádající vzdělávací soutěže pro středoškoláky ve fyzice s&nbsp;37letou tradicí.
+                        FYKOS je tvořen převážně studenty
                         <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                     </p>
                     <p>
-                        Realizace projektu byla podpořena Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
+                        Akce FYKOSu jsou spoluvyhlašovány <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální
+                            fakultou Univerzity Karlovy</a>
+                        a Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
                     </p>
                     <p>
-                        <strong>#fykos</strong> <strong>#dsef</strong> <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
+                        <strong>#fykos</strong> <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
                     </p>
                     <div class="other-logos">
-                        <a target="_blank" href="{switch $lang}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
-                        <a target="_blank" href="{switch $lang}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_white_logo.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
+                        <a target="_blank"
+                            href="{switch $lang}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img
+                                class="other-logo"
+                                src="{$basePath}/images/logos/fyziklani_online_logo_white_{$lang}.png"
+                                style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
+                        <a target="_blank"
+                            href="{switch $lang}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img
+                                class="other-logo" src="{$basePath}/images/logos/fyziklani_white_logo.svg"
+                                style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
+                        {if $lang=='cs'}<a target="_blank" href="https://dsef.cz/"><img class="other-logo"
+                                src="{$basePath}/images/logos/dsef_logo_white.png"
+                                style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>{/if}
                     </div>
-                </div>
-{*                <div class="col-md-3">
-                    <nav>
-                        <ul>
-                            {switch $lang}
-                                {case cs}
-                                <li>Pro účastníky a učitele
-                                    <ul>
-                                        <li><a n:href=":Default:AboutTheCompetition:">O soutěži</a></li>
-                                        <li><a n:href=":Default:Rules:">Pravidla</a></li>
-                                        <li><a n:href=":Default:Schedule:">Program</a></li>
-                                        {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
-                                            <li><a n:href=":Default:Registration:">Registrace</a></li>
-                                        {/if}
-                                        <li><a n:href=":Default:Erasmus: lang: en">Program Erasmus+</a></li>
-                                    </ul>
-                                </li>
-                                {default}
-                                <li>For contestants and teachers
-                                    <ul>
-                                        <li><a n:href=":Default:AboutTheCompetition:">About</a></li>
-                                        <li><a n:href=":Default:Rules:">Rules</a></li>
-                                        <li><a n:href=":Default:Schedule:">Schedule</a></li>
-                                        {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
-                                            <li><a n:href=":Default:Registration:">Registration</a></li>
-                                        {/if}
-                                        <li><a n:href=":Default:Erasmus: lang: en">Fyziklani International 2022</a></li>
-                                    </ul>
-                                </li>
-                            {/switch}
-                        </ul>
-                    </nav>
                 </div>
                 <div class="col-md-3">
                     <nav>
                         <ul>
                             {switch $lang}
                                 {case cs}
-                                <li>Pro partnery
+                                <li>Pro účastníky a učitele
                                     <ul>
-                                        <li><a n:href=":Default:Partners:">Podpořte nás</a></li>
-                                        <li><a href="">Loga a materiály</a></li>
-                                        <li><a href="">Kontakt</a></li>
+                                        <li><a n:href=":Default:About:">O nás</a></li>
+                                        <li><a n:href=":Events:Default:">Akce</a></li>
+                                        <li><a n:href=":Events:Fykos:">Seminář</a></li>
+                                    </ul>
+                                </li>
+                                {default}
+                                {* TODO *}
+                            {/switch}
+                        </ul>
+                    </nav>
+                    {* <nav>
+                        <ul>
+                            {switch $lang}
+                                {case cs}
+                                <li>Podpora FYKOSu
+                                    <ul>
+                                        <li><a n:href=":Default:SupportUs:">Jak podpořit FYKOS</a></li>
+                                        <li><a n:href=":Default:Merch:">Merch</a></li>
                                     </ul>
                                 </li>
                                 {default}
@@ -122,12 +167,57 @@
                                 </li>
                             {/switch}
                         </ul>
+                    </nav> *}
+
+                </div>
+                <div class="col-md-3">
+                    <nav>
+                        <ul>
+                            {switch $lang}
+                            {case cs}
+                            <li>Sledujte nás
+                                {default}
+                            <li>Follow us on social media
+                                {/switch}
+                                <ul>
+                                    <li>
+                                        <a class="social-sites" href="https://www.facebook.com/FYKOS">
+                                            <i class="fa fa-facebook fa-2x"></i>
+                                        </a>
+                                        <a class="social-sites" href="https://www.instagram.com/fykosak/">
+                                            <i class="fa fa-instagram fa-2x"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </nav>
-                </div>*}
+                    <nav>
+                        <ul>
+                            {switch $lang}
+                            {case cs}
+                            <li>Kontakt
+                                {default}
+                            <li>Contact
+                                {/switch}
+                                <ul>
+                                    <li>
+                                        <a n:href=":Default:About:contact">Kontaktní informace</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div style="position: relative;">
+                    <a href="#top" style="position: absolute; bottom: 0; right: 0;"><i class="fas fa-arrow-up"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
-{/block}
+
+    {/block}
 </body>
+
 </html>

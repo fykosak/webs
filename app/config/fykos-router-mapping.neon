@@ -1,0 +1,25 @@
+# This is translate table for URLs
+# Key is local translation, value is corresponding presenter
+# If the translation is missing, presenter name is used
+# If more than one local translation points to one presenter, the first one is used and other are redirects.
+parameters:
+    router-mapping:
+        default:
+            cs:
+                Default: Default
+                ONas: About
+                Pravidla: Rules
+                Organizatori: Organizers
+                Historie: History
+                Kontakt: Contact
+                Zadani: Problems
+                Poradi: Results
+                ArchivUloh: ProblemsArchive
+        events:
+            cs:
+                Default: Default
+                Akce: Events
+                Experimenty: Experiments
+                Pravidla: Rules
+                jakPsat: TexTutorial
+                

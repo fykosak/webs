@@ -27,15 +27,15 @@
                     {switch $lang}
                         {*{case 'cs'}<p>Přihlas se společně až s pětičlenným týmem a&nbsp;přijeďte si do Prahy zasoutěžit.</p>*}
                         {*{default}<p>Sign up with a team of up to five and come to Prague, Czech Republic to compete with others.</p>*}
-                        {case 'cs'}<p>Letos přijelo na soutěž téměř 1200 účastníků z&nbsp;více než 20 zemí světa tvořících 251 týmů! Děkujeme všem za účast a budeme se na vás těšit v roce 2024.</p>
-                        {default}<p>This year almost 1200 participants in 251 teams took part, coming from more than 20 countries all over the world. Thank you for your participation, we are looking forward the next year in 2024.</p>
+                        {case 'cs'}<p>Registace pro rok 2024 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 20 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>
+                        {default}<p>Registration for the year 2024 is open!<br>Last year, almost 1200 of us gathered from more than 20 countries around the world. Come and enjoy this physics feast with us again this year!</p>
                     {/switch}
                 </div>
                 <div class="buttons">
-{*                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>*}
-                    <a target="_blank" href="https://static.fykos.cz/fyziklani2023/{switch $lang}{case 'cs'}pruvodce{default}guidebook{/switch}.pdf" class="btn btn-outline">{switch $lang}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>
-                    <a n:href="Merch:" class="btn btn-outline">Merch</a>
-                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
+                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
+{*                    <a target="_blank" href="https://static.fykos.cz/fyziklani2023/{switch $lang}{case 'cs'}pruvodce{default}guidebook{/switch}.pdf" class="btn btn-outline">{switch $lang}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>*}
+                    <a n:href="Merch:" class="btn btn-light">Merch</a>
+                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-primary">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
             </div>
             <div class="col-md-6 right-block topic-panel">
@@ -70,7 +70,7 @@
         {*</div>*}
     {*</div>*}
 
-{*    {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheGame()}*}
+{*    {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheEvent()}*}
 {*        {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}*}
 {*    {/if}*}
 
@@ -93,7 +93,7 @@
                 <a n:href="Rules:" class="btn btn-panel-action">Jak to funguje</a>
             {default}
                 <div class="subheader">Rules Briefly</div>
-                <h1>What is Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y'}?</h1>
+                <h1>What Is Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y'}?</h1>
                 <div class="row strips">
                     <div class="col-md-4">
                         Up to five high school students compete in Prague in a three-hour-long contest in solving physics
@@ -212,7 +212,7 @@
                 </div>
             {default}
                 <div class="subheader">Problem Examples</div>
-                <h1>Everyone finds suitable difficulty.</h1>
+                <h1>Everyone Finds a Suitable Difficulty.</h1>
                 <div>
                     <div class="title-page-problem">
                         A coniferous tree could be (from a mechanical point of view) approximated by a homogeneous
@@ -256,8 +256,8 @@
             {default}
                 <div class="subheader">Fyziklani Schedule</div>
                 {*<h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}.</h1>*}
-                <h1>You can stay in Prague a little longer</h1>
-          		<p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more. Stay tuned for more details in the future!</p>
+                <h1>You Can Stay in Prague a Little Longer</h1>
+                <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more. Stay tuned for more details in the future!</p>
                 {*<p>The accompanying program is optional, it is possible to take part only in the competition itself.</p>*}
             {/switch}
 
@@ -273,7 +273,7 @@
                 <h1>Přihlaste se a staňte se legendami!</h1>
             {default}
                 <div class="subheader">Registration</div>
-                <h1>Sign up and become a legend!</h1>
+                <h1>Sign Up and Become a Legend!</h1>
             {/switch}
 
             {*<ul class="stylized">*}

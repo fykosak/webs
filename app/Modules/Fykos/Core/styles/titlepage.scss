@@ -1,198 +1,507 @@
-.panel.title-panel {
-  h1 {
-    font-size: 2.8rem;
-    color: white;
-  }
+/// Generic
 
-  .subheader {
-    font-weight: normal;
-    color: inherit;
-    font-size: 1.3rem;
-  }
 
-  .buttons {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 0.4rem;
-  }
 
-  //.topic-panel {
-  //  margin-top: 2rem;
-  //  @include media-breakpoint-up(md) {
-  //    margin-top: 0;
-  //  }
-  //}
-
-  &>.row {
-    --bs-gutter-x: 0;
-  }
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform .5s ease-out;
+  will-change: opacity, transform;
 }
 
-.contest-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.fade-in-section.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.heading-container {
-  //justify-content: space-between;
-  //align-items: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
+/// Header section
 
-.title-container {
-  flex-basis: 100%;
-  //margin-bottom: 20px;
-  text-align: left;
-}
+.header-container {
+  color: $text-on-primary;
 
-.jumbotron-container {
-  flex-basis: 100%;
-  text-align: right;
-  border: 1px solid #1175DA;
-}
+  .header-text-container {
+    z-index: 2;
+    /* Higher z-index to ensure text is above the image */
+    position: relative;
+    /* Needed for z-index to take effect */
 
-.clear {
-  flex-basis: 100%;
-  height: 0;
-  overflow: hidden;
-  clear: both;
-}
 
-.contest-rectangle {
-  flex: 1;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f5f5f5;
-  margin: 0.5rem;
-  padding: 2rem;
-  justify-content: center;
-  border-radius: 8px;
-  img {
-    height: 2.5rem;
-    margin-bottom: 0.5rem;
-    //margin-bottom: 4rem;
-  }
-}
+    h1.header-text {
+      font-size: 8rem;
+      margin-bottom: 0;
+      margin-left: -6px;
+    }
 
-.description-box {
-  position: relative;
-  width: 60%;
-  text-align: center;
-  background-color: #f2f2f2;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
+    h2.header-text {
+      font-size: 3rem;
+      color: $text-on-primary;
+      // margin-bottom: 0;
+    }
 
-.left {
-  justify-self: left;
-  margin-right: auto;
-  margin-left: 0;
-}
 
-.right {
-  justify-self: right;
-  margin-left: auto;
-  margin-right: 0;
-}
-.step {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+    @media screen and (max-width: 768px) {
+      h1.header-text {
+        font-size: 5rem;
+      }
 
-.step-text {
-  font-size: $base-font-size;
-}
+      h2.header-text {
+        font-size: 2rem;
+      }
 
-.line {
-  position: absolute;
-  top: 50%;
-  width: calc(100% - 240px);
-  height: 2px;
-  background-color: #ccc;
-  z-index: -1;
-}
-
-.line::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  background-color: #ccc;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  z-index: -1;
-}
-
-.line::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  background-color: #ccc;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  z-index: -1;
-}
-
-.line-left {
-  left: calc(100% - 200px - 40px);
-}
-
-.line-right {
-  right: calc(100% - 200px - 40px);
-}
-
-@media screen and (max-width: 768px) { /* mobile device */
-  .contest-rectangle {
-    flex-basis: 100%;
-    width: 100%;
-    img {
-      width: 100%;
-      height: auto;
     }
   }
+
+  .header-image-container {
+    .minor-event-heading {
+      font-size: .9rem;
+      font-weight: 400;
+      color: rgba(195, 192, 192, 0.5) !important;
+    }
+
+    .next-event-heading {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: white !important;
+
+    }
+
+    .header-image-dates {
+      z-index: 2;
+    }
+
+    .header-image {
+      position: absolute;
+      z-index: 0;
+      opacity: .2;
+      max-height: 20rem;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    // .center-content-horizontally-md {
+    //   @media screen and (min-width: 768px) {
+    //     padding-left: 5%;
+    //   }
+    // }
+
+    .content-down {
+      display: flex;
+      align-items: flex-end;
+      /* Align content at the bottom */
+      height: 100%;
+      /* Set the height of the container to 100% */
+    }
+  }
+
 }
 
-.title-heading {
-  font-size: 40px;
-  margin-bottom: 0.5rem;
-}
 
-.title-sub-text {
-  font-size: 18px;
-  margin-bottom: 2rem;
-}
-
-.btn-fykos {
-  @extend .btn;
-  background-color: #1175DA !important;
-  color: #fff !important;
-}
-
-.btn-fof {
-  @extend .btn;
-  background-color: #e6060d !important;
-  color: #fff !important;
-}
-
-.btn-fol {
-  @extend .btn;
-  background-color: #00ae6b !important;
-  color: #fff !important;
+.header-image,
+.header-container {
+  // this ensures the event blocks always have the same height
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 
+/// News section
+
+.news-card {
+  border-left: 5px solid $primary-color;
+  a {
+      margin-bottom: 10px;
+  }
+}
+.fof-news-color {
+  border-left: 5px solid $fof-color;
+  .btn-primary {
+    background-color: $fof-color;
+    border-color: $fof-color;
+  }
+}
+
+/// Videos section
+
+
+.video-row {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .col-lg-6 {
+    padding: 0;
+  }
+}
+
+.video-container {
+  padding: 0;
+  width: 95%;
+
+  .embed-responsive-16by9 {
+    position: relative;
+    margin: 0;
+    /* Centering the video embed */
+  }
+
+  .embed-responsive-16by9::before {
+    content: "";
+    display: block;
+  }
+
+
+
+  .embed-responsive-item {
+    display: block;
+    width: 100%;
+  }
+
+}
+
+.video-container.right {
+
+  margin-left: auto;
+
+  h2 {
+    text-align: right;
+  }
+
+  @media screen and (max-width: 992px) {
+    margin-left: 0;
+
+  }
+}
+
+/// events section
+
+
+.event {
+  // flex: 0 0 40%;
+  width: 95%;
+
+  // this ensures the event blocks always have the same height
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  padding: 10px;
+
+  // border: 3px solid $primary-color;
+
+  background-color: $panel-color-dark;
+  color: black;
+
+  // padding: 10px 30px;
+  display: inline-block;
+  transition: transform 0.2s;
+
+  p {
+    margin-bottom: .3rem;
+  }
+
+
+  .event-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  h3 {
+    font-weight: bolder;
+    font-size: 1.2rem;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  .event-date {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .inline-logo {
+    height: 1.8rem;
+    margin-right: 4px;
+  }
+
+}
+
+
+.series {
+  border-left: 5px solid $primary-color;
+
+  h3 {
+    color: $primary-color;
+  }
+}
+
+
+.fof-color {
+  background-color: $fof-color;
+}
+
+.fol-color {
+  background-color: $fol-color;
+}
+
+.dsef-color {
+  background-color: $dsef-color;
+}
+
+.naboj-color {
+  background-color: $naboj-color;
+}
+
+
+.naboj-color-left-border {
+  border-left: 5px solid $naboj-color !important;
+}
+
+.fol-color-left-border {
+  border-left: 5px solid $fol-color !important;
+}
+
+.fof-color-left-border {
+  border-left: 5px solid $fof-color !important;
+}
+
+.dsef-color-left-border {
+  border-left: 5px solid $dsef-color !important;
+}
+
+
+
+.event.active,
+.event:hover {
+  transform: scale(1.05);
+  /* Makes the box slightly larger */
+  transition: transform 0.2s ease-in-out;
+  /* Smooth transition */
+}
+
+.start-timeline-text,
+.end-timeline-text {
+  font-weight: bold;
+  color: $primary-color;
+  padding: 0;
+  margin: 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+
+.timeline-section-header>h3 {
+  font-weight: $font-weight-normal;
+  margin-bottom: 0;
+}
+
+
+$timeline-color: #8b8282;
+$timeline-horizontal-half-border-width: 4px;
+$timeline-logo-width: 30px;
+$timeline-logo-height: 40px;
+$buffer-logo-timeline: 3px;
+$top-offset: $timeline-horizontal-half-border-width + $timeline-logo-height + $buffer-logo-timeline;
+
+$today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-border-width);
+
+#timeline-horizontal-container {
+
+  position: relative;
+  width: 100%;
+  height: 100px;
+
+  .start-timeline-text,
+  .end-timeline-text {
+    position: absolute;
+    top: calc(50% - 2* $buffer-logo-timeline - 1.5rem);
+    z-index: 1;
+    /* Make sure this is above the line */
+  }
+
+  .start-timeline-text {
+    left: 0;
+  }
+
+  .end-timeline-text {
+    right: 0;
+  }
+}
+
+#timeline-horizontal {
+  width: 100%;
+  /* Makes the line span the full width of its container */
+  border: 0;
+  /* Removes default border */
+
+  border-top: $timeline-horizontal-half-border-width solid $timeline-color;
+  /* Adds a border to the top side only */
+  border-bottom: $timeline-horizontal-half-border-width solid $timeline-color;
+  background-color: $timeline-color;
+  /* Adds a border to the top side only */
+  margin: 10px 0;
+  position: absolute;
+  top: calc(50% - 2 * ($timeline-horizontal-half-border-width + $buffer-logo-timeline));
+  z-index: 1;
+  opacity: 1;
+}
+
+.logo-series,
+.logo-event,
+.today-block {
+  position: absolute;
+  z-index: 5;
+  /* To ensure it's above the line and other elements */
+  max-width: 30% !important;
+}
+
+.logo-event,
+.logo-series {
+  width: $timeline-logo-width;
+}
+
+
+.today-block {
+  background-color: $primary-color;
+  color: white;
+  height: $today-block-height;
+  width: $today-block-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Larger screen positioning
+@media screen and (min-width: 768px) {
+  .logo-event {
+    top: calc(50% - $top-offset);
+    /* 50% aligns with the middle line; minus 10px moves it up */
+  }
+
+  .logo-series {
+    bottom: calc(50% - $top-offset);
+    /* 50% aligns with the middle line; plus 10px moves it down */
+  }
+
+  .today-block {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+// Smaller screen positioning
+@media screen and (max-width: 768px) {
+
+  .logo-event {
+    right: calc(50% - $top-offset);
+    /* 50% aligns with the middle line; minus 10px moves it up */
+  }
+
+  .logo-series {
+    left: calc(50% - $top-offset);
+    /* 50% aligns with the middle line; plus 10px moves it down */
+  }
+
+  .today-block {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+.order-6 {
+  order: 6 !important;
+}
+
+#timeline-vertical-container {
+
+  .start-timeline-text,
+  .end-timeline-text {
+    text-align: center;
+  }
+}
+
+#timeline-vertical {
+  border-right: $timeline-horizontal-half-border-width solid $timeline-color;
+  border-left: $timeline-horizontal-half-border-width solid $timeline-color;
+  z-index: 0;
+}
+
+
+// Fykos correspondence competition section
+
+a.link-no-decor {
+  text-decoration: none;
+  color: inherit;
+}
+
+.info-block {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+
+  background-color: $panel-color-light;
+  border-left: 5px solid $primary-color;
+
+  // background-color: $primary-color;
+  // color: $text-on-primary !important;
+
+  // this ensures the event blocks always have the same height
+  // display: flex;
+  // flex-direction: column;
+  // height: 100%;
+
+  a {
+    color: black;
+  }
+
+  // h4 {
+  //   color: $text-on-primary !important;
+  // }
+
+}
+
+.mt-md-n5 {
+  @media (min-width: 768px) {
+    margin-top: -3rem;
+  }
+}
+
+.info-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+
+}
+
+.info-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+
+#testimonials {
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 2px solid $primary-color;
+  }
+
+  .card-body {
+    flex-grow: 1;
+  }
+
+  .card-signature {
+    text-align: right;
+    margin: 0;
+  }
+}

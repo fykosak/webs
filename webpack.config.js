@@ -2,7 +2,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const commonConfiguration = {
-    mode: "production",
     plugins: [new MiniCssExtractPlugin()],
     module: {
         rules: [
@@ -16,7 +15,8 @@ const commonConfiguration = {
                     loader: 'sass-loader',
                     options: {
                         sourceMap: true
-                    }}],
+                    }
+                }],
             },
             {
                 test: /\.tsx?$/,
@@ -79,4 +79,16 @@ const fykosConfiguration = {
         filename: '[name].js',
     },
 };
-module.exports = [folConfiguration, fofConfiguration, dsefConfiguration, fykosConfiguration];
+
+const vyfukConfiguration = {
+    ...commonConfiguration,
+    entry: {
+        main: path.resolve(__dirname, './app/main-vyfuk.js'),
+    },
+    output: {
+        path: path.resolve(__dirname, './www/vyfuk/assets'),
+        assetModuleFilename: 'media/[path][name][ext]',
+        filename: '[name].js',
+    },
+};
+module.exports = [folConfiguration, fofConfiguration, dsefConfiguration, fykosConfiguration, vyfukConfiguration];

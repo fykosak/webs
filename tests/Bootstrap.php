@@ -41,8 +41,8 @@ class Bootstrap
             ->register();
 
         // Create Dependency Injection container from config.neon file
-        $configurator->addConfig(__DIR__ . "/../app/config/config." . $moduleName . ".neon");
-        $configurator->addConfig(__DIR__ . "/../app/config/config.tester.neon");
+        $configurator->addConfig(__DIR__ . '/../app/config/config.' . $moduleName . '.neon');
+        $configurator->addConfig(__DIR__ . '/../app/config/config.tester.neon');
 
         return $configurator;
     }
@@ -54,9 +54,5 @@ class Bootstrap
 /* @phpstan-ignore-next-line */
 $configurator = Bootstrap::boot(MODULE_NAME);
 $container = $configurator->createContainer();
-
-/* Always acquire locks in the order as below! */
-define('LOCK_DB', __DIR__ . '/tmp/database.lock');
-define('LOCK_UPLOAD', __DIR__ . '/tmp/upload.lock');
 return $container;
 // phpcs:enable

@@ -1,0 +1,51 @@
+{varType int $year}
+{varType int $currentYear}
+{varType string $lang}
+{block title}Výsledky FYKOSu{/block}
+{block main}
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>{switch $lang}
+            {case 'cs'}Výsledky {$year}. ročníku FYKOSu
+            {default}Results of FYKOS Year {$year}
+            {/switch}
+        </h1>
+
+        <p>Zde najdete výsledkovou listinu {$year}. ročníku Fyzikálního korespondenčního semináře.</p>
+
+        <div class="mb-3">
+            <button class="btn btn-primary-inverted button-collapse-header" type="button" data-bs-toggle="collapse"
+            data-bs-target="#resultFilters" aria-expanded="false" aria-controls="resultFilters">
+                {switch $lang}
+                    {case 'cs'}Změnit ročník
+                    {default}Change Year
+                {/switch}
+            </button>
+
+
+            <!-- The collapsible content -->
+            <div class="collapse toggle-content inverse-background p-3" id="resultFilters">
+                {for $y = $currentYear; $y >= 1; $y--}
+                    {if $y % 10 == 0}
+                        <div class="row">
+                    {elseif $y == $currentYear}
+                        <div class="row">
+                        {for $i = 0; $i < 10 - $currentYear % 10; $i++}
+                            <div class="col"></div>
+                        {/for}
+                    {/if}
+                    <div class="col">
+                        <a class="btn btn-primary m-2 yearbox" href="{plink 'this' 'year'=>$y}">{$y}</a>
+                    </div>
+                    {if $y % 10 == 1}
+                        </div>
+                    {/if}
+                {/for}
+            </div>
+        </div>
+
+        <p>Ze základu se zobrazuje suma bodů za každou sérii. Kliknutím na nadpis série zobrazíte konkrétní počty bodů za jednotlivé úlohy dané série.</p>
+        <div id="contest-results" data-data="{json_encode($results)}"></div>
+    </section>
+</div>
+{/block}

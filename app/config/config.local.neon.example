@@ -1,18 +1,12 @@
-database:
-    default:
-        dsn: 'mysql:host=localhost;dbname=fol-web'
-        user: %database.user%
-        password: %database.password%
-    problems:
-        dsn: 'mysql:host=localhost;dbname=problems'
-        user: %database.user%
-        password: %database.password%
 parameters:
+    # FKSDB API endpoint
     fksdbDownloader:
-        login:
-        password:
-        url:
-    database:
-         user:
-         password:
-    gameApiURL:
+        login: ''
+        password: ''
+        url: 'https://db.fykos.cz/api/'
+
+    # game API endpoint, used for FOL/FOF live results
+    #gameApi:
+    #    login: ''
+    #    password: ''
+    #    url: ''

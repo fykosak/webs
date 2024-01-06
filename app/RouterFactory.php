@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App;
 
-use Nette\Routing\Route;
 use Nette\Application\Routers\RouteList;
+use Nette\Routing\Route;
 use Nette\Routing\Router;
 
 class RouterFactory
@@ -98,7 +98,6 @@ class RouterFactory
                 }
 
                 // Either set the language in the domain, or in lang parameter
-
                 if (isset($domainList) && count($domainList)) {
                     $params['domain'] = array_search($params['lang'], $domainList);
                     if ($params['domain'] === false) {
@@ -194,6 +193,19 @@ class RouterFactory
         $router = new RouteList();
 
         $router->withModule('Default')
+        ->addRoute('//<domain>/results/<year ([0-9]{2})(-.*)?>', [
+            'presenter' => 'Results',
+            'action' => 'default',
+            null => self::useTranslateFilter($domainList, $routerMapping['default']),
+        ]);
+
+        $router->addRoute('//<domain>/<module events>/[<presenter>[/<action>]]', [
+                'presenter' => 'Default',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['events']),
+            ]);
+
+        $router->withModule('Default')
             ->addRoute('//<domain>/<presenter>[/<action>]', [
                 'presenter' => 'Default',
                 'action' => 'default',
@@ -201,5 +213,10 @@ class RouterFactory
             ]);
 
         return $router;
+    }
+
+    public static function createVyfukRouter(?array $domainList, array $routerMapping): Router
+    {
+        return self::createFykosRouter($domainList, $routerMapping);
     }
 }

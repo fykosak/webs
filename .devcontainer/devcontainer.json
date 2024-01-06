@@ -1,0 +1,73 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/php-mariadb
+{
+	"name": "webs",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"xdebug.php-pack",
+				"streetsidesoftware.code-spell-checker-czech",
+				"streetsidesoftware.code-spell-checker"
+			]
+		}
+	},
+	// For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
+	"forwardPorts": [
+		8080,8081,8082,8083,8084,8085,8086,8087,8088
+	],
+	"portsAttributes": {
+		"8080": {
+			"label": "http://vyfuk.org.local",
+			"requireLocalPort": true
+		},
+		"8081": {
+			"label": "http://online.fyziklani.cz.local",
+			"requireLocalPort": true
+		},
+		"8082": {
+			"label": "http://online.fyziklani.org.local",
+			"requireLocalPort": true
+		},
+		"8083": {
+			"label": "http://fyziklani.cz.local",
+			"requireLocalPort": true
+		},
+		"8084": {
+			"label": "http://fyziklani.org.local",
+			"requireLocalPort": true
+		},
+		"8085": {
+			"label": "http://dsef.cz.local",
+			"requireLocalPort": true
+		},
+		"8086": {
+			"label": "http://dsef.org.local",
+			"requireLocalPort": true
+		},
+		"8087": {
+			"label": "http://fykos.cz.local",
+			"requireLocalPort": true
+		},
+		"8088": {
+			"label": "http://fykos.org.local",
+			"requireLocalPort": true
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/node:1": {}
+	},
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": ".devcontainer/init.sh",
+	"postStartCommand": ".devcontainer/docker-on-start.sh"
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}

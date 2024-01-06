@@ -14,7 +14,7 @@
                     <li>Účast je zcela zdarma.</li>
                     <li>Soutěž se koná {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} 17:00 - 20:00.</li>
                     <li>Registrace je otevřena od {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'} do {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. H:i'}.</li>
-                    
+
                 </ul>
                 {default}
                 <h1>Basic Information</h1>
@@ -114,7 +114,7 @@
                             {default}Studies 1st year of MSc. Theoretical Physics at CUNI MFF.{/switch}
                     </div>
                 </div>
-                
+
                 <div class="col-md-4 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person2762.jpg')"></div>
                     <div class="name">Vojtěch David</div>
@@ -125,6 +125,19 @@
                     <div class="about">
                         {switch $lang}{case cs}Studuje 3. ročník Bc. studia Obecné matematiky na MFF UK.
                             {default}Studies 3rd year of BSc. Mathematics at CUNI MFF.{/switch}
+                    </div>
+                </div>
+
+                 <div class="col-md-4 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person13978.jpg')"></div>
+                    <div class="name">Juraj Pavolko</div>
+                    <div class="role">
+                        {switch $lang}{case cs}Komunikace se sponzory
+                            {default}Communication with sponzors{/switch}
+                    </div>
+                    <div class="about">
+                        {switch $lang}{case cs}Studuje 1. ročník Bc. Fyziky na MFF UK.
+                            {default}Studies first year of Bc. Physics at CUNI MFF.{/switch}
                     </div>
                 </div>
 
@@ -190,7 +203,7 @@
                             {default}Studies 3. year of BSc. Physics at CUNI MFF.{/switch}
                     </div>
                 </div>
-                
+
                 <div class="col-md-4 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person6142.jpg')"></div>
                     <div class="name">Jitka Vysloužilová</div>
@@ -201,7 +214,7 @@
                             {default}Studies 2. year of BSc. Biophysics at FSC USB.{/switch}
                     </div>
                 </div>
-                
+
                  <div class="col-md-4 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person18608.jpg')"></div>
                     <div class="name">Anežka Bakočová</div>
@@ -212,8 +225,8 @@
                             {default}Studies 2. year of BSc. Physics at CUNI MFF.{/switch}
                     </div>
                 </div>
-                
-                
+
+
                 <div class="col-md-4 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/_media/orgs/person11891.jpg')"></div>
                     <div class="name">Marek Čepec</div>
@@ -236,38 +249,70 @@
                 {case cs}Na úlohách se podíleli:
                 {default}Authors of physics problems:
             {/switch}</h1>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center ms-3 me-3">
                 <ul class="col-sm-4 stylized">
                     <li>Jaroslav Herman</li>
+                    <li>Jindřich Jelínek</li>
                     <li>Karel Kolář</li>
-                    <li>Daniela Dupkalová</li>
                     <li>Šimon Pajger</li>
-                    <li>Jáchym Bártík</li>
-                    <li>Václav Mikeska</li>
+                    <li>Jiří Kohl</li>
+                    <li>David Škrob</li>
+                    <li>Jozef Lipták</li>
+                    <li>Daniela Dupkalová</li>
+                       
                 </ul>
                 <ul class="col-sm-4 stylized">
+                    <li>Eliška Malá</li>
+                    <li>Jakub Smolík</li>
+                    <li>Michal Červeňák</li>
                     <li>Vojtěch David</li>
-                    <li>Dávid Brodňanský</li>
-                    <li>Jindřich Jelínek</li>
+                    <li>Nicolas Gavorník</li>
+                    <li>Veronika Hendrychová</li>
+                    <li>Kateřina Charvátová</li>
+                </ul>
+                <ul class="col-sm-4 stylized">
+                    <li>Marek Jankola</li>
+                    <li>Petr Kahan</li>
                     <li>Radka Křížová</li>
                     <li>Matěj Mezera</li>
-                    <li>Jakub Smolík</li>
-                </ul>
-                <ul class="col-sm-4 stylized">
-                    <li>Matěj Rzehulka</li>
-                    <li>Viktor Materna</li>
                     <li>Marek Milička</li>
-                    <li>Petr Kahan</li>
-                    <li>Marek Jankola</li>
+                    <li>Kateřina Rosická</li>
+                    <li>Matěj Rzehulka</li>
                 </ul>
             </div>
         </section>
     </div>
-    
-    <div class="panel color-light">
+
+<div class="panel color-light">
+        <section class="inner-container">
+            <h1>{switch $lang}
+                {case cs}Komunikace se soutěžícími:
+                {default}Communication with participants:
+            {/switch}</h1>
+            <div class="row justify-content-center ms-3 me-3">
+                <ul class="col-sm-4 stylized">
+                    <li>Kateřina Charvátová</li>
+                    <li>Anežka Bakočová</li>
+                    <li>Juraj Pavolko</li>
+                </ul>
+                <ul class="col-sm-4 stylized">
+                    <li>David Škrob</li>
+                    <li>Jakub Smolík</li>
+                    <li>Vladimíra Brabcová</li>
+                </ul>
+                <ul class="col-sm-4 stylized">
+                    <li>Denisa Zdvořilá</li>
+                    <li>Tereza Hochmanová</li>
+                    <li>Adam Roštejnský</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="panel color-dark">
         <section class="inner-container">
             <h1>{switch $lang}{case cs}Ústřední komise{default}Central Committee{/switch}</h1>
-            
+
             <div class="organiser">
                      <div class="name">Vojtěch David</div>
                      <div class="role">
@@ -279,7 +324,7 @@
                             {default}Mr. David is a student at the Faculty of Mathematics and Physics of Charles University (CUNI MFF) and the head organizer of Fyziklani. He is also the deputy head organizer of FYKOS and thus actively participates in the running of Physics Brawl Online and other FYKOS events. He also organizes other STEM competitions in the Czech Republic and is a lecturer at several camps for elementary and high school students.{/switch}
                      </div>
             </div>
-                    
+
             <div class="organiser">
                <div class="name"><small>Mgr. </small>Daniel Dupkala</div>
                <div class="role">
@@ -291,7 +336,7 @@
                         {default}Mgr. Dupkala is a graduate of CUNI MFF, and he has been the head organizer of Fyziklani for 6 years. He is an active organizer of FYKOS and Náboj Physics in the Czech Republic and a member of the Media Communications and PR Office of CUNI MFF. He used to be a mathematics teacher at SPŠST Panská high school.{/switch}
                 </div>
             </div>
-                    
+
             <div class="organiser">
                 <div class="name">Michal Červeňák</div>
                 <div class="about">
@@ -299,7 +344,7 @@
                         {default}Mr. Červeňák works at the Institute of Plasma Physics of the Czech Academy of Sciences. He is one of the most experienced organizers of FYKOS. For a long time, he has been technically responsible for the organization of Fyziklani and Physics Brawl Online as he develops and maintains the game systems.{/switch}
                 </div>
             </div>
-                    
+
             <div class="organiser">
                 <div class="name"><small>doc. RNDr. </small>Martin Čížek<small>, Ph.D.</small></div>
                 <div class="about">
@@ -365,8 +410,8 @@
             </div>
         </section>
     </div>
-    
-    <div class="panel color-dark">
+
+    <div class="panel color-light">
         <section class="inner-container">
             {switch $lang}
                 {case cs}

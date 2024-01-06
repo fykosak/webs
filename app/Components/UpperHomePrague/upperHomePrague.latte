@@ -118,9 +118,9 @@
             </g>
 </svg>
 </div>
-<div class="upper-home-countdown">
-    {control countdown}
-</div>
+    <div class="upper-home-countdown">
+        {control countdown}
+    </div>
 <div class="upper-home-registration-deadline">
     {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
         <div style="margin-top: 1rem; text-align: center;">
@@ -142,10 +142,10 @@
         {switch $lang}
             {case cs}
                 Registrace je otevřena do
-                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
+                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd->sub(new DateInterval('PT1M')) |date:'j. n. Y, H:i'}</strong>.
             {default}
                 Registration is open until
-                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
+                <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd->sub(new DateInterval('PT1M')) |date:'F j, Y, G:i'} CET</strong>.
         {/switch}
     {/if}
 </div>

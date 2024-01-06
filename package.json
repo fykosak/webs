@@ -1,9 +1,8 @@
 {
+  "name": "webs",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack --watch",
-    "extract_translations": "cd app/i18n/ && ./extract.sh",
-    "compile_translation": "./app/i18n/compile.sh",
+    "build": "webpack --mode=\"production\"",
+    "dev": "webpack --watch --mode=\"development\"",
     "clear_latte_cache": "rm -r temp/cache/latte"
   },
   "devDependencies": {

@@ -25,7 +25,7 @@ class Bootstrap
             ->register();
 
         $configurator->addConfig(__DIR__ . '/config/config.' . $site . '.neon');
-        $configurator->addConfig(__DIR__ . '/config/config.' . $site . '.local.neon');
+        $configurator->addConfig(__DIR__ . '/config/local/' . $site . '.neon');
 
         return $configurator;
     }
@@ -48,5 +48,10 @@ class Bootstrap
     public static function bootFykos(): Configurator
     {
         return self::boot('fykos');
+    }
+
+    public static function bootVyfuk(): Configurator
+    {
+        return self::boot('vyfuk');
     }
 }

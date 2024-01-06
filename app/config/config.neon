@@ -9,31 +9,27 @@ session:
     cookie_secure: true
 
 services:
-    - Fykosak\Utils\Localization\GettextTranslator(%i18n.locales%,%i18n.dir%)
+    - Fykosak\Utils\Localization\GettextTranslator(%i18n.locales%,"")
     - Fykosak\NetteFKSDBDownloader\NetteFKSDBDownloader(%fksdbDownloader.url%,%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes')
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail('10 minutes')
     - Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList('10 minutes')
     - App\Models\GamePhaseCalculator(%eventTypeId%)
-    - App\Models\Game\Connector(%gameApiURL%, %gameApiUser%, %gameApiPass%)
-    - App\Models\Problems\ProblemService('10 minutes')
-
-database:
-    conventions: 'discovered'
+    - App\Models\Game\Connector(%gameApi.url%, %gameApi.login%, %gameApi.password%)
+    - App\Models\Downloader\FKSDBDownloader\FKSDBDownloader(%fksdbDownloader.url%,%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes')
 
 extensions:
     asset: SixtyEightPublishers\Asset\Bridge\Nette\DI\AssetExtension
 
 parameters:
-    gameApiURL: "/dev/null"
     i18n:
         locales:
             cs: cs_CZ.utf-8
             en: en_US.utf-8
-        # path to gettext dir structure
-        dir: %appDir%/i18n/locale
     # Contains mapping from domain to language. If empty, ?lang is used
     domains:
         # domain: lang
     eventTypeId: 0
-    gameApiUser:
-    gameApiPass:
+    gameApi:
+        login:
+        password:
+        url: ''
