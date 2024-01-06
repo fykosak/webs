@@ -4,24 +4,31 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
+use App\Models\Problems\ProblemService;
+use App\Models\Problems\SeriesService;
 use Nette\Utils\DateTime;
 
 class ProblemsPresenter extends BasePresenter
 {
+    private ProblemService $problemService;
+    private SeriesService $seriesService;
+
+    public function injectServiceProblem(ProblemService $problemService, SeriesService $seriesService): void
+    {
+        $this->problemService = $problemService;
+        $this->seriesService = $seriesService;
+    }
+
     public function renderDefault(): void
     {
+        $series = $this->seriesService->getLatestSeries('fykos');
+        $this->template->series = $series;
 
-        // Nahradit toto za načítání dat z databáze
-        $fileContents1 = file_get_contents(__DIR__ . '/temp-solution.json');
-        $data1 = json_decode($fileContents1, true);
-        $fileContents2 = file_get_contents(__DIR__ . '/temp-solution2.json');
-        $data2 = json_decode($fileContents2, true);
-        $data = [$data1, $data2];
-        $series = [
-            'number' => 1,
-            'year' => 37,
-            'deadline' => new DateTime('2023-11-25 23:59:59'),
-        ];
+        $problems = [];
+        foreach ($series->problems as $probNum) {
+            $problems[] = $this->problemService->getProblem('fykos', $series->year, $series->series, $probNum);
+        }
+        $this->template->problems = $problems;
 
         $this->template->problemIcons = [
             1 => 'fas fa-smile',
@@ -33,7 +40,5 @@ class ProblemsPresenter extends BasePresenter
             7 => 'fas fa-flask',
             8 => 'fas fa-book'
         ];
-        $this->template->series = $series;
-        $this->template->problems = $data;
     }
 }
