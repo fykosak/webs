@@ -1,3 +1,35 @@
+
+
+
+/* Default */
+
+.purpose-cards {
+  .card {
+      border-left: 5px solid #1175da;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: .8rem;
+  }
+
+  .card-title {
+      font-weight: bold;
+  }
+
+  .center-content {
+      align-items: center;
+      justify-content: center;
+  }
+
+  .card-text {
+      text-align: justify;
+  }
+}
+
+
+
+/* Organizers */
+
 .organizers {
   .card {
     border: 1px solid $primary-color;
