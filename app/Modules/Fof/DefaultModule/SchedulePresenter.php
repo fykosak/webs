@@ -4,19 +4,25 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\DefaultModule;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\Downloader\FKSDBDownloader;
+use App\Models\Downloader\ScheduleRequest;
 
-class SchedulePresenter extends BasePresenter
+final class SchedulePresenter extends BasePresenter
 {
-    private ServiceEventDetail $serviceEvent;
+    private FKSDBDownloader $downloader;
 
-    public function inject(ServiceEventDetail $serviceEvent): void
+    public function inject(FKSDBDownloader $downloader): void
     {
-        $this->serviceEvent = $serviceEvent;
+        $this->downloader = $downloader;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderDetail(): void
     {
-        $this->template->data = $this->serviceEvent->getSchedule(173);
+        $groups = json_decode($this->downloader->download(new ScheduleRequest(180, ['weekend', 'weekend_info'])), true);
+        usort($groups, fn(array $aGroup, array $bGroup): int => $aGroup['start'] <=> $bGroup['start']);
+        $this->template->groups = $groups;
     }
 }

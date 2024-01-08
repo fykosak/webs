@@ -9,11 +9,9 @@ use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\Application\UI\Form;
 use Nette\DI\Container;
-use Tracy\Debugger;
 
 class TeamResultsComponent extends BaseComponent
 {
-
     protected ServiceEventDetail $serviceTeam;
     protected int $eventId;
     protected ?array $filterData = null;
@@ -160,7 +158,10 @@ class TeamResultsComponent extends BaseComponent
         //         ->setOption('count', $count);
         // }
         foreach ($countryISOs as $countryISO => $count) {
-            $countryISOContainer->addCheckbox($countryISO, sprintf($this->lang == 'cs' ? '%s:%s účastníků' : '%s:%s participants', $countryISO, $count));
+            $countryISOContainer->addCheckbox(
+                $countryISO,
+                sprintf($this->lang == 'cs' ? '%s:%s účastníků' : '%s:%s participants', $countryISO, $count)
+            );
         }
 
 

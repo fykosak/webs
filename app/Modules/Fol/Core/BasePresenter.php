@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace App\Modules\Fol\Core;
 
 use App\Models\GamePhaseCalculator;
+use App\Modules\Core\EventWebPresenter;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
+use Nette\Application\UI\Template;
 
-abstract class BasePresenter extends \App\Modules\Core\EventWebPresenter
+abstract class BasePresenter extends EventWebPresenter
 {
+    private ServiceEventList $serviceEventList;
+
     public static function createEventKey(ModelEvent $event): string
     {
         $year = $event->begin->format('Y');
@@ -18,21 +22,21 @@ abstract class BasePresenter extends \App\Modules\Core\EventWebPresenter
         return $month < 10 ? ($year . '-' . $monthName) : $year;
     }
 
-    private ServiceEventList $serviceEventList;
-
-    public function injectServiceEventList(ServiceEventList $serviceEventList)
+    public function injectServiceEventList(ServiceEventList $serviceEventList): void
     {
         $this->serviceEventList = $serviceEventList;
     }
 
-    protected function createTemplate(): \Nette\Application\UI\Template
+    /**
+     * @throws \Throwable
+     */
+    protected function createTemplate(): Template
     {
         $fofGamePhaseCalculator = new GamePhaseCalculator(
             $this->context->getParameters()['fofEventTypeId'],
             $this->serviceEventList,
             $this->context
         );
-
 
         $template = parent::createTemplate();
         $template->fofEvent = $fofGamePhaseCalculator->getFKSDBEvent();

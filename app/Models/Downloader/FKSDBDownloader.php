@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Downloader\FKSDBDownloader;
+namespace App\Models\Downloader;
 
 use Fykosak\FKSDBDownloaderCore\FKSDBDownloader as DownloaderCore;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
@@ -38,7 +38,7 @@ final class FKSDBDownloader
     public function getDownloader(): DownloaderCore
     {
         if (!isset($this->downloader)) {
-            $this->downloader = new DownloaderCore("", $this->username, $this->password, $this->jsonApiUrl);
+            $this->downloader = new DownloaderCore('', $this->username, $this->password, $this->jsonApiUrl);
         }
         return $this->downloader;
     }

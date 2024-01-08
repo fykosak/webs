@@ -17,7 +17,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         $items = [];
 
         $items[] = new NavItem(
-            new PageTitle(null, "O nás", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, 'O nás', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:About:',
             [],
             [
@@ -34,7 +34,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, "Seminář", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, 'Seminář', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Events:Fykos:',
             [],
             [

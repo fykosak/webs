@@ -40,6 +40,9 @@ class UpperHomeMapComponent extends BaseComponent
         return new MapComponent($this->getContext(), $this->gamePhaseCalculator, $this->event);
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentCountdown(): CountdownComponent
     {
         return new CountdownComponent($this->gamePhaseCalculator->getGameBegin());

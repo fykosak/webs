@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\Modules\Dsef\Core;
 
+use App\Modules\Core\EventWebPresenter;
 use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 
-abstract class BasePresenter extends \App\Modules\Core\EventWebPresenter
+abstract class BasePresenter extends EventWebPresenter
 {
     public static function getEventYear(ModelEvent $event): string
     {

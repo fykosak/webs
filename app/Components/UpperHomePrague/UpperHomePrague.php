@@ -35,6 +35,9 @@ class UpperHomePrague extends BaseComponent
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomePrague.latte');
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentCountdown(): CountdownComponent
     {
         if ($this->gamePhaseCalculator->isRegistration($this->gamePhaseCalculator::BEFORE)) {

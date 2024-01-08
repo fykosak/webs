@@ -17,6 +17,9 @@ class ResultsPanelComponent extends BaseComponent
         $this->gamePhaseCalculator = $calculator;
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentApiResults(): ApiResultsComponent
     {
         return new ApiResultsComponent($this->getContext(), $this->gamePhaseCalculator->getFKSDBEvent()->eventId);
