@@ -6,9 +6,14 @@ namespace App\Modules\Fykos\EventsModule;
 
 use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
+use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
+use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
+use Nette\Application\ForbiddenRequestException;
 
 class CampsPresenter extends BasePresenter
 {
+    private const CAMPS_IDS = [4, 5];
+
     private FKSDBDownloader $downloader;
 
     public function inject(FKSDBDownloader $downloader): void
@@ -16,12 +21,23 @@ class CampsPresenter extends BasePresenter
         $this->downloader = $downloader;
     }
 
+    public function renderDetail(): void
+    {
+        $id = $this->getParameter('id');
+        $data = $this->downloader->download(new EventRequest(+$id));
+        if (!in_array($data['eventTypeId'], self::CAMPS_IDS)) {
+            throw new ForbiddenRequestException();
+        }
+        $this->template->data = $data;
+        $this->template->participants = $this->downloader->download(new ParticipantsRequest(+$id));
+    }
+
     /**
      * @throws \Throwable
      */
     public function renderDefault(): void
     {
-        $data = $this->downloader->download(new EventListRequest([5, 4]));
+        $data = $this->downloader->download(new EventListRequest(self::CAMPS_IDS));
         $this->template->data = $data;
         // // Fetch the webpage
         // $html = file_get_contents('https://fykos.cz/akce/soustredeni/start');

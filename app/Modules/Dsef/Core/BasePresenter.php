@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace App\Modules\Dsef\Core;
 
-use App\Modules\Core\EventWebPresenter;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Modules\Core\EventWebPresenter;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends EventWebPresenter
 {
+    public const EVENT_IDS = [2, 14];
+
     public static function getEventYear(ModelEvent $event): string
     {
         return $event->begin->format('Y');

@@ -101,7 +101,7 @@ class ImageGalleryControl extends BaseComponent
     public function render(string $path): void
     {
         $this->template->images = $this->getCachedImages($path);
-        $this->template->lang = $this->getPresenter()->lang;
+        $this->template->lang = $this->translator->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'default.latte');
     }
 

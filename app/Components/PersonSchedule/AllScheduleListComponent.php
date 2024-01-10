@@ -9,10 +9,9 @@ use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
 
-class AllScheduleListComponent extends BaseComponent
+final class AllScheduleListComponent extends BaseComponent
 {
     private ServiceEventDetail $serviceEventDetail;
-
     private int $eventId;
 
     /** @var ModelPersonSchedule[][] | null */
@@ -40,7 +39,6 @@ class AllScheduleListComponent extends BaseComponent
                 }
             }
         }
-
         return false;
     }
 
@@ -52,7 +50,7 @@ class AllScheduleListComponent extends BaseComponent
                 $scheduleGroups[] = $item;
             }
         }
-        $this->template->lang = $this->getPresenter()->lang;
+        $this->template->lang = $this->translator->lang;
         $this->template->personGroups = $this->getGroupedPersonSchedule();
         $this->template->scheduleGroups = $scheduleGroups;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'layout.latte');

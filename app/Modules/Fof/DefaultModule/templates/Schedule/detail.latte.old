@@ -484,7 +484,6 @@
         {foreach $data as $datum}
             {if $datum->scheduleGroupId === 144}
                 {foreach $datum->scheduleItems as $item}
-                    {dump $item}
                     {if $lang === 'cs'}
                         <h2>{$item->label['cs']}</h2>
                     {else}

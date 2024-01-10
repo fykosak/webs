@@ -12,7 +12,7 @@ class FlagsComponent extends BaseComponent
 {
     public function getFlagForMember(ModelMember $member): string
     {
-        return $member->countryIso;
+        return $member->school['countryIso'] ?? '';
     }
 
     public function getFlagsForTeam(ModelTeam $team): array

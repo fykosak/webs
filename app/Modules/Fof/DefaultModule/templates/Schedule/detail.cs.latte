@@ -4,7 +4,6 @@
         <section class="inner-container">
             {var $key = null}
 {foreach $groups as $group}
-            {dump $group}
             {var $start = new \DateTime($group['start'])}
             {var $end = new \DateTime($group['end'])}
             {var $newKey = $start->format('Y-m-d')}
@@ -21,7 +20,6 @@
             {foreach $group['items'] as $item}
                 <h3>{$item['name']['cs']}</h3>
                 <p>{$item['longDescription']['cs']??$item['description']['cs']|noescape}</p>
-                {dump $item}
             {/foreach}
             {php $key = $newKey}
             {/foreach}

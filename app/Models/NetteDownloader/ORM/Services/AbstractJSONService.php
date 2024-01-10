@@ -46,7 +46,6 @@ abstract class AbstractJSONService
 
                 $mapper = new \JsonMapper();
                 if ($asArray) {
-
                     return $mapper->mapArray(
                         array_map(function (array $datum) {
                             return self::toStd($datum);

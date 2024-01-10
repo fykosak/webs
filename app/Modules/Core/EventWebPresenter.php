@@ -5,20 +5,20 @@ declare(strict_types=1);
 namespace App\Modules\Core;
 
 use App\Models\GamePhaseCalculator;
-use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\NetteDownloader\ORM\Services\DummyService;
 use Nette\Application\UI\Template;
 
 abstract class EventWebPresenter extends BasePresenter
 {
-    protected ServiceEventDetail $serviceEventDetail;
     protected GamePhaseCalculator $gamePhaseCalculator;
+    protected DummyService $dummyService;
 
     public function injectEventWebServices(
-        ServiceEventDetail $serviceEventDetail,
-        GamePhaseCalculator $calculator
+        GamePhaseCalculator $calculator,
+        DummyService $dummyService
     ): void {
-        $this->serviceEventDetail = $serviceEventDetail;
         $this->gamePhaseCalculator = $calculator;
+        $this->dummyService = $dummyService;
     }
 
     protected function createTemplate(): Template

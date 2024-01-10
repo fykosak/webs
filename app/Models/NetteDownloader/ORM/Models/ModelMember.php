@@ -9,7 +9,5 @@ namespace App\Models\NetteDownloader\ORM\Models;
  */
 class ModelMember extends ModelPerson
 {
-    public ?int $schoolId = null;
-    public ?string $schoolName = null;
-    public ?string $countryIso = null;
+    public ?array $school;
 }

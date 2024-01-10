@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace App\Models\NetteDownloader\ORM\Services;
 
-use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
-use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Models\ModelParticipant;
 use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
 use App\Models\NetteDownloader\ORM\Models\ModelSchedule;
-use App\Models\NetteDownloader\ORM\Models\ModelTeam;
+use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
+use Fykosak\FKSDBDownloaderCore\Requests\Request;
 
+/**
+ * @deprecated
+ */
 final class ServiceEventDetail extends AbstractJSONService
 {
     protected function getRequest(int $eventId): Request
@@ -31,20 +32,6 @@ final class ServiceEventDetail extends AbstractJSONService
     }
 
     /**
-     * @return ModelTeam[]
-     */
-    public function getTeams(int $eventId, ?string $explicitExpiration = null): array
-    {
-        return $this->getItem(
-            $this->getRequest($eventId),
-            ['teams'],
-            ModelTeam::class,
-            true,
-            $explicitExpiration
-        );
-    }
-
-    /**
      * @return ModelSchedule[]
      */
     public function getSchedule(int $eventId, ?string $explicitExpiration = null): array
@@ -53,20 +40,6 @@ final class ServiceEventDetail extends AbstractJSONService
             $this->getRequest($eventId),
             ['schedule'],
             ModelSchedule::class,
-            true,
-            $explicitExpiration
-        );
-    }
-
-    /**
-     * @return ModelParticipant[]
-     */
-    public function getParticipants(int $eventId, ?string $explicitExpiration = null): array
-    {
-        return $this->getItem(
-            $this->getRequest($eventId),
-            ['participants'],
-            ModelParticipant::class,
             true,
             $explicitExpiration
         );
