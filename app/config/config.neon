@@ -10,7 +10,6 @@ session:
 
 services:
     - Fykosak\Utils\Localization\GettextTranslator(%i18n.locales%,"")
-    - App\Models\NetteDownloader\NetteFKSDBDownloader(%fksdbDownloader.url%,%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes')
     - App\Models\NetteDownloader\ORM\Services\ServiceEventDetail('10 minutes')
     - App\Models\NetteDownloader\ORM\Services\ServiceEventList('10 minutes')
     - App\Models\GamePhaseCalculator(%eventTypeId%)

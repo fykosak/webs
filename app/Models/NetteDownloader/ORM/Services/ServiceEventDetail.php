@@ -37,7 +37,7 @@ final class ServiceEventDetail extends AbstractJSONService
     {
         return $this->getItem(
             $this->getRequest($eventId),
-            ["teams"],
+            ['teams'],
             ModelTeam::class,
             true,
             $explicitExpiration
@@ -51,7 +51,7 @@ final class ServiceEventDetail extends AbstractJSONService
     {
         return $this->getItem(
             $this->getRequest($eventId),
-            ["schedule"],
+            ['schedule'],
             ModelSchedule::class,
             true,
             $explicitExpiration
@@ -65,7 +65,7 @@ final class ServiceEventDetail extends AbstractJSONService
     {
         return $this->getItem(
             $this->getRequest($eventId),
-            ["participants"],
+            ['participants'],
             ModelParticipant::class,
             true,
             $explicitExpiration
@@ -79,7 +79,7 @@ final class ServiceEventDetail extends AbstractJSONService
     {
         return $this->getItem(
             $this->getRequest($eventId),
-            ["person_schedule"],
+            ['person_schedule'],
             ModelPersonSchedule::class,
             true,
             $explicitExpiration

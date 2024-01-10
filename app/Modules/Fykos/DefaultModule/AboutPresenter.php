@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Fykos\DefaultModule;
 
 use App\Models\Downloader\FKSDBDownloader;
-use App\Models\Downloader\OrganizersRequest;
+use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 
 final class AboutPresenter extends BasePresenter
 {

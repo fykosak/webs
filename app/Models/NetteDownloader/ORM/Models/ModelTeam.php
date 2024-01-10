@@ -24,7 +24,7 @@ class ModelTeam
      */
     public $members;
 
-    /*
+    /**
      * @var ModelPerson[]
      */
     public $teachers;

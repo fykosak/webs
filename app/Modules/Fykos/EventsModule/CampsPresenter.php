@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\EventsModule;
 
-use App\Models\Downloader\EventListRequest;
 use App\Models\Downloader\FKSDBDownloader;
+use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
 
 class CampsPresenter extends BasePresenter
 {
