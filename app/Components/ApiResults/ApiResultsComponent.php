@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Components\ApiResults;
 
 use App\Models\Game\Connector;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\Application\AbortException;
 use Nette\Application\Responses\JsonResponse;

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Components\TeamResults;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\NetteDownloader\ORM\Models\ModelTeam;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\Application\UI\Form;
 use Nette\DI\Container;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\DefaultModule;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 
 class ArchivePresenter extends BasePresenter
 {

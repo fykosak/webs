@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader;
 
-use Fykosak\FKSDBDownloaderCore\FKSDBDownloader as DownloaderCore;
+use Fykosak\FKSDBDownloaderCore\Downloader;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
@@ -14,7 +14,7 @@ final class FKSDBDownloader
 {
     use SmartObject;
 
-    private DownloaderCore $downloader;
+    private Downloader $downloader;
     private string $username;
     private string $password;
     private string $expiration;
@@ -35,10 +35,16 @@ final class FKSDBDownloader
         $this->expiration = $expiration;
     }
 
-    public function getDownloader(): DownloaderCore
+    public function getDownloader(): Downloader
     {
         if (!isset($this->downloader)) {
-            $this->downloader = new DownloaderCore('', $this->username, $this->password, $this->jsonApiUrl);
+            $this->downloader = new Downloader([
+                'fksdb' => [
+                    'url' => $this->jsonApiUrl,
+                    'username' => $this->username,
+                    'password' => $this->password,
+                ],
+            ]);
         }
         return $this->downloader;
     }
@@ -46,13 +52,13 @@ final class FKSDBDownloader
     /**
      * @throws \Throwable
      */
-    public function download(Request $request, ?string $explicitExpiration = null): string
+    public function download(Request $request, ?string $explicitExpiration = null): array
     {
         return $this->cache->load(
             $request->getCacheKey() . '-json',
-            function (&$dependencies) use ($request, $explicitExpiration): string {
+            function (&$dependencies) use ($request, $explicitExpiration): array {
                 $dependencies[Cache::EXPIRE] = $explicitExpiration ?? $this->expiration;
-                return $this->getDownloader()->downloadJSON($request);
+                return $this->getDownloader()->download('fksdb', $request);
             }
         );
     }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\ArchiveModule;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam;
+use App\Models\NetteDownloader\ORM\Models\ModelTeam;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
 

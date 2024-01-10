@@ -6,7 +6,7 @@ namespace App\Components\UpperHomePrague;
 
 use App\Components\Countdown\CountdownComponent;
 use App\Models\GamePhaseCalculator;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
 

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\ArchiveModule;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;

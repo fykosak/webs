@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Components\Map;
 
 use App\Models\GamePhaseCalculator;
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
 

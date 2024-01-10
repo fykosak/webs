@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Fykos\DefaultModule;
 
 use App\Models\Downloader\FKSDBDownloader;
-use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
+use App\Models\Downloader\OrganizersRequest;
 
 final class AboutPresenter extends BasePresenter
 {
@@ -21,8 +21,7 @@ final class AboutPresenter extends BasePresenter
      */
     public function parseOrganizers(): array
     {
-        $response = $this->downloader->download(new OrganizersRequest(1));
-        $organizers = json_decode($response, true);
+        $organizers = $this->downloader->download(new OrganizersRequest(1));
 
         if ($organizers !== null) {
             $parsedOrganizers = [];

@@ -4,13 +4,25 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\EventsModule;
 
-use DOMDocument;
+use App\Models\Downloader\EventListRequest;
+use App\Models\Downloader\FKSDBDownloader;
 
 class CampsPresenter extends BasePresenter
 {
+    private FKSDBDownloader $downloader;
 
-    public function renderDefault()
+    public function inject(FKSDBDownloader $downloader): void
     {
+        $this->downloader = $downloader;
+    }
+
+    /**
+     * @throws \Throwable
+     */
+    public function renderDefault(): void
+    {
+        $data = $this->downloader->download(new EventListRequest([5, 4]));
+        $this->template->data = $data;
         // // Fetch the webpage
         // $html = file_get_contents('https://fykos.cz/akce/soustredeni/start');
 
@@ -55,6 +67,5 @@ class CampsPresenter extends BasePresenter
         foreach ($this->template->camps as &$camp) {
             $camp['link'] = 'https://fykos.cz/rocnik' . $camp['year'] . '/sous-' . $camp['season'] . '/start';
         }
-
     }
 }

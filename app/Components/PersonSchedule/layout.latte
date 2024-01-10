@@ -1,6 +1,6 @@
 {varType string $lang}
-{varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelSchedule[] $scheduleGroups}
-{varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelPersonSchedule[][] $personGroups}
+{varType App\Models\NetteDownloader\ORM\Models\ModelSchedule[] $scheduleGroups}
+{varType App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule[][] $personGroups}
 {foreach $scheduleGroups as $group}
     <h3>{$group->name[$lang]}</h3>
     <div class="row">

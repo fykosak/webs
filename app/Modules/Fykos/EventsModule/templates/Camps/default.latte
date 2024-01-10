@@ -43,37 +43,15 @@
     </section>
 </div>
 
+    <h1>Seznam minulých ročníků</h1>
+    {foreach $data as $datum}
+        <div class="panel color-auto">
+            <section class="inner-container">
+                <h1>{$datum['nameNew'][$lang]}</h1>
+                <p>{$datum['reportNew'][$lang]}</p>
 
-<div class="panel color-auto">
-    <section class="inner-container">
-        <!-- <div class="subheader">Základní informace</div> -->
-        <h1>Seznam minulých ročníků</h1>
-
-        {foreach $camps as $camp}
-        <div class="row event-box">
-            <div class="col-md-8 event-text-box">
-                <div>
-                    <h2>{$camp["title"]}</h2>
-                    <p>
-                        {$camp["description"]}
-                    </p>
-                </div>
-                <div>
-                    <a class="btn btn-primary"
-                        href="{$camp['link']}">
-                        Více o akci
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4 event-img-box">
-                <a href="{$camp['link']}">
-                    <img src="{$basePath}{$camp['photo_path']}" alt="Fyziklání korespondenční seminář" class="event-img">
-                </a>
-            </div>
+            </section>
         </div>
-        {/foreach}
-
-    </section>
-</div>
+    {/foreach}
 
 {/block}

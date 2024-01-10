@@ -1,5 +1,5 @@
 {varType string $lang}
-{varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelSchedule[] $data}
+{varType App\Models\NetteDownloader\ORM\Models\ModelSchedule[] $data}
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">

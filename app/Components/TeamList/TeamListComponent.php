@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Components\TeamList;
 
 use App\Components\Flags\FlagsComponent;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
 

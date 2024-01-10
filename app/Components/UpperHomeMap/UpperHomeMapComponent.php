@@ -7,8 +7,8 @@ namespace App\Components\UpperHomeMap;
 use App\Components\Countdown\CountdownComponent;
 use App\Components\Map\MapComponent;
 use App\Models\GamePhaseCalculator;
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
 

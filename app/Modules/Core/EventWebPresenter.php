@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Core;
 
 use App\Models\GamePhaseCalculator;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
 use Nette\Application\UI\Template;
 
 abstract class EventWebPresenter extends BasePresenter

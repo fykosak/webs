@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-12">
-        
+
         <!-- The button that triggers the collapsible content -->
         <button class="btn btn-primary-inverted button-collapse-header" type="button" data-bs-toggle="collapse"
         data-bs-target="#resultFilters" aria-expanded="false" aria-controls="resultFilters">
@@ -21,7 +21,7 @@
         </div>
     </div>
 </div>
-<div class="team-results-control">            
+<div class="team-results-control">
     {foreach $teams AS $category => $teamsForCategory}
         <button class="btn btn-primary button-collapse-header" type="button" data-bs-toggle="collapse"
         data-bs-target="#collapse-category-{$category}" aria-expanded="false" aria-controls="collapse-category-{$category}">
@@ -45,7 +45,7 @@
             {foreach $teamsForCategory AS $index => $team}
                 <div class="results-row">
                     <div class="results-first-row">
-                        {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
+                        {varType App\Models\NetteDownloader\ORM\Models\ModelTeam $team}
                         <div class="result-column"
                             style="width: 5rem">{if $team->status === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</div>
                         <div class="result-column" style="flex-grow: 1"><strong>{$team->name}</strong></div>
@@ -63,7 +63,7 @@
                                     usort($participants, fn($a, $b) => $a->schoolId <=> $b->schoolId)
                                 }
                                 {foreach $participants as $key => $participant}
-                                    {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
+                                    {varType App\Models\NetteDownloader\ORM\Models\ModelParticipant $participant}
                                     {$participant->name
                                     }{do $inSchool++
                                 }{if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->schoolId != $participants[$key + 1]->schoolId)

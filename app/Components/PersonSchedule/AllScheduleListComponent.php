@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Components\PersonSchedule;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelPersonSchedule;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
 

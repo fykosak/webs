@@ -55,7 +55,7 @@
 
                 <ol class="team-list">
                     {foreach $teamsForCategory AS $team}
-                        {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
+                        {varType App\Models\NetteDownloader\ORM\Models\ModelTeam $team}
                         {if $team->status == 'disqualified' || $team->status == 'missed' || $team->status == 'participated' || $team->status == 'applied' || $team->status == 'approved' || $team->status == 'pending'}
                             <li id="{$team->teamId}" class="team-status-{$team->status}">
                                 <strong>{$team->name}</strong>:
@@ -66,7 +66,7 @@
                                         usort($members, fn($a, $b) => $a->schoolId <=> $b->schoolId)
                                     }
                                     {foreach $members as $key => $member}
-                                        {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelMember $member}
+                                        {varType App\Models\NetteDownloader\ORM\Models\ModelMember $member}
                                         {$member->name}
                                         {do $inSchool++}
                                         {if $iterator->isLast() || (!is_null($members[$key + 1]) && $member->schoolId != $members[$key + 1]->schoolId)}

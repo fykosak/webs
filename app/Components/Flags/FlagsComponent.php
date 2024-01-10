@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Components\Flags;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelMember;
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam;
+use App\Models\NetteDownloader\ORM\Models\ModelMember;
+use App\Models\NetteDownloader\ORM\Models\ModelTeam;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 
 class FlagsComponent extends BaseComponent

@@ -6,8 +6,8 @@ namespace App\Modules\Fol\Core;
 
 use App\Models\GamePhaseCalculator;
 use App\Modules\Core\EventWebPresenter;
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 use Nette\Application\UI\Template;
 
 abstract class BasePresenter extends EventWebPresenter

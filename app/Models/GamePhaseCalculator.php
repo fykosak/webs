@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use DateTimeInterface;
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 use Nette\ArgumentOutOfRangeException;
 use Nette\DI\Container;
 use Nette\SmartObject;

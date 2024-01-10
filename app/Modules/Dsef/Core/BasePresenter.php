@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Dsef\Core;
 
 use App\Modules\Core\EventWebPresenter;
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 
