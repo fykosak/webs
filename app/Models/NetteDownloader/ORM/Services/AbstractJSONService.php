@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models\NetteDownloader\ORM\Services;
 
-use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use App\Models\NetteDownloader\NetteFKSDBDownloader;
+use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\SmartObject;
@@ -39,8 +39,7 @@ abstract class AbstractJSONService
             $request->getCacheKey() . "_" . implode(".", $path),
             function (&$dependencies) use ($request, $path, $modelClassName, $asArray, $explicitExpiration) {
                 $dependencies[Cache::EXPIRE] = $explicitExpiration ?? $this->expiration;
-                $jsonText = $this->downloader->download($request);
-                $json = json_decode($jsonText);
+                $json = $this->downloader->download($request);
 
                 foreach ($path as $pathItem) {
                     $json = $json->$pathItem;
@@ -48,7 +47,7 @@ abstract class AbstractJSONService
 
                 $mapper = new \JsonMapper();
                 if ($asArray) {
-                    return $mapper->mapArray($json, [], $modelClassName);
+                    return $mapper->mapArray(array_map(fn($value) => (object)$value, $json), [], $modelClassName);
                 } else {
                     return $mapper->map($json, new $modelClassName());
                 }

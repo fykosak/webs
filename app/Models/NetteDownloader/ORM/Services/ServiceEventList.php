@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models\NetteDownloader\ORM\Services;
 
-use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
+use Tracy\Debugger;
 
 final class ServiceEventList extends AbstractJSONService
 {
