@@ -6,7 +6,6 @@ namespace App\Models\NetteDownloader\ORM\Services;
 
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
-use App\Models\NetteDownloader\ORM\Models\ModelSchedule;
 use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 
@@ -20,6 +19,9 @@ final class ServiceEventDetail extends AbstractJSONService
         return new EventRequest($eventId);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getEvent(int $eventId, ?string $explicitExpiration = null): ModelEvent
     {
         return $this->getItem(
@@ -32,27 +34,14 @@ final class ServiceEventDetail extends AbstractJSONService
     }
 
     /**
-     * @return ModelSchedule[]
-     */
-    public function getSchedule(int $eventId, ?string $explicitExpiration = null): array
-    {
-        return $this->getItem(
-            $this->getRequest($eventId),
-            ['schedule'],
-            ModelSchedule::class,
-            true,
-            $explicitExpiration
-        );
-    }
-
-    /**
      * @return ModelPersonSchedule[]
+     * @throws \Throwable
      */
     public function getPersonSchedule(int $eventId, ?string $explicitExpiration = null): array
     {
         return $this->getItem(
             $this->getRequest($eventId),
-            ['person_schedule'],
+            ['personSchedule'],
             ModelPersonSchedule::class,
             true,
             $explicitExpiration

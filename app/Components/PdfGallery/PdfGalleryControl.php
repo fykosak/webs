@@ -16,7 +16,6 @@ class PdfGalleryControl extends BaseComponent
     private string $wwwDir;
     private Cache $cache;
 
-
     public function __construct(Container $container)
     {
         parent::__construct($container);
@@ -28,11 +27,9 @@ class PdfGalleryControl extends BaseComponent
         $this->cache = new Cache($storage, __NAMESPACE__);
     }
 
-
     public static function getPdfs(string $path, string $wwwDir): array
     {
         $pdfs = [];
-
         try {
             $iterator = Finder::findFiles('*.pdf')->in($wwwDir . $path)->getIterator();
         } catch (\Exception $e) {

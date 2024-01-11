@@ -52,13 +52,13 @@ final class FKSDBDownloader
     /**
      * @throws \Throwable
      */
-    public function download(Request $request, ?string $explicitExpiration = null): array
+    public function download(string $app, Request $request, ?string $explicitExpiration = null): array
     {
         return $this->cache->load(
             $request->getCacheKey() . '-json',
-            function (&$dependencies) use ($request, $explicitExpiration): array {
+            function (&$dependencies) use ($request, $explicitExpiration, $app): array {
                 $dependencies[Cache::EXPIRE] = $explicitExpiration ?? $this->expiration;
-                return $this->getDownloader()->download('fksdb', $request);
+                return $this->getDownloader()->download($app, $request);
             }
         );
     }

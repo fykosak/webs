@@ -1,15 +1,15 @@
 {varType string $lang}
-{varType App\Models\NetteDownloader\ORM\Models\ModelSchedule[] $scheduleGroups}
+{varType array $scheduleGroups}
 {varType App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule[][] $personGroups}
 {foreach $scheduleGroups as $group}
-    <h3>{$group->name[$lang]}</h3>
+    <h3>{$group['name'][$lang]}</h3>
     <div class="row">
-        {foreach $group->scheduleItems as $scheduleItem}
+        {foreach $group['items'] as $item}
             <div class="col col-md-3">
-                <h4>{$scheduleItem->name[$lang]}</h4>
-                {if isset($personGroups[$scheduleItem->scheduleItemId])}
+                <h4>{$item['name'][$lang]}</h4>
+                {if isset($personGroups[$item['itemId']])}
                     <ul>
-                        {foreach $personGroups[$scheduleItem->scheduleItemId] as $person}
+                        {foreach $personGroups[$item['itemId']] as $person}
                             <li>{$person->person->name}</li>
                         {/foreach}
                     </ul>

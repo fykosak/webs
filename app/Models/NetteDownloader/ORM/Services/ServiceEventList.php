@@ -10,6 +10,7 @@ use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
 final class ServiceEventList extends AbstractJSONService
 {
     /**
+     * @param int[] $eventTypeIds
      * @return ModelEvent[]
      * @throws \Throwable
      */
@@ -27,6 +28,7 @@ final class ServiceEventList extends AbstractJSONService
     }
 
     /**
+     * @param int[] $eventTypeIds
      * @return ModelEvent[]
      * @throws \Throwable
      */
@@ -34,11 +36,12 @@ final class ServiceEventList extends AbstractJSONService
     {
         return array_filter(
             $this->getEvents($eventTypeIds, $explicitExpiration),
-            fn(ModelEvent $event): bool => $year == $event->begin->format('Y')
+            fn(ModelEvent $event): bool => $year === (int)$event->begin->format('Y')
         );
     }
 
     /**
+     * @param int[] $eventTypeIds
      * @throws \Throwable
      */
     public function getNewest(array $eventTypeIds, ?string $explicitExpiration = null): ModelEvent

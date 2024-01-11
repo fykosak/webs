@@ -40,7 +40,7 @@ class ApiResultsComponent extends BaseComponent
     private function serialiseTeams(): array
     {
         $teams = [];
-        foreach ($this->downloader->download(new TeamsRequest($this->eventId)) as $team) {
+        foreach ($this->downloader->download('fksdb', new TeamsRequest($this->eventId)) as $team) {
             if ($team['status'] === 'cancelled') {
                 continue;
             }

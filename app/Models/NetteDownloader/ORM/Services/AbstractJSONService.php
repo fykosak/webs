@@ -39,7 +39,7 @@ abstract class AbstractJSONService
             $request->getCacheKey() . '_' . implode('.', $path),
             function (&$dependencies) use ($request, $path, $modelClassName, $asArray, $explicitExpiration) {
                 $dependencies[Cache::EXPIRE] = $explicitExpiration ?? $this->expiration;
-                $json = $this->downloader->download($request);
+                $json = $this->downloader->download('fksdb', $request);
                 foreach ($path as $pathItem) {
                     $json = $json[$pathItem];
                 }

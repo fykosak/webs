@@ -29,6 +29,9 @@ class UpperHomeBeforeRegistrationComponent extends BaseComponent
      */
     protected function createComponentCountdown(): CountdownComponent
     {
-        return new CountdownComponent($this->gamePhaseCalculator->getFKSDBEvent()->registrationBegin);
+        return new CountdownComponent(
+            $this->getContext(),
+            $this->gamePhaseCalculator->getFKSDBEvent()->registrationBegin
+        );
     }
 }

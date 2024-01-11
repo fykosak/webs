@@ -21,31 +21,28 @@ final class AboutPresenter extends BasePresenter
      */
     public function parseOrganizers(): array
     {
-        $organizers = $this->downloader->download(new OrganizersRequest(1));
+        $organizers = $this->downloader->download('fksdb', new OrganizersRequest(1));
 
-        if ($organizers !== null) {
-            $parsedOrganizers = [];
-            foreach ($organizers as $organizer) {
-                $parsedOrganizer = [
-                    'name' => $organizer['name'],
-                    'personId' => $organizer['personId'],
-                    'email' => $organizer['email'],
-                    'academicDegreePrefix' => $organizer['academicDegreePrefix'],
-                    'academicDegreeSuffix' => $organizer['academicDegreeSuffix'],
-                    'career' => $organizer['career'],
-                    'contribution' => $organizer['contribution'],
-                    'order' => $organizer['order'],
-                    'role' => $organizer['role'],
-                    'since' => $organizer['since'],
-                    'until' => $organizer['until'],
-                    'texSignature' => $organizer['texSignature'],
-                    'domainAlias' => $organizer['domainAlias'],
-                ];
-                $parsedOrganizers[] = $parsedOrganizer;
-            }
-            return $parsedOrganizers;
+        $parsedOrganizers = [];
+        foreach ($organizers as $organizer) {
+            $parsedOrganizer = [
+                'name' => $organizer['name'],
+                'personId' => $organizer['personId'],
+                'email' => $organizer['email'],
+                'academicDegreePrefix' => $organizer['academicDegreePrefix'],
+                'academicDegreeSuffix' => $organizer['academicDegreeSuffix'],
+                'career' => $organizer['career'],
+                'contribution' => $organizer['contribution'],
+                'order' => $organizer['order'],
+                'role' => $organizer['role'],
+                'since' => $organizer['since'],
+                'until' => $organizer['until'],
+                'texSignature' => $organizer['texSignature'],
+                'domainAlias' => $organizer['domainAlias'],
+            ];
+            $parsedOrganizers[] = $parsedOrganizer;
         }
-        return [];
+        return $parsedOrganizers;
     }
 
     /**
