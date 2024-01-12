@@ -1,5 +1,5 @@
 {varType string $lang}
-{varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelSchedule[] $data}
+{varType App\Models\NetteDownloader\ORM\Models\ModelSchedule[] $data}
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
@@ -484,7 +484,6 @@
         {foreach $data as $datum}
             {if $datum->scheduleGroupId === 144}
                 {foreach $datum->scheduleItems as $item}
-                    {dump $item}
                     {if $lang === 'cs'}
                         <h2>{$item->label['cs']}</h2>
                     {else}

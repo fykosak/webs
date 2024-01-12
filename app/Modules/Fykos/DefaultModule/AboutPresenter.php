@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
-use App\Models\Downloader\FKSDBDownloader\FKSDBDownloader;
+use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 
 final class AboutPresenter extends BasePresenter
@@ -16,36 +16,38 @@ final class AboutPresenter extends BasePresenter
         $this->downloader = $downloader;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function parseOrganizers(): array
     {
-        $response = $this->downloader->download(new OrganizersRequest(1));
-        $organizers = json_decode($response, true);
+        $organizers = $this->downloader->download('fksdb', new OrganizersRequest(1));
 
-        if ($organizers !== null) {
-            $parsedOrganizers = [];
-            foreach ($organizers as $organizer) {
-                $parsedOrganizer = [
-                    'name' => $organizer['name'],
-                    'personId' => $organizer['personId'],
-                    'email' => $organizer['email'],
-                    'academicDegreePrefix' => $organizer['academicDegreePrefix'],
-                    'academicDegreeSuffix' => $organizer['academicDegreeSuffix'],
-                    'career' => $organizer['career'],
-                    'contribution' => $organizer['contribution'],
-                    'order' => $organizer['order'],
-                    'role' => $organizer['role'],
-                    'since' => $organizer['since'],
-                    'until' => $organizer['until'],
-                    'texSignature' => $organizer['texSignature'],
-                    'domainAlias' => $organizer['domainAlias'],
-                ];
-                $parsedOrganizers[] = $parsedOrganizer;
-            }
-            return $parsedOrganizers;
+        $parsedOrganizers = [];
+        foreach ($organizers as $organizer) {
+            $parsedOrganizer = [
+                'name' => $organizer['name'],
+                'personId' => $organizer['personId'],
+                'email' => $organizer['email'],
+                'academicDegreePrefix' => $organizer['academicDegreePrefix'],
+                'academicDegreeSuffix' => $organizer['academicDegreeSuffix'],
+                'career' => $organizer['career'],
+                'contribution' => $organizer['contribution'],
+                'order' => $organizer['order'],
+                'role' => $organizer['role'],
+                'since' => $organizer['since'],
+                'until' => $organizer['until'],
+                'texSignature' => $organizer['texSignature'],
+                'domainAlias' => $organizer['domainAlias'],
+            ];
+            $parsedOrganizers[] = $parsedOrganizer;
         }
-        return [];
+        return $parsedOrganizers;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderOrganizers(): void
     {
         $allOrganizers = $this->parseOrganizers();
@@ -59,13 +61,13 @@ final class AboutPresenter extends BasePresenter
             );
 
             // sort by order
-            usort($currentOrganizers, function ($a, $b) {
+            usort($currentOrganizers, function (array $a, array $b): int {
                 if ($a['order'] === $b['order']) {
-                    $last_name_a = explode(' ', $a['name']);
-                    $last_name_a = end($last_name_a);
-                    $last_name_b = explode(' ', $b['name']);
-                    $last_name_b = end($last_name_b);
-                    return $last_name_a <=> $last_name_b;
+                    $lastNameA = explode(' ', $a['name']);
+                    $lastNameA = end($lastNameA);
+                    $lastNameB = explode(' ', $b['name']);
+                    $lastNameB = end($lastNameB);
+                    return $lastNameA <=> $lastNameB;
                 }
                 return $b['order'] <=> $a['order'];
             });
@@ -73,19 +75,22 @@ final class AboutPresenter extends BasePresenter
         $this->template->currentOrganizers = $currentOrganizers;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderAllPastOrganizers(): void
     {
         $allOrganizers = $this->parseOrganizers();
 
         if ($allOrganizers !== []) {
             // sort by order
-            usort($allOrganizers, function ($a, $b) {
+            usort($allOrganizers, function (array $a, array $b): int {
                 if ($a['since'] === $b['since']) {
-                    $last_name_a = explode(' ', $a['name']);
-                    $last_name_a = end($last_name_a);
-                    $last_name_b = explode(' ', $b['name']);
-                    $last_name_b = end($last_name_b);
-                    return $last_name_a <=> $last_name_b;
+                    $lastNameA = explode(' ', $a['name']);
+                    $lastNameA = end($lastNameA);
+                    $lastNameB = explode(' ', $b['name']);
+                    $lastNameB = end($lastNameB);
+                    return $lastNameA <=> $lastNameB;
                 }
                 return $a['since'] <=> $b['since'];
             });

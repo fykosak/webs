@@ -11,6 +11,9 @@ use App\Components\UpperHomeMap\UpperHomeMapComponent;
 
 class DefaultPresenter extends BasePresenter
 {
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentUpperHomeMap(): UpperHomeMapComponent
     {
         return new UpperHomeMapComponent(
@@ -22,12 +25,15 @@ class DefaultPresenter extends BasePresenter
 
     protected function createComponentUpperHomeBeforeRegistration(): UpperHomeBeforeRegistrationComponent
     {
-        return new UpperHomeBeforeRegistrationComponent($this->gamePhaseCalculator);
+        return new UpperHomeBeforeRegistrationComponent($this->getContext());
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentCountdown(): CountdownComponent
     {
-        return new CountdownComponent($this->gamePhaseCalculator->getGameBegin());
+        return new CountdownComponent($this->getContext(), $this->gamePhaseCalculator->getGameBegin());
     }
 
     protected function createComponentResultsPanel(): ResultsPanelComponent

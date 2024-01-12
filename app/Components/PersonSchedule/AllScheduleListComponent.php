@@ -4,16 +4,18 @@ declare(strict_types=1);
 
 namespace App\Components\PersonSchedule;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelPersonSchedule;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\Downloader\FKSDBDownloader;
+use App\Models\Downloader\ScheduleRequest;
+use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
 
-class AllScheduleListComponent extends BaseComponent
+final class AllScheduleListComponent extends BaseComponent
 {
     private ServiceEventDetail $serviceEventDetail;
-
     private int $eventId;
+    private FKSDBDownloader $downloader;
 
     /** @var ModelPersonSchedule[][] | null */
     private ?array $groupedPersonSchedule = null;
@@ -24,41 +26,51 @@ class AllScheduleListComponent extends BaseComponent
         parent::__construct($container);
     }
 
-    public function injectPrimary(ServiceEventDetail $serviceEventDetail): void
+    public function injectPrimary(ServiceEventDetail $serviceEventDetail, FKSDBDownloader $downloader): void
     {
         $this->serviceEventDetail = $serviceEventDetail;
+        $this->downloader = $downloader;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function hasData(?string $groupType): bool
     {
-        foreach ($this->serviceEventDetail->getSchedule($this->eventId) as $item) {
-            if ($item->scheduleGroupType === $groupType || is_null($groupType)) {
-                foreach ($item->scheduleItems as $scheduleItem) {
-                    if ($scheduleItem->usedCapacity > 0) {
-                        return true;
-                    }
+        $data = $this->downloader->download(
+            'fksdb',
+            new ScheduleRequest($this->eventId, $groupType ? [$groupType] : [])
+        );
+        foreach ($data as $datum) {
+            foreach ($datum['items'] as $scheduleItem) {
+                if ($scheduleItem['capacity']['used'] > 0) {
+                    return true;
                 }
             }
         }
-
         return false;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function render(?string $groupType): void
     {
-        $scheduleGroups = [];
-        foreach ($this->serviceEventDetail->getSchedule($this->eventId) as $item) {
-            if ($item->scheduleGroupType === $groupType || is_null($groupType)) {
-                $scheduleGroups[] = $item;
-            }
-        }
-        $this->template->lang = $this->getPresenter()->lang;
-        $this->template->personGroups = $this->getGroupedPersonSchedule();
-        $this->template->scheduleGroups = $scheduleGroups;
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'layout.latte');
+        $data = $this->downloader->download(
+            'fksdb',
+            new ScheduleRequest($this->eventId, $groupType ? [$groupType] : [])
+        );
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'layout.latte', [
+            'lang' => $this->translator->lang,
+            'personGroups' => $this->getGroupedPersonSchedule(),
+            'scheduleGroups' => $data,
+        ]);
     }
 
-    /** @return ModelPersonSchedule[][] */
+    /**
+     * @return ModelPersonSchedule[][]
+     * @throws \Throwable
+     */
     private function getGroupedPersonSchedule(): array
     {
         if (is_null($this->groupedPersonSchedule)) {

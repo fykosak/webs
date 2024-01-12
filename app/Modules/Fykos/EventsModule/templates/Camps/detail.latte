@@ -1,0 +1,27 @@
+{varType array $data}
+{varType array $participants}
+{block title}{$data['nameNew'][$lang]}{/block}
+{block subtitle}
+    {switch $data['eventTypeId']}
+        {case 4}Jarní soustředění
+        {case 5}Podzimní soustředění
+    {/switch}
+{/block}
+{block main}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            {ifset subtitle}
+                <div class="subheader">{include subtitle}</div>{/ifset}
+                {ifset title}<h1>{include title}</h1>{/ifset}
+            <p>{$data['reportNew'][$lang]}</p>
+        </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>Participants</h1>
+            {foreach $participants as $participant}
+                {$participant['name']}{if !$iterator->isLast()},{else}.{/if}
+            {/foreach}
+        </section>
+    </div>
+{/block}
