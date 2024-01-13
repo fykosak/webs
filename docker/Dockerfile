@@ -8,6 +8,8 @@ RUN apt update && apt install -y \
 	libpng-dev \
 	libxml2-dev \
 	locales \
+	msmtp \
+	msmtp-mta \
 	npm \
 	unzip
 
