@@ -1,12 +1,6 @@
 {block title}Soustředění{/block}
 {block main}
 
-{* <div class="panel color-auto">
-    <section class="inner-container">
-        {$oldContent|noescape}
-    </section>
-</div> *}
-
 <div class="panel color-auto">
     <section class="inner-container">
         <!-- <div class="subheader">Základní informace</div> -->
@@ -43,15 +37,30 @@
     </section>
 </div>
 
-    <h1>Seznam minulých ročníků</h1>
-    {foreach $data as $datum}
-        <div class="panel color-auto">
-            <section class="inner-container">
-                <h1>{$datum['nameNew'][$lang]}</h1>
-                <p>{$datum['reportNew'][$lang]}</p>
+{foreach $data as $datum}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="row event-box">
+                <div class="col-md-8 event-text-box">    
+                    <h1>{$datum['nameNew'][$lang]}</h1>
+                    <p>{$datum['reportNew'][$lang]}</p>
+                    <div>
+                        {* TODO link for the camp page *}
+                        {* <a class="btn btn-primary" n:href=":Events:Fykos:">
+                            Více o semináři
+                        </a> *}
+                    </div>
+                </div>
+                <div class="col-md-4 event-img-box">
+                    <a n:href=":Events:Fykos:"> {* TODO: link for the camp page and correct picture *}
+                        <img src="{$basePath}/images/events/default/fykos.png" alt="Fyziklání korespondenční seminář"
+                        class="event-img">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+{/foreach}
 
-            </section>
-        </div>
-    {/foreach}
 
 {/block}
