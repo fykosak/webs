@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Modules\Dsef\ArchiveModule;
 
 use App\Components\PersonSchedule\AllScheduleListComponent;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 use App\Modules\Dsef\DefaultModule\CurrentPresenter;
 use App\Modules\Dsef\DefaultModule\RegistrationPresenter;
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
@@ -42,7 +42,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
                 $year = $this->eventYear;
                 $month = $this->eventMonth;
                 $events = $this->serviceEvent->getEventsByYear(
-                    [$this->context->getParameters()['eventTypeId']],
+                    self::EVENT_IDS,
                     intval($year)
                 );
                 $events = array_filter($events, function ($event) use ($month) {
@@ -54,7 +54,10 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
             }
 
             if (!isset($event)) {
-                throw new BadRequestException($this->csen('Akce nenalezena', 'Event not found'), IResponse::S404_NOT_FOUND);
+                throw new BadRequestException(
+                    $this->csen('Akce nenalezena', 'Event not found'),
+                    IResponse::S404_NOT_FOUND
+                );
             }
             $this->event = $event;
         }

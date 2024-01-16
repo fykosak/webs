@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\ArchiveModule;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
@@ -48,7 +48,10 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
                 }
             }
             if (!isset($event)) {
-                throw new BadRequestException($this->csen('Akce nenalezena', 'Event not found'), IResponse::S404_NOT_FOUND);
+                throw new BadRequestException(
+                    $this->csen('Akce nenalezena', 'Event not found'),
+                    IResponse::S404_NOT_FOUND
+                );
             }
             $this->event = $event;
         }
@@ -59,15 +62,27 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
     {
         return [
             new NavItem(
-                new PageTitle(null, $this->csen('Archiv', 'Archive'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(
+                    null,
+                    $this->csen('Archiv', 'Archive'),
+                    'visible-sm-inline glyphicon glyphicon-info-sign'
+                ), // TODO
                 ':Default:Archive:',
             ),
             new NavItem(
-                new PageTitle(null, $this->csen('Týmy', 'Teams'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(
+                    null,
+                    $this->csen('Týmy', 'Teams'),
+                    'visible-sm-inline glyphicon glyphicon-info-sign'
+                ), // TODO
                 ':Archive:Teams:default',
             ),
             new NavItem(
-                new PageTitle(null, $this->csen('Pořadí', 'Results'), 'visible-sm-inline glyphicon glyphicon-compressed'), // TODO
+                new PageTitle(
+                    null,
+                    $this->csen('Pořadí', 'Results'),
+                    'visible-sm-inline glyphicon glyphicon-compressed'
+                ), // TODO
                 ':Archive:Results:default',
             ),
             //new NavItem(

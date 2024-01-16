@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Dsef\DefaultModule;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 
 class ArchivePresenter extends BasePresenter
 {
@@ -20,7 +20,7 @@ class ArchivePresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $events = array_reverse($this->serviceEvent->getEvents([$this->context->getParameters()['eventTypeId']]));
+        $events = array_reverse($this->serviceEvent->getEvents(self::EVENT_IDS));
         $events = array_filter($events, function ($event) {
             //return true;
             return $event->end < new \DateTime('now');

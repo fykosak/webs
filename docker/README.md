@@ -42,3 +42,10 @@
 - změna potřebné konfigurace ve všech souborech a zapnutí `docker compose`
 - nainstalování composer a npm balíčků
 - build npm
+
+## Posílání mailů
+Aby fungovalo posílání mailů, je potřeba nastavit SMTP server, který bude PHP,
+respektive příkaz `sendmail` dodáván balíčkem `msmtp` a `msmtp-mta`. To se dělá
+v `msmtprc` (viz https://wiki.archlinux.org/title/msmtp). Jako výchozí hodnota
+je nastaveno `host.docker.internal`, tedy IP adresa hostovacího zařízení, na
+kterém musí běžet SMTP server.

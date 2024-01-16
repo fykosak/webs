@@ -17,7 +17,7 @@ class DefaultPresenter extends BasePresenter
 
     protected function createComponentUpperHomeBeforeRegistration(): UpperHomeBeforeRegistrationComponent
     {
-        return new UpperHomeBeforeRegistrationComponent($this->gamePhaseCalculator);
+        return new UpperHomeBeforeRegistrationComponent($this->getContext());
     }
 
     protected function createComponentResultsPanel(): ResultsPanelComponent

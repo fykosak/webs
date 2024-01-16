@@ -1,4 +1,5 @@
 version: '3'
+name: webs
 
 services:
   webs:
@@ -15,12 +16,16 @@ services:
       - ..:/var/www/html # path to webs repository
       - ./config/apache.conf:/etc/apache2/sites-available/000-default.conf # site config
       - ./config/php.ini:/usr/local/etc/php/php-local.ini # site config
+      - ./config/msmtprc:/etc/msmtprc # mail config
     ports:
       - 8080-8084:8080-8084 # opened ports mapping, not needed with proxy
     user: 1000:1000 # expects the main user with uid:pid
-    extra_hosts: # enable the hack in apache.conf
+    extra_hosts:
+      # enable the hack in apache.conf
       - "vyfuk.local:127.0.0.1"
       - "fykos.local:127.0.0.1"
       - "fol.local:127.0.0.1"
       - "fof.local:127.0.0.1"
       - "dsef.local:127.0.0.1"
+      # access smtp mail server running on host
+      - "host.docker.internal:host-gateway"

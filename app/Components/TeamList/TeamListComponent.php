@@ -5,14 +5,15 @@ declare(strict_types=1);
 namespace App\Components\TeamList;
 
 use App\Components\Flags\FlagsComponent;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\NetteDownloader\ORM\Models\ModelTeam;
+use App\Models\NetteDownloader\ORM\Services\DummyService;
+use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
 
 class TeamListComponent extends BaseComponent
 {
-
-    protected ServiceEventDetail $serviceTeam;
+    protected DummyService $serviceTeam;
     protected int $eventId;
 
     protected string $category;
@@ -24,7 +25,7 @@ class TeamListComponent extends BaseComponent
         $this->eventId = $eventId;
     }
 
-    public function injectServiceTeam(ServiceEventDetail $serviceTeam): void
+    public function injectServiceTeam(DummyService $serviceTeam): void
     {
         $this->serviceTeam = $serviceTeam;
     }
@@ -40,7 +41,7 @@ class TeamListComponent extends BaseComponent
     public function loadTeams(): void
     {
         $teams = [];
-        foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
+        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), ModelTeam::class) as $team) {
             $category = $team->category;
             if (strlen($category) === 0) {
                 continue;
@@ -60,7 +61,7 @@ class TeamListComponent extends BaseComponent
     public function render(): void
     {
         $this->loadTeams();
-        $this->template->lang = $this->getPresenter()->lang;
+        $this->template->lang = $this->translator->lang;
         $this->template->teams = $this->teams;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamList.latte');
     }

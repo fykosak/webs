@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08e647a93280b7eb1d3f5718d13760a5",
+    "content-hash": "2f4cc9368a4078609ee2c6b98fe53366",
     "packages": [
         {
             "name": "68publishers/asset",
@@ -69,16 +69,16 @@
         },
         {
             "name": "fykosak/fksdb-downloader-core",
-            "version": "v1.5.1",
+            "version": "dev-dev-json-request",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/fksdb-downloader-core.git",
-                "reference": "796903087e7193069d78ab879d1d02a632bdb59e"
+                "reference": "020b201"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/796903087e7193069d78ab879d1d02a632bdb59e",
-                "reference": "796903087e7193069d78ab879d1d02a632bdb59e",
+                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/020b201",
+                "reference": "020b201",
                 "shasum": ""
             },
             "require": {
@@ -109,9 +109,9 @@
             "description": "Interface for downloading data from FKSDB by SOAP-client",
             "support": {
                 "issues": "https://github.com/fykosak/fksdb-downloader-core/issues",
-                "source": "https://github.com/fykosak/fksdb-downloader-core/tree/v1.5.1"
+                "source": "https://github.com/fykosak/fksdb-downloader-core/tree/dev-json-request"
             },
-            "time": "2022-09-23T20:19:29+00:00"
+            "time": "2024-01-10T21:05:17+00:00"
         },
         {
             "name": "fykosak/nette-fks-utils",
@@ -166,54 +166,6 @@
                 "source": "https://github.com/fykosak/nette-fks-utils/tree/v0.1.1"
             },
             "time": "2023-08-15T18:55:05+00:00"
-        },
-        {
-            "name": "fykosak/nette-fksdb-downloader",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fykosak/nette-fksdb-downloader.git",
-                "reference": "8883961"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/nette-fksdb-downloader/zipball/8883961",
-                "reference": "8883961",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "ext-json": "*",
-                "ext-soap": "*",
-                "fykosak/fksdb-downloader-core": "^v1.4.0",
-                "netresearch/jsonmapper": "^4.0",
-                "nette/caching": "^3.1",
-                "nette/utils": "^3.2",
-                "php": ">=7.4"
-            },
-            "require-dev": {
-                "squizlabs/php_codesniffer": "^3.6.0"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Fykosak\\NetteFKSDBDownloader\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "FYKOS",
-                    "email": "webmaster@fykos.cz"
-                }
-            ],
-            "description": "FKSDB Downloader for nette web applications",
-            "support": {
-                "issues": "https://github.com/fykosak/nette-fksdb-downloader/issues",
-                "source": "https://github.com/fykosak/nette-fksdb-downloader/tree/master"
-            },
-            "time": "2023-08-21T21:27:38+00:00"
         },
         {
             "name": "latte/latte",
@@ -2336,7 +2288,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "fykosak/nette-fksdb-downloader": 20,
+        "fykosak/fksdb-downloader-core": 20,
         "fykosak/nette-fks-utils": 20
     },
     "prefer-stable": false,
@@ -2349,5 +2301,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.1.0"
 }

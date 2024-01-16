@@ -6,13 +6,13 @@ namespace App\Components\UpperHomeBeforeRegistration;
 
 use App\Components\Countdown\CountdownComponent;
 use App\Models\GamePhaseCalculator;
-use Nette\Application\UI\Control;
+use Fykosak\Utils\BaseComponent\BaseComponent;
 
-class UpperHomeBeforeRegistrationComponent extends Control
+class UpperHomeBeforeRegistrationComponent extends BaseComponent
 {
     protected GamePhaseCalculator $gamePhaseCalculator;
 
-    public function __construct(GamePhaseCalculator $calculator)
+    public function inject(GamePhaseCalculator $calculator): void
     {
         $this->gamePhaseCalculator = $calculator;
     }
@@ -20,7 +20,7 @@ class UpperHomeBeforeRegistrationComponent extends Control
     public function render(): void
     {
         $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
-        $this->template->lang = $this->getPresenter()->lang;
+        $this->template->lang = $this->translator->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomeBeforeRegistration.latte');
     }
 
@@ -29,6 +29,9 @@ class UpperHomeBeforeRegistrationComponent extends Control
      */
     protected function createComponentCountdown(): CountdownComponent
     {
-        return new CountdownComponent($this->gamePhaseCalculator->getFKSDBEvent()->registrationBegin);
+        return new CountdownComponent(
+            $this->getContext(),
+            $this->gamePhaseCalculator->getFKSDBEvent()->registrationBegin
+        );
     }
 }

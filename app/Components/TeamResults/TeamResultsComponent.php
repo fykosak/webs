@@ -4,29 +4,26 @@ declare(strict_types=1);
 
 namespace App\Components\TeamResults;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\NetteDownloader\ORM\Models\ModelTeam;
+use App\Models\NetteDownloader\ORM\Services\DummyService;
+use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\Application\UI\Form;
 use Nette\DI\Container;
-use Tracy\Debugger;
 
 class TeamResultsComponent extends BaseComponent
 {
-
-    protected ServiceEventDetail $serviceTeam;
+    protected DummyService $serviceTeam;
     protected int $eventId;
     protected ?array $filterData = null;
-    private string $lang;
 
-    public function __construct(Container $container, int $eventId, string $lang)
+    public function __construct(Container $container, int $eventId)
     {
         parent::__construct($container);
         $this->eventId = $eventId;
-        $this->lang = $lang;
     }
 
-    public function injectServiceTeam(ServiceEventDetail $serviceTeam): void
+    public function injectServiceTeam(DummyService $serviceTeam): void
     {
         $this->serviceTeam = $serviceTeam;
     }
@@ -40,7 +37,7 @@ class TeamResultsComponent extends BaseComponent
         // $this->filterData = $this->getParameter('filterData');
         // $this->template->filterData = $this->filterData;
         $this->template->teams = $this->loadTeams();
-        $this->template->lang = $this->lang;
+        $this->template->lang = $this->translator->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamResults.latte');
     }
 
@@ -52,7 +49,7 @@ class TeamResultsComponent extends BaseComponent
     {
 
         $teams = [];
-        foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
+        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), ModelTeam::class) as $team) {
             if ($team->status != 'participated' && $team->status != 'disqualified') {
                 continue;
             }
@@ -92,8 +89,8 @@ class TeamResultsComponent extends BaseComponent
     {
         $ISOsForTeam = [];
 
-        foreach ($team->members as $participant) {
-            $iso = $participant->countryIso;
+        foreach ($team->members as $member) {
+            $iso = $member->school['coutryISO'] ?? 'zz';
             if (!in_array($iso, $ISOsForTeam)) {
                 $ISOsForTeam[] = $iso;
             }
@@ -130,8 +127,8 @@ class TeamResultsComponent extends BaseComponent
 
         $countryISOs = [];
         $categories = [];
-        foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
-            if ($team->status != 'participated' && $team->status != 'disqualified') {
+        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), ModelTeam::class) as $team) {
+            if ($team->status !== 'participated' && $team->status !== 'disqualified') {
                 continue;
             }
             if ($team->members) {
@@ -139,17 +136,20 @@ class TeamResultsComponent extends BaseComponent
                 if (!in_array($category, $categories)) {
                     $categories[] = $category;
                 }
-                foreach ($team->members as $participant) {
-                    if ($participant->countryIso) {
-                        $countryISOs[$participant->countryIso] ??= 0;
-                        $countryISOs[$participant->countryIso]++;
+                foreach ($team->members as $member) {
+                    if (isset($member->school)) {
+                        $countryISOs[$member->school['countryISO']] ??= 0;
+                        $countryISOs[$member->school['countryISO']]++;
                     }
                 }
             }
         }
 
         // one member teams
-        $form->addCheckbox('OneMemberTeams', $this->lang == 'cs' ? 'Pouze jednočlenné týmy' : 'One member teams only');
+        $form->addCheckbox(
+            'OneMemberTeams',
+            $this->translator->lang === 'cs' ? 'Pouze jednočlenné týmy' : 'One member teams only'
+        );
 
         // countries
         arsort($countryISOs);
@@ -160,7 +160,14 @@ class TeamResultsComponent extends BaseComponent
         //         ->setOption('count', $count);
         // }
         foreach ($countryISOs as $countryISO => $count) {
-            $countryISOContainer->addCheckbox($countryISO, sprintf($this->lang == 'cs' ? '%s:%s účastníků' : '%s:%s participants', $countryISO, $count));
+            $countryISOContainer->addCheckbox(
+                $countryISO,
+                sprintf(
+                    $this->translator->lang === 'cs' ? '%s:%s účastníků' : '%s:%s participants',
+                    $countryISO,
+                    $count
+                )
+            );
         }
 
 

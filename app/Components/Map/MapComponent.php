@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Components\Map;
 
 use App\Models\GamePhaseCalculator;
-use Fykosak\NetteFKSDBDownloader\ORM\Models\ModelEvent;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\NetteDownloader\ORM\Models\ModelTeam;
+use App\Models\NetteDownloader\ORM\Services\DummyService;
+use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
 
@@ -14,10 +16,11 @@ class MapComponent extends BaseComponent
 {
     private static int $uniqueId = 0;
 
-    protected ServiceEventDetail $serviceTeam;
+    private DummyService $dummyService;
     protected int $forEventId;
 
     protected int $teamCount;
+    /** @var string[] */
     protected array $teamCountries;
 
     protected GamePhaseCalculator $gamePhaseCalculator;
@@ -29,9 +32,9 @@ class MapComponent extends BaseComponent
         $this->gamePhaseCalculator = $calculator;
     }
 
-    public function injectServiceTeam(ServiceEventDetail $serviceTeam): void
+    public function injectServiceTeam(DummyService $dummyService): void
     {
-        $this->serviceTeam = $serviceTeam;
+        $this->dummyService = $dummyService;
     }
 
     /**
@@ -41,21 +44,20 @@ class MapComponent extends BaseComponent
     {
         $this->teamCount = 0;
         $this->teamCountries = [];
-
-        foreach ($this->serviceTeam->getTeams($this->forEventId) as $team) {
+        foreach ($this->dummyService->get(new TeamsRequest($this->forEventId), ModelTeam::class) as $team) {
             if (!in_array($team->status, ['participated', 'disqualified', 'applied', 'pending', 'approved'])) {
                 continue;
             }
             $this->teamCount++;
             foreach ($team->members as $member) {
-                if (is_null($member->countryIso)) {
+                if (!isset($member->school['countryISO'])) {
                     continue;
                 }
                 if (
-                    !in_array($member->countryIso, $this->teamCountries) &&
-                    strtolower($member->countryIso) !== 'zz'
+                    !in_array($member->school['countryISO'], $this->teamCountries) &&
+                    strtolower($member->school['countryISO']) !== 'zz'
                 ) {
-                    $this->teamCountries[] = $member->countryIso;
+                    $this->teamCountries[] = $member->school['countryISO'];
                 }
             }
         }
@@ -64,7 +66,7 @@ class MapComponent extends BaseComponent
     /**
      * @throws \Throwable
      */
-    public function render($inverseColors = false): void
+    public function render(bool $inverseColors = false): void
     {
         $this->processTeams();
 
@@ -74,7 +76,7 @@ class MapComponent extends BaseComponent
         $this->template->uniqueId = self::$uniqueId++;
         $this->template->inverseColors = $inverseColors;
 
-        $this->template->lang = $this->getPresenter()->lang;
+        $this->template->lang = $this->translator->lang;
         $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'map.latte');
     }

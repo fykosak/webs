@@ -11,6 +11,7 @@ services:
       - ./webs/:/var/www/html # path to webs repository
       - ./config/apache.conf:/etc/apache2/sites-available/000-default.conf # site config
       - ./config/php.ini:/usr/local/etc/php/php-local.ini
+      - ./config/msmtprc:/etc/msmtprc # mail config
       - ./config/local/:/var/www/html/app/config/local
       - ./temp/:/var/www/html/temp/
       - ./log/:/var/www/html/log/
