@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Problems;
+namespace App\Models\Downloader;
 
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 
@@ -10,18 +10,16 @@ class SeriesRequest implements Request
 {
     protected string $contest;
     protected int $year;
-    protected int $series;
 
-    public function __construct(string $contest, int $year, int $series)
+    public function __construct(string $contest, int $year)
     {
         $this->contest = $contest;
         $this->year = $year;
-        $this->series = $series;
     }
 
     public function getCacheKey(): string
     {
-        return sprintf('series.%s.%d.%d', $this->contest, $this->year, $this->series);
+        return sprintf('series.%s.%d', $this->contest, $this->year);
     }
 
     public function getParams(): array
@@ -31,6 +29,6 @@ class SeriesRequest implements Request
 
     final public function getMethod(): string
     {
-        return sprintf('series.json');
+        return sprintf('%s/%d/series.json', $this->contest, $this->year);
     }
 }

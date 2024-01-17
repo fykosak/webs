@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Problems;
+namespace App\Models\Downloader;
 
 use DateTime;
 
 class SeriesModel
 {
-    public string $deadline;
+    public ?string $deadline;
     public int $year;
     public int $series;
     /**
@@ -17,6 +17,9 @@ class SeriesModel
     public array $problems;
 
     public function getDeadline() {
-        return new DateTime($this->deadline);
+        if ($this->deadline) {
+            return new DateTime($this->deadline);
+        }
+        return null;
     }
 }

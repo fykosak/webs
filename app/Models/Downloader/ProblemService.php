@@ -2,12 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Problems;
+namespace App\Models\Downloader;
 
-use Fykosak\NetteFKSDBDownloader\ORM\Services\AbstractJSONService;
+use App\Models\NetteDownloader\ORM\Services\AbstractJSONService;
+use Nette\Caching\Storage;
 
 final class ProblemService extends AbstractJSONService
 {
+    public function __construct(string $expiration, Storage $storage, ProblemManagerDownloader $downloader)
+    {
+        $this->downloader = $downloader;
+        parent::__construct($expiration, $storage);
+    }
+
     public function getProblem(
         string $contest,
         int $year,

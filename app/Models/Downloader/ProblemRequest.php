@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Problems;
+namespace App\Models\Downloader;
 
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 
@@ -33,6 +33,6 @@ class ProblemRequest implements Request
 
     final public function getMethod(): string
     {
-        return sprintf('%d/problem%d-%d.json', $this->year, $this->series, $this->number);
+        return sprintf('%s/%d/problem%d-%d.json', $this->contest, $this->year, $this->series, $this->number);
     }
 }

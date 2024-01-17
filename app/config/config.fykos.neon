@@ -4,9 +4,6 @@ application:
 
 services:
     - App\RouterFactory::createFykosRouter(%domains%, %router-mapping%)
-    - App\Models\Problems\ProblemService('10 minutes')
-    - App\Models\Problems\SeriesService('10 minutes')
-
 
 includes:
     - fykos-router-mapping.neon

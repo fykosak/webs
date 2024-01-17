@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
-use App\Models\Problems\ProblemService;
-use App\Models\Problems\SeriesService;
-use Nette\Utils\DateTime;
+use App\Models\Downloader\ProblemService;
+use App\Models\Downloader\SeriesService;
 
 class ProblemsPresenter extends BasePresenter
 {
     private ProblemService $problemService;
     private SeriesService $seriesService;
+
+    /** @persistent */
+    public ?int $year = null;
+    /** @persistent */
+    public ?int $series = null;
 
     public function injectServiceProblem(ProblemService $problemService, SeriesService $seriesService): void
     {
@@ -21,7 +25,9 @@ class ProblemsPresenter extends BasePresenter
 
     public function renderDefault(): void
     {
-        $series = $this->seriesService->getLatestSeries('fykos');
+        $year = $this->year ?? self::CURRENT_YEAR;
+        $series = $this->series ?? $this->seriesService->getLatestSeries('fykos', $year);
+        $series = $this->seriesService->getSeries('fykos', $year, $series);
         $this->template->series = $series;
 
         $problems = [];

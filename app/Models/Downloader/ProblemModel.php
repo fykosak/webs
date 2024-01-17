@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Problems;
+namespace App\Models\Downloader;
 
 class ProblemModel
 {
@@ -17,14 +17,14 @@ class ProblemModel
     /**
      * @var string[]
      */
-    public array $origin;
+    public ?array $origin = [];
     public int $points;
     /**
      * @var string[]
      */
     public array $topics;
     /**
-     * @var string[]
+     * @var array[][]
      */
     public array $authors;
     /**
@@ -45,7 +45,6 @@ class ProblemModel
      */
     public array $humanResult;
 
-    // TODO tahat z PM nebo ponechat takto?
     public function getLabel(): string
     {
         if ($this->contest === "fykos") {
