@@ -44,7 +44,7 @@ class CampsPresenter extends BasePresenter
         $data = $this->downloader->download(new EventListRequest(self::CAMPS_IDS));
 
         // sort by date
-        usort($data, function($a, $b) {
+        usort($data, function ($a, $b) {
             return strtotime($b['begin']) - strtotime($a['begin']);
         });
 

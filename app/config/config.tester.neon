@@ -3,4 +3,8 @@ parameters:
         login: ''
         password: ''
         url: http://127.0.0.1:8090/
+    problemManagerDownloader:
+        login: ''
+        password: ''
+        url: http://127.0.0.1:8090/
     gameApiURL: ''

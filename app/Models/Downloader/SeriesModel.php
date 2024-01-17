@@ -16,7 +16,8 @@ class SeriesModel
      */
     public array $problems;
 
-    public function getDeadline() {
+    public function getDeadline()
+    {
         if ($this->deadline) {
             return new DateTime($this->deadline);
         }

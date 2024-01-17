@@ -42,7 +42,7 @@ final class ProblemService extends AbstractJSONService
         ?string $explicitExpiration = null
     ): SeriesModel {
         return $this->getItem(
-            new SeriesRequest($contest, $year, $series),
+            new SeriesRequest($contest, $year),
             [(string)$series],
             SeriesModel::class,
             false,
@@ -50,7 +50,8 @@ final class ProblemService extends AbstractJSONService
         );
     }
 
-    public function getLatestSeries(string $contest, int $year): int {
+    public function getLatestSeries(string $contest, int $year): int
+    {
 
         return $this->cache->load(
             sprintf("lastSeries_%s", $contest),
