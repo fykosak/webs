@@ -21,7 +21,7 @@ final class SchedulePresenter extends BasePresenter
      */
     public function renderDetail(): void
     {
-        $groups = $this->downloader->download('fksdb', new ScheduleRequest(180, ['weekend', 'weekend_info']));
+        $groups = $this->downloader->download(new ScheduleRequest(180, ['weekend', 'weekend_info']));
         usort($groups, fn(array $aGroup, array $bGroup): int => $aGroup['start'] <=> $bGroup['start']);
         $this->template->groups = $groups;
     }

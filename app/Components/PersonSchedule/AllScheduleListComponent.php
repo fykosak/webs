@@ -37,10 +37,7 @@ final class AllScheduleListComponent extends BaseComponent
      */
     public function hasData(?string $groupType): bool
     {
-        $data = $this->downloader->download(
-            'fksdb',
-            new ScheduleRequest($this->eventId, $groupType ? [$groupType] : [])
-        );
+        $data = $this->downloader->download(new ScheduleRequest($this->eventId, $groupType ? [$groupType] : []));
         foreach ($data as $datum) {
             foreach ($datum['items'] as $scheduleItem) {
                 if ($scheduleItem['capacity']['used'] > 0) {
@@ -56,10 +53,7 @@ final class AllScheduleListComponent extends BaseComponent
      */
     public function render(?string $groupType): void
     {
-        $data = $this->downloader->download(
-            'fksdb',
-            new ScheduleRequest($this->eventId, $groupType ? [$groupType] : [])
-        );
+        $data = $this->downloader->download(new ScheduleRequest($this->eventId, $groupType ? [$groupType] : []));
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'layout.latte', [
             'lang' => $this->translator->lang,
             'personGroups' => $this->getGroupedPersonSchedule(),
