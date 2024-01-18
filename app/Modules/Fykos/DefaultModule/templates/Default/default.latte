@@ -1,5 +1,10 @@
 {varType string $lang}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType int $currentYear}
+{varType array $events}
+{varType int $closestEventIndex}
+{varType int $numOfEvents}
+
 {block title}
     {switch $lang}
         {case 'cs'} Hlavní stránka
@@ -35,13 +40,20 @@
                     </div>
                     <div class="center-content-horizontally-md content-down mt-3 mt-md-0">
                         <div class="header-image-dates">
-                            <h4 class="minor-event-heading">{$events['previous']['name']} | {$events['previous']['date-text']}</h4>
-                            <h2 class="next-event-heading">{$events['upcoming']['name']} | {$events['upcoming']['date-text']}
-                                | <span id="countdown-primary"></span>
-                            </h2>
-                            <h4 class="minor-event-heading mb-0">{$events['next']['name']} | {$events['next']['date-text']}
-                                | <span
-                                        id="countdown-secondary"></span></h4>
+                            {if $closestEventIndex == $numOfEvents}
+                                <h2 class="next-event-heading">Nový ročník FYKOSu přichází již brzy! Užívejte prázdniny!</h2>
+                            {else}
+                                {if $closestEventIndex > 0}
+                                    <h4 class="minor-event-heading">{$events[$closestEventIndex - 1]['name']} | {$events[$closestEventIndex - 1]['date'] |date:'j. n. Y'}</h4>
+                                {/if}
+                                <h2 class="next-event-heading">{$events[$closestEventIndex]['name']} | {$events[$closestEventIndex]['date'] |date:'j. n. Y'}
+                                    | <span id="countdown-primary"></span>
+                                </h2>
+                                {if $closestEventIndex < $numOfEvents - 1}
+                                    <h4 class="minor-event-heading mb-0">{$events[$closestEventIndex + 1]['name']} | {$events[$closestEventIndex + 1]['date'] |date:'j. n. Y'}
+                                    | <span id="countdown-secondary"></span></h4>
+                                {/if}
+                            {/if}
                         </div>
                     </div>
                 </div>
@@ -471,8 +483,9 @@
     }
 
     // Set the date we're counting down to
-    var countDownDatePrimary = new Date("January 3, 2024 00:00:00").getTime();
-    var countDownDateSecondary = new Date("February 16, 2024 10:00:00").getTime();
+    var countDownDatePrimary = new Date("<?php echo $events[$closestEventIndex]['date']; ?>");
+    var countDownDateSecondary = new Date("<?php echo $events[$closestEventIndex + 1]['date']; ?>");
+
 
     // Call the countdownTimer function with the specified date and element id
     countdownTimer(countDownDatePrimary, "countdown-primary");
