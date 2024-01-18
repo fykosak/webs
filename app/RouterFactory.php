@@ -193,6 +193,13 @@ class RouterFactory
         $router = new RouteList();
 
         $router->withModule('Default')
+        ->addRoute('//<domain>/problems/<year ([0-9]{2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
+            'presenter' => 'Problems',
+            'action' => 'default',
+            null => self::useTranslateFilter($domainList, $routerMapping['default']),
+        ]);
+
+        $router->withModule('Default')
         ->addRoute('//<domain>/results/<year ([0-9]{2})(-.*)?>', [
             'presenter' => 'Results',
             'action' => 'default',

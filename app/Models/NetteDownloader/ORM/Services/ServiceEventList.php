@@ -4,11 +4,19 @@ declare(strict_types=1);
 
 namespace App\Models\NetteDownloader\ORM\Services;
 
+use App\Models\Downloader\FKSDBDownloader;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
+use Nette\Caching\Storage;
 
 final class ServiceEventList extends AbstractJSONService
 {
+    public function __construct(string $expiration, Storage $storage, FKSDBDownloader $downloader)
+    {
+        $this->downloader = $downloader;
+        parent::__construct($expiration, $storage);
+    }
+
     /**
      * @param int[] $eventTypeIds
      * @return ModelEvent[]
