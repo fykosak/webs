@@ -21,7 +21,7 @@ final class AboutPresenter extends BasePresenter
      */
     public function parseOrganizers(): array
     {
-        $organizers = $this->downloader->download('fksdb', new OrganizersRequest(1));
+        $organizers = $this->downloader->download(new OrganizersRequest(1));
 
         $parsedOrganizers = [];
         foreach ($organizers as $organizer) {

@@ -1,0 +1,13 @@
+{varType ProblemModel $problem}
+{varType string $lang}
+{block content}
+    {foreach $problems as $problem}
+    <div class="panel color-auto">
+        <h2>{$problem->getLabel()}. {$problem->name[$lang]} <div class="float-end ml-3">({$problem->points} {if $lang === 'cs'}bodů{else}points{/if})</div></h2>
+       {$problem->task[$lang]}
+       {*<div class="panel color-auto">
+            {$problem->solution[$lang]}
+        </div>*}
+    </div>
+    {/foreach}
+{/block}

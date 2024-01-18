@@ -4,5 +4,5 @@ includes:
 parameters:
     ignoreErrors:
         # These methods are correctly used, PHPStan just does not see the definition because of interfaces.
-        - '#Method Nette\\Application\\UI\\Template::render\(\) invoked with 1 parameter, 0 required.#'
-        - '#Access to an undefined property Nette\\Application\\UI\\Presenter::\$lang.#'
+        #- '#Method Nette\\Application\\UI\\Template::render\(\) invoked with 1 parameter, 0 required.#'
+        #- '#Access to an undefined property Nette\\Application\\UI\\Presenter::\$lang.#'
