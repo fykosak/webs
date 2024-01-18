@@ -55,10 +55,10 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             ':Default:Results:',
         );
 
-        $items[] = new NavItem(
-            new PageTitle(null, 'Archiv úloh', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            ':Default:ProblemsArchive:',
-        );
+        // $items[] = new NavItem(
+        //     new PageTitle(null, 'Archiv úloh', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+        //     ':Default:ProblemsArchive:',
+        // );
 
         $items[] = new NavItem(
             new PageTitle(null, 'Přihlásit se', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
