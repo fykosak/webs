@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce45639a8497546802ed91318b501873",
+    "content-hash": "75a409897496e3daea5798548248f94d",
     "packages": [
         {
             "name": "68publishers/asset",
@@ -73,12 +73,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/fksdb-downloader-core.git",
-                "reference": "e1a4f9e"
+                "reference": "c52a8fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/e1a4f9e",
-                "reference": "e1a4f9e",
+                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/c52a8fb",
+                "reference": "c52a8fb",
                 "shasum": ""
             },
             "require": {
@@ -111,7 +111,7 @@
                 "issues": "https://github.com/fykosak/fksdb-downloader-core/issues",
                 "source": "https://github.com/fykosak/fksdb-downloader-core/tree/dev-json-request"
             },
-            "time": "2024-01-17T19:09:59+00:00"
+            "time": "2024-01-18T01:40:33+00:00"
         },
         {
             "name": "fykosak/nette-fks-utils",
