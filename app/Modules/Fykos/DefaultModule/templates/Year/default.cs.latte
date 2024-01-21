@@ -1,0 +1,47 @@
+{block title}Akce FYKOSu{/block}
+{block main}
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Stránka {$year}. ročníku</h1>
+        <p>
+            {$data["top-desc"]}
+        </p>
+    </section>
+</div>
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Seznam akcí {$year}. ročníku</h1>
+
+        {control person 11295}
+
+        {foreach $data["events"] as $event}
+            <div class="row event-box">
+                <div class="col-md-8 event-text-box">
+                    <div>
+                        <h2>{$event["name"]}</h2>
+                        <p>
+                            {$event["desc"]}
+                        </p>
+                    </div>
+                    {* {if isset($event["n-href-url"])}
+                        <div>
+                            <a class="btn btn-primary" n:href="{$event['n-href-url']}">
+                                Více o akci
+                            </a>
+                        </div>
+                    {/if} *}
+                </div>
+                <div class="col-md-4 event-img-box">
+                    <a n:href=":Events:Fykos:">
+                        <img src="{$event['img-path']}" alt="{$event['name']}"
+                        class="event-img">
+                    </a>
+                </div>
+            </div>
+        {/foreach}
+    </section>
+</div>
+
+{/block}

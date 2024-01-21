@@ -1,0 +1,42 @@
+{layout '../@layout.latte'}
+{varType string $id}
+{varType string $lang}
+{varType array $person}
+
+{block content}
+
+{$person['name']}
+
+<div class="person-dropcard">
+    <div class="card h-100">
+        <img src="{$basePath}/images/people/person{$person['personId']}.jpg" 
+            class="card-img-top"
+            onerror="this.src = '/images/people/personUnknown.jpg'"
+            alt="{$person['name']}">
+        <h4 class="card-header">{$person['name']}</h4>
+        <div class="card-body">
+            <table>
+                {if $person['role']}
+                <tr>
+                    <td class="left-cell"><span class="icon"><i class="fas fa-briefcase"></i></span>
+                    </td>
+                    <td class="right-cell">{$person['role']}</td>
+                </tr>
+                {/if}
+                {if $person['career']}
+                <tr>
+                    <td class="left-cell"><span class="icon"><i class="fas fa-school"></i></span></td>
+                    <td class="right-cell">{$person['career']}</td>
+                </tr>
+                {/if}
+                <tr>
+                    <td class="left-cell"><span class="icon"><i class="fas fa-envelope"></i></span></td>
+                    <td class="right-cell"><a
+                        href="mailto:{$person['domainAlias']}@fykos.cz">{$person['domainAlias']}@fykos.cz</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{/block}
+    
