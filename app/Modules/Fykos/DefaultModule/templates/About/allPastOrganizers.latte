@@ -1,6 +1,8 @@
 {block title}O FYKOSu{/block}
 {block main}
 
+
+
 <div class="panel color-auto">
     <section class="inner-container">
         <h1>{switch $lang}
@@ -11,45 +13,60 @@
 
         <div class="container mt-5">
             <div class="row organizers">
-
+                {foreach $allOrganizers as $organizer}
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="{$basePath}/images/people/person-kolorenc.jpg" class="card-img-top"
-                            alt="Přemysl Kolorenč">
-                        <h3 class="card-header">Přemysl Kolorenč</h3>
+
+                        <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg" 
+                            class="card-img-top"
+                            onerror="this.src = '/images/people/personUnknown.jpg'"
+                            alt="{$organizer['name']}">
+                        <h4 class="card-header">{$organizer['name']}</h4>
                         <div class="card-body">
-                            <p class="card-text"><span class="icon"><i class="fas fa-briefcase"></i></span>Vedoucí
-                                FYKOSu</p>
-                            <p class="card-text"><span class="icon"><i class="fas fa-school"></i></span>Vědecký
-                                pracovník na Ústavu teoretické fyziky MFF UK.</p>
+                            <table>
+                                <tr>
+                                    <td class="left-cell"><span class="icon"><i class="fas fa-history"></i></span>
+                                    </td>
+                                    <td class="right-cell">
+                                        {if $organizer['until'] and $organizer['until'] != $organizer['since']}
+                                            {switch $lang}
+                                                {case 'cs'} ročníky
+                                                {default} years
+                                            {/switch}
+                                            {$organizer['since']} - {$organizer['until']}
+                                        {elseif $organizer['until']}
+                                            {switch $lang}
+                                                {case 'cs'} ročník
+                                                {default} year
+                                            {/switch}
+                                            {$organizer['since']}
+                                        {else}
+                                            {switch $lang}
+                                                {case 'cs'} ročník
+                                                {default} year
+                                            {/switch}
+                                            {$organizer['since']} - 
+                                            {switch $lang}
+                                                {case 'cs'} současnost
+                                                {default} present
+                                            {/switch}
+                                        {/if}
+                                    </td>
+                                </tr>
+                                {if $organizer['contribution']}
+                                <tr>
+                                    <td class="left-cell"><span class="icon"><i class="fas fa-trophy"></i></span>
+                                    </td>
+                                    <td class="right-cell">{$organizer['contribution']}</td>
+                                </tr>
+                                {/if}
+                            </table>
                         </div>
                     </div>
                 </div>
-
-                {foreach $allOrganizers as $organizer}
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg" class="card-img-top"
-                                alt="{$organizer['name']}">
-                            <h3 class="card-header">{$organizer['name']}</h3>
-                            <div class="card-body">
-                                {if $organizer['career']}
-                                    <p class="card-text"><span class="icon"><i
-                                                    class="fas fa-school"></i></span>{$organizer['career']}</p>
-                                {/if}
-                                {if $organizer['contribution']}
-                                <p class="card-text"><span class="icon"><i
-                                            class="fas fa-briefcase"></i></span>{$organizer['contribution']}</p>
-                                {/if}
-
-                            </div>
-                        </div>
-                    </div>
                 {/foreach}
             </div>
         </div>
     </section>
 </div>
-
-
 {/block}
