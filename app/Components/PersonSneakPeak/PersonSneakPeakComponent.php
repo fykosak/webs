@@ -10,7 +10,7 @@ use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 
 use Nette\DI\Container;
 
-class PersonComponent extends BaseComponent
+class PersonSneakPeakComponent extends BaseComponent
 {
     private FKSDBDownloader $downloader;
 
@@ -63,9 +63,15 @@ class PersonComponent extends BaseComponent
         return [];
     }
 
-    public function render($id = null)
+    public function render($id = null, $title = null)
     {
         $this->template->person = $this->get_org($this->organizers, $id);
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'person.latte');
+        if ($title == null) {
+            $this->template->title = $this->template->person['name'];
+        } else {
+            $this->template->title = $title;
+        }
+        $this->template->lang = $this->translator->lang;    
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'personSneakPeak.latte');
     }
 }

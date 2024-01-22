@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
-use App\Components\Person\PersonComponent;
+use App\Components\Person\PersonSneakPeakComponent;
 
 class YearPresenter extends BasePresenter
 {
@@ -53,9 +53,9 @@ class YearPresenter extends BasePresenter
         return $data;
     }
 
-    public function createComponentPerson(): PersonComponent
+    public function createComponentPerson(): PersonSneakPeakComponent
     {
-        return new PersonComponent($this->getContext());
+        return new PersonSneakPeakComponent($this->getContext());
     }
 
     public function renderDefault(): void

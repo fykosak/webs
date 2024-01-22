@@ -5,7 +5,7 @@
     <section class="inner-container">
         <h1>Stránka {$year}. ročníku</h1>
         <p>
-            {$data["top-desc"]}
+        {control person 11295, "Martin"} {$data["top-desc"]}
         </p>
     </section>
 </div>
@@ -14,7 +14,7 @@
     <section class="inner-container">
         <h1>Seznam akcí {$year}. ročníku</h1>
 
-        {control person 11295}
+         
 
         {foreach $data["events"] as $event}
             <div class="row event-box">
