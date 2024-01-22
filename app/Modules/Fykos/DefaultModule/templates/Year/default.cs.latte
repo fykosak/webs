@@ -1,11 +1,11 @@
-{block title}Akce FYKOSu{/block}
+{block title}Stránka {$year}. ročníku{/block}
 {block main}
 
 <div class="panel color-auto">
     <section class="inner-container">
         <h1>Stránka {$year}. ročníku</h1>
         <p>
-        {control person 11295, "Martin"} {$data["top-desc"]}
+        {control orgSneakPeak 11295, "Martin"} {$data["top-desc"]}
         </p>
     </section>
 </div>
@@ -13,8 +13,6 @@
 <div class="panel color-auto">
     <section class="inner-container">
         <h1>Seznam akcí {$year}. ročníku</h1>
-
-         
 
         {foreach $data["events"] as $event}
             <div class="row event-box">

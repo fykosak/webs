@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Components\Person;
+namespace App\Components\OrgSneakPeak;
 
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use App\Models\Downloader\FKSDBDownloader;
@@ -10,7 +10,7 @@ use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 
 use Nette\DI\Container;
 
-class PersonSneakPeakComponent extends BaseComponent
+class OrgSneakPeakComponent extends BaseComponent
 {
     private FKSDBDownloader $downloader;
 
@@ -65,13 +65,13 @@ class PersonSneakPeakComponent extends BaseComponent
 
     public function render($id = null, $title = null)
     {
-        $this->template->person = $this->get_org($this->organizers, $id);
+        $this->template->organizer = $this->get_org($this->organizers, $id);
         if ($title == null) {
-            $this->template->title = $this->template->person['name'];
+            $this->template->title = $this->template->organizer['name'];
         } else {
             $this->template->title = $title;
         }
         $this->template->lang = $this->translator->lang;    
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'personSneakPeak.latte');
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'orgSneakPeak.latte');
     }
 }
