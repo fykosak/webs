@@ -16,14 +16,18 @@ class YearPresenter extends BasePresenter
         $json = file_get_contents(__DIR__ . "/templates/Year/YearData/$year.json");
         $data = json_decode($json, true);
 
-        $data = $this->parseYearData($data);
+        $data = $this->parseYearData($data);   
 
         return $data;
     }
 
     public function parseYearData(array $data): array
     {
+        // $data['top-desc'] = $this->explodeControls($data['top-desc']);
         foreach ($data['events'] as &$event) {
+            
+            // $event['desc'] = $this->explodeControls($event['desc']);
+
             if (!isset($event['name'])) {
                 $event['name'] = $event['type'];
                 switch ($event['type']) {

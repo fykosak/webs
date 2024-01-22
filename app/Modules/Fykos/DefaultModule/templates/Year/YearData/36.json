@@ -1,24 +1,24 @@
 {
-    "top-desc": "Seriál na pokračování je zaměřen na [[:rocnik36:serial:start|kvantovou chemii]], jeho autorem je <person id='3856'>Mikuláš Matoušek</person>.",
+    "top-desc": "Seriál na pokračování je zaměřen na [[:rocnik36:serial:start|kvantovou chemii]], jeho autorem je {control orgSneakPeak 3856, 'Mikuláš Matoušek'}.",
     "events": [
         {
-            "desc": "Podzimní soustředění 36. ročníku FYKOSu se konalo od 24. 9. do 2. 10. 2022 na Chatě Zvonice v Kořenově. Celkem 40 účastníků dostalo pozvánku na Cestu kolem světa za 8 dní, která začínala na kořenovském letišti. Po odletu z druhé destinace, kterou byl Egypt, se však cestující neplánovaně ocitli ve Fykoreji, kde byli vydáni na pospas nemilosrdnému režimu uznávajícímu pouze oddanost Vůdci a přísnou kázeň. Během své cesty navštívili velbloudí dostihy, zúčastnili se fykorejské dražby, přecházeli tajně v noci hranici a mnoho dalšího. Hlavní organizátorkou soustředění byla <person id='11368'>Veronika Hendrychová</person>.",
+            "desc": "Podzimní soustředění 36. ročníku FYKOSu se konalo od 24. 9. do 2. 10. 2022 na Chatě Zvonice v Kořenově. Celkem 40 účastníků dostalo pozvánku na Cestu kolem světa za 8 dní, která začínala na kořenovském letišti. Po odletu z druhé destinace, kterou byl Egypt, se však cestující neplánovaně ocitli ve Fykoreji, kde byli vydáni na pospas nemilosrdnému režimu uznávajícímu pouze oddanost Vůdci a přísnou kázeň. Během své cesty navštívili velbloudí dostihy, zúčastnili se fykorejské dražby, přecházeli tajně v noci hranici a mnoho dalšího. Hlavní organizátorkou soustředění byla {control orgSneakPeak 11368, 'Veronika Hendrychová'}.",
             "type": "sous-podzim"
         },
         {
-            "desc": "Letošní osmý ročník  [[https://physics.naboj.org/cz/cs/|Fyzikálního Náboje]] se uskutečnil 4. listopadu 2022 a byl organizován slovenským FKS a FYKOSem. Fyzikální Náboj se po minulém rocu vrátil opět do prezenční formy. V České republice se soutěžilo v Praze, kde soutěž koordinoval <person id='5732'>Šimon Pajger</person>. a v Ostravě, kde ji vedl <person id='3501'>Daniel Dupkala</person>. Celkově soutěžilo 85 týmů.",
+            "desc": "Letošní osmý ročník  [[https://physics.naboj.org/cz/cs/|Fyzikálního Náboje]] se uskutečnil 4. listopadu 2022 a byl organizován slovenským FKS a FYKOSem. Fyzikální Náboj se po minulém rocu vrátil opět do prezenční formy. V České republice se soutěžilo v Praze, kde soutěž koordinoval {control orgSneakPeak 5732} a v Ostravě, kde ji vedl {control orgSneakPeak 3501, 'Daniel Dupkala'}. Celkově soutěžilo 85 týmů.",
             "type": "naboj"
         },
         {
-            "desc": "7. listopadu 2022 proběhl již 28. ročník DSEFu. Celkem 99 účastníků si vyslechlo ranní přednášku Fotosyntéza jako inspirace pro nové způsoby využití sluneční energie, již vedl doc. RNDr. Jakub Pšenčík, Ph.D. Dopolední exkurze se konaly na půdě MFF UK v Troji a odpolední tradičně zavítaly na další vědecká pracoviště v Praze a okolí. Akci vedl <person id='6045'>Patrik Kašpárek</person>.",
+            "desc": "7. listopadu 2022 proběhl již 28. ročník DSEFu. Celkem 99 účastníků si vyslechlo ranní přednášku Fotosyntéza jako inspirace pro nové způsoby využití sluneční energie, již vedl doc. RNDr. Jakub Pšenčík, Ph.D. Dopolední exkurze se konaly na půdě MFF UK v Troji a odpolední tradičně zavítaly na další vědecká pracoviště v Praze a okolí. Akci vedl {control orgSneakPeak 6045, 'Patrik Kašpárek'}.",
             "type": "dsef"
         },
         {
-            "desc": "Letošní dvanáctý ročník internetové soutěže [[http://online.fyziklani.cz|Fyziklání Online]] se konal ve středu 23. listopadu 2022. Tentokrát se soutěže zúčastnilo rekordních 3 766 účastníků z 59 zemí světa tvořících 904 týmů. Akci vedla <person id='4792'>Kateřina Charvátová</person>.",
+            "desc": "Letošní dvanáctý ročník internetové soutěže [[http://online.fyziklani.cz|Fyziklání Online]] se konal ve středu 23. listopadu 2022. Tentokrát se soutěže zúčastnilo rekordních 3 766 účastníků z 59 zemí světa tvořících 904 týmů. Akci vedla {control orgSneakPeak 4792, 'Kateřina Charvátová'}.",
             "type": "fol"
         },
         {
-            "desc": "Letošní, již 17. ročník Fyziklání proběhl znovu na výstavišti PVA Expo Praha, kde se střetlo celkem 1167 účastníků ve 251 týmech z 21 zemí světa. Soutěž proběhla v pátek 11. února 2023 a v průběhu celého týdne se konal doprovodný program zahrnující mimo jiné exkurze, přednášky, panelovou diskusi s vědci, raut či Večer národů. Akci vedl <person id='2762'>Vojtěch David</person>.",
+            "desc": "Letošní, již 17. ročník Fyziklání proběhl znovu na výstavišti PVA Expo Praha, kde se střetlo celkem 1167 účastníků ve 251 týmech z 21 zemí světa. Soutěž proběhla v pátek 11. února 2023 a v průběhu celého týdne se konal doprovodný program zahrnující mimo jiné exkurze, přednášky, panelovou diskusi s vědci, raut či Večer národů. Akci vedl {control orgSneakPeak 2762, 'Vojtěch David'}.",
             "type": "fof"
         },
         {
@@ -27,11 +27,11 @@
             "name": "Expedice do Asie"
         },
         {
-            "desc": "Jarní soustředění 36. ročníku FYKOSu se konalo od 22. 4. do 30. 4. 2023 v Penzionu Sport ve Frýdštejně. Děj soustředění byl inspirován hrou Star Realms. Celkem 40 účastníků dostalo pozvánku na výběrové řízení vesmírné agentury FASA. Společně pak objevovali vesmír a když už byl prozkoumán, snažili se na tom co nejvíce zbohatnout. To se samozřejmě neobešlo bez bojů, během kterých povstaly různé vesmírné říše. Nakonec bylo třeba odrazit invazi mimozemských blobů, což ale účastníci úspěšně zvládli a tak lidstvo přežilo. Hlavní organizátor soustředění byl <person id='5732'>Šimon Pajger</person>.",
+            "desc": "Jarní soustředění 36. ročníku FYKOSu se konalo od 22. 4. do 30. 4. 2023 v Penzionu Sport ve Frýdštejně. Děj soustředění byl inspirován hrou Star Realms. Celkem 40 účastníků dostalo pozvánku na výběrové řízení vesmírné agentury FASA. Společně pak objevovali vesmír a když už byl prozkoumán, snažili se na tom co nejvíce zbohatnout. To se samozřejmě neobešlo bez bojů, během kterých povstaly různé vesmírné říše. Nakonec bylo třeba odrazit invazi mimozemských blobů, což ale účastníci úspěšně zvládli a tak lidstvo přežilo. Hlavní organizátor soustředění byl {control orgSneakPeak 5732, 'Šimon Pajger'}.",
             "type": "sous-jaro"
         },
         {
-            "desc": "Během letošního ročníku byli nejlepší řešitelé experimentálních úlohu FYKOSu poprvé odměněni možností účastnit se letní vědecké stáže a vést svůj vlastní projekt na některém z výzkumných pracovišť Matematicko-fyzikální fakulty. Stáží se zúčastnili Radovan Lev s projektem Deterministické, přesto nepředpověditelné, jež vedl Mgr. Hynek Bednář, Ph. D., Tereza Hochmanová s projektem Staň se kvantovou fyzičkou pevných látek, jež vedl RNDr. Petr Čermák, Ph.D., Jan Strnad s projektem Radiální vývoj parametrů slunečního větru, jež vedl doc. RNDr. František Němec, Ph.D., a Linda Tománková s projektem Generace superkontinua ve fotonickém vlákně a jeho využití v ultrarychlé spektroskopii, jež vedl RNDr. Pavel Malý, Ph.D. Stáže vymyslel a koordinoval <person id='7395'>Tomáš Červeň</person>.",
+            "desc": "Během letošního ročníku byli nejlepší řešitelé experimentálních úlohu FYKOSu poprvé odměněni možností účastnit se letní vědecké stáže a vést svůj vlastní projekt na některém z výzkumných pracovišť Matematicko-fyzikální fakulty. Stáží se zúčastnili Radovan Lev s projektem Deterministické, přesto nepředpověditelné, jež vedl Mgr. Hynek Bednář, Ph. D., Tereza Hochmanová s projektem Staň se kvantovou fyzičkou pevných látek, jež vedl RNDr. Petr Čermák, Ph.D., Jan Strnad s projektem Radiální vývoj parametrů slunečního větru, jež vedl doc. RNDr. František Němec, Ph.D., a Linda Tománková s projektem Generace superkontinua ve fotonickém vlákně a jeho využití v ultrarychlé spektroskopii, jež vedl RNDr. Pavel Malý, Ph.D. Stáže vymyslel a koordinoval {control orgSneakPeak 7395, 'Tomáš Červeň'}.",
             "type": "other",
             "name": "Experimentální stáže"
         }
