@@ -40,7 +40,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Zadání', 'fas fa-pen'),
+            new PageTitle(null, 'Zadání', 'bi bi-pencil-fill'),
             ':Default:Problems:default'
         );
 

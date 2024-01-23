@@ -29,6 +29,7 @@ $navbar-dark-color: $text-on-primary;
 $navbar-dark-hover-color: $text-on-primary;
 
 @import "node_modules/bootstrap/scss/bootstrap";
+@import 'bootstrap-icons/font/bootstrap-icons.scss';
 $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import '../../../../../node_modules/flag-icon-css/sass/flag-icon';
 @import "./../../../Fof/Core/styles/sponsors";
