@@ -29,16 +29,11 @@ class CampsPresenter extends BasePresenter
                 'cs' => 'Jarní soustředění ' . $year,
                 'en' => 'Spring camp ' . $year,
             ];
-        } elseif ($event['eventTypeId'] == 5) {
+        } else { // $event['eventTypeId'] == 5
             $year = 1986 + $event['year'];
             return [
                 'cs' => 'Podzimní soustředění ' . $year,
                 'en' => 'Autumn camp ' . $year,
-            ];
-        } else {
-            return [
-                'cs' => '',
-                'en' => '',
             ];
         }
     }
