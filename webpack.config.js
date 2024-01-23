@@ -84,6 +84,7 @@ const vyfukConfiguration = {
     ...commonConfiguration,
     entry: {
         main: path.resolve(__dirname, './app/main-vyfuk.js'),
+        calendar: path.resolve(__dirname, './app/Modules/Vyfuk/DefaultModule/scripts/calendar-vyfuk.js')
     },
     output: {
         path: path.resolve(__dirname, './www/vyfuk/assets'),
