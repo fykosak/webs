@@ -21,6 +21,28 @@ class CampsPresenter extends BasePresenter
         $this->downloader = $downloader;
     }
 
+    public function getEventHeading($event): array
+    {
+        if ($event['eventTypeId'] == 4) {
+            $year = 1986 + $event['year'] + 1;
+            return [
+                'cs' => 'Jarní soustředění ' . $year,
+                'en' => 'Spring camp ' . $year,
+            ];
+        } elseif ($event['eventTypeId'] == 5) {
+            $year = 1986 + $event['year'];
+            return [
+                'cs' => 'Podzimní soustředění ' . $year,
+                'en' => 'Autumn camp ' . $year,
+            ];
+        } else {
+            return [
+                'cs' => '',
+                'en' => '',
+            ];
+        }
+    }
+
     /**
      * @throws ForbiddenRequestException
      * @throws \Throwable
@@ -47,6 +69,10 @@ class CampsPresenter extends BasePresenter
         usort($data, function ($a, $b) {
             return strtotime($b['begin']) - strtotime($a['begin']);
         });
+
+        foreach ($data as &$event) {
+            $event['heading'] = $this->getEventHeading($event);
+        }
 
         $this->template->data = $data;
 
