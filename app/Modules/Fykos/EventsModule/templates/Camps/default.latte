@@ -37,14 +37,14 @@
     </section>
 </div>
 
-{foreach $data as $datum}
+{foreach $events as $event}
     <div class="panel color-auto">
         <section class="inner-container">
             <div class="row event-box">
                 <div class="col-md-8 event-text-box">    
-                    <div class="subheader">{$datum['nameNew'][$lang]} – {$datum['begin']|date:'j. n. Y'} - {$datum['end']|date:'j. n. Y'}</div>
-                    <h1>{$datum['heading'][$lang]}</h1>
-                    <p>{$datum['reportNew'][$lang]}</p>
+                    <div class="subheader">{$event['nameNew'][$lang]} – {$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}</div>
+                    <h1>{$event['heading'][$lang]}</h1>
+                    <p>{$event['reportNew'][$lang]}</p>
                     <div>
                         {* TODO link for the camp page *}
                         {* <a class="btn btn-primary" n:href=":Events:Fykos:">
@@ -52,10 +52,10 @@
                         </a> *}
                     </div>
                 </div>
-                {* {dump $datum} *}
+                {dump $event}
                 <div class="col-md-4 event-img-box">
                     <a n:href=":Events:Fykos:"> {* TODO: link for the camp page and correct picture *}
-                        <img src="{$basePath}/images/events/default/fykos.png" alt="Fyziklání korespondenční seminář"
+                        <img src="{$basePath}{$event['photo']}" alt="{$event['heading'][$lang]}"
                         class="event-img">
                     </a>
                 </div>
