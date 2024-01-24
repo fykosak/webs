@@ -55,8 +55,8 @@
   .left-cell::before {
     content: "";
     position: absolute;
-    top: 10%;
-    bottom: 10%;
+    top: .2rem;
+    bottom: .2rem;
     right: 0;
     border-right: 2px solid $primary-color;
     margin-right: -1px;

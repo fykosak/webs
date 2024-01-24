@@ -98,8 +98,12 @@
                                 style="max-width: 8rem">
                         </a>
                         <a href="https://www.msmt.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/msmt_cs.jpg" class="sponsor-logo" alt="MŠMT logo"
-                                style="width: 8rem">
+                            {switch $lang}
+                            {case cs}
+                                <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
+                            {default}
+                                <img src="{$basePath}/images/logos/msmt_en.jpg" alt="MŠMT logo" style="max-width: 9rem">
+                            {/switch}
                         </a>
                     </div>
                 </div>
