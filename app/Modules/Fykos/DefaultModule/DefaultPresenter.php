@@ -10,60 +10,69 @@ class DefaultPresenter extends BasePresenter
     {
         $this->template->events = [  
             'Naboj' => [
-                'name' => 'Fyzikální Náboj',
-                'date' => strtotime('2023-11-03')
+                'heading' => 'Fyzikální Náboj',
+                'date' => date('Y-m-d', strtotime('2023-11-03'))
             ],
             'DSEF' => [
-                'name' => 'DSEF',
-                'date' => strtotime('2023-11-06')
+                'heading' => 'DSEF',
+                'date' => date('Y-m-d', strtotime('2023-11-06'))
             ],
             'FOL' => [
-                'name' => 'FOL',
-                'date' => strtotime('2023-11-21')
+                'heading' => 'FOL',
+                'date' => date('Y-m-d', strtotime('2023-11-21'))
             ],
             'FOF' => [
-                'name' => 'Fyziklání',
-                'date' => strtotime('2024-02-16')
+                'heading' => 'Fyziklání',
+                'date' => date('Y-m-d', strtotime('2024-02-16'))
             ],
             'serie-1' => [
-                'name' => 'Deadline 1. série',
-                'date' => strtotime('2023-10-10')
+                'heading' => 'Deadline 1. série',
+                'date' => date('Y-m-d', strtotime('2023-10-10'))
             ],
             'serie-2' => [
-                'name' => 'Deadline 2. série',
-                'date' => strtotime('2023-11-21')
+                'heading' => 'Deadline 2. série',
+                'date' => date('Y-m-d', strtotime('2023-11-21'))
             ],
             'serie-3' => [
-                'name' => 'Deadline 3. série',
-                'date' => strtotime('2024-01-02')
+                'heading' => 'Deadline 3. série',
+                'date' => date('Y-m-d', strtotime('2024-01-02'))
             ],
             'serie-4' => [
-                'name' => 'Deadline 4. série',
-                'date' => strtotime('2024-02-27')
+                'heading' => 'Deadline 4. série',
+                'date' => date('Y-m-d', strtotime('2024-02-27'))
             ],
             'serie-5' => [
-                'name' => 'Deadline 5. série',
-                'date' => strtotime('2024-04-09')
+                'heading' => 'Deadline 5. série',
+                'date' => date('Y-m-d', strtotime('2024-04-09'))
             ],
             'serie-6' => [
-                'name' => 'Deadline 6. série',
-                'date' => strtotime('2024-05-14')
-            ],
+                'heading' => 'Deadline 6. série',
+                'date' => date('Y-m-d', strtotime('2024-05-14'))
+            ]
         ];
+        $this->template->timelineBegin = "1.&nbsp;10. 2023";
+        $this->template->timelineEnd = "30.&nbsp;5. 2024";
+
+        // save the index
+        // foreach ($this->template->events as $key => $event) {
+        //     $event['name'] = $key;
+        //     $this->template->events[$key] = $event;
+        // }
           
         // Sort events by date
         usort($this->template->events, function($a, $b) {
-            $dateA = $a['date'];
-            $dateB = $b['date'];
+            $dateA = strtotime($a['date']);
+            $dateB = strtotime($b['date']);
             return $dateA - $dateB;
         });
 
+
         // Find the event with the closest date larger than the current date
-        $currentDate = strtotime(date('d-m-Y'));
+        $currentDate = strtotime(date('Y-m-d'));
         $closestIndex = 0;
 
         foreach ($this->template->events as $event) {
-            $eventDate = $event['date'];
+            $eventDate = strtotime($event['date']);
             
             if ($eventDate < $currentDate) {
                 $closestIndex += 1;
