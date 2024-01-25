@@ -13,9 +13,14 @@
     <meta name="theme-color" content="#1175DA">
 
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Den s experimentální fyzikou"/>
-    {*<meta property="og:image" content="{_'http://physicsbrawl.org/images/fyziklani-logo.png'}"/>*}
-    {*<meta property="og:description" content="{_'Team competition in solving physics problems.'}"/>*}
+    <meta property="og:title" content="FYKOS"/>
+    <meta property="og:image" content="images/logos/fykos_logo.png"/>
+    <meta property="og:description" 
+        {switch $lang}
+            {case cs}content="Skupina pořádající vzdělávací soutěže ve fyzice."
+            {default}content="Group organizing educational events in physics."
+        {/switch}
+    >
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:locale" content="cs"/>
     <meta property="og:url" content="{plink //this}"/>
