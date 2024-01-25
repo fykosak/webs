@@ -12,13 +12,13 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     protected function getNavItems(): array
     {
         return [
-            new NavItem(new PageTitle(null, 'O Výfuku'), ':default'),
-            new NavItem(new PageTitle(null, 'Zadání', 'fas fa-pen'), ':default'),
-            new NavItem(new PageTitle(null, 'Pořadí'), ':default'),
-            new NavItem(new PageTitle(null, 'Akce'), ':default', [], [
-                new NavItem(new PageTitle(null, 'Tábor'), ':default'),
-                new NavItem(new PageTitle(null, 'Setkání'), ':default'),
-                new NavItem(new PageTitle(null, 'Ostatní'), ':default')
+            new NavItem(new PageTitle(null, 'O Výfuku'), ':Default:Default:default'),
+            new NavItem(new PageTitle(null, 'Zadání', 'fas fa-pen'), ':Default:Default:default'),
+            new NavItem(new PageTitle(null, 'Pořadí'), ':Default:Default:default'),
+            new NavItem(new PageTitle(null, 'Akce'), ':Default:Default:default', [], [
+                new NavItem(new PageTitle(null, 'Tábor'), ':Default:Default:default'),
+                new NavItem(new PageTitle(null, 'Setkání'), ':Default:Default:default'),
+                new NavItem(new PageTitle(null, 'Ostatní'), ':Default:Default:default')
             ]),
             new NavItem(new PageTitle(null, 'Login'), 'https://db.fykos.cz')
         ];
