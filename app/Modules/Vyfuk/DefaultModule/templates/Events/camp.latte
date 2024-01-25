@@ -1,8 +1,15 @@
 {varType string $lang}
-{block title}Výfučí Bingo{/block}
+{varType \App\Models\Event\EventModel[] $events}
+{block title}Tábor{/block}
 
 {block main}
 <div class="panel color-auto">
-    <h1 class="inner-container" style="color:red">TODO stránka o Táboru<h1>
+    <section class="inner-container">
+        <h1 class="inner-container" style="color:red">TODO stránka o Táboru<h1>
+        {foreach $events AS $event}
+            <h2>{$event->name}</h2>
+            <p>{$event->report}</p>
+        {/foreach}
+    </section>
 </div>
 {/block}
