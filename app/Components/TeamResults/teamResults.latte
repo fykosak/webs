@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-12">
-        
+
         <!-- The button that triggers the collapsible content -->
         <button class="btn btn-primary-inverted button-collapse-header" type="button" data-bs-toggle="collapse"
         data-bs-target="#resultFilters" aria-expanded="false" aria-controls="resultFilters">
@@ -21,7 +21,7 @@
         </div>
     </div>
 </div>
-<div class="team-results-control">            
+<div class="team-results-control">
     {foreach $teams AS $category => $teamsForCategory}
         <button class="btn btn-primary button-collapse-header" type="button" data-bs-toggle="collapse"
         data-bs-target="#collapse-category-{$category}" aria-expanded="false" aria-controls="collapse-category-{$category}">
@@ -45,7 +45,7 @@
             {foreach $teamsForCategory AS $index => $team}
                 <div class="results-row">
                     <div class="results-first-row">
-                        {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelTeam $team}
+                        {varType App\Models\NetteDownloader\ORM\Models\ModelTeam $team}
                         <div class="result-column"
                             style="width: 5rem">{if $team->status === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</div>
                         <div class="result-column" style="flex-grow: 1"><strong>{$team->name}</strong></div>
@@ -59,17 +59,17 @@
                             {var $inSchool = 0}
                             {if $team->members && count($team->members)}
                                 {do
-                                    $participants = $team->members;
-                                    usort($participants, fn($a, $b) => $a->schoolId <=> $b->schoolId)
+                                    $members = $team->members;
+                                    usort($members, fn(App\Models\NetteDownloader\ORM\Models\ModelMember $a,App\Models\NetteDownloader\ORM\Models\ModelMember $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))
                                 }
-                                {foreach $participants as $key => $participant}
-                                    {varType Fykosak\NetteFKSDBDownloader\ORM\Models\ModelParticipant $participant}
-                                    {$participant->name
-                                    }{do $inSchool++
-                                }{if $iterator->isLast() || (!is_null($participants[$key + 1]) && $participant->schoolId != $participants[$key + 1]->schoolId)
+                                {foreach $members as $key => $member}
+                                    {varType App\Models\NetteDownloader\ORM\Models\ModelMember $member}
+                                    {$member->name}
+                                    {do $inSchool++}
+                                    {if $iterator->isLast() || (!is_null($members[$key + 1]) && isset($member->school) && isset($members[$key + 1]->school) && $member->school['schoolId'] != $members[$key + 1]->school['schoolId'])
                                 }
-                                    <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$participant->schoolName}{if ($participant->countryIso != "ZZ")} <span
-                                            class="flag-icon flag-icon-{$participant->countryIso|lower}"></span>{/if})</span>{* this is to remove the space before the comma
+                                    <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$member->school['name']??''}{if isset($member->school) && $member->school['countryISO'] !== "ZZ"} <span
+                                            class="flag-icon flag-icon-{$member->school['countryISO']??'zz'|lower}"></span>{/if})</span>{* this is to remove the space before the comma
                                     *}{do $inSchool = 0
                                     }{/if
                                 }{if !$iterator->isLast()

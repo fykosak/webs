@@ -17,29 +17,7 @@
 /// Header section
 
 .header-container {
-  display: flex;
-  /* To vertically align items */
-  position: relative;
-  /* Setting to relative to ensure z-index works */
-  text-align: left;
-  align-items: stretch;
-  height: 55vh !important;
-  justify-content: center;
-  /* To maximize space between text-container and image */
-  color: $text-on-primary !important;
-
-
-  .header-image {
-    opacity: .3;
-    z-index: 0;
-    /* Lower z-index to let it be behind the text */
-    position: absolute;
-    align-self: stretch;
-    max-height: 30rem;
-    /* Stretches the image to fit the height of the .header-container */
-    right: 0;
-    /* Absolute positioning */
-  }
+  color: $text-on-primary;
 
   .header-text-container {
     z-index: 2;
@@ -57,7 +35,7 @@
     h2.header-text {
       font-size: 3rem;
       color: $text-on-primary;
-      margin-bottom: 0;
+      // margin-bottom: 0;
     }
 
 
@@ -73,6 +51,50 @@
     }
   }
 
+  .header-image-container {
+    .minor-event-heading {
+      font-size: .9rem;
+      font-weight: 400;
+      color: rgba(195, 192, 192, 0.5) !important;
+    }
+
+    .next-event-heading {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: white !important;
+
+    }
+
+    .header-image-dates {
+      z-index: 2;
+    }
+
+    .header-image {
+      position: absolute;
+      z-index: 0;
+      opacity: .2;
+      max-height: 20rem;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    // .center-content-horizontally-md {
+    //   @media screen and (min-width: 768px) {
+    //     padding-left: 5%;
+    //   }
+    // }
+
+    .content-down {
+      display: flex;
+      align-items: flex-end;
+      /* Align content at the bottom */
+      height: 100%;
+      /* Set the height of the container to 100% */
+    }
+  }
+
 }
 
 
@@ -85,6 +107,25 @@
 }
 
 
+/// News section
+
+.news-card {
+  border-left: 5px solid $primary-color;
+  a {
+      margin-bottom: 10px;
+  }
+
+  .card-title {
+    margin-right: .7rem;
+  }
+}
+.fof-news-color {
+  border-left: 5px solid $fof-color;
+  .btn-primary {
+    background-color: $fof-color;
+    border-color: $fof-color;
+  }
+}
 
 /// Videos section
 
@@ -357,7 +398,8 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
   }
 
   .today-block {
-    top: calc(50% - $today-block-height / 2 - 1px);
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -375,7 +417,8 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
   }
 
   .today-block {
-    right: calc(50% - $today-block-height / 2);
+    right: 50%;
+    transform: translateX(50%);
   }
 }
 
@@ -400,9 +443,9 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
 
 // Fykos correspondence competition section
 
-a.link-no-decor{
-    text-decoration: none;
-    color: inherit;
+a.link-no-decor {
+  text-decoration: none;
+  color: inherit;
 }
 
 .info-block {
@@ -449,20 +492,20 @@ a.link-no-decor{
 }
 
 
-#testimonials {
-  .card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    border: 2px solid $primary-color;
-  }
+// #testimonials {
+//   .card {
+//     display: flex;
+//     flex-direction: column;
+//     height: 100%;
+//     border: 2px solid $primary-color;
+//   }
 
-  .card-body {
-    flex-grow: 1;
-  }
+//   .card-body {
+//     flex-grow: 1;
+//   }
 
-  .card-signature {
-    text-align: right;
-    margin: 0;
-  }
-}
+//   .card-signature {
+//     text-align: right;
+//     margin: 0;
+//   }
+// }

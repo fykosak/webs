@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  webs:
+    image: ghcr.io/fykosak/webs:dev-docker
+    container_name: webs
+    restart: on-failure:3
+    environment:
+      TZ: 'Europe/Prague'
+    volumes:
+      - ./webs/:/var/www/html # path to webs repository
+      - ./config/apache.conf:/etc/apache2/sites-available/000-default.conf # site config
+      - ./config/php.ini:/usr/local/etc/php/php-local.ini
+      - ./config/msmtprc:/etc/msmtprc # mail config
+      - ./config/local/:/var/www/html/app/config/local
+      - ./temp/:/var/www/html/temp/
+      - ./log/:/var/www/html/log/
+      # photos
+      - ./photos/dsef/:/var/www/html/www/dsef/photos/
+      - ./photos/fof/:/var/www/html/www/fof/photos/
+      - ./photos/fol/:/var/www/html/www/fol/photos/
+      - ./photos/fykos/:/var/www/html/www/fykos/photos/
+      - ./photos/vyfuk/:/var/www/html/www/vyfuk/photos/
+    user: 1000:1000 # expects the main user with uid:pid

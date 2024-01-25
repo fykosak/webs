@@ -102,14 +102,23 @@ def getTeams():
         teams.append(team)
     return teams
 
-@app.get("/GetEventList")
+@app.get("/events")
 def getEventList():
-    eventTypeId = request.args.get('event_type_ids[0]', default=None)
-    if (eventTypeId is None):
+    print(request.json)
+    eventTypes = request.json["eventTypes"]
+    if (eventTypes is None):
         return "Event type id not specified", 400
-    if (eventTypeId == "2"):
+    if (2 in eventTypes):
         return getDsefEvents()
     return jsonify(events)
+
+@app.get("/events/<id>/schedule")
+def getSchedule(id):
+    return '{}'
+
+@app.get("/events/<id>/teams")
+def getTeams(id):
+    return '{}'
 
 @app.get("/GetEvent")
 def getEvent():

@@ -98,7 +98,6 @@ class RouterFactory
                 }
 
                 // Either set the language in the domain, or in lang parameter
-
                 if (isset($domainList) && count($domainList)) {
                     $params['domain'] = array_search($params['lang'], $domainList);
                     if ($params['domain'] === false) {
@@ -192,6 +191,21 @@ class RouterFactory
     public static function createFykosRouter(?array $domainList, array $routerMapping): Router
     {
         $router = new RouteList();
+
+        $router->withModule('Default')
+        ->addRoute('//<domain>/problems/<year ([0-9]{2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
+            'presenter' => 'Problems',
+            'action' => 'default',
+            null => self::useTranslateFilter($domainList, $routerMapping['default']),
+        ]);
+
+        $router->withModule('Default')
+        ->addRoute('//<domain>/results/<year ([0-9]{2})(-.*)?>', [
+            'presenter' => 'Results',
+            'action' => 'default',
+            null => self::useTranslateFilter($domainList, $routerMapping['default']),
+        ]);
+
         $router->addRoute('//<domain>/<module events>/[<presenter>[/<action>]]', [
                 'presenter' => 'Default',
                 'action' => 'default',
@@ -204,7 +218,6 @@ class RouterFactory
                 'action' => 'default',
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
-
 
         return $router;
     }

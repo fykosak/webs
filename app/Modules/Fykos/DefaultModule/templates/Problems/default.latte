@@ -1,55 +1,129 @@
+{varType App\Models\Downloader\ProblemService $problemService}
+
 {block title}Zadání{/block}
 {block main}
+
 <div class="panel color-auto">
     <section class="inner-container">
-
         <div class="container mt-3">
             <div class="row">
-                <div class="col-md-6">
-                    <h1>Zadání {$series["number"]}. série {$series["year"]}. ročníku</h1>
+                <div class="col-md-8">
+                    <div class="subheader">
+                        {switch $lang}
+                        {case 'cs'}Deadline pro odeslání: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>.
+                        {default}Deadline for submission: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}, CET</strong>.
+                        {/switch}
+                    </div>
+                    <h1>Zadání {$series->series}. série {$series->year}. ročníku</h1>
 
-                    <p>Deadline pro odeslání: <strong>{$series["deadline"]|date:"d. m. Y, H:i"}</strong></p>
-
-                    <p>Zde najdete zadání {$series["number"]}. série {$series["year"]}. ročníku Fyzikálního
-                        korespondenčního semináře.</p>
+                    <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:">
+                        {switch $lang}
+                        {case 'cs'}O semináři
+                        {default}About the Competition
+                        {/switch}
+                    </a>
+                    <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:Rules">
+                        {switch $lang}
+                        {case 'cs'}Pravidla
+                        {default}Rules
+                        {/switch}
+                    </a>
+                    <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:TexTutorial">
+                        {switch $lang}
+                        {case 'cs'}Návod jak psát řešení
+                        {default}How to Write Solutions
+                        {/switch}
+                    </a>
+                    <a class="btn btn-primary my-2 mr-4" n:href=":Default:Results:">
+                        {switch $lang}
+                        {case 'cs'}Pořadí řešitelů
+                        {default}Results
+                        {/switch}
+                    </a>
                 </div>
-                <div class="col-md-3 offset-md-3">
-                    Další
-                </div>
+                <!-- <div class="col-md-3 offset-md-1">
+                    <h2>Jiné série</h2>
+                </div> -->
             </div>
-            <div class="row">
-                {foreach $problems as $problem}
-                <div class="col-md-12">
-                    <div class="card mb-3 problem-card">
-                        <div class="card-header header-problem-{$problem['number']}">
-                            <div style="display: flex; justify-content: space-between;">
-                                <h4><i class={$problemIcons[$problem["number"]]}></i> {$problem["number"]}...
-                                    {$problem["name"]["cs"]}</h4>
-                                <div>
-                                    <h4>{$problem["points"]} bod{if $problem["points"] == 1}{elseif
-                                        $problem["points"] > 1
-                                        && $problem["points"] < 5}y{else}ů{/if}</h4>
+            <div class="mt-5">
+                {php $serialPath = $problemService->getSerial('fykos', $series, $lang)}
+                {php $batchPath = $problemService->getBatch('fykos', $series, $lang)}
+                {if $serialPath}
+                    <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
+                        <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text seriálu {$series->series}.
+                        série
+                    </a>
+                {/if}
+                {if new Datetime() > $series->getDeadline() && $batchPath}
+                    <a class="btn btn-primary my-2 mr-4" href="{$batchPath}">
+                        <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka s řešeními
+                    </a>
+                {/if}
+                <div class="row mt-3">
+                    {foreach $problems as $problem}
+                    <div class="col-md-12">
+                        <div class="card mb-3 problem-card">
+                            <div class="card-header header-problem-{$problem->number}">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <h4><i class={$problemIcons[$problem->number]}></i><span class="skip-3px"></span>
+                                        {$problem->getLabel()}...
+                                        {$problem->name[$lang]}</h4>
+                                    <div>
+                                        {switch $lang}
+                                        {case 'cs'}
+                                        <h4>{$problem->points} bod{if $problem->points == 1}{elseif
+                                            $problem->points > 1
+                                            && $problem->points < 5}y{else}ů{/if}</h4>
+                                        {default}
+                                        <h4>{$problem->points} point{if $problem->points == 1}{else}s{/if}</h4>
+                                        {/switch}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                {$problem["task"]["cs"]}
-                            </h5>
-                            {if $problem["number"] == 7}
-                            <a class="btn btn-primary" n:href=":Events:Fykos:Experiments:default" target="_blank">Návod
-                                pro řešení experimentálních úloh</a>
-                            {/if}
-                        </div>
+                            <div class="card-body">
+                                <div class="card-title">
+                                    {$problem->task[$lang]|noescape}
+                                </div>
+                                {if new Datetime() > $series->getDeadline()}
+                                    <div style="display: flex; justify-content: space-between;" class="mt-3">
+                                        <div>
+                                            {php $solutionPath = $problemService->getSolution($problem, $lang)}
+                                            {if $solutionPath}
+                                                <a class="btn btn-primary" target="_blank" href="{$solutionPath}">
+                                                    <i class="far fa-file-pdf"></i>
+                                                    <span class="skip-3px"></span> Řešení
+                                                </a>
+                                            {else}
+                                                Řešení této úlohy zveřejníme brzy.
+                                            {/if}
+                                            {if $problem->number == 7}
+                                            {*<a class="btn btn-primary mr-2" n:href=":Events:Fykos:Experiments:default"
+                                                target="_blank">Návod pro řešení experimentálních úloh</a>*}
+                                            {/if}
 
-                        <div class="card-footer">
-                            {foreach $problem["topics"] as $topic}
-                            <span style="margin-right: 1rem;"><i class="fas fa-tag"></i> {$topic}</span>
-                            {/foreach}
+                                            {if $problem->number == 8 && $serialPath}
+                                                <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
+                                                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text seriálu {$series->series}.
+                                                    série
+                                                </a>
+                                            {/if}
+                                        </div>
+                                        {if array_key_exists($lang, $problem->origin) && $problem->origin[$lang]}
+                                            <div><i>~ {$problem->origin[$lang]}</i></div>
+                                        {/if}
+                                    </div>
+                                {/if}
+                            </div>
+
+                            <div class="card-footer">
+                                {foreach $problem->topics as $topic}
+                                <span style="margin-right: 1rem;"><i class="fas fa-tag"></i> {$topic}</span>
+                                {/foreach}
+                            </div>
                         </div>
                     </div>
+                    {/foreach}
                 </div>
-                {/foreach}
             </div>
         </div>
     </section>

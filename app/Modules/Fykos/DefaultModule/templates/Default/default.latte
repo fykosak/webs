@@ -1,64 +1,161 @@
 {varType string $lang}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType int $currentYear}
+{varType array $events}
+{varType int $closestEventIndex}
+{varType int $numOfEvents}
+
 {block title}
-{switch $lang}
-{case 'cs'} Hlavní stránka
-{default} Main page
-{/switch}
+    {switch $lang}
+        {case 'cs'} Hlavní stránka
+        {default} Main page
+    {/switch}
 {/block}
 
 {block main}
 
+
+{foreach $events as $event}
+{dump $event}
+{/foreach}
+
+
 <div class="panel color-primary title-panel">
     <section class="inner-container">
         <div class="header-container">
-            <div class="header-text-container">
-                <h1 class="header-text">FYKOS</h1>
-                <h2 class="header-text">Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2>
-                <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již více než
-                    35&nbsp;let.
-                    {* Zjistěte více na stránce <a n:href=":Default:About:default">o&nbsp;nás</a>.*}</p>
-                <a class="btn btn-outline" n:href=":Default:About:">
-                    O&nbsp;nás
-                </a>
-                {* <a class="btn btn-outline ml-2" href="#timeline">
-                    Akce
-                </a>
-                <a class="btn btn-outline ml-2" href="#seminar">
-                    Seminář FYKOS
-                </a> *}
+            <div class="row">
+                <div class="col-md-7 header-text-container">
+                    <h1 class="header-text">FYKOS</h1>
+                    <h2 class="header-text">Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2>
+                    <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již
+                        {$currentYear}&nbsp;let.
+                    </p>
+                    <a class="btn btn-light" href="#timeline">
+                        {switch $lang}
+                            {case 'cs'}Jste tu poprvé?
+                            {default}First Time Here?
+                        {/switch}
+                    </a>
+                    <a class="btn btn-light ml-2" href="#news">
+                        {switch $lang}
+                            {case 'cs'}Novinky
+                            {default}News
+                        {/switch}
+                    </a>
+                    <a class="btn btn-outline ml-2" n:href=":Default:About:">
+                        {switch $lang}
+                            {case 'cs'}O&nbsp;nás
+                            {default}About&nbsp;Us
+                        {/switch}
+                    </a>
+                </div>
+                <div class="col-md-5 header-image-container">
+                    <div class="center-content-horizontally-md">
+                        <img id="header-image" class="header-image"
+                            src="{$basePath}/images/logos/fykos_symbol_no_border.svg" alt="FYKOS logo">
+                    </div>
+                    <div class="center-content-horizontally-md content-down mt-3 mt-md-0">
+                        <div class="header-image-dates">
+                            {if $closestEventIndex == $numOfEvents}
+                                <h2 class="next-event-heading">
+                                    {switch $lang}
+                                        {case 'cs'}Nový ročník FYKOSu přichází již brzy! Užívejte prázdniny!
+                                        {default}New year of FYKOS is coming soon! Enjoy your holidays!
+                                    {/switch}</h2>
+                            {else}
+                                {if $closestEventIndex > 0}
+                                    <h4 class="minor-event-heading">{$events[$closestEventIndex - 1]['heading']} | {$events[$closestEventIndex - 1]['date'] |date:'j. n. Y'}</h4>
+                                {/if}
+                                <h2 class="next-event-heading">{$events[$closestEventIndex]['heading']} | {$events[$closestEventIndex]['date'] |date:'j. n. Y'}
+                                    | <span id="countdown-primary"></span>
+                                </h2>
+                                {if $closestEventIndex < $numOfEvents - 1}
+                                    <h4 class="minor-event-heading mb-0">{$events[$closestEventIndex + 1]['heading']} | {$events[$closestEventIndex + 1]['date'] |date:'j. n. Y'}
+                                    | <span id="countdown-secondary"></span></h4>
+                                {else}
+                                    <h4 class="minor-event-heading mb-0">
+                                        {switch $lang}
+                                            {case 'cs'}Nový ročník FYKOSu přichází již brzy! Užívejte prázdniny!
+                                            {default}New year of FYKOS is coming soon! Enjoy your holidays!
+                                        {/switch}
+                                    </h4>
+                                {/if}
+                            {/if}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <img id="header-image" class="header-image" src="{$basePath}/images/logos/fykos_symbol_no_border.svg"
-                alt="FYKOS logo">
         </div>
     </section>
 </div>
+
+<div class="panel color-dark" id="news">
+    <section class="inner-container">
+        <div class="subheader">Pro ty, kdo FYKOS dobře znají</div>
+        <h1 class="section-header">Novinky a aktuality</h1>
+        <!-- <div class="row mt-5"> -->
+        <!-- <div class="col-md-6"> -->
+        <div class="fade-in-section">
+            <div class="card">
+                <div class="card-body news-card">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h4 class="card-title">Třetí série je tady!</h4>
+                        <div><a n:href=":Default:Problems:" class="btn btn-primary">Zadání</a></div>
+                    </div>
+                    <p class="card-text">Druhá série sice skončila, ale nezoufejte! Na webu je už zveřejněné zadání
+                        nových
+                        úloh! Můžete se ponořit do výpočtů účinnosti zvlhčovače vzduchu, rychlosti transportu v
+                        mikrosvětě
+                        buněk nebo práce nutné k ponoření skleničky pod vodu. Čas na vyřešení úloh a zaslání svých
+                        řešení
+                        máte do 2. 1.! </p>
+                </div>
+            </div>
+            <!-- </div> -->
+            <!-- <div class="col-md-6"> -->
+            <div class="card mt-3">
+                <div class="card-body news-card fof-news-color">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h4 class="card-title">Přihlaste se na Fyziklání 2024</h4>
+                        <div><a href="fyziklani.cz" class="btn btn-primary">Fyziklání</a></div>
+                    </div>
+                    <p class="card-text"> Spouští registrace na Fyziklání 2024, které se bude konat 16. 2. v Praze. Čeká
+                        vás
+                        tam týmová soutěž v počítání zajímavých fyzikálních úloh, ale i bohatý doprovodný program! Tak
+                        neváhejte a přihlašte svůj tým!</p>
+                </div>
+            </div>
+            <!-- </div> -->
+            <!-- </div> -->
+        </div>
+    </section>
+</div>
+
 
 <div class="panel color-light" id="timeline">
     <section class="inner-container">
         <div class="subheader">Naše hlavní akce</div>
         <h1 class="section-header">Co vše organizujeme?</h1>
-        <!-- <p>Toto jsou hlavní akce, které organizujeme. {* Zjistěte více na <a href="#">stránce akcí</a>. *}</p> -->
-        <a class="btn btn-primary" {* n:href="Events" *}>
+        <p>FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní.</p>
+        <a class="btn btn-primary" n:href=":Events:Default:default">
             Stránka všech akcí
         </a>
 
         <div class="fade-in-section mt-5 mt-md-0">
-            <div class="row">
+            <div class="row mt-5">
 
                 {* Vertical timeline *}
                 <div id="timeline-vertical-container"
                     class="col-3 col-md-0 d-md-none position-relative d-flex flex-column align-items-center mt-5">
                     <div class="start-timeline-text mb-3">
-                        <p>1.&nbsp;10. 2023</p>
+                        <p>{$timelineBegin|noescape}</p>
                     </div>
                     <div id="timeline-vertical" class="d-block border-left h-100">
                     </div>
                     <div class="end-timeline-text mt-3">
-                        <p>30.&nbsp;5. 2024</p>
+                        <p>{$timelineEnd|noescape}</p>
                     </div>
                 </div>
-
 
                 <div class="col-9 col-md-12">
 
@@ -143,11 +240,11 @@
                             <div id="timeline-horizontal-container" class="position-relative">
                                 <!-- Added position-relative class -->
                                 <div class="start-timeline-text position-absolute">
-                                    <p>1.&nbsp;10. 2023</p>
+                                    <p>{$timelineBegin|noescape}</p>
                                 </div>
                                 <hr id="timeline-horizontal">
                                 <div class="end-timeline-text position-absolute">
-                                    <p>30.&nbsp;5. 2024</p>
+                                    <p>{$timelineEnd|noescape}</p>
                                 </div>
                             </div>
                         </div>
@@ -230,7 +327,6 @@
                 </div>
             </div>
         </div>
-
     </section>
 </div>
 
@@ -271,7 +367,7 @@
                 <a href="https://db.fykos.cz" class="link-no-decor">
                     <div class="info-block p-3 mb-4 mt-md-5">
                         <h4><i class="info-icon fas fa-upload mb-2"></i>
-                            Nahrajte řešení do fksdb</h4>
+                            Nahrajte řešení do FKSDB</h4>
                         <p>Můžete psát ručně a nascanovat nebo psát rovnou elektronicky. {* TODO: add link to the latex
                             guide *}
                             Akceptujeme pouze formát pdf.</p>
@@ -294,10 +390,10 @@
 
             <!-- Block 4 -->
             <div class="col-md-6">
-                <a href=":Events:fykosCamp:" class="link-no-decor">
+                <a n:href=":Events:Camps:" class="link-no-decor">
                     <div class="info-block p-3 mb-4">
                         <h4><i class="info-icon fas fa-bus mb-2"></i> Pojeďte s námi na soustředění</h4>
-                        <p>Pro nejlepší řešitele pořádáme dvakrát do roka soustředění {* TODO: add link to sous *}
+                        <p>Pro nejlepší řešitele pořádáme dvakrát do roka soustředění
                             plné fyziky, přednášek, experimentů,
                             ale i her a další zábavy.</p>
                     </div>
@@ -306,7 +402,6 @@
         </div>
     </section>
 </div>
-
 
 <div class="panel color-light">
     <section class="inner-container">
@@ -383,6 +478,51 @@
 </div>
 *}
 
+{* Countdown for the very top of the page *}
+<script>
+    function countdownTimer(countDownDate, elementId) {
+        // Update the countdown every 1 second
+        var countdown = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the countdown date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the countdown in the element with the specified id
+            document.getElementById(elementId).innerHTML = ("0" + days).slice(-2) + ":" + ("0" + hours).slice(-2) + ":"
+                + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+
+            // If the countdown is finished, display a message
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById(elementId).innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    }
+
+    // Set the date we're counting down to
+    {if $closestEventIndex < $numOfEvents}
+        var countDownDatePrimary = new Date({$events[$closestEventIndex]['date']});
+    {/if}
+    {if $closestEventIndex < $numOfEvents - 1}
+        var countDownDateSecondary = new Date({$events[$closestEventIndex + 1]['date']});
+    {/if}
+
+    // Call the countdownTimer function with the specified date and element id
+    countdownTimer(countDownDatePrimary, "countdown-primary");
+    countdownTimer(countDownDateSecondary, "countdown-secondary");
+</script>
+
+
+{* Timeline positioning *}
 <script n:syntax=off>
     document.addEventListener("DOMContentLoaded", function () {
 

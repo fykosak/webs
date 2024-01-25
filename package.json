@@ -1,4 +1,5 @@
 {
+  "name": "webs",
   "scripts": {
     "build": "webpack --mode=\"production\"",
     "dev": "webpack --watch --mode=\"development\"",

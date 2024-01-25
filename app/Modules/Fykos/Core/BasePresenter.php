@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\Core;
 
-use App\Models\OldFykos\BootstrapNavBar;
 use App\Models\OldFykos\Jumbotron;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
+    public const CURRENT_YEAR = 37; // TODO: get from db
 
     protected function getNavItems(): array
     {
         $items = [];
 
         $items[] = new NavItem(
-            new PageTitle(null, "O nás", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, 'O nás', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:About:',
             [],
             [
@@ -34,14 +34,14 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, "Seminář", 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, 'Seminář', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Events:Fykos:',
             [],
             [
                 new NavItem(new PageTitle(null, 'Základní informace'), ':Events:Fykos:'),
                 new NavItem(new PageTitle(null, 'Pravidla'), ':Events:Fykos:Rules'),
-                new NavItem(new PageTitle(null, 'Jak na experimenty'), ':Events:Fykos:Experiments'),
-                new NavItem(new PageTitle(null, 'Jak psát řešení'), ':Events:Fykos:TexTutorial')
+                new NavItem(new PageTitle(null, 'Jak psát řešení'), ':Events:Fykos:TexTutorial'),
+                new NavItem(new PageTitle(null, 'Jak na experimenty'), ':Events:Fykos:Experiments')
             ],
         );
 
@@ -55,10 +55,10 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             ':Default:Results:',
         );
 
-        $items[] = new NavItem(
-            new PageTitle(null, 'Archiv úloh', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            ':Default:ProblemsArchive:',
-        );
+        // $items[] = new NavItem(
+        //     new PageTitle(null, 'Archiv úloh', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+        //     ':Default:ProblemsArchive:',
+        // );
 
         $items[] = new NavItem(
             new PageTitle(null, 'Přihlásit se', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
@@ -75,6 +75,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     protected function beforeRender(): void
     {
         parent::beforeRender();
+        $this->template->currentYear = self::CURRENT_YEAR;
         $this->template->jumbotron = $this->includeJumbotron();
     }
 

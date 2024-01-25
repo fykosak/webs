@@ -1,130 +1,380 @@
 {block title}Akce FYKOSu{/block}
 {block main}
-    <div class="panel color-auto">
-        <section class="inner-container">
-            <h1>Akce FYKOSu</h1>
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Akce FYKOSu</h1>
 
-            <p> Nějký generic text o to, že organizujeme spoustu cool akcí</p>
-
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel est magna. Proin a vestibulum risus.
-                Aenean quis nulla at nisi elementum euismod id a nunc. Mauris placerat ex non urna consequat, a porta justo
-                blandit. Fusce quis leo imperdiet, viverra ipsum at, aliquet odio.</p>
-            <p>Phasellus commodo convallis velit, vitae tempus elit hendrerit nec. Sed et erat laoreet, interdum quam vel,
-                consequat justo. Etiam lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis
-                libero dolor a purus. Sed vel lacus magna. Nulla facilisi. Integer quis auctor elit, sed ultrices ipsum.
-                Morbi id urna felis. In vel nulla quis libero vehicula molestie.</p>
-        </section>
-    </div>
+        <p>
+            FYKOS každoročně pořádá asi desítku akcí pro středoškoláky – od malých událostí zaměřených na individuální
+            přístup a zpětnou vazbu po obrovské soutěže pro tisíce lidí z celého světa. Zde najdete jejich kompletní
+            přehled.
+        </p>
+    </section>
+</div>
 
 
-    <div class="panel color-auto">
-        <section class="inner-container">
-            <h1>Seznam akcí</h1>
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="row event-box">
+            <div class="col-md-8 event-text-box">
+                <div>
+                    <h2>Fyzikální korespondenční seminář</h2>
+                    <p>
+                        Fyzikální korespondenční seminář je kontinuální soutěží probíhající celý akademický rok. Je
+                        původní
+                        a
+                        nejstarší aktivitou FYKOSu, který od ní také přejal své jméno; koná se každý rok od založení
+                        FYKOSu
+                        v roce
+                        1987. Je zaměřen především na zlepšování schopností účastníků ve fyzice prostřednictvím
+                        poskytování
+                        individuální zpětné vazby, různě obtížných příkladů a pokročilých studijních textů.
+                    </p>
+                </div>
+                <div>
+                    <a class="btn btn-primary" n:href=":Events:Fykos:">
+                        Více o semináři
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 event-img-box">
+                <a n:href=":Events:Fykos:">
+                    <img src="{$basePath}/images/events/default/fykos.png" alt="Fyziklání korespondenční seminář"
+                    class="event-img">
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
 
-            <h2 class="mt-5">Fyzikální korespondenční seminář</h2>
-            <p>
-                Fyzikální korespondenční seminář je kontinuální soutěží probíhající celý akademický rok. Je původní a
-                nejstarší aktivitou FYKOSu, který od ní také přejal své jméno; koná se každý rok od založení FYKOSu v roce
-                1987. Je zaměřen především na zlepšování schopností účastníků ve fyzice prostřednictvím poskytování
-                individuální zpětné vazby, různě obtížných příkladů a pokročilých studijních textů.
-            </p>
-            <a class="btn btn-primary" n:href=":Events:Fykos:">
-                Více o semináři
-            </a>
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="row event-box">
+            <div class="col-md-8 event-text-box">
+                <div>
+                    <h2>Fyziklání</h2>
+                    <p>
+                        Fyziklání je tradiční prezenční soutěž konaná v Praze. Je určena pro maximálně 5 členné týmy
+                        středoškoláků,
+                        kteří se zajímají o fyziku a matematiku. Jejich cílem je v daném časovém limitu získat za řešení
+                        úloh
+                        co
+                        nejvíce bodů. Za každou správně vyřešenou úlohu získávají body a další mírně náročnější
+                        příklady.
+                        Fyziklání
+                        zahrnuje také bohatý doprovodný program plný přednášek, exkurzí do vědeckých laboratoří, ale
+                        také
+                        socializační aktivity jako raut nebo párty, kde se účastníci poznají se svými vrstevníky z
+                        různých
+                        koutů
+                        světa. V roce 2023 se Fyziklání zúčastnilo přes 1000 účastníků z více než 20 zemí světa.
+                    </p>
+                </div>
+                <div>
+                    <a class="btn btn-primary-fof" href="https://fyziklani.cz">
+                        Fyziklání
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 event-img-box">
+                <a href="https://fyziklani.cz">
+                    <img src="{$basePath}/images/events/default/fof.png" alt="Fyziklání" class="event-img">
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
 
-            <h2 class="mt-5">Fyziklání</h2>
-            <p>
-                Fyziklání je tradiční prezenční soutěž konaná v Praze. Je určena pro maximálně 5 členné týmy středoškoláků,
-                kteří se zajímají o fyziku a matematiku. Jejich cílem je v daném časovém limitu získat za řešení úloh co
-                nejvíce bodů. Za každou správně vyřešenou úlohu získávají body a další mírně náročnější příklady. Fyziklání
-                zahrnuje také bohatý doprovodný program plný přednášek, exkurzí do vědeckých laboratoří, ale také
-                socializační aktivity jako raut nebo párty, kde se účastníci poznají se svými vrstevníky z různých koutů
-                světa. V roce 2023 se Fyziklání zúčastnilo přes 1000 účastníků z více než 20 zemí světa.
-            </p>
-            <a class="btn btn-primary-fof" href="https://fyziklani.cz">
-                Fyziklání
-            </a>
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="row event-box">
+            <div class="col-md-8 event-text-box">
+                <h2>Fyziklání Online</h2>
+                <p>
+                    Soutěž je obdobou klasického Fyziklání v online formě. Kromě kategorií pro různé ročníky střední
+                    školy má
+                    také otevřenou kategorii, ve které se může účastnit úplně každý, takže můžete porovnat své síly
+                    například s
+                    vlastními učiteli fyziky. K řešení je dovoleno používat internet a všechny příklady lze řešit z
+                    pohodlí
+                    domova, vlastní školy nebo jakéhokoliv místa s připojením k internetu. Fyziklání Online se účastní
+                    již
+                    tisíce lidí z celého světa.
+                </p>
+                <div>
+                    <a class="btn btn-primary-fol" href="https://online.fyziklani.cz">
+                        Fyziklání Online
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 event-img-box">
+                <a href="https://online.fyziklani.cz">
+                    <img src="{$basePath}/images/events/default/fol.png" alt="Fyziklání Online" class="event-img">
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
 
-            <h2 class="mt-5">Fyziklání Online</h2>
-            <p>
-                Soutěž je obdobou klasického Fyziklání v online formě. Kromě kategorií pro různé ročníky střední školy má
-                také otevřenou kategorii, ve které se může účastnit úplně každý, takže můžete porovnat své síly například s
-                vlastními učiteli fyziky. K řešení je dovoleno používat internet a všechny příklady lze řešit z pohodlí
-                domova, vlastní školy nebo jakéhokoliv místa s připojením k internetu. Fyziklání Online se účastní již
-                tisíce lidí z celého světa.
-            </p>
-            <a class="btn btn-primary-fol" href="https://online.fyziklani.cz">
-                Fyziklání Online
-            </a>
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="row event-box">
+            <div class="col-md-8 event-text-box">
+                <h2>DSEF</h2>
+                <p>
+                    Den s experimentální fyzikou (zkratkou DSEF) je tradiční akce FYKOSu, během které se můžete
+                    porozhlédnout po
+                    fyzikálních pracovištích na MFF UK i těch v Praze a blízkém okolí. Máte jedinečnou příležitost na
+                    vlastní
+                    oči vidět, jak se dnes dělá experimentální fyzika. Nejčastěji bývají exkurze k jadernému reaktoru,
+                    na
+                    pracoviště elektronové mikroskopie, katedru nízkých teplot, pracoviště nukleární magnetické
+                    rezonance,
+                    Ústav
+                    jaderného výzkumu v Řeži, ale objevují se i mnohé další.
+                </p>
+                <div>
+                    <a class="btn btn-primary-dsef" href="https://dsef.cz">
+                        DSEF
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 event-img-box">
+                <a href="https://dsef.cz">
+                    <img src="{$basePath}/images/events/default/dsef.png" alt="DSEF" class="event-img">
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
 
-            <h2 class="mt-5">DSEF</h2>
-            <p>
-                Den s experimentální fyzikou (zkratkou DSEF) je tradiční akce FYKOSu, během které se můžete porozhlédnout po
-                fyzikálních pracovištích na MFF UK i těch v Praze a blízkém okolí. Máte jedinečnou příležitost na vlastní
-                oči vidět, jak se dnes dělá experimentální fyzika. Nejčastěji bývají exkurze k jadernému reaktoru, na
-                pracoviště elektronové mikroskopie, katedru nízkých teplot, pracoviště nukleární magnetické rezonance, Ústav
-                jaderného výzkumu v Řeži, ale objevují se i mnohé další.
-            </p>
-            <a class="btn btn-primary-dsef" href="https://dsef.cz">
-                DSEF
-            </a>
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="row event-box">
+            <div class="col-md-8 event-text-box">
+                <h2>Fyzikální Náboj</h2>
+                <p>
+                    Fyzikální Náboj je týmová soutěž principem podobná fyziklání. Narozdíl od něj se však nekoná na
+                    jednom místě
+                    v Praze, ale paralelně na mnoha soutěžních lokacích v několika zemích Evropy. Akce je primárně
+                    pořádaná
+                    slovekskou organizací <a href="https://trojsten.sk/">Trojsten</a>, přičemž FYKOS ji zaštiťuje a
+                    organizuje
+                    pro Českou Republiku.
+                </p>
+                <div>
+                    <a class="btn btn-primary-naboj" href="https://physics.naboj.org/cz/cs/">
+                        Fyzikální Náboj
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 event-img-box">
+                <a href="https://physics.naboj.org/cz/cs/">
+                    <img src="{$basePath}/images/events/default/naboj.jpg" alt="Fyzikální Náboj" class="event-img">
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
 
-            <h2 class="mt-5">Fyzikální Náboj</h2>
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="row event-box">
+            <div class="col-md-8 event-text-box">
+                <h2>Soustředění</h2>
+                <p>
+                    Dvakrát do roka, na jaře a na podzim, pořádáme tradiční soustředění. Tato týdenní akce je určena pro
+                    zhruba
+                    30 nejlepších řešitelů korespondenčního semináře a probíhá v nějakém krásném koutu naší vlasti.
+                    Účastníci
+                    soustředění prožijí týden plný zajímavých přednášek nejen z fyziky, matematiky a informatiky. Aby
+                    intelektuální zátěž v režii studentů a organizátorů nebyla příliš vysoká, odpočinou si všichni při
+                    hrách,
+                    sportu a soutěžích. Odborná náplň soustředění není čistě teoretická, účastníci si „osahají“ i
+                    opravdové
+                    fyzikální experimenty.
+                </p>
+                <div>
+                    <a class="btn btn-primary" n:href=":Events:Camps:">
+                        Více o soustředění
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 event-img-box">
+                <a n:href=":Events:Camps:">
+                    <img src="{$basePath}/images/events/default/sous.JPG" alt="Soustředění" class="event-img">
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
 
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel est magna. Proin a vestibulum risus.
-                Aenean quis nulla at nisi elementum euismod id a nunc. Mauris placerat ex non urna consequat, a porta justo
-                blandit. Fusce quis leo imperdiet, viverra ipsum at, aliquet odio.</p>
-            <p> Organizováno ve spolupráci se <a href="https://fks.sk/">slovenským FKS</a>.
-            </p>
-            <a class="btn btn-primary-naboj" href="https://physics.naboj.org/cz/cs/">
-                Fyzikální Náboj
-            </a>
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="row event-box">
+            <div class="col-md-8 event-text-box">
+                <h2>Stáže na MFF UK</h2>
+                <p>
+                    Ve spolupráci s MFF UK se v létě konají stáže pro nejlepší řešitele experimentálních úloh. Ti si
+                    díky
+                    tomu
+                    na vlastní kůži vyzkouší práci na vědeckých pracovištích. Pod vedením zkušených vědců zpracují daný
+                    experiment a jako výstup sepíší článek o svém výzkumu. Stáže probíhají 14 dní o letních prázdninách
+                    v Praze.
+                    Účastníci si mohou vybrat ze širokého spektra oblastí výzkumů od optiky, fyziky plazmatu a povrchu,
+                    kvantové
+                    fyziky až po fyziku atmosféry.
+                </p>
+                <div>
+                    <a class="btn btn-primary" n:href=":Events:Internships:">
+                        Více o stážích
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 event-img-box">
+                <a n:href=":Events:Internships:">
+                    <img src="{$basePath}/images/events/default/staze.jpg" alt="Stáže na MFF UK" class="event-img">
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
 
-            <h2 class="mt-5">Soustředění</h2>
-            <p>
-                Dvakrát do roka, na jaře a na podzim, pořádáme tradiční soustředění. Tato týdenní akce je určena pro zhruba
-                30 nejlepších řešitelů korespondenčního semináře a probíhá v nějakém krásném koutu naší vlasti. Účastníci
-                soustředění prožijí týden plný zajímavých přednášek nejen z fyziky, matematiky a informatiky. Aby
-                intelektuální zátěž v režii studentů a organizátorů nebyla příliš vysoká, odpočinou si všichni při hrách,
-                sportu a soutěžích. Odborná náplň soustředění není čistě teoretická, účastníci si „osahají“ i opravdové
-                fyzikální experimenty.
-            </p>
-            <a class="btn btn-primary" href="https://fykos.cz/akce/soustredeni/start">
-                Více o soustředění
-            </a>
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="mt-5">Další akce</h2>
+                <p>
+                    FYKOS za dobu své dlouhé historie organizoval i několik dalších akcí. Jednou z nich je TSAF (Týden s
+                    aplikovanou fyzikou),
+                    který několikrát vzal účastníky do špičkových vědeckých laboratořích, například do CERNu. V době
+                    pandemie
+                    covid-19 se konal
+                    FYKOSí Online Víkend jako náhrada za soustředění. Do roku 2018/19 se
+                    také pravidelněji pořádal cyklus fyzikálních přednášek pro středoškoláky. V minulosti jsme také
+                    organizovali
+                    Rozšiřující seminář (RS), který fungoval jako pravidelná rozšiřující výuka pro středoškoláky
+                    konající se
+                    jednou týdně v prostorách MFF UK.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
 
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Termíny</h1>
 
-            <h2 class="mt-5">Stáže na MFF UK</h2>
-            <p>
-                Ve spolupráci s MFF UK se v létě konají stáže pro nejlepší řešitele experimentálních úloh. Ti si díky tomu na vlastní kůži vyzkouší práci na vědeckých pracovištích. Pod vedením zkušených vědců zpracují daný experiment a jako výstup sepíší článek o svém výzkumu. Stáže probíhají 14 dní o letních prázdninách v Praze. Účastníci si mohou vybrat ze širokého spektra oblastí výzkumů od optiky, fyziky plazmatu a povrchu, kvantové fyziky až po fyziku atmosféry. 
-            </p>
-            <a class="btn btn-primary" href="https://fykos.cz/akce/staze/start">
-                Více o stážích
-            </a>
+        <p>Zde najdete přibližná data našich akcí společně s kalendářem, který ukazuje aktuální data pro daný rok.
+            Kalendář si můžete přidat do svého google účtu.</p>
 
-            <h2 class="mt-5">Další akce</h2>
-            <p>
-                FYKOS nepravidelně organizuje i další akce. Jednou z nich je TSAF (Týden s aplikovanou fyzikou), který se
-                několik let konal v zahraničí. V době pandemie covid-19 se konal FYKOSí Online Víkend. Do roku 2018/19 se
-                také pravidelněji konal cyklus fyzikálních přednášek pro středoškoláky. V minulosti jsme také organizovali
-                Rozšiřující seminář (RS), který fungoval jako pravidelná rozšiřující výuka pro středoškoláky konající se
-                jednou týdně v prostorách MFF UK.
-            </p>
-        </section>
-    </div>
+        <div class="row mt-5">
+            <div class="col-md-3 py-md-0 py-4">
+                <h3>Orientační data</h3>
+                <div class="timeline events-timeline">
+                    {if $lang == 'cs'}
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <div class="timeline-title">Podzimní soustředění</div>
+                            <p>Konec září</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <div class="timeline-title">
+                                Fyzikální Náboj
+                            </div>
+                            <p>
+                                Začátek listopadu
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <div class="timeline-title">
+                                DSEF
+                            </div>
+                            <p>
+                                Začátek listopadu
+                            </p>
+                        </div>
+                    </div>
+                    {/if}
 
-    <div class="panel color-auto">
-        <section class="inner-container">
-            <h1>Termíny</h1>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            {switch $lang}
+                            {case cs}
+                            <div class="timeline-title">
+                                Fyziklání Online
+                            </div>
+                            <p>
+                                Druhá polovina listopadu
+                            </p>
+                            {default}
+                            <div class="timeline-title">
+                                Physics Brawl Online
+                            </div>
+                            <p>
+                                Second half of November
+                            </p>
+                            {/switch}
+                        </div>
+                    </div>
 
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            {switch $lang}
+                            {case cs}
+                            <div class="timeline-title">
+                                Fyziklání
+                            </div>
+                            <p>
+                                Únor
+                            </p>
+                            {default}
+                            <div class="timeline-title">
+                                Fyziklani
+                            </div>
+                            <p>
+                                February
+                            </p>
+                            {/switch}
+                        </div>
+                    </div>
+                    {if $lang == 'cs'}
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <div class="timeline-title">Jarní soustředění</div>
+                            <p>Konec dubna až květen</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <div class="timeline-title">Stáže na MFF</div>
+                            <p>Letní prázdniny</p>
+                        </div>
+                    </div>
+                    {/if}
+                </div>
 
-            <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:complete" *}>
-                Kalendář termínů {* Tohle má vést na speciální stránku, kde bude jen možnost přidat kalendář. Alternativně
-                může být kalendář embednutý přímo tady. *}
-            </a>
-
-            <h1 style="color: red">přidat timeline jako je na úvodní stránce, ale asi přidat i sous a stáže</h1>
-
-        </section>
-    </div>
+            </div>
+            <div class="col-md-9">
+                <h3>Aktuální kalendář</h3>
+                <iframe class="calendar-iframe"
+                    src="https://calendar.google.com/calendar/embed?src=4gm8n6kk4at8iccbao60v107r8%40group.calendar.google.com&ctz=Europe%2FPrague"
+                    frameborder="0" scrolling="no"></iframe>
+            </div>
+        </div>
+    </section>
+</div>
 {/block}

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\DefaultModule;
 
-use App\Components\Map\MapComponent;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventList;
+use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 
 class ArchivePresenter extends BasePresenter
 {

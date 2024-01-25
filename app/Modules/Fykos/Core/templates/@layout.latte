@@ -12,17 +12,15 @@
     <meta name="author" content="" />
     <meta name="theme-color" content="#1175DA">
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Den s experimentální fyzikou" />
-    {*
-    <meta property="og:image" content="{_'http://physicsbrawl.org/images/fyziklani-logo.png'}" />*}
-    {*
-    <meta property="og:description" content="{_'Team competition in solving physics problems.'}" />*}
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:locale" content="cs" />
-    <meta property="og:url" content="{plink //this}" />
-    <link href="{$basePath}/images/icon.png" rel="icon" type="image/png" />
-    <link href="{asset 'assets/main.css'}" rel="stylesheet" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Den s experimentální fyzikou"/>
+    {*<meta property="og:image" content="{_'http://physicsbrawl.org/images/fyziklani-logo.png'}"/>*}
+    {*<meta property="og:description" content="{_'Team competition in solving physics problems.'}"/>*}
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:locale" content="cs"/>
+    <meta property="og:url" content="{plink //this}"/>
+    <link href="{$basePath}/images/icon.png" rel="icon" type="image/png"/>
+    <link href="{asset 'assets/main.css'}" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;800&display=swap" rel="stylesheet">
@@ -32,6 +30,24 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
         integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
         crossorigin="anonymous"></script>
+    <script n:syntax=off>
+        MathJax = {
+            loader: {
+                load: ["[tex]/mhchem"]
+            },
+            tex: {
+                packages: {
+                    '[+]': ['mhchem']
+                },
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['\\eq{', '}']]
+            }
+        }
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
     <script src="{asset 'assets/main.js'}"></script>
     {block scripts}{/block}
 </head>
@@ -55,17 +71,17 @@
         <div class="panel registration">
             <div class="inner-container">
                 <div class="text">
-                    Chcete vědět více?
+                    {switch $lang}{case cs}Chcete vědět více?{default}Want to Know More?{/switch}
                 </div>
                 <div style="btn-container">
                     <a class="btn btn-outline m-2" n:href=":Default:About:default">
-                        O&nbsp;nás
+                        {switch $lang}{case cs}O&nbsp;nás{default}About Us{/switch}
                     </a>
                     <a class="btn btn-outline m-2" n:href=":Events:Default:default">
-                        Akce
+                        {switch $lang}{case cs}Akce{default}Events{/switch}
                     </a>
                     <a class="btn btn-outline m-2" n:href=":Events:Fykos:default">
-                        Seminář
+                        {switch $lang}{case cs}Seminář{default}FYKOS Competition{/switch}
                     </a>
                 </div>
             </div>
@@ -82,8 +98,12 @@
                                 style="max-width: 8rem">
                         </a>
                         <a href="https://www.msmt.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/msmt_cs.jpg" class="sponsor-logo" alt="MŠMT logo"
-                                style="width: 8rem">
+                            {switch $lang}
+                            {case cs}
+                                <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
+                            {default}
+                                <img src="{$basePath}/images/logos/msmt_en.jpg" alt="MŠMT logo" style="max-width: 9rem">
+                            {/switch}
                         </a>
                     </div>
                 </div>
@@ -105,17 +125,29 @@
                     {* <img class="logo" src="{$basePath}/images/logo.svg" alt="DSEF" />*}
                     <div class="logo" style="font-size: 1cm; font-weight: bold">FYKOS<small>.cz</small></div>
                     <p>
-                        FYKOS skupina pořádající vzdělávací soutěže pro středoškoláky ve fyzice s&nbsp;37letou tradicí.
-                        FYKOS je tvořen převážně studenty
-                        <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
+                        {switch $lang}
+                            {case cs}FYKOS je skupina pořádající vzdělávací soutěže pro středoškoláky ve fyzice s&nbsp;37letou tradicí.
+                            FYKOS je tvořen převážně studenty
+                            <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
+                            {default}FYKOS is a group organizing educational physics competitions for high school students with a 37-year tradition.
+                            FYKOS is mainly composed of students from the
+                            <a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a>.
+                            {/switch}
                     </p>
                     <p>
-                        Akce FYKOSu jsou spoluvyhlašovány <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální
-                            fakulty Univerzity Karlovy</a>
-                        a Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
+                        {switch $lang}
+                            {case cs}Akce FYKOSu jsou spoluvyhlašovány <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální
+                            fakultou Univerzity Karlovy</a>
+                            a Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
+                            {default}FYKOS events are co-organized by the <a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a>
+                            and the Ministry of Education, Youth and Sports.
+                        {/switch}
                     </p>
                     <p>
-                        <strong>#fykos</strong> <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
+                        {switch $lang}
+                            {case cs}<strong>#fykos</strong> <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
+                            {default}<strong>#fykos</strong> <a href="mailto:fykos@fykos.org">fykos@fykos.org</a>
+                            {/switch}
                     </p>
                     <div class="other-logos">
                         <a target="_blank"
@@ -131,6 +163,52 @@
                                 src="{$basePath}/images/logos/dsef_logo_white.png"
                                 style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>{/if}
                     </div>
+                </div>
+                <div class="col-md-3">
+                    <nav>
+                        <ul>
+                            {switch $lang}
+                                {case cs}
+                                <li>Pro účastníky a učitele
+                                    <ul>
+                                        <li><a n:href=":Default:About:">O nás</a></li>
+                                        <li><a n:href=":Events:Default:">Akce</a></li>
+                                        <li><a n:href=":Events:Fykos:">Seminář</a></li>
+                                    </ul>
+                                </li>
+                                {default}
+                                <li>For participants and teachers
+                                    <ul>
+                                        <li><a n:href=":Default:About:">About us</a></li>
+                                        <li><a n:href=":Events:Default:">Events</a></li>
+                                        <li><a n:href=":Events:Fykos:">Seminar</a></li>
+                                    </ul>
+                                </li>
+                            {/switch}
+                        </ul>
+                    </nav>
+                    {* <nav>
+                        <ul>
+                            {switch $lang}
+                                {case cs}
+                                <li>Podpora FYKOSu
+                                    <ul>
+                                        <li><a n:href=":Default:SupportUs:">Jak podpořit FYKOS</a></li>
+                                        <li><a n:href=":Default:Merch:">Merch</a></li>
+                                    </ul>
+                                </li>
+                                {default}
+                                <li>For partners
+                                    <ul>
+                                        <li><a n:href=":Default:Partners:">Support us</a></li>
+                                        <li><a href="">Logos and materials</a></li>
+                                        <li><a href="">Contact</a></li>
+                                    </ul>
+                                </li>
+                            {/switch}
+                        </ul>
+                    </nav> *}
+
                 </div>
                 <div class="col-md-3">
                     <nav>
@@ -154,8 +232,31 @@
                             </li>
                         </ul>
                     </nav>
+                    <nav>
+                        <ul>
+                            {switch $lang}
+                            {case cs}
+                            <li>Kontakt
+                                {default}
+                            <li>Contact
+                                {/switch}
+                                <ul>
+                                    {switch $lang}
+                                        {case cs}
+                                        <li>
+                                            <a n:href=":Default:About:contact">Kontaktní informace</a>
+                                        </li>
+                                        {default}
+                                        <li>
+                                            <a n:href=":Default:About:contact">Contact information</a>
+                                        </li>
+                                    {/switch}
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <div class="col-md-3" style="position: relative;">
+                <div style="position: relative;">
                     <a href="#top" style="position: absolute; bottom: 0; right: 0;"><i class="fas fa-arrow-up"></i></a>
                 </div>
             </div>

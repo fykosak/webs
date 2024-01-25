@@ -1,4 +1,4 @@
-{varType App\Modules\ArchiveModule\ReportsPresenter $presenter}
+{varType App\Modules\Fol\ArchiveModule\ReportsPresenter $presenter}
 {varType string $lang}
 
 {block title}
@@ -28,14 +28,14 @@
     <div id="reports" class="list">
         {varType bool $counter}
         {do $counter = true}
-        {foreach $reports as $report_id => $report}
+        {foreach $reports as $reportId => $report}
             {do $counter = !$counter}
 
             <div n:class="panel, $counter ? color-light : color-dark">
                 <section class="inner-container row">
-                    <div class="col-md-4" id="{$report_id}-container" n:if="count($report->images)">
-                        <img id="{$report_id}" src="{$basePath . '/images/reports/' . $report->images[0]->filename}" class="img-fluid">
-                        <div class="row gallery-thumbnails" id="{$report_id}-row">
+                    <div class="col-md-4" id="{$reportId}-container" n:if="count($report->images)">
+                        <img id="{$reportId}" src="{$basePath . '/photos/' . $report->images[0]->filename}" class="img-fluid">
+                        <div class="row gallery-thumbnails" id="{$reportId}-row">
                             {varType bool $solo} {* true when there's only one picture *}
                             {do $solo = true}
                             {varType bool $noImage}
@@ -46,14 +46,14 @@
                                 {/if}
                                 {do $noImage = false}
                                 {varType string $source}
-                                {do $source = $basePath . '/images/reports/' . $reportImage->filename}
+                                {do $source = $basePath . '/photos/' . $reportImage->filename}
                                 <div class="col-4">
-                                    <img src="{$basePath}/images/reports/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$report_id});" class="img-fluid">
+                                    <img src="{$basePath}/photos/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$reportId});" class="img-fluid">
                                 </div>
                             {/foreach}
                             <script n:if="$solo">
-                                document.getElementById({$report_id} + "-row").style.display="none";
-                                document.getElementById({$report_id} + "-box").style.height="auto";
+                                document.getElementById({$reportId} + "-row").style.display="none";
+                                document.getElementById({$reportId} + "-box").style.height="auto";
                             </script>
                         </div>
                     </div>

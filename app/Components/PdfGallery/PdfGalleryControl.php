@@ -9,12 +9,12 @@ use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\DI\Container;
 use Nette\Utils\Finder;
+use Nette\Utils\UnknownImageFileException;
 
 class PdfGalleryControl extends BaseComponent
 {
     private string $wwwDir;
     private Cache $cache;
-
 
     public function __construct(Container $container)
     {
@@ -27,12 +27,9 @@ class PdfGalleryControl extends BaseComponent
         $this->cache = new Cache($storage, __NAMESPACE__);
     }
 
-// TODO typy!!!!!
-    public static function getPdfs($path, $wwwDir): array
+    public static function getPdfs(string $path, string $wwwDir): array
     {
         $pdfs = [];
-        $iterator = null;
-
         try {
             $iterator = Finder::findFiles('*.pdf')->in($wwwDir . $path)->getIterator();
         } catch (\Exception $e) {
@@ -59,7 +56,8 @@ class PdfGalleryControl extends BaseComponent
     }
 
     /**
-     * @throws \Nette\Utils\UnknownImageFileException
+     * @throws UnknownImageFileException
+     * @throws \Throwable
      */
     public function render(string $path): void
     {
@@ -67,7 +65,7 @@ class PdfGalleryControl extends BaseComponent
             [$path, $this->wwwDir],
             fn() => self::getPdfs($path, $this->wwwDir)
         );
-        $this->template->lang = $this->getPresenter()->lang;
+        $this->template->lang = $this->translator->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery.latte');
     }
 }

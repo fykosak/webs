@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\Components\ApiResults;
 
+use App\Models\Downloader\FKSDBDownloader;
 use App\Models\Game\Connector;
-use Fykosak\NetteFKSDBDownloader\ORM\Services\ServiceEventDetail;
+use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\Application\AbortException;
 use Nette\Application\Responses\JsonResponse;
@@ -17,7 +18,7 @@ use Throwable;
 class ApiResultsComponent extends BaseComponent
 {
     private Connector $gameServerApiConnector;
-    private ServiceEventDetail $serviceTeam;
+    private FKSDBDownloader $downloader;
     private int $eventId;
 
     public function __construct(Container $container, int $eventId)
@@ -31,32 +32,32 @@ class ApiResultsComponent extends BaseComponent
         $this->gameServerApiConnector = $connector;
     }
 
-    public function injectServiceTeam(ServiceEventDetail $serviceTeam): void
+    public function injectServiceTeam(FKSDBDownloader $downloader): void
     {
-        $this->serviceTeam = $serviceTeam;
+        $this->downloader = $downloader;
     }
 
     private function serialiseTeams(): array
     {
         $teams = [];
-        foreach ($this->serviceTeam->getTeams($this->eventId) as $team) {
-            if ($team->status === 'cancelled') {
+        foreach ($this->downloader->download(new TeamsRequest($this->eventId)) as $team) {
+            if ($team['status'] === 'cancelled') {
                 continue;
             }
 
-            $participants = [];
-            foreach ($team->members as $participant) {
-                $participants[] = [
-                    'name' => $participant->name,
-                    'schoolName' => $participant->schoolName,
-                    'countryIso' => $participant->countryIso,
+            $members = [];
+            foreach ($team->members as $member) {
+                $members[] = [
+                    'name' => $member['name'],
+                    'schoolName' => $member['school']['name'] ?? '',
+                    'countryIso' => $member['school']['countryIso'] ?? '',
                 ];
             }
             $teams[] = [
-                'teamId' => $team->teamId,
-                'name' => $team->name,
-                'category' => $team->category,
-                'participants' => $participants,
+                'teamId' => $team['teamId'],
+                'name' => $team['name'],
+                'category' => $team['category'],
+                'participants' => $members,
             ];
         }
         return $teams;

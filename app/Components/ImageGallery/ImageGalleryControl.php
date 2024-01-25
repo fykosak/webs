@@ -28,10 +28,12 @@ class ImageGalleryControl extends BaseComponent
         $this->cache = new Cache($storage, __NAMESPACE__);
     }
 
-    public static function getImages($path, $wwwDir): array
+    /**
+     * @throws UnknownImageFileException
+     */
+    public static function getImages(string $path, string $wwwDir): array
     {
         $images = [];
-        $iterator = null;
 
         try {
             $iterator = Finder::findFiles('*.jpg')->in($wwwDir . $path)->getIterator();
@@ -60,6 +62,9 @@ class ImageGalleryControl extends BaseComponent
         return $images;
     }
 
+    /**
+     * @throws \Throwable
+     */
     private function getCachedImages(string $path): array
     {
         return $this->cache->load(
@@ -82,6 +87,9 @@ class ImageGalleryControl extends BaseComponent
         return $previewImages;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function hasPhotos(string $path): bool
     {
         return count($this->getCachedImages($path)) > 0;
@@ -93,10 +101,13 @@ class ImageGalleryControl extends BaseComponent
     public function render(string $path): void
     {
         $this->template->images = $this->getCachedImages($path);
-        $this->template->lang = $this->getPresenter()->lang;
+        $this->template->lang = $this->translator->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'default.latte');
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderRandomLine(string $path): void
     {
         if (!$this->hasPhotos($path)) {
@@ -109,6 +120,9 @@ class ImageGalleryControl extends BaseComponent
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderOrderedLine(string $path): void
     {
         if (!$this->hasPhotos($path)) {

@@ -6,7 +6,7 @@
 
 # run the webserver serving the testing data as background task
 mkdir -p temp/tester/log
-nohup flask --app tests/api/api.py run -h 0.0.0.0 -p 8082 > temp/tester/log/api.log 2>&1 < /dev/null &
+nohup flask --app tests/api/api.py run -h 127.0.0.1 -p 8090 > temp/tester/log/api.log 2>&1 < /dev/null &
 sleep 1
 
 # execute main command and catch it's exit code

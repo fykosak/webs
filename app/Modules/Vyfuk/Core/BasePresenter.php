@@ -83,9 +83,4 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         $this->lang = 'cs';
         parent::localize();
     }
-
-    protected function beforeRender(): void
-    {
-        parent::beforeRender();
-    }
 }
