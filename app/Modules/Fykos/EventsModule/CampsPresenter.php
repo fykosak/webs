@@ -68,9 +68,9 @@ class CampsPresenter extends BasePresenter
 
         $photosBasePath = './images/events/' . $event_type_str . '/rocnik' . $stryear . '/carousel-photos';
         $photos = glob($photosBasePath . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-        
+
         if (empty($photos)) {
-            return $this->template->basePath .'/images/events/event-missing-photo.png';
+            return $this->template->basePath . '/images/events/event-missing-photo.png';
         }
 
         $photo = $photos[array_rand($photos)];

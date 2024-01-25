@@ -24,11 +24,16 @@ class EventModel
     public ?string $place;
     public ?int $contestId;
 
-    public static function getOrderedEventsByTypes(FKSDBDownloader $downloader, array $types, array $blacklistedIds, string $lang): array
-    {
+    public static function getOrderedEventsByTypes(
+        FKSDBDownloader $downloader,
+        array $types,
+        array $blacklistedIds,
+        string $lang
+    ): array {
         $cache = $downloader->getCache();
         return $cache->load(
-            "eventModel.getOrderedEventsByTypes." . $lang . "." . join("-", $types) . ".blacklist." . join("-", $blacklistedIds),
+            "eventModel.getOrderedEventsByTypes." . $lang . "." . join("-", $types) . ".blacklist."
+                . join("-", $blacklistedIds),
             function (&$dependencies) use ($downloader, $types, $blacklistedIds, $lang) {
                 $dependencies[Cache::Expire] = $downloader->getExpiration();
                 $dependencies[Cache::Files] = '/workspace/app/Models/Downloader/EventModel.php';
@@ -37,15 +42,19 @@ class EventModel
         );
     }
 
-    public static function getOrderedEventsByTypesNoCache(FKSDBDownloader $downloader, array $types, array $blacklistedIds, string $lang): array
-    {
+    public static function getOrderedEventsByTypesNoCache(
+        FKSDBDownloader $downloader,
+        array $types,
+        array $blacklistedIds,
+        string $lang
+    ): array {
         $events = $downloader->download(new EventListRequest($types));
         $events = array_filter($events, function ($event) use ($blacklistedIds) {
             return (!in_array($event['eventId'], $blacklistedIds));
         });
         $orderedEvents = [];
         foreach ($events as $key => $event) {
-            $resultEvent = new EventModel;
+            $resultEvent = new EventModel();
             $resultEvent->eventId = $event['eventId'];
             $resultEvent->eventTypeId = $event['eventTypeId'];
             $resultEvent->contestId = $event['contestId'];
