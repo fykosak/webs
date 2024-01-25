@@ -47,6 +47,16 @@ abstract class NetteDownloader
         return $this->downloader;
     }
 
+    public function getExpiration(): string
+    {
+        return $this->expiration;
+    }
+
+    public function getCache(): Cache
+    {
+        return $this->cache;
+    }
+
     /**
      * @throws \Throwable
      */
