@@ -71,17 +71,17 @@
         <div class="panel registration">
             <div class="inner-container">
                 <div class="text">
-                    Chcete vědět více?
+                    {switch $lang}{case cs}Chcete vědět více?{default}Want to Know More?{/switch}
                 </div>
                 <div style="btn-container">
                     <a class="btn btn-outline m-2" n:href=":Default:About:default">
-                        O&nbsp;nás
+                        {switch $lang}{case cs}O&nbsp;nás{default}About Us{/switch}
                     </a>
                     <a class="btn btn-outline m-2" n:href=":Events:Default:default">
-                        Akce
+                        {switch $lang}{case cs}Akce{default}Events{/switch}
                     </a>
                     <a class="btn btn-outline m-2" n:href=":Events:Fykos:default">
-                        Seminář
+                        {switch $lang}{case cs}Seminář{default}FYKOS Competition{/switch}
                     </a>
                 </div>
             </div>
@@ -125,17 +125,29 @@
                     {* <img class="logo" src="{$basePath}/images/logo.svg" alt="DSEF" />*}
                     <div class="logo" style="font-size: 1cm; font-weight: bold">FYKOS<small>.cz</small></div>
                     <p>
-                        FYKOS skupina pořádající vzdělávací soutěže pro středoškoláky ve fyzice s&nbsp;37letou tradicí.
-                        FYKOS je tvořen převážně studenty
-                        <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
+                        {switch $lang}
+                            {case cs}FYKOS je skupina pořádající vzdělávací soutěže pro středoškoláky ve fyzice s&nbsp;37letou tradicí.
+                            FYKOS je tvořen převážně studenty
+                            <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
+                            {default}FYKOS is a group organizing educational physics competitions for high school students with a 37-year tradition.
+                            FYKOS is mainly composed of students from the
+                            <a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a>.
+                            {/switch}
                     </p>
                     <p>
-                        Akce FYKOSu jsou spoluvyhlašovány <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální
+                        {switch $lang}
+                            {case cs}Akce FYKOSu jsou spoluvyhlašovány <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální
                             fakultou Univerzity Karlovy</a>
-                        a Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
+                            a Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
+                            {default}FYKOS events are co-organized by the <a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a>
+                            and the Ministry of Education, Youth and Sports.
+                        {/switch}
                     </p>
                     <p>
-                        <strong>#fykos</strong> <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
+                        {switch $lang}
+                            {case cs}<strong>#fykos</strong> <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
+                            {default}<strong>#fykos</strong> <a href="mailto:fykos@fykos.org">fykos@fykos.org</a>
+                            {/switch}
                     </p>
                     <div class="other-logos">
                         <a target="_blank"
@@ -165,7 +177,13 @@
                                     </ul>
                                 </li>
                                 {default}
-                                {* TODO *}
+                                <li>For participants and teachers
+                                    <ul>
+                                        <li><a n:href=":Default:About:">About us</a></li>
+                                        <li><a n:href=":Events:Default:">Events</a></li>
+                                        <li><a n:href=":Events:Fykos:">Seminar</a></li>
+                                    </ul>
+                                </li>
                             {/switch}
                         </ul>
                     </nav>
@@ -223,9 +241,16 @@
                             <li>Contact
                                 {/switch}
                                 <ul>
-                                    <li>
-                                        <a n:href=":Default:About:contact">Kontaktní informace</a>
-                                    </li>
+                                    {switch $lang}
+                                        {case cs}
+                                        <li>
+                                            <a n:href=":Default:About:contact">Kontaktní informace</a>
+                                        </li>
+                                        {default}
+                                        <li>
+                                            <a n:href=":Default:About:contact">Contact information</a>
+                                        </li>
+                                    {/switch}
                                 </ul>
                             </li>
                         </ul>

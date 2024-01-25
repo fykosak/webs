@@ -52,12 +52,13 @@
                         </a> *}
                     </div>
                 </div>
-                {dump $event}
+                {* {dump $event} *}
                 <div class="col-md-4 event-img-box">
-                    <a n:href=":Events:Fykos:"> {* TODO: link for the camp page and correct picture *}
+                    {* TODO: link for the camp page and correct picture *}
+                    {* <a n:href=":Events:Fykos:"> *}
                         <img src="{$basePath}{$event['photo']}" alt="{$event['heading'][$lang]}"
                         class="event-img">
-                    </a>
+                    {* </a> *}
                 </div>
             </div>
         </section>

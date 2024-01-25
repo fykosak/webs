@@ -1,5 +1,10 @@
 {varType string $lang}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType int $currentYear}
+{varType array $events}
+{varType int $closestEventIndex}
+{varType int $numOfEvents}
+
 {block title}
     {switch $lang}
         {case 'cs'} Hlavní stránka
@@ -8,6 +13,13 @@
 {/block}
 
 {block main}
+
+
+{foreach $events as $event}
+{dump $event}
+{/foreach}
+
+
 <div class="panel color-primary title-panel">
     <section class="inner-container">
         <div class="header-container">
@@ -17,15 +29,24 @@
                     <h2 class="header-text">Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2>
                     <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již
                         {$currentYear}&nbsp;let.
-                        {* Zjistěte více na stránce <a n:href=":Default:About:default">o&nbsp;nás</a>.*}</p>
+                    </p>
                     <a class="btn btn-light" href="#timeline">
-                        Jste tu poprvé?
+                        {switch $lang}
+                            {case 'cs'}Jste tu poprvé?
+                            {default}First Time Here?
+                        {/switch}
                     </a>
                     <a class="btn btn-light ml-2" href="#news">
-                        Novinky
+                        {switch $lang}
+                            {case 'cs'}Novinky
+                            {default}News
+                        {/switch}
                     </a>
                     <a class="btn btn-outline ml-2" n:href=":Default:About:">
-                        O&nbsp;nás
+                        {switch $lang}
+                            {case 'cs'}O&nbsp;nás
+                            {default}About&nbsp;Us
+                        {/switch}
                     </a>
                 </div>
                 <div class="col-md-5 header-image-container">
@@ -35,13 +56,31 @@
                     </div>
                     <div class="center-content-horizontally-md content-down mt-3 mt-md-0">
                         <div class="header-image-dates">
-                            <h4 class="minor-event-heading">{$events['previous']['name']} | {$events['previous']['date-text']}</h4>
-                            <h2 class="next-event-heading">{$events['upcoming']['name']} | {$events['upcoming']['date-text']}
-                                | <span id="countdown-primary"></span>
-                            </h2>
-                            <h4 class="minor-event-heading mb-0">{$events['next']['name']} | {$events['next']['date-text']}
-                                | <span
-                                        id="countdown-secondary"></span></h4>
+                            {if $closestEventIndex == $numOfEvents}
+                                <h2 class="next-event-heading">
+                                    {switch $lang}
+                                        {case 'cs'}Nový ročník FYKOSu přichází již brzy! Užívejte prázdniny!
+                                        {default}New year of FYKOS is coming soon! Enjoy your holidays!
+                                    {/switch}</h2>
+                            {else}
+                                {if $closestEventIndex > 0}
+                                    <h4 class="minor-event-heading">{$events[$closestEventIndex - 1]['heading']} | {$events[$closestEventIndex - 1]['date'] |date:'j. n. Y'}</h4>
+                                {/if}
+                                <h2 class="next-event-heading">{$events[$closestEventIndex]['heading']} | {$events[$closestEventIndex]['date'] |date:'j. n. Y'}
+                                    | <span id="countdown-primary"></span>
+                                </h2>
+                                {if $closestEventIndex < $numOfEvents - 1}
+                                    <h4 class="minor-event-heading mb-0">{$events[$closestEventIndex + 1]['heading']} | {$events[$closestEventIndex + 1]['date'] |date:'j. n. Y'}
+                                    | <span id="countdown-secondary"></span></h4>
+                                {else}
+                                    <h4 class="minor-event-heading mb-0">
+                                        {switch $lang}
+                                            {case 'cs'}Nový ročník FYKOSu přichází již brzy! Užívejte prázdniny!
+                                            {default}New year of FYKOS is coming soon! Enjoy your holidays!
+                                        {/switch}
+                                    </h4>
+                                {/if}
+                            {/if}
                         </div>
                     </div>
                 </div>
@@ -109,15 +148,14 @@
                 <div id="timeline-vertical-container"
                     class="col-3 col-md-0 d-md-none position-relative d-flex flex-column align-items-center mt-5">
                     <div class="start-timeline-text mb-3">
-                        <p>1.&nbsp;10. 2023</p>
+                        <p>{$timelineBegin|noescape}</p>
                     </div>
                     <div id="timeline-vertical" class="d-block border-left h-100">
                     </div>
                     <div class="end-timeline-text mt-3">
-                        <p>30.&nbsp;5. 2024</p>
+                        <p>{$timelineEnd|noescape}</p>
                     </div>
                 </div>
-
 
                 <div class="col-9 col-md-12">
 
@@ -202,11 +240,11 @@
                             <div id="timeline-horizontal-container" class="position-relative">
                                 <!-- Added position-relative class -->
                                 <div class="start-timeline-text position-absolute">
-                                    <p>1.&nbsp;10. 2023</p>
+                                    <p>{$timelineBegin|noescape}</p>
                                 </div>
                                 <hr id="timeline-horizontal">
                                 <div class="end-timeline-text position-absolute">
-                                    <p>30.&nbsp;5. 2024</p>
+                                    <p>{$timelineEnd|noescape}</p>
                                 </div>
                             </div>
                         </div>
@@ -471,8 +509,12 @@
     }
 
     // Set the date we're counting down to
-    var countDownDatePrimary = new Date("January 3, 2024 00:00:00").getTime();
-    var countDownDateSecondary = new Date("February 16, 2024 10:00:00").getTime();
+    {if $closestEventIndex < $numOfEvents}
+        var countDownDatePrimary = new Date({$events[$closestEventIndex]['date']});
+    {/if}
+    {if $closestEventIndex < $numOfEvents - 1}
+        var countDownDateSecondary = new Date({$events[$closestEventIndex + 1]['date']});
+    {/if}
 
     // Call the countdownTimer function with the specified date and element id
     countdownTimer(countDownDatePrimary, "countdown-primary");
