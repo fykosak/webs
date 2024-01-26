@@ -6,53 +6,106 @@ namespace App\Modules\Fykos\DefaultModule;
 
 class DefaultPresenter extends BasePresenter
 {
+
+    public function loadNews(): array {
+        // load json
+        $json = file_get_contents(__DIR__ . '/templates/Default/news.json');
+        $news = json_decode($json, true);
+
+        return $news;
+    }
+
     public function renderDefault(): void
     {
-        $this->template->events = [  
-            'Naboj' => [
-                'heading' => 'Fyzikální Náboj',
-                'date' => date('Y-m-d', strtotime('2023-11-03'))
-            ],
-            'DSEF' => [
-                'heading' => 'DSEF',
-                'date' => date('Y-m-d', strtotime('2023-11-06'))
-            ],
-            'FOL' => [
-                'heading' => 'FOL',
-                'date' => date('Y-m-d', strtotime('2023-11-21'))
-            ],
-            'FOF' => [
-                'heading' => 'Fyziklání',
-                'date' => date('Y-m-d', strtotime('2024-02-16'))
-            ],
-            'serie-1' => [
-                'heading' => 'Deadline 1. série',
-                'date' => date('Y-m-d', strtotime('2023-10-10'))
-            ],
-            'serie-2' => [
-                'heading' => 'Deadline 2. série',
-                'date' => date('Y-m-d', strtotime('2023-11-21'))
-            ],
-            'serie-3' => [
-                'heading' => 'Deadline 3. série',
-                'date' => date('Y-m-d', strtotime('2024-01-02'))
-            ],
-            'serie-4' => [
-                'heading' => 'Deadline 4. série',
-                'date' => date('Y-m-d', strtotime('2024-02-27'))
-            ],
-            'serie-5' => [
-                'heading' => 'Deadline 5. série',
-                'date' => date('Y-m-d', strtotime('2024-04-09'))
-            ],
-            'serie-6' => [
-                'heading' => 'Deadline 6. série',
-                'date' => date('Y-m-d', strtotime('2024-05-14'))
+        $this->template->events = [
+            $events = [
+                'Naboj' => [
+                    'heading' => [
+                        'cs' => 'Fyzikální Náboj',
+                        'en' => null
+                    ],
+                    'date' => date('Y-m-d', strtotime('2023-11-03')),
+                    'show-in-en' => false
+                ],
+                'DSEF' => [
+                    'heading' => [
+                        'cs' => 'DSEF',
+                        'en' => null
+                    ],
+                    'date' => date('Y-m-d', strtotime('2023-11-06')),
+                    'show-in-en' => false
+                ],
+                'FOL' => [
+                    'heading' => [
+                        'cs' => 'Fyziklání Online',
+                        'en' => 'Physics Brawl Online'
+                    ],
+                    'date' => date('Y-m-d', strtotime('2023-11-21')),
+                    'show-in-en' => true
+                ],
+                'FOF' => [
+                    'heading' => [
+                        'cs' => 'Fyziklání',
+                        'en' => 'Fyziklani'
+                    ],
+                    'date' => date('Y-m-d', strtotime('2024-02-16')),
+                    'show-in-en' => true
+                ],
+                'serie-1' => [
+                    'heading' => [
+                        'cs' => 'Deadline 1. série',
+                        'en' => 'Deadline Series 1'
+                    ],
+                    'date' => date('Y-m-d', strtotime('2023-10-10')),
+                    'show-in-en' => true
+                ],
+                'serie-2' => [
+                    'heading' => [
+                        'cs' => 'Deadline 2. série',
+                        'en' => 'Deadline Series 2'
+                    ],
+                    'date' => date('Y-m-d', strtotime('2023-11-21')),
+                    'show-in-en' => true
+                ],
+                'serie-3' => [
+                    'heading' => [
+                        'cs' => 'Deadline 3. série',
+                        'en' => 'Deadline Series 3'
+                    ],
+                    'date' => date('Y-m-d', strtotime('2024-01-02')),
+                    'show-in-en' => true
+                ],
+                'serie-4' => [
+                    'heading' => [
+                        'cs' => 'Deadline 4. série',
+                        'en' => 'Deadline Series 4'
+                    ],
+                    'date' => date('Y-m-d', strtotime('2024-02-27')),
+                    'show-in-en' => true
+                ],
+                'serie-5' => [
+                    'heading' => [
+                        'cs' => 'Deadline 5. série',
+                        'en' => 'Deadline Series 5'
+                    ],
+                    'date' => date('Y-m-d', strtotime('2024-04-09')),
+                    'show-in-en' => true
+                ],
+                'serie-6' => [
+                    'heading' => [
+                        'cs' => 'Deadline 6. série',
+                        'en' => 'Deadline Series 6'
+                    ],
+                    'date' => date('Y-m-d', strtotime('2024-05-14')),
+                    'show-in-en' => true
+                ]
             ]
         ];
-        $this->template->timelineBegin = "1.&nbsp;10. 2023";
-        $this->template->timelineEnd = "30.&nbsp;5. 2024";
 
+        $this->template->events = $events;
+        
+        $this->template->timelineBegin = date('Y-m-d', strtotime('2023-10-01'));
+        $this->template->timelineEnd = date('Y-m-d', strtotime('2024-05-30'));
         // save the index
         // foreach ($this->template->events as $key => $event) {
         //     $event['name'] = $key;
@@ -66,23 +119,87 @@ class DefaultPresenter extends BasePresenter
             return $dateA - $dateB;
         });
 
+        // Find the closest event
+        $this->template->countdownEventsIndices = $this->findContdownEventIndices($this->template->events);
+        $this->template->numOfEvents = [
+            'cs' => count($this->template->events),
+            'en' => count(array_filter($this->template->events, function($event) {
+                return $event['show-in-en'];
+            }))
+        ];
 
+        $this->template->newsList = $this->loadNews();
+    }
+
+    public function findContdownEventIndices($events) {
+        
         // Find the event with the closest date larger than the current date
         $currentDate = strtotime(date('Y-m-d'));
         $closestIndex = 0;
+        $closestIndexEn = 0;
 
         foreach ($this->template->events as $event) {
             $eventDate = strtotime($event['date']);
             
             if ($eventDate < $currentDate) {
                 $closestIndex += 1;
+                $closestIndexEn += 1;
             }
             else {
                 break;
             }
         }
 
-        $this->template->closestEventIndex = $closestIndex;
-        $this->template->numOfEvents = count($this->template->events);
+        $upcomingIndex = $closestIndex;
+        $previousIndex = ($closestIndex - 1 >= 0) ? $closestIndex - 1 : null;
+        $nextIndex = ($closestIndex + 1 < count($this->template->events)) ? $closestIndex + 1 : null;
+
+        $upcomingIndexEn = $closestIndexEn;
+
+        // If the closest event is not shown in English, find the next event that is
+        if (!$this->template->events[$closestIndex]['show-in-en']) {
+            for ($i = $closestIndexEn + 1; $i < count($this->template->events); $i++) {
+                if ($this->template->events[$i]['show-in-en']) {
+                    $upcomingIndexEn = $i;
+                    break;
+                }
+            }
+        }
+
+        $previousIndexEn = null;
+        $nextIndexEn = null;
+
+        // Find the previous event with $event['show-in-en'] == true
+        for ($i = $closestIndexEn - 1; $i >= 0; $i--) {
+            if ($this->template->events[$i]['show-in-en']) {
+                $previousIndexEn = $i;
+                break;
+            }
+        }
+
+        // Find the next event with $event['show-in-en'] == true
+        for ($i = $closestIndexEn + 1; $i < count($this->template->events); $i++) {
+            if ($this->template->events[$i]['show-in-en']) {
+                $nextIndexEn = $i;
+                break;
+            }
+        }
+
+        $countdownEventsIndices = [
+            'previous' => [
+                'cs' => $previousIndex,
+                'en' => $previousIndexEn
+            ],
+            'upcoming' => [
+                'cs' => $upcomingIndex,
+                'en' => $upcomingIndexEn
+            ],
+            'next' => [
+                'cs' => $nextIndex,
+                'en' => $nextIndexEn
+            ],
+        ];
+            
+        return $countdownEventsIndices;
     }
 }

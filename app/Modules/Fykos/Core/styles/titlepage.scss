@@ -119,13 +119,6 @@
     margin-right: .7rem;
   }
 }
-.fof-news-color {
-  border-left: 5px solid $fof-color;
-  .btn-primary {
-    background-color: $fof-color;
-    border-color: $fof-color;
-  }
-}
 
 /// Videos section
 
@@ -371,7 +364,12 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
 
 .logo-event,
 .logo-series {
-  width: $timeline-logo-width;
+  @media screen and (max-width: 992px) {
+    height: $timeline-logo-width; 
+  }
+  @media screen and (min-width: 992px) {
+    width: $timeline-logo-width;
+  }
 }
 
 
@@ -421,6 +419,28 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
     transform: translateX(50%);
   }
 }
+
+$adhoc-offset-small: 15px;
+
+// super small screens
+@media screen and (max-width: 350px) {
+
+  .logo-event {
+    right: calc(50% - $top-offset + $adhoc-offset-small);
+    /* 50% aligns with the middle line; minus 10px moves it up */
+  }
+
+  .logo-series {
+    left: calc(50% - $top-offset + $adhoc-offset-small);
+    /* 50% aligns with the middle line; plus 10px moves it down */
+  }
+
+  .today-block {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
 
 .order-6 {
   order: 6 !important;
