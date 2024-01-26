@@ -1,5 +1,5 @@
 {varType string $lang}
-{varType \App\Models\Event\EventModel[] $events}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent[] $events}
 {block title}Výfučí Bingo{/block}
 
 {block main}
@@ -8,7 +8,7 @@
         <h1 class="inner-container" style="color:red">TODO stránka o Setkání<h1>
         {foreach $events AS $event}
             <h2>{$event->name}</h2>
-            <p>{$event->report}</p>
+            <p>{$event->reportNew[$lang]}</p>
         {/foreach}
     </section>
 </div>
