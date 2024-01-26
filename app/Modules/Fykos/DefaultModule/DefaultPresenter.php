@@ -6,112 +6,10 @@ namespace App\Modules\Fykos\DefaultModule;
 
 class DefaultPresenter extends BasePresenter
 {
-
-    public function loadNews(): array {
-        // load json
-        $json = file_get_contents(__DIR__ . '/templates/Default/news.json');
-        $news = json_decode($json, true);
-
-        return $news;
-    }
-
     public function renderDefault(): void
     {
-        $this->template->events = [
-            $events = [
-                'Naboj' => [
-                    'heading' => [
-                        'cs' => 'Fyzikální Náboj',
-                        'en' => null
-                    ],
-                    'date' => date('Y-m-d', strtotime('2023-11-03')),
-                    'show-in-en' => false
-                ],
-                'DSEF' => [
-                    'heading' => [
-                        'cs' => 'DSEF',
-                        'en' => null
-                    ],
-                    'date' => date('Y-m-d', strtotime('2023-11-06')),
-                    'show-in-en' => false
-                ],
-                'FOL' => [
-                    'heading' => [
-                        'cs' => 'Fyziklání Online',
-                        'en' => 'Physics Brawl Online'
-                    ],
-                    'date' => date('Y-m-d', strtotime('2023-11-21')),
-                    'show-in-en' => true
-                ],
-                'FOF' => [
-                    'heading' => [
-                        'cs' => 'Fyziklání',
-                        'en' => 'Fyziklani'
-                    ],
-                    'date' => date('Y-m-d', strtotime('2024-02-16')),
-                    'show-in-en' => true
-                ],
-                'serie-1' => [
-                    'heading' => [
-                        'cs' => 'Deadline 1. série',
-                        'en' => 'Deadline Series 1'
-                    ],
-                    'date' => date('Y-m-d', strtotime('2023-10-10')),
-                    'show-in-en' => true
-                ],
-                'serie-2' => [
-                    'heading' => [
-                        'cs' => 'Deadline 2. série',
-                        'en' => 'Deadline Series 2'
-                    ],
-                    'date' => date('Y-m-d', strtotime('2023-11-21')),
-                    'show-in-en' => true
-                ],
-                'serie-3' => [
-                    'heading' => [
-                        'cs' => 'Deadline 3. série',
-                        'en' => 'Deadline Series 3'
-                    ],
-                    'date' => date('Y-m-d', strtotime('2024-01-02')),
-                    'show-in-en' => true
-                ],
-                'serie-4' => [
-                    'heading' => [
-                        'cs' => 'Deadline 4. série',
-                        'en' => 'Deadline Series 4'
-                    ],
-                    'date' => date('Y-m-d', strtotime('2024-02-27')),
-                    'show-in-en' => true
-                ],
-                'serie-5' => [
-                    'heading' => [
-                        'cs' => 'Deadline 5. série',
-                        'en' => 'Deadline Series 5'
-                    ],
-                    'date' => date('Y-m-d', strtotime('2024-04-09')),
-                    'show-in-en' => true
-                ],
-                'serie-6' => [
-                    'heading' => [
-                        'cs' => 'Deadline 6. série',
-                        'en' => 'Deadline Series 6'
-                    ],
-                    'date' => date('Y-m-d', strtotime('2024-05-14')),
-                    'show-in-en' => true
-                ]
-            ]
-        ];
+        $this->loadEventData();
 
-        $this->template->events = $events;
-        
-        $this->template->timelineBegin = date('Y-m-d', strtotime('2023-10-01'));
-        $this->template->timelineEnd = date('Y-m-d', strtotime('2024-05-30'));
-        // save the index
-        // foreach ($this->template->events as $key => $event) {
-        //     $event['name'] = $key;
-        //     $this->template->events[$key] = $event;
-        // }
-          
         // Sort events by date
         usort($this->template->events, function($a, $b) {
             $dateA = strtotime($a['date']);
@@ -129,6 +27,101 @@ class DefaultPresenter extends BasePresenter
         ];
 
         $this->template->newsList = $this->loadNews();
+    }
+    
+    public function loadNews(): array {
+        // load json
+        $json = file_get_contents(__DIR__ . '/templates/Default/news.json');
+        $news = json_decode($json, true);
+
+        return $news;
+    }
+
+    public function loadEventData(): void {
+        $this->template->events = [
+            'Naboj' => [
+                'heading' => [
+                    'cs' => 'Fyzikální Náboj',
+                    'en' => null
+                ],
+                'date' => date('Y-m-d', strtotime('2023-11-03')),
+                'show-in-en' => false
+            ],
+            'DSEF' => [
+                'heading' => [
+                    'cs' => 'DSEF',
+                    'en' => null
+                ],
+                'date' => date('Y-m-d', strtotime('2023-11-06')),
+                'show-in-en' => false
+            ],
+            'FOL' => [
+                'heading' => [
+                    'cs' => 'Fyziklání Online',
+                    'en' => 'Physics Brawl Online'
+                ],
+                'date' => date('Y-m-d', strtotime('2023-11-21')),
+                'show-in-en' => true
+            ],
+            'FOF' => [
+                'heading' => [
+                    'cs' => 'Fyziklání',
+                    'en' => 'Fyziklani'
+                ],
+                'date' => date('Y-m-d', strtotime('2024-02-16')),
+                'show-in-en' => true
+            ],
+            'serie-1' => [
+                'heading' => [
+                    'cs' => 'Deadline 1. série',
+                    'en' => 'Deadline Series 1'
+                ],
+                'date' => date('Y-m-d', strtotime('2023-10-10')),
+                'show-in-en' => true
+            ],
+            'serie-2' => [
+                'heading' => [
+                    'cs' => 'Deadline 2. série',
+                    'en' => 'Deadline Series 2'
+                ],
+                'date' => date('Y-m-d', strtotime('2023-11-21')),
+                'show-in-en' => true
+            ],
+            'serie-3' => [
+                'heading' => [
+                    'cs' => 'Deadline 3. série',
+                    'en' => 'Deadline Series 3'
+                ],
+                'date' => date('Y-m-d', strtotime('2024-01-02')),
+                'show-in-en' => true
+            ],
+            'serie-4' => [
+                'heading' => [
+                    'cs' => 'Deadline 4. série',
+                    'en' => 'Deadline Series 4'
+                ],
+                'date' => date('Y-m-d', strtotime('2024-02-27')),
+                'show-in-en' => true
+            ],
+            'serie-5' => [
+                'heading' => [
+                    'cs' => 'Deadline 5. série',
+                    'en' => 'Deadline Series 5'
+                ],
+                'date' => date('Y-m-d', strtotime('2024-04-09')),
+                'show-in-en' => true
+            ],
+            'serie-6' => [
+                'heading' => [
+                    'cs' => 'Deadline 6. série',
+                    'en' => 'Deadline Series 6'
+                ],
+                'date' => date('Y-m-d', strtotime('2024-05-14')),
+                'show-in-en' => true
+            ]
+        ];
+        $this->template->timelineBegin = date('Y-m-d', strtotime('2023-10-01'));
+        $this->template->timelineEnd = date('Y-m-d', strtotime('2024-05-30'));
     }
 
     public function findContdownEventIndices($events) {
