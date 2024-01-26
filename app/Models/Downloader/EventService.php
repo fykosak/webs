@@ -7,9 +7,9 @@ namespace App\Models\Downloader;
 use App\Models\Downloader\FKSDBDownloader;
 use App\Models\NetteDownloader\ORM\Services\AbstractJSONService;
 use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
-use Fykosak\FKSDBDownloaderCore\Requests\Request;
+
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
-use Nette\Caching\Cache;
+
 use Nette\Caching\Storage;
 
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
@@ -24,7 +24,7 @@ final class EventService extends AbstractJSONService
     }
 
     /**
-     * @param EventModel[] $events
+     * @param ModelEvent[] $events
      */
     public function orderEvents(array &$events): void
     {
@@ -32,7 +32,7 @@ final class EventService extends AbstractJSONService
     }
 
     /**
-     * @param EventModel[] &$events
+     * @param ModelEvent[] &$events
      * @param int[] $IDs IDs of events to remove from list.
      */
     public function removeByIDs(array &$events, array $IDs): void
