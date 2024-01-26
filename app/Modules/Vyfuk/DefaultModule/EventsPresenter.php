@@ -6,8 +6,6 @@ namespace App\Modules\Vyfuk\DefaultModule;
 
 use App\Models\Downloader\EventService;
 use App\Models\Downloader\FKSDBDownloader;
-use App\Models\Event\EventModel;
-use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 use Error;
 use Nette\Application\Responses\CallbackResponse;
 use Nette\Caching\Cache;
@@ -19,38 +17,24 @@ class EventsPresenter extends BasePresenter
     protected FKSDBDownloader $DBDownloader;
     protected EventService $eventService;
 
-    public function injectCache(Storage $storage): void
+    public function injectEventServicesAndCache(Storage $storage, FKSDBDownloader $downloader, EventService $eventService): void
     {
         $this->cache = new Cache($storage);
-    }
-
-    public function injectDownloader(FKSDBDownloader $downloader): void
-    {
         $this->DBDownloader = $downloader;
-    }
-
-    public function injectEventService(EventService $eventService): void
-    {
         $this->eventService = $eventService;
     }
-    public function injectEventListService(ServiceEventList $eventListService): void
-    {
-        $this->eventListService = $eventListService;
-    }
-    protected ServiceEventList $eventListService;
 
-    
     public function renderMeeting(): void
     {
         $events = $this->eventService->getEvents([11, 12]);
-        $this->template->events = $events;
+        $this->template->events = array_reverse($events);
     }
 
     public function renderCamp(): void
     {
-        $events = $this->eventService->getEvents([11, 12]);
-        $this->eventService->removeByIDs($events,[147]);
-        $this->template->events = $events;
+        $events = $this->eventService->getEvents([10]);
+        $this->eventService->removeByIDs($events, [147]);
+        $this->template->events = array_reverse($events);
     }
 
     public function actionGetRawCalendar(): void

@@ -23,45 +23,6 @@ final class EventService extends AbstractJSONService
         parent::__construct($expiration, $storage);
     }
 
-   /* public function getLocalizedEventsByType(array $types, string $lang): array
-    {
-        sort($types);
-        return $this->cache->load(
-            "getEventsByType." . $lang . "." . join("-", $types),
-            function (&$dependencies) use ($types, $lang) {
-                $dependencies[Cache::Expire] = $this->expiration;
-                $json = $this->downloader->download(new EventListRequest($types));
-                $events = [];
-                foreach ($json as $event) {
-                    $resultEvent = new LocalizedEventModel();
-                    $resultEvent->eventId = $event['eventId'];
-                    $resultEvent->eventTypeId = $event['eventTypeId'];
-                    $resultEvent->contestId = $event['contestId'];
-                    $resultEvent->year = $event['year'];
-                    $resultEvent->eventYear = $event['eventYear'];
-                    $resultEvent->begin = $event['begin'];
-                    $resultEvent->end = $event['end'];
-                    $resultEvent->registrationBegin = $event['registrationBegin'];
-                    $resultEvent->registrationEnd = $event['registrationEnd'];
-                    $resultEvent->place = $event['place'];
-                    $resultEvent->description = $event['description'][$lang];
-                    if ($event['nameNew'][$lang]) {
-                        $resultEvent->name = $event['nameNew'][$lang];
-                    } else {
-                        $resultEvent->name = $event['name'];
-                    }
-                    if ($event['nameNew'][$lang]) {
-                        $resultEvent->report = $event['reportNew'][$lang];
-                    } else {
-                        $resultEvent->report = $event['report'];
-                    }
-                    $events[] = $resultEvent;
-                }
-                return $events;
-            }
-        );
-    }*/
-
     /**
      * @param EventModel[] $events
      */
@@ -82,19 +43,13 @@ final class EventService extends AbstractJSONService
     }
 
     //detail
-
-    protected function getRequest(int $eventId): Request
-    {
-        return new EventRequest($eventId);
-    }
-
     /**
      * @throws \Throwable
      */
     public function getEvent(int $eventId, ?string $explicitExpiration = null): ModelEvent
     {
         return $this->getItem(
-            $this->getRequest($eventId),
+            new EventRequest($eventId),
             [],
             ModelEvent::class,
             false,
@@ -109,7 +64,7 @@ final class EventService extends AbstractJSONService
     public function getPersonSchedule(int $eventId, ?string $explicitExpiration = null): array
     {
         return $this->getItem(
-            $this->getRequest($eventId),
+            new EventRequest($eventId),
             ['personSchedule'],
             ModelPersonSchedule::class,
             true,
