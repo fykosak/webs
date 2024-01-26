@@ -19,6 +19,7 @@ class DefaultPresenter extends BasePresenter
 
         // Find the closest event
         $this->template->countdownEventsIndices = $this->findContdownEventIndices($this->template->events);
+        
         $this->template->numOfEvents = [
             'cs' => count($this->template->events),
             'en' => count(array_filter($this->template->events, function($event) {
