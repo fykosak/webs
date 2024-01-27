@@ -644,6 +644,7 @@
 
 <div class="dummy-timeline-begin d-none"><p>{$timelineBegin|noescape}</p></div>
 <div class="dummy-timeline-end d-none"><p>{$timelineEnd|noescape}</p></div>
+<div class="dummy-lang d-none"><p>{$lang|noescape}</p></div>
 
 {* Timeline positioning *}
 <script n:syntax="off">
@@ -740,7 +741,7 @@
             document.querySelector(timelineId).appendChild(logoElem);
         }
 
-        function positionTimelineElements(timelineId, images_events, images_series) {
+        function positionTimelineElements(timelineId, images_events, images_series, hide_event_in_en, lang) {
 
             // Remove existing dynamically added elements first
             const existingLogos = document.querySelectorAll('.logo-event, .logo-series, .today-block');
@@ -753,6 +754,9 @@
             let position_today = calculatePositionPercentages([today], timelineId)
 
             positions_events.forEach((position, index) => {
+                if (lang === "en" && hide_event_in_en[index]) {
+                    return; // Skip hiding the logo
+                }
                 positionLogo(position, "logo-event", `event-${index + 1}`, timelineId, images_events[index]);
             });
             positions_series.forEach((position, index) => {
@@ -802,6 +806,10 @@
             "/images/logos/4_pointer.svg", "/images/logos/5_pointer.svg", "/images/logos/6_pointer.svg"];
         let images_series_h = ["/images/logos/1_pointer_h.svg", "/images/logos/2_pointer_h.svg", "/images/logos/3_pointer_h.svg",
             "/images/logos/4_pointer_h.svg", "/images/logos/5_pointer_h.svg", "/images/logos/6_pointer_h.svg"];
+        
+        let hide_event_in_en = [true, true, false, false];
+
+        let lang = document.querySelector('.dummy-lang p').innerText.trim();
 
         let timelineId; // vertical or horizontal
         let mdBreakpoint = 768;
@@ -822,7 +830,7 @@
             };
 
             // Create logos and position them
-            positionTimelineElements(timelineId, images_events, images_series);
+            positionTimelineElements(timelineId, images_events, images_series, hide_event_in_en, lang);
 
             // Attach hover events to newly created logos
             attachLogoHoverEvents();
