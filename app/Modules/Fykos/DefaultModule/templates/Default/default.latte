@@ -14,6 +14,7 @@
 
 {block main}
 
+
 <div class="panel color-primary title-panel">
     <section class="inner-container">
         <div class="header-container">
@@ -107,10 +108,10 @@
         <div class="fade-in-section">
             {foreach $newsList[$lang] as $news}
                 <div class="card mt-3">
-                    <div class="card-body news-card" style="border-left: 5px solid {$news['color']}">
+                    <div class="card-body news-card" style="border-left: 5px solid {$news['color']|noescape}">
                         <div style="display: flex; justify-content: space-between;">
                             <h4 class="card-title">{$news['title']}</h4>
-                            <div><a href={$news['link']} class="btn btn-primary" style="background-color: {$news['color']}; border: 1px solid {$news['color']}">{$news['link-text']}</a></div>
+                            <div><a href={$news['link']} class="btn btn-primary" style="background-color: {$news['color']|noescape}; border: 1px solid {$news['color']|noescape}">{$news['link-text']}</a></div>
                         </div>
                         <p class="card-text">{$news['text']|noescape}</p>
                     </div>
@@ -630,7 +631,6 @@
     // Set the date we're counting down to
     {if $countdownEventsIndices['upcoming'][$lang] < $numOfEvents[$lang]}
         var countDownDatePrimary = new Date({$events[$countdownEventsIndices['upcoming'][$lang]]['date']});
-        {dump $events[$countdownEventsIndices['upcoming'][$lang]]['date']}
     {/if}
     {if $countdownEventsIndices['next'][$lang] < $numOfEvents[$lang]}
         var countDownDateSecondary = new Date({$events[$countdownEventsIndices['next'][$lang]]['date']});
@@ -655,8 +655,6 @@
         // Access the timeline begin and end dates from the existing elements
         const timelineBeginElement = document.querySelector('.dummy-timeline-begin p');
         const timelineEndElement = document.querySelector('.dummy-timeline-end p');
-
-        console.log(timelineBeginElement.innerText.trim());
         
         const timelineBegin = new Date(timelineBeginElement.innerText.trim());
         const timelineEnd = new Date(timelineEndElement.innerText.trim());
@@ -766,7 +764,6 @@
                 positionLogo(position, "today-block", "today-block", timelineId);
             });
         };
-
 
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {

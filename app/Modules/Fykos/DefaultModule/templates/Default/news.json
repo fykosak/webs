@@ -6,14 +6,14 @@
             "text": "Druhá série sice skončila, ale nezoufejte! Na webu je už zveřejněné zadání nových úloh! Můžete se ponořit do výpočtů účinnosti zvlhčovače vzduchu, rychlosti transportu v mikrosvětě buněk nebo práce nutné k ponoření skleničky pod vodu. Čas na vyřešení úloh a zaslání svých řešení máte do 2. 1.!",
             "link": "https://fykos.cz/zadani",
             "link-text": "Zadání",
-            "color": "red"
+            "color": "fykos"
         },
         {
             "title": "Přihlaste se na Fyziklání 2024",
             "text": "Spouští registrace na Fyziklání 2024, které se bude konat 16. 2. v Praze. Čeká vás tam týmová soutěž v počítání zajímavých fyzikálních úloh, ale i bohatý doprovodný program! Tak neváhejte a přihlašte svůj tým!",
             "link": "https://fyziklani.cz",
             "link-text": "Fyziklání",
-            "color": "blue"
+            "color": "fof"
         }
     ],
     "en" : [
@@ -22,14 +22,14 @@
             "text": "The second series is over, but don't worry! The problems of the third series are already published on the website! You can dive into calculations of the efficiency of an air humidifier, the speed of transport in the micro-world of cells or the work needed to submerge a glass under water. You have time to solve the problems and send your solutions until 2nd January!",
             "link": "https://fykos.cz/zadani",
             "link-text": "Problems",
-            "color": "red"
+            "color": "fykos"
         },
         {
             "title": "Register for Fyziklani 2024",
             "text": "Registration for Fyziklani 2024, which will take place on February 16 in Prague, has been launched. You can look forward to a team competition in solving interesting physics problems, but also a rich accompanying program! So don't hesitate and register your team!",
             "link": "https://fyziklani.org",
             "link-text": "Fyziklani",
-            "color": "blue"
+            "color": "fof"
         }
     ]
 }

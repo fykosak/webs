@@ -33,9 +33,27 @@ class DefaultPresenter extends BasePresenter
     public function loadNews(): array {
         // load json
         $json = file_get_contents(__DIR__ . '/templates/Default/news.json');
-        $news = json_decode($json, true);
+        $newsList = json_decode($json, true);
 
-        return $news;
+        // implement colors
+        foreach ($newsList[$this->lang] as &$news) {
+            switch ($news['color']) {
+                case 'fof':
+                    $news['color'] = "#e6060d";
+                    break;
+                case 'fol':
+                    $news['color'] = "#00ae6b";
+                    break;
+                case 'fykos':
+                    $news['color'] = "#1175da";
+                    break;
+                case 'dsef':
+                    $news['color'] = "#f2b72b";
+                    break;
+            }
+        }
+
+        return $newsList;
     }
 
     public function loadEventData(): void {

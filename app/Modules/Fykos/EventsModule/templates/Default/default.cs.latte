@@ -1,4 +1,4 @@
-{block title}Akce FYKOSu{/block}
+{block title}Naše akce{/block}
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
@@ -185,7 +185,7 @@
                 <p>
                     Dvakrát do roka, na jaře a na podzim, pořádáme tradiční soustředění. Tato týdenní akce je určena pro
                     zhruba
-                    30 nejlepších řešitelů korespondenčního semináře a probíhá v nějakém krásném koutu naší vlasti.
+                    40 nejlepších řešitelů korespondenčního semináře a probíhá v nějakém krásném koutu naší vlasti.
                     Účastníci
                     soustředění prožijí týden plný zajímavých přednášek nejen z fyziky, matematiky a informatiky. Aby
                     intelektuální zátěž v režii studentů a organizátorů nebyla příliš vysoká, odpočinou si všichni při
@@ -274,7 +274,6 @@
             <div class="col-md-3 py-md-0 py-4">
                 <h3>Orientační data</h3>
                 <div class="timeline events-timeline">
-                    {if $lang == 'cs'}
                     <div>
                         <span class="timeline-element-icon"></span>
                         <div class="timeline-element-content">
@@ -304,52 +303,30 @@
                             </p>
                         </div>
                     </div>
-                    {/if}
 
                     <div>
                         <span class="timeline-element-icon"></span>
                         <div class="timeline-element-content">
-                            {switch $lang}
-                            {case cs}
                             <div class="timeline-title">
                                 Fyziklání Online
                             </div>
                             <p>
                                 Druhá polovina listopadu
                             </p>
-                            {default}
-                            <div class="timeline-title">
-                                Physics Brawl Online
-                            </div>
-                            <p>
-                                Second half of November
-                            </p>
-                            {/switch}
                         </div>
                     </div>
 
                     <div>
                         <span class="timeline-element-icon"></span>
                         <div class="timeline-element-content">
-                            {switch $lang}
-                            {case cs}
                             <div class="timeline-title">
                                 Fyziklání
                             </div>
                             <p>
                                 Únor
                             </p>
-                            {default}
-                            <div class="timeline-title">
-                                Fyziklani
-                            </div>
-                            <p>
-                                February
-                            </p>
-                            {/switch}
                         </div>
                     </div>
-                    {if $lang == 'cs'}
                     <div>
                         <span class="timeline-element-icon"></span>
                         <div class="timeline-element-content">
@@ -357,16 +334,14 @@
                             <p>Konec dubna až květen</p>
                         </div>
                     </div>
-                    <div>
+                    {* <div>
                         <span class="timeline-element-icon"></span>
                         <div class="timeline-element-content">
                             <div class="timeline-title">Stáže na MFF</div>
                             <p>Letní prázdniny</p>
                         </div>
-                    </div>
-                    {/if}
+                    </div> *}
                 </div>
-
             </div>
             <div class="col-md-9">
                 <h3>Aktuální kalendář</h3>
