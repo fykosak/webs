@@ -1,7 +1,6 @@
 /// Generic
 
 
-
 .fade-in-section {
   opacity: 0;
   transform: translateY(50px);
@@ -20,11 +19,6 @@
   color: $text-on-primary;
 
   .header-text-container {
-    z-index: 2;
-    /* Higher z-index to ensure text is above the image */
-    position: relative;
-    /* Needed for z-index to take effect */
-
 
     h1.header-text {
       font-size: 8rem;
@@ -38,7 +32,6 @@
       // margin-bottom: 0;
     }
 
-
     @media screen and (max-width: 768px) {
       h1.header-text {
         font-size: 5rem;
@@ -47,8 +40,25 @@
       h2.header-text {
         font-size: 2rem;
       }
-
     }
+  }
+
+  .header-image-container {
+    position: relative;
+  }
+
+  .header-image {
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-image-dates {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
   }
 
   .header-image-container {
@@ -62,48 +72,15 @@
       font-size: 1.3rem;
       font-weight: 400;
       color: white !important;
-
-    }
-
-    .header-image-dates {
-      z-index: 2;
     }
 
     .header-image {
-      position: absolute;
-      z-index: 0;
       opacity: .2;
       max-height: 20rem;
 
-      @media (max-width: 768px) {
-        display: none;
-      }
-    }
-
-    // .center-content-horizontally-md {
-    //   @media screen and (min-width: 768px) {
-    //     padding-left: 5%;
-    //   }
-    // }
-
-    .content-down {
-      display: flex;
-      align-items: flex-end;
-      /* Align content at the bottom */
-      height: 100%;
-      /* Set the height of the container to 100% */
     }
   }
 
-}
-
-
-.header-image,
-.header-container {
-  // this ensures the event blocks always have the same height
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 
 
@@ -111,8 +88,9 @@
 
 .news-card {
   border-left: 5px solid $primary-color;
+
   a {
-      margin-bottom: 10px;
+    margin-bottom: 10px;
   }
 
   .card-title {
@@ -359,14 +337,15 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
   position: absolute;
   z-index: 5;
   /* To ensure it's above the line and other elements */
-  max-width: 30% !important;
+  max-width: 40% !important;
 }
 
 .logo-event,
 .logo-series {
   @media screen and (max-width: 992px) {
-    height: $timeline-logo-width; 
+    height: $timeline-logo-width;
   }
+
   @media screen and (min-width: 992px) {
     width: $timeline-logo-width;
   }
