@@ -18,7 +18,7 @@
     <section class="inner-container">
         <div class="header-container">
             <div class="row">
-                <div class="col-md-7 header-text-container">
+                <div class="col-lg-7 col-md-6 header-text-container">
                     <h1 class="header-text">FYKOS</h1>
                     <h2 class="header-text">
                         {switch $lang}
@@ -50,7 +50,8 @@
                         {/switch}
                     </a>
                 </div>
-                <div class="col-md-5 mt-md-0 mt-3 header-image-container">
+                
+                <div class="col-lg-5 col-md-6 mt-md-0 mt-3 header-image-container">
                     <div class="center-content-horizontally-md">
                         <img id="header-image" class="header-image"
                             src="{$basePath}/images/logos/fykos_symbol_no_border.svg" alt="FYKOS logo">
@@ -147,21 +148,21 @@
                 {default}Page of All Events
             {/switch}
         </a>
-        </a>
 
         <div class="fade-in-section mt-5 mt-md-0">
             <div class="row mt-5">
 
                 {* Vertical timeline *}
-                <div id="timeline-vertical-container"
-                    class="col-3 col-md-0 d-md-none position-relative d-flex flex-column align-items-center mt-5">
-                    <div class="start-timeline-text mb-3">
-                        <p>{$timelineBegin|date:'j. n. Y'|noescape}</p>
+                <div class="col-3 col-md-0 vertical-timeline-and-text-box d-md-none position-relative d-flex flex-column align-items-center mt-5">
+                    <div class="start-timeline-text">
+                        {$timelineBegin|date:'j. n. Y'|noescape}
                     </div>
-                    <div id="timeline-vertical" class="d-block border-left h-100">
+                    <div id="timeline-vertical-container" class="h-100 my-2">
+                        <div id="timeline-vertical" class="d-block border-left h-100">
                     </div>
-                    <div class="end-timeline-text mt-3">
-                        <p>{$timelineEnd|date:'j. n. Y'|noescape}</p>
+                    </div>
+                    <div class="end-timeline-text">
+                        {$timelineEnd|date:'j. n. Y'|noescape}
                     </div>
                 </div>
 
@@ -311,7 +312,7 @@
                         <div class="timeline-section-header mt-5 mt-md-0 d-md-none">
                             <h3>{switch $lang}
                                     {case 'cs'}Série semináře
-                                    {default}Seminar Series
+                                    {default}FYKOS Series
                                 {/switch}</h3>
                         </div>
 
@@ -674,16 +675,21 @@
             }
 
             let logoSizePercentage;
-            // Phase 2: Adjust overlapping positions
+            
             if (timelineId == "#timeline-vertical-container") {
                 const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
                 const containerWidth = document.querySelector('#timeline-vertical-container').offsetWidth;
-                let effectiveLogoSizePx = Math.min(logoSizePx, containerWidth * 0.3)
+                let effectiveLogoSizePx = Math.min(logoSizePx, containerWidth * 0.4)
 
                 logoSizePercentage = effectiveLogoSizePx / verticalTimelineHeight * 100;
             } else {
                 logoSizePercentage = logoSizePx / document.querySelector(timelineId).offsetWidth * 100;
             }
+
+            // move the logos to the left/top by half of their width so that they are centered correctly
+            positions = positions.map(position => position - logoSizePercentage / 2);
+
+            // Phase 2: Adjust overlapping positions
             for (let i = 0; i < positions.length - 1; i++) {
                 if (Math.abs(positions[i] - positions[i + 1]) < logoSizePercentage) {
                     const avgPosition = (positions[i] + positions[i + 1]) / 2;
@@ -722,13 +728,14 @@
             if (timelineId == "#timeline-vertical-container") {
                 // Adjust for the fact that now we have the logos as a children of an element
                 // that also in its height contains texts
-                const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
-                const timelineContainerHeight = document.querySelector('#timeline-vertical-container').offsetHeight;
-                const topOffset = document.querySelector('.start-timeline-text').offsetHeight;
+                
+                // const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
+                // const timelineContainerHeight = document.querySelector('#timeline-vertical-container').offsetHeight;
+                // const topOffset = document.querySelector('.start-timeline-text').offsetHeight;
 
-                const newPositionPercentage = (verticalTimelineHeight * positionPercentage + topOffset) / timelineContainerHeight;
+                // const newPositionPercentage = (verticalTimelineHeight * positionPercentage + topOffset) / timelineContainerHeight;
 
-                logoElem.style.top = `${newPositionPercentage}%`;
+                logoElem.style.top = `${positionPercentage}%`;
             } else {
                 logoElem.style.left = `${positionPercentage}%`;
             }
