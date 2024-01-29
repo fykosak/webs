@@ -3,7 +3,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
             {var $key = null}
-{foreach $groups as $group}
+            {foreach $groups as $group}
             {var $start = new \DateTime($group['start'])}
             {var $end = new \DateTime($group['end'])}
             {var $newKey = $start->format('Y-m-d')}
@@ -12,14 +12,24 @@
     </div>
     <div class="panel color-auto">
         <section class="inner-container">
-            <h1 class="subheader">{$start->format('d. m. Y')}</h1>
+            <div class="subheader">{$start->format('j. n. Y')}</div>
+            <h1>{$start->format('l')}</h1>
             {/if}
-            <h2>{$group['name']['cs']} <small class="float-end" style="color:#e6060d">
-                    {$start->format('H:i')}-{$end->format('H:i')}</small>
-            </h2>
+
+            <div class="subheader">{$start->format('H:i')} - {$end->format('H:i')}</div>
+            <h2>{$group['name']['cs']}</h2>
             {foreach $group['items'] as $item}
-                <h3>{$item['name']['cs']}</h3>
-                <p>{$item['longDescription']['cs']??$item['description']['cs']|noescape}</p>
+                <div class="rules">
+                    {if !($group['name'][$lang] == $item['name'][$lang])}
+                        <div class="title">
+                            {$item['name']['cs']}
+                        </div>
+                    {/if}
+                    <div class="description">
+                        {$item['longDescription']['cs']??$item['description']['cs']|noescape}
+                    </div>
+                </div>
+                
             {/foreach}
             {php $key = $newKey}
             {/foreach}
