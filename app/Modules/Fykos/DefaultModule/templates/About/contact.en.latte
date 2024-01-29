@@ -30,15 +30,15 @@
                     <tbody>
                         <tr>
                             <td>Questions regarding solution submission</td>
-                            <td><a href="mailto:fykos-solutions@fykos.cz">fykos-solutions@fykos.cz</a></td>
+                            <td><a href="mailto:fykos-solutions@fykos.org">fykos-solutions@fykos.org</a></td>
                         </tr>
                         <tr>
                             <td>Fyziklani</td>
-                            <td><a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a></td>
+                            <td><a href="mailto:fyziklani@fykos.org">fyziklani@fykos.org</a></td>
                         </tr>
                         <tr>
                             <td>Physics Brawl Online</td>
-                            <td><a href="mailto:online@fyziklani.cz">online@fyziklani.cz</a></td>
+                            <td><a href="mailto:online@physicsbrawl.org">online@physicsbrawl.org</a></td>
                         </tr>
                         <tr>
                             <td>IT problems</td>
@@ -46,7 +46,7 @@
                         </tr>
                         <tr>
                             <td>General email for other inquiries</td>
-                            <td><a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a></td>
+                            <td><a href="mailto:fykos@fykos.org">fykos@fykos.org</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -56,7 +56,10 @@
 
             <div class="col-md-6">
                 <h3>Phone</h3>
-                <p><strong>We strongly prefer email communication. Use the phone only in urgent and important cases.</strong></p>
+                <p><strong>We strongly prefer email communication. Use the phone only in urgent and 
+                important cases. And only between 10 a.m. and 6 p.m. (i.e. 18:00) CET. Note now is 
+                <span id="time"></span>.</strong></p>
+
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -118,6 +121,19 @@
     </section>
 </div>
 
+
+<script>
+    function updateTime() {
+        var time = new Date();
+        var hour = time.getUTCHours() + 1; // Add 1 hour to convert to CET
+        var minute = time.getUTCMinutes();
+        var second = time.getUTCSeconds();
+        var timeString = hour + ":" + minute + ":" + second + " CET";
+        document.getElementById("time").innerHTML = timeString;
+    }
+
+    setInterval(updateTime, 1000);
+</script>
 
 
 {/block}
