@@ -18,6 +18,7 @@
                     {$start->format('H:i')}-{$end->format('H:i')}</small>
             </h2>
             {foreach $group['items'] as $item}
+          {continueIf $item['itemId']===123456}
                 <h3>{$item['name']['cs']}</h3>
                 <p>{$item['longDescription']['cs']??$item['description']['cs']|noescape}</p>
             {/foreach}
