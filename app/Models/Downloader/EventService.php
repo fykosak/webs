@@ -7,13 +7,12 @@ namespace App\Models\Downloader;
 use App\Models\Downloader\FKSDBDownloader;
 use App\Models\NetteDownloader\ORM\Services\AbstractJSONService;
 use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
-
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
-
 use Nette\Caching\Storage;
-
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
+use App\Models\Downloader\ModelPersonSchedule;
+use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
+use Tracy\Debugger;
 
 final class EventService extends AbstractJSONService
 {
@@ -21,14 +20,6 @@ final class EventService extends AbstractJSONService
     {
         $this->downloader = $downloader;
         parent::__construct($expiration, $storage);
-    }
-
-    /**
-     * @param ModelEvent[] $events
-     */
-    public function orderEvents(array &$events): void
-    {
-        usort($events, fn (ModelEvent $a, ModelEvent $b): int => $a->begin <=> $b->begin);
     }
 
     /**
@@ -46,15 +37,24 @@ final class EventService extends AbstractJSONService
     /**
      * @throws \Throwable
      */
-    public function getEvent(int $eventId, ?string $explicitExpiration = null): ModelEvent
+    public function getEvent(int $eventId, ?string $explicitExpiration = null): EventDetailModel
     {
         return $this->getItem(
             new EventRequest($eventId),
             [],
-            ModelEvent::class,
+            EventDetailModel::class,
             false,
             $explicitExpiration
         );
+/*        $base->participants = $this->getItem(
+            new ParticipantsRequest($eventId),
+            [],
+            EventParticipantModel::class,
+            true,
+            $explicitExpiration
+        );*/
+        //Debugger::dump($base);
+        //return $base;
     }
 
     /**
