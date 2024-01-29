@@ -63,7 +63,8 @@
                                     {switch $lang}
                                         {case 'cs'}Nový ročník FYKOSu přichází již brzy! Užívejte prázdniny!
                                         {default}New year of FYKOS is coming soon! Enjoy your holidays!
-                                    {/switch}</h2>
+                                    {/switch}
+                                </h2>
                             {else}
                                 {if $countdownEventsIndices['previous'][$lang] !== null}
                                     <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]} | {$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'}</h4>
