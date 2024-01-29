@@ -18,6 +18,10 @@ final class SchedulePresenter extends BasePresenter
 
     public function translateDay(string $day): string
     {
+        if ($this->lang != 'cs') {
+            return $day;
+        }
+
         $newDay = '';
         switch ($day) {
             case 'Monday':

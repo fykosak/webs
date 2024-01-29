@@ -1,26 +1,57 @@
 {varType array $groups}
+{varType string $lang}
+{varType array $groups}
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
-          	<h1>Detaily programu</h1>
-            <p>Na této stránce naleznete detailní popis doprovodného programu. Informace se můžou mírně změnit a měly by být aktuální.</p>
-                <h3>Legenda k lokacím</h3>
-                <ul>
-                    <li><strong>PVA EXPO PRAHA</strong> - Beranových 667, 199 00 Praha 9</li>
-                    <li><strong>Areál Troja</strong> - V Holešovičkách 2/747, 180 00 Praha 8</li>
+          	<h1>
+                {switch $lang}
+                    {case 'cs'}Detaily programu
+                    {case 'en'}Program details
+                {/switch}
+            </h1>
+            <p>
+                {switch $lang}
+                    {case 'cs'}Na této stránce naleznete detailní popis doprovodného programu. Informace se můžou mírně změnit a měly by být aktuální.
+                    {default}On this page you can find detailed description of the accompanying program. Information may change slightly and should be up to date.
+                {/switch}
+            </p>
+            {switch $lang}
+                {case 'cs'}
+                    <h3>Legenda k lokacím</h3>
                     <ul>
-                        <li><strong>N1, N2, N3</strong> - Pavilon Impakt</li>
-                        <li><strong>T1, T2</strong> - Objekt poslucháren</li>
+                        <li><strong>PVA EXPO PRAHA</strong> - Beranových 667, 199 00 Praha 9</li>
+                        <li><strong>Areál Troja</strong> - V Holešovičkách 2/747, 180 00 Praha 8</li>
+                        <ul>
+                            <li><strong>N1, N2, N3</strong> - Pavilon Impakt</li>
+                            <li><strong>T1, T2</strong> - Objekt poslucháren</li>
+                        </ul>
+                        <li><strong>Areál Karlov</strong></li>
+                        <ul>
+                            <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Praha 2</li>
+                            <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Praha 2</li>
+                        </ul>
+                        <li><strong>Futurum music bar</strong> - Zborovská 7, 150 00 Praha 5</li>
                     </ul>
-                    <li><strong>Areál Karlov</strong></li>
+                {default}
+                    <h3>Legend for locations</h3>
                     <ul>
-                        <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Praha 2</li>
-                        <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Praha 2</li>
+                        <li><strong>PVA EXPO PRAGUE</strong> - Beranových 667, 199 00 Prague 9</li>
+                        <li><strong>Troja Campus</strong> - V Holešovičkách 2/747, 180 00 Prague 8</li>
+                        <ul>
+                            <li><strong>N1, N2, N3</strong> - Impakt Pavilion</li>
+                            <li><strong>T1, T2</strong> - Lecture Hall Building</li>
+                        </ul>
+                        <li><strong>Karlov Campus</strong></li>
+                        <ul>
+                            <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Prague 2</li>
+                            <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Prague 2</li>
+                        </ul>
+                        <li><strong>Futurum Music Bar</strong> - Zborovská 7, 150 00 Prague 5</li>
                     </ul>
-                    <li><strong>Futurum music bar</strong> - Zborovská 7, 150 00 Praha 5</li>
-                </ul>
+            {/switch}
             {var $key = null}
-            {dump $groups}
+            {* {dump $groups} *}
             {foreach $groups as $group}
             {var $start = new \DateTime($group['start'])}
             {var $end = new \DateTime($group['end'])}
@@ -30,12 +61,17 @@
     </div>
     <div class="panel color-auto">
         <section class="inner-container">
-            <div class="subheader">{$start->format('j. n. Y')}</div>
+            <div class="subheader">
+                {switch $lang}
+                    {case 'cs'}{$start->format('j. n. Y')}
+                    {default}{$start->format('F j, Y')}
+                {/switch}
+            </div>
             <h1>{$presenter->translateDay($start->format('l'))}</h1>
             {/if}
 
             <div class="subheader">{$start->format('H:i')} - {$end->format('H:i')}</div>
-            <h2>{$group['name']['cs']}</h2>
+            <h2>{$group['name'][$lang]}</h2>
 
             {var $items_to_skip = [485]}
 
@@ -44,11 +80,11 @@
                     <div class="rules">
                         {if !($group['name'][$lang] == $item['name'][$lang])}
                             <div class="title">
-                                {$item['name']['cs']}
+                                {$item['name'][$lang]}
                             </div>
                         {/if}
                         <div class="description">
-                            {$item['longDescription']['cs']??$item['description']['cs']|noescape}
+                            {$item['longDescription'][$lang]??$item['description'][$lang]|noescape}
                         </div>
                     </div>
                 {/if}
