@@ -3,6 +3,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
             {var $key = null}
+            {dump $groups}
             {foreach $groups as $group}
             {var $start = new \DateTime($group['start'])}
             {var $end = new \DateTime($group['end'])}
@@ -18,18 +19,22 @@
 
             <div class="subheader">{$start->format('H:i')} - {$end->format('H:i')}</div>
             <h2>{$group['name']['cs']}</h2>
+
+            {var $items_to_skip = [485]}
+
             {foreach $group['items'] as $item}
-                <div class="rules">
-                    {if !($group['name'][$lang] == $item['name'][$lang])}
-                        <div class="title">
-                            {$item['name']['cs']}
+                {if !in_array($item['itemId'], $items_to_skip)}
+                    <div class="rules">
+                        {if !($group['name'][$lang] == $item['name'][$lang])}
+                            <div class="title">
+                                {$item['name']['cs']}
+                            </div>
+                        {/if}
+                        <div class="description">
+                            {$item['longDescription']['cs']??$item['description']['cs']|noescape}
                         </div>
-                    {/if}
-                    <div class="description">
-                        {$item['longDescription']['cs']??$item['description']['cs']|noescape}
                     </div>
-                </div>
-                
+                {/if}
             {/foreach}
             {php $key = $newKey}
             {/foreach}
