@@ -14,7 +14,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <div class="subheader">{$start->format('j. n. Y')}</div>
-            <h1>{$start->format('l')}</h1>
+            <h1>{$presenter->translateDay($start->format('l'))}</h1>
             {/if}
 
             <div class="subheader">{$start->format('H:i')} - {$end->format('H:i')}</div>
