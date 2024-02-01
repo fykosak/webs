@@ -1,6 +1,7 @@
 {varType array $groups}
 {varType string $lang}
 {varType array $groups}
+{varType App\Modules\Fof\DefaultModule\SchedulePresenter $presenter}
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
@@ -48,9 +49,9 @@
                       <div class="title">Futurum Music Bar</div>
                       <div class="description">Zborovská 7, 150 00 Praha 5</div>
           			</div>
-          
-          
-          
+
+
+
                     {*<ul>
                         <li><strong>PVA EXPO PRAHA</strong> - Beranových 667, 199 00 Praha 9</li>
                         <li><strong>Areál Troja</strong> - V Holešovičkách 2/747, 180 00 Praha 8</li>
@@ -96,7 +97,7 @@
                       <div class="title">Futurum Music Bar</div>
                       <div class="description">Zborovská 7, 150 00 Prague 5</div>
           			</div>
-          
+
                     {*<ul>
                         <li><strong>PVA EXPO PRAGUE</strong> - Beranových 667, 199 00 Prague 9</li>
                         <li><strong>Troja Campus</strong> - V Holešovičkách 2/747, 180 00 Prague 8</li>
@@ -135,12 +136,12 @@
             <div class="subheader">{$start->format('H:i')} - {$end->format('H:i')}</div>
             <h2>{$group['name'][$lang]}</h2>
 
-            {var $items_to_skip = [496,498,497,499,518,488]}
+            {var $itemsToSkip = [496,498,497,499,518,488]}
 
             {foreach $group['items'] as $item}
-                {if !in_array($item['itemId'], $items_to_skip)}
+                {if !in_array($item['itemId'], $itemsToSkip)}
                     <div class="rules">
-                        {if !($group['name'][$lang] == $item['name'][$lang])}
+                        {if !($group['name'][$lang] === $item['name'][$lang])}
                             <div class="title">
                                 {$item['name'][$lang]}
                             </div>
