@@ -140,9 +140,9 @@
 
             {foreach $group['items'] as $item}
                 {if !in_array($item['itemId'], $itemsToSkip)}
-                    <div class="rules">
+                    <div id="{$item['itemId']}" class="rules">
                         {if !($group['name'][$lang] == $item['name'][$lang])}
-                            <div id="$item['itemId']" class="title">
+                            <div class="title">
                                 {$item['name'][$lang]}
                             </div>
                         {/if}
