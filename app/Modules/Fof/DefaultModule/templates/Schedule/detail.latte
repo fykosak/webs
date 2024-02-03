@@ -34,7 +34,7 @@
                         <li><strong>Futurum music bar</strong> - Zborovská 7, 150 00 Praha 5</li>
                     </ul>
                 {default}
-                    <h3>Legend for locations</h3>
+                    <h3>Legend for Locations</h3>
                     <ul>
                         <li><strong>PVA EXPO PRAGUE</strong> - Beranových 667, 199 00 Prague 9</li>
                         <li><strong>Troja Campus</strong> - V Holešovičkách 2/747, 180 00 Prague 8</li>
@@ -74,12 +74,11 @@
             <h2>{$group['name'][$lang]}</h2>
 
             {var $items_to_skip = [486,496,498,497,499,518]}
-
             {foreach $group['items'] as $item}
                 {if !in_array($item['itemId'], $items_to_skip)}
                     <div class="rules">
                         {if !($group['name'][$lang] == $item['name'][$lang])}
-                            <div class="title">
+                            <div id="{$item['itemId']}" class="title">
                                 {$item['name'][$lang]}
                             </div>
                         {/if}
