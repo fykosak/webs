@@ -1,6 +1,7 @@
 {varType array $groups}
 {varType string $lang}
 {varType array $groups}
+{varType App\Modules\Fof\DefaultModule\SchedulePresenter $presenter}
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
@@ -19,7 +20,39 @@
             {switch $lang}
                 {case 'cs'}
                     <h3>Legenda k lokacím</h3>
-                    <ul>
+          			<div class="rules">
+                      <div class="title">PVA EXPO PRAHA</div>
+                      <div class="description">Beranových 667, 199 00 Praha 9</div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Hotel Duo</div>
+                      <div class="description">Teplická 492, 190 00 Praha 9</div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Areál Troja</div>
+                      <div class="description">V Holešovičkách 2/747, 180 00 Praha 8
+                      	<ul style="margin-bottom: 0">
+                            <li><strong>N1, N2, N3</strong> - Pavilon Impakt</li>
+                            <li><strong>T1, T2</strong> - Objekt poslucháren</li>
+                        </ul>
+                      </div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Areál Karlov</div>
+                      <div class="description"><ul style="margin-bottom: 0">
+                            <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Praha 2</li>
+                            <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Praha 2</li>
+                        </ul>
+                      </div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Futurum Music Bar</div>
+                      <div class="description">Zborovská 7, 150 00 Praha 5</div>
+          			</div>
+
+
+
+                    {*<ul>
                         <li><strong>PVA EXPO PRAHA</strong> - Beranových 667, 199 00 Praha 9</li>
                         <li><strong>Areál Troja</strong> - V Holešovičkách 2/747, 180 00 Praha 8</li>
                         <ul>
@@ -31,11 +64,41 @@
                             <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Praha 2</li>
                             <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Praha 2</li>
                         </ul>
-                        <li><strong>Futurum music bar</strong> - Zborovská 7, 150 00 Praha 5</li>
-                    </ul>
+                        <li><strong>Futurum Music Bar</strong> - Zborovská 7, 150 00 Praha 5</li>
+                    </ul>*}
                 {default}
-                    <h3>Legend for Locations</h3>
-                    <ul>
+                    <h3>Legend for locations</h3>
+          			<div class="rules">
+                      <div class="title">PVA EXPO PRAGUE</div>
+                      <div class="description">Beranových 667, 199 00 Prague 9</div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Hotel Duo</div>
+                      <div class="description">Teplická 492, 190 00 Prague 9</div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Troja Campus</div>
+                      <div class="description">V Holešovičkách 2/747, 180 00 Prague 8
+                      	<ul style="margin-bottom: 0">
+                            <li><strong>N1, N2, N3</strong> - Impakt Pavilion</li>
+                            <li><strong>T1, T2</strong> - Lecture Hall Building</li>
+                        </ul>
+                      </div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Karlov Campus</div>
+                      <div class="description"><ul style="margin-bottom: 0">
+                            <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Prague 2</li>
+                            <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Prague 2</li>
+                        </ul>
+                      </div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Futurum Music Bar</div>
+                      <div class="description">Zborovská 7, 150 00 Prague 5</div>
+          			</div>
+
+                    {*<ul>
                         <li><strong>PVA EXPO PRAGUE</strong> - Beranových 667, 199 00 Prague 9</li>
                         <li><strong>Troja Campus</strong> - V Holešovičkách 2/747, 180 00 Prague 8</li>
                         <ul>
@@ -48,7 +111,7 @@
                             <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Prague 2</li>
                         </ul>
                         <li><strong>Futurum Music Bar</strong> - Zborovská 7, 150 00 Prague 5</li>
-                    </ul>
+                    </ul>*}
             {/switch}
             {var $key = null}
             {* {dump $groups} *}
@@ -74,11 +137,12 @@
             <h2>{$group['name'][$lang]}</h2>
 
             {var $items_to_skip = [486,496,498,497,499,518]}
+
             {foreach $group['items'] as $item}
-                {if !in_array($item['itemId'], $items_to_skip)}
+                {if !in_array($item['itemId'], $itemsToSkip)}
                     <div class="rules">
                         {if !($group['name'][$lang] == $item['name'][$lang])}
-                            <div id="{$item['itemId']}" class="title">
+                            <div id="$item['itemId']" class="title">
                                 {$item['name'][$lang]}
                             </div>
                         {/if}

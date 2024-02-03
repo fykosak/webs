@@ -18,36 +18,26 @@ final class SchedulePresenter extends BasePresenter
 
     public function translateDay(string $day): string
     {
-        if ($this->lang != 'cs') {
+        if ($this->lang !== 'cs') {
             return $day;
         }
-
-        $newDay = '';
         switch ($day) {
             case 'Monday':
-                $newDay = 'Pondělí';
-                break;
+                return 'Pondělí';
             case 'Tuesday':
-                $newDay = 'Úterý';
-                break;
+                return 'Úterý';
             case 'Wednesday':
-                $newDay = 'Středa';
-                break;
+                return 'Středa';
             case 'Thursday':
-                $newDay = 'Čtvrtek';
-                break;
+                return 'Čtvrtek';
             case 'Friday':
-                $newDay = 'Pátek';
-                break;
+                return 'Pátek';
             case 'Saturday':
-                $newDay = 'Sobota';
-                break;
+                return 'Sobota';
             case 'Sunday':
-                $newDay = 'Neděle';
-                break;
+                return 'Neděle';
         }
-        
-        return $newDay;
+        return '';
     }
 
     /**
@@ -55,7 +45,7 @@ final class SchedulePresenter extends BasePresenter
      */
     public function renderDetail(): void
     {
-        $groups = $this->downloader->download(new ScheduleRequest(180, ['weekend', 'weekend_info']));
+        $groups = $this->downloader->download(new ScheduleRequest(180, ['weekend', 'weekend_info','teacher_present']));
         usort($groups, fn(array $aGroup, array $bGroup): int => $aGroup['start'] <=> $bGroup['start']);
         $this->template->groups = $groups;
     }
