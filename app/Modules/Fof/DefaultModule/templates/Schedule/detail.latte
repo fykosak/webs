@@ -136,7 +136,7 @@
             <div class="subheader">{$start->format('H:i')} - {$end->format('H:i')}</div>
             <h2>{$group['name'][$lang]}</h2>
 
-            {var $items_to_skip = [486,496,498,497,499,518]}
+            {var $itemsToSkip = [486,496,498,497,499,518,552,553,554,555,556,557,558,559,560,561,562,563]}
 
             {foreach $group['items'] as $item}
                 {if !in_array($item['itemId'], $itemsToSkip)}
