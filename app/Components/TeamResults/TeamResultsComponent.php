@@ -50,7 +50,7 @@ class TeamResultsComponent extends BaseComponent
 
         $teams = [];
         foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), ModelTeam::class) as $team) {
-            if ($team->status != 'participated' && $team->status != 'disqualified') {
+            if ($team->state != 'participated' && $team->state != 'disqualified') {
                 continue;
             }
             if (is_null($this->filterData) || $this->passesFilters($team)) {
@@ -128,7 +128,7 @@ class TeamResultsComponent extends BaseComponent
         $countryISOs = [];
         $categories = [];
         foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), ModelTeam::class) as $team) {
-            if ($team->status !== 'participated' && $team->status !== 'disqualified') {
+            if ($team->state !== 'participated' && $team->state !== 'disqualified') {
                 continue;
             }
             if ($team->members) {

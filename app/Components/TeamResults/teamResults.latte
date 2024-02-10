@@ -47,12 +47,12 @@
                     <div class="results-first-row">
                         {varType App\Models\NetteDownloader\ORM\Models\ModelTeam $team}
                         <div class="result-column"
-                            style="width: 5rem">{if $team->status === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</div>
+                            style="width: 5rem">{if $team->state === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</div>
                         <div class="result-column" style="flex-grow: 1"><strong>{$team->name}</strong></div>
                         <div class="result-column"
-                            style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->points}{/if}</div>
+                            style="width: 5rem">{if $team->state === "disqualified"}{else}{$team->points}{/if}</div>
                         <div class="result-column"
-                            style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->rankTotal}.{/if}</div>
+                            style="width: 5rem">{if $team->state === "disqualified"}{else}{$team->rankTotal}.{/if}</div>
                     </div>
                     <div class="results-second-row">
                         <div class="result-column text-muted" style="flex-grow: 1; margin-left: 5rem; margin-right: 10rem">
