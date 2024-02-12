@@ -27,14 +27,10 @@ class ApiResultsComponent extends BaseComponent
         $this->eventId = $eventId;
     }
 
-    public function injectGameServerApiConnector(Connector $connector): void
-    {
-        $this->gameServerApiConnector = $connector;
-    }
-
-    public function injectServiceTeam(FKSDBDownloader $downloader): void
+    public function inject(Connector $connector, FKSDBDownloader $downloader): void
     {
         $this->downloader = $downloader;
+        $this->gameServerApiConnector = $connector;
     }
 
     private function serialiseTeams(): array
@@ -46,7 +42,7 @@ class ApiResultsComponent extends BaseComponent
             }
 
             $members = [];
-            foreach ($team->members as $member) {
+            foreach ($team['members'] as $member) {
                 $members[] = [
                     'name' => $member['name'],
                     'schoolName' => $member['school']['name'] ?? '',
@@ -70,9 +66,6 @@ class ApiResultsComponent extends BaseComponent
     public function serialiseResults(): array
     {
         $data = $this->gameServerApiConnector->getResults();
-        if (strtotime($data['times']['gameEnd']) <= time()) {
-            $data['times']['visible'] = true;
-        }
         if (!$data['times']['visible']) {
             // results are hidden
             $data['submits'] = null;
