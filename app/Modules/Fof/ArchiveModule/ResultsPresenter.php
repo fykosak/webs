@@ -22,6 +22,7 @@ class ResultsPresenter extends BasePresenter
      */
     protected function createComponentTeamResults(): TeamResultsComponent
     {
+        if ($this->getEvent()->eventId == 180) throw new Error("oops");
         return new TeamResultsComponent($this->getContext(), $this->getEvent()->eventId);
     }
 }
