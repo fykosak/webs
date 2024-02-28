@@ -10,9 +10,8 @@ use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
 use Nette\Caching\Storage;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\Downloader\ModelPersonSchedule;
+use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
 use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
-use Tracy\Debugger;
 
 final class EventService extends AbstractJSONService
 {
@@ -39,22 +38,21 @@ final class EventService extends AbstractJSONService
      */
     public function getEvent(int $eventId, ?string $explicitExpiration = null): EventDetailModel
     {
-        return $this->getItem(
+        $base = $this->getItem(
             new EventRequest($eventId),
             [],
             EventDetailModel::class,
             false,
             $explicitExpiration
         );
-/*        $base->participants = $this->getItem(
+        $base->participants = $this->getItem(
             new ParticipantsRequest($eventId),
             [],
             EventParticipantModel::class,
             true,
             $explicitExpiration
-        );*/
-        //Debugger::dump($base);
-        //return $base;
+        );
+        return $base;
     }
 
     /**

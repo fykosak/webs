@@ -36,10 +36,6 @@ class EventDetailModel
 
     public ?array $schedule;
     /**
-     * @var ModelPersonSchedule[] $personSchedule
-     */
-    public ?array $personSchedule;
-    /**
      * @var EventParticipantModel[]
      */
     public ?array $participants;
