@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <title>
-        {ifset title}{include title} | {/ifset} Výfuk
-    </title>
+    <title>{ifset title}{include title} | {/ifset}Výfuk</title>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <meta name="theme-color" content="#FF7200">
+    <meta name="author" content="{** TODO **}"/>
+    <meta name="theme-color" content="#ff4800">
+{ifset description}    <meta name="description" content="{include description}"/>{/ifset}{**
 
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Výpočty fyzikálních úkolů"/>
-    <meta property="og:image:type" content="image/png"/>
-    <meta property="og:locale" content="cs"/>
+    facebook **}
+    <meta property="og:title" content="{ifset title}{include title} | {/ifset}Výfuk">
     <meta property="og:url" content="{plink //this}"/>
+    <meta property="og:image" content="{$basePath}/images/logo_orange.svg">
+    <meta property="og:image:type" content="image/svg+xml"/>{ifset description}
+    <meta property="og:description" content="{include description}"/>{/ifset}
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="cs"/>{**
+    
+    twitter **}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{$basePath}/images/logo_orange.svg">
+    <meta name="twitter:title" content="{ifset title}{include title} | {/ifset}Výfuk">
+    <meta property="twitter:domain" content="vyfuk.org">
+    <meta property="twitter:url" content="{plink //this}">{ifset description}
+    <meta name="twitter:description" content="{include description}"/>{/ifset}{**
+    
+    links **}
     <link href="{$basePath}/images/icon.png" rel="icon" type="image/png"/>
     <link href="{asset 'assets/main.css'}" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
     {block head}{/block}
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/f424cd1bbe.js" crossorigin="anonymous"></script>
     <script src="{asset 'assets/main.js'}"></script>
-    {block scripts}{/block}
-</head>
+{block scripts}{/block}</head>
 
 <body>
-
 {block body}
     {control navigation "/images/logo.svg", "Vyfuk.org", false}
     <main>
@@ -43,14 +50,111 @@
             </div>
         {/block}
     </main>
+    {* TODO vizuální oddělení main a footer *}
+    <hr style="height: 20px; margin: 0px; color: #ff4800; background-color: #ff4800; opacity: 100%">
     <footer>
+        <div class="panel sponsors">
+            <div class="inner-container">
+                <div class="category">
+                    <div class="category-title">Pořadatelé</div>
+                    <div class="category-sponsors">
+                        <a href="https://www.mff.cuni.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
+                                style="max-width: 8rem">
+                        </a>
+                        <a href="https://www.msmt.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
+                        </a>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="category-title">Sponzoři</div>
+                    <div class="category-sponsors">
+                        <a href="https://www.prusa3d.com/cs" style="text-align: center">
+                            <img src="{$basePath}/images/logos/prusa_logo.png" alt="Prusa logo" style="max-height: 5rem; max-width: 12rem">
+                        </a>
+                        <a href="https://prometheus-nakl.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/prometheus_logo.png" alt="Prometheus logo" style="max-height: 5rem; max-width: 12rem">
+                        </a>
+                        <a href="https://mindok.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/mindok_logo.gif" alt="Mindok logo" style="max-height: 5rem; max-width: 12rem">
+                        </a>
+                        <a href="https://vesmir.cz/cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/vesmir_logo.png" alt="Vesmír logo" style="max-height: 5rem; max-width: 12rem">
+                        </a>
+                        <a href="https://cez.cz" style="text-align: center">
+                            <img src="{$basePath}/images/logos/cez_logo.png" alt="Čez logo" style="max-height: 5rem; max-width: 12rem">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="panel footer">
             <div class="inner-container row">
                 <div class="col-md-6">
-                    <div class="logo" style="font-size: 1cm; font-weight: bold">Vyfuk<small>.cz</small></div>
+                    <div class="logo" style="font-size: 1cm; font-weight: bold"><img class="logo" style="margin-right: 1rem; margin-bottom: 0rem" src="{$basePath}/images/logo.svg" alt="Výfuk" />vyfuk<small>.org</small></div>
                     <p>
-                        Vyfuk
+                        Korespondenční seminář Výfuk je organizován studenty a přáteli <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
+                        Je zastřešen Oddělením propagace a mediální komunikace MFF UK a podporován Katedrou didaktiky
+                        fyziky MFF UK, jejími zaměstnanci a Jednotou českých matematiků a fyziků.
                     </p>
+                    <p>
+                        Realizace projektu byla podpořena Ministerstvem školství, mládeže a tělovýchovy.
+                    </p>
+                    <p>
+                        <strong>#vyfuk</strong> <a href="mailto:vyfuk@vyfuk.org">vyfuk@vyfuk.org</a>
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <nav>
+                        <ul>
+                            <li>Pro účastníky a učitele
+                                <ul>
+                                    <li><a n:href=":Default:About:default">O Nás</a></li>
+                                    <li><a n:href=":Default:Section:Rules">Pravidla</a></li>
+                                    <li><a n:href=":default">Jak se zapojit</li>
+                                    <li><a n:href=":Default:Section:Teachers">Pro učitele</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul>
+                            <li>Pro sponzory
+                                <ul>
+                                    <li><a n:href=":Default:About:Sponsors">Podpořte nás</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-md-3" style="position: relative">
+                    <nav>
+                        <ul>
+                            <li>Sledujte nás
+                                <ul>
+                                    <li>
+                                    <a style="margin-right: 1.5rem" href="https://www.instagram.com/ksvyfuk/">
+                                            <i class="bi bi-instagram"></i>
+                                        </a>
+                                        <a style="margin-right: 1.5rem" href="{$basePath}/discord">
+                                            <i class="bi bi-discord"></i>
+                                        </a>
+                                        <a style="margin-right: 1.5rem;" href="https://facebook.com/ksvyfuk">
+                                            <i class="bi bi-facebook"></i>
+                                        </a>
+                                        <a style="margin-right: 1.5rem" href="https://www.youtube.com/channel/UCUBv3Ydd-laLSY5DMimoE7w">
+                                            <i class="bi bi-youtube"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a href="#top"style="position: absolute; bottom: 0; right: 0;"><i class="bi bi-arrow-up"></i></a>
                 </div>
             </div>
         </div>

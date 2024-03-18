@@ -1,6 +1,6 @@
 html, body {
   height: 100%;
-  font-size: $base-font-size;
+  // font-size: $base-font-size;
 }
 
 body {
@@ -70,7 +70,7 @@ a:hover {
  */
 .panel {
   padding: 4rem 0;
-  margin-bottom: 2rem;
+  /*margin-bottom: 2rem;*/
   color: #4a4a4a;
   h1, h2, h3, h4, h5, h6 {
     color: black;
@@ -128,6 +128,10 @@ a:hover {
       color: white;
       font-weight: bold;
       text-decoration: none;
+    }
+
+    i {
+      font-size: 2em;
     }
 
     .logo {
