@@ -27,13 +27,16 @@
                     {switch $lang}
                         {*{case 'cs'}<p>Přihlas se společně až s pětičlenným týmem a&nbsp;přijeďte si do Prahy zasoutěžit.</p>*}
                         {*{default}<p>Sign up with a team of up to five and come to Prague, Czech Republic to compete with others.</p>*}
-                        {case 'cs'}<p>Registace pro rok 2024 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 20 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>
-                        {default}<p>Registration for the year 2024 is open!<br>Last year, almost 1200 of us gathered from more than 20 countries around the world. Come and enjoy this physics feast with us again this year!</p>
+                        {*{case 'cs'}<p>Registace pro rok 2024 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 20 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>*}
+                        {*{default}<p>Registration for the year 2024 is open!<br>Last year, almost 1200 of us gathered from more than 20 countries around the world. Come and enjoy this physics feast with us again this year!</p>*}
+
+                        {case 'cs'}<p>Děkujeme za úžasnou soutěž!</p>
+                        {default}<p>Thanks for the amazing competition!</p>
                     {/switch}
                 </div>
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
-{*                    <a target="_blank" href="https://static.fykos.cz/fyziklani2023/{switch $lang}{case 'cs'}pruvodce{default}guidebook{/switch}.pdf" class="btn btn-outline">{switch $lang}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>*}
+                    <a target="_blank" href="{$basePath}/download/2024/{switch $lang}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $lang}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>
                     <a n:href="Merch:" class="btn btn-light">Merch</a>
                     <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-primary">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
@@ -59,20 +62,20 @@
             {*<div class="buttons">*}
                 {*{switch $lang}*}
                     {*{case cs}*}
-                    {*<a class="btn btn-primary m-1" href="/2023/vysledky/">Výsledky soutěže</a>*}
-                    {*<a class="btn btn-primary m-1" href="/download/2023/reseni.pdf">Úlohy a řešení</a>*}
+                    {*<a class="btn btn-primary m-1" href="/2024/vysledky/">Výsledky soutěže</a>*}
+                    {*<a class="btn btn-primary m-1" href="/download/2024/reseni.pdf">Úlohy a řešení</a>*}
                 {*{default}*}
-                    {*<a class="btn btn-primary m-1" href="/2023/results/">Competition results</a>*}
-                    {*<a class="btn btn-primary m-1" href="/download/2023/solutions.pdf">Problem assignment and solutions</a>*}
+                    {*<a class="btn btn-primary m-1" href="/2024/results/">Competition results</a>*}
+                    {*<a class="btn btn-primary m-1" href="/download/2024/solutions.pdf">Problem assignment and solutions</a>*}
                 {*{/switch}*}
 {**}
             {*</div>*}
         {*</div>*}
     {*</div>*}
 
-{*    {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheEvent()}*}
-{*        {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}*}
-{*    {/if}*}
+    {if $gamePhaseCalculator->isResultsVisible()}
+        {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}
+    {/if}
 
     <div class="panel color-auto">
         <section class="inner-container">
@@ -251,13 +254,13 @@
                 <div class="subheader">Harmonogram Fyziklání</div>
                 {*<h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}.</h1>*}
                 <h1>V Praze se můžete zdržet i déle</h1>
-          		<p>Kromě soutěže se můžete těšit i na bohatý doprovodný program plný přednášek, exkurzí a mnoha dalšího. Podrobnosti budou zveřejněny časem.</p>
+          		<p>Kromě soutěže se můžete těšit i na bohatý doprovodný program plný přednášek, exkurzí a mnoha dalšího. Podrobnosti naleznete <a href="https://fyziklani.cz/program">zde</a>.</p>
                 {*<p>Doprovodný program Fyziklání je volitelný, lze se zúčastnit i pouze samotné soutěže.</p>*}
             {default}
                 <div class="subheader">Fyziklani Schedule</div>
                 {*<h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}.</h1>*}
                 <h1>You Can Stay in Prague a Little Longer</h1>
-                <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more. Stay tuned for more details in the future!</p>
+                <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more. Details can be found <a href="https://fyziklani.org/schedule">here</a>.</p>
                 {*<p>The accompanying program is optional, it is possible to take part only in the competition itself.</p>*}
             {/switch}
 
@@ -298,6 +301,17 @@
             <div class="row legends">
                 <div class="col-md-6">
                     <div class="legends-row">
+                        <div class="legends-year">2024</div>
+                        <div class="legends-item">
+                            <div>
+                                DARIUSUS
+                            </div>
+                            <div class="members">
+                                Andrei-Darius Dragomir, Ioan Alexandru Mirica, Ionut Gabriel Stan, Mendel Mendelsohn, Ioana Stanoiu
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legends-row">
                         <div class="legends-year">2023</div>
                         <div class="legends-item">
                             <div>
@@ -319,6 +333,9 @@
                             </div>
                         </div>
                     </div>
+                    
+                </div>
+                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2021<br>online</div>
                         <div class="legends-item">
@@ -330,9 +347,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                </div>
-                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2020</div>
                         <div class="legends-item" n:syntax="off">
@@ -352,17 +366,6 @@
                             </div>
                             <div class="members">
                                 Richard Veselý, Jiří Janoušek, Jindřich Jelínek, Jiří Loun, Tereza Pavlišová
-                            </div>
-                        </div>
-                    </div>
-                    <div class="legends-row">
-                        <div class="legends-year">2018</div>
-                        <div class="legends-item">
-                            <div>
-                                Pozitróny
-                            </div>
-                            <div class="members">
-                                Matúš Kopunec, Mikuláš Mikula, Marek Kadlečík, Róbert Jurčo, Martin Babača
                             </div>
                         </div>
                     </div>

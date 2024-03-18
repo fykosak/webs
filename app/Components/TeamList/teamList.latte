@@ -56,8 +56,8 @@
                 <ol class="team-list">
                     {foreach $teamsForCategory AS $team}
                         {varType App\Models\NetteDownloader\ORM\Models\ModelTeam $team}
-                        {if $team->status == 'disqualified' || $team->status == 'missed' || $team->status == 'participated' || $team->status == 'applied' || $team->status == 'approved' || $team->status == 'pending'}
-                            <li id="{$team->teamId}" class="team-status-{$team->status}">
+                        {if $team->state == 'disqualified' || $team->state == 'missed' || $team->state == 'participated' || $team->state == 'applied' || $team->state == 'approved' || $team->state == 'pending'}
+                            <li id="{$team->teamId}" class="team-state-{$team->state}">
                                 <strong>{$team->name}</strong>:
                                 {var $inSchool = 0}
                             {if $team->members && count($team->members)}
@@ -70,7 +70,7 @@
                                         {$member->name}
                                         {do $inSchool++}
                                         {if $iterator->isLast() || (!is_null($members[$key + 1]) && isset($member->school) && isset($members[$key + 1]->school) && $member->school['schoolId'] != $members[$key + 1]->school['schoolId'])}
-                                            <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$member->school['name']??''}{if isset($member->school) && $member->school['countryISO'] !== "ZZ"} <span
+                                            <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$member->school['nameAbbrev']??''}{if isset($member->school) && $member->school['countryISO'] !== "ZZ"} <span
                                                     class="flag-icon flag-icon-{$member->school['countryISO']??'zz'|lower}"></span>{/if})</span>
                                             {do $inSchool = 0}
                                         {/if}

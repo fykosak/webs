@@ -87,8 +87,8 @@ export const ForVisibleResults: React.FC<{data: DataInterface<true>, teams: Team
 
   return <>
     <div className="row strips">
-      {["A", "B", "C", "O"].map(c =>
-        <div className="col-md-3">
+      {data.categories.map(c =>
+        <div className="col-md">
           <CategoryColumn category={c} points={points} showFull={showFull} mappedTeams={mappedTeams} />
         </div>
       )}

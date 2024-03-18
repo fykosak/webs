@@ -16,7 +16,7 @@ class ModelTeam
     public ?int $points = null;
     public ?int $rankCategory = null;
     public ?int $rankTotal = null;
-    public string $status;
+    public string $state;
     public int $teamId;
 
     /**

@@ -116,14 +116,6 @@ class GamePhaseCalculator
     }
 
     /**
-     * @throws Throwable
-     */
-    public function isGameRunning(): bool
-    {
-        return new \DateTime() > $this->getFKSDBEvent()->begin && new \DateTime() < $this->getFKSDBEvent()->end;
-    }
-
-    /**
      * Returns true about a week after the event when no one is interested in game already.
      * @throws Throwable
      */
@@ -139,12 +131,7 @@ class GamePhaseCalculator
      */
     public function isResultsVisible(): bool
     {
-        return $this->isGameRunning();/*&& new \DateTime() <  TODO*/
-    }
-
-    public function isResultsPublished(): bool
-    {
-        return false;// TODO;
+        return $this->isGame();
     }
 
     /**

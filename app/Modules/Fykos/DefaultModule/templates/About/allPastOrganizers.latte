@@ -1,6 +1,11 @@
-{block title}O FYKOSu{/block}
-{block main}
+{block title}
+    {switch $lang}
+        {case 'cs'}Bývalí organizátoři
+        {default}Past Organizers
+    {/switch}
+{/block}
 
+{block main}
 
 
 <div class="panel color-auto">
@@ -53,7 +58,7 @@
                                         {/if}
                                     </td>
                                 </tr>
-                                {if $organizer['contribution']}
+                                {if $organizer['contribution'] and $lang == 'cs'}
                                 <tr>
                                     <td class="left-cell"><span class="icon"><i class="fas fa-trophy"></i></span>
                                     </td>

@@ -1,0 +1,140 @@
+{block title}Contact{/block}
+{block main}
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Contact</h1>
+        <h2>Physical Correspondence Address</h2>
+        <p>You can use this address for sending packages and letters.</p>
+        <ul>
+            <li>FYKOS, ÚTF</li>
+            <li>Faculty of Mathematics and Physics, Charles University</li>
+            <li>V Holešovičkách 2</li>
+            <li>180 00 Prague 8</li>
+        </ul>
+    </section>
+</div>
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h2>Organizational Structure</h2>
+        <p>
+            FYKOS is officially under the aegis of the Institute of Theoretical Physics and the Department of Promotion and Media Communication of the Faculty of Mathematics and Physics, Charles University. However, it also functions as a non-profit organization.
+        </p>
+        <ul>
+            <li>FYKOS, z.s.</li>
+            <li>Komenského 92</li>
+            <li>Pražské předměstí</li>
+            <li>566 01 Vysoké Mýto</li>
+            <li>Company ID: 17846773</li>
+            <li>Registered at the Regional Court in Hradec Králové, section L, insert 14279</li>
+        </ul>
+    </section>
+</div>
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h2>Primary Communication Channels</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Emails</h3>
+                <p>Emails for individual organizers can be found on the <a n:href=":Default:About:organizers">organizers page</a>. However, primarily use the email addresses listed below.</p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Category</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Questions regarding solution submission</td>
+                            <td><a href="mailto:fykos-solutions@fykos.org">fykos-solutions@fykos.org</a></td>
+                        </tr>
+                        <tr>
+                            <td>Fyziklani</td>
+                            <td><a href="mailto:fyziklani@fykos.org">fyziklani@fykos.org</a></td>
+                        </tr>
+                        <tr>
+                            <td>Physics Brawl Online</td>
+                            <td><a href="mailto:online@physicsbrawl.org">online@physicsbrawl.org</a></td>
+                        </tr>
+                        <tr>
+                            <td>IT problems</td>
+                            <td><a href="mailto:webmaster@fykos.org">webmaster@fykos.org</a></td>
+                        </tr>
+                        <tr>
+                            <td>General email for other inquiries</td>
+                            <td><a href="mailto:fykos@fykos.org">fykos@fykos.org</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <div class="col-md-6">
+                <h3>Phone</h3>
+                <p><strong>We strongly prefer email communication. Use the phone only in urgent and 
+                important cases. And only between 10 a.m. and 6 p.m. (i.e. 18:00) CET. Note now is 
+                <span id="time"></span>.</strong></p>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Contact Person</th>
+                            <th scope="col">Position</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>+420 739 584 436</td>
+                            <td>Martin Vaněk</td>
+                            <td>Head Organizer</td>
+                        </tr>
+                        <tr>
+                            <td>+420 730 974 923</td>
+                            <td>Vojtěch David</td>
+                            <td>Deputy Head Organizer</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </section>
+</div>
+
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="row">
+            <h2 class="mb-4">Banking Information</h2>
+
+            <div class="col-md-6">
+                <h4>Account in Euros</h4>
+                <ul>
+                    <li>Account Number: 2202414681 / 2010</li>
+                    <li>IBAN: CZ05 2010 0000 0022 0241 4681</li>
+                    <li>BIC/SWIFT: FIOBCZPPXXX</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+
+<script>
+    function updateTime() {
+        var time = new Date();
+        var hour = time.getUTCHours() + 1; // Add 1 hour to convert to CET
+        var minute = time.getUTCMinutes();
+        var second = time.getUTCSeconds();
+        var timeString = hour + ":" + minute + ":" + second + " CET";
+        document.getElementById("time").innerHTML = timeString;
+    }
+
+    setInterval(updateTime, 1000);
+</script>
+
+
+{/block}

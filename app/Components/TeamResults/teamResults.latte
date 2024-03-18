@@ -47,12 +47,12 @@
                     <div class="results-first-row">
                         {varType App\Models\NetteDownloader\ORM\Models\ModelTeam $team}
                         <div class="result-column"
-                            style="width: 5rem">{if $team->status === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</div>
+                            style="width: 5rem">{if $team->state === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</div>
                         <div class="result-column" style="flex-grow: 1"><strong>{$team->name}</strong></div>
                         <div class="result-column"
-                            style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->points}{/if}</div>
+                            style="width: 5rem">{if $team->state === "disqualified"}{else}{$team->points}{/if}</div>
                         <div class="result-column"
-                            style="width: 5rem">{if $team->status === "disqualified"}{else}{$team->rankTotal}.{/if}</div>
+                            style="width: 5rem">{if $team->state === "disqualified"}{else}{$team->rankTotal}.{/if}</div>
                     </div>
                     <div class="results-second-row">
                         <div class="result-column text-muted" style="flex-grow: 1; margin-left: 5rem; margin-right: 10rem">
@@ -60,20 +60,17 @@
                             {if $team->members && count($team->members)}
                                 {do
                                     $members = $team->members;
-                                    usort($members, fn(App\Models\NetteDownloader\ORM\Models\ModelMember $a,App\Models\NetteDownloader\ORM\Models\ModelMember $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))
+                                    usort($members, fn(App\Models\NetteDownloader\ORM\Models\ModelMember $a, App\Models\NetteDownloader\ORM\Models\ModelMember $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))
                                 }
                                 {foreach $members as $key => $member}
                                     {varType App\Models\NetteDownloader\ORM\Models\ModelMember $member}
-                                    {$member->name}
+                                    {$member->name}{if !$iterator->isLast()}, {/if}
                                     {do $inSchool++}
-                                    {if $iterator->isLast() || (!is_null($members[$key + 1]) && isset($member->school) && isset($members[$key + 1]->school) && $member->school['schoolId'] != $members[$key + 1]->school['schoolId'])
-                                }
-                                    <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$member->school['name']??''}{if isset($member->school) && $member->school['countryISO'] !== "ZZ"} <span
-                                            class="flag-icon flag-icon-{$member->school['countryISO']??'zz'|lower}"></span>{/if})</span>{* this is to remove the space before the comma
-                                    *}{do $inSchool = 0
-                                    }{/if
-                                }{if !$iterator->isLast()
-                                }, {/if}
+                                    {if $iterator->isLast() || (!is_null($members[$key + 1]) && isset($member->school) && isset($members[$key + 1]->school) && $member->school['schoolId'] != $members[$key + 1]->school['schoolId'])}
+                                        <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$member->school['nameAbbrev']??''}{if isset($member->school) && $member->school['countryISO'] !== "ZZ"} <span
+                                                class="flag-icon flag-icon-{$member->school['countryISO']??'zz'|lower}"></span>{/if}) </span>
+                                        {do $inSchool = 0}
+                                    {/if}
                                 {/foreach}
                             {else}
                                 {switch $lang}
