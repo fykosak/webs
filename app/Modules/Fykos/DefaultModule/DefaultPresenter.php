@@ -22,7 +22,7 @@ class DefaultPresenter extends BasePresenter
 
         $this->template->numOfEvents = [
             'cs' => count($this->template->events),
-            'en' => count(array_filter($this->template->events, function($event) {
+            'en' => count(array_filter($this->template->events, function ($event) {
                 return $event['show-in-en'];
             }))
         ];
@@ -30,7 +30,8 @@ class DefaultPresenter extends BasePresenter
         $this->template->newsList = $this->loadNews();
     }
 
-    public function loadNews(): array {
+    public function loadNews(): array
+    {
         // load json
         $json = file_get_contents(__DIR__ . '/templates/Default/news.json');
         $newsList = json_decode($json, true);
@@ -56,7 +57,8 @@ class DefaultPresenter extends BasePresenter
         return $newsList;
     }
 
-    public function loadEventData(): void {
+    public function loadEventData(): void
+    {
         $this->template->events = [
             'Naboj' => [
                 'heading' => [
@@ -143,7 +145,8 @@ class DefaultPresenter extends BasePresenter
         $this->template->timelineEnd = date('Y-m-d', strtotime('2024-05-31'));
     }
 
-    public function findContdownEventIndices($events) {
+    public function findContdownEventIndices($events)
+    {
         // Find the event with the closest date larger than the current date
         $currentDate = strtotime(date('Y-m-d'));
         $closestIndex = 0;
@@ -155,8 +158,7 @@ class DefaultPresenter extends BasePresenter
             if ($eventDate < $currentDate) {
                 $closestIndex += 1;
                 $closestIndexEn += 1;
-            }
-            else {
+            } else {
                 break;
             }
         }
