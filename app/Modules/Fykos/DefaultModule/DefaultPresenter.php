@@ -8,7 +8,7 @@ class DefaultPresenter extends BasePresenter
 {
     public function renderDefault(): void
     {
-        $this->template->events = [  
+        $this->template->events = [
             'Naboj' => [
                 'heading' => 'Fyzikální Náboj',
                 'date' => date('Y-m-d', strtotime('2023-11-03'))
@@ -58,9 +58,9 @@ class DefaultPresenter extends BasePresenter
         //     $event['name'] = $key;
         //     $this->template->events[$key] = $event;
         // }
-          
+
         // Sort events by date
-        usort($this->template->events, function($a, $b) {
+        usort($this->template->events, function ($a, $b) {
             $dateA = strtotime($a['date']);
             $dateB = strtotime($b['date']);
             return $dateA - $dateB;
@@ -73,11 +73,10 @@ class DefaultPresenter extends BasePresenter
 
         foreach ($this->template->events as $event) {
             $eventDate = strtotime($event['date']);
-            
+
             if ($eventDate < $currentDate) {
                 $closestIndex += 1;
-            }
-            else {
+            } else {
                 break;
             }
         }
