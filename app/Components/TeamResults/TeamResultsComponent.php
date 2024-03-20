@@ -6,6 +6,7 @@ namespace App\Components\TeamResults;
 
 use App\Models\NetteDownloader\ORM\Models\ModelTeam;
 use App\Models\NetteDownloader\ORM\Services\DummyService;
+use App\Modules\Core\Lang;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\Application\UI\Form;
@@ -148,7 +149,7 @@ class TeamResultsComponent extends DIComponent
         // one member teams
         $form->addCheckbox(
             'OneMemberTeams',
-            $this->translator->lang === 'cs' ? 'Pouze jednočlenné týmy' : 'One member teams only'
+            $this->translator->lang === Lang::CS ? 'Pouze jednočlenné týmy' : 'One member teams only'
         );
 
         // countries
@@ -163,7 +164,7 @@ class TeamResultsComponent extends DIComponent
             $countryISOContainer->addCheckbox(
                 $countryISO,
                 sprintf(
-                    $this->translator->lang === 'cs' ? '%s:%s účastníků' : '%s:%s participants',
+                    $this->translator->lang === Lang::CS ? '%s:%s účastníků' : '%s:%s participants',
                     $countryISO,
                     $count
                 )

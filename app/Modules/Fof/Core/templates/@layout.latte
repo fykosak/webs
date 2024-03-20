@@ -1,10 +1,10 @@
-{varType App\Modules\Core\BasePresenter $presenter}
 {varType string $lang}
+{varType App\Modules\Core\Lang $language}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 
 
 <!DOCTYPE html>
-<html lang="{$presenter->lang}">
+<html lang="{$language->value}">
 <head>
     <title>
         {ifset title}{include title} | {/ifset}
@@ -25,7 +25,7 @@
     <meta property="og:image" content="{switch $lang}{case cs}https://fyziklani.cz/images/fof-og-image-cs.png{default}https://fyziklani.cz/images/fof-og-image-en.png{/switch}"/>
     <meta property="og:description" content="{switch $lang}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}"/>
     <meta property="og:image:type" content="image/png"/>
-    <meta property="og:locale" content="{$presenter->translator->locales[$presenter->lang]}"/>
+    <meta property="og:locale" content="{$language->getLocale()}"/>
     <meta property="og:url" content="{plink //this}"/>
     <link href="{$basePath}/images/icon.png" rel="icon" type="image/png"/>
     <link href="{asset 'assets/main.css'}" rel="stylesheet"/>
@@ -128,7 +128,7 @@
                         </a>*}
                         <a href="https://www.nfneuron.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/neuron-logo.jpg" alt="Neuron logo" style="max-width: 10rem">
-                        </a>                         
+                        </a>
                     </div>
                 </div>
                 <div class="category">

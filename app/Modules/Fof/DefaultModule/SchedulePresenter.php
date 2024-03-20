@@ -6,6 +6,7 @@ namespace App\Modules\Fof\DefaultModule;
 
 use App\Models\Downloader\FKSDBDownloader;
 use App\Models\Downloader\ScheduleRequest;
+use App\Modules\Core\Lang;
 
 final class SchedulePresenter extends BasePresenter
 {
@@ -18,7 +19,7 @@ final class SchedulePresenter extends BasePresenter
 
     public function translateDay(string $day): string
     {
-        if ($this->lang !== 'cs') {
+        if ($this->language !== Lang::CS) {
             return $day;
         }
         return match ($day) {

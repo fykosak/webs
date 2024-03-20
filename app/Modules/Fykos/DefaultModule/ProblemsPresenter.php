@@ -20,6 +20,9 @@ class ProblemsPresenter extends BasePresenter
         $this->problemService = $problemService;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderDefault(): void
     {
         $year = $this->year ?? self::CURRENT_YEAR;

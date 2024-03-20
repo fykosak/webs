@@ -58,6 +58,9 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
         return $this->event;
     }
 
+    /**
+     * @return NavItem[]
+     */
     protected function getNavItems(): array
     {
         return [
@@ -100,7 +103,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
         $key = parent::createEventKey($this->getEvent());
 
         return [
-            str_replace('.latte', '.' . $key . '.' . $this->lang . '.latte', end($files)),
+            str_replace('.latte', '.' . $key . '.' . $this->language->value . '.latte', end($files)),
             str_replace('.latte', '.' . $key . '.latte', end($files)),
             ...$files,
         ];

@@ -85,6 +85,7 @@ class ApiResultsComponent extends DIComponent
 
     /**
      * @throws JsonException
+     * @throws Throwable
      */
     public function renderTeamsData(): void
     {

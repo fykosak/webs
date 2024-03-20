@@ -12,6 +12,9 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
     public const CURRENT_YEAR = 37; // TODO: get from db
 
+    /**
+     * @return NavItem[]
+     */
     protected function getNavItems(): array
     {
         $items = [];
@@ -35,7 +38,8 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 
         $items[] = new NavItem(
             new PageTitle(
-                $this->csen('Seminář', 'FYKOS Competition'), 'visible-sm-inline glyphicon glyphicon-info-sign'
+                $this->csen('Seminář', 'FYKOS Competition'),
+                'visible-sm-inline glyphicon glyphicon-info-sign'
             ), // TODO
             ':Events:Fykos:',
             [],

@@ -20,7 +20,7 @@ class ReportsPresenter extends BasePresenter
         /*   $this->template->reports = $this->reportService->getTable()
                ->where('lang = ? AND event_id = ?', $this->lang, $this->getEvent()->eventId);*/
         $this->template->year = $this->getEvent()->begin->format('Y');
-        $this->setPageTitle(new PageTitle( $this->csen('Ohlasy účastníků', 'Contestants\' reports')));
+        $this->setPageTitle(new PageTitle($this->csen('Ohlasy účastníků', 'Contestants\' reports')));
     }
 
     /**

@@ -33,7 +33,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
         );
         $items[] = new NavItem(
             new PageTitle(
-                            $this->csen('Ubytování', 'Accommodation'),
+                $this->csen('Ubytování', 'Accommodation'),
                 'visible-sm-inline glyphicon glyphicon-question-sign'
             ),
             ':Default:Accommodation:default',

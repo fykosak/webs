@@ -12,7 +12,7 @@ class TeamsPresenter extends BasePresenter
 {
     public function renderDefault(): void
     {
-        $this->setPageTitle(new PageTitle( $this->csen('Týmy', 'Teams')));
+        $this->setPageTitle(new PageTitle($this->csen('Týmy', 'Teams')));
     }
 
     /**

@@ -50,7 +50,7 @@
                         {/switch}
                     </a>
                 </div>
-                
+
                 <div class="col-lg-5 col-md-6 mt-md-0 mt-3 header-image-container">
                     <div class="center-content-horizontally-md">
                         <img id="header-image" class="header-image"
@@ -112,7 +112,7 @@
                     <div class="card-body news-card" style="border-left: 5px solid {$news['color']|noescape}">
                         <div style="display: flex; justify-content: space-between;">
                             <h4 class="card-title">{$news['title']}</h4>
-                            <div><a href={$news['link']} class="btn btn-primary" style="background-color: {$news['color']|noescape}; border: 1px solid {$news['color']|noescape}">{$news['link-text']}</a></div>
+                            <div><a href="{$news['link']}" class="btn btn-primary" style="background-color: {$news['color']|noescape}; border: 1px solid {$news['color']|noescape}">{$news['link-text']}</a></div>
                         </div>
                         <p class="card-text">{$news['text']|noescape}</p>
                     </div>
@@ -239,7 +239,7 @@
                             <a href="https://dsef.cz" target="_blank">
                                 <div class="event dsef-color-left-border">
                                     <div class="event-header">
-                                        <h3><img src="/images/logos/dsef_symbol.svg" class="inline-logo"> 
+                                        <h3><img src="/images/logos/dsef_symbol.svg" class="inline-logo">
                                             {switch $lang}
                                                 {case 'cs'}DSEF
                                                 {default}DSEF
@@ -656,7 +656,7 @@
         // Access the timeline begin and end dates from the existing elements
         const timelineBeginElement = document.querySelector('.dummy-timeline-begin p');
         const timelineEndElement = document.querySelector('.dummy-timeline-end p');
-        
+
         const timelineBegin = new Date(timelineBeginElement.innerText.trim());
         const timelineEnd = new Date(timelineEndElement.innerText.trim());
 
@@ -676,7 +676,7 @@
             }
 
             let logoSizePercentage;
-            
+
             if (timelineId == "#timeline-vertical-container") {
                 const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
                 const containerWidth = document.querySelector('#timeline-vertical-container').offsetWidth;
@@ -729,7 +729,7 @@
             if (timelineId == "#timeline-vertical-container") {
                 // Adjust for the fact that now we have the logos as a children of an element
                 // that also in its height contains texts
-                
+
                 // const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
                 // const timelineContainerHeight = document.querySelector('#timeline-vertical-container').offsetHeight;
                 // const topOffset = document.querySelector('.start-timeline-text').offsetHeight;
@@ -810,7 +810,7 @@
             "/images/logos/4_pointer.svg", "/images/logos/5_pointer.svg", "/images/logos/6_pointer.svg"];
         let images_series_h = ["/images/logos/1_pointer_h.svg", "/images/logos/2_pointer_h.svg", "/images/logos/3_pointer_h.svg",
             "/images/logos/4_pointer_h.svg", "/images/logos/5_pointer_h.svg", "/images/logos/6_pointer_h.svg"];
-        
+
         let hide_event_in_en = [true, true, false, false];
 
         let lang = document.querySelector('.dummy-lang p').innerText.trim();

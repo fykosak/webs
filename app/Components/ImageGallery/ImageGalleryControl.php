@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 namespace App\Components\ImageGallery;
-;
+
 use Fykosak\Utils\Components\DIComponent;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;

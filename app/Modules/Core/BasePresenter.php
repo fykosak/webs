@@ -10,6 +10,7 @@ use App\Components\PdfGallery\PdfGalleryControl;
 use App\Models\Exceptions\UnderConstructionException;
 use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
+use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Template;
@@ -18,6 +19,7 @@ abstract class BasePresenter extends Presenter
 {
     /** @persistent */
     public ?string $lang = null; // = 'cs';
+    public Lang $language;
 
     public GettextTranslator $translator;
 
@@ -45,6 +47,9 @@ abstract class BasePresenter extends Presenter
         return $navigation;
     }
 
+    /**
+     * @return NavItem[]
+     */
     abstract protected function getNavItems(): array;
 
     final public function setPageTitle(PageTitle $pageTitle): void
@@ -56,6 +61,7 @@ abstract class BasePresenter extends Presenter
     {
         $template = parent::createTemplate();
         $template->lang = $this->lang;
+        $template->language = $this->language;
         /** @var \Nette\Bridges\ApplicationLatte\Template $template */
         $template->setTranslator($this->translator);
 
@@ -71,18 +77,22 @@ abstract class BasePresenter extends Presenter
     protected function localize(): void
     {
         // Lang is null in error presenter because no rote rule was applied
-        if (!isset($this->lang) || $this->lang == null) {
+        if (!isset($this->lang) || !$this->lang) {
             $this->lang = 'en'; // todo guess language by domain
         }
+        $this->language = Lang::from($this->lang);
 
-        $this->translator->setLang($this->lang);
+        $this->translator->setLang($this->language);
     }
 
+    /**
+     * @return string[]
+     */
     public function formatTemplateFiles(): array
     {
         [$file,] = parent::formatTemplateFiles();
         return [
-            str_replace('.latte', '.' . $this->lang . '.latte', $file),
+            str_replace('.latte', '.' . $this->language->value . '.latte', $file),
             $file,
         ];
     }
@@ -92,7 +102,7 @@ abstract class BasePresenter extends Presenter
      */
     protected function csen(string $cs, string $en): string
     {
-        if ($this->lang === 'cs') {
+        if ($this->translator->lang === Lang::CS) {
             return $cs;
         } else {
             return $en;
@@ -115,11 +125,11 @@ abstract class BasePresenter extends Presenter
      */
     protected function createComponentGallery(): ImageGalleryControl
     {
-        return new ImageGalleryControl($this->context);
+        return new ImageGalleryControl($this->getContext());
     }
 
     protected function createComponentPdfGallery(): PdfGalleryControl
     {
-        return new PdfGalleryControl($this->context);
+        return new PdfGalleryControl($this->getContext());
     }
 }

@@ -1,3 +1,4 @@
+{varType string $lang}
 {block title}
     {switch $lang}
         {case 'cs'}Bývalí organizátoři
@@ -22,7 +23,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
 
-                        <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg" 
+                        <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg"
                             class="card-img-top"
                             onerror="this.src = '/images/people/personUnknown.jpg'"
                             alt="{$organizer['name']}">
@@ -50,7 +51,7 @@
                                                 {case 'cs'} ročník
                                                 {default} year
                                             {/switch}
-                                            {$organizer['since']} - 
+                                            {$organizer['since']} -
                                             {switch $lang}
                                                 {case 'cs'} současnost
                                                 {default} present

@@ -64,7 +64,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
 
         if (TeamsPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
-                new PageTitle( $this->csen('Týmy', 'Teams'), 'visible-sm-inline glyphicon glyphicon-edit'),
+                new PageTitle($this->csen('Týmy', 'Teams'), 'visible-sm-inline glyphicon glyphicon-edit'),
                 ':Default:Teams:',
             );
         }

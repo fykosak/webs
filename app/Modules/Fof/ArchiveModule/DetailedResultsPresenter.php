@@ -10,6 +10,6 @@ class DetailedResultsPresenter extends BasePresenter
 {
     public function renderDefault(): void
     {
-        $this->setPageTitle(new PageTitle( $this->csen('Podrobné výsledky', 'Detailed results')));
+        $this->setPageTitle(new PageTitle($this->csen('Podrobné výsledky', 'Detailed results')));
     }
 }

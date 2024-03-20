@@ -74,7 +74,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
         $key = parent::getEventKey($this->getEvent());
 
         return [
-            str_replace('.latte', '.' . $key . '.' . $this->lang . '.latte', end($files)),
+            str_replace('.latte', '.' . $key . '.' . $this->language->value . '.latte', end($files)),
             str_replace('.latte', '.' . $key . '.latte', end($files)),
             ...$files,
         ];
@@ -97,25 +97,29 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
         return new AllScheduleListComponent($this->event->eventId, $this->getContext());
     }
 
+    /**
+     * @return NavItem[]
+     * @throws \Throwable
+     */
     protected function getNavItems(): array
     {
         $items = [];
         if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
-                new PageTitle( 'Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle('Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Registration:',
             );
         }
 
         if (CurrentPresenter::isVisible($this->gamePhaseCalculator)) {
             $items[] = new NavItem(
-                new PageTitle( 'Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle('Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Current:',
             );
         }
 
         $items[] = new NavItem(
-            new PageTitle( 'Archiv', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle('Archiv', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Archive:default',
         );
         return $items;

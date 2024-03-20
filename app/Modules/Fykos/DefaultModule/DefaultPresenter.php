@@ -37,7 +37,7 @@ class DefaultPresenter extends BasePresenter
         $newsList = json_decode($json, true);
 
         // implement colors
-        foreach ($newsList[$this->lang] as &$news) {
+        foreach ($newsList[$this->language->value] as &$news) {
             switch ($news['color']) {
                 case 'fof':
                     $news['color'] = '#e6060d';
