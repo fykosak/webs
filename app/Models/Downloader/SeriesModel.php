@@ -16,6 +16,9 @@ class SeriesModel
      */
     public array $problems;
 
+    /**
+     * @throws \Exception
+     */
     public function getDeadline()
     {
         if ($this->deadline) {

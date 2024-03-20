@@ -6,9 +6,9 @@ namespace App\Components\UpperHomeBeforeRegistration;
 
 use App\Components\Countdown\CountdownComponent;
 use App\Models\GamePhaseCalculator;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 
-class UpperHomeBeforeRegistrationComponent extends BaseComponent
+class UpperHomeBeforeRegistrationComponent extends DIComponent
 {
     protected GamePhaseCalculator $gamePhaseCalculator;
 

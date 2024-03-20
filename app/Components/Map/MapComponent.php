@@ -9,10 +9,10 @@ use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use App\Models\NetteDownloader\ORM\Models\ModelTeam;
 use App\Models\NetteDownloader\ORM\Services\DummyService;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
-class MapComponent extends BaseComponent
+class MapComponent extends DIComponent
 {
     private static int $uniqueId = 0;
 

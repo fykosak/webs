@@ -6,9 +6,9 @@ namespace App\Components\UpperHomePrague;
 
 use App\Components\Countdown\CountdownComponent;
 use App\Models\GamePhaseCalculator;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 
-final class UpperHomePrague extends BaseComponent
+final class UpperHomePrague extends DIComponent
 {
     private GamePhaseCalculator $gamePhaseCalculator;
 

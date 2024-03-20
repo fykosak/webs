@@ -7,11 +7,11 @@ namespace App\Components\TeamResults;
 use App\Models\NetteDownloader\ORM\Models\ModelTeam;
 use App\Models\NetteDownloader\ORM\Services\DummyService;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\Application\UI\Form;
 use Nette\DI\Container;
 
-class TeamResultsComponent extends BaseComponent
+class TeamResultsComponent extends DIComponent
 {
     protected DummyService $serviceTeam;
     protected int $eventId;

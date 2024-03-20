@@ -14,64 +14,64 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         $items = [];
 
         $items[] = new NavItem(
-            new PageTitle(null, 'O Nás'),
+            new PageTitle( 'O Nás'),
             ':default',
             [],
             [
-                new NavItem(new PageTitle(null, 'Co je Výfuk?'), ':Default:About:default'),
-                new NavItem(new PageTitle(null, 'Historie'), ':Default:About:History'),
-                new NavItem(new PageTitle(null, 'Organizátoři'), ':Default:About:Organizers'),
-                new NavItem(new PageTitle(null, 'Podpořte nás'), ':Default:About:Sponsors'),
-                new NavItem(new PageTitle(null, 'Kontakt'), ':Default:About:Contact'),
+                new NavItem(new PageTitle( 'Co je Výfuk?'), ':Default:About:default'),
+                new NavItem(new PageTitle( 'Historie'), ':Default:About:History'),
+                new NavItem(new PageTitle( 'Organizátoři'), ':Default:About:Organizers'),
+                new NavItem(new PageTitle( 'Podpořte nás'), ':Default:About:Sponsors'),
+                new NavItem(new PageTitle( 'Kontakt'), ':Default:About:Contact'),
             ],
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, 'TODO název'), //TODO název sekce
+            new PageTitle( 'TODO název'), //TODO název sekce
             ':default',
             [],
             [
-                new NavItem(new PageTitle(null, 'Pravidla'), ':Default:Section:Rules'),
-                new NavItem(new PageTitle(null, 'Jak se zapojit'), ':default'), //TODO
-                new NavItem(new PageTitle(null, 'Pro učitele'), ':Default:Section:Teachers'),
-                new NavItem(new PageTitle(null, 'Jak psát řešení'), ':default'), //TODO
-                new NavItem(new PageTitle(null, 'Rady a tipy'), ':default'),
+                new NavItem(new PageTitle( 'Pravidla'), ':Default:Section:Rules'),
+                new NavItem(new PageTitle( 'Jak se zapojit'), ':default'), //TODO
+                new NavItem(new PageTitle( 'Pro učitele'), ':Default:Section:Teachers'),
+                new NavItem(new PageTitle( 'Jak psát řešení'), ':default'), //TODO
+                new NavItem(new PageTitle( 'Rady a tipy'), ':default'),
             ],
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Zadání', 'bi bi-pencil-fill'),
+            new PageTitle( 'Zadání', 'bi bi-pencil-fill'),
             ':Default:Problems:default'
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Pořadí'),
+            new PageTitle( 'Pořadí'),
             ':Default:Results:default'
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Akce'),
+            new PageTitle( 'Akce'),
             ':default',
             [],
             [
-                new NavItem(new PageTitle(null, 'Akce'), ':Default:Events:default'), //TODO uspořádání odkazů
-                new NavItem(new PageTitle(null, 'Tábor'), ':Default:Events:camp'),
-                new NavItem(new PageTitle(null, 'Setkání'), ':Default:Events:meeting'),
+                new NavItem(new PageTitle( 'Akce'), ':Default:Events:default'), //TODO uspořádání odkazů
+                new NavItem(new PageTitle( 'Tábor'), ':Default:Events:camp'),
+                new NavItem(new PageTitle( 'Setkání'), ':Default:Events:meeting'),
             ],
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Archiv'),
+            new PageTitle( 'Archiv'),
             ':default',
             [],
             [
-                new NavItem(new PageTitle(null, 'Úlohy'), ':Default:Archive:default'),
-                new NavItem(new PageTitle(null, 'Výfučtení'), ':Default:Archive:serials'),
+                new NavItem(new PageTitle( 'Úlohy'), ':Default:Archive:default'),
+                new NavItem(new PageTitle( 'Výfučtení'), ':Default:Archive:serials'),
             ],
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Přihlásit se'),
+            new PageTitle( 'Přihlásit se'),
             'https://db.fykos.cz'
         );
 

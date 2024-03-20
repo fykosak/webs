@@ -63,7 +63,6 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
         return [
             new NavItem(
                 new PageTitle(
-                    null,
                     $this->csen('Archiv', 'Archive'),
                     'visible-sm-inline glyphicon glyphicon-info-sign'
                 ), // TODO
@@ -71,7 +70,6 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
             ),
             new NavItem(
                 new PageTitle(
-                    null,
                     $this->csen('Týmy', 'Teams'),
                     'visible-sm-inline glyphicon glyphicon-info-sign'
                 ), // TODO
@@ -79,14 +77,13 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
             ),
             new NavItem(
                 new PageTitle(
-                    null,
                     $this->csen('Pořadí', 'Results'),
                     'visible-sm-inline glyphicon glyphicon-compressed'
                 ), // TODO
                 ':Archive:Results:default',
             ),
             //new NavItem(
-            //    new PageTitle(null, _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
+            //    new PageTitle( _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
             //    // TODO
             //    ':Archive:DetailedResults:default',
             //),

@@ -12,13 +12,20 @@ final class ProblemService extends AbstractJSONService
 {
     private string $problemManagerURL;
 
-    public function __construct(string $expiration, string $problemManagerURL, Storage $storage, ProblemManagerDownloader $downloader)
-    {
+    public function __construct(
+        string $expiration,
+        string $problemManagerURL,
+        Storage $storage,
+        ProblemManagerDownloader $downloader
+    ) {
         $this->downloader = $downloader;
         $this->problemManagerURL = $problemManagerURL;
         parent::__construct($expiration, $storage);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getProblem(
         string $contest,
         int $year,
@@ -35,6 +42,9 @@ final class ProblemService extends AbstractJSONService
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getSeries(
         string $contest,
         int $year,
@@ -50,9 +60,11 @@ final class ProblemService extends AbstractJSONService
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getLatestSeries(string $contest, int $year): int
     {
-
         return $this->cache->load(
             sprintf("lastSeries_%s", $contest),
             function (&$dependencies) use ($contest, $year) {

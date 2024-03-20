@@ -11,10 +11,10 @@
     "GPL-3.0"
   ],
   "require": {
-    "php": ">= 7.4",
+    "php": ">= 8.1",
     "nette/nette": "^v3.1.0",
     "fykosak/fksdb-downloader-core": "dev-dev-json-request#c52a8fb",
-    "fykosak/nette-fks-utils": "dev-dev-context-translator",
+    "fykosak/nette-fks-utils": "dev-dev-datetime-period",
     "ext-soap": "*",
     "ext-dom": "*",
     "ext-gettext": "*",
@@ -35,6 +35,9 @@
     "test": [
       "@clearTestCache",
       "tests/api/commandWithApi.sh vendor/bin/tester tests/ -p php -s -c tests/php.ini -j 8"
+    ],
+    "latteLint": [
+      "vendor/bin/latte-lint app/ --strict"
     ],
     "testCoverage": [
       "@clearTestCache",

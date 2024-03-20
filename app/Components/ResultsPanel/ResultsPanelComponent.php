@@ -6,9 +6,9 @@ namespace App\Components\ResultsPanel;
 
 use App\Components\ApiResults\ApiResultsComponent;
 use App\Models\GamePhaseCalculator;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 
-class ResultsPanelComponent extends BaseComponent
+class ResultsPanelComponent extends DIComponent
 {
     private GamePhaseCalculator $gamePhaseCalculator;
 

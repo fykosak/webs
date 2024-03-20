@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Models\OldFykos;
 
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\Schema\Expect;
 use Nette\Schema\Processor;
 use Nette\Schema\Schema;
 
-final class Jumbotron extends BaseComponent
+final class Jumbotron extends DIComponent
 {
     private static function getJumbotronSchema(): Schema
     {
@@ -58,13 +58,10 @@ final class Jumbotron extends BaseComponent
      */
     public function getItemsByPage(string $lang): ?array
     {
-        switch ($lang) {
-            case 'cs':
-                return self::getDataFromJSON('jumbotron-cs');
-            case 'en':
-                return self::getDataFromJSON('jumbotron-en');
-            default:
-                return null;
-        }
+        return match ($lang) {
+            'cs' => self::getDataFromJSON('jumbotron-cs'),
+            'en' => self::getDataFromJSON('jumbotron-en'),
+            default => null,
+        };
     }
 }

@@ -8,10 +8,10 @@ use App\Models\Downloader\FKSDBDownloader;
 use App\Models\Downloader\ScheduleRequest;
 use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
 use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
-final class AllScheduleListComponent extends BaseComponent
+final class AllScheduleListComponent extends DIComponent
 {
     private ServiceEventDetail $serviceEventDetail;
     private int $eventId;

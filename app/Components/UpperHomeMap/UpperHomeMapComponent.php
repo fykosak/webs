@@ -8,10 +8,10 @@ use App\Components\Countdown\CountdownComponent;
 use App\Components\Map\MapComponent;
 use App\Models\GamePhaseCalculator;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
-final class UpperHomeMapComponent extends BaseComponent
+final class UpperHomeMapComponent extends DIComponent
 {
     private GamePhaseCalculator $gamePhaseCalculator;
     private ModelEvent $event;

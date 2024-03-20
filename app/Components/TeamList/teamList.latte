@@ -61,7 +61,7 @@
                                 <strong>{$team->name}</strong>:
                                 {var $inSchool = 0}
                             {if $team->members && count($team->members)}
-                                    {do
+                                    {php
                                         $members = $team->members;
                                         usort($members, fn(App\Models\NetteDownloader\ORM\Models\ModelMember $a,App\Models\NetteDownloader\ORM\Models\ModelMember $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))
                                     }

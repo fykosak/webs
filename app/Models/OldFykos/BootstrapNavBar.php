@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models\OldFykos;
 
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
-class BootstrapNavBar extends BaseComponent
+class BootstrapNavBar extends DIComponent
 {
 
     private array $data = [];

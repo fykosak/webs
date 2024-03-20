@@ -40,16 +40,16 @@ class DefaultPresenter extends BasePresenter
         foreach ($newsList[$this->lang] as &$news) {
             switch ($news['color']) {
                 case 'fof':
-                    $news['color'] = "#e6060d";
+                    $news['color'] = '#e6060d';
                     break;
                 case 'fol':
-                    $news['color'] = "#00ae6b";
+                    $news['color'] = '#00ae6b';
                     break;
                 case 'fykos':
-                    $news['color'] = "#1175da";
+                    $news['color'] = '#1175da';
                     break;
                 case 'dsef':
-                    $news['color'] = "#f2b72b";
+                    $news['color'] = '#f2b72b';
                     break;
             }
         }

@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use DateTimeInterface;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
+use DateTimeInterface;
+use Fykosak\Utils\DateTime\Phase;
 use Nette\ArgumentOutOfRangeException;
 use Nette\DI\Container;
 use Nette\SmartObject;
@@ -34,16 +35,12 @@ class GamePhaseCalculator
     protected function checkEvent(int $period, DateTimeInterface $start, DateTimeInterface $end): bool
     {
         $now = new \DateTime();
-        switch ($period) {
-            case self::BEFORE:
-                return $now < $start;
-            case self::AFTER:
-                return $now > $end;
-            case self::NOW:
-                return $now > $start && $now < $end;
-            default:
-                throw new ArgumentOutOfRangeException('Invalid period');
-        }
+        return match ($period) {
+            self::BEFORE => $now < $start,
+            self::AFTER => $now > $end,
+            self::NOW => $now > $start && $now < $end,
+            default => throw new ArgumentOutOfRangeException('Invalid period'),
+        };
     }
 
     /**
@@ -64,6 +61,14 @@ class GamePhaseCalculator
             $this->getFKSDBEvent()->registrationBegin,
             $this->getFKSDBEvent()->registrationEnd,
         );
+    }
+
+    /**
+     * @throws Throwable
+     */
+    public function isRegistration2(Phase $period): bool
+    {
+        return $this->getFKSDBEvent()->getRegistrationPeriod()->is($period);
     }
 
     /**

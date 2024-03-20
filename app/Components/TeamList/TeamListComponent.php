@@ -8,10 +8,10 @@ use App\Components\Flags\FlagsComponent;
 use App\Models\NetteDownloader\ORM\Models\ModelTeam;
 use App\Models\NetteDownloader\ORM\Services\DummyService;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
-class TeamListComponent extends BaseComponent
+class TeamListComponent extends DIComponent
 {
     protected DummyService $serviceTeam;
     protected int $eventId;

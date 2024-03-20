@@ -21,23 +21,16 @@ final class SchedulePresenter extends BasePresenter
         if ($this->lang !== 'cs') {
             return $day;
         }
-        switch ($day) {
-            case 'Monday':
-                return 'Pondělí';
-            case 'Tuesday':
-                return 'Úterý';
-            case 'Wednesday':
-                return 'Středa';
-            case 'Thursday':
-                return 'Čtvrtek';
-            case 'Friday':
-                return 'Pátek';
-            case 'Saturday':
-                return 'Sobota';
-            case 'Sunday':
-                return 'Neděle';
-        }
-        return '';
+        return match ($day) {
+            'Monday' => 'Pondělí',
+            'Tuesday' => 'Úterý',
+            'Wednesday' => 'Středa',
+            'Thursday' => 'Čtvrtek',
+            'Friday' => 'Pátek',
+            'Saturday' => 'Sobota',
+            'Sunday' => 'Neděle',
+            default => '',
+        };
     }
 
     /**

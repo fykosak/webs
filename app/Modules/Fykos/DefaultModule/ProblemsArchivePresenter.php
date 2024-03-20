@@ -9,6 +9,9 @@ use Nette\Http\IResponse;
 
 class ProblemsArchivePresenter extends BasePresenter
 {
+    /**
+     * @throws BadRequestException
+     */
     public function renderDefault(): void
     {
         throw new BadRequestException(

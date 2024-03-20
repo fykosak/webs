@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\Components\PdfGallery;
 
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\DI\Container;
 use Nette\Utils\Finder;
 use Nette\Utils\UnknownImageFileException;
 
-class PdfGalleryControl extends BaseComponent
+class PdfGalleryControl extends DIComponent
 {
     private string $wwwDir;
     private Cache $cache;

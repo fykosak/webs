@@ -16,6 +16,9 @@ class DummyService extends AbstractJSONService
         parent::__construct($expiration, $storage);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function get(Request $request, string $model, ?string $explicitExpiration = null)
     {
         return $this->getItem($request, [], $model, true, $explicitExpiration);

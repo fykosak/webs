@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 namespace App\Components\ImageGallery;
-
-use Fykosak\Utils\BaseComponent\BaseComponent;
+;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\DI\Container;
@@ -12,7 +12,7 @@ use Nette\Utils\Finder;
 use Nette\Utils\Image;
 use Nette\Utils\UnknownImageFileException;
 
-class ImageGalleryControl extends BaseComponent
+class ImageGalleryControl extends DIComponent
 {
     private string $wwwDir;
     private Cache $cache;

@@ -6,9 +6,9 @@ namespace App\Components\Flags;
 
 use App\Models\NetteDownloader\ORM\Models\ModelMember;
 use App\Models\NetteDownloader\ORM\Models\ModelTeam;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 
-class FlagsComponent extends BaseComponent
+class FlagsComponent extends DIComponent
 {
     public function getFlagForMember(ModelMember $member): string
     {

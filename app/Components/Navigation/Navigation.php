@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Components\Navigation;
 
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Fykosak\Utils\UI\Navigation\NavItem;
 
-class Navigation extends BaseComponent
+class Navigation extends DIComponent
 {
     private array $items = [];
 
@@ -28,13 +28,10 @@ class Navigation extends BaseComponent
 
     public static function mapLangToIcon(string $lang): string
     {
-        switch ($lang) {
-            case 'en':
-                return 'flag-icon flag-icon-us';
-            case 'cs':
-                return 'flag-icon flag-icon-cz';
-            default:
-                return 'flag-icon flag-icon-' . $lang;
-        }
+        return match ($lang) {
+            'en' => 'flag-icon flag-icon-us',
+            'cs' => 'flag-icon flag-icon-cz',
+            default => 'flag-icon flag-icon-' . $lang,
+        };
     }
 }
