@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader;
 
-use App\Models\Downloader\ModelPersonSchedule;
 use App\Models\Downloader\EventParticipantModel;
 
 class EventDetailModel
@@ -39,4 +38,26 @@ class EventDetailModel
      * @var EventParticipantModel[]
      */
     public ?array $participants;
+    /**
+     * @var EventOrganizerModel[]
+     */
+    public ?array $organizers;
+
+    /**
+     * @var ModelPersonSchedule[]
+     */
+    public ?array $personsSchedule;
+
+    /**
+     * @return EventParticipantModel[]
+     */
+    public function getParticipated(): array
+    {
+        if ($this->participants) {
+            return array_filter($this->participants, function ($v) {
+                return $v->status == 'participated';
+            });
+        }
+        return array();
+    }
 }

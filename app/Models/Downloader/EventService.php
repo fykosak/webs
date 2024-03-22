@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader;
 
+use App\Models\Downloader\EventOrganizersRequest;
 use App\Models\Downloader\FKSDBDownloader;
-use App\Models\NetteDownloader\ORM\Services\AbstractJSONService;
-use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
-use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
-use Nette\Caching\Storage;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
+use App\Models\NetteDownloader\ORM\Services\AbstractJSONService;
+use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
+use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
+use Nette\Caching\Storage;
 
 final class EventService extends AbstractJSONService
 {
@@ -49,6 +50,14 @@ final class EventService extends AbstractJSONService
             new ParticipantsRequest($eventId),
             [],
             EventParticipantModel::class,
+            true,
+            $explicitExpiration
+        );
+        $base->personsSchedule = $this->getPersonSchedule($eventId);
+        $base->organizers = $this->getItem(
+            new EventOrganizersRequest($eventId),
+            [],
+            EventOrganizerModel::class,
             true,
             $explicitExpiration
         );
