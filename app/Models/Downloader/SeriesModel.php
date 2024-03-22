@@ -19,7 +19,7 @@ class SeriesModel
     /**
      * @throws \Exception
      */
-    public function getDeadline()
+    public function getDeadline(): ?DateTime
     {
         if ($this->deadline) {
             return new DateTime($this->deadline);

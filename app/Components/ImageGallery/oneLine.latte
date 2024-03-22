@@ -1,3 +1,5 @@
+{varType array[] $images}
+{varType array[] $previewImages}
 <div class="row gallery-one-line"
      data-data-source='[{foreach $images as $image}&#123;"src":"{$image['src']}","w":{$image['width']},"h":{$image['height']}&#125;{sep},{/sep}{/foreach}]'>
     {foreach $previewImages as $image}

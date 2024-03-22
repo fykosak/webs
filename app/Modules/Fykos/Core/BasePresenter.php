@@ -68,7 +68,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         );
 
         // $items[] = new NavItem(
-        //     new PageTitle( $this->csen('Archiv úloh', 'Problem Archive'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+        // new PageTitle( $this->csen('Archiv úloh', 'Problem Archive'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
         //     ':Default:ProblemsArchive:',
         // );
 
