@@ -1,5 +1,5 @@
 {varType string $lang}
-{varType App\Modules\Core\Lang $language}
+{varType App\Modules\Core\Language $language}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 
 
@@ -9,7 +9,7 @@
     <title>
         {ifset title}{include title} | {/ifset}
         {switch $lang}
-            {case "cs"} Fyziklání Online
+            {case 'cs'} Fyziklání Online
             {default} Physics Brawl Online
         {/switch}
     </title>
@@ -163,7 +163,7 @@
         <div class="panel footer">
             <div class="inner-container row">
                 <div class="col-md-6">
-                    <img class="logo" src="{$basePath}/images/fyziklani_online{$lang !== "cs" ? "_en" : null}_logo_white.svg" alt="{_'Fyziklani online'}" />
+                    <img class="logo" src="{$basePath}/images/fyziklani_online{$lang !== 'cs' ? '_en' : null}_logo_white.svg" alt="{_'Fyziklani online'}" />
                     {switch $lang}
                         {case 'cs'}
                         <p>

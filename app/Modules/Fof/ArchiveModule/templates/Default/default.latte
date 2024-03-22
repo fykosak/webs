@@ -4,15 +4,15 @@
 
 {block subtitle}
     {switch $lang}
-        {case "cs"}Archivní stránka soutěže z {$event->begin|date: "j. n. Y"}
-        {default}Archive page of the competition from {$event->begin|date: "j F Y"}
+        {case 'cs'}Archivní stránka soutěže z {$event->begin|date: 'j. n. Y'}
+        {default}Archive page of the competition from {$event->begin|date: 'j F Y'}
     {/switch}
 {/block}
 
 {block title}
     {switch $lang}
-        {case "cs"}Fyziklání {$event->begin|date: "Y"}
-        {default}Fyziklani {$event->begin|date: "Y"}
+        {case 'cs'}Fyziklání {$event->begin|date: 'Y'}
+        {default}Fyziklani {$event->begin|date: 'Y'}
     {/switch}
 {/block}
 
@@ -24,13 +24,13 @@
                 <ul class="stylized">
                     <li><a n:href="Teams:">
                             {switch $lang}
-                                {case "cs"}Seznam přihlášených týmů
+                                {case 'cs'}Seznam přihlášených týmů
                                 {default}List of registered teams
                             {/switch}
                         </a></li>
                     <li><a n:href="Results:">
                             {switch $lang}
-                                {case "cs"}Výsledky soutěže
+                                {case 'cs'}Výsledky soutěže
                                 {default}Results of the competition
                             {/switch}
                         </a></li>
@@ -39,13 +39,13 @@
                 <ul class="stylized">
                     <li><a href="{$basePath}/download/{$eventKey}/reseni.pdf">
                             {switch $lang}
-                                {case "cs"}Zadání a řešení úloh v českém jazyce
+                                {case 'cs'}Zadání a řešení úloh v českém jazyce
                                 {default}Problems and solutions in Czech
                             {/switch}
                         </a></li>
                     <li><a href="{$basePath}/download/{$eventKey}/solutions.pdf">
                             {switch $lang}
-                                {case "cs"}Zadání a řešení úloh v anglickém jazyce
+                                {case 'cs'}Zadání a řešení úloh v anglickém jazyce
                                 {default}Problems and solutions in English
                             {/switch}
                         </a>
@@ -55,7 +55,7 @@
                     <ul class="stylized">
                         <li><a href="{$basePath}/download/{$eventKey}/infobooklet-cs.pdf">
                             {switch $lang}
-                                {case "cs"}Průvodce Fyzikláním {$eventKey} v českém jazyce
+                                {case 'cs'}Průvodce Fyzikláním {$eventKey} v českém jazyce
                                 {default}Guidebook of Fyziklani {$eventKey} in Czech
                             {/switch}
                         </a></li>
@@ -63,7 +63,7 @@
                         {if file_exists(__DIR__.'/../../../../www/fof/download/'.$eventKey.'/infobooklet-en.pdf')}
                             <li><a href="{$basePath}/download/{$eventKey}/infobooklet-en.pdf">
                                 {switch $lang}
-                                    {case "cs"}Průvodce Fyzikláním {$eventKey} v anglickém jazyce
+                                    {case 'cs'}Průvodce Fyzikláním {$eventKey} v anglickém jazyce
                                     {default}Guidebook of Fyziklani {$eventKey} in English
                                 {/switch}
                             </a>
@@ -76,7 +76,7 @@
                     <li>
                         <a href="#competition">
                             {switch $lang}
-                                {case "cs"}Fotografie ze soutěže
+                                {case 'cs'}Fotografie ze soutěže
                                 {default}Photos from the competition
                             {/switch}
                         </a>
@@ -85,7 +85,7 @@
                         <li>
                             <a href="#backdrop">
                                 {switch $lang}
-                                    {case "cs"}Fotostěna
+                                    {case 'cs'}Fotostěna
                                     {default}Fyziklani Backdrop
                                 {/switch}
                             </a>
@@ -95,7 +95,7 @@
                         <li>
                             <a href="#winners">
                                 {switch $lang}
-                                    {case "cs"}Fotografie vítězů
+                                    {case 'cs'}Fotografie vítězů
                                     {default}Photos of the winners
                                 {/switch}
                             </a>
@@ -105,7 +105,7 @@
                         <li>
                             <a href="#weekend">
                                 {switch $lang}
-                                    {case "cs"}Fotografie z doprovodného programu
+                                    {case 'cs'}Fotografie z doprovodného programu
                                     {default}Photos from the accompanying program
                                 {/switch}
                             </a>
@@ -128,7 +128,7 @@
 {*        <div class="panel color-auto" id="competition">*}
 {*            <section class="inner-container">*}
 {*                <h1>{switch $lang}*}
-{*                    {case "cs"}Partneři ročníku {$eventKey}*}
+{*                    {case 'cs'}Partneři ročníku {$eventKey}*}
 {*                    {default}Partners of the year {$eventKey}*}
 {*                    {/switch}</h1>*}
 {*            </section>*}
@@ -139,7 +139,7 @@
         <div class="panel color-auto" id="competition">
             <section class="inner-container">
                 <h1>{switch $lang}
-                    {case "cs"}Fotografie ze soutěže
+                    {case 'cs'}Fotografie ze soutěže
                     {default}Photos from the competition
                 {/switch}</h1>
                 {control gallery "/photos/" . $eventKey . "/"}
@@ -151,7 +151,7 @@
         <div class="panel color-auto" id="backdrop">
             <section class="inner-container">
                 <h1>{switch $lang}
-                    {case "cs"}Fotostěna
+                    {case 'cs'}Fotostěna
                     {default}Fyziklani Backdrop
                     {/switch}</h1>
                 {control gallery "/photos/" . $eventKey . "/teams"}
@@ -163,7 +163,7 @@
         <div class="panel color-auto" id="winners">
             <section class="inner-container">
                 <h1>{switch $lang}
-                    {case "cs"}Fotografie vítězů
+                    {case 'cs'}Fotografie vítězů
                     {default}Photos of the winners
                     {/switch}</h1>
                 {control gallery "/photos/" . $eventKey . "/winners"}
@@ -175,7 +175,7 @@
         <div class="panel color-auto" id="weekend">
             <section class="inner-container">
                 <h1>{switch $lang}
-                    {case "cs"}Doprovodný program Fyziklání
+                    {case 'cs'}Doprovodný program Fyziklání
                     {default}Accompanying program of Fyziklani
                     {/switch}</h1>
                 {control gallery "/photos/" . $eventKey . "/weekend"}

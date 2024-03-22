@@ -1,11 +1,11 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $lang}
 {varType bool $dark}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 
 <div class="panel color-{$dark ? 'dark' : 'light'}">
     <section class="inner-container">
         {control apiResults}
-        {switch $lang}
+        {switch $lang->value}
             {case 'cs'}
             <div class="subheader">Výsledky ze soutěže</div>
             <h1>{if $gamePhaseCalculator->isGame()}Jak si vedou týmy?{else}Jak si vedly týmy?{/if}<span id="countdown-portal"></span></h1>
@@ -20,7 +20,7 @@
         <div
                 id="results-panel"
                 data-url="{link apiResults:results!}"
-                data-lang="{$lang}"
+                data-lang="{$lang->value}"
                 class="results-panel"
                 data-teams="{control apiResults:teamsData}"
                 data-results="{control apiResults:resultsData}"

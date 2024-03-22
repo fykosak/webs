@@ -8,14 +8,14 @@
 
 {block main}
     {var $translations = [
-        "registration" => ["Registrace na soutěž", "Registration to the competition"],
-        "game" => ["Hra", "The game"],
-        "tasks" => ["Úlohy", "Tasks"],
-        "submits" => ["Odevzdávání úloh", "Submits"],
-        "skipping" => ["Přeskakování úloh", "Task skipping"],
-        "scoring" => ["Bodování", "Scoring"],
-        "hurry-up" => ["Hurry up", "Hurry up"],
-        "otherFAQ" => ["Ostatní FAQ", "Other FAQ"]
+        'registration' => ['Registrace na soutěž', 'Registration to the competition'],
+        'game' => ['Hra', 'The game'],
+        'tasks' => ['Úlohy', 'Tasks'],
+        'submits' => ['Odevzdávání úloh', 'Submits'],
+        'skipping' => ['Přeskakování úloh', 'Task skipping'],
+        'scoring' => ['Bodování', 'Scoring'],
+        'hurry-up' => ['Hurry up', 'Hurry up'],
+        'otherFAQ' => ['Ostatní FAQ', 'Other FAQ']
     ]}
     <script>
         const showText = {switch $lang}{case cs}Zobrazit všechny odpovědi{default}Show all answers{/switch};
@@ -24,10 +24,10 @@
     <script n:syntax="off">
         function collapseFAQ(btn) {
             if (btn.innerText === showText) {
-                Array.from(document.getElementsByClassName("collapse-faq")).forEach(elem => elem.classList.add("show"));
+                Array.from(document.getElementsByClassName('collapse-faq')).forEach(elem => elem.classList.add('show'));
                 btn.innerText = hideText;
             } else {
-                Array.from(document.getElementsByClassName("collapse-faq")).forEach(elem => elem.classList.remove("show"));
+                Array.from(document.getElementsByClassName('collapse-faq')).forEach(elem => elem.classList.remove('show'));
                 btn.innerText = showText;
             }
         }

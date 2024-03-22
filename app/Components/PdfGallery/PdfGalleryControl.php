@@ -65,7 +65,6 @@ class PdfGalleryControl extends DIComponent
             [$path, $this->wwwDir],
             fn() => self::getPdfs($path, $this->wwwDir)
         );
-        $this->template->lang = $this->translator->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery.latte');
     }
 }

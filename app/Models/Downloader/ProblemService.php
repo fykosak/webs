@@ -72,7 +72,7 @@ final class ProblemService extends AbstractJSONService
                 $json = $this->downloader->download(new SeriesRequest($contest, $year));
 
                 $series = end($json);
-                return $series["series"];
+                return $series['series'];
             }
         );
     }

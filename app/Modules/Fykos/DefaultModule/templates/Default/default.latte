@@ -638,8 +638,8 @@
     {/if}
 
     // Call the countdownTimer function with the specified date and element id
-    countdownTimer(countDownDatePrimary, "countdown-primary");
-    countdownTimer(countDownDateSecondary, "countdown-secondary");
+    countdownTimer(countDownDatePrimary, 'countdown-primary');
+    countdownTimer(countDownDateSecondary, 'countdown-secondary');
 </script>
 
 
@@ -649,7 +649,7 @@
 
 {* Timeline positioning *}
 <script n:syntax="off">
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener('DOMContentLoaded', function () {
 
         const logoSizePx = 30;
 
@@ -706,11 +706,11 @@
             let logoElem;
 
             if (imageUrl) {
-                logoElem = document.createElement("img");
+                logoElem = document.createElement('img');
                 logoElem.src = imageUrl;
             } else if (classStr === 'today-block') {
                 // Create the outer div
-                logoElem = document.createElement("div");
+                logoElem = document.createElement('div');
 
                 // // Create the inner <i> element
                 // const iconElem = document.createElement("i");
@@ -719,14 +719,14 @@
                 // // Append the <i> element to the div
                 // logoElem.appendChild(iconElem);
             } else {
-                logoElem = document.createElement("div");
+                logoElem = document.createElement('div');
             }
 
             logoElem.classList.add(classStr);
-            logoElem.id = "logo-" + eventBoxId;
+            logoElem.id = 'logo-' + eventBoxId;
 
             // Update position
-            if (timelineId == "#timeline-vertical-container") {
+            if (timelineId == '#timeline-vertical-container') {
                 // Adjust for the fact that now we have the logos as a children of an element
                 // that also in its height contains texts
 
@@ -759,16 +759,16 @@
             let position_today = calculatePositionPercentages([today], timelineId)
 
             positions_events.forEach((position, index) => {
-                if (lang === "en" && hide_event_in_en[index]) {
+                if (lang === 'en' && hide_event_in_en[index]) {
                     return; // Skip hiding the logo
                 }
-                positionLogo(position, "logo-event", `event-${index + 1}`, timelineId, images_events[index]);
+                positionLogo(position, 'logo-event', `event-${index + 1}`, timelineId, images_events[index]);
             });
             positions_series.forEach((position, index) => {
-                positionLogo(position, "logo-series", `series-${index + 1}`, timelineId, images_series[index]);
+                positionLogo(position, 'logo-series', `series-${index + 1}`, timelineId, images_series[index]);
             });
             position_today.forEach((position, index) => {
-                positionLogo(position, "today-block", "today-block", timelineId);
+                positionLogo(position, 'today-block', 'today-block', timelineId);
             });
         };
 
@@ -844,7 +844,7 @@
         updateTimelineIdAndPositionElements();
 
         // Re-execute when window resizes
-        window.addEventListener("resize", updateTimelineIdAndPositionElements);
+        window.addEventListener('resize', updateTimelineIdAndPositionElements);
 
         // Fading in of the sections
         document.querySelectorAll('.fade-in-section').forEach(section => {

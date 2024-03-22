@@ -1,5 +1,5 @@
 {varType string $lang}
-{varType App\Modules\Core\Lang $language}
+{varType App\Modules\Core\Language $language}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 
 
@@ -9,7 +9,7 @@
     <title>
         {ifset title}{include title} | {/ifset}
         {switch $lang}
-            {case "cs"} Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'}
+            {case 'cs'} Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'}
             {default} Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'}
         {/switch}
     </title>

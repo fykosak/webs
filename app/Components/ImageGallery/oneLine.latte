@@ -1,8 +1,9 @@
-<div class="row gallery-one-line" data-data-source='[{foreach $images as $image}&#123;"src":"{$image["src"]}","w":{$image["width"]},"h":{$image["height"]}&#125;{sep},{/sep}{/foreach}]'>
+<div class="row gallery-one-line"
+     data-data-source='[{foreach $images as $image}&#123;"src":"{$image['src']}","w":{$image['width']},"h":{$image['height']}&#125;{sep},{/sep}{/foreach}]'>
     {foreach $previewImages as $image}
         <div class="col-lg-2 col-md-12 mb-2 mb-lg-0">
-            <a href="#" data-index="{$image["index"]}">
-                <img src="{$image["src"]}" alt="" class="w-100 shadow-1-strong rounded mb-4" />
+            <a href="#" data-index="{$image['index']}">
+                <img src="{$image['src']}" alt="" class="w-100 shadow-1-strong rounded mb-4"/>
             </a>
         </div>
     {/foreach}

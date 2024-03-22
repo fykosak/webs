@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Modules\Core;
@@ -6,10 +7,10 @@ namespace App\Modules\Core;
 use Fykosak\Utils\Localization\LangEnum;
 use Nette\Utils\Html;
 
-enum Lang: string implements LangEnum
+enum Language: string implements LangEnum
 {
-    case CS = 'cs';
-    case EN = 'en';
+    case cs = 'cs';
+    case en = 'en';
 
     public function badge(): Html
     {
@@ -19,16 +20,16 @@ enum Lang: string implements LangEnum
     public function label(): string
     {
         return match ($this) {
-            self::CS => _('Czech'),
-            self::EN => _('English'),
+            self::cs => _('Czech'),
+            self::en => _('English'),
         };
     }
 
     public static function getLocales(): array
     {
         return [
-            self::CS->value => 'cs_CZ.utf-8',
-            self::EN->value => 'en_US.utf-8',
+            self::cs->value => 'cs_CZ.utf-8',
+            self::en->value => 'en_US.utf-8',
         ];
     }
 
@@ -40,8 +41,8 @@ enum Lang: string implements LangEnum
     public function getLocale(): string
     {
         return match ($this) {
-            self::CS => 'cs_CZ.utf-8',
-            self::EN => 'en_US.utf-8',
+            self::cs => 'cs_CZ.utf-8',
+            self::en => 'en_US.utf-8',
         };
     }
 }

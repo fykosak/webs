@@ -4,15 +4,15 @@
 
 {block subtitle}
     {switch $lang}
-        {case "cs"}Archivní stránka programu z roku {$event->begin|date: "Y"}
-        {default}Archive page of the program in {$event->begin|date: "Y"}
+        {case 'cs'}Archivní stránka programu z roku {$event->begin|date: 'Y'}
+        {default}Archive page of the program in {$event->begin|date: 'Y'}
     {/switch}
 {/block}
 
 {block title}
     {switch $lang}
-        {case "cs"}Fyziklani International {if $event->eventYear==16}8. – 14. 2. {/if}{$event->begin|date: "Y"}
-        {default}Fyziklani International {if $event->eventYear==16}8. – 14. 2. {/if}{$event->begin|date: "Y"}
+        {case 'cs'}Fyziklani International {if $event->eventYear==16}8. – 14. 2. {/if}{$event->begin|date: 'Y'}
+        {default}Fyziklani International {if $event->eventYear==16}8. – 14. 2. {/if}{$event->begin|date: 'Y'}
     {/switch}
 {/block}
 
@@ -23,7 +23,7 @@
                 {ifset title}<h1>{include title}</h1>{/ifset}
             <div>
                 {switch $lang}
-                    {case "cs"}<p>„Fyziklani International 2021 – Let's Discover European Physics“ byl projekt pod programem Erasmus+, kterého se zúčastnili středoškoláci ze šesti různých evropských zemí. Celkem šedesát účastníků – středoškoláků a jejich vedoucích – přijelo na týden do Prahy, kde se dozvěděli spoustu o kultuře, vědě a vědcích z jednotlivých zemí. Zúčastnili se také exkurzí na různá vědecká pracoviště, navštívili liberecké science centrum iQLANDIA, prošli si hlavní město během Prague City Tour, a v neposlední řadě si samozřejmě zasoutěžili na Fyziklání.</p>
+                    {case 'cs'}<p>„Fyziklani International 2021 – Let's Discover European Physics“ byl projekt pod programem Erasmus+, kterého se zúčastnili středoškoláci ze šesti různých evropských zemí. Celkem šedesát účastníků – středoškoláků a jejich vedoucích – přijelo na týden do Prahy, kde se dozvěděli spoustu o kultuře, vědě a vědcích z jednotlivých zemí. Zúčastnili se také exkurzí na různá vědecká pracoviště, navštívili liberecké science centrum iQLANDIA, prošli si hlavní město během Prague City Tour, a v neposlední řadě si samozřejmě zasoutěžili na Fyziklání.</p>
                     <p>Akce se původně měla konat v roce 2021 (odtud název), nicméně kvůli pandemii byla o rok odložena. Projekt byl financován v rámci programu Erasmus+ (č. projektu 2020-2-CZ01-KA105-078617) a podpořen Matematicko-fyzikální fakultou Univerzity Karlovy.</p>
                     <p>
                     Více podrobností k programu a kompletní harmonogram jsou uvedeny na <a n:href=":Archive:Erasmus: lang: en">anglické verzi stránek</a>. Report od účastníka akce najdete <a n:href=":Archive:Erasmus:report">zde</a>.
@@ -41,11 +41,11 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>{switch $lang}
-                {case "cs"}Fotky z programu
+                {case 'cs'}Fotky z programu
                 {default}Photos
                 {/switch}</h1>
             <div class="mt-5">
-                {control gallery "/photos/" . $eventKey . "/erasmus/"}
+                {control gallery '/photos/' . $eventKey . '/erasmus/'}
             </div>
         </section>
     </div>
@@ -53,23 +53,23 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>{switch $lang}
-                {case "cs"}Prezentace
+                {case 'cs'}Prezentace
                 {default}Presentations
                 {/switch}</h1>
             <div class="row">
                 <div class="col-md-6 left-block">
                     <h2>{switch $lang}
-                        {case "cs"}Prezentace o vybraných vědcích
+                        {case 'cs'}Prezentace o vybraných vědcích
                         {default}Presentations about scientists
                         {/switch}</h2>
-                    {control pdfGallery "/download/" . $eventKey . "/erasmus-scientists/"}
+                    {control pdfGallery '/download/' . $eventKey . '/erasmus-scientists/'}
                 </div>
                 <div class="col-md-6 right-block">
                     <h2>{switch $lang}
-                        {case "cs"}Prezentace o absolvovaných exkurzích
+                        {case 'cs'}Prezentace o absolvovaných exkurzích
                         {default}Presentations about attended excursions
                         {/switch}</h2>
-                    {control pdfGallery "/download/" . $eventKey . "/erasmus-excursions/"}
+                    {control pdfGallery '/download/' . $eventKey . '/erasmus-excursions/'}
                 </div>
             </div>
         </section>
@@ -127,9 +127,6 @@
                         <time class="timeline-element-date">18:00</time>
                     </div>
                 </div>
-
-
-
                 <div class="timeline-element-content" id="wed">
                     <div class="timeline-title">Wednesday 9<sup>th</sup> February</div>
                 </div>
@@ -656,13 +653,13 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>{switch $lang}
-                {case "cs"}Videa účastníků promítaná v rámci Fyziklání
+                {case 'cs'}Videa účastníků promítaná v rámci Fyziklání
                 {default}Videos from Participants shown during Fyziklani
                 {/switch}</h1>
             <div class="row strips">
                 <div class="col-md-6 left-block">
                     <h2>{switch $lang}
-                        {case "cs"}Česko
+                        {case 'cs'}Česko
                         {default}Czech Republic
                         {/switch}</h2>
                     <div class="ratio ratio-16x9">
@@ -677,7 +674,7 @@
                 </div>
                 <div class="col-md-6 left-block">
                     <h2>{switch $lang}
-                        {case "cs"}Finsko
+                        {case 'cs'}Finsko
                         {default}Finland
                         {/switch}</h2>
                     <div class="ratio ratio-16x9">
@@ -694,7 +691,7 @@
             <div class="row strips">
                 <div class="col-md-6 right-block">
                     <h2>{switch $lang}
-                        {case "cs"}Polsko
+                        {case 'cs'}Polsko
                         {default}Poland
                         {/switch}</h2>
                     <div class="ratio ratio-16x9">
@@ -709,7 +706,7 @@
                 </div>
                 <div class="col-md-6 right-block">
                     <h2>{switch $lang}
-                        {case "cs"}Rumunsko
+                        {case 'cs'}Rumunsko
                         {default}Romania
                         {/switch}</h2>
                     <div class="ratio ratio-16x9">
@@ -726,7 +723,7 @@
             <div class="row strips">
                 <div class="col-md-6 right-block">
                     <h2>{switch $lang}
-                        {case "cs"}Slovensko
+                        {case 'cs'}Slovensko
                         {default}Slovakia
                         {/switch}</h2>
                     <div class="ratio ratio-16x9">
@@ -741,7 +738,7 @@
                 </div>
                 <div class="col-md-6 right-block">
                     <h2>{switch $lang}
-                        {case "cs"}Španělsko
+                        {case 'cs'}Španělsko
                         {default}Spain
                         {/switch}</h2>
                     <div class="ratio ratio-16x9">

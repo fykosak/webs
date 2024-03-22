@@ -1,13 +1,13 @@
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
-{varType string $lang}
+{varType App\Modules\Core\Language $lang}
 
 {block content}
 
 {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
     <div class="upper-home-countdown countdown-panel subheader justify-content-center">
         <div class="info-text">
-            {switch $lang}
-                {case "cs"} Registraci otevíráme {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'}
+            {switch $lang->value}
+                {case 'cs'} Registraci otevíráme {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'}
                 {default} Registration opens on {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'}.
             {/switch}
         </div>
@@ -125,7 +125,7 @@
 <div class="upper-home-registration-deadline">
     {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
         <div style="margin-top: 1rem; text-align: center;">
-            {switch $lang}
+            {switch $lang->value}
                 {case cs}
                     <a class="btn btn-primary" href="/2024/vysledky/">Výsledky soutěže</a>
                     <a class="btn btn-primary" href="/download/2024/reseni.pdf">Úlohy a řešení</a>
@@ -135,12 +135,12 @@
             {/switch}
         </div>
     {elseif $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::AFTER)}
-        {switch $lang}
+        {switch $lang->value}
             {case cs} Registrace je již uzavřena. Soutěžíme <strong>{$gamePhaseCalculator->getGameBegin() |date:'j. n. G:i'}</strong>.
             {default} Registration is already closed. The competition starts <strong>{$gamePhaseCalculator->getGameBegin() |date:'F j, G:i'} CET</strong>.
         {/switch}
     {elseif !$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
-        {switch $lang}
+        {switch $lang->value}
             {case cs}
                 Registrace je otevřena do
                 <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd->sub(new DateInterval('PT1M')) |date:'j. n. Y, H:i'}</strong>.

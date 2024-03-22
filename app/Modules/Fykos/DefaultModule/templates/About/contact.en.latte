@@ -74,8 +74,8 @@
 
             <div class="col-md-6">
                 <h3>Phone</h3>
-                <p><strong>We strongly prefer email communication. Use the phone only in urgent and 
-                important cases. And only between 10 a.m. and 6 p.m. (i.e. 18:00) CET. Note now is 
+                <p><strong>We strongly prefer email communication. Use the phone only in urgent and
+                important cases. And only between 10 a.m. and 6 p.m. (i.e. 18:00) CET. Note now is
                 <span id="time"></span>.</strong></p>
 
                 <table class="table table-striped">
@@ -125,12 +125,11 @@
 
 <script>
     function updateTime() {
-        var time = new Date();
-        var hour = time.getUTCHours() + 1; // Add 1 hour to convert to CET
-        var minute = time.getUTCMinutes();
-        var second = time.getUTCSeconds();
-        var timeString = hour + ":" + minute + ":" + second + " CET";
-        document.getElementById("time").innerHTML = timeString;
+        const time = new Date();
+        const hour = time.getUTCHours() + 1; // Add 1 hour to convert to CET
+        const minute = time.getUTCMinutes();
+        const second = time.getUTCSeconds();
+        document.getElementById('time').innerHTML = hour + ':' + minute + ':' + second + ' CET';
     }
 
     setInterval(updateTime, 1000);

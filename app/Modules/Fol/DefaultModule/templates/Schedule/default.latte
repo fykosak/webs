@@ -2,14 +2,14 @@
 
 {block title}
     {switch $lang}
-        {case "cs"}Harmonogram soutěže
+        {case 'cs'}Harmonogram soutěže
         {default}Game schedule
     {/switch}
 {/block}
 
 {block content}
     {switch $lang}
-        {case "cs"}
+        {case 'cs'}
         <p>Podrobnější harmonogram společně s doprovodným programem bude upřesněn později.</p>
 
         {default}
@@ -17,5 +17,5 @@
 <p>As a time zone is used CET (Central Europian Time).</p>
     {/switch}
 
-    {include "../schedule.latte"}
+    {include '../schedule.latte'}
 {/block}

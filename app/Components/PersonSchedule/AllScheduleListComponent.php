@@ -55,7 +55,6 @@ final class AllScheduleListComponent extends DIComponent
     {
         $data = $this->downloader->download(new ScheduleRequest($this->eventId, $groupType ? [$groupType] : []));
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'layout.latte', [
-            'lang' => $this->translator->lang,
             'personGroups' => $this->getGroupedPersonSchedule(),
             'scheduleGroups' => $data,
         ]);

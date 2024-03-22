@@ -19,7 +19,7 @@ abstract class BasePresenter extends Presenter
 {
     /** @persistent */
     public ?string $lang = null; // = 'cs';
-    public Lang $language;
+    public Language $language;
 
     public GettextTranslator $translator;
 
@@ -80,7 +80,7 @@ abstract class BasePresenter extends Presenter
         if (!isset($this->lang) || !$this->lang) {
             $this->lang = 'en'; // todo guess language by domain
         }
-        $this->language = Lang::from($this->lang);
+        $this->language = Language::from($this->lang);
 
         $this->translator->setLang($this->language);
     }
@@ -102,7 +102,7 @@ abstract class BasePresenter extends Presenter
      */
     protected function csen(string $cs, string $en): string
     {
-        if ($this->translator->lang === Lang::CS) {
+        if ($this->translator->lang === Language::cs) {
             return $cs;
         } else {
             return $en;

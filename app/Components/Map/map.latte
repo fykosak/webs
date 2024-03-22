@@ -2,7 +2,7 @@
 {varType int $uniqueId}
 {varType bool $inverseColors}
 {varType string[] $teamCountries}
-{varType string $lang}
+{varType App\Modules\Core\Language $lang}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 
 {block content}
@@ -25,7 +25,7 @@
         <div class="team-counts">
             <strong>{$teamCount}</strong>
             {if $gamePhaseCalculator->isLongAfterTheEvent($gamePhaseCalculator::AFTER)}
-                {switch $lang}
+                {switch $lang->value}
                     {case cs}
                     {if $teamCount === 1}
                         zúčastněný tým z
@@ -44,7 +44,7 @@
                     {/if}
                 {/switch}
             {else}
-                {switch $lang}
+                {switch $lang->value}
                     {case cs}
                     {if $teamCount === 1}
                         přihlášený tým z
@@ -64,7 +64,7 @@
                 {/switch}
             {/if}
             <strong>{count($teamCountries)}</strong>
-            {switch $lang}
+            {switch $lang->value}
                 {case cs}
                 {if $teamCount === 1}
                     země světa

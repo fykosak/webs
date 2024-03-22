@@ -47,7 +47,7 @@ class ProblemModel
 
     public function getLabel(): string
     {
-        if ($this->contest === "fykos") {
+        if ($this->contest === 'fykos') {
             switch ($this->number) {
                 case 6:
                     return 'P';
@@ -56,7 +56,7 @@ class ProblemModel
                 case 8:
                     return 'S';
             }
-        } elseif ($this->contest === "vyfuk") {
+        } elseif ($this->contest === 'vyfuk') {
             switch ($this->number) {
                 case 6:
                     return 'E';
