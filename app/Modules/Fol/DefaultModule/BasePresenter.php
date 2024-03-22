@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\DefaultModule;
 
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\UI\Template;
@@ -62,14 +63,14 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
         );
 
 
-        if (TeamsPresenter::isVisible($this->gamePhaseCalculator)) {
+        if (TeamsPresenter::isVisible($this->getNewestEvent())) {
             $items[] = new NavItem(
                 new PageTitle($this->csen('Týmy', 'Teams'), 'visible-sm-inline glyphicon glyphicon-edit'),
                 ':Default:Teams:',
             );
         }
 
-        if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
+        if (RegistrationPresenter::isVisible($this->getNewestEvent())) {
             $items[] = new NavItem(
                 new PageTitle(
                     $this->csen('Registrace', 'Registration'),
@@ -85,8 +86,8 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
     protected function createTemplate(): Template
     {
         $template = parent::createTemplate();
-        $template->event = $this->gamePhaseCalculator->getFKSDBEvent();
-        $template->eventKey = parent::createEventKey($this->gamePhaseCalculator->getFKSDBEvent());
+        $template->event = $this->getNewestEvent();
+        $template->eventKey = parent::createEventKey($this->getNewestEvent());
         return $template;
     }
 }

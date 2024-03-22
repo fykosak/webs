@@ -1,11 +1,11 @@
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $event}
 {varType App\Modules\Core\Language $lang}
 {block content}
     <div class="upper-home-countdown countdown-panel subheader justify-content-center">
         <div class="info-text">
             {switch $lang->value}
-                {case 'cs'} Registraci otevíráme {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'}
-                {default} Registration opens on {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'}.
+                {case 'cs'} Registraci otevíráme {$event->registrationBegin|date:'j. n.'}
+                {default} Registration opens on {$event->registrationBegin|date:'F j'}.
             {/switch}
         </div>
         {control countdown}

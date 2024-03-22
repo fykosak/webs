@@ -1,8 +1,7 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 {varType App\Models\NetteDownloader\ORM\Models\ModelEvent $fofEvent}
-
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
 <!DOCTYPE html>
 <html lang="{$language->value}">
 <head>
@@ -62,7 +61,7 @@
         </div>
     </div>
 {/if}
-{if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER) && !$gamePhaseCalculator->isLongAfterTheEvent()}
+{if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after) && !$newestEvent->isLongAfterTheEvent()}
     <div class="fyziklani-banner">
         <div class="inner-container">
             <div class="text">
@@ -102,10 +101,10 @@
                         {default}Are you interested?
                     {/switch}
                 </div>
-                {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
                     <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Registrace{default}Registration{/switch}</a>
                 {else}
-                    {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
+                    {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
                         {switch $language->value}
                             {case 'cs'}Registrace se otevře v září!
                             {default} Registration will open in September!
@@ -207,7 +206,7 @@
                                         <li><a n:href=":Default:Rules:">Pravidla</a></li>
                                         <li><a n:href=":Default:Faq:">FAQ</a></li>
                                         <li><a n:href=":Default:Schedule:">Program</a></li>
-                                        {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                                        {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
                                             <li><a n:href=":Default:Registration:">Registrace</a></li>
                                         {/if}
                                     </ul>
@@ -219,7 +218,7 @@
                                         <li><a n:href=":Default:Rules:">Rules</a></li>
                                         <li><a n:href=":Default:Faq:">FAQ</a></li>
                                         <li><a n:href=":Default:Schedule:">Schedule</a></li>
-                                        {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                                        {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
                                             <li><a n:href=":Default:Registration:">Registration</a></li>
                                         {/if}
                                     </ul>

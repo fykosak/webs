@@ -1,6 +1,6 @@
 {varType string $lang}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
 {varType App\Modules\Core\Language $language}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 
 {block title}
     {switch $language->value}
@@ -61,7 +61,7 @@ Thank you</textarea>
     {/switch}
 
     <div class="d-grid gap-2">
-        <a href="https://db.fykos.cz/event{$gamePhaseCalculator->getFKSDBEvent()->eventId}/TeamApplication/create?lang={$lang}" type="button"
+        <a href="https://db.fykos.cz/event{$newestEvent->eventId}/TeamApplication/create?lang={$lang}" type="button"
            class="btn btn-primary btn-lg btn-block" style="border-radius: 0">{switch $language->value}{case cs}Registrovat tým{default}Register team{/switch}</a>
     </div>
 {/block}

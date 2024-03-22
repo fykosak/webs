@@ -1,5 +1,5 @@
 {varType App\Modules\Core\Language $language}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
 {block title}
     {switch $language->value}
         {case 'cs'} Hlavní stránka
@@ -11,10 +11,10 @@
     <div class="panel color-primary title-panel">
         <div class="inner-container row align-items-center">
             <div class="col-md-6 left-block">
-                <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
+                <time class="competition-date" datetime="{$newestEvent->begin |date:'Y-m-d'}">
                     {switch $language->value}
-                        {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} Praha, Česká republika
-                        {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j, Y'} Prague, Czech Republic
+                        {case 'cs'} {$newestEvent->begin |date:'j. n. Y'} Praha, Česká republika
+                        {default} {$newestEvent->begin |date:'F j, Y'} Prague, Czech Republic
                     {/switch}
                 </time>
                 <h1>
@@ -38,11 +38,11 @@
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>
                     <a target="_blank" href="{$basePath}/download/2024/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>
                     <a n:href="Merch:" class="btn btn-light">Merch</a>
-                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-primary">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
+                    <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)" n:href="Registration:" class="btn btn-primary">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
             </div>
             <div class="col-md-6 right-block topic-panel">
-                {*{if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
+                {*{if $gamePhaseCalculator->getFKSDBEvent()->getRegistrationPeriod()->is(App\Models\GamePhaseCalculator::BEFORE)}
                     {control upperHomeBeforeRegistration}
                 {elseif true}*}
                     {control prague}
@@ -73,8 +73,8 @@
         {*</div>*}
     {*</div>*}
 
-    {if $gamePhaseCalculator->isResultsVisible()}
-        {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}
+    {if $newestEvent->getGamePeriod()->is(Phase::onGoing)}
+        {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
     {/if}
 
     <div class="panel color-auto">
@@ -96,7 +96,7 @@
                 <a n:href="Rules:" class="btn btn-panel-action">Jak to funguje</a>
             {default}
                 <div class="subheader">Rules Briefly</div>
-                <h1>What Is Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y'}?</h1>
+                <h1>What Is Fyziklani {$newestEvent->begin |date:'Y'}?</h1>
                 <div class="row strips">
                     <div class="col-md-4">
                         Up to five high school students compete in Prague in a three-hour-long contest in solving physics
@@ -377,9 +377,9 @@
         {
             "@context": "https://schema.org",
             "@type": "Event",
-            "name": {{= "Fyziklani " . $gamePhaseCalculator->getFKSDBEvent()->begin->format('Y')}},
-            "startDate": {{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'c'}},
-            "endDate": {{$gamePhaseCalculator->getFKSDBEvent()->end |date:'c'}},
+            "name": {{= "Fyziklani " . $newestEvent->begin->format('Y')}},
+            "startDate": {{$newestEvent->begin |date:'c'}},
+            "endDate": {{$newestEvent->end |date:'c'}},
             "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
             "isAccessibleForFree": "true",
             "eventStatus": "https://schema.org/EventScheduled",

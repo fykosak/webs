@@ -1,5 +1,5 @@
 {varType App\Modules\Core\Language $language}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
 {block title}
     {switch $language->value}
         {case 'cs'} Hlavní stránka
@@ -12,18 +12,18 @@
     <div class="panel color-primary title-panel">
         <div class="inner-container row align-items-center">
             <div class="col-md-6 left-block">
-                {if !$gamePhaseCalculator->isLongAfterTheEvent()}
-                    <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
+                {if !$newestEvent->isLongAfterTheEvent()}
+                    <time class="competition-date" datetime="{$newestEvent->begin |date:'Y-m-d'}">
                         {switch $language->value}
-                            {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} 17:00 - 20:00
-                            {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j, Y'}, 5:00 - 8:00 p.m. CET
+                            {case 'cs'} {$newestEvent->begin |date:'j. n. Y'} 17:00 - 20:00
+                            {default} {$newestEvent->begin |date:'F j, Y'}, 5:00 - 8:00 p.m. CET
                         {/switch}
                     </time>
                 {else}
                     <time class="competition-date">
                         {switch $language->value}
-                            {case 'cs'} Listopad {(new \DateTime())->setTimestamp($gamePhaseCalculator->getFKSDBEvent()->begin->getTimestamp())->add(new \DateInterval("P1Y")) |date:'Y'}
-                            {default} November {(new \DateTime())->setTimestamp($gamePhaseCalculator->getFKSDBEvent()->begin->getTimestamp())->add(new \DateInterval("P1Y")) |date:'Y'}
+                            {case 'cs'} Listopad {$newestEvent->begin->add(new \DateInterval('P1Y') |date:'Y'}
+                            {default} November {$newestEvent->begin->add(new \DateInterval('P1Y') |date:'Y'}
                         {/switch}
                     </time>
                 {/if}
@@ -37,35 +37,35 @@
                     {switch $language->value}
                         {case 'cs'}<p>
                             Přihlašte se společně až s pětičlenným týmem.
-                            {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
-                                <br> Registrace končí {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. \v G:i'}.
+                            {if $newestEvent->getRegistrationPeriod()->isOnGoing()}
+                                <br> Registrace končí {$newestEvent->registrationEnd |date:'j. n. \v G:i'}.
                             {/if}
                         </p>
                         {default}<p>
                             Sign up with a team of up to five.
-                            {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
-                                <br> Registration is open until {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET.
+                        {if $newestEvent->getRegistrationPeriod()->isOnGoing()}
+                                <br> Registration is open until {$newestEvent->registrationEnd |date:'F j, G:i'} CET.
                             {/if}
                         </p>
                     {/switch}
                 </div>
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>
-                    {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+                    {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
                     <a href="{$basePath}/download/{$eventKey}/{switch $language->value}{case 'cs'}reseni{default}solutions{/switch}.pdf" class="btn btn-secondary">{switch $language->value}{case 'cs'}Řešení úloh{default}Solutions{/switch}</a>
                     {/if}
                     {* todo: phase - results are final and in FKSDB *}
-                    {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+                    {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
                         <a n:href=":Archive:Results: eventYear:$eventKey" class="btn btn-secondary">{switch $language->value}{case 'cs'}Pořadí týmů{default}Results list{/switch}</a>
                     {/if}
-                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
-                    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+                    <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)" n:href="Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
+                    {if $newestEvent->getNearEventPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing) && !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
                         <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $language->value}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>
                     {/if}
                 </div>
             </div>
             <div class="col-md-6 right-block topic-panel">
-                {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
                     {control upperHomeBeforeRegistration}
                 {elseif true}
                     {control upperHomeMap}
@@ -85,11 +85,11 @@
 {*        </div>*}
 {*    </div>*}
 
-     {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheEvent()}
-        {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}
+     {if !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::before)  && !$newestEvent->isLongAfterTheEvent()}
+        {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
      {/if}
 
-    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+    {if $newestEvent->getNearEventPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing) && !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
     <div class="panel color-dark" id="{$anchorBeforeCompetition}">
         <section class="inner-container">
             {switch $language->value}
@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 begin-countdown">
-                        {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)}
+                        {if $newestEvent->is(Fykosak\Utils\DateTime\Phase::before)}
                             Začínáme za
                             {control countdown}
                         {else}
@@ -144,7 +144,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 begin-countdown">
-                        {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)}
+                        {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
                             Competition starts in
                             {control countdown}
                         {else}
@@ -369,10 +369,10 @@
             {switch $language->value}
             {case cs}
                 <div class="subheader">Harmonogram soutěže</div>
-                <h1>Soutěžíme ve středu {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}</h1>
+                <h1>Soutěžíme ve středu {$newestEvent->begin |date:'j. n. Y'}</h1>
             {default}
                 <div class="subheader">Competition schedule</div>
-                <h1>The contest takes place on Wednesday {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}</h1>
+                <h1>The contest takes place on Wednesday {$newestEvent->begin|date:'F j, Y'}</h1>
             {/switch}
 
             {include "../schedule.latte"}
@@ -396,16 +396,16 @@
                     <li>Soutěž je zdarma pro kohokoli!</li>
                     <li>
                         Registrace je otevřena od
-                        {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'} do
-                        <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
+                        {$newestEvent->registrationBegin |date:'j. n.'} do
+                        <strong>{$newestEvent->registrationEnd |date:'j. n. G:i'}</strong>.
                     </li>
                     <li>Kromě komunikace s dalšími týmy jsou povoleny jakékoli pomůcky.</li>
                 {default}
                     <li>Participation is free for anyone!</li>
                     <li>
                         Registration is open from
-                        {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'} until
-                        <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
+                        {$newestEvent->registrationBegin |date:'F j'} until
+                        <strong>{$newestEvent->registrationEnd |date:'F j, G:i'} CET</strong>.
                     </li>
                     <li>Except for communicating with other teams, you can use any tools to solve the problems.</li>
                 {/switch}

@@ -1,6 +1,6 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
 
 <!DOCTYPE html>
 <html lang="cs">
@@ -38,7 +38,7 @@
 <body>
 
 {block body}
-    {control navigation "/images/logos/dsef2023_logo_white.png", "DSEF " . $gamePhaseCalculator->getFKSDBEvent()->begin->format('Y'), false}
+    {control navigation '/images/logos/dsef2023_logo_white.png', 'DSEF ' . $newestEvent->begin->format('Y'), false}
     <main>
         {block main}
             <div class="panel color-light">
@@ -59,10 +59,10 @@
                         {default}Are you interested?
                     {/switch}
                 </div>
-                {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
                     <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Zaregistrovat se{default}Registration{/switch}</a>
                 {else}
-                    {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
+                    {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
                         {switch $language->value}
                             {case 'cs'}Registrace se otevře v říjnu!
                             {default} Registration will open in October!
@@ -164,7 +164,7 @@
                                         <li><a n:href=":Default:AboutTheCompetition:">O soutěži</a></li>
                                         <li><a n:href=":Default:Rules:">Pravidla</a></li>
                                         <li><a n:href=":Default:Schedule:">Program</a></li>
-                                        {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                                        {if $gamePhaseCalculator->getFKSDBEvent()->getRegistrationPeriod()->is(App\Models\GamePhaseCalculator::NOW)}
                                             <li><a n:href=":Default:Registration:">Registrace</a></li>
                                         {/if}
                                         <li><a n:href=":Default:Erasmus: lang: en">Program Erasmus+</a></li>
@@ -176,7 +176,7 @@
                                         <li><a n:href=":Default:AboutTheCompetition:">About</a></li>
                                         <li><a n:href=":Default:Rules:">Rules</a></li>
                                         <li><a n:href=":Default:Schedule:">Schedule</a></li>
-                                        {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                                        {if $gamePhaseCalculator->getFKSDBEvent()->getRegistrationPeriod()->is(App\Models\GamePhaseCalculator::NOW)}
                                             <li><a n:href=":Default:Registration:">Registration</a></li>
                                         {/if}
                                         <li><a n:href=":Default:Erasmus: lang: en">Fyziklani International 2022</a></li>

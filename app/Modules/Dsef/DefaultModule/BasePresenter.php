@@ -9,6 +9,7 @@ use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
 {
+
     /**
      * @return NavItem[]
      * @throws \Throwable
@@ -16,14 +17,14 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     protected function getNavItems(): array
     {
         $items = [];
-        if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
+        if (RegistrationPresenter::isVisible($this->getNewestEvent())) {
             $items[] = new NavItem(
                 new PageTitle('Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 'Registration:',
             );
         }
 
-        if (CurrentPresenter::isVisible($this->gamePhaseCalculator)) {
+        if (CurrentPresenter::isVisible($this->getNewestEvent())) {
             $items[] = new NavItem(
                 new PageTitle('Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 'Current:',

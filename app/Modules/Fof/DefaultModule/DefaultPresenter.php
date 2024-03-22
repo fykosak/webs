@@ -17,11 +17,11 @@ class DefaultPresenter extends BasePresenter
 
     protected function createComponentUpperHomeBeforeRegistration(): UpperHomeBeforeRegistrationComponent
     {
-        return new UpperHomeBeforeRegistrationComponent($this->getContext());
+        return new UpperHomeBeforeRegistrationComponent($this->getContext(), $this->getNewestEvent());
     }
 
     protected function createComponentResultsPanel(): ResultsPanelComponent
     {
-        return new ResultsPanelComponent($this->getContext());
+        return new ResultsPanelComponent($this->getContext(), $this->getNewestEvent());
     }
 }

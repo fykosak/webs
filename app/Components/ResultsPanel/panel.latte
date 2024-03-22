@@ -1,6 +1,6 @@
 {varType App\Modules\Core\Language $lang}
 {varType bool $dark}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $event}
 
 <div class="panel color-{$dark ? 'dark' : 'light'}">
     <section class="inner-container">
@@ -8,12 +8,12 @@
         {switch $lang->value}
             {case 'cs'}
             <div class="subheader">Výsledky ze soutěže</div>
-            <h1>{if $gamePhaseCalculator->isGame()}Jak si vedou týmy?{else}Jak si vedly týmy?{/if}<span id="countdown-portal"></span></h1>
+            <h1>{if $event->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}Jak si vedou týmy?{else}Jak si vedly týmy?{/if}<span id="countdown-portal"></span></h1>
 
             {*<div style="color:black;background:#ffd700;max-width: 50rem; margin: 1rem auto; padding: 1rem;">Omluvte prosím zdržení s certifikáty, kvůli podvádějícím týmům se ještě bude měnit pořadí a proto se jejich rozesílání pozdrželo.</div>*}
         {default}
             <div class="subheader">Competition results</div>
-            <h1>{if $gamePhaseCalculator->isGame()}How are the teams doing?{else}How were the teams doing?{/if}<span id="countdown-portal"></span></h1>
+            <h1>{if $event->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}How are the teams doing?{else}How were the teams doing?{/if}<span id="countdown-portal"></span></h1>
 
             {*<div style="color:black;background:#ffd700;max-width: 50rem; margin: 1rem auto; padding: 1rem;">We apologize for duration with sending certificates for participation. Due to teams, which cheated, the ranking will change slightly. Because of this, all is a little bit late.</div>*}
         {/switch}

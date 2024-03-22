@@ -3,7 +3,7 @@
 {varType bool $inverseColors}
 {varType string[] $teamCountries}
 {varType App\Modules\Core\Language $lang}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $event}
 
 {block content}
     <div class="map-panel">
@@ -24,7 +24,7 @@
         </div>
         <div class="team-counts">
             <strong>{$teamCount}</strong>
-            {if $gamePhaseCalculator->isLongAfterTheEvent($gamePhaseCalculator::AFTER)}
+            {if $event->isLongAfterTheEvent(Fykosak\Utils\DateTime\Phase::after)}
                 {switch $lang->value}
                     {case cs}
                     {if $teamCount === 1}

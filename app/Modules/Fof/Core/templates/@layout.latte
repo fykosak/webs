@@ -1,7 +1,6 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
-
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
 
 <!DOCTYPE html>
 <html lang="{$language->value}">
@@ -9,8 +8,8 @@
     <title>
         {ifset title}{include title} | {/ifset}
         {switch $language->value}
-            {case 'cs'} Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'}
-            {default} Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'}
+            {case 'cs'} Fyziklání {$newestEvent->begin|date:'Y'}
+            {default} Fyziklani {$newestEvent->begin|date:'Y'}
         {/switch}
     </title>
     <meta charset="utf-8"/>
@@ -43,7 +42,7 @@
 <body>
 
 {block body}
-    {control navigation "/images/logo.svg", "Fyziklani " . $gamePhaseCalculator->getFKSDBEvent()->begin->format('Y')}
+    {control navigation '/images/logo.svg', 'Fyziklani ' . $newestEvent->begin->format('Y')}
     <main>
         {block main}
             <div class="panel color-light">
@@ -64,16 +63,16 @@
                         {default}Are you interested?
                     {/switch}
                 </div>
-                {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
                     <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Registrace{default}Registration{/switch}</a>
                 {else}
-                    {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
+                    {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
                         {switch $language->value}
                             {case 'cs'}Registrace se otevře v listopadu!
                             {default} Registration will open in November!
                         {/switch}
                     {else}
-                        {if $gamePhaseCalculator->isLongAfterTheEvent()}
+                        {if $newestEvent->isLongAfterTheEvent()}
                             {switch $language->value}
                                 {case 'cs'}Registrace na další ročník ještě není otevřena.
                                 {default} Registration for the next year is not open yet.
@@ -212,7 +211,7 @@
                     {switch $language->value}
                         {case 'cs'}
                         <p>
-                            Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 37. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
+                            Fyziklání {$newestEvent->begin|date:'Y'} je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 37. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
                             <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                         </p>
                         <p>
@@ -220,7 +219,7 @@
                         </p>
                         {default}
                         <p>
-                            Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a group of university students organizing already 37th year of educational events with focus on physics. FYKOS is made up mostly of students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
+                            Fyziklani {$newestEvent->begin|date:'Y'} is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a group of university students organizing already 37th year of educational events with focus on physics. FYKOS is made up mostly of students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
                         </p>
                         <p>
                             The realization of the competition was supported by the Ministry of Education, Youth and Sports of the Czech Republic.
@@ -230,7 +229,7 @@
                         <strong>#fykos</strong>
                         {switch $language->value}
                             {case 'cs'}<strong>#fyziklani</strong>
-                            {default}<strong>#fyziklani{$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'}</strong>
+                            {default}<strong>#fyziklani{$newestEvent->begin|date:'Y'}</strong>
                         {/switch}
                         <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>
                     </p>
@@ -250,7 +249,7 @@
                                         <li><a n:href=":Default:AboutTheCompetition:">O soutěži</a></li>
                                         <li><a n:href=":Default:Rules:">Pravidla</a></li>
 {*                                        <li><a n:href=":Default:Schedule:">Program</a></li>*}
-                                        {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                                        {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
                                             <li><a n:href=":Default:Registration:">Registrace</a></li>
                                         {/if}
 {*                                        <li><a n:href=":Default:Erasmus: lang: en">Program Erasmus+</a></li>*}
@@ -263,7 +262,7 @@
                                         <li><a n:href=":Default:AboutTheCompetition:">About</a></li>
                                         <li><a n:href=":Default:Rules:">Rules</a></li>
 {*                                        <li><a n:href=":Default:Schedule:">Schedule</a></li>*}
-                                        {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                                        {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
                                             <li><a n:href=":Default:Registration:">Registration</a></li>
                                         {/if}
 {*                                        <li><a n:href=":Default:Erasmus: lang: en">Fyziklani International 2022</a></li>*}

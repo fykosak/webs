@@ -1,5 +1,5 @@
 {varType App\Modules\Core\Language $language}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
 {block main}
     <div class="panel color-light">
         <section class="inner-container">
@@ -12,8 +12,8 @@
                     <li>Každý tým začíná se sedmi úlohami, za každou správně vyřešenou úlohu dostává novou, obtížnější úlohu.</li>
                     <li>Soutěž probíhá jak v českém, tak v anglickém jazyce.</li>
                     <li>Účast je zcela zdarma.</li>
-                    <li>Soutěž se koná {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} 17:00 - 20:00.</li>
-                    <li>Registrace je otevřena od {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'} do {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. H:i'}.</li>
+                    <li>Soutěž se koná {$newestEvent->begin |date:'j. n. Y'} 17:00 - 20:00.</li>
+                    <li>Registrace je otevřena od {$$newestEvent->registrationBegin |date:'j. n.'} do {$newestEvent->registrationEnd |date:'j. n. H:i'}.</li>
 
                 </ul>
                 {default}
@@ -24,8 +24,8 @@
                     <li>Every team starts with the same seven problems, for each problem solved they get a new, more challenging one.</li>
                     <li>It is possible to compete in Czech and English language.</li>
                     <li>The participation is free of charge.</li>
-                    <li>The competition take place on {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'l, F j, Y'}, 5:00 - 8:00 p.m. CET.</li>
-                    <li>Registration is open from {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'} until {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, h:i a'} CET.</li>
+                    <li>The competition take place on {$newestEvent->begin |date:'l, F j, Y'}, 5:00 - 8:00 p.m. CET.</li>
+                    <li>Registration is open from {$newestEvent->registrationBegin |date:'F j'} until {$newestEvent->registrationEnd |date:'F j, h:i a'} CET.</li>
                 </ul>
             {/switch}
         </section>

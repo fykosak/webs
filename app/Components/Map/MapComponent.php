@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Components\Map;
 
-use App\Models\GamePhaseCalculator;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use App\Models\NetteDownloader\ORM\Models\ModelTeam;
 use App\Models\NetteDownloader\ORM\Services\DummyService;
@@ -17,19 +16,14 @@ class MapComponent extends DIComponent
     private static int $uniqueId = 0;
 
     private DummyService $dummyService;
-    protected int $forEventId;
 
     protected int $teamCount;
     /** @var string[] */
     protected array $teamCountries;
 
-    protected GamePhaseCalculator $gamePhaseCalculator;
-
-    public function __construct(Container $container, GamePhaseCalculator $calculator, ModelEvent $event)
+    public function __construct(Container $container, private readonly ModelEvent $event)
     {
         parent::__construct($container);
-        $this->forEventId = $event->eventId;
-        $this->gamePhaseCalculator = $calculator;
     }
 
     public function injectServiceTeam(DummyService $dummyService): void
@@ -44,7 +38,7 @@ class MapComponent extends DIComponent
     {
         $this->teamCount = 0;
         $this->teamCountries = [];
-        foreach ($this->dummyService->get(new TeamsRequest($this->forEventId), ModelTeam::class) as $team) {
+        foreach ($this->dummyService->get(new TeamsRequest($this->event->eventId), ModelTeam::class) as $team) {
             if (!in_array($team->state, ['participated', 'disqualified', 'applied', 'pending', 'approved'])) {
                 continue;
             }
@@ -77,7 +71,7 @@ class MapComponent extends DIComponent
         $this->template->inverseColors = $inverseColors;
 
         $this->template->lang = $this->translator->lang;
-        $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
+        $this->template->event = $this->event;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'map.latte');
     }
 }

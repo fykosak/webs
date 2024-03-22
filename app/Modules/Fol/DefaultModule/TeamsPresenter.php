@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace App\Modules\Fol\DefaultModule;
 
 use App\Components\TeamList\TeamListComponent;
-use App\Models\GamePhaseCalculator;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use Fykosak\Utils\DateTime\Phase;
 use Nette\Application\BadRequestException;
 
 class TeamsPresenter extends BasePresenter
@@ -13,10 +14,10 @@ class TeamsPresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    public static function isVisible(GamePhaseCalculator $gamePhaseCalculator): bool
+    public static function isVisible(ModelEvent $event): bool
     {
-        return !$gamePhaseCalculator->isRegistration(GamePhaseCalculator::BEFORE)
-            && !$gamePhaseCalculator->isNearTheCompetition(GamePhaseCalculator::AFTER);
+        return !$event->getRegistrationPeriod()->is(Phase::before)
+            && !$event->getNearEventPeriod()->is(Phase::after);
     }
 
     /**
@@ -25,7 +26,7 @@ class TeamsPresenter extends BasePresenter
      */
     public function actionDefault(): void
     {
-        if (!self::isVisible($this->gamePhaseCalculator)) {
+        if (!self::isVisible($this->getNewestEvent())) {
             $this->error();
         }
     }
@@ -35,6 +36,6 @@ class TeamsPresenter extends BasePresenter
      */
     protected function createComponentTeamList(): TeamListComponent
     {
-        return new TeamListComponent($this->getContext(), $this->gamePhaseCalculator->getFKSDBEvent()->eventId);
+        return new TeamListComponent($this->getContext(), $this->getNewestEvent()->eventId);
     }
 }

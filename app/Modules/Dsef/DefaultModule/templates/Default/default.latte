@@ -1,4 +1,4 @@
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
 
 {block title}Hlavní stránka{/block}
 
@@ -13,13 +13,13 @@
                 <div class="subheader">
                     <p>Den plný přednášek a exkurzí po fyzikálních laboratořích (nejen) MFF UK.</p>
                 </div>
-                {if $gamePhaseCalculator->isRegistration($gamePhaseCalculator::BEFORE)}<time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
-                    {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}<time class="competition-date" datetime="{$newestEvent->begin |date:'Y-m-d'}">
+                    {$newestEvent->begin |date:'j. n. Y'}
                 </time>{/if}
 {*                <div class="buttons">*}
 {*                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>*}
-{*                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>*}
-{*                    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}*}
+{*                    <a n:if="$gamePhaseCalculator->getFKSDBEvent()->getRegistrationPeriod()->is(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>*}
+{*                    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->getFKSDBEvent()->getGamePeriod()->is(App\Models\GamePhaseCalculator::AFTER)}*}
 {*                        <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $language->value}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>*}
 {*                    {/if}*}
 {*                </div>*}

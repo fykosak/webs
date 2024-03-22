@@ -39,7 +39,12 @@ final class SchedulePresenter extends BasePresenter
      */
     public function renderDetail(): void
     {
-        $groups = $this->downloader->download(new ScheduleRequest(180, ['weekend', 'weekend_info','teacher_present']));
+        $groups = $this->downloader->download(
+            new ScheduleRequest(
+                $this->getNewestEvent()->eventId,
+                ['weekend', 'weekend_info', 'teacher_present']
+            )
+        );
         usort($groups, fn(array $aGroup, array $bGroup): int => $aGroup['start'] <=> $bGroup['start']);
         $this->template->groups = $groups;
     }
