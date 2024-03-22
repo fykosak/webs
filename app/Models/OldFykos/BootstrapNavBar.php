@@ -9,13 +9,9 @@ use Nette\DI\Container;
 
 class BootstrapNavBar extends DIComponent
 {
-
     private array $data = [];
-
     private ?string $brand = null;
-
     private string $className;
-
     private string $id;
 
     public function __construct(Container $container, string $id, string $className)
