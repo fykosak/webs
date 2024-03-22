@@ -5,16 +5,15 @@ declare(strict_types=1);
 namespace App\Components\ResultsPanel;
 
 use App\Components\ApiResults\ApiResultsComponent;
-use App\Models\GamePhaseCalculator;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use Fykosak\Utils\Components\DIComponent;
+use Nette\DI\Container;
 
-class ResultsPanelComponent extends BaseComponent
+final class ResultsPanelComponent extends DIComponent
 {
-    private GamePhaseCalculator $gamePhaseCalculator;
-
-    public function injectGamePhaseCalculator(GamePhaseCalculator $calculator): void
+    public function __construct(Container $container, private readonly ModelEvent $event)
     {
-        $this->gamePhaseCalculator = $calculator;
+        parent::__construct($container);
     }
 
     /**
@@ -22,14 +21,14 @@ class ResultsPanelComponent extends BaseComponent
      */
     protected function createComponentApiResults(): ApiResultsComponent
     {
-        return new ApiResultsComponent($this->getContext(), $this->gamePhaseCalculator->getFKSDBEvent()->eventId);
+        return new ApiResultsComponent($this->getContext(), $this->event->eventId);
     }
 
     public function render(bool $dark = false): void
     {
         $this->template->dark = $dark;
         $this->template->lang = $this->translator->lang;
-        $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
+        $this->template->event = $this->event;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'panel.latte');
     }
 }

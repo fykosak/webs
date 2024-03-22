@@ -6,5 +6,4 @@ namespace App\Models\Downloader;
 
 final class FKSDBDownloader extends NetteDownloader
 {
-
 }

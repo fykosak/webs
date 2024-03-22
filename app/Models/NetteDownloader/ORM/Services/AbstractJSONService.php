@@ -15,8 +15,8 @@ abstract class AbstractJSONService
     use SmartObject;
 
     protected NetteDownloader $downloader;
-    protected Cache $cache;
-    protected string $expiration;
+    protected readonly Cache $cache;
+    protected readonly string $expiration;
 
     public function __construct(string $expiration, Storage $storage)
     {

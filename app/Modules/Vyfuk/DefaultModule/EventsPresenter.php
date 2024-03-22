@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Modules\Vyfuk\DefaultModule;
 
 use Exception;
+use Nette\Application\AbortException;
+use Nette\Application\BadRequestException;
 use Nette\Application\Responses\CallbackResponse;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
@@ -18,6 +20,11 @@ class EventsPresenter extends BasePresenter
         $this->cache = new Cache($storage);
     }
 
+    /**
+     * @throws AbortException
+     * @throws BadRequestException
+     * @throws \Throwable
+     */
     public function actionGetRawCalendar(): void
     {
         $calendar = $this->loadCalendar();
@@ -25,7 +32,7 @@ class EventsPresenter extends BasePresenter
             $this->error('', 503);
         } else {
             $this->sendResponse(new CallbackResponse(function ($request, $response) use ($calendar) {
-                $response->setHeader("Content-Type", "text/calendar");
+                $response->setHeader('Content-Type', 'text/calendar');
                 echo ($calendar);
             }));
         }
@@ -37,15 +44,15 @@ class EventsPresenter extends BasePresenter
     private function loadCalendar(): string
     {
         return $this->cache->load(
-            "vyfuk.calender",
+            'vyfuk.calender',
             function (&$dependencies): string {
                 $dependencies[Cache::EXPIRE] = time() + 24 * 60 * 60;
-                $curl = curl_init("https://drive.vyfuk.org/remote.php/dav/public-calendars/tLnfCNLzypBHHeEb?export");
+                $curl = curl_init('https://drive.vyfuk.org/remote.php/dav/public-calendars/tLnfCNLzypBHHeEb?export');
                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
                 $res = curl_exec($curl);
                 curl_close($curl);
                 if (curl_getinfo($curl)['http_code'] != 200) {
-                    throw new Exception("Vyfuk calendar failed to be downloaded");
+                    throw new Exception('Vyfuk calendar failed to be downloaded');
                 }
                 return $res;
             }

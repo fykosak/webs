@@ -1,23 +1,23 @@
 {varType array $groups}
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {varType array $groups}
 {varType App\Modules\Fof\DefaultModule\SchedulePresenter $presenter}
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
           	<h1>
-                {switch $lang}
+                {switch $language->value}
                     {case 'cs'}Detaily programu
                     {default}Program details
                 {/switch}
             </h1>
             <p>
-                {switch $lang}
+                {switch $language->value}
                     {case 'cs'}Na této stránce naleznete detailní popis doprovodného programu. Informace se můžou mírně změnit a měly by být aktuální.
                     {default}On this page you can find detailed description of the accompanying program. Information may change slightly and should be up to date.
                 {/switch}
             </p>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
                     <h3>Legenda k lokacím</h3>
           			<div class="rules">
@@ -125,7 +125,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <div class="subheader">
-                {switch $lang}
+                {switch $language->value}
                     {case 'cs'}{$start->format('j. n. Y')}
                     {default}{$start->format('F j, Y')}
                 {/switch}

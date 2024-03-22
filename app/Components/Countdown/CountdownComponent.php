@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace App\Components\Countdown;
 
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
-class CountdownComponent extends BaseComponent
+class CountdownComponent extends DIComponent
 {
-    private \DateTimeInterface $countdownTo;
-    private string $id;
+    private readonly string $id;
 
-    public function __construct(Container $container, \DateTimeInterface $countdownTo, string $id = null)
-    {
+    public function __construct(
+        Container $container,
+        private readonly \DateTimeInterface $countdownTo,
+        string $id = null
+    ) {
         parent::__construct($container);
-        $this->countdownTo = $countdownTo;
         $this->id = $id ?? uniqid();
     }
 

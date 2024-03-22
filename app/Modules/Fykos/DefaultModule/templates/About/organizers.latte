@@ -1,5 +1,7 @@
+{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case 'cs'}Organizátoři
         {default}Organizers
     {/switch}
@@ -9,19 +11,19 @@
 <div class="panel color-auto">
     <section class="inner-container">
         <div class="subheader">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Organizátoři FYKOSu
                 {default}Organizers of FYKOS
             {/switch}
         </div>
         <h1>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Kdo za tím stojí?
                 {default}Who Is Behind It?
             {/switch}
         </h1>
         <p>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}FYKOS je organizován primárně dobrovolníky, kteří se účastnili soutěží jako studenti a&nbsp;pak se vracejí, aby
                     tyto skvělé akce přinesli i&nbsp;dalším generacím. Většina z&nbsp;nich je studenty nebo absolventy
                     Matematicko-fyzikální fakulty Univerzity Karlovy, ale i&nbsp;dalších fakult a&nbsp;univerzit, jako např. FJFI ČVUT.
@@ -32,7 +34,7 @@
             {/switch}
         </p>
         <p>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Akce FYKOSu oficiálně zaštiťují i&nbsp;odborní akademici z&nbsp;mnoha pracovišť Matematicko-fyzikální fakulty UK, od
                         Ústavu teoretické fyziky přes Ústav částicové a&nbsp;jaderné fyziky až po Katedru didaktiky fyziky.
                 {default}The events of FYKOS are officially supported by academic experts from many departments of the Faculty of
@@ -41,13 +43,13 @@
             {/switch}
         </p>
         <p>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Pokud vás zajímá, kdo se o&nbsp;chod FYKOSu zasloužil v&nbsp;minulosti, můžete si také projít seznam všech organizátorů.
                 {default}If you are interested in who was behind FYKOS in the past, you can also go through the list of all organizers.
             {/switch}
         </p>
         <a class="btn btn-primary" n:href="About:allPastOrganizers">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Seznam historicky všech organizátorů
                 {default}List of All Organizers Historically
             {/switch}
@@ -59,7 +61,7 @@
 <div class="panel color-auto">
     <section class="inner-container">
         <h1>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Organizátoři FYKOSu
                 {default}Organizers of FYKOS
             {/switch}
@@ -78,7 +80,7 @@
                                     <td class="left-cell"><span class="icon"><i class="fas fa-briefcase"></i></span>
                                     </td>
                                     <td class="right-cell">
-                                        {switch $lang}
+                                        {switch $language->value}
                                             {case 'cs'}Vedoucí FYKOSu
                                             {default}Head of FYKOS
                                         {/switch}
@@ -97,7 +99,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
 
-                        <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg" 
+                        <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg"
                             class="card-img-top"
                             onerror="this.src = '/images/people/personUnknown.jpg'"
                             alt="{$organizer['name']}">
@@ -119,7 +121,7 @@
                                 {/if}
                                 <tr>
                                     <td class="left-cell"><span class="icon"><i class="fas fa-envelope"></i></span></td>
-                                    {switch $lang}
+                                    {switch $language->value}
                                         {case 'cs'}<td class="right-cell"><a href="mailto:{$organizer['domainAlias']}@fykos.cz">{$organizer['domainAlias']}@fykos.cz</a></td>
                                         {default}<td class="right-cell"><a href="mailto:{$organizer['domainAlias']}@fykos.org">{$organizer['domainAlias']}@fykos.org</a></td>
                                     {/switch}

@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\DefaultModule;
 
-use App\Models\GamePhaseCalculator;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use Fykosak\Utils\DateTime\Phase;
 use Nette\Application\BadRequestException;
 
 class RegistrationPresenter extends BasePresenter
@@ -12,9 +13,9 @@ class RegistrationPresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    public static function isVisible(GamePhaseCalculator $gamePhaseCalculator): bool
+    public static function isVisible(ModelEvent $event): bool
     {
-        return $gamePhaseCalculator->isRegistration(GamePhaseCalculator::NOW);
+        return $event->getRegistrationPeriod()->is(Phase::onGoing);
     }
 
     /**
@@ -22,7 +23,7 @@ class RegistrationPresenter extends BasePresenter
      */
     public function actionDefault(): void
     {
-        if (!self::isVisible($this->gamePhaseCalculator)) {
+        if (!self::isVisible($this->getNewestEvent())) {
             $this->error();
         }
     }

@@ -21,7 +21,7 @@ class CampsPresenter extends BasePresenter
         $this->downloader = $downloader;
     }
 
-    public function getEventHeading($event): array
+    public function getEventHeading(array $event): array
     {
         if ($event['eventTypeId'] == 4) {
             $year = 1986 + $event['year'] + 1;
@@ -53,20 +53,20 @@ class CampsPresenter extends BasePresenter
         $this->template->participants = $this->downloader->download(new ParticipantsRequest((int)$id));
     }
 
-    public function getEventPhoto($event): string
+    public function getEventPhoto(array $event): string
     {
         if ($event['eventTypeId'] == 4) {
-            $event_type_str = 'sous-jaro';
+            $eventType = 'sous-jaro';
         } else { // $event['eventTypeId'] == 5
-            $event_type_str = 'sous-podzim';
+            $eventType = 'sous-podzim';
         }
         if ($event['year'] < 10) {
-            $stryear = '0' . $event['year'];
+            $fullYear = '0' . $event['year'];
         } else {
-            $stryear = $event['year'];
+            $fullYear = $event['year'];
         }
 
-        $photosBasePath = './images/events/' . $event_type_str . '/rocnik' . $stryear . '/carousel-photos';
+        $photosBasePath = './images/events/' . $eventType . '/rocnik' . $fullYear . '/carousel-photos';
         $photos = glob($photosBasePath . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
         if (empty($photos)) {

@@ -1,43 +1,43 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {varType string $eventKey}
 {varType App\Models\NetteDownloader\ORM\Models\ModelEvent $event}
 
 {block subtitle}
-    {switch $lang}
-        {case "cs"}Archivní stránka soutěže z {$event->begin|date: "j. n. Y"}
-        {default}Archive page of the competition from {$event->begin|date: "j F Y"}
+    {switch $language->value}
+        {case 'cs'}Archivní stránka soutěže z {$event->begin|date: 'j. n. Y'}
+        {default}Archive page of the competition from {$event->begin|date: 'j F Y'}
     {/switch}
 {/block}
 
-{block title}DSEF {$event->begin|date: "Y"}{/block}
+{block title}DSEF {$event->begin|date: 'Y'}{/block}
 
 {block main}
-    {include "simple." . $eventKey . ".latte"}
+    {include 'simple.' . $eventKey . '.latte'}
 
-    {if $control->getComponent('scheduleParticipants')->hasData("dsef_morning") || $control->getComponent('scheduleParticipants')->hasData("dsef_afternoon")}
+    {if $control->getComponent('scheduleParticipants')->hasData('dsef_morning') || $control->getComponent('scheduleParticipants')->hasData('dsef_afternoon')}
         <div class="panel color-auto">
             <section class="inner-container">
                 <h1>Účastníci na programu</h1>
 
-                {control scheduleParticipants "dsef_morning"}
-                {control scheduleParticipants "dsef_afternoon"}
+                {control scheduleParticipants 'dsef_morning'}
+                {control scheduleParticipants 'dsef_afternoon'}
             </section>
         </div>
     {/if}
-    {if $control->getComponent('scheduleParticipants')->hasData("accommodation")}
+    {if $control->getComponent('scheduleParticipants')->hasData('accommodation')}
         <div class="panel color-auto">
             <section class="inner-container">
                 <h1>Ubytovaní</h1>
 
-                {control scheduleParticipants "accommodation"}
+                {control scheduleParticipants 'accommodation'}
             </section>
         </div>
     {/if}
-    {if $control->getComponent('gallery')->hasPhotos("/photos/" . $event->year . "/")}
+    {if $control->getComponent('gallery')->hasPhotos('/photos/' . $event->year . '/')}
         <div class="panel color-auto">
             <section class="inner-container">
                 <h1>Fotografie z akce</h1>
-                {control gallery "/photos/" . $event->year . "/"}
+                {control gallery '/photos/' . $event->year . '/'}
             </section>
         </div>
     {/if}

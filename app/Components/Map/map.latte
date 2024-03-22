@@ -2,8 +2,8 @@
 {varType int $uniqueId}
 {varType bool $inverseColors}
 {varType string[] $teamCountries}
-{varType string $lang}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Modules\Core\Language $lang}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $event}
 
 {block content}
     <div class="map-panel">
@@ -24,8 +24,8 @@
         </div>
         <div class="team-counts">
             <strong>{$teamCount}</strong>
-            {if $gamePhaseCalculator->isLongAfterTheEvent($gamePhaseCalculator::AFTER)}
-                {switch $lang}
+            {if $event->isLongAfterTheEvent(Fykosak\Utils\DateTime\Phase::after)}
+                {switch $lang->value}
                     {case cs}
                     {if $teamCount === 1}
                         zúčastněný tým z
@@ -44,7 +44,7 @@
                     {/if}
                 {/switch}
             {else}
-                {switch $lang}
+                {switch $lang->value}
                     {case cs}
                     {if $teamCount === 1}
                         přihlášený tým z
@@ -64,7 +64,7 @@
                 {/switch}
             {/if}
             <strong>{count($teamCountries)}</strong>
-            {switch $lang}
+            {switch $lang->value}
                 {case cs}
                 {if $teamCount === 1}
                     země světa

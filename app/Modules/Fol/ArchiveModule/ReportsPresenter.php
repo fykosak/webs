@@ -20,10 +20,10 @@ class ReportsPresenter extends BasePresenter
         $data = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'reports.json');
         $query = json_decode($data);
         $this->template->reports = array_filter($query, function ($item) {
-            return $item->lang === $this->lang && $item->event_id === $this->getEvent()->eventId;
+            return $item->lang === $this->language->value && $item->event_id === $this->getEvent()->eventId;
         });
         $this->template->year = $this->getEvent()->begin->format('Y');
-        $this->setPageTitle(new PageTitle(null, $this->csen('Ohlasy účastníků', 'Contestants\' reports')));
+        $this->setPageTitle(new PageTitle($this->csen('Ohlasy účastníků', 'Contestants\' reports')));
     }
 
     /**

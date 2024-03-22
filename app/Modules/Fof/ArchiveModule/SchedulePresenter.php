@@ -9,7 +9,6 @@ use Nette\Http\IResponse;
 
 class SchedulePresenter extends BasePresenter
 {
-
     /**
      * @throws BadRequestException
      * @throws \Throwable

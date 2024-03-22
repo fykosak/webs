@@ -1,15 +1,16 @@
+{varType App\Modules\Core\Language $language}
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>
-                {switch $lang}
+                {switch $language->value}
                 {case 'cs'}FYKOSí merch
                 {default}FYKOS merch
                 {/switch}
             </h1>
             <div>
                 <p>
-                    {switch $lang}
+                    {switch $language->value}
                     {case 'cs'}
                     Na letošním Fyziklání byla poprvé možnost koupit si krásný FYKOSí hrníček, tričko, čepici či mikinu a
                     podpořit tak soutěž. V budoucnu bude možnost si ho zakoupit i na dalších akcích, případní zájemci se
@@ -28,13 +29,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2 class="my-3"> <!--- margin, y direction, size 3 --->
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'}Hrnky
                         {default}Mugs
                         {/switch}
                     </h2>
                     <p>
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'} Hrnky s logy Fyziklání a FYKOSu.
                         {default} Mugs with the logos of Fyziklani and FYKOS.
                         {/switch}
@@ -47,7 +48,7 @@
 
                         <div class="col-md-6    ">
                             <h3 class="my-2">
-                                {switch $lang}
+                                {switch $language->value}
                                 {case 'cs'}Fyziklání
                                 {default}Fyziklani
                                 {/switch}
@@ -56,7 +57,7 @@
 
                             <div style="text-align: center;">
                                 <h5><strong> {*docela prasárna, ale funguje...*}
-                                        {switch $lang}
+                                        {switch $language->value}
                                         {case 'cs'} 249 Kč
                                         {default} 249 CZK
                                         {/switch}
@@ -67,7 +68,7 @@
 
                         <div class="col-md-6">
                             <h3 class="my-2">
-                                {switch $lang}
+                                {switch $language->value}
                                 {case 'cs'}FYKOS
                                 {default}FYKOS
                                 {/switch}
@@ -75,7 +76,7 @@
                             <img src="{$basePath}/images/merch/modry.JPG" class="img-fluid my-2"><br>
                             <div style="text-align: center;">
                                 <h5><strong>
-                                        {switch $lang}
+                                        {switch $language->value}
                                         {case 'cs'} 249 Kč
                                         {default} 249 CZK
                                         {/switch}
@@ -92,13 +93,13 @@
     <div class="panel color-auto">
         <section class="inner-container"> -->
                     <h2 class="my-3">
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'}Trička
                         {default}T-Shirts
                         {/switch}
                     </h2>
                     <p>
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'} S tímhle trikem ze 100% bavlny s logy Fyziklání, FYKOSu a Fyziklání Online bude hned
                         jasné, pro
                         co bije tvoje srdce.
@@ -121,7 +122,7 @@
                     </div>*}
                     <div style="text-align: center;">
                         <h5><strong>
-                                {switch $lang}
+                                {switch $language->value}
                                 {case 'cs'} <strong>299 Kč</strong>
                                 {default} <strong>299 CZK</strong>
                                 {/switch}
@@ -135,13 +136,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2 class="my-3">
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'}Čepice
                         {default}Beanies
                         {/switch}
                     </h2>
                     <p>
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'} Čepice s vyšívaným logem FYKOSu tvoji hlavu spolehlivě udrží v teple.
                         {default} Beanie with embroided FYKOS logo will keep your head warm in style.
                         {/switch}
@@ -158,7 +159,7 @@
                     </div>*}
                     <div style="text-align: center;">
                         <h5><strong>
-                                {switch $lang}
+                                {switch $language->value}
                                 {case 'cs'} <strong>199 Kč</strong>
                                 {default} <strong>199 CZK</strong>
                                 {/switch}
@@ -171,13 +172,13 @@
     <div class="panel color-auto">
         <section class="inner-container"> -->
                     <h2 class="my-3">
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'}Mikiny
                         {default}Hoodies
                         {/switch}
                     </h2>
                     <p>
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'}V bavlněné mikině můžeš ukázat podporu FYKOSu nebo Fyziklání ve stylu.
                         {default}Show your support for FYKOS or Fyziklani in big style in this cotton hoodie.
                         {/switch}
@@ -185,7 +186,7 @@
                     <img src="{$basePath}/images/merch/mikiny_Vojta_Tomas.JPG" class="img-fluid my-2">
                     <div style="text-align: center;">
                         <h5><strong>
-                                {switch $lang}
+                                {switch $language->value}
                                 {case 'cs'} <strong>799 Kč</strong>
                                 {default} <strong>799 CZK</strong>
                                 {/switch}

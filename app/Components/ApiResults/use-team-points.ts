@@ -1,6 +1,5 @@
-import {DataInterface, Team} from "./data-interface";
-import {useMemo} from "react";
-import {Simulate} from "react-dom/test-utils";
+import { DataInterface, Team } from './data-interface';
+import { useMemo } from 'react';
 
 export const useTeamPoints = (data: DataInterface<true> | null): {team: Team<true>, points: number, lastSubmit: Date}[] | null => {
   return useMemo(() => {

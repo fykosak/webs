@@ -1,7 +1,7 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case cs} Rozhodnutí ústřední komise
         {case en} Central Committee Resolutions
     {/switch}
@@ -10,12 +10,12 @@
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
-        <h1>{switch $lang}
+        <h1>{switch $language->value}
             {case cs}Rozhodnutí ústřední komise
             {default}Central Committee Resolutions
             {/switch}
         </h1>
-    {switch $lang}
+    {switch $language->value}
     {case cs}
         <p> Zde najdete rozhodnutí ústřední komise. </p>
 
@@ -23,7 +23,7 @@
         <p> Official resolutions of the central committee will be placed here. </p>
     {/switch}
     <ul>
-        <li><a href="{$basePath}/download/2022/rozhodnuti_ustredni_komise_1.pdf">{switch $lang}{case cs}Usnesení ústřední komise o přizvání spolku FYKOS, z. s. k účasti na spoluorganizování soutěže Fyziklání 2023{default}Resolution about coorganization of the competition Fyziklani 2023 with FYKOS, z. s. association{/switch}</a></li>
+        <li><a href="{$basePath}/download/2022/rozhodnuti_ustredni_komise_1.pdf">{switch $language->value}{case cs}Usnesení ústřední komise o přizvání spolku FYKOS, z. s. k účasti na spoluorganizování soutěže Fyziklání 2023{default}Resolution about coorganization of the competition Fyziklani 2023 with FYKOS, z. s. association{/switch}</a></li>
     </ul>
     </section>
 </div>

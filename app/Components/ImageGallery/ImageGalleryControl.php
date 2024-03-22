@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Components\ImageGallery;
 
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\DI\Container;
@@ -12,10 +12,10 @@ use Nette\Utils\Finder;
 use Nette\Utils\Image;
 use Nette\Utils\UnknownImageFileException;
 
-class ImageGalleryControl extends BaseComponent
+class ImageGalleryControl extends DIComponent
 {
-    private string $wwwDir;
-    private Cache $cache;
+    private readonly string $wwwDir;
+    private readonly Cache $cache;
 
     public function __construct(Container $container)
     {
@@ -101,7 +101,6 @@ class ImageGalleryControl extends BaseComponent
     public function render(string $path): void
     {
         $this->template->images = $this->getCachedImages($path);
-        $this->template->lang = $this->translator->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'default.latte');
     }
 

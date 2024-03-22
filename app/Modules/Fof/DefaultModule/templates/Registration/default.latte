@@ -1,15 +1,16 @@
 {varType string $lang}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Modules\Core\Language $language}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
 
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case cs}Důležité informace před registrací
         {default}Important Information Before Registration
     {/switch}
 {/block}
 
 {block content}
-    {switch $lang}
+    {switch $language->value}
         {case cs}
             <ul class="stylized">
                 <li>Jedná se o prezenční soutěž. Je proto třeba přijet <b>do Prahy</b>.</li>
@@ -27,7 +28,7 @@
             <ul class="stylized">
                 <li>
                     Registrace je otevřena do
-                    <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>. Neváhejte se registrovat, počet míst je omezen.
+                    <strong>{$newestEvent->registrationEnd |date:'j. n. G:i'}</strong>. Neváhejte se registrovat, počet míst je omezen.
                 </li>
             </ul>
         {default}
@@ -51,12 +52,12 @@
             <ul class="stylized">
                 <li>
                     Registration is open until
-                    <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
+                    <strong>{$newestEvent->registrationEnd |date:'F j, G:i'} CET</strong>.
                 </li>
             </ul>
     {/switch}
     <div class="d-grid gap-2">
-        <a href="https://db.fykos.cz/event{$gamePhaseCalculator->getFKSDBEvent()->eventId}/TeamApplication/create?lang={$lang}" type="button"
-           class="btn btn-primary btn-lg btn-block" style="border-radius: 0">{switch $lang}{case cs}Registrovat tým{default}Register team{/switch}</a>
+        <a href="https://db.fykos.cz/event{$newestEvent->eventId}/TeamApplication/create?lang={$lang}" type="button"
+           class="btn btn-primary btn-lg btn-block" style="border-radius: 0">{switch $language->value}{case cs}Registrovat tým{default}Register team{/switch}</a>
     </div>
 {/block}

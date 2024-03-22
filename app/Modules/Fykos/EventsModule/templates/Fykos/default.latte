@@ -1,17 +1,21 @@
+{varType string $lang}
+{varType App\Modules\Core\Language $language}
+
 {block title}Seminář FYKOS{/block}
+
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
         <!-- <div class="subheader">Základní informace</div> -->
         <h1>
-            {switch $lang}
+            {switch $language->value}
                 {case cs}Fyzikální korespondenční seminář
                 {default}FYKOS Correspondence Competition
             {/switch}
         </h1>
 
         <p>
-            {switch $lang}
+            {switch $language->value}
                 {case cs}FYKOS (FYzikální KOrespondenční Seminář) je individuální soutěž, která pro středoškoláky představuje skvělou
                     možnosti si zajímavým způsobem rozšířit chápání fyziky a světa kolem nás, a to např. skrze naše úlohy,
                     zpětnou vazbu, vzorová řešení, rozšiřující texty či účasti na našich akcích. FYKOS je nejstarší soutěží
@@ -19,8 +23,8 @@
                 {default}FYKOS is an individual competition that offers high school students a great opportunity to expand their understanding of physics and the world around us in an interesting way, e.g. through our problems, feedback, sample solutions, supplementary texts or participation in our events. FYKOS is the oldest competition of the organization of the same name and is currently in its {$currentYear}{switch $currentYear % 10}{case 1}st{case 2}nd{case 3}rd{default}th{/switch} year.
             {/switch}
         </p>
-        <a class="btn btn-primary mb-3" n:href=":Default:About:default">{switch $lang}{case cs}O organizaci FYKOS{default}About FYKOS Group{/switch}</a>
-        <a class="btn btn-primary mb-3" n:href=":Events:Fykos:rules">{switch $lang}{case cs}Pravidla semináře{default}Rules of the Competition{/switch}</a>
+        <a class="btn btn-primary mb-3" n:href=":Default:About:default">{switch $language->value}{case cs}O organizaci FYKOS{default}About FYKOS Group{/switch}</a>
+        <a class="btn btn-primary mb-3" n:href=":Events:Fykos:rules">{switch $language->value}{case cs}Pravidla semináře{default}Rules of the Competition{/switch}</a>
     </section>
 </div>
 
@@ -28,7 +32,7 @@
 <div class="panel color-auto">
     <section class="inner-container">
          <h1>
-            {switch $lang}
+            {switch $language->value}
                 {case cs}Shrnutí principu semináře
                 {default}Basic Information
             {/switch}
@@ -36,13 +40,13 @@
 
         <div class="rules" style="margin-top: 2rem">
             <div class="title">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Co to je
                     {default}What Is This
                 {/switch}
             </div>
             <div class="description">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}FYKOS je celoroční <strong>individuální</strong> soutěž pro středoškoláky
                     {default}FYKOS is an all-year-round <strong>individual</strong> competition for high school students
                 {/switch}
@@ -50,13 +54,13 @@
         </div>
         <div class="rules">
             <div class="title">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Jak soutěž probíhá
                     {default}How Does It Work
                 {/switch}
             </div>
             <div class="description">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}6x ročně publikujeme <a n:href=":Default:Problems:">zde na webu</a> sérii 8 úloh -- některé teoretické, některé experimentální apod. -- na které máte asi měsíc
                     {default}We publish a series of 8 problems 6 times a year -- some theoretical, some experimental, etc. -- which you have about a month to solve
                 {/switch}
@@ -64,13 +68,13 @@
         </div>
         <div class="rules">
             <div class="title">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Jak odevzdat úlohy
                     {default}How to Submit Solutions
                 {/switch}
             </div>
             <div class="description">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Řešení uploadujete přes webový formulář na <a href="https://db.fykos.cz">db.fykos.cz</a>, a to ve formátu PDF
                     {default}You submit your solutions via a web form on <a href="https://db.fykos.cz">db.fykos.cz</a> in PDF format
                 {/switch}
@@ -78,13 +82,13 @@
         </div>
         <div class="rules">
             <div class="title">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Co potom?
                     {default}What Happens Next?
                 {/switch}
             </div>
             <div class="description">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Řešení opravíme a pošleme vám zpět s nápomocnými komentáři a bodovým hodnocením. Zároveň zveřejníme naše autorská řešení, abyste se mohli přiučit, jak bychom úlohu řešili my.
                     {default}We correct your solutions and send them back to you with helpful comments and a score. We also publish our own solutions so that you can learn how we would solve the problem.
                 {/switch}
@@ -92,13 +96,13 @@
         </div>
         <div class="rules">
             <div class="title">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Vyhodnocení
                     {default}Evaluation
                 {/switch}
             </div>
             <div class="description">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Za vyřešené úlohy sbíráte body, které se sčítají do celkového pořadí. Soutěží se ve 4 kategoriích dle ročníku střední školy. Výsledková listina je zveřejněna na webu a nejlepší řešitelé jsou odměněni pěknými cenami nebo účastí na soustředění.
                     {default}You collect points for solved problems, which are added up to the overall ranking. There are 4 categories according to the year of high school. The results are published on the website and the best solvers are rewarded with nice prizes.
                 {/switch}
@@ -106,13 +110,13 @@
         </div>
         <div class="rules">
             <div class="title">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Co lze používat
                     {default}What Is Allowed
                 {/switch}
             </div>
             <div class="description">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Jakákoliv literatura, libovolné počítačové programy / programovací jazyky (Wolfram, Geogebra,...) i internet. Pokud si nevíte rady, můžete i konzultovat. Konzultovat a opisovat je rozdíl! Zároveň je zakázáno použití nástrojů generativní umělé inteligence. Toto zahrnuje mimo jiné nástroje typu ChatGPT. Seminář slouží hlavně pro Vás, abyste se ve fyzice zlepšili -- jakékoliv opisování nebo přílišné využívání AI tento cíl zhatí.
                     {default}Any literature, any computer programs / programming languages (Wolfram, Geogebra,...) and the internet. If you are stuck, you can consult. Consulting and copying are different things! Also, the use of generative AI tools is prohibited. This includes tools such as ChatGPT. The seminar is mainly for you to improve in physics -- any copying or excessive use of AI will ruin this goal.
                 {/switch}
@@ -120,24 +124,24 @@
         </div>
     </section>
 </div>
-        
+
 <div class="panel color-auto">
     <section class="inner-container">
          <h1>
-            {switch $lang}
+            {switch $language->value}
                 {case cs}Často kladené otázky
                 {default}Frequently Asked Questions
             {/switch}
         </h1>
         <div class="rules">
             <div class="title">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Musím vyřešit všech 8 úloh?
                     {default}Do I Have to Solve All 8 Problems?
                 {/switch}
             </div>
             <div class="description">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Ne, každá úloha se počítá a z každého pokusu se můžete něco naučit. Řešitelé, kteří spočítají úplně všechno, jsou spíše výjimkou. Hodnotíme především snahu a postup.
                     {default}No, each problem counts and you can learn something from each attempt. Participants who solve everything are rather an exception. We evaluate mainly the effort and the process.
                 {/switch}
@@ -145,13 +149,13 @@
         </div>
         <div class="rules">
             <div class="title">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Musím začít řešit u první série?
                     {default}Do I Have to Start Solving at the First Series?
                 {/switch}
             </div>
             <div class="description">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Ne, můžete začít kdykoliv během roku a můžete vyřešit jen ty série, které chcete. Body pro účast na soustředění se počítají za první 3 série pro jarní a za poslední 3 série pro podzimní soustředění. Jinak ale vůbec nezáleží na tom, kdy se připojíte.
                     {default}No, you can start at any time during the year and you can solve only the series you want. It doesn't matter when you join.
                 {/switch}
@@ -159,13 +163,13 @@
         </div>
         <div class="rules">
             <div class="title">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Jak se stát řešitelem?
                     {default}How to Become a Participant?
                 {/switch}
             </div>
             <div class="description">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Snadno! Stačí nahrát řešení některých úloh z aktuální série a vyplnit základní informace o své osobě (jméno, příjmení, datum narození, adresu, školu a kategorii) skrz FYKOSí <a href="https://db.fykos.cz">webové rozhraní</a>.
                     {default}Easily! Just upload solutions to some problems from the current series and fill in basic information about yourself (name, surname, date of birth, address, school and category) through the FYKOS <a href="https://db.fykos.cz">web interface</a>.
                 {/switch}
@@ -190,13 +194,13 @@
     <section class="inner-container">
 
         <h1>
-            {switch $lang}
+            {switch $language->value}
                 {case cs}Proč řešit FYKOS?
                 {default}Why Participate in FYKOS?
             {/switch}
         </h1>
         <p>
-            {switch $lang}
+            {switch $language->value}
                 {case cs}Řešitelé FYKOSu získávají praxi v řešení fyzikálních problémů a&nbsp;hlubší náhled na jejich podstatu.
                     FYKOS též slouží jako
                     velmi vhodná přípravou pro současné a&nbsp;budoucí úspěšné řešitele jiných fyzikálních soutěží (<a
@@ -217,7 +221,7 @@
             </p>
         {/if}
 
-        {switch $lang}
+        {switch $language->value}
             {case cs}
                 <h3>Odměny za řešení</h3>
                 <p>
@@ -268,19 +272,19 @@
 <div class="panel color-auto">
     <section class="inner-container">
         <h1>
-            {switch $lang}
+            {switch $language->value}
                 {case cs}Chcete začít řešit?
                 {default}Want to Start Participating?
             {/switch}
         </h1>
 
         <p>
-            {switch $lang}
+            {switch $language->value}
                 {case cs}Už si stačí jen přečíst pravidla, podívat se na zadání a pustit se do fyziky!
                 {default}All you need to do is read the rules, check the assignments, and dive into physics!
             {/switch}
         </p>
-        <a class="btn btn-primary" n:href=":Events:Fykos:rules">{switch $lang}{case cs}Pravidla{default}Rules{/switch}</a>
+        <a class="btn btn-primary" n:href=":Events:Fykos:rules">{switch $language->value}{case cs}Pravidla{default}Rules{/switch}</a>
     </section>
 </div>
 {/block}

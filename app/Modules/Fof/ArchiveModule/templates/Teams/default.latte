@@ -1,7 +1,7 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case cs} Přihlášené týmy
         {case en} Registered teams
     {/switch}

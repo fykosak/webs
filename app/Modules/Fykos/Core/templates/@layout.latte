@@ -1,3 +1,5 @@
+{varType string $lang}
+{varType App\Modules\Core\Language $language}
 <!DOCTYPE html>
 <html lang="cs">
 
@@ -14,9 +16,9 @@
 
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="FYKOS"/>
-    <meta property="og:image" content="{switch $lang}{case cs}https://fykos.cz/images/fykos-og-image-cs.png{default}https://fykos.org/images/fykos-og-image-en.png{/switch}"/>
-    <meta property="og:description" 
-        {switch $lang}
+    <meta property="og:image" content="{switch $language->value}{case cs}https://fykos.cz/images/fykos-og-image-cs.png{default}https://fykos.org/images/fykos-og-image-en.png{/switch}"/>
+    <meta property="og:description"
+        {switch $language->value}
             {case cs}content="Skupina pořádající vzdělávací soutěže ve fyzice pro středoškoláky."
             {default}content="Group organizing educational events in physics for high-school students."
         {/switch}
@@ -60,7 +62,7 @@
 <body>
 
     {block body}
-    {control navigation "/images/logo.svg", "FYKOS"}
+    {control navigation '/images/logo.svg', 'FYKOS'}
     <main>
         {block main}
         <div class="panel color-light">
@@ -76,17 +78,17 @@
         <div class="panel registration">
             <div class="inner-container">
                 <div class="text">
-                    {switch $lang}{case cs}Chcete vědět více?{default}Want to Know More?{/switch}
+                    {switch $language->value}{case cs}Chcete vědět více?{default}Want to Know More?{/switch}
                 </div>
                 <div style="btn-container">
                     <a class="btn btn-outline m-2" n:href=":Default:About:default">
-                        {switch $lang}{case cs}O&nbsp;nás{default}About Us{/switch}
+                        {switch $language->value}{case cs}O&nbsp;nás{default}About Us{/switch}
                     </a>
                     <a class="btn btn-outline m-2" n:href=":Events:Default:default">
-                        {switch $lang}{case cs}Akce{default}Events{/switch}
+                        {switch $language->value}{case cs}Akce{default}Events{/switch}
                     </a>
                     <a class="btn btn-outline m-2" n:href=":Events:Fykos:default">
-                        {switch $lang}{case cs}Seminář{default}FYKOS Competition{/switch}
+                        {switch $language->value}{case cs}Seminář{default}FYKOS Competition{/switch}
                     </a>
                 </div>
             </div>
@@ -95,15 +97,15 @@
         <div class="panel sponsors">
             <div class="inner-container">
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Pořadatelé{default}Organizers{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Pořadatelé{default}Organizers{/switch}</div>
                     <div class="category-sponsors">
-                        <a {switch $lang}{case cs}href="https://www.mff.cuni.cz/"
+                        <a {switch $language->value}{case cs}href="https://www.mff.cuni.cz/"
                             {default}href="https://www.mff.cuni.cz/en" {/switch} style="text-align: center">
                             <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
                                 style="max-width: 8rem">
                         </a>
                         <a href="https://www.msmt.cz/" style="text-align: center">
-                            {switch $lang}
+                            {switch $language->value}
                             {case cs}
                                 <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
                             {default}
@@ -113,17 +115,17 @@
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Generální partner{default}General
+                    <div class="category-title">{switch $language->value}{case cs}Generální partner{default}General
                         Partner{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.cez.cz/" style="text-align: center">
-                            {switch $lang}{case cs}<img src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo" style="max-width: 10rem">
+                            {switch $language->value}{case cs}<img src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo" style="max-width: 10rem">
                           	{default}<img src="{$basePath}/images/logos/CEZ_Group_Logo_EN.png" alt="CEZ group logo" style="max-width: 10rem">{/switch}
                         </a>
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Platinový partner{default}Platinum Partner{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Platinový partner{default}Platinum Partner{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.kellnerfoundation.cz" style="text-align: center">
                             <img src="/images/logos/tkff.svg" class="sponsor-logo" alt="TKFF logo" style="width: 8rem;">
@@ -139,7 +141,7 @@
                     {* <img class="logo" src="{$basePath}/images/logo.svg" alt="DSEF" />*}
                     <div class="logo" style="font-size: 1cm; font-weight: bold">FYKOS<small>.cz</small></div>
                     <p>
-                        {switch $lang}
+                        {switch $language->value}
                             {case cs}FYKOS je skupina pořádající vzdělávací soutěže pro středoškoláky ve fyzice s&nbsp;37letou tradicí.
                             FYKOS je tvořen převážně studenty
                             <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
@@ -149,7 +151,7 @@
                             {/switch}
                     </p>
                     <p>
-                        {switch $lang}
+                        {switch $language->value}
                             {case cs}Akce FYKOSu jsou spoluvyhlašovány <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální
                             fakultou Univerzity Karlovy</a>
                             a Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
@@ -158,19 +160,19 @@
                         {/switch}
                     </p>
                     <p>
-                        {switch $lang}
+                        {switch $language->value}
                             {case cs}<strong>#fykos</strong> <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
                             {default}<strong>#fykos</strong> <a href="mailto:fykos@fykos.org">fykos@fykos.org</a>
                         {/switch}
                     </p>
                     <div class="other-logos">
                         <a target="_blank"
-                            href="{switch $lang}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img
+                            href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img
                                 class="other-logo"
                                 src="{$basePath}/images/logos/fyziklani_online_logo_white_{$lang}.png"
                                 style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
                         <a target="_blank"
-                            href="{switch $lang}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img
+                            href="{switch $language->value}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img
                                 class="other-logo" src="{$basePath}/images/logos/fyziklani_white_logo.svg"
                                 style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
                         {if $lang=='cs'}<a target="_blank" href="https://dsef.cz/"><img class="other-logo"
@@ -181,7 +183,7 @@
                 <div class="col-md-3 mt-2 mt-md-0">
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                 <li>Pro účastníky a učitele
                                     <ul>
@@ -203,7 +205,7 @@
                     </nav>
                     {* <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                 <li>Podpora FYKOSu
                                     <ul>
@@ -227,7 +229,7 @@
                 <div class="col-md-3">
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                             {case cs}
                             <li>Sledujte nás
                                 {default}
@@ -248,14 +250,14 @@
                     </nav>
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                             {case cs}
                             <li>Kontakt
                                 {default}
                             <li>Contact
                                 {/switch}
                                 <ul>
-                                    {switch $lang}
+                                    {switch $language->value}
                                         {case cs}
                                         <li>
                                             <a n:href=":Default:About:contact">Kontaktní informace</a>

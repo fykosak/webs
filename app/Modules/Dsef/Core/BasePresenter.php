@@ -35,21 +35,21 @@ abstract class BasePresenter extends EventWebPresenter
     }
 
     /**
-     * @throws \Throwable
+     * @return NavItem[]
      */
     protected function getNavItems(): array
     {
         $items = [];
         $items[] = new NavItem(
-            new PageTitle(null, 'Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle('Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             'Registration:',
         );
         $items[] = new NavItem(
-            new PageTitle(null, 'Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle('Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             'Current:',
         );
         $items[] = new NavItem(
-            new PageTitle(null, 'Minulé ročníky', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle('Minulé ročníky', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             'Archive:',
         );
 

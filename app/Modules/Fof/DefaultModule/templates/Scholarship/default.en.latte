@@ -1,9 +1,10 @@
+{varType App\Modules\Core\Language $language}
 {block title}Scholarship Program{/block}
 
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
-          {* 
+          {*
           	{ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
                 {ifset title}<h1>{include title}</h1>{/ifset}
 			*}
@@ -20,14 +21,14 @@
             <p>The accepted teams will attend the entire accompanying program of Fyziklani as well as several closely related extension activities creating about a week-long memorable experience. We built upon a similar event from Fyziklani 2023 as well as the 2022 Fyziklani International Youth Exchange.</p>
 
             <a class="btn btn-primary my-2" n:href="Schedule:default">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Accompanying Program
                     {default}Accompanying Program
                 {/switch}
             </a>
 
             <a class="btn btn-primary my-2" n:href=":Archive:Erasmus: eventYear: 2022">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Youth Exchange 2022
                     {default}Youth Exchange 2022
                 {/switch}
@@ -46,7 +47,7 @@
             <p>The applications are for high-school (or equivalent) students only and should be made in a team of up to 5, where all the participants are at least 15 years old and from at most 2 different schools.</p>
 
             <p>Any team satisfying the above criteria anywhere in the world can apply. Note, however, that while Fyziklani aims to be open to all high-school students all around the world, the resources for this scholarship are limited. Thus, it is aimed preferentially (not exclusively) at highly-talented students from economically less-advantaged backgrounds or from areas where the students have comparatively fewer opportunities than in Europe.</p>
-            
+
             <p>We also recommend to, before applying, register in the Physics Brawl Online, which is essentially an online version of Fyziklani. Firstly, it will give you an idea of how Fyziklani itself works, and secondly, it is relevant to the application.</p>
 
             <p>Applications for the scholarship ended on November 30, 2023. The results have been announced to the applicants.</p>
@@ -63,19 +64,19 @@
             <p>The scholarship is possible thanks to the kind sponsorship of FABRIC, a non-profit that organizes camps for highly talented students interested in understanding themselves and the world.</p>
 
             <a class="btn btn-primary my-2" href="https://www.fabric.camp/">
-            {switch $lang}
+            {switch $language->value}
             {case cs}More About FABRIC
             {default}More About FABRIC
             {/switch}
             </a>
             {* <a class="btn btn-primary my-2" href="https://www.aspr.camp/">
-            {switch $lang}
+            {switch $language->value}
             {case cs}ASPR Camp
             {default}ASPR Camp
             {/switch}
             </a>
             <a class="btn btn-primary my-2" href="https://www.warp.camp/">
-            {switch $lang}
+            {switch $language->value}
             {case cs}WARP Camp
             {default}WARP Camp
             {/switch}
@@ -86,7 +87,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>
-                {switch $lang}
+                {switch $language->value}
                 {case cs}Program Fyziklání a doprovodného programu
                 {default}Schedule of Fyziklani and Its Accompanying Program
                 {/switch}
@@ -96,4 +97,4 @@
         </section>
     </div>
 
-{/block main} 
+{/block main}
