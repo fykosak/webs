@@ -17,14 +17,12 @@ use Throwable;
 
 class ApiResultsComponent extends DIComponent
 {
-    private Connector $gameServerApiConnector;
-    private FKSDBDownloader $downloader;
-    private int $eventId;
+    private readonly Connector $gameServerApiConnector;
+    private readonly FKSDBDownloader $downloader;
 
-    public function __construct(Container $container, int $eventId)
+    public function __construct(Container $container, private readonly int $eventId)
     {
         parent::__construct($container);
-        $this->eventId = $eventId;
     }
 
     public function inject(Connector $connector, FKSDBDownloader $downloader): void

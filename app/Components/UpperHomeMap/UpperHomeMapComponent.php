@@ -13,7 +13,7 @@ use Nette\DI\Container;
 
 final class UpperHomeMapComponent extends DIComponent
 {
-    private GamePhaseCalculator $gamePhaseCalculator;
+    private readonly GamePhaseCalculator $gamePhaseCalculator;
 
     public function __construct(Container $container, private readonly ModelEvent $event)
     {

@@ -42,7 +42,7 @@ class ModelEvent
     }
     /**
      * Returns true about a week after the event when no one is interested in game already.
-     * @throws Throwable
+     * @throws \Throwable
      */
     public function isLongAfterTheEvent(): bool
     {

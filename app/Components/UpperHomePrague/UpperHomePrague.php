@@ -13,9 +13,9 @@ use Nette\DI\Container;
 
 final class UpperHomePrague extends DIComponent
 {
-    private GamePhaseCalculator $gamePhaseCalculator;
+    private readonly GamePhaseCalculator $gamePhaseCalculator;
 
-    public function __construct(Container $container,private readonly ModelEvent $event)
+    public function __construct(Container $container, private readonly ModelEvent $event)
     {
         parent::__construct($container);
     }

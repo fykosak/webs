@@ -14,14 +14,12 @@ use Nette\DI\Container;
 
 class TeamResultsComponent extends DIComponent
 {
-    protected DummyService $serviceTeam;
-    protected int $eventId;
+    protected readonly DummyService $serviceTeam;
     protected ?array $filterData = null;
 
-    public function __construct(Container $container, int $eventId)
+    public function __construct(Container $container,protected readonly int $eventId)
     {
         parent::__construct($container);
-        $this->eventId = $eventId;
     }
 
     public function injectServiceTeam(DummyService $serviceTeam): void

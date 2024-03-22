@@ -13,16 +13,14 @@ use Nette\DI\Container;
 
 final class AllScheduleListComponent extends DIComponent
 {
-    private ServiceEventDetail $serviceEventDetail;
-    private int $eventId;
-    private FKSDBDownloader $downloader;
+    private readonly ServiceEventDetail $serviceEventDetail;
+    private readonly FKSDBDownloader $downloader;
 
     /** @var ModelPersonSchedule[][] | null */
     private ?array $groupedPersonSchedule = null;
 
-    public function __construct(int $eventId, Container $container)
+    public function __construct(private readonly int $eventId, Container $container)
     {
-        $this->eventId = $eventId;
         parent::__construct($container);
     }
 

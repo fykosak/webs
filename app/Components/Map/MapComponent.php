@@ -15,7 +15,7 @@ class MapComponent extends DIComponent
 {
     private static int $uniqueId = 0;
 
-    private DummyService $dummyService;
+    private readonly DummyService $dummyService;
 
     protected int $teamCount;
     /** @var string[] */

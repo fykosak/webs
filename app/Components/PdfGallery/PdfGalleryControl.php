@@ -13,8 +13,8 @@ use Nette\Utils\UnknownImageFileException;
 
 class PdfGalleryControl extends DIComponent
 {
-    private string $wwwDir;
-    private Cache $cache;
+    private readonly string $wwwDir;
+    private readonly Cache $cache;
 
     public function __construct(Container $container)
     {

@@ -10,20 +10,15 @@ use Nette\DI\Container;
 use Nette\SmartObject;
 use Throwable;
 
-class GamePhaseCalculator
+final class GamePhaseCalculator
 {
     use SmartObject;
 
-    private ServiceEventList $serviceEventList;
-    private Container $container;
-
-    private int $eventTypeId;
-
-    public function __construct(int $eventTypeId, ServiceEventList $serviceEventList, Container $container)
-    {
-        $this->eventTypeId = $eventTypeId;
-        $this->serviceEventList = $serviceEventList;
-        $this->container = $container;
+    public function __construct(
+        private readonly int $eventTypeId,
+        private readonly ServiceEventList $serviceEventList,
+        private readonly Container $container
+    ) {
     }
 
     /**
@@ -36,15 +31,6 @@ class GamePhaseCalculator
 
         $time->setDate((int)$day->format('Y'), (int)$day->format('m'), (int)$day->format('d'));
         return $time;
-    }
-
-    /**
-     * Returns true about a week after the event when no one is interested in game already.
-     * @throws Throwable
-     */
-    public function isLongAfterTheEvent(): bool
-    {
-        return $this->getFKSDBEvent()->isLongAfterTheEvent();
     }
 
     /**
