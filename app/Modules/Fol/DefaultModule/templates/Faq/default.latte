@@ -1,6 +1,6 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case cs}Často kladené dotazy
         {default}Frequently Asked Questions
     {/switch}
@@ -18,8 +18,8 @@
         'otherFAQ' => ['Ostatní FAQ', 'Other FAQ']
     ]}
     <script>
-        const showText = {switch $lang}{case cs}Zobrazit všechny odpovědi{default}Show all answers{/switch};
-        const hideText = {switch $lang}{case cs}Skrýt všechny odpovědi{default}Skrýt všechny odpovědi{/switch};
+        const showText = {switch $language->value}{case cs}Zobrazit všechny odpovědi{default}Show all answers{/switch};
+        const hideText = {switch $language->value}{case cs}Skrýt všechny odpovědi{default}Skrýt všechny odpovědi{/switch};
     </script>
     <script n:syntax="off">
         function collapseFAQ(btn) {
@@ -44,7 +44,7 @@
             </ul>
             <button onclick="collapseFAQ(this)" class="btn btn-primary"
                     type="button">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Zobrazit všechny odpovědi
                     {default}Show all answers
                 {/switch}
@@ -59,7 +59,7 @@
         <div n:class="panel, $parityCounter ? color-light : color-dark">
             <section class="inner-container" id="{$category}">
                 <div class="subheader">
-                    {switch $lang}
+                    {switch $language->value}
                         {case cs}Kategorie
                         {default}Category
                     {/switch}

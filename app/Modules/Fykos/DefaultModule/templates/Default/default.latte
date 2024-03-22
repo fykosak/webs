@@ -1,12 +1,12 @@
 {varType string $lang}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Modules\Core\Language $language}
 {varType int $currentYear}
 {varType array $events}
 {varType array $countdownEventsIndices}
 {varType array $numOfEvents}
 
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case 'cs'} Hlavní stránka
         {default} Main page
     {/switch}
@@ -21,30 +21,30 @@
                 <div class="col-lg-7 col-md-6 header-text-container">
                     <h1 class="header-text">FYKOS</h1>
                     <h2 class="header-text">
-                        {switch $lang}
+                        {switch $language->value}
                             {case 'cs'}Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2>
                             {default}We inspire and educate<br>high-schoolers in physics.</h2>
                         {/switch}
                     <p class="header-text">
-                        {switch $lang}
+                        {switch $language->value}
                             {case 'cs'}FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již {$currentYear}&nbsp;let.
                             {default}FYKOS has been organizing non-profit educational events in physics for {$currentYear} years.
                         {/switch}
                     </p>
                     <a class="btn btn-light mt-2" href="#timeline">
-                        {switch $lang}
+                        {switch $language->value}
                             {case 'cs'}Jste tu poprvé?
                             {default}First Time Here?
                         {/switch}
                     </a>
                     <a class="btn btn-light ml-2 mt-2" href="#news">
-                        {switch $lang}
+                        {switch $language->value}
                             {case 'cs'}Novinky
                             {default}News
                         {/switch}
                     </a>
                     <a class="btn btn-outline ml-2 mt-2" n:href=":Default:About:">
-                        {switch $lang}
+                        {switch $language->value}
                             {case 'cs'}O&nbsp;nás
                             {default}About&nbsp;Us
                         {/switch}
@@ -60,7 +60,7 @@
                         <div class="header-image-dates">
                             {if $countdownEventsIndices['upcoming'][$lang] == $numOfEvents[$lang]}
                                 <h2 class="next-event-heading">
-                                    {switch $lang}
+                                    {switch $language->value}
                                         {case 'cs'}Nový ročník FYKOSu přichází již brzy! Užívejte prázdniny!
                                         {default}New year of FYKOS is coming soon! Enjoy your holidays!
                                     {/switch}
@@ -77,7 +77,7 @@
                                     | <span id="countdown-secondary"></span></h4>
                                 {else}
                                     <h4 class="minor-event-heading mb-0">
-                                        {switch $lang}
+                                        {switch $language->value}
                                             {case 'cs'}Nový ročník FYKOSu přichází již brzy! Užívejte prázdniny!
                                             {default}New year of FYKOS is coming soon! Enjoy your holidays!
                                         {/switch}
@@ -95,13 +95,13 @@
 <div class="panel color-dark" id="news">
     <section class="inner-container">
         <div class="subheader">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Pro ty, kdo FYKOS dobře znají
                 {default}For Those Who Know FYKOS Well
             {/switch}
         </div>
         <h1 class="section-header">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Novinky a aktuality
                 {default}News and Updates
             {/switch}
@@ -126,25 +126,25 @@
 <div class="panel color-light" id="timeline">
     <section class="inner-container">
         <div class="subheader">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Naše hlavní akce
                 {default}Our Main Events
             {/switch}
         </div>
         <h1 class="section-header">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Co vše organizujeme?
                 {default}What Do We Organize?
             {/switch}
         </h1>
         <p>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní.
                 {default}FYKOS organizes about ten educational events for high school students every year. Here you can find the main ones.
             {/switch}
         </p>
         <a class="btn btn-primary" n:href=":Events:Default:default">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Stránka všech akcí
                 {default}Page of All Events
             {/switch}
@@ -175,7 +175,7 @@
 
                         <div class="col-12 timeline-section-header mt-5 d-md-none">
                             <h3>
-                                {switch $lang}
+                                {switch $language->value}
                                     {case 'cs'}Soutěže a exkurze
                                     {default}Competitions and Excursions
                                 {/switch}
@@ -194,11 +194,11 @@
                                             <span class="event-date">3.&nbsp;11.</span>
                                         </div>
                                         <div>
-                                            <p>{switch $lang}
+                                            <p>{switch $language->value}
                                                     {case 'cs'}Týmová soutěž v Praze, Ostravě a jinde ve světě
                                                     {default}Team competition in Prague, Ostrava, and elsewhere in the world
                                                 {/switch}</p>
-                                            {* <p>{switch $lang}
+                                            {* <p>{switch $language->value}
                                                     {case 'cs'}Otevření registrace sledujte na webu
                                                     {default}Follow the website for registration opening
                                                 {/switch}</p> *}
@@ -213,18 +213,18 @@
                                 <div class="event fol-color-left-border">
                                     <div class="event-header">
                                         <h3><img src="/images/logos/fyziklani_online_symbol.svg" class="inline-logo">
-                                            {switch $lang}
+                                            {switch $language->value}
                                                 {case 'cs'}Fyziklání Online
                                                 {default}Physics Brawl Online
                                             {/switch}</h3>
                                         <span class="event-date">22.&nbsp;11.</span>
                                     </div>
                                     <div>
-                                        <p>{switch $lang}
+                                        <p>{switch $language->value}
                                                 {case 'cs'}Celosvětová soutěž, které se může účastnit každý
                                                 {default}Worldwide competition open to everyone
                                             {/switch}</p>
-                                        {* <p>{switch $lang}
+                                        {* <p>{switch $language->value}
                                                 {case 'cs'}Registrace od 1.&nbsp;9. do 2&nbsp;hodin před soutěží.
                                                 {default}Registration from 1.&nbsp;9. to 2&nbsp;hours before the competition.
                                             {/switch}</p> *}
@@ -240,7 +240,7 @@
                                 <div class="event dsef-color-left-border">
                                     <div class="event-header">
                                         <h3><img src="/images/logos/dsef_symbol.svg" class="inline-logo">
-                                            {switch $lang}
+                                            {switch $language->value}
                                                 {case 'cs'}DSEF
                                                 {default}DSEF
                                             {/switch}
@@ -248,11 +248,11 @@
                                         <span class="event-date">6.&nbsp;11.</span>
                                     </div>
                                     <div>
-                                        <p>{switch $lang}
+                                        <p>{switch $language->value}
                                                 {case 'cs'}Den s experimentální fyzikou na Matfyzu
                                                 {default}Day with experimental physics at Matfyz
                                             {/switch}</p>
-                                        {* <p>{switch $lang}
+                                        {* <p>{switch $language->value}
                                                 {case 'cs'}Registrace od 2.&nbsp;10. do 3.&nbsp;11.
                                                 {default}Registration from 2.&nbsp;10. to 3.&nbsp;11.
                                             {/switch}</p> *}
@@ -266,7 +266,7 @@
                                 <div class="event fof-color-left-border">
                                     <div class="event-header">
                                         <h3><img src="/images/logos/fyziklani_symbol.svg" class="inline-logo">
-                                            {switch $lang}
+                                            {switch $language->value}
                                                 {case 'cs'}Fyziklání
                                                 {default}Fyziklani
                                             {/switch}
@@ -274,11 +274,11 @@
                                         <span class="event-date">16.&nbsp;2.</span>
                                     </div>
                                     <div>
-                                        <p>{switch $lang}
+                                        <p>{switch $language->value}
                                                 {case 'cs'}Největší týmová fyzikální soutěž v Evropě
                                                 {default}The largest team physics competition in Europe
                                             {/switch}</p>
-                                        {* <p>{switch $lang}
+                                        {* <p>{switch $language->value}
                                                 {case 'cs'}Registrace od 22.&nbsp;11. do 9.&nbsp;2.
                                                 {default}Registration from 22.&nbsp;11. to 9.&nbsp;2.
                                             {/switch}</p> *}
@@ -311,7 +311,7 @@
 
                         {* Timeline header -- show on small screens *}
                         <div class="timeline-section-header mt-5 mt-md-0 d-md-none">
-                            <h3>{switch $lang}
+                            <h3>{switch $language->value}
                                     {case 'cs'}Série semináře
                                     {default}FYKOS Series
                                 {/switch}</h3>
@@ -321,14 +321,14 @@
                         <div class="col-md-3 offset-md-1 mt-4 order-md-1 order-1" id="series-1">
                             <div class="event series w-md-100 w-90">
                                 <div class="event-header">
-                                    <h3>{switch $lang}
+                                    <h3>{switch $language->value}
                                             {case 'cs'}1. série
                                             {default}1st Series
                                         {/switch}</h3>
                                     <span class="event-date">10.&nbsp;10.</span>
                                 </div>
                                 <div>
-                                    <p>{switch $lang}
+                                    <p>{switch $language->value}
                                             {case 'cs'}Velryba, nové kolo a&nbsp;tření papíru
                                             {default}Whale, new wheel, and paper rubbing
                                         {/switch}</p>
@@ -338,14 +338,14 @@
                         <div class="col-md-3 mt-4 order-md-2 order-3" id="series-3">
                             <div class="event series w-md-100 w-90">
                                 <div class="event-header">
-                                    <h3>{switch $lang}
+                                    <h3>{switch $language->value}
                                             {case 'cs'}3. série
                                             {default}3rd Series
                                         {/switch}</h3>
                                     <span class="event-date">2.&nbsp;1.</span>
                                 </div>
                                 <div>
-                                    <p>{switch $lang}
+                                    <p>{switch $language->value}
                                             {case 'cs'}Zvlhčovač, blesky a&nbsp;proteinový motor
                                             {default}Humidifier, lightning, and protein motor
                                         {/switch}</p>
@@ -355,13 +355,13 @@
                         <div class="col-md-3 mt-4 order-md-3 order-5" id="series-5">
                             <div class="event series w-md-100 w-90">
                                 <div class="event-header">
-                                    <h3>{switch $lang}
+                                    <h3>{switch $language->value}
                                             {case 'cs'}5. série
                                             {default}5th Series
                                         {/switch}</h3>
                                     <span class="event-date">9.&nbsp;4.</span>
                                 </div>
-                                <p>{switch $lang}
+                                <p>{switch $language->value}
                                         {case 'cs'}Bowling, med a&nbsp;potápějící se člun
                                         {default}Bowling, honey, and sinking boat
                                     {/switch}</p>
@@ -372,13 +372,13 @@
                         <div class="col-md-3 offset-md-2 mt-4 order-md-4 order-2" id="series-2">
                             <div class="event series w-md-100 w-90">
                                 <div class="event-header">
-                                    <h3>{switch $lang}
+                                    <h3>{switch $language->value}
                                             {case 'cs'}2. série
                                             {default}2nd Series
                                         {/switch}</h3>
                                     <span class="event-date">21.&nbsp;11.</span>
                                 </div>
-                                <p>{switch $lang}
+                                <p>{switch $language->value}
                                         {case 'cs'}Pneumatika, cola a&nbsp;perpetuum mobile
                                         {default}Pneumatics, cola, and perpetual motion
                                     {/switch}</p>
@@ -387,13 +387,13 @@
                         <div class="col-md-3 mt-4 order-md-5 order-4" id="series-4">
                             <div class="event series w-md-100 w-90">
                                 <div class="event-header">
-                                    <h3>{switch $lang}
+                                    <h3>{switch $language->value}
                                             {case 'cs'}4. série
                                             {default}4th Series
                                         {/switch}</h3>
                                     <span class="event-date">27.&nbsp;2.</span>
                                 </div>
-                                <p>{switch $lang}
+                                <p>{switch $language->value}
                                         {case 'cs'}Hokejista, svítilna a&nbsp;pozorování letadla
                                         {default}Hockey player, flashlight, and airplane observation
                                     {/switch}</p>
@@ -402,14 +402,14 @@
                         <div class="col-md-3 mt-4 order-6" id="series-6">
                             <div class="event series w-md-100 w-90">
                                 <div class="event-header">
-                                    <h3>{switch $lang}
+                                    <h3>{switch $language->value}
                                             {case 'cs'}6. série
                                             {default}6th Series
                                         {/switch}</h3>
                                     <span class="event-date">14.&nbsp;5.</span>
                                 </div>
                                 <p>
-                                    {switch $lang}
+                                    {switch $language->value}
                                         {case 'cs'}Antineutrína, ponorka a&nbsp;magnety
                                         {default}Antineutrinos, submarine, and magnets
                                     {/switch}
@@ -427,37 +427,37 @@
 <div class="panel color-dark" id="seminar">
     <section class="inner-container">
         <div class="subheader">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Netradiční fyzikální problémy, které vám dají zabrat
                 {default}Unconventional Physics Problems That Will Test Your Skills
             {/switch}
         </div>
         <h1 class="title">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Fyzikální korespondenční seminář
                 {default}Physics Correspondence Competition
             {/switch}
         </h1>
         <p>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Fyzikální korespondenční seminář je naší nejstarší tradiční akcí. Probíhá celý rok a každý ročník je rozdělen do 6 sérií (které jsou na časové ose výše znázorněny jejich čísly). Zde je stručný popis fungování semináře.
                 {default}Physics Correspondence Competition is our oldest traditional event. It takes place throughout the year and each edition is divided into 6 series (which are represented by their numbers on the timeline above). Here is a brief description of how the seminar works.
             {/switch}
         </p>
         <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:OrganisationalRegulations" *}>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}O semináři
                 {default}About the Competition
             {/switch}
         </a>
         <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:complete" *}>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Úplná pravidla
                 {default}Complete Rules
             {/switch}
         </a>
         <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:complete" *}>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Zadání aktuální série
                 {default}Current Series Assignment
             {/switch}
@@ -469,13 +469,13 @@
                 <a n:href=":Default:Problems:" class="link-no-decor">
                     <div class="info-block p-3 mb-4">
                         <h4><i class="info-icon fas fa-book-open mb-2"></i>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Podívejte se na úlohy aktuální série
                                 {default}Check Out the Current Series Problems
                             {/switch}
                         </h4>
                         <p>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Zadání vám přijde poštou nebo ho najdete přímo tady na webu.
                                     Nemusíte vyřešit všechny úlohy, každý pokus se počítá.
                                 {default}The assignment will be sent to you by mail or you can find it directly here on the website.
@@ -491,13 +491,13 @@
                 <a href="https://db.fykos.cz" class="link-no-decor">
                     <div class="info-block p-3 mb-4 mt-md-5">
                         <h4><i class="info-icon fas fa-upload mb-2"></i>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Nahrajte řešení do FKSDB
                                 {default}Upload Solutions to FKSDB
                             {/switch}
                         </h4>
                         <p>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Můžete psát ručně a nascanovat nebo psát rovnou elektronicky. Akceptujeme pouze formát pdf.
                                 {default}You can write by hand and scan or write directly electronically. We only accept the pdf format.
                             {/switch}
@@ -511,13 +511,13 @@
                 <a href="https://db.fykos.cz" class="link-no-decor">
                     <div class="info-block p-3 mb-4 mt-md-n5">
                         <h4><i class="info-icon fas fa-search mb-2"></i>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Prohlédněte si svá opravená řešení
                                 {default}View Your Corrected Solutions
                             {/switch}
                         </h4>
                         <p>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Naši organizátoři vám řešení opraví a pošlou zpátky a pomůžou vám se zlepšit. Zároveň publikujeme vzorová řešení.
                                 {default}Our organizers will correct your solutions and send them back to you, helping you improve. We also publish sample solutions.
                             {/switch}
@@ -548,13 +548,13 @@
 <div class="panel color-light">
     <section class="inner-container">
         <div class="subheader">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Ochutnávka našich akcí
                 {default}A Taste of Our Events
             {/switch}
         </div>
         <h1 class="section-header">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Co s námi můžete zažít?
                 {default}What Can You Experience With Us?
             {/switch}
@@ -565,7 +565,7 @@
             <div class="col-lg-6">
                 <div class=" video-container left">
                     <h2>
-                        {switch $lang}
+                        {switch $language->value}
                             {case 'cs'}Soutěže...
                             {default}Competitions...
                         {/switch}
@@ -582,7 +582,7 @@
             <div class="col-lg-6">
                 <div class="video-container right pt-4 pt-lg-0">
                     <h2>
-                        {switch $lang}
+                        {switch $language->value}
                             {case 'cs'}...a vědu!
                             {default}...and science!
                         {/switch}

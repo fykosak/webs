@@ -1,4 +1,4 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {varType array $eventKeys}
 
 {block title}Minulé ročníky{/block}
@@ -15,7 +15,7 @@
         <div class="panel color-auto">
             <section class="inner-container">
                 <div class="subheader">
-                    {switch $lang}
+                    {switch $language->value}
                         {case 'cs'}{$eventKey['event']->begin|date: 'j. n. Y'}
                         {default}{$eventKey['event']->begin|date: 'j F Y'}
                     {/switch}
@@ -26,7 +26,7 @@
                     {$eventKey['event']->begin|date: 'Y'}
 
                     <a class="btn btn-primary" n:href=":Archive:Default: eventYear:$eventKey['year'], eventMonth:$eventKey['month']">
-                        {switch $lang}
+                        {switch $language->value}
                             {case cs}Více
                             {default}More
                         {/switch}

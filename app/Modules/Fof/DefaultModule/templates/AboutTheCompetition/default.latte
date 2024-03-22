@@ -1,8 +1,8 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 
 {*{block title}*}
-{*    {switch $lang}*}
+{*    {switch $language->value}*}
 {*        {case 'cs'} O soutěži*}
 {*        {default} About*}
 {*    {/switch}*}
@@ -11,7 +11,7 @@
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">O soutěži</div>*}
                 <h1>O čem je Fyziklání?</h1>
@@ -26,7 +26,7 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Organizátoři</div>*}
                 <h1>Kdo za tím stojí?</h1>
@@ -63,7 +63,7 @@
 {if false}
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Organizátoři</div>*}
                 <h1>Záštita</h1>
@@ -85,7 +85,7 @@
 {/if}
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Datum a místo konání</div>*}
                 <h1>Kdy a kde to bude?</h1>
@@ -107,7 +107,7 @@
 {if false}
     <div class="panel color-auto" id="covid-measures">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Hygienická opatření</div>*}
                 <h1>Jaká jsou aktuální epidemická opatření?</h1>

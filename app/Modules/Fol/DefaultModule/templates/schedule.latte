@@ -1,9 +1,9 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 <div class="timeline">
     <div>
         <span class="timeline-element-icon"></span>
         <div class="timeline-element-content">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="timeline-title">Začátek soutěže</div>
                 <p>
@@ -23,7 +23,7 @@
     <div>
         <span class="timeline-element-icon"></span>
         <div class="timeline-element-content">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="timeline-title">
                     Hurry-up
@@ -48,7 +48,7 @@
     <div>
         <span class="timeline-element-icon"></span>
         <div class="timeline-element-content">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="timeline-title">
                     Konec zvýhodněné části Hurry-up
@@ -71,7 +71,7 @@
     <div>
         <span class="timeline-element-icon"></span>
         <div class="timeline-element-content">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="timeline-title">
                     Konec soutěže
@@ -94,7 +94,7 @@
     <div>
         <span class="timeline-element-icon"></span>
         <div class="timeline-element-content">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="timeline-title">
                     Konec přijímání stížností

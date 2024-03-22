@@ -1,4 +1,4 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {block title}Scholarship Program{/block}
 
 {block main}
@@ -21,14 +21,14 @@
             <p>The accepted teams will attend the entire accompanying program of Fyziklani as well as several closely related extension activities creating about a week-long memorable experience. We built upon a similar event from Fyziklani 2023 as well as the 2022 Fyziklani International Youth Exchange.</p>
 
             <a class="btn btn-primary my-2" n:href="Schedule:default">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Accompanying Program
                     {default}Accompanying Program
                 {/switch}
             </a>
 
             <a class="btn btn-primary my-2" n:href=":Archive:Erasmus: eventYear: 2022">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Youth Exchange 2022
                     {default}Youth Exchange 2022
                 {/switch}
@@ -64,19 +64,19 @@
             <p>The scholarship is possible thanks to the kind sponsorship of FABRIC, a non-profit that organizes camps for highly talented students interested in understanding themselves and the world.</p>
 
             <a class="btn btn-primary my-2" href="https://www.fabric.camp/">
-            {switch $lang}
+            {switch $language->value}
             {case cs}More About FABRIC
             {default}More About FABRIC
             {/switch}
             </a>
             {* <a class="btn btn-primary my-2" href="https://www.aspr.camp/">
-            {switch $lang}
+            {switch $language->value}
             {case cs}ASPR Camp
             {default}ASPR Camp
             {/switch}
             </a>
             <a class="btn btn-primary my-2" href="https://www.warp.camp/">
-            {switch $lang}
+            {switch $language->value}
             {case cs}WARP Camp
             {default}WARP Camp
             {/switch}
@@ -87,7 +87,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>
-                {switch $lang}
+                {switch $language->value}
                 {case cs}Program Fyziklání a doprovodného programu
                 {default}Schedule of Fyziklani and Its Accompanying Program
                 {/switch}

@@ -1,4 +1,4 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {block title}Soustředění{/block}
 {block main}
 
@@ -43,9 +43,9 @@
         <section class="inner-container">
             <div class="row event-box">
                 <div class="col-md-8 event-text-box">
-                    <div class="subheader">{$event['nameNew'][$lang]} – {$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}</div>
-                    <h1>{$event['heading'][$lang]}</h1>
-                    <p>{$event['reportNew'][$lang]}</p>
+                    <div class="subheader">{$event['nameNew'][$language->value]} – {$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}</div>
+                    <h1>{$event['heading'][$language->value]}</h1>
+                    <p>{$event['reportNew'][$language->value]}</p>
                     <div>
                         {* TODO link for the camp page *}
                         {* <a class="btn btn-primary" n:href=":Events:Fykos:">
@@ -57,7 +57,7 @@
                 <div class="col-md-4 event-img-box">
                     {* TODO: link for the camp page and correct picture *}
                     {* <a n:href=":Events:Fykos:"> *}
-                        <img src="{$basePath}{$event['photo']}" alt="{$event['heading'][$lang]}"
+                        <img src="{$basePath}{$event['photo']}" alt="{$event['heading'][$language->value]}"
                         class="event-img">
                     {* </a> *}
                 </div>

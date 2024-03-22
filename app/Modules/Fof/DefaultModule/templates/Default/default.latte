@@ -1,7 +1,7 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case 'cs'} Hlavní stránka
         {default} Main page
     {/switch}
@@ -12,19 +12,19 @@
         <div class="inner-container row align-items-center">
             <div class="col-md-6 left-block">
                 <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
-                    {switch $lang}
+                    {switch $language->value}
                         {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} Praha, Česká republika
                         {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j, Y'} Prague, Czech Republic
                     {/switch}
                 </time>
                 <h1>
-                    {switch $lang}
+                    {switch $language->value}
                         {case 'cs'}Největší fyzikální<br>týmová soutěž v&nbsp;Evropě
                     {default}Physics Team Competition<br>in&nbsp;Europe
                     {/switch}
                 </h1>
                 <div class="subheader col-md-10">
-                    {switch $lang}
+                    {switch $language->value}
                         {*{case 'cs'}<p>Přihlas se společně až s pětičlenným týmem a&nbsp;přijeďte si do Prahy zasoutěžit.</p>*}
                         {*{default}<p>Sign up with a team of up to five and come to Prague, Czech Republic to compete with others.</p>*}
                         {*{case 'cs'}<p>Registace pro rok 2024 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 20 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>*}
@@ -35,10 +35,10 @@
                     {/switch}
                 </div>
                 <div class="buttons">
-                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
-                    <a target="_blank" href="{$basePath}/download/2024/{switch $lang}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $lang}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>
+                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>
+                    <a target="_blank" href="{$basePath}/download/2024/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>
                     <a n:href="Merch:" class="btn btn-light">Merch</a>
-                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-primary">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
+                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-primary">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
             </div>
             <div class="col-md-6 right-block topic-panel">
@@ -54,13 +54,13 @@
     {*<div class="panel registration" style="background-color: black">*}
         {*<div class="inner-container">*}
             {*<div class="text">*}
-                {*{switch $lang}*}
+                {*{switch $language->value}*}
                     {*{case 'cs'}Doufáme, že jste si soutěž užili!*}
                     {*{default}We hope you have enjoyed the competition!*}
                 {*{/switch}*}
             {*</div>*}
             {*<div class="buttons">*}
-                {*{switch $lang}*}
+                {*{switch $language->value}*}
                     {*{case cs}*}
                     {*<a class="btn btn-primary m-1" href="/2024/vysledky/">Výsledky soutěže</a>*}
                     {*<a class="btn btn-primary m-1" href="/download/2024/reseni.pdf">Úlohy a řešení</a>*}
@@ -79,7 +79,7 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
                 <div class="subheader">Shrnutí pravidel</div>
                 <h1>Co je to Fyziklání?</h1>
@@ -119,17 +119,17 @@
     {*
     <div class="panel color-dark">
         <section class="inner-container">
-            <div class="subheader">{switch $lang}{case cs}Ceny{default}Prizes{/switch}</div>
-            <h1>{switch $lang}
+            <div class="subheader">{switch $language->value}{case cs}Ceny{default}Prizes{/switch}</div>
+            <h1>{switch $language->value}
                 {case cs}Pro nejlepší týmy máme nachystané odměny.
                 {default}We have rewards for the best of you.{/switch}</h1>
             <div class="row prices">
                 <div class="col-md-4">
                     <div class="price-box small" style="background-color: #666666">
-                        {switch $lang}{case cs}FYKOSí<br/>trička a mikiny{default}T-shirts<br/>and hoodies{/switch}
+                        {switch $language->value}{case cs}FYKOSí<br/>trička a mikiny{default}T-shirts<br/>and hoodies{/switch}
                     </div>
 
-                    {switch $lang}
+                    {switch $language->value}
                         {case cs}
                         <a class="price-box large fyziklani-international-box" href="{plink :Default:FyziklaniInternational:default}">
                             Účast ve<br/>Fyziklání<br/>International
@@ -141,7 +141,7 @@
                     {/switch}
                 </div>
                 <div class="col-md-4">
-                    {switch $lang}
+                    {switch $language->value}
                         {case cs}
                         <div class="price-box large knihy-box">
                             Knihy<br/>podle<br/>výběru
@@ -153,7 +153,7 @@
                     {/switch}
 
                     <a class="price-box small orgpad-box" href="https://orgpad.com/">
-                        {switch $lang}
+                        {switch $language->value}
                             {case cs}Licence na<br/>
                             <img src="{$basePath}/images/logos/orgpad.svg" alt="OrgPad" style="max-height: 3rem">
                         {default}License to<br/>
@@ -162,7 +162,7 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    {switch $lang}
+                    {switch $language->value}
                         {case cs}
                         <div class="price-box small deskovky-box">
                             Deskovky<br>a karetní<br>hry
@@ -174,7 +174,7 @@
                     {/switch}
 
                     <a class="price-box large" href="http://www.graphmatica.com/" style="background-color: #019A69">
-                        {switch $lang}{case cs}Software<br/>Graphmatica<br/>
+                        {switch $language->value}{case cs}Software<br/>Graphmatica<br/>
                         {default}Software<br/>Graphmatica<br/>{/switch}
                     </a>
                 </div>
@@ -185,7 +185,7 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="subheader">Ukázka příkladů v soutěži</div>
                 <h1>Každý najde svou obtížnost.</h1>
@@ -249,7 +249,7 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="subheader">Harmonogram Fyziklání</div>
                 {*<h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}.</h1>*}
@@ -270,7 +270,7 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="subheader">Vítězové minulých ročníků</div>
                 <h1>Přihlaste se a staňte se legendami!</h1>
@@ -280,7 +280,7 @@
             {/switch}
 
             {*<ul class="stylized">*}
-                {*{switch $lang}*}
+                {*{switch $language->value}*}
                     {*{case cs}*}
                     {*<li>Soutěž je určena pro středoškoláky a je zdarma!</li>*}
                     {*<li>*}
@@ -333,7 +333,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="col-md-6">
                     <div class="legends-row">

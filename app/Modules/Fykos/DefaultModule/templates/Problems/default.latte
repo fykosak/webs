@@ -1,5 +1,6 @@
 {varType App\Models\Downloader\ProblemService $problemService}
 {varType string $lang}
+{varType App\Modules\Core\Language $language}
 
 {block title}Zadání{/block}
 {block main}
@@ -10,7 +11,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="subheader">
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'}Deadline pro odeslání: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>.
                         {default}Deadline for submission: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}, CET</strong>.
                         {/switch}
@@ -18,25 +19,25 @@
                     <h1>Zadání {$series->series}. série {$series->year}. ročníku</h1>
 
                     <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:">
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'}O semináři
                         {default}About the Competition
                         {/switch}
                     </a>
                     <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:Rules">
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'}Pravidla
                         {default}Rules
                         {/switch}
                     </a>
                     <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:TexTutorial">
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'}Návod jak psát řešení
                         {default}How to Write Solutions
                         {/switch}
                     </a>
                     <a class="btn btn-primary my-2 mr-4" n:href=":Default:Results:">
-                        {switch $lang}
+                        {switch $language->value}
                         {case 'cs'}Pořadí řešitelů
                         {default}Results
                         {/switch}
@@ -70,7 +71,7 @@
                                         {$problem->getLabel()}...
                                         {$problem->name[$lang]}</h4>
                                     <div>
-                                        {switch $lang}
+                                        {switch $language->value}
                                         {case 'cs'}
                                         <h4>{$problem->points} bod{if $problem->points == 1}{elseif
                                             $problem->points > 1

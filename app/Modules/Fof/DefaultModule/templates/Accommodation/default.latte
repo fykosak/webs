@@ -1,8 +1,8 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Ubytování</div>*}
                 <h1>Kde se ubytovat?</h1>
@@ -20,7 +20,7 @@
     </div>
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Ubytování</div>*}
                 <h1>Hotel Duo</h1>
@@ -50,7 +50,7 @@
 
 	<div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Ubytování</div>*}
                 <h1>Ceny za ubytování a platba</h1>
@@ -86,7 +86,7 @@
 
     <div class="panel color-auto" id="how-to-pay">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
                 <h1>Jak zaplatit za ubytování a raut?</h1>
                 <ul>

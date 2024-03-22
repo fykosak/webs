@@ -1,16 +1,16 @@
-{varType string $lang}
 {varType App\Models\NetteDownloader\ORM\Models\ModelEvent $event}
+{varType App\Modules\Core\Language $language}
 {varType string $eventKey}
 
 {block subtitle}
-    {switch $lang}
+    {switch $language->value}
         {case 'cs'}Archivní stránka soutěže z {$event->begin|date: 'j. n. Y'}
         {default}Archive page of the competition from {$event->begin|date: 'j F Y'}
     {/switch}
 {/block}
 
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case 'cs'}Fyziklání {$event->begin|date: 'Y'}
         {default}Fyziklani {$event->begin|date: 'Y'}
     {/switch}
@@ -23,13 +23,13 @@
                 {ifset title}<h1>{include title}</h1>{/ifset}
                 <ul class="stylized">
                     <li><a n:href="Teams:">
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Seznam přihlášených týmů
                                 {default}List of registered teams
                             {/switch}
                         </a></li>
                     <li><a n:href="Results:">
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Výsledky soutěže
                                 {default}Results of the competition
                             {/switch}
@@ -38,13 +38,13 @@
 
                 <ul class="stylized">
                     <li><a href="{$basePath}/download/{$eventKey}/reseni.pdf">
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Zadání a řešení úloh v českém jazyce
                                 {default}Problems and solutions in Czech
                             {/switch}
                         </a></li>
                     <li><a href="{$basePath}/download/{$eventKey}/solutions.pdf">
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Zadání a řešení úloh v anglickém jazyce
                                 {default}Problems and solutions in English
                             {/switch}
@@ -54,7 +54,7 @@
                 {if file_exists(__DIR__.'/../../../../www/fof/download/'.$eventKey.'/infobooklet-cs.pdf')}
                     <ul class="stylized">
                         <li><a href="{$basePath}/download/{$eventKey}/infobooklet-cs.pdf">
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Průvodce Fyzikláním {$eventKey} v českém jazyce
                                 {default}Guidebook of Fyziklani {$eventKey} in Czech
                             {/switch}
@@ -62,7 +62,7 @@
 
                         {if file_exists(__DIR__.'/../../../../www/fof/download/'.$eventKey.'/infobooklet-en.pdf')}
                             <li><a href="{$basePath}/download/{$eventKey}/infobooklet-en.pdf">
-                                {switch $lang}
+                                {switch $language->value}
                                     {case 'cs'}Průvodce Fyzikláním {$eventKey} v anglickém jazyce
                                     {default}Guidebook of Fyziklani {$eventKey} in English
                                 {/switch}
@@ -75,7 +75,7 @@
                 <ul class="stylized">
                     <li>
                         <a href="#competition">
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Fotografie ze soutěže
                                 {default}Photos from the competition
                             {/switch}
@@ -84,7 +84,7 @@
                     {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/teams')}
                         <li>
                             <a href="#backdrop">
-                                {switch $lang}
+                                {switch $language->value}
                                     {case 'cs'}Fotostěna
                                     {default}Fyziklani Backdrop
                                 {/switch}
@@ -94,7 +94,7 @@
                     {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/winners')}
                         <li>
                             <a href="#winners">
-                                {switch $lang}
+                                {switch $language->value}
                                     {case 'cs'}Fotografie vítězů
                                     {default}Photos of the winners
                                 {/switch}
@@ -104,7 +104,7 @@
                     {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/weekend')}
                         <li>
                             <a href="#weekend">
-                                {switch $lang}
+                                {switch $language->value}
                                     {case 'cs'}Fotografie z doprovodného programu
                                     {default}Photos from the accompanying program
                                 {/switch}
@@ -127,7 +127,7 @@
 {*    {if in_array($eventKey, ["2023"])}*}
 {*        <div class="panel color-auto" id="competition">*}
 {*            <section class="inner-container">*}
-{*                <h1>{switch $lang}*}
+{*                <h1>{switch $language->value}*}
 {*                    {case 'cs'}Partneři ročníku {$eventKey}*}
 {*                    {default}Partners of the year {$eventKey}*}
 {*                    {/switch}</h1>*}
@@ -138,7 +138,7 @@
     {if is_dir(__DIR__.'/../../../../www/fof/photos/'.$eventKey)}
         <div class="panel color-auto" id="competition">
             <section class="inner-container">
-                <h1>{switch $lang}
+                <h1>{switch $language->value}
                     {case 'cs'}Fotografie ze soutěže
                     {default}Photos from the competition
                 {/switch}</h1>
@@ -150,7 +150,7 @@
     {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/teams')}
         <div class="panel color-auto" id="backdrop">
             <section class="inner-container">
-                <h1>{switch $lang}
+                <h1>{switch $language->value}
                     {case 'cs'}Fotostěna
                     {default}Fyziklani Backdrop
                     {/switch}</h1>
@@ -162,7 +162,7 @@
     {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/winners')}
         <div class="panel color-auto" id="winners">
             <section class="inner-container">
-                <h1>{switch $lang}
+                <h1>{switch $language->value}
                     {case 'cs'}Fotografie vítězů
                     {default}Photos of the winners
                     {/switch}</h1>
@@ -174,7 +174,7 @@
     {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/weekend')}
         <div class="panel color-auto" id="weekend">
             <section class="inner-container">
-                <h1>{switch $lang}
+                <h1>{switch $language->value}
                     {case 'cs'}Doprovodný program Fyziklání
                     {default}Accompanying program of Fyziklani
                     {/switch}</h1>

@@ -8,7 +8,7 @@
 <head>
     <title>
         {ifset title}{include title} | {/ifset}
-        {switch $lang}
+        {switch $language->value}
             {case 'cs'} Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'}
             {default} Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'}
         {/switch}
@@ -21,9 +21,9 @@
     <meta name="theme-color" content="#e6060d">
 
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="{switch $lang}{case cs}Fyziklání{default}Fyziklani{/switch}"/>
-    <meta property="og:image" content="{switch $lang}{case cs}https://fyziklani.cz/images/fof-og-image-cs.png{default}https://fyziklani.cz/images/fof-og-image-en.png{/switch}"/>
-    <meta property="og:description" content="{switch $lang}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}"/>
+    <meta property="og:title" content="{switch $language->value}{case cs}Fyziklání{default}Fyziklani{/switch}"/>
+    <meta property="og:image" content="{switch $language->value}{case cs}https://fyziklani.cz/images/fof-og-image-cs.png{default}https://fyziklani.cz/images/fof-og-image-en.png{/switch}"/>
+    <meta property="og:description" content="{switch $language->value}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:locale" content="{$language->getLocale()}"/>
     <meta property="og:url" content="{plink //this}"/>
@@ -59,27 +59,27 @@
         <div class="panel registration">
             <div class="inner-container">
                 <div class="text">
-                    {switch $lang}
+                    {switch $language->value}
                         {case 'cs'}Zaujala vás soutěž?
                         {default}Are you interested?
                     {/switch}
                 </div>
                 {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
-                    <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Registration{/switch}</a>
+                    <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Registrace{default}Registration{/switch}</a>
                 {else}
                     {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
-                        {switch $lang}
+                        {switch $language->value}
                             {case 'cs'}Registrace se otevře v listopadu!
                             {default} Registration will open in November!
                         {/switch}
                     {else}
                         {if $gamePhaseCalculator->isLongAfterTheEvent()}
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Registrace na další ročník ještě není otevřena.
                                 {default} Registration for the next year is not open yet.
                             {/switch}
                         {else}
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Registrace je bohužel již na tento ročník uzavřena.
                                 {default}Unfortunately, registration is already closed for this year.
                             {/switch}
@@ -92,36 +92,36 @@
         <div class="panel sponsors">
             <div class="inner-container">
                 <div class="category category-full-line">
-                    <div class="category-title">{switch $lang}{case cs}Organizátoři{default}Organized by{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Organizátoři{default}Organized by{/switch}</div>
                     <div class="category-sponsors">
-                        <a {switch $lang}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
+                        <a {switch $language->value}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
                             <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
                                 style="max-width: 8rem">
                         </a>
                         <a href="https://www.msmt.cz/" style="text-align: center">
-                            {switch $lang}
+                            {switch $language->value}
                             {case cs}
                                 <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
                             {default}
                                 <img src="{$basePath}/images/logos/msmt_en.jpg" alt="MŠMT logo" style="max-width: 9rem">
                             {/switch}
                         </a>
-                        <a {switch $lang}{case cs}href="https://www.fykos.cz/"{default}href="https://www.fykos.org/"{/switch} style="text-align: center">
+                        <a {switch $language->value}{case cs}href="https://www.fykos.cz/"{default}href="https://www.fykos.org/"{/switch} style="text-align: center">
                             <img src="{$basePath}/images/logos/fykos_logo.png" alt="logo FYKOSu" style="max-width: 9rem">
                         </a>
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Generální partner{default}General Partner{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Generální partner{default}General Partner{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.cez.cz/" style="text-align: center">
-                            {switch $lang}{case cs}<img src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo" style="max-width: 10rem">
+                            {switch $language->value}{case cs}<img src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo" style="max-width: 10rem">
                           	{default}<img src="{$basePath}/images/logos/CEZ_Group_Logo_EN.png" alt="CEZ group logo" style="max-width: 10rem">{/switch}
                         </a>
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Platinový partner{default}Platinum Partner{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Platinový partner{default}Platinum Partner{/switch}</div>
                     <div class="category-sponsors">
                         {*<a href="https://www.nadacecez.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/nadaceCEZ-logo.png" alt="Nadace CEZ logo" style="max-width: 5rem">
@@ -132,7 +132,7 @@
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Za podpory{default}Supported by{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Za podpory{default}Supported by{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.fabric.camp/" style="text-align: center">
                             <img src="{$basePath}/images/logos/fabric_title.png" alt="FABRIC logo" style="max-width: 7rem">
@@ -140,7 +140,7 @@
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Sříbrní partneři{default}Silver partners{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Sříbrní partneři{default}Silver partners{/switch}</div>
                     <div class="category-sponsors">
                         <a href="http://www.kalabria.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo" style="max-width:7rem"></a>
@@ -154,7 +154,7 @@
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Partneři{default}Partners{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.humusoft.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/Mathworks-Humusoft.png" alt="Humusoft and Mathworks logo" style="max-width: 20rem">
@@ -209,7 +209,7 @@
             <div class="inner-container row">
                 <div class="col-md-6">
                     <img class="logo" src="{$basePath}/images/logo.svg" alt="Fyziklani" />
-                    {switch $lang}
+                    {switch $language->value}
                         {case 'cs'}
                         <p>
                             Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 37. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
@@ -228,7 +228,7 @@
                     {/switch}
                     <p>
                         <strong>#fykos</strong>
-                        {switch $lang}
+                        {switch $language->value}
                             {case 'cs'}<strong>#fyziklani</strong>
                             {default}<strong>#fyziklani{$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'}</strong>
                         {/switch}
@@ -236,14 +236,14 @@
                     </p>
                     <div class="other-logos">
                         <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/logos/fykos_logo_white.png" alt="FYKOS" style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        <a target="_blank" href="{switch $lang}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
+                        <a target="_blank" href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                         {if $lang=='cs'}<a target="_blank" href="https://dsef.cz/"><img class="other-logo" src="{$basePath}/images/logos/dsef_logo_white.png"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>{/if}
                     </div>
                 </div>
                 <div class="col-md-3">
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                 <li>Pro účastníky a učitele
                                     <ul>
@@ -275,7 +275,7 @@
                     </nav>
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                 <li>Pro partnery
                                     <ul>
@@ -300,7 +300,7 @@
                 <div class="col-md-3" style="position: relative;">
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                 <li>Sledujte nás
                                 {default}

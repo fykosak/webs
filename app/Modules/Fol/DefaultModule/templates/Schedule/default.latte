@@ -1,14 +1,14 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case 'cs'}Harmonogram soutěže
         {default}Game schedule
     {/switch}
 {/block}
 
 {block content}
-    {switch $lang}
+    {switch $language->value}
         {case 'cs'}
         <p>Podrobnější harmonogram společně s doprovodným programem bude upřesněn později.</p>
 

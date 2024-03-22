@@ -1,7 +1,7 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case cs}
         Reporty týmů
         {case en}
@@ -13,7 +13,7 @@
     <div class="panel color-light">
         <section class="inner-container">
             <h1>
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                     Reporty týmů
                 {case en}
@@ -58,7 +58,7 @@
                     </div>
                     <div class="col">
                         <div class="subheader">
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                     Report týmu
                                 {case en}
