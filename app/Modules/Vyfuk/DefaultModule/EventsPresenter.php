@@ -6,7 +6,7 @@ namespace App\Modules\Vyfuk\DefaultModule;
 
 use App\Models\Downloader\EventService;
 use App\Models\Downloader\FKSDBDownloader;
-use Error;
+use Exception;
 use Nette\Application\Responses\CallbackResponse;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
@@ -64,7 +64,7 @@ class EventsPresenter extends BasePresenter
                 $res = curl_exec($curl);
                 curl_close($curl);
                 if (curl_getinfo($curl)['http_code'] != 200) {
-                    throw (new Error("Vyfuk calendar failed to be downloaded"));
+                    throw new Exception("Vyfuk calendar failed to be downloaded");
                 }
                 return $res;
             }

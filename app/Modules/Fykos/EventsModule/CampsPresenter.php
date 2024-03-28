@@ -53,7 +53,7 @@ class CampsPresenter extends BasePresenter
         $this->template->participants = $this->downloader->download(new ParticipantsRequest((int)$id));
     }
 
-    public function get_event_photo($event): string
+    public function getEventPhoto($event): string
     {
         if ($event['eventTypeId'] == 4) {
             $event_type_str = 'sous-jaro';
@@ -91,7 +91,7 @@ class CampsPresenter extends BasePresenter
 
         foreach ($events as &$event) {
             $event['heading'] = $this->getEventHeading($event);
-            $event['photo'] = $this->get_event_photo($event);
+            $event['photo'] = $this->getEventPhoto($event);
         }
 
         $this->template->events = $events;
