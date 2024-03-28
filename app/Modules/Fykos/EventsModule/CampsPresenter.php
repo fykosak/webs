@@ -95,11 +95,5 @@ class CampsPresenter extends BasePresenter
         }
 
         $this->template->events = $events;
-
-        // Debugger::dump($events); // Display events in Nette Debugger
-
-        // foreach ($this->template->camps as &$camp) {
-        //     $camp['link'] = 'https://fykos.cz/rocnik' . $camp['year'] . '/sous-' . $camp['season'] . '/start';
-        // }
     }
 }

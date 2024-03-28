@@ -21,8 +21,8 @@
     <meta name="theme-color" content="#e6060d">
 
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="{switch $lang}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}"/>
-{*    <meta property="og:image" content="{_'http://physicsbrawl.org/images/fyziklani-logo.png'}"/>*}
+    <meta property="og:title" content="{switch $lang}{case cs}Fyziklání{default}Fyziklani{/switch}"/>
+    <meta property="og:image" content="{switch $lang}{case cs}https://fyziklani.cz/images/fof-og-image-cs.png{default}https://fyziklani.cz/images/fof-og-image-en.png{/switch}"/>
     <meta property="og:description" content="{switch $lang}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:locale" content="{$presenter->translator->locales[$presenter->lang]}"/>
@@ -91,7 +91,7 @@
 
         <div class="panel sponsors">
             <div class="inner-container">
-                <div class="category">
+                <div class="category category-full-line">
                     <div class="category-title">{switch $lang}{case cs}Organizátoři{default}Organized by{/switch}</div>
                     <div class="category-sponsors">
                         <a {switch $lang}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
@@ -132,6 +132,28 @@
                     </div>
                 </div>
                 <div class="category">
+                    <div class="category-title">{switch $lang}{case cs}Za podpory{default}Supported by{/switch}</div>
+                    <div class="category-sponsors">
+                        <a href="https://www.fabric.camp/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/fabric_title.png" alt="FABRIC logo" style="max-width: 7rem">
+                        </a>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="category-title">{switch $lang}{case cs}Sříbrní partneři{default}Silver partners{/switch}</div>
+                    <div class="category-sponsors">
+                        <a href="http://www.kalabria.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo" style="max-width:7rem"></a>
+
+                        <a href="https://casioczech.fastcr.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo" style="max-width:7rem">
+                        </a>
+                         <a href="https://brilliant.org/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo" style="max-width:10rem">
+                        </a>
+                    </div>
+                </div>
+                <div class="category">
                     <div class="category-title">{switch $lang}{case cs}Partneři{default}Partners{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.humusoft.cz/" style="text-align: center">
@@ -144,19 +166,19 @@
                             <img src="{$basePath}/images/logos/escape-logo.jpg" alt="Escape logo" style="max-width: 10rem">
                         </a>
 
-                        <a href="http://www.kalabria.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo" style="max-width:7rem"></a>
+{*                        <a href="http://www.kalabria.cz/" style="text-align: center">*}
+{*                            <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo" style="max-width:7rem">*}
+{*                        </a>*}
 
-                        <a href="https://casioczech.fastcr.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo" style="max-width:7rem">
-                        </a>
-                         <a href="https://brilliant.org/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo" style="max-width:10rem">
-                        </a>
+{*                        <a href="https://casioczech.fastcr.cz/" style="text-align: center">*}
+{*                            <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo" style="max-width:7rem">*}
 {*                        </a>*}
-{*                        <a href="https://www.hobza.cz/" style="text-align: center">*}
-{*                            <img src="{$basePath}/images/logos/hobza-logo.jpg" alt="Hobza logo" style="max-width: 8rem">*}
+{*                         <a href="https://brilliant.org/" style="text-align: center">*}
+{*                            <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo" style="max-width:10rem">*}
 {*                        </a>*}
+                        <a href="https://www.hobza.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/hobza-logo.jpg" alt="Hobza logo" style="max-width: 8rem">
+                        </a>
 {*                        <a href="https://www.quark.sk/" style="text-align: center">*}
 {*                            <img src="{$basePath}/images/logos/Quark-logo.png" alt="Quark logo" style="max-width: 9rem">*}
 {*                        </a>*}
@@ -172,20 +194,12 @@
 {*                        <a href="https://efektivni-altruismus.cz/" style="text-align: center">*}
 {*                            <img src="{$basePath}/images/logos/czea.png" alt="CZEA logo" style="max-width: 15rem">*}
 {*                        </a>*}
-{*                        <a href="https://prometheus-nakl.cz/" style="text-align: center">*}
-{*                            <img src="{$basePath}/images/logos/prometheus-logo.png" alt="Prometheus logo" style="max-width: 4rem">*}
+                        <a href="https://prometheus-nakl.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/prometheus-logo.png" alt="Prometheus logo" style="max-width: 4rem">
 {*                        </a>      *}
 {*                        <a href="https://www.natur.cuni.cz/" style="text-align: center">*}
 {*                            <img src="{$basePath}/images/logos/prfuk-logo.jpeg" alt="Přírodovědecká fakulta" style="max-width: 12rem">*}
 {*                        </a>*}
-                    </div>
-                </div>
-                <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Za podpory{default}Supported by{/switch}</div>
-                    <div class="category-sponsors">
-                        <a href="https://www.fabric.camp/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/fabric_title.png" alt="FABRIC logo" style="max-width: 7rem">
-                        </a>
                     </div>
                 </div>
             </div>

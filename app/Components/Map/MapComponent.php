@@ -45,7 +45,7 @@ class MapComponent extends BaseComponent
         $this->teamCount = 0;
         $this->teamCountries = [];
         foreach ($this->dummyService->get(new TeamsRequest($this->forEventId), ModelTeam::class) as $team) {
-            if (!in_array($team->status, ['participated', 'disqualified', 'applied', 'pending', 'approved'])) {
+            if (!in_array($team->state, ['participated', 'disqualified', 'applied', 'pending', 'approved'])) {
                 continue;
             }
             $this->teamCount++;

@@ -38,9 +38,6 @@
 
 :root {
     --timeline-offset-left: .5rem;
-    @media screen and (max-width: 768px) {
-        --timeline-offset-left: 40%;
-    }
 }
 
 .events-timeline>div::before,
