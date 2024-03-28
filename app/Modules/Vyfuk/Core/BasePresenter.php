@@ -57,6 +57,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                 new NavItem(new PageTitle(null, 'Akce'), ':Default:Events:default'), //TODO uspořádání odkazů
                 new NavItem(new PageTitle(null, 'Tábor'), ':Default:Events:camp'),
                 new NavItem(new PageTitle(null, 'Setkání'), ':Default:Events:meeting'),
+                new NavItem(new PageTitle(null, 'Kalendář'), ':Default:Events:calendar'),
             ],
         );
 

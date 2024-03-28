@@ -97,48 +97,48 @@ class DefaultPresenter extends BasePresenter
                     'cs' => 'Deadline 1. série',
                     'en' => 'Deadline Series 1'
                 ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2023-10-10 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2023-10-10 23:59:59')),
+                'show-in-en' => true
+            ],
+            'serie-2' => [
+                'heading' => [
+                    'cs' => 'Deadline 2. série',
+                    'en' => 'Deadline Series 2'
                 ],
-                'serie-2' => [
-                    'heading' => [
-                        'cs' => 'Deadline 2. série',
-                        'en' => 'Deadline Series 2'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2023-11-21 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2023-11-21 23:59:59')),
+                'show-in-en' => true
+            ],
+            'serie-3' => [
+                'heading' => [
+                    'cs' => 'Deadline 3. série',
+                    'en' => 'Deadline Series 3'
                 ],
-                'serie-3' => [
-                    'heading' => [
-                        'cs' => 'Deadline 3. série',
-                        'en' => 'Deadline Series 3'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2024-01-02 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2024-01-02 23:59:59')),
+                'show-in-en' => true
+            ],
+            'serie-4' => [
+                'heading' => [
+                    'cs' => 'Deadline 4. série',
+                    'en' => 'Deadline Series 4'
                 ],
-                'serie-4' => [
-                    'heading' => [
-                        'cs' => 'Deadline 4. série',
-                        'en' => 'Deadline Series 4'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2024-02-27 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2024-02-27 23:59:59')),
+                'show-in-en' => true
+            ],
+            'serie-5' => [
+                'heading' => [
+                    'cs' => 'Deadline 5. série',
+                    'en' => 'Deadline Series 5'
                 ],
-                'serie-5' => [
-                    'heading' => [
-                        'cs' => 'Deadline 5. série',
-                        'en' => 'Deadline Series 5'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2024-04-09 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2024-04-09 23:59:59')),
+                'show-in-en' => true
+            ],
+            'serie-6' => [
+                'heading' => [
+                    'cs' => 'Deadline 6. série',
+                    'en' => 'Deadline Series 6'
                 ],
-                'serie-6' => [
-                    'heading' => [
-                        'cs' => 'Deadline 6. série',
-                        'en' => 'Deadline Series 6'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2024-05-14 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2024-05-14 23:59:59')),
+                'show-in-en' => true
             ]
         ];
         $this->template->timelineBegin = date('Y-m-d', strtotime('2023-10-01'));
@@ -147,6 +147,7 @@ class DefaultPresenter extends BasePresenter
 
     public function findContdownEventIndices($events)
     {
+
         // Find the event with the closest date larger than the current date
         $currentDate = strtotime(date('Y-m-d'));
         $closestIndex = 0;
