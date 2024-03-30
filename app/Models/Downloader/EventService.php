@@ -37,7 +37,7 @@ final class EventService extends AbstractJSONService
     /**
      * @throws \Throwable
      */
-    public function getEvent(int $eventId, ?string $explicitExpiration = null): EventDetailModel
+    public function getEventDetail(int $eventId, ?string $explicitExpiration = null): EventDetailModel
     {
         $base = $this->getItem(
             new EventRequest($eventId),
@@ -62,6 +62,17 @@ final class EventService extends AbstractJSONService
             $explicitExpiration
         );
         return $base;
+    }
+
+    public function getEvent(int $eventId, ?string $explicitExpiration = null): ModelEvent
+    {
+        return $this->getItem(
+            new EventRequest($eventId),
+            [],
+            EventDetailModel::class,
+            false,
+            $explicitExpiration
+        );
     }
 
     /**
