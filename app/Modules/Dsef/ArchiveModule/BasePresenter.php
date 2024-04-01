@@ -24,7 +24,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     public ?string $eventMonth = null;
 
     protected ModelEvent $event;
-    protected ServiceEventList $serviceEvent;
+    protected readonly ServiceEventList $serviceEvent;
 
     public function injectServiceEvent(ServiceEventList $serviceEvent): void
     {
@@ -104,14 +104,14 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     protected function getNavItems(): array
     {
         $items = [];
-        if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
+        if (RegistrationPresenter::isVisible($this->getNewestEvent())) {
             $items[] = new NavItem(
                 new PageTitle('Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Registration:',
             );
         }
 
-        if (CurrentPresenter::isVisible($this->gamePhaseCalculator)) {
+        if (CurrentPresenter::isVisible($this->getNewestEvent())) {
             $items[] = new NavItem(
                 new PageTitle('Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Current:',

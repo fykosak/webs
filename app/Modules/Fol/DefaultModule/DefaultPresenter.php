@@ -22,6 +22,9 @@ class DefaultPresenter extends BasePresenter
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentUpperHomeBeforeRegistration(): UpperHomeBeforeRegistrationComponent
     {
         return new UpperHomeBeforeRegistrationComponent($this->getContext(), $this->getNewestEvent());
@@ -35,6 +38,9 @@ class DefaultPresenter extends BasePresenter
         return new CountdownComponent($this->getContext(), $this->gamePhaseCalculator->getGameBegin());
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentResultsPanel(): ResultsPanelComponent
     {
         return new ResultsPanelComponent($this->getContext(), $this->getNewestEvent());

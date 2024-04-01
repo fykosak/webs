@@ -1,15 +1,15 @@
-{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $event}
 {varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 {varType App\Modules\Core\Language $lang}
 
 {block content}
 
-{if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+    {if $event->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
     <div class="upper-home-countdown countdown-panel subheader justify-content-center">
         <div class="info-text">
             {switch $lang->value}
-                {case 'cs'} Registraci otevíráme {$newestEvent->registrationBegin |date:'j. n.'}
-                {default} Registration opens on {$newestEvent->registrationBegin |date:'F j'}.
+                {case 'cs'} Registraci otevíráme {$event->registrationBegin|date:'j. n.'}
+                {default} Registration opens on {$event->registrationBegin|date:'F j'}.
             {/switch}
         </div>
     </div>
@@ -124,7 +124,7 @@
         {control countdown}
     </div>
 <div class="upper-home-registration-deadline">
-    {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
+    {if $event->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
         <div style="margin-top: 1rem; text-align: center;">
             {switch $lang->value}
                 {case cs}
@@ -135,19 +135,19 @@
                     <a class="btn btn-primary" href="/download/2024/solutions.pdf">Problem assignment and solutions</a>
             {/switch}
         </div>
-    {elseif $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
+    {elseif $event->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
         {switch $lang->value}
             {case cs} Registrace je již uzavřena. Soutěžíme <strong>{$gamePhaseCalculator->getGameBegin() |date:'j. n. G:i'}</strong>.
             {default} Registration is already closed. The competition starts <strong>{$gamePhaseCalculator->getGameBegin() |date:'F j, G:i'} CET</strong>.
         {/switch}
-    {elseif !$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+    {elseif !$event->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
         {switch $lang->value}
             {case cs}
-                Registrace je otevřena do
-                <strong>{$newestEvent->registrationEnd->sub(new DateInterval('PT1M')) |date:'j. n. Y, H:i'}</strong>.
-            {default}
-                Registration is open until
-                <strong>{$newestEvent->registrationEnd->sub(new DateInterval('PT1M')) |date:'F j, Y, G:i'} CET</strong>.
+            Registrace je otevřena do
+            <strong>{$event->registrationEnd->sub(new DateInterval('PT1M'))|date:'j. n. Y, H:i'}</strong>.
+        {default}
+            Registration is open until
+            <strong>{$event->registrationEnd->sub(new DateInterval('PT1M'))|date:'F j, Y, G:i'} CET</strong>.
         {/switch}
     {/if}
 </div>

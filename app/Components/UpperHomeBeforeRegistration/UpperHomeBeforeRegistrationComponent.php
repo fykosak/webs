@@ -11,8 +11,10 @@ use Nette\DI\Container;
 
 final class UpperHomeBeforeRegistrationComponent extends DIComponent
 {
-    public function __construct(Container $container, private readonly ModelEvent $event)
-    {
+    public function __construct(
+        Container $container,
+        private readonly ModelEvent $event
+    ) {
         parent::__construct($container);
     }
 

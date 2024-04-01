@@ -14,7 +14,7 @@ class CampsPresenter extends BasePresenter
 {
     private const CAMPS_IDS = [4, 5];
 
-    private FKSDBDownloader $downloader;
+    private readonly FKSDBDownloader $downloader;
 
     public function inject(FKSDBDownloader $downloader): void
     {

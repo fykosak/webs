@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Models\NetteDownloader\ORM\Models;
 
 use Fykosak\Utils\DateTime\Period;
-use Nette\NotImplementedException;
 
 class ModelEvent
 {
@@ -31,7 +30,7 @@ class ModelEvent
 
     public function getGamePeriod(): Period
     {
-        throw new NotImplementedException();
+        return $this->getEventPeriod(); // TODO!!!!
     }
 
     public function getNearEventPeriod(): Period

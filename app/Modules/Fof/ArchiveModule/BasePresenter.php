@@ -18,7 +18,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
     public ?string $eventYear = null;
 
     private ModelEvent $event;
-    protected ServiceEventList $serviceEvent;
+    protected readonly ServiceEventList $serviceEvent;
 
     public function injectServiceEvent(ServiceEventList $serviceEvent): void
     {

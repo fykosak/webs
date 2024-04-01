@@ -8,8 +8,11 @@ use App\Components\UpperHomePrague\UpperHomePrague;
 
 class DefaultPresenter extends BasePresenter
 {
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentPrague(): UpperHomePrague
     {
-        return new UpperHomePrague($this->getContext());
+        return new UpperHomePrague($this->getContext(), $this->getNewestEvent());
     }
 }

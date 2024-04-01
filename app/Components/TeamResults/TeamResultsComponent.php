@@ -17,8 +17,10 @@ class TeamResultsComponent extends DIComponent
     protected readonly DummyService $serviceTeam;
     protected ?array $filterData = null;
 
-    public function __construct(Container $container,protected readonly int $eventId)
-    {
+    public function __construct(
+        Container $container,
+        protected readonly int $eventId
+    ) {
         parent::__construct($container);
     }
 

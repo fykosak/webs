@@ -22,9 +22,11 @@ class CountdownComponent extends DIComponent
 
     public function render(): void
     {
-        $this->template->id = $this->id;
-        $this->template->countdownTo = $this->countdownTo;
-        $this->template->lang = $this->translator->lang;
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'countdown.latte');
+
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'countdown.latte', [
+            'id' => $this->id,
+            'countdownTo' => $this->countdownTo,
+            'lang' => $this->translator->lang,
+        ]);
     }
 }

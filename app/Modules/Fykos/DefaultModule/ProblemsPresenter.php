@@ -8,7 +8,7 @@ use App\Models\Downloader\ProblemService;
 
 class ProblemsPresenter extends BasePresenter
 {
-    private ProblemService $problemService;
+    private readonly ProblemService $problemService;
 
     /** @persistent */
     public ?int $year = null;

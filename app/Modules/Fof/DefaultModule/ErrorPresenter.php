@@ -11,7 +11,7 @@ use Tracy\ILogger;
 
 class ErrorPresenter extends BasePresenter
 {
-    private ILogger $logger;
+    private readonly ILogger $logger;
 
     public function injectLogger(ILogger $logger): void
     {

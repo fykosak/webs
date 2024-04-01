@@ -27,6 +27,6 @@ class ErasmusPresenter extends BasePresenter
 
     protected function createComponentGallery(): ImageGalleryControl
     {
-        return new ImageGalleryControl($this->context);
+        return new ImageGalleryControl($this->getContext());
     }
 }

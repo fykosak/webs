@@ -73,7 +73,7 @@
         {*</div>*}
     {*</div>*}
 
-    {if $newestEvent->getGamePeriod()->is(Phase::onGoing)}
+    {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
         {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
     {/if}
 

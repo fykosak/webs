@@ -15,8 +15,10 @@ final class UpperHomeMapComponent extends DIComponent
 {
     private readonly GamePhaseCalculator $gamePhaseCalculator;
 
-    public function __construct(Container $container, private readonly ModelEvent $event)
-    {
+    public function __construct(
+        Container $container,
+        private readonly ModelEvent $event
+    ) {
         parent::__construct($container);
     }
 

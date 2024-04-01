@@ -4,7 +4,7 @@ on: [ push, pull_request ]
 
 jobs:
   test:
-    name: PSR12 ${{ matrix.php }}
+    name: Latte with PHP ${{ matrix.php }}
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false

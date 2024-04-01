@@ -10,7 +10,7 @@ use App\Modules\Core\Language;
 
 final class SchedulePresenter extends BasePresenter
 {
-    private FKSDBDownloader $downloader;
+    private readonly FKSDBDownloader $downloader;
 
     public function inject(FKSDBDownloader $downloader): void
     {

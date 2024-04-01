@@ -1,5 +1,6 @@
 {varType App\Modules\Core\Language $language}
 {varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
+{varType string $eventKey}
 {block title}
     {switch $language->value}
         {case 'cs'} Hlavní stránka
@@ -22,8 +23,8 @@
                 {else}
                     <time class="competition-date">
                         {switch $language->value}
-                            {case 'cs'} Listopad {$newestEvent->begin->add(new \DateInterval('P1Y') |date:'Y'}
-                            {default} November {$newestEvent->begin->add(new \DateInterval('P1Y') |date:'Y'}
+                            {case 'cs'} Listopad {$newestEvent->begin->add(new \DateInterval('P1Y')) |date:'Y'}
+                            {default} November {$newestEvent->begin->add(new \DateInterval('P1Y')) |date:'Y'}
                         {/switch}
                     </time>
                 {/if}
