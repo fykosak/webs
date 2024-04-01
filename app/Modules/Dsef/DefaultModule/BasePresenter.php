@@ -9,7 +9,6 @@ use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
 {
-
     /**
      * @return NavItem[]
      * @throws \Throwable
