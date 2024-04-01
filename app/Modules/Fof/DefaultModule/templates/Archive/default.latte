@@ -102,14 +102,14 @@
                 {if is_dir(__DIR__.'/../../../../www/fof/photos/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey['event']))}
                     <div class="mt-5">
                         <h2>{switch $language->value}{case 'cs'}Soutěž{default}Competition{/switch}</h2>
-                        {control gallery:orderedLine '/photos/' . $eventKey['key'] . "/"}
+                        {control gallery:orderedLine '/photos/' . $eventKey['key'] . '/'}
                     </div>
                 {/if}
 
                 {if is_dir(__DIR__.'/../../../../www/fof/photos/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey['event']).'/teams')}
                     <div class="mt-5">
                         <h2>{switch $language->value}{case 'cs'}Fotostěna{default}Fyziklani Backdrop{/switch}</h2>
-                        {if in_array($eventKey['key'], ['2023'])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
+                        {if in_array($eventKey['key'], ['2023', '2024'])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
                             {control gallery:orderedLine '/photos/' . $eventKey['key'] . '/teams/'}
                         {else}
                             {control gallery:randomLine '/photos/' . $eventKey['key'] . '/teams/'}
@@ -117,10 +117,10 @@
                     </div>
                 {/if}
 
-                {if is_dir(__DIR__.'/../../../../www/fof/photos/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey['event']).'/winners')}
+                {if is_dir(__DIR__ . '/../../../../www/fof/photos/' . App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey['event']) . '/winners')}
                     <div class="mt-5">
                         <h2>{switch $language->value}{case 'cs'}Vítězové{default}Winners{/switch}</h2>
-                        {if in_array($eventKey['key'], ['2023'])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
+                        {if in_array($eventKey['key'], ['2023', '2024'])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
                             {control gallery:orderedLine '/photos/' . $eventKey['key'] . '/winners/'}
                         {else}
                             {control gallery:randomLine '/photos/' . $eventKey['key'] . '/winners/'}
@@ -128,10 +128,10 @@
                     </div>
                 {/if}
 
-                {if is_dir(__DIR__.'/../../../../www/fof/photos/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey['event']).'/weekend')}
+                {if is_dir(__DIR__ . '/../../../../www/fof/photos/' . App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey['event']) . '/weekend')}
                     <div class="mt-5">
                         <h2>{switch $language->value}{case 'cs'}Doprovodný program Fyziklání{default}Accompanying Program of Fyziklani{/switch}</h2>
-                        {if in_array($eventKey['key'], ['2023'])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
+                        {if in_array($eventKey['key'], ['2023', '2024'])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
                             {control gallery:orderedLine '/photos/' . $eventKey['key'] . '/weekend/'}
                         {else}
                             {control gallery:randomLine '/photos/' . $eventKey['key'] . '/weekend/'}
