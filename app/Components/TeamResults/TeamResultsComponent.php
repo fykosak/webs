@@ -6,21 +6,22 @@ namespace App\Components\TeamResults;
 
 use App\Models\NetteDownloader\ORM\Models\ModelTeam;
 use App\Models\NetteDownloader\ORM\Services\DummyService;
+use App\Modules\Core\Language;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\Application\UI\Form;
 use Nette\DI\Container;
 
-class TeamResultsComponent extends BaseComponent
+class TeamResultsComponent extends DIComponent
 {
-    protected DummyService $serviceTeam;
-    protected int $eventId;
+    protected readonly DummyService $serviceTeam;
     protected ?array $filterData = null;
 
-    public function __construct(Container $container, int $eventId)
-    {
+    public function __construct(
+        Container $container,
+        protected readonly int $eventId
+    ) {
         parent::__construct($container);
-        $this->eventId = $eventId;
     }
 
     public function injectServiceTeam(DummyService $serviceTeam): void
@@ -90,7 +91,7 @@ class TeamResultsComponent extends BaseComponent
         $ISOsForTeam = [];
 
         foreach ($team->members as $member) {
-            $iso = $member->school['coutryISO'] ?? 'zz';
+            $iso = $member->school['countryISO'] ?? 'zz';
             if (!in_array($iso, $ISOsForTeam)) {
                 $ISOsForTeam[] = $iso;
             }
@@ -148,7 +149,7 @@ class TeamResultsComponent extends BaseComponent
         // one member teams
         $form->addCheckbox(
             'OneMemberTeams',
-            $this->translator->lang === 'cs' ? 'Pouze jednočlenné týmy' : 'One member teams only'
+            $this->translator->lang === Language::cs ? 'Pouze jednočlenné týmy' : 'One member teams only'
         );
 
         // countries
@@ -163,7 +164,7 @@ class TeamResultsComponent extends BaseComponent
             $countryISOContainer->addCheckbox(
                 $countryISO,
                 sprintf(
-                    $this->translator->lang === 'cs' ? '%s:%s účastníků' : '%s:%s participants',
+                    $this->translator->lang === Language::cs ? '%s:%s účastníků' : '%s:%s participants',
                     $countryISO,
                     $count
                 )

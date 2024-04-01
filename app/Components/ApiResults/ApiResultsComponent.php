@@ -7,7 +7,7 @@ namespace App\Components\ApiResults;
 use App\Models\Downloader\FKSDBDownloader;
 use App\Models\Game\Connector;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\Application\AbortException;
 use Nette\Application\Responses\JsonResponse;
 use Nette\DI\Container;
@@ -15,16 +15,14 @@ use Nette\Utils\Json;
 use Nette\Utils\JsonException;
 use Throwable;
 
-class ApiResultsComponent extends BaseComponent
+class ApiResultsComponent extends DIComponent
 {
-    private Connector $gameServerApiConnector;
-    private FKSDBDownloader $downloader;
-    private int $eventId;
+    private readonly Connector $gameServerApiConnector;
+    private readonly FKSDBDownloader $downloader;
 
-    public function __construct(Container $container, int $eventId)
+    public function __construct(Container $container, private readonly int $eventId)
     {
         parent::__construct($container);
-        $this->eventId = $eventId;
     }
 
     public function inject(Connector $connector, FKSDBDownloader $downloader): void
@@ -33,6 +31,9 @@ class ApiResultsComponent extends BaseComponent
         $this->gameServerApiConnector = $connector;
     }
 
+    /**
+     * @throws Throwable
+     */
     private function serialiseTeams(): array
     {
         $teams = [];
@@ -82,6 +83,7 @@ class ApiResultsComponent extends BaseComponent
 
     /**
      * @throws JsonException
+     * @throws Throwable
      */
     public function renderTeamsData(): void
     {

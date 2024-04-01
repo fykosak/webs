@@ -1,8 +1,8 @@
-{varType string $lang}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Modules\Core\Language $language}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
 
 {*{block title}*}
-{*    {switch $lang}*}
+{*    {switch $language->value}*}
 {*        {case 'cs'} O soutěži*}
 {*        {default} About*}
 {*    {/switch}*}
@@ -11,7 +11,7 @@
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">O soutěži</div>*}
                 <h1>O čem je Fyziklání?</h1>
@@ -26,7 +26,7 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Organizátoři</div>*}
                 <h1>Kdo za tím stojí?</h1>
@@ -63,7 +63,7 @@
 {if false}
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Organizátoři</div>*}
                 <h1>Záštita</h1>
@@ -85,15 +85,15 @@
 {/if}
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Datum a místo konání</div>*}
                 <h1>Kdy a kde to bude?</h1>
-                <p>Soutěž se bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'d. m. Y'}. Stejně jako minulé roky se sejdeme na výstavišti PVA Letňany v Praze. Výstaviště se nachází v dochozí vzdálenosti (1 zastávka) od konečné metra C Letňany. Na soutěži letos rádi přivítáme přes 250 týmů.</p>
+                <p>Soutěž se bude konat {$newestEvent->begin |date:'d. m. Y'}. Stejně jako minulé roky se sejdeme na výstavišti PVA Letňany v Praze. Výstaviště se nachází v dochozí vzdálenosti (1 zastávka) od konečné metra C Letňany. Na soutěži letos rádi přivítáme přes 250 týmů.</p>
                 {default}
 {*                <div class="subheader">Date and Place</div>*}
                 <h1>When and Where Will It Take Place?</h1>
-                <p>Fyziklani will take place {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'d. m. Y'}. Just like last years, we will meet at PVA Letňany Exbihition Grounds in Prague, Czech Republic. The hall is located near (0.5 km) the final station of metro C line „Letňany“. We would happily invite over 250 teams to this year's competition.</p>
+                <p>Fyziklani will take place {$newestEvent->begin |date:'d. m. Y'}. Just like last years, we will meet at PVA Letňany Exbihition Grounds in Prague, Czech Republic. The hall is located near (0.5 km) the final station of metro C line „Letňany“. We would happily invite over 250 teams to this year's competition.</p>
             {/switch}
 
             <div class="ratio" style="--bs-aspect-ratio: 30%; min-height: 12rem">
@@ -107,7 +107,7 @@
 {if false}
     <div class="panel color-auto" id="covid-measures">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Hygienická opatření</div>*}
                 <h1>Jaká jsou aktuální epidemická opatření?</h1>

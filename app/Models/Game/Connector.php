@@ -7,23 +7,15 @@ namespace App\Models\Game;
 use Nette\Application\BadRequestException;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
-use Nette\SmartObject;
 
 class Connector
 {
-    use SmartObject;
-
-    private ?string $url;
-    private Storage $storage;
-    private ?string $httpAuthUser;
-    private ?string $httpAuthPassword;
-
-    public function __construct(?string $url, ?string $httpAuthUser, ?string $httpAuthPassword, Storage $storage)
-    {
-        $this->storage = $storage;
-        $this->url = $url;
-        $this->httpAuthUser = $httpAuthUser;
-        $this->httpAuthPassword = $httpAuthPassword;
+    public function __construct(
+        private readonly ?string $url,
+        private readonly ?string $httpAuthUser,
+        private readonly ?string $httpAuthPassword,
+        private readonly Storage $storage
+    ) {
     }
 
     /**

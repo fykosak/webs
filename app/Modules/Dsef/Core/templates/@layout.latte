@@ -1,3 +1,7 @@
+{varType string $lang}
+{varType App\Modules\Core\Language $language}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -34,7 +38,7 @@
 <body>
 
 {block body}
-    {control navigation "/images/logos/dsef2023_logo_white.png", "DSEF " . $gamePhaseCalculator->getFKSDBEvent()->begin->format('Y'), false}
+    {control navigation '/images/logos/dsef2023_logo_white.png', 'DSEF ' . $newestEvent->begin->format('Y'), false}
     <main>
         {block main}
             <div class="panel color-light">
@@ -50,21 +54,21 @@
         <div class="panel registration">
             <div class="inner-container">
                 <div class="text">
-                    {switch $lang}
+                    {switch $language->value}
                         {case 'cs'}Zaujala vás akce?
                         {default}Are you interested?
                     {/switch}
                 </div>
-                {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
-                    <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Zaregistrovat se{default}Registration{/switch}</a>
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+                    <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Zaregistrovat se{default}Registration{/switch}</a>
                 {else}
-                    {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
-                        {switch $lang}
+                    {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+                        {switch $language->value}
                             {case 'cs'}Registrace se otevře v říjnu!
                             {default} Registration will open in October!
                         {/switch}
                     {else}
-                        {switch $lang}
+                        {switch $language->value}
                             {case 'cs'}Registrace na další ročník ještě není otevřena.
                             {default} Registration for the next year is not open yet.
                         {/switch}
@@ -78,7 +82,7 @@
                 <div class="sponsors-row">
                     <a href="https://www.mff.cuni.cz/" style="text-align: center">
                         <div class="text">
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Organizátor akce
                                 {default}Competition Organizer
                             {/switch}
@@ -87,7 +91,7 @@
                     </a>
                     <a href="https://www.msmt.cz/" style="text-align: center">
                         <div class="text">
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Organizátor akce
                                 {default}Competition Organizer
                             {/switch}
@@ -96,7 +100,7 @@
                     </a>
                     <a href="https://www.iaps.info/" style="text-align: center">
                         <div class="text">
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Partner
                                 {default}Partner
                             {/switch}
@@ -123,14 +127,14 @@
                     </p>
                     <div class="other-logos">
                         <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/logos/fykos_logo_white.png" alt="FYKOS" style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        <a target="_blank" href="{switch $lang}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
-                        <a target="_blank" href="{switch $lang}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_white_logo.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
+                        <a target="_blank" href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
+                        <a target="_blank" href="{switch $language->value}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_white_logo.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                 <li>Sledujte nás
                                 {default}
@@ -153,14 +157,14 @@
 {*                <div class="col-md-3">
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                 <li>Pro účastníky a učitele
                                     <ul>
                                         <li><a n:href=":Default:AboutTheCompetition:">O soutěži</a></li>
                                         <li><a n:href=":Default:Rules:">Pravidla</a></li>
                                         <li><a n:href=":Default:Schedule:">Program</a></li>
-                                        {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                                        {if $gamePhaseCalculator->getFKSDBEvent()->getRegistrationPeriod()->is(App\Models\GamePhaseCalculator::NOW)}
                                             <li><a n:href=":Default:Registration:">Registrace</a></li>
                                         {/if}
                                         <li><a n:href=":Default:Erasmus: lang: en">Program Erasmus+</a></li>
@@ -172,7 +176,7 @@
                                         <li><a n:href=":Default:AboutTheCompetition:">About</a></li>
                                         <li><a n:href=":Default:Rules:">Rules</a></li>
                                         <li><a n:href=":Default:Schedule:">Schedule</a></li>
-                                        {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                                        {if $gamePhaseCalculator->getFKSDBEvent()->getRegistrationPeriod()->is(App\Models\GamePhaseCalculator::NOW)}
                                             <li><a n:href=":Default:Registration:">Registration</a></li>
                                         {/if}
                                         <li><a n:href=":Default:Erasmus: lang: en">Fyziklani International 2022</a></li>
@@ -185,7 +189,7 @@
                 <div class="col-md-3">
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                 <li>Pro partnery
                                     <ul>

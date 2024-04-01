@@ -1,7 +1,8 @@
+{varType App\Modules\Core\Language $language}
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Ubytování</div>*}
                 <h1>Kde se ubytovat?</h1>
@@ -19,14 +20,14 @@
     </div>
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Ubytování</div>*}
                 <h1>Hotel Duo</h1>
                 <p><a href="https://www.hotelduo.cz/">Hotel Duo</a> je čtyřhvězdičkový hotel kousek od metra Střížkov. Jeho polohu najdete na adrese <a href="https://www.google.com/maps/place/Hotel+Duo/@50.12811,14.4721567,14.5z/data=!4m8!3m7!1s0x470bec9f3e172603:0x19ad14d3ab594bd!5m2!4m1!1i2!8m2!3d50.1268927!4d14.4859316">Teplická 492, 190 00 Praha, Česká republika</a>.</p>
 
 		<p>V ceně ubytování je zahrnuta snídaně formou bufetu.</p>
-		
+
                     <p>Pokoje v hotelu jsou dvojlůžkové a trojlůžkové. Soutěžící a doprovod bude do pokojů přiřazen podle délky pobytu a až poté podle vlastních preferencí (tedy ubytovaní na více nocí zřejmě nebudou s těmi na jednu noc).
                 </p>
             {default}
@@ -49,7 +50,7 @@
 
 	<div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Ubytování</div>*}
                 <h1>Ceny za ubytování a platba</h1>
@@ -85,7 +86,7 @@
 
     <div class="panel color-auto" id="how-to-pay">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
                 <h1>Jak zaplatit za ubytování a raut?</h1>
                 <ul>

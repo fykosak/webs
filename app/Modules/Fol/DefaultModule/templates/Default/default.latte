@@ -1,71 +1,72 @@
-{varType string $lang}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Modules\Core\Language $language}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
+{varType string $eventKey}
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case 'cs'} Hlavní stránka
         {default} Main page
     {/switch}
 {/block}
 
 {block main}
-{capture $anchorBeforeCompetition}{switch $lang}{case 'cs'}pred-soutezi{default}before-the-competition{/switch}{/capture}
+{capture $anchorBeforeCompetition}{switch $language->value}{case 'cs'}pred-soutezi{default}before-the-competition{/switch}{/capture}
     <div class="panel color-primary title-panel">
         <div class="inner-container row align-items-center">
             <div class="col-md-6 left-block">
-                {if !$gamePhaseCalculator->isLongAfterTheEvent()}
-                    <time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
-                        {switch $lang}
-                            {case 'cs'} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'} 17:00 - 20:00
-                            {default} {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'F j, Y'}, 5:00 - 8:00 p.m. CET
+                {if !$newestEvent->isLongAfterTheEvent()}
+                    <time class="competition-date" datetime="{$newestEvent->begin |date:'Y-m-d'}">
+                        {switch $language->value}
+                            {case 'cs'} {$newestEvent->begin |date:'j. n. Y'} 17:00 - 20:00
+                            {default} {$newestEvent->begin |date:'F j, Y'}, 5:00 - 8:00 p.m. CET
                         {/switch}
                     </time>
                 {else}
                     <time class="competition-date">
-                        {switch $lang}
-                            {case 'cs'} Listopad {(new \DateTime())->setTimestamp($gamePhaseCalculator->getFKSDBEvent()->begin->getTimestamp())->add(new \DateInterval("P1Y")) |date:'Y'}
-                            {default} November {(new \DateTime())->setTimestamp($gamePhaseCalculator->getFKSDBEvent()->begin->getTimestamp())->add(new \DateInterval("P1Y")) |date:'Y'}
+                        {switch $language->value}
+                            {case 'cs'} Listopad {$newestEvent->begin->add(new \DateInterval('P1Y')) |date:'Y'}
+                            {default} November {$newestEvent->begin->add(new \DateInterval('P1Y')) |date:'Y'}
                         {/switch}
                     </time>
                 {/if}
                 <h1>
-                    {switch $lang}
+                    {switch $language->value}
                         {case 'cs'} Mezinárodní<br>internetová<br>fyzikální soutěž
                         {default} International<br>Online<br>Physics Competition
                     {/switch}
                 </h1>
                 <div class="subheader">
-                    {switch $lang}
+                    {switch $language->value}
                         {case 'cs'}<p>
                             Přihlašte se společně až s pětičlenným týmem.
-                            {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
-                                <br> Registrace končí {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. \v G:i'}.
+                            {if $newestEvent->getRegistrationPeriod()->isOnGoing()}
+                                <br> Registrace končí {$newestEvent->registrationEnd |date:'j. n. \v G:i'}.
                             {/if}
                         </p>
                         {default}<p>
                             Sign up with a team of up to five.
-                            {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
-                                <br> Registration is open until {$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET.
+                        {if $newestEvent->getRegistrationPeriod()->isOnGoing()}
+                                <br> Registration is open until {$newestEvent->registrationEnd |date:'F j, G:i'} CET.
                             {/if}
                         </p>
                     {/switch}
                 </div>
                 <div class="buttons">
-                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>
-                    {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
-                    <a href="{$basePath}/download/{$eventKey}/{switch $lang}{case 'cs'}reseni{default}solutions{/switch}.pdf" class="btn btn-secondary">{switch $lang}{case 'cs'}Řešení úloh{default}Solutions{/switch}</a>
+                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>
+                    {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
+                    <a href="{$basePath}/download/{$eventKey}/{switch $language->value}{case 'cs'}reseni{default}solutions{/switch}.pdf" class="btn btn-secondary">{switch $language->value}{case 'cs'}Řešení úloh{default}Solutions{/switch}</a>
                     {/if}
                     {* todo: phase - results are final and in FKSDB *}
-                    {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
-                        <a n:href=":Archive:Results: eventYear:$eventKey" class="btn btn-secondary">{switch $lang}{case 'cs'}Pořadí týmů{default}Results list{/switch}</a>
+                    {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
+                        <a n:href=":Archive:Results: eventYear:$eventKey" class="btn btn-secondary">{switch $language->value}{case 'cs'}Pořadí týmů{default}Results list{/switch}</a>
                     {/if}
-                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>
-                    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
-                        <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $lang}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>
+                    <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)" n:href="Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
+                    {if $newestEvent->getNearEventPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing) && !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
+                        <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $language->value}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>
                     {/if}
                 </div>
             </div>
             <div class="col-md-6 right-block topic-panel">
-                {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
                     {control upperHomeBeforeRegistration}
                 {elseif true}
                     {control upperHomeMap}
@@ -77,7 +78,7 @@
 {*    <div class="fyziklani-banner">*}
 {*        <div class="inner-container">*}
 {*            <div class="text">*}
-{*                {switch $lang}*}
+{*                {switch $language->value}*}
 {*                    {case 'cs'}Stále pracujeme na zveřejnění oficiálních výsledků. Omlouváme se za komplikace.*}
 {*                    {default}We are still working on the official results of the competition. We are sorry for the inconvenience.*}
 {*                {/switch}*}
@@ -85,14 +86,14 @@
 {*        </div>*}
 {*    </div>*}
 
-     {if !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)  && !$gamePhaseCalculator->isLongAfterTheEvent()}
-        {control resultsPanel !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::NOW)}
+     {if !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::before)  && !$newestEvent->isLongAfterTheEvent()}
+        {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
      {/if}
 
-    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}
+    {if $newestEvent->getNearEventPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing) && !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
     <div class="panel color-dark" id="{$anchorBeforeCompetition}">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
                 <div class="row align-items-center">
                     <div class="col-md-8">
@@ -114,7 +115,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 begin-countdown">
-                        {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)}
+                        {if $newestEvent->is(Fykosak\Utils\DateTime\Phase::before)}
                             Začínáme za
                             {control countdown}
                         {else}
@@ -144,7 +145,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 begin-countdown">
-                        {if $gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::BEFORE)}
+                        {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
                             Competition starts in
                             {control countdown}
                         {else}
@@ -160,7 +161,7 @@
 
     <div class="panel color-light">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
                 <div class="subheader">Shrnutí pravidel</div>
                 <h1>Co je to Fyziklání Online?</h1>
@@ -200,13 +201,13 @@
 
     <div class="panel color-dark">
         <section class="inner-container">
-            <div class="subheader">{switch $lang}{case cs}O co soutěžíme?{default}What are the prizes?{/switch}</div>
-            <h1>{switch $lang}
+            <div class="subheader">{switch $language->value}{case cs}O co soutěžíme?{default}What are the prizes?{/switch}</div>
+            <h1>{switch $language->value}
                 {case cs}Pro nejlepší týmy máme nachystané odměny.
                 {default}We have rewards for the best of you.{/switch}</h1>
             <div class="row prices">
                 <div class="col-md-4">
-                    {switch $lang}{case cs}
+                    {switch $language->value}{case cs}
                     <div class="price-box propagacni-box small">
                         FYKOSí lahve,<br/>trička a mikiny
                     </div>
@@ -216,7 +217,7 @@
                     </a>
                     {/switch}
 
-                    {switch $lang}
+                    {switch $language->value}
                         {case cs}
                         <a class="price-box large mathematica-box" href="https://www.wolfram.com/mathematica/">
                             Wolfram<br/>Mathematica<br/>software
@@ -228,7 +229,7 @@
                     {/switch}
                 </div>
                 <div class="col-md-4">
-                    {switch $lang}
+                    {switch $language->value}
                         {case cs}
                             <div class="price-box large knihy-box">
                                 Knihy<br/>podle<br/>výběru
@@ -240,7 +241,7 @@
                     {/switch}
 
                       <a class="price-box small chess-box" href="https://www.chess.com/">
-                          {switch $lang}
+                          {switch $language->value}
                               {case cs}Diamantové členství na<br/>
                               <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad" style="max-height: 3rem">
                               {default}Diamond membership on<br/>
@@ -248,7 +249,7 @@
                           {/switch}
                       </a>
 
-                    {switch $lang}
+                    {switch $language->value}
   {*                      {case cs}*}
   {*                      <div class="price-box large"  style="background-color: #666666">*}
   {*                          FYKOSí<br/>ponožky, plecháčky<br/>a další propagační předměty*}
@@ -260,23 +261,23 @@
                     {/switch}
                 </div>
                 <div class="col-md-4">
-                    {switch $lang}
+                    {switch $language->value}
                         {case cs}
                             <div class="price-box small deskovky-box">
                                 Deskovky<br>a karetní<br>hry
                             </div>
                         {default}
                             <a class="price-box small kerbal-box" href="http://www.kerbalspaceprogram.com/games-kerbal-space-program/">
-                                Kerbal Space Program game license  
+                                Kerbal Space Program game license
                             </a>
                     {/switch}
 
 {*                    <a class="price-box large" href="http://www.graphmatica.com/" style="background-color: #019A69">*}
-{*                        {switch $lang}{case cs}Software<br/>Graphmatica<br/>*}
+{*                        {switch $language->value}{case cs}Software<br/>Graphmatica<br/>*}
 {*                            {default}Software<br/>Graphmatica<br/>{/switch}*}
 {*                    </a>*}
 
-{*                    {switch $lang}
+{*                    {switch $language->value}
                         {case cs}
                             <div class="price-box large" style="background-color: #00ae6b; display: flex; align-items: center;">
                                 O dalších cenách jednáme se sponzory...
@@ -288,7 +289,7 @@
                     {/switch}*}
 
                     <a class="price-box large avast-box" href="https://avast.com/">
-                        {switch $lang}
+                        {switch $language->value}
                             {case cs}Licence na<br/>
                                 <img src="{$basePath}/images/logos/avast.png" alt="Avast" style="max-height: 3rem">
                             {default}License to<br/>
@@ -302,7 +303,7 @@
 
     <div class="panel color-light">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
             {case cs}
                 <div class="subheader">Ukázka příkladů v soutěži</div>
                 <h1>Každý najde svou obtížnost.</h1>
@@ -366,13 +367,13 @@
 
     <div class="panel color-dark">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
             {case cs}
                 <div class="subheader">Harmonogram soutěže</div>
-                <h1>Soutěžíme ve středu {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}</h1>
+                <h1>Soutěžíme ve středu {$newestEvent->begin |date:'j. n. Y'}</h1>
             {default}
                 <div class="subheader">Competition schedule</div>
-                <h1>The contest takes place on Wednesday {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}</h1>
+                <h1>The contest takes place on Wednesday {$newestEvent->begin|date:'F j, Y'}</h1>
             {/switch}
 
             {include "../schedule.latte"}
@@ -381,7 +382,7 @@
 
     <div class="panel color-light">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
             {case cs}
                 <div class="subheader">Registrace</div>
                 <h1>Přihlašte se a staňte se legendami!</h1>
@@ -391,21 +392,21 @@
             {/switch}
 
             <ul class="stylized">
-                {switch $lang}
+                {switch $language->value}
                 {case cs}
                     <li>Soutěž je zdarma pro kohokoli!</li>
                     <li>
                         Registrace je otevřena od
-                        {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'} do
-                        <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'j. n. G:i'}</strong>.
+                        {$newestEvent->registrationBegin |date:'j. n.'} do
+                        <strong>{$newestEvent->registrationEnd |date:'j. n. G:i'}</strong>.
                     </li>
                     <li>Kromě komunikace s dalšími týmy jsou povoleny jakékoli pomůcky.</li>
                 {default}
                     <li>Participation is free for anyone!</li>
                     <li>
                         Registration is open from
-                        {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'} until
-                        <strong>{$gamePhaseCalculator->getFKSDBEvent()->registrationEnd |date:'F j, G:i'} CET</strong>.
+                        {$newestEvent->registrationBegin |date:'F j'} until
+                        <strong>{$newestEvent->registrationEnd |date:'F j, G:i'} CET</strong>.
                     </li>
                     <li>Except for communicating with other teams, you can use any tools to solve the problems.</li>
                 {/switch}

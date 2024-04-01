@@ -8,7 +8,7 @@ use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 
 class ArchivePresenter extends BasePresenter
 {
-    protected ServiceEventList $serviceEvent;
+    protected readonly ServiceEventList $serviceEvent;
 
     public function injectServiceEvent(ServiceEventList $serviceEvent): void
     {
@@ -20,7 +20,7 @@ class ArchivePresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $events = array_reverse($this->serviceEvent->getEvents([$this->context->getParameters()['eventTypeId']]));
+        $events = array_reverse($this->serviceEvent->getEvents([$this->getContext()->getParameters()['eventTypeId']]));// TODO
         $events = array_filter($events, function ($event) {
             //return true;
             return $event->end < new \DateTime('now');

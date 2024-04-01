@@ -18,7 +18,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
     public ?string $eventYear = null;
 
     private ModelEvent $event;
-    protected ServiceEventList $serviceEvent;
+    protected readonly ServiceEventList $serviceEvent;
 
     public function injectServiceEvent(ServiceEventList $serviceEvent): void
     {
@@ -58,12 +58,14 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
         return $this->event;
     }
 
+    /**
+     * @return NavItem[]
+     */
     protected function getNavItems(): array
     {
         return [
             new NavItem(
                 new PageTitle(
-                    null,
                     $this->csen('Archiv', 'Archive'),
                     'visible-sm-inline glyphicon glyphicon-info-sign'
                 ), // TODO
@@ -71,7 +73,6 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
             ),
             new NavItem(
                 new PageTitle(
-                    null,
                     $this->csen('Týmy', 'Teams'),
                     'visible-sm-inline glyphicon glyphicon-info-sign'
                 ), // TODO
@@ -79,14 +80,13 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
             ),
             new NavItem(
                 new PageTitle(
-                    null,
                     $this->csen('Pořadí', 'Results'),
                     'visible-sm-inline glyphicon glyphicon-compressed'
                 ), // TODO
                 ':Archive:Results:default',
             ),
             //new NavItem(
-            //    new PageTitle(null, _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
+            //    new PageTitle( _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
             //    // TODO
             //    ':Archive:DetailedResults:default',
             //),
@@ -103,7 +103,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
         $key = parent::createEventKey($this->getEvent());
 
         return [
-            str_replace('.latte', '.' . $key . '.' . $this->lang . '.latte', end($files)),
+            str_replace('.latte', '.' . $key . '.' . $this->language->value . '.latte', end($files)),
             str_replace('.latte', '.' . $key . '.latte', end($files)),
             ...$files,
         ];

@@ -8,7 +8,7 @@ use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 
 class ArchivePresenter extends BasePresenter
 {
-    protected ServiceEventList $serviceEvent;
+    protected readonly ServiceEventList $serviceEvent;
 
     public function injectServiceEvent(ServiceEventList $serviceEvent): void
     {
