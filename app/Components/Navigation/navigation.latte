@@ -66,7 +66,7 @@
                 {if $hasI18n}
                     <ul class="nav navbar-nav ml-auto">
                         <li class="navbar-text real-clock" data-timestamp="{1000 * time()}"></li>
-                        {var $otherLanguage = $lang}
+                        {var $otherLanguage = $lang == App\Modules\Core\Language::cs ? App\Modules\Core\Language::en : App\Modules\Core\Language::cs}
                         <li class="nav-item">
                             <a class="nav-link" href="{plink this, lang => $otherLanguage->value}">
                                 <span><i class="{$control::mapLangToIcon($otherLanguage)}"></i></span>
