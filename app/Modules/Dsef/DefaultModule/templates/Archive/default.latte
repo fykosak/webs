@@ -38,6 +38,12 @@
                         {control gallery:randomLine '/photos/' . $eventKey['fykos-year'] . '/'}
                     </div>
                 {/if}
+                {* Hack for missing photos *}
+                {if $eventKey['fykos-year'] == 34}
+                    <div class="mt-5">
+                        Tento ročník proběhl kvůli pandemii COVID-19 online. 
+                    </div>
+                {/if}
             </section>
         </div>
     {/foreach}
