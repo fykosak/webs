@@ -35,7 +35,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             [],
             [
                 new NavItem(new PageTitle('Pravidla'), ':Default:Section:Rules'),
-                new NavItem(new PageTitle('Jak se zapojit'), ':default'), //TODO
+                new NavItem(new PageTitle('Jak se zapojit'), ':Default:Section:howtoengage'), //TODO
                 new NavItem(new PageTitle('Pro učitele'), ':Default:Section:Teachers'),
                 new NavItem(new PageTitle('Jak psát řešení'), ':default'), //TODO
                 new NavItem(new PageTitle('Rady a tipy'), ':default'),
