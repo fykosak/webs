@@ -633,7 +633,7 @@
     {if $countdownEventsIndices['upcoming'][$lang] < $numOfEvents[$lang]}
         var countDownDatePrimary = new Date({$events[$countdownEventsIndices['upcoming'][$lang]]['date']});
     {/if}
-    {if $countdownEventsIndices['next'][$lang] < $numOfEvents[$lang]}
+    {if !is_null($countdownEventsIndices['next'][$lang]) && $countdownEventsIndices['next'][$lang] < $numOfEvents[$lang]}
         var countDownDateSecondary = new Date({$events[$countdownEventsIndices['next'][$lang]]['date']});
     {/if}
 
