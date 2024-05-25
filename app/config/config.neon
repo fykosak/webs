@@ -10,7 +10,6 @@ session:
 
 services:
     - Fykosak\Utils\Localization\GettextTranslator(App\Modules\Core\Language)
-    - App\Models\GamePhaseCalculator(%eventTypeId%)
     - App\Models\Game\Connector(%gameApi.url%, %gameApi.login%, %gameApi.password%)
     - App\Models\Downloader\FKSDBDownloader(%fksdbDownloader.url%,%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes')
     - App\Models\Downloader\ProblemManagerDownloader(%problemManagerDownloader.url%,%problemManagerDownloader.login%,%problemManagerDownloader.password%,'10 minutes')

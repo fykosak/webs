@@ -33,9 +33,9 @@
                     </a>
                 </h1>
 
-                {if $control->getComponent('gallery')->hasPhotos('/photos/' . $eventKey['fykos-year'] . '/')}
+                {if $control->getComponent('gallery')->hasPhotos('/photos/' . $eventKey['contestYear'] . '/')}
                     <div class="mt-5">
-                        {control gallery:randomLine '/photos/' . $eventKey['fykos-year'] . '/'}
+                        {control gallery:randomLine '/photos/' . $eventKey['contestYear'] . '/'}
                     </div>
                 {/if}
             </section>
