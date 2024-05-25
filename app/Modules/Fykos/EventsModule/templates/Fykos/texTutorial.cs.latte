@@ -3,7 +3,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>Jak psát řešení</h1>
-            <h2>Sice dostaneš co vidíš, ale vážně to chceš?</h2>
+            <h2>Sice dostaneš, co vidíš, ale vážně to chceš?</h2>
             <p>
                 Jistě jste už mnohokrát připravovali nějaké texty na počítači a nejspíš jste k tomu používali program Word či
                 nějakého jeho příbuzného. Word je tzv. WYSIWYG editor, což znamená, že editujeme přímo výstupní podobu 
@@ -45,7 +45,11 @@
         <section class="inner-container">
             <h2>Instalace lokálního kompilátoru</h2>
             <p>Lokální instalace poskytuje více možností, větší kontrolu a funkčnost i offline.</p>
-            <p>Výše jsme uvedli, kolik programů je potřeba pro překlad TeXových dokumentů. Nemusíte se obávat, že byste je museli všechny shánět a konfigurovat. Pro Windows existuje TeXová distribuce MiKTeX, která vše vyřeší za vás.</p>
+            <p>
+                Výše jsme uvedli, kolik programů je potřeba pro překlad TeXových dokumentů. 
+                Nemusíte se obávat, že byste je museli všechny shánět a konfigurovat. 
+                Pro Windows existuje TeXová distribuce <a href="https://miktex.org/">MiKTeX</a>, která vše vyřeší za vás.
+            </p>
             <p><strong>Z webu MiKTeXu si stáhněte klikací instalátor.</strong></p>
             <p>Součástí distribuce je i editor TeXworks. Tento spustíme a napíšeme následující dokument v UTF-8 (kódování zvolíme vpravo dole):</p> 
             <code>
@@ -75,7 +79,7 @@
 
             </code>
             <p>
-            Musíme už jen místo řádku <code>{='Řešení úlohy'}</code> napsat naše řešení. Vše co je za znakem <code>{='%'}</code> LaTexový překladač považuje za naši poznámku, až dokud nenarazí na nový řádek. Překladači je jedno kolik máme řadků vynecháno, nový řádek vytvoří buď sám, když se text nevejde na řadek, nebo ho můžeme donutit nový řadek udělat pomocí <code>{='\\'}</code>. 
+            Musíme už jen místo řádku <code>{='Řešení úlohy'}</code> napsat naše řešení. Vše co je za znakem <code>{='%'}</code> LaTexový překladač považuje za naši poznámku, až dokud nenarazí na nový řádek. Překladači je jedno kolik máme řadků vynecháno, nový řádek vytvoří buď sám, když se text nevejde na řadek, nebo ho můžeme donutit nový řadek udělat pomocí <code>{='\\\\'}</code>. 
             </p>
             <p>
             <strong>Spustíme překlad zeleným tlačítkem.</strong> Je-li vše v pořádku, napravo od editoru se zobrazí vaše první stránka vysázená TeXem. Je to normální soubor PDF otevřený v integrovaném prohlížeči. Pomocí Ctrl+klik můžete přecházet mezi zdrojovým kódem a odpovídajícím místem v PDF, a obráceně.
