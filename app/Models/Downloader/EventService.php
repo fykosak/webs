@@ -33,35 +33,42 @@ final class EventService extends AbstractJSONService
         });
     }
 
-    //detail
     /**
-     * @throws \Throwable
+     * @return EventParticipantModel[]
      */
-    public function getEventDetail(int $eventId, ?string $explicitExpiration = null): EventDetailModel
+    public function getEventParticipants(int $eventId, ?string $explicitExpiration = null): array
     {
-        $base = $this->getItem(
-            new EventRequest($eventId),
-            [],
-            EventDetailModel::class,
-            false,
-            $explicitExpiration
-        );
-        $base->participants = $this->getItem(
+        return $this->getItem(
             new ParticipantsRequest($eventId),
             [],
             EventParticipantModel::class,
             true,
             $explicitExpiration
         );
-        $base->personsSchedule = $this->getPersonSchedule($eventId);
-        $base->organizers = $this->getItem(
+    }
+
+    /**
+     * @return EventParticipantModel[]
+     */
+    public function getParticipated(int $eventId, ?string $explicitExpiration = null): array
+    {
+        return array_filter($this->getEventParticipants($eventId, $explicitExpiration), function ($v) {
+            return $v->status == 'participated';
+        });
+    }
+
+    /**
+     * @return EventOrganizerModel[]
+     */
+    public function getEventOrganizers(int $eventId, ?string $explicitExpiration = null): array
+    {
+        return $this->getItem(
             new EventOrganizersRequest($eventId),
             [],
             EventOrganizerModel::class,
             true,
             $explicitExpiration
         );
-        return $base;
     }
 
     public function getEvent(int $eventId, ?string $explicitExpiration = null): ModelEvent
@@ -69,7 +76,7 @@ final class EventService extends AbstractJSONService
         return $this->getItem(
             new EventRequest($eventId),
             [],
-            EventDetailModel::class,
+            ModelEvent::class,
             false,
             $explicitExpiration
         );

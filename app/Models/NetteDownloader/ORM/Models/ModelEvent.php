@@ -15,6 +15,7 @@ class ModelEvent
     public \DateTimeImmutable $end;
     public \DateTimeImmutable $registrationBegin;
     public \DateTimeImmutable $registrationEnd;
+    public ?string $report;
     /**
      * @var string[] $reportNew
      */
@@ -29,4 +30,14 @@ class ModelEvent
     public array $nameNew;
     public ?string $place;
     public ?int $contestId;
+
+    public ?array $schedule;
+    /**
+     * @var EventParticipantModel[]
+     */
+    public ?array $participants;
+    /**
+     * @var EventOrganizerModel[]
+     */
+    public ?array $organizers;
 }
