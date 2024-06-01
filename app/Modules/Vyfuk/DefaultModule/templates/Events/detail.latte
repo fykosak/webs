@@ -1,0 +1,22 @@
+{block title}{$event->nameNew[$lang]}{/block}
+
+{block content}
+<p>{$event->reportNew[$lang]}</p>
+<p>{$event->description[$lang]}</p>
+{if $participants}
+<h2>Účastníci</h2>
+<p>{$participants}</p>
+{/if}
+{if $organizers}
+<h2>Organizátoři</h2>
+<p>{$organizers}</p>
+{/if}
+{if $pdf}
+<h2>Dokumenty ke stažení</h2>
+{control pdfGallery "/download/event/" . $event->eventId}
+{/if}
+{if $galery}
+<h2>Galerie</h2>
+{control gallery "/photos/event/" . $event->eventId}
+{/if}
+{/block}

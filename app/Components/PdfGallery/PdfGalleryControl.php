@@ -67,4 +67,16 @@ class PdfGalleryControl extends DIComponent
         );
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery.latte');
     }
+
+    /**
+     * @throws UnknownImageFileException
+     * @throws \Throwable
+     */
+    public function hasFiles(string $path): bool
+    {
+        return count($this->cache->load(
+            [$path, $this->wwwDir],
+            fn () => self::getPdfs($path, $this->wwwDir)
+        )) > 0;
+    }
 }
