@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace App\Components\PersonSchedule;
 
+use App\Models\Downloader\EventService;
 use App\Models\Downloader\FKSDBDownloader;
 use App\Models\Downloader\ScheduleRequest;
 use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
-use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\BaseComponent\BaseComponent;
 use Nette\DI\Container;
 
 final class AllScheduleListComponent extends BaseComponent
 {
-    private ServiceEventDetail $serviceEventDetail;
+    private EventService $serviceEventDetail;
     private int $eventId;
     private FKSDBDownloader $downloader;
 
@@ -26,7 +26,7 @@ final class AllScheduleListComponent extends BaseComponent
         parent::__construct($container);
     }
 
-    public function injectPrimary(ServiceEventDetail $serviceEventDetail, FKSDBDownloader $downloader): void
+    public function injectPrimary(EventService $serviceEventDetail, FKSDBDownloader $downloader): void
     {
         $this->serviceEventDetail = $serviceEventDetail;
         $this->downloader = $downloader;

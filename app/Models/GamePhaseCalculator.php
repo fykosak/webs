@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Models\Downloader\EventService;
 use DateTimeInterface;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 use Nette\ArgumentOutOfRangeException;
 use Nette\DI\Container;
 use Nette\SmartObject;
@@ -16,7 +16,7 @@ class GamePhaseCalculator
 {
     use SmartObject;
 
-    private ServiceEventList $serviceEventList;
+    private EventService $serviceEventList;
     private Container $container;
 
     public const BEFORE = 0;
@@ -24,7 +24,7 @@ class GamePhaseCalculator
     public const NOW = 2;
     private int $eventTypeId;
 
-    public function __construct(int $eventTypeId, ServiceEventList $serviceEventList, Container $container)
+    public function __construct(int $eventTypeId, EventService $serviceEventList, Container $container)
     {
         $this->eventTypeId = $eventTypeId;
         $this->serviceEventList = $serviceEventList;

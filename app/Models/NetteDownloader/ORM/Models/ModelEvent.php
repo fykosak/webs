@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models\NetteDownloader\ORM\Models;
 
+use App\Models\Downloader\EventOrganizerModel;
+use App\Models\Downloader\EventParticipantModel;
+
 class ModelEvent
 {
     public int $eventId;
@@ -30,7 +33,6 @@ class ModelEvent
     public array $nameNew;
     public ?string $place;
     public ?int $contestId;
-
     public ?array $schedule;
     /**
      * @var EventParticipantModel[]

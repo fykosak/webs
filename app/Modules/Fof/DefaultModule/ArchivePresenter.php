@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\DefaultModule;
 
-use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
+use App\Models\Downloader\EventService;
 
 class ArchivePresenter extends BasePresenter
 {
-    protected ServiceEventList $serviceEvent;
+    protected EventService $serviceEvent;
 
-    public function injectServiceEvent(ServiceEventList $serviceEvent): void
+    public function injectServiceEvent(EventService $serviceEvent): void
     {
         $this->serviceEvent = $serviceEvent;
     }

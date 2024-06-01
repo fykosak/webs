@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\ArchiveModule;
 
+use App\Models\Downloader\EventService;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
@@ -18,9 +18,9 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
     public ?string $eventYear = null;
 
     private ModelEvent $event;
-    protected ServiceEventList $serviceEvent;
+    protected EventService $serviceEvent;
 
-    public function injectServiceEvent(ServiceEventList $serviceEvent): void
+    public function injectServiceEvent(EventService $serviceEvent): void
     {
         $this->serviceEvent = $serviceEvent;
     }
