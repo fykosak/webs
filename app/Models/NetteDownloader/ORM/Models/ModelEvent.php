@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models\NetteDownloader\ORM\Models;
 
-use App\Models\Downloader\EventOrganizerModel;
-use App\Models\Downloader\EventParticipantModel;
 use Fykosak\Utils\DateTime\Period;
 
 class ModelEvent
@@ -35,14 +33,6 @@ class ModelEvent
     public ?string $place;
     public ?int $contestId;
     public ?array $schedule;
-    /**
-     * @var EventParticipantModel[]
-     */
-    public ?array $participants;
-    /**
-     * @var EventOrganizerModel[]
-     */
-    public ?array $organizers;
 
     public function getRegistrationPeriod(): Period
     {
