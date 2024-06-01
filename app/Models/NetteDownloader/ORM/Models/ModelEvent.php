@@ -6,6 +6,7 @@ namespace App\Models\NetteDownloader\ORM\Models;
 
 use App\Models\Downloader\EventOrganizerModel;
 use App\Models\Downloader\EventParticipantModel;
+use Fykosak\Utils\DateTime\Period;
 
 class ModelEvent
 {
@@ -42,4 +43,35 @@ class ModelEvent
      * @var EventOrganizerModel[]
      */
     public ?array $organizers;
+
+    public function getRegistrationPeriod(): Period
+    {
+        return new Period($this->registrationBegin, $this->registrationEnd);
+    }
+
+    public function getEventPeriod(): Period
+    {
+        return new Period($this->begin, $this->end);
+    }
+
+    public function getGamePeriod(): Period
+    {
+        return $this->getEventPeriod(); // TODO!!!!
+    }
+
+    public function getNearEventPeriod(): Period
+    {
+        $begin = $this->begin->sub(new \DateInterval('P3D'));
+        $end = $this->begin->add(new \DateInterval('P1D'));
+        return new Period($begin, $end);
+    }
+    /**
+     * Returns true about a week after the event when no one is interested in game already.
+     * @throws \Throwable
+     */
+    public function isLongAfterTheEvent(): bool
+    {
+        $event = $this->end->add(new \DateInterval('P7D'));
+        return new \DateTime() > $event;
+    }
 }

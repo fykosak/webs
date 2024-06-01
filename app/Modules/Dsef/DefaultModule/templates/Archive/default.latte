@@ -1,4 +1,4 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {varType array $eventKeys}
 
 {block title}Minulé ročníky{/block}
@@ -15,27 +15,33 @@
         <div class="panel color-auto">
             <section class="inner-container">
                 <div class="subheader">
-                    {switch $lang}
-                        {case "cs"}{$eventKey["event"]->begin|date: "j. n. Y"}
-                        {default}{$eventKey["event"]->begin|date: "j F Y"}
+                    {switch $language->value}
+                        {case 'cs'}{$eventKey['event']->begin|date: 'j. n. Y'}
+                        {default}{$eventKey['event']->begin|date: 'j F Y'}
                     {/switch}
                 </div>
                 <h1>
                     {* todo, fix this with localized PHP functions *}
-                    {["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"][$eventKey["event"]->begin->format("m")-1]}
-                    {$eventKey["event"]->begin|date: "Y"}
+                    {['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'][$eventKey['event']->begin->format("m")-1]}
+                    {$eventKey['event']->begin|date: 'Y'}
 
                     <a class="btn btn-primary" n:href=":Archive:Default: eventYear:$eventKey['year'], eventMonth:$eventKey['month']">
-                        {switch $lang}
+                        {switch $language->value}
                             {case cs}Více
                             {default}More
                         {/switch}
                     </a>
                 </h1>
 
-                {if $control->getComponent('gallery')->hasPhotos("/photos/" . $eventKey['fykos-year'] . "/")}
+                {if $control->getComponent('gallery')->hasPhotos('/photos/' . $eventKey['fykos-year'] . '/')}
                     <div class="mt-5">
-                        {control gallery:randomLine "/photos/" . $eventKey['fykos-year'] . "/"}
+                        {control gallery:randomLine '/photos/' . $eventKey['fykos-year'] . '/'}
+                    </div>
+                {/if}
+                {* Hack for missing photos *}
+                {if $eventKey['fykos-year'] == 34}
+                    <div class="mt-5">
+                        Tento ročník proběhl kvůli pandemii COVID-19 online. 
                     </div>
                 {/if}
             </section>

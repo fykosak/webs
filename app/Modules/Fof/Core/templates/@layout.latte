@@ -1,16 +1,15 @@
-{varType App\Modules\Core\BasePresenter $presenter}
 {varType string $lang}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
-
+{varType App\Modules\Core\Language $language}
+{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
 
 <!DOCTYPE html>
-<html lang="{$presenter->lang}">
+<html lang="{$language->value}">
 <head>
     <title>
         {ifset title}{include title} | {/ifset}
-        {switch $lang}
-            {case "cs"} Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'}
-            {default} Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'}
+        {switch $language->value}
+            {case 'cs'} Fyziklání {$newestEvent->begin|date:'Y'}
+            {default} Fyziklani {$newestEvent->begin|date:'Y'}
         {/switch}
     </title>
     <meta charset="utf-8"/>
@@ -21,11 +20,11 @@
     <meta name="theme-color" content="#e6060d">
 
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="{switch $lang}{case cs}Fyziklání{default}Fyziklani{/switch}"/>
-    <meta property="og:image" content="{switch $lang}{case cs}https://fyziklani.cz/images/fof-og-image-cs.png{default}https://fyziklani.cz/images/fof-og-image-en.png{/switch}"/>
-    <meta property="og:description" content="{switch $lang}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}"/>
+    <meta property="og:title" content="{switch $language->value}{case cs}Fyziklání{default}Fyziklani{/switch}"/>
+    <meta property="og:image" content="{switch $language->value}{case cs}https://fyziklani.cz/images/fof-og-image-cs.png{default}https://fyziklani.cz/images/fof-og-image-en.png{/switch}"/>
+    <meta property="og:description" content="{switch $language->value}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}"/>
     <meta property="og:image:type" content="image/png"/>
-    <meta property="og:locale" content="{$presenter->translator->locales[$presenter->lang]}"/>
+    <meta property="og:locale" content="{$language->getLocale()}"/>
     <meta property="og:url" content="{plink //this}"/>
     <link href="{$basePath}/images/icon.png" rel="icon" type="image/png"/>
     <link href="{asset 'assets/main.css'}" rel="stylesheet"/>
@@ -43,7 +42,7 @@
 <body>
 
 {block body}
-    {control navigation "/images/logo.svg", "Fyziklani " . $gamePhaseCalculator->getFKSDBEvent()->begin->format('Y')}
+    {control navigation '/images/logo.svg', 'Fyziklani ' . $newestEvent->begin->format('Y')}
     <main>
         {block main}
             <div class="panel color-light">
@@ -59,27 +58,27 @@
         <div class="panel registration">
             <div class="inner-container">
                 <div class="text">
-                    {switch $lang}
+                    {switch $language->value}
                         {case 'cs'}Zaujala vás soutěž?
                         {default}Are you interested?
                     {/switch}
                 </div>
-                {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
-                    <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Registration{/switch}</a>
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+                    <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Registrace{default}Registration{/switch}</a>
                 {else}
-                    {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::BEFORE)}
-                        {switch $lang}
+                    {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+                        {switch $language->value}
                             {case 'cs'}Registrace se otevře v listopadu!
                             {default} Registration will open in November!
                         {/switch}
                     {else}
-                        {if $gamePhaseCalculator->isLongAfterTheEvent()}
-                            {switch $lang}
+                        {if $newestEvent->isLongAfterTheEvent()}
+                            {switch $language->value}
                                 {case 'cs'}Registrace na další ročník ještě není otevřena.
                                 {default} Registration for the next year is not open yet.
                             {/switch}
                         {else}
-                            {switch $lang}
+                            {switch $language->value}
                                 {case 'cs'}Registrace je bohužel již na tento ročník uzavřena.
                                 {default}Unfortunately, registration is already closed for this year.
                             {/switch}
@@ -92,47 +91,47 @@
         <div class="panel sponsors">
             <div class="inner-container">
                 <div class="category category-full-line">
-                    <div class="category-title">{switch $lang}{case cs}Organizátoři{default}Organized by{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Organizátoři{default}Organized by{/switch}</div>
                     <div class="category-sponsors">
-                        <a {switch $lang}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
+                        <a {switch $language->value}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
                             <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
                                 style="max-width: 8rem">
                         </a>
                         <a href="https://www.msmt.cz/" style="text-align: center">
-                            {switch $lang}
+                            {switch $language->value}
                             {case cs}
                                 <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
                             {default}
                                 <img src="{$basePath}/images/logos/msmt_en.jpg" alt="MŠMT logo" style="max-width: 9rem">
                             {/switch}
                         </a>
-                        <a {switch $lang}{case cs}href="https://www.fykos.cz/"{default}href="https://www.fykos.org/"{/switch} style="text-align: center">
+                        <a {switch $language->value}{case cs}href="https://www.fykos.cz/"{default}href="https://www.fykos.org/"{/switch} style="text-align: center">
                             <img src="{$basePath}/images/logos/fykos_logo.png" alt="logo FYKOSu" style="max-width: 9rem">
                         </a>
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Generální partner{default}General Partner{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Generální partner{default}General Partner{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.cez.cz/" style="text-align: center">
-                            {switch $lang}{case cs}<img src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo" style="max-width: 10rem">
+                            {switch $language->value}{case cs}<img src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo" style="max-width: 10rem">
                           	{default}<img src="{$basePath}/images/logos/CEZ_Group_Logo_EN.png" alt="CEZ group logo" style="max-width: 10rem">{/switch}
                         </a>
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Platinový partner{default}Platinum Partner{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Platinový partner{default}Platinum Partner{/switch}</div>
                     <div class="category-sponsors">
                         {*<a href="https://www.nadacecez.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/nadaceCEZ-logo.png" alt="Nadace CEZ logo" style="max-width: 5rem">
                         </a>*}
                         <a href="https://www.nfneuron.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/neuron-logo.jpg" alt="Neuron logo" style="max-width: 10rem">
-                        </a>                         
+                        </a>
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Za podpory{default}Supported by{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Za podpory{default}Supported by{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.fabric.camp/" style="text-align: center">
                             <img src="{$basePath}/images/logos/fabric_title.png" alt="FABRIC logo" style="max-width: 7rem">
@@ -140,7 +139,7 @@
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Sříbrní partneři{default}Silver partners{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Sříbrní partneři{default}Silver partners{/switch}</div>
                     <div class="category-sponsors">
                         <a href="http://www.kalabria.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo" style="max-width:7rem"></a>
@@ -154,7 +153,7 @@
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Partneři{default}Partners{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.humusoft.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/Mathworks-Humusoft.png" alt="Humusoft and Mathworks logo" style="max-width: 20rem">
@@ -209,10 +208,10 @@
             <div class="inner-container row">
                 <div class="col-md-6">
                     <img class="logo" src="{$basePath}/images/logo.svg" alt="Fyziklani" />
-                    {switch $lang}
+                    {switch $language->value}
                         {case 'cs'}
                         <p>
-                            Fyziklání {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 37. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
+                            Fyziklání {$newestEvent->begin|date:'Y'} je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 37. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
                             <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                         </p>
                         <p>
@@ -220,7 +219,7 @@
                         </p>
                         {default}
                         <p>
-                            Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a group of university students organizing already 37th year of educational events with focus on physics. FYKOS is made up mostly of students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
+                            Fyziklani {$newestEvent->begin|date:'Y'} is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a group of university students organizing already 37th year of educational events with focus on physics. FYKOS is made up mostly of students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
                         </p>
                         <p>
                             The realization of the competition was supported by the Ministry of Education, Youth and Sports of the Czech Republic.
@@ -228,29 +227,29 @@
                     {/switch}
                     <p>
                         <strong>#fykos</strong>
-                        {switch $lang}
+                        {switch $language->value}
                             {case 'cs'}<strong>#fyziklani</strong>
-                            {default}<strong>#fyziklani{$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'}</strong>
+                            {default}<strong>#fyziklani{$newestEvent->begin|date:'Y'}</strong>
                         {/switch}
                         <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>
                     </p>
                     <div class="other-logos">
                         <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/logos/fykos_logo_white.png" alt="FYKOS" style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        <a target="_blank" href="{switch $lang}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
+                        <a target="_blank" href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                         {if $lang=='cs'}<a target="_blank" href="https://dsef.cz/"><img class="other-logo" src="{$basePath}/images/logos/dsef_logo_white.png"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>{/if}
                     </div>
                 </div>
                 <div class="col-md-3">
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                 <li>Pro účastníky a učitele
                                     <ul>
                                         <li><a n:href=":Default:AboutTheCompetition:">O soutěži</a></li>
                                         <li><a n:href=":Default:Rules:">Pravidla</a></li>
 {*                                        <li><a n:href=":Default:Schedule:">Program</a></li>*}
-                                        {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                                        {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
                                             <li><a n:href=":Default:Registration:">Registrace</a></li>
                                         {/if}
 {*                                        <li><a n:href=":Default:Erasmus: lang: en">Program Erasmus+</a></li>*}
@@ -263,7 +262,7 @@
                                         <li><a n:href=":Default:AboutTheCompetition:">About</a></li>
                                         <li><a n:href=":Default:Rules:">Rules</a></li>
 {*                                        <li><a n:href=":Default:Schedule:">Schedule</a></li>*}
-                                        {if $gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)}
+                                        {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
                                             <li><a n:href=":Default:Registration:">Registration</a></li>
                                         {/if}
 {*                                        <li><a n:href=":Default:Erasmus: lang: en">Fyziklani International 2022</a></li>*}
@@ -275,7 +274,7 @@
                     </nav>
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                 <li>Pro partnery
                                     <ul>
@@ -300,7 +299,7 @@
                 <div class="col-md-3" style="position: relative;">
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                 <li>Sledujte nás
                                 {default}

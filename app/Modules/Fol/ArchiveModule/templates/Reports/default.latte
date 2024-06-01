@@ -1,8 +1,8 @@
 {varType App\Modules\Fol\ArchiveModule\ReportsPresenter $presenter}
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case cs}
         Reporty týmů
         {case en}
@@ -14,7 +14,7 @@
     <div class="panel color-light">
         <section class="inner-container">
             <h1>
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                     Reporty týmů
                 {case en}
@@ -52,14 +52,14 @@
                                 </div>
                             {/foreach}
                             <script n:if="$solo">
-                                document.getElementById({$reportId} + "-row").style.display="none";
-                                document.getElementById({$reportId} + "-box").style.height="auto";
+                                document.getElementById({$reportId} + '-row').style.display="none";
+                                document.getElementById({$reportId} + '-box').style.height="auto";
                             </script>
                         </div>
                     </div>
                     <div class="col">
                         <div class="subheader">
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                     Report týmu
                                 {case en}

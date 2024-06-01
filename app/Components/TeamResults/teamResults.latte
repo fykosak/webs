@@ -1,5 +1,5 @@
 {layout '../@layout.latte'}
-{varType string $lang}
+{varType App\Modules\Core\Language $lang}
 {block content}
 
 <div class="row">
@@ -8,7 +8,7 @@
         <!-- The button that triggers the collapsible content -->
         <button class="btn btn-primary-inverted button-collapse-header" type="button" data-bs-toggle="collapse"
         data-bs-target="#resultFilters" aria-expanded="false" aria-controls="resultFilters">
-        {switch $lang}
+        {switch $lang->value}
             {case cs}Zobrazit / skrýt filtry
             {default}Toggle filters
         {/switch}
@@ -25,7 +25,7 @@
     {foreach $teams AS $category => $teamsForCategory}
         <button class="btn btn-primary button-collapse-header" type="button" data-bs-toggle="collapse"
         data-bs-target="#collapse-category-{$category}" aria-expanded="false" aria-controls="collapse-category-{$category}">
-        {switch $lang}
+        {switch $lang->value}
             {case cs}Kategorie
             {default}Category
         {/switch} {$category}
@@ -37,9 +37,9 @@
 
             <div class="results-first-row results-header">
                 <div class="result-column" style="width: 5rem">#</div>
-                <div class="result-column" style="flex-grow: 1">{switch $lang}{case cs}Tým{default}Team{/switch}</div>
-                <div class="result-column" style="width: 5rem">{switch $lang}{case cs}Body{default}Points{/switch}</div>
-                <div class="result-column" style="width: 5rem">{switch $lang}{case cs}Celkové pořadí{default}Rank total{/switch}</div>
+                <div class="result-column" style="flex-grow: 1">{switch $lang->value}{case cs}Tým{default}Team{/switch}</div>
+                <div class="result-column" style="width: 5rem">{switch $lang->value}{case cs}Body{default}Points{/switch}</div>
+                <div class="result-column" style="width: 5rem">{switch $lang->value}{case cs}Celkové pořadí{default}Rank total{/switch}</div>
             </div>
             {do usort($teamsForCategory, fn($a, $b) => ($a->rankCategory ? $a->rankCategory : PHP_INT_MAX) <=> ($b->rankCategory ? $b->rankCategory : PHP_INT_MAX))}
             {foreach $teamsForCategory AS $index => $team}
@@ -47,12 +47,12 @@
                     <div class="results-first-row">
                         {varType App\Models\NetteDownloader\ORM\Models\ModelTeam $team}
                         <div class="result-column"
-                            style="width: 5rem">{if $team->state === "disqualified"}DNQ{else}{$team->rankCategory}.{/if}</div>
+                            style="width: 5rem">{if $team->state === 'disqualified'}DNQ{else}{$team->rankCategory}.{/if}</div>
                         <div class="result-column" style="flex-grow: 1"><strong>{$team->name}</strong></div>
                         <div class="result-column"
-                            style="width: 5rem">{if $team->state === "disqualified"}{else}{$team->points}{/if}</div>
+                            style="width: 5rem">{if $team->state === 'disqualified'}{else}{$team->points}{/if}</div>
                         <div class="result-column"
-                            style="width: 5rem">{if $team->state === "disqualified"}{else}{$team->rankTotal}.{/if}</div>
+                            style="width: 5rem">{if $team->state === 'disqualified'}{else}{$team->rankTotal}.{/if}</div>
                     </div>
                     <div class="results-second-row">
                         <div class="result-column text-muted" style="flex-grow: 1; margin-left: 5rem; margin-right: 10rem">
@@ -67,13 +67,13 @@
                                     {$member->name}{if !$iterator->isLast()}, {/if}
                                     {do $inSchool++}
                                     {if $iterator->isLast() || (!is_null($members[$key + 1]) && isset($member->school) && isset($members[$key + 1]->school) && $member->school['schoolId'] != $members[$key + 1]->school['schoolId'])}
-                                        <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$member->school['nameAbbrev']??''}{if isset($member->school) && $member->school['countryISO'] !== "ZZ"} <span
+                                        <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$member->school['nameAbbrev']??''}{if isset($member->school) && $member->school['countryISO'] !== 'ZZ'} <span
                                                 class="flag-icon flag-icon-{$member->school['countryISO']??'zz'|lower}"></span>{/if}) </span>
                                         {do $inSchool = 0}
                                     {/if}
                                 {/foreach}
                             {else}
-                                {switch $lang}
+                                {switch $lang->value}
                                     {case cs}informace o členech týmu nejsou dostupné
                                     {default}no info avaiable
                                 {/switch}

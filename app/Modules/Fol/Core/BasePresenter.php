@@ -12,7 +12,7 @@ use Nette\Application\UI\Template;
 
 abstract class BasePresenter extends EventWebPresenter
 {
-    private EventService $serviceEventList;
+    private readonly EventService $serviceEventList;
 
     public static function createEventKey(ModelEvent $event): string
     {

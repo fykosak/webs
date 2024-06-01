@@ -11,7 +11,7 @@ class FaqPresenter extends BasePresenter
         $data = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'faq.json');
         $query = json_decode($data);
         $query = array_filter($query, function ($item) {
-            return $item->lang === $this->lang;
+            return $item->lang === $this->language->value;
         });
 
         // questions sorted by category

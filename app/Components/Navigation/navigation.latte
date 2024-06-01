@@ -1,6 +1,6 @@
 {varType \App\Components\Navigation\Navigation $control}
 {varType \Fykosak\Utils\UI\Navigation\NavItem[] $items}
-{varType string $lang}
+{varType App\Modules\Core\Language $lang}
 {varType string $logoPath}
 {varType string $logoAlt}
 {varType bool $hasI18n}
@@ -66,9 +66,9 @@
                 {if $hasI18n}
                     <ul class="nav navbar-nav ml-auto">
                         <li class="navbar-text real-clock" data-timestamp="{1000 * time()}"></li>
-                        {var $otherLanguage = $lang === 'cs' ? 'en' : 'cs'}
+                        {var $otherLanguage = $lang == App\Modules\Core\Language::cs ? App\Modules\Core\Language::en : App\Modules\Core\Language::cs}
                         <li class="nav-item">
-                            <a class="nav-link" href="{plink this, lang => $otherLanguage}">
+                            <a class="nav-link" href="{plink this, lang => $otherLanguage->value}">
                                 <span><i class="{$control::mapLangToIcon($otherLanguage)}"></i></span>
                             </a>
                         </li>

@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import {DataInterface} from "./data-interface";
+import { useEffect, useState } from 'react';
+import { DataInterface } from './data-interface';
 
 export const useData = (url: string, initialData: DataInterface | null = null): DataInterface | null => {
   const [data, setData] = useState<DataInterface | null>(initialData);

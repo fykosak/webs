@@ -18,7 +18,7 @@ class DefaultPresenter extends BasePresenter
         });
 
         // Find the closest event
-        $this->template->countdownEventsIndices = $this->findContdownEventIndices($this->template->events);
+        $this->template->countdownEventsIndices = $this->findCountdownEventIndices($this->template->events);
 
         $this->template->numOfEvents = [
             'cs' => count($this->template->events),
@@ -37,19 +37,19 @@ class DefaultPresenter extends BasePresenter
         $newsList = json_decode($json, true);
 
         // implement colors
-        foreach ($newsList[$this->lang] as &$news) {
+        foreach ($newsList[$this->language->value] as &$news) {
             switch ($news['color']) {
                 case 'fof':
-                    $news['color'] = "#e6060d";
+                    $news['color'] = '#e6060d';
                     break;
                 case 'fol':
-                    $news['color'] = "#00ae6b";
+                    $news['color'] = '#00ae6b';
                     break;
                 case 'fykos':
-                    $news['color'] = "#1175da";
+                    $news['color'] = '#1175da';
                     break;
                 case 'dsef':
-                    $news['color'] = "#f2b72b";
+                    $news['color'] = '#f2b72b';
                     break;
             }
         }
@@ -145,7 +145,7 @@ class DefaultPresenter extends BasePresenter
         $this->template->timelineEnd = date('Y-m-d', strtotime('2024-05-31'));
     }
 
-    public function findContdownEventIndices($events)
+    public function findCountdownEventIndices(array $events): array
     {
         // Find the event with the closest date larger than the current date
         $currentDate = strtotime(date('Y-m-d'));
@@ -198,21 +198,19 @@ class DefaultPresenter extends BasePresenter
             }
         }
 
-        $countdownEventsIndices = [
+        return [
             'previous' => [
                 'cs' => $previousIndex,
-                'en' => $previousIndexEn
+                'en' => $previousIndexEn,
             ],
             'upcoming' => [
                 'cs' => $upcomingIndex,
-                'en' => $upcomingIndexEn
+                'en' => $upcomingIndexEn,
             ],
             'next' => [
                 'cs' => $nextIndex,
                 'en' => $nextIndexEn
             ],
         ];
-
-        return $countdownEventsIndices;
     }
 }

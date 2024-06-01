@@ -11,7 +11,7 @@ class ResultsPresenter extends BasePresenter
 {
     /** @persistent */
     public ?int $year = self::CURRENT_YEAR;
-    private FKSDBDownloader $downloader;
+    private readonly FKSDBDownloader $downloader;
 
     public function injectDownloader(FKSDBDownloader $downloader): void
     {

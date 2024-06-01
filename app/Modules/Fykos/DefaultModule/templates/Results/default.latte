@@ -1,8 +1,8 @@
 {varType int $year}
 {varType int $currentYear}
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case 'cs'}Výsledky FYKOSu
         {default}Results of FYKOS
     {/switch}
@@ -11,14 +11,14 @@
 <div class="panel color-auto">
     <section class="inner-container">
         <h1>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Výsledky {$year}. ročníku FYKOSu
                 {default}Results of FYKOS Year {$year}
             {/switch}
         </h1>
 
         <p>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Zde najdete výsledkovou listinu {$year}. ročníku Fyzikálního korespondenčního semináře.
                 {default}Here you can find the results of the {$year}. year of the FYKOS correspondence competition.
             {/switch}
@@ -27,7 +27,7 @@
         <div class="mb-3">
             <button class="btn btn-primary-inverted button-collapse-header" type="button" data-bs-toggle="collapse"
             data-bs-target="#resultFilters" aria-expanded="false" aria-controls="resultFilters">
-                {switch $lang}
+                {switch $language->value}
                     {case 'cs'}Změnit ročník
                     {default}Change Year
                 {/switch}
@@ -55,7 +55,7 @@
         </div>
 
         <p>
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}Ze základu se zobrazuje suma bodů za každou sérii. Kliknutím na nadpis série zobrazíte konkrétní počty bodů za jednotlivé úlohy dané série.
                 {default}By default, the sum of points for each series is displayed. By clicking on the title of the series, you can see the specific number of points for each task of the given series.
             {/switch}

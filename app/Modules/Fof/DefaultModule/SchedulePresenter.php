@@ -6,10 +6,11 @@ namespace App\Modules\Fof\DefaultModule;
 
 use App\Models\Downloader\FKSDBDownloader;
 use App\Models\Downloader\ScheduleRequest;
+use App\Modules\Core\Language;
 
 final class SchedulePresenter extends BasePresenter
 {
-    private FKSDBDownloader $downloader;
+    private readonly FKSDBDownloader $downloader;
 
     public function inject(FKSDBDownloader $downloader): void
     {
@@ -18,26 +19,19 @@ final class SchedulePresenter extends BasePresenter
 
     public function translateDay(string $day): string
     {
-        if ($this->lang !== 'cs') {
+        if ($this->language !== Language::cs) {
             return $day;
         }
-        switch ($day) {
-            case 'Monday':
-                return 'Pondělí';
-            case 'Tuesday':
-                return 'Úterý';
-            case 'Wednesday':
-                return 'Středa';
-            case 'Thursday':
-                return 'Čtvrtek';
-            case 'Friday':
-                return 'Pátek';
-            case 'Saturday':
-                return 'Sobota';
-            case 'Sunday':
-                return 'Neděle';
-        }
-        return '';
+        return match ($day) {
+            'Monday' => 'Pondělí',
+            'Tuesday' => 'Úterý',
+            'Wednesday' => 'Středa',
+            'Thursday' => 'Čtvrtek',
+            'Friday' => 'Pátek',
+            'Saturday' => 'Sobota',
+            'Sunday' => 'Neděle',
+            default => '',
+        };
     }
 
     /**
@@ -45,7 +39,12 @@ final class SchedulePresenter extends BasePresenter
      */
     public function renderDetail(): void
     {
-        $groups = $this->downloader->download(new ScheduleRequest(180, ['weekend', 'weekend_info','teacher_present']));
+        $groups = $this->downloader->download(
+            new ScheduleRequest(
+                $this->getNewestEvent()->eventId,
+                ['weekend', 'weekend_info', 'teacher_present']
+            )
+        );
         usort($groups, fn(array $aGroup, array $bGroup): int => $aGroup['start'] <=> $bGroup['start']);
         $this->template->groups = $groups;
     }

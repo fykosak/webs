@@ -8,19 +8,23 @@ use App\Components\Countdown\CountdownComponent;
 use App\Components\Map\MapComponent;
 use App\Models\GamePhaseCalculator;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
-final class UpperHomeMapComponent extends BaseComponent
+final class UpperHomeMapComponent extends DIComponent
 {
-    private GamePhaseCalculator $gamePhaseCalculator;
-    private ModelEvent $event;
+    private readonly GamePhaseCalculator $gamePhaseCalculator;
 
-    public function __construct(Container $container, GamePhaseCalculator $calculator, ModelEvent $event)
-    {
+    public function __construct(
+        Container $container,
+        private readonly ModelEvent $event
+    ) {
         parent::__construct($container);
+    }
+
+    public function inject(GamePhaseCalculator $calculator): void
+    {
         $this->gamePhaseCalculator = $calculator;
-        $this->event = $event;
     }
 
     /**
@@ -29,13 +33,13 @@ final class UpperHomeMapComponent extends BaseComponent
     public function render(): void
     {
         $this->template->lang = $this->translator->lang;
-        $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
+        $this->template->event = $this->event;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomeMap.latte');
     }
 
     protected function createComponentMap(): MapComponent
     {
-        return new MapComponent($this->getContext(), $this->gamePhaseCalculator, $this->event);
+        return new MapComponent($this->getContext(), $this->event);
     }
 
     /**

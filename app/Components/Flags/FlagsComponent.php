@@ -6,15 +6,18 @@ namespace App\Components\Flags;
 
 use App\Models\NetteDownloader\ORM\Models\ModelMember;
 use App\Models\NetteDownloader\ORM\Models\ModelTeam;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 
-class FlagsComponent extends BaseComponent
+class FlagsComponent extends DIComponent
 {
     public function getFlagForMember(ModelMember $member): string
     {
         return $member->school['countryIso'] ?? '';
     }
 
+    /**
+     * @phpstan-return string[]
+     */
     public function getFlagsForTeam(ModelTeam $team): array
     {
         $flags = [];
@@ -24,6 +27,9 @@ class FlagsComponent extends BaseComponent
         return $flags;
     }
 
+    /**
+     * @phpstan-return string[]
+     */
     public function getUniqueFlagsForTeam(ModelTeam $team): array
     {
         return array_unique($this->getFlagsForTeam($team));
@@ -31,19 +37,25 @@ class FlagsComponent extends BaseComponent
 
     public function renderFlag(ModelMember $member): void
     {
-        $this->template->flags = [$this->getFlagForMember($member)];
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'flags.latte');
+        $this->template->render(
+            __DIR__ . DIRECTORY_SEPARATOR . 'flags.latte',
+            ['flags' => [$this->getFlagForMember($member)]]
+        );
     }
 
     public function renderFlags(ModelTeam $team): void
     {
-        $this->template->flags = $this->getFlagsForTeam($team);
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'flags.latte');
+        $this->template->render(
+            __DIR__ . DIRECTORY_SEPARATOR . 'flags.latte',
+            ['flags' => $this->getFlagsForTeam($team)]
+        );
     }
 
     public function renderUniqueFlags(ModelTeam $team): void
     {
-        $this->template->flags = $this->getUniqueFlagsForTeam($team);
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'flags.latte');
+        $this->template->render(
+            __DIR__ . DIRECTORY_SEPARATOR . 'flags.latte',
+            ['flags' => $this->getUniqueFlagsForTeam($team)]
+        );
     }
 }

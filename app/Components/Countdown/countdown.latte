@@ -1,14 +1,14 @@
 {varType Nette\Utils\DateTime $countdownTo}
 {varType string $id}
-{varType string $lang}
+{varType App\Modules\Core\Language $lang}
 {block content}
     <div class="row">
-        {foreach ["day", "hour", "minute", "second"] as $unit}
+        {foreach ['day', 'hour', 'minute', 'second'] as $unit}
             <div class="col-3">
                 <div class="countdown-value" id="countdown-{$id}-{$unit}"></div>
                 <div class="countdown-text" id="countdown-{$id}-{$unit}-text"></div>
             </div>
         {/foreach}
     </div>
-    <script type="text/javascript">new CountdownComponent(new Date({$countdownTo->getTimestamp() * 1000}), {$id}, {$lang});</script>
+    <script type="text/javascript">new CountdownComponent(new Date({$countdownTo->getTimestamp() * 1000}), {$id}, {$lang->value});</script>
 {/block}

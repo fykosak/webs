@@ -5,12 +5,10 @@ declare(strict_types=1);
 namespace App\Modules\Fykos\DefaultModule;
 
 use App\Models\Downloader\ProblemService;
-use App\Models\Downloader\SeriesService;
-use Nette\Utils\DateTime;
 
 class ProblemsPresenter extends BasePresenter
 {
-    private ProblemService $problemService;
+    private readonly ProblemService $problemService;
 
     /** @persistent */
     public ?int $year = null;
@@ -22,6 +20,9 @@ class ProblemsPresenter extends BasePresenter
         $this->problemService = $problemService;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderDefault(): void
     {
         $year = $this->year ?? self::CURRENT_YEAR;
