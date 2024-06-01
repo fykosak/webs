@@ -8,15 +8,18 @@ use Fykosak\Utils\DateTime\Period;
 
 class ModelEvent
 {
-    public int $eventId;
-    public int $eventTypeId;
-    public string $name;
-    public int $eventYear;
-    public int $year;
-    public \DateTimeImmutable $begin;
-    public \DateTimeImmutable $end;
-    public \DateTimeImmutable $registrationBegin;
-    public \DateTimeImmutable $registrationEnd;
+    public readonly int $eventId;
+    public readonly int $eventTypeId;
+    public readonly string $name;
+    public readonly int $eventYear;
+    public readonly int $year;
+    public readonly ?string $place;
+    public readonly ModelGame|null $game;
+    public readonly \DateTimeImmutable $begin;
+    public readonly \DateTimeImmutable $end;
+    public readonly \DateTimeImmutable $registrationBegin;
+    public readonly \DateTimeImmutable $registrationEnd;
+    public readonly Period $registration; // TODO magic?
 
     public function getRegistrationPeriod(): Period
     {
@@ -28,9 +31,9 @@ class ModelEvent
         return new Period($this->begin, $this->end);
     }
 
-    public function getGamePeriod(): Period
+    public function getGamePeriod(): ?Period
     {
-        return $this->getEventPeriod(); // TODO!!!!
+        return $this->game?->getGamePeriod();
     }
 
     public function getNearEventPeriod(): Period
@@ -47,5 +50,15 @@ class ModelEvent
     {
         $event = $this->end->add(new \DateInterval('P7D'));
         return new \DateTime() > $event;
+    }
+
+    public function getYear(): int
+    {
+        return (int)$this->begin->format('Y');
+    }
+
+    public function getMonth(): string
+    {
+        return $this->begin->format('m');
     }
 }

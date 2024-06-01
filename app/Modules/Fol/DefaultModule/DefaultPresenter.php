@@ -35,7 +35,7 @@ class DefaultPresenter extends BasePresenter
      */
     protected function createComponentCountdown(): CountdownComponent
     {
-        return new CountdownComponent($this->getContext(), $this->gamePhaseCalculator->getGameBegin());
+        return new CountdownComponent($this->getContext(), $this->getNewestEvent()->game->begin);
     }
 
     /**

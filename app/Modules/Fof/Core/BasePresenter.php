@@ -13,4 +13,9 @@ abstract class BasePresenter extends EventWebPresenter
     {
         return $event->begin->format('Y');
     }
+
+    protected function getEventIds(): array
+    {
+        return [1];
+    }
 }

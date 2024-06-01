@@ -8,6 +8,7 @@ use App\Models\Downloader\FKSDBDownloader;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
 use Nette\Caching\Storage;
+use Tracy\Debugger;
 
 final class ServiceEventList extends AbstractJSONService
 {

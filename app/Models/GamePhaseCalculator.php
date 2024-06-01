@@ -6,37 +6,24 @@ namespace App\Models;
 
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
-use Nette\DI\Container;
 use Nette\SmartObject;
-use Throwable;
 
+/**
+ * @deprecated
+ */
 final class GamePhaseCalculator
 {
     use SmartObject;
 
     public function __construct(
         private readonly int $eventTypeId,
-        private readonly ServiceEventList $serviceEventList,
-        private readonly Container $container
+        private readonly ServiceEventList $serviceEventList
     ) {
     }
-
-    /**
-     * @throws Throwable
-     */
-    public function getGameBegin(): \DateTime
-    {
-        $time = new \DateTime($this->container->getParameters()['competitionBegin']);
-        $day = $this->getFKSDBEvent()->begin;
-
-        $time->setDate((int)$day->format('Y'), (int)$day->format('m'), (int)$day->format('d'));
-        return $time;
-    }
-
     /**
      * Returns newest FKSDB event. That means by creating a new one, the application automatically switches to the new
      * year.
-     * @throws Throwable
+     * @throws \Throwable
      */
     public function getFKSDBEvent(): ?ModelEvent
     {
