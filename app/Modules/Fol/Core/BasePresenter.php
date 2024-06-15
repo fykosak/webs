@@ -12,7 +12,7 @@ use Nette\Application\UI\Template;
 
 abstract class BasePresenter extends EventWebPresenter
 {
-    private readonly EventService $serviceEventList;
+    private readonly EventService $eventService;
 
     public static function createEventKey(ModelEvent $event): string
     {
@@ -22,9 +22,9 @@ abstract class BasePresenter extends EventWebPresenter
         return $month < 10 ? ($year . '-' . $monthName) : $year;
     }
 
-    public function injectServiceEventList(EventService $serviceEventList): void
+    public function injectEventService(EventService $eventService): void
     {
-        $this->serviceEventList = $serviceEventList;
+        $this->eventService = $eventService;
     }
 
     /**
@@ -34,7 +34,7 @@ abstract class BasePresenter extends EventWebPresenter
     {
         $fofGamePhaseCalculator = new GamePhaseCalculator(
             $this->context->getParameters()['fofEventTypeId'],
-            $this->serviceEventList,
+            $this->eventService,
             $this->context
         );
 

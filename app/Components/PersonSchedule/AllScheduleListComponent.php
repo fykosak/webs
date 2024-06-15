@@ -13,7 +13,7 @@ use Nette\DI\Container;
 
 final class AllScheduleListComponent extends DIComponent
 {
-    private readonly EventService $serviceEventDetail;
+    private readonly EventService $eventService;
     private readonly FKSDBDownloader $downloader;
 
     /** @var ModelPersonSchedule[][] | null */
@@ -24,9 +24,9 @@ final class AllScheduleListComponent extends DIComponent
         parent::__construct($container);
     }
 
-    public function injectPrimary(EventService $serviceEventDetail, FKSDBDownloader $downloader): void
+    public function injectPrimary(EventService $eventService, FKSDBDownloader $downloader): void
     {
-        $this->serviceEventDetail = $serviceEventDetail;
+        $this->eventService = $eventService;
         $this->downloader = $downloader;
     }
 
@@ -67,7 +67,7 @@ final class AllScheduleListComponent extends DIComponent
     {
         if (is_null($this->groupedPersonSchedule)) {
             $groups = [];
-            $personSchedule = $this->serviceEventDetail->getPersonSchedule($this->eventId);
+            $personSchedule = $this->eventService->getPersonSchedule($this->eventId);
             foreach ($personSchedule as $item) {
                 $groups[$item->scheduleItemId] = $groups[$item->scheduleItemId] ?? [];
                 $groups[$item->scheduleItemId][] = $item;

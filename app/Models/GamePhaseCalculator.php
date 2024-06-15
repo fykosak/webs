@@ -16,7 +16,7 @@ final class GamePhaseCalculator
 
     public function __construct(
         private readonly int $eventTypeId,
-        private readonly EventService $serviceEventList,
+        private readonly EventService $eventService,
         private readonly Container $container
     ) {
     }
@@ -42,7 +42,7 @@ final class GamePhaseCalculator
     {
         static $fksdbEvent;
         if (!isset($fksdbEvent[$this->eventTypeId])) {
-            $fksdbEvent[$this->eventTypeId] = $this->serviceEventList->getNewest([$this->eventTypeId]);
+            $fksdbEvent[$this->eventTypeId] = $this->eventService->getNewest([$this->eventTypeId]);
         }
         return $fksdbEvent[$this->eventTypeId];
     }

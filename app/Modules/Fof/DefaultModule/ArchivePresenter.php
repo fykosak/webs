@@ -8,11 +8,11 @@ use App\Models\Downloader\EventService;
 
 class ArchivePresenter extends BasePresenter
 {
-    protected readonly EventService $serviceEvent;
+    protected readonly EventService $eventService;
 
-    public function injectServiceEvent(EventService $serviceEvent): void
+    public function injectEventService(EventService $eventService): void
     {
-        $this->serviceEvent = $serviceEvent;
+        $this->eventService = $eventService;
     }
 
     /**
@@ -20,7 +20,7 @@ class ArchivePresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $events = array_reverse($this->serviceEvent->getEvents([$this->getContext()->getParameters()['eventTypeId']]));// TODO
+        $events = array_reverse($this->eventService->getEvents([$this->getContext()->getParameters()['eventTypeId']]));// TODO
         $events = array_filter($events, function ($event) {
             //return true;
             return $event->end < new \DateTime('now');
