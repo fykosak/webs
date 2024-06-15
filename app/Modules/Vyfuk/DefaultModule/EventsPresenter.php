@@ -26,19 +26,6 @@ class EventsPresenter extends BasePresenter
         $this->eventService = $eventService;
     }
 
-    /**
-     * @throws \Throwable
-     */
-    protected function createComponentGallery(): ImageGalleryControl
-    {
-        return new ImageGalleryControl($this->getContext());
-    }
-
-    protected function createComponentPdfGallery(): PdfGalleryControl
-    {
-        return new PdfGalleryControl($this->getContext());
-    }
-
     public function renderDetail(int $event): void
     {
         $event = $this->eventService->getEvent($event);
