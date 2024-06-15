@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 namespace App\Modules\Core;
 
+use App\Models\Downloader\EventService;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use App\Models\NetteDownloader\ORM\Services\DummyService;
-use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 use Nette\Application\UI\Template;
 
 abstract class EventWebPresenter extends BasePresenter
 {
     protected readonly DummyService $dummyService;
-    protected readonly ServiceEventList $serviceEventList;
+    protected readonly EventService  $eventService;
 
     public function injectEventWebServices(
         DummyService     $dummyService,
-        ServiceEventList $serviceEventList
+        EventService $eventService
     ): void {
         $this->dummyService = $dummyService;
-        $this->serviceEventList = $serviceEventList;
+        $this->eventService = $eventService;
     }
 
     /**
@@ -39,7 +39,7 @@ abstract class EventWebPresenter extends BasePresenter
     {
         static $newestEvent;
         if (!isset($newestEvent)) {
-            $newestEvent = $this->serviceEventList->getNewest($this->getEventIds());
+            $newestEvent = $this->eventService->getNewest($this->getEventIds());
         }
         return $newestEvent;
     }
