@@ -4,16 +4,12 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\Core;
 
-use App\Models\Downloader\EventService;
-use App\Models\GamePhaseCalculator;
 use App\Modules\Core\EventWebPresenter;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use Nette\Application\UI\Template;
 
 abstract class BasePresenter extends EventWebPresenter
 {
-    private readonly EventService $eventService;
-
     public static function createEventKey(ModelEvent $event): string
     {
         $year = $event->begin->format('Y');
@@ -22,24 +18,24 @@ abstract class BasePresenter extends EventWebPresenter
         return $month < 10 ? ($year . '-' . $monthName) : $year;
     }
 
-    public function injectEventService(EventService $eventService): void
-    {
-        $this->eventService = $eventService;
-    }
 
     /**
      * @throws \Throwable
      */
     protected function createTemplate(): Template
     {
-        $fofGamePhaseCalculator = new GamePhaseCalculator(
-            $this->context->getParameters()['fofEventTypeId'],
-            $this->eventService,
-            $this->context
-        );
 
         $template = parent::createTemplate();
-        $template->fofEvent = $fofGamePhaseCalculator->getFKSDBEvent();
+        $template->fofEvent = $this->serviceEventList->getNewest(
+            [
+                $this->context->getParameters()['fofEventTypeId'],
+            ]
+        );
         return $template;
+    }
+
+    protected function getEventIds(): array
+    {
+        return [9];
     }
 }
