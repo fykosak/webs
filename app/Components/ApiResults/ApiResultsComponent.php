@@ -20,7 +20,10 @@ class ApiResultsComponent extends DIComponent
     private readonly Connector $gameServerApiConnector;
     private readonly FKSDBDownloader $downloader;
 
-    public function __construct(Container $container, private readonly int $eventId)
+    public function __construct(
+        Container $container,
+        private readonly int $eventId
+    )
     {
         parent::__construct($container);
     }

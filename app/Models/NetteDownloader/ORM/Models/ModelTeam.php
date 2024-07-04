@@ -22,10 +22,10 @@ class ModelTeam
     /**
      * @var ModelMember[]
      */
-    public $members;
+    public array $members;
 
     /**
      * @var ModelPerson[]
      */
-    public $teachers;
+    public array $teachers;
 }

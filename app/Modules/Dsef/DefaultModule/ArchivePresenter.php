@@ -29,9 +29,9 @@ class ArchivePresenter extends BasePresenter
         foreach ($events as $event) {
             $eventKeys[] = [
                 'event' => $event,
-                'year' => BasePresenter::getEventYear($event),
-                'month' => BasePresenter::getEventMonth($event),
-                'fykos-year' => $event->year,
+                'year' => $event->getYear(),
+                'month' => $event->getMonth(),
+                'contestYear' => $event->year,
             ];
         }
 
