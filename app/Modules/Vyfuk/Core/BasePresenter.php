@@ -54,13 +54,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 
         $items[] = new NavItem(
             new PageTitle('Akce'),
-            ':default',
-            [],
-            [
-                new NavItem(new PageTitle('Akce'), ':Default:Events:default'), //TODO uspořádání odkazů
-                new NavItem(new PageTitle('Tábor'), ':Default:Events:camp'),
-                new NavItem(new PageTitle('Setkání'), ':Default:Events:meeting'),
-            ],
+            ':Default:Events:default',
         );
 
         $items[] = new NavItem(
