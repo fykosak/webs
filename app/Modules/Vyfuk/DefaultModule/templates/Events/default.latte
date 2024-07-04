@@ -4,6 +4,7 @@
 <div class="panel color-light">
     <div class="inner-container">
         <h1>{include title}</h1>
+        <a class="btn btn-primary mx-1" n:href="Events:Calendar">Kalendář</a>
     </div>
     <div n:foreach="$events as $key => $event" class="panel color-auto">
         <div class="inner-container">
@@ -11,7 +12,7 @@
             <p>{$event->reportNew[$lang]}</p>
             <p>
                 <a class="btn btn-primary mx-1" n:href="Events:detail $event->eventId">
-                    <i class="bi bi-info-circle"></i>Informace o akci
+                    <i class="bi bi-info-circle"></i> Informace o akci
                 </a>
             </p>
             {control gallery:randomLine "/photos/event/" . $event->eventId}
