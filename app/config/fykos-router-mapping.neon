@@ -13,7 +13,6 @@ parameters:
                 Historie: History
                 Kontakt: Contact
                 Zadani: Problems
-                Poradi: Results
                 ArchivUloh: ProblemsArchive
         events:
             cs:
