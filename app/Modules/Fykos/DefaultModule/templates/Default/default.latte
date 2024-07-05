@@ -58,14 +58,14 @@
                     </div>
                     <div class="center-content-horizontally-md content-down mt-3 mt-md-0">
                         <div class="header-image-dates">
-                            {if $countdownEventsIndices['upcoming'][$lang] == $numOfEvents[$lang]}
+                            {if $year_stage == 'after' or $year_stage == 'before'}
                                 <h2 class="next-event-heading">
                                     {switch $language->value}
                                         {case 'cs'}Nový ročník FYKOSu přichází již brzy! Užívejte prázdniny!
                                         {default}New year of FYKOS is coming soon! Enjoy your holidays!
                                     {/switch}
                                 </h2>
-                            {else}
+                            {elseif $year_stage == 'during'}
                                 {if $countdownEventsIndices['previous'][$lang] !== null}
                                     <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]} | {$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'}</h4>
                                 {/if}
@@ -139,8 +139,10 @@
         </h1>
         <p>
             {switch $language->value}
-                {case 'cs'}FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní.
-                {default}FYKOS organizes about ten educational events for high school students every year. Here you can find the main ones.
+                {case 'cs'}FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní
+                    {if $year_stage == 'during'}.{elseif $year_stage == 'before'} akce nadcházejícího ročníku.{elseif $year_stage == 'after'} akce minulého ročníku.{/if}
+                {default}FYKOS organizes about ten educational events for high school students every year. Here you can find the main ones
+                    {if $year_stage == 'during'}.{elseif $year_stage == 'before'} of the upcoming school year.{elseif $year_stage == 'after'} of the past school year.{/if}
             {/switch}
         </p>
         <a class="btn btn-primary" n:href=":Events:Default:default">
@@ -478,7 +480,7 @@
                             {switch $language->value}
                                 {case 'cs'}Zadání vám přijde poštou nebo ho najdete přímo tady na webu.
                                     Nemusíte vyřešit všechny úlohy, každý pokus se počítá.
-                                {default}The assignment will be sent to you by mail or you can find it directly here on the website.
+                                {default}You can find the directly here on the website.
                                     You don't have to solve all the problems, every attempt counts.
                             {/switch}
                         </p>
@@ -599,48 +601,52 @@
     </section>
 </div>
 
-{* Countdown for the very top of the page *}
-<script>
-    function countdownTimer(countDownDate, elementId) {
-        // Update the countdown every 1 second
-        var countdown = setInterval(function () {
+{if $year_stage == "during"}
+    {* Countdown for the very top of the page *}
+    <script>
+        function countdownTimer(countDownDate, elementId) {
+            // Update the countdown every 1 second
+            var countdown = setInterval(function () {
 
-            // Get today's date and time
-            var now = new Date().getTime();
+                // Get today's date and time
+                var now = new Date().getTime();
 
-            // Find the distance between now and the countdown date
-            var distance = countDownDate - now;
+                // Find the distance between now and the countdown date
+                var distance = countDownDate - now;
 
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Display the countdown in the element with the specified id
-            document.getElementById(elementId).innerHTML = ("0" + days).slice(-2) + ":" + ("0" + hours).slice(-2) + ":"
-                + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+                // Display the countdown in the element with the specified id
+                document.getElementById(elementId).innerHTML = ("0" + days).slice(-2) + ":" + ("0" + hours).slice(-2) + ":"
+                    + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
 
-            // If the countdown is finished, display a message
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.getElementById(elementId).innerHTML = "";
-            }
-        }, 1000);
-    }
+                // If the countdown is finished, display a message
+                if (distance < 0) {
+                    clearInterval(countdown);
+                    document.getElementById(elementId).innerHTML = "";
+                }
+            }, 1000);
+        }
 
-    // Set the date we're counting down to
-    {if $countdownEventsIndices['upcoming'][$lang] < $numOfEvents[$lang]}
-        var countDownDatePrimary = new Date({$events[$countdownEventsIndices['upcoming'][$lang]]['date']});
-    {/if}
-    {if !is_null($countdownEventsIndices['next'][$lang]) && $countdownEventsIndices['next'][$lang] < $numOfEvents[$lang]}
-        var countDownDateSecondary = new Date({$events[$countdownEventsIndices['next'][$lang]]['date']});
-    {/if}
+        // Set the date we're counting down to
+        {if $countdownEventsIndices['upcoming'][$lang] < $numOfEvents[$lang]}
+            var countDownDatePrimary = new Date({$events[$countdownEventsIndices['upcoming'][$lang]]['date']});
+        {/if}
+        {if !is_null($countdownEventsIndices['next'][$lang]) && $countdownEventsIndices['next'][$lang] < $numOfEvents[$lang]}
+            var countDownDateSecondary = new Date({$events[$countdownEventsIndices['next'][$lang]]['date']});
+        {/if}
 
-    // Call the countdownTimer function with the specified date and element id
-    countdownTimer(countDownDatePrimary, 'countdown-primary');
-    countdownTimer(countDownDateSecondary, 'countdown-secondary');
-</script>
+        // Call the countdownTimer function with the specified date and element id
+        countdownTimer(countDownDatePrimary, 'countdown-primary');
+        countdownTimer(countDownDateSecondary, 'countdown-secondary');
+    </script>
+{/if}
+
+{* Timeline data *}
 
 
 <div class="dummy-timeline-begin d-none"><p>{$timelineBegin|noescape}</p></div>
@@ -659,6 +665,11 @@
 
         const timelineBegin = new Date(timelineBeginElement.innerText.trim());
         const timelineEnd = new Date(timelineEndElement.innerText.trim());
+
+        function yearStageIsDuring() {
+            return new Date() >= timelineBegin && new Date() <= timelineEnd;
+        }
+
 
         // Init the timeline and set logos around it
         function calculatePositionPercentages(dates, timelineId) {
@@ -767,9 +778,11 @@
             positions_series.forEach((position, index) => {
                 positionLogo(position, 'logo-series', `series-${index + 1}`, timelineId, images_series[index]);
             });
-            position_today.forEach((position, index) => {
-                positionLogo(position, 'today-block', 'today-block', timelineId);
-            });
+            if (yearStageIsDuring()) {
+                position_today.forEach((position, index) => {
+                    positionLogo(position, 'today-block', 'today-block', timelineId);
+                });
+            }
         };
 
         const observer = new IntersectionObserver(entries => {
