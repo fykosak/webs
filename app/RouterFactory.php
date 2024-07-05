@@ -166,6 +166,13 @@ class RouterFactory
     {
         $router = new RouteList();
 
+        $router->withModule('Default')
+            ->addRoute('//<domain>/<presenter>[/<action>]', [
+                'presenter' => 'Default',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
         $router->withModule('Archive')
             ->addRoute('//<domain>/<eventYear ([0-9]{4})(-.*)?>/<eventMonth>/[<presenter>/[<action>]]', [
                 'presenter' => 'Default',
@@ -194,17 +201,17 @@ class RouterFactory
         ]);
 
         $router->withModule('Default')
-        ->addRoute('//<domain>/problems/<year ([0-9]{2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
-            'presenter' => 'Problems',
-            'action' => 'default',
-            null => self::useTranslateFilter($domainList, $routerMapping['default']),
-        ]);
+            ->addRoute('//<domain>/problems/<year ([0-9]{2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
+                'presenter' => 'Problems',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
 
         $router->addRoute('//<domain>/<module events>/[<presenter>[/<action>]]', [
-                'presenter' => 'Default',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['events']),
-            ]);
+            'presenter' => 'Default',
+            'action' => 'default',
+            null => self::useTranslateFilter($domainList, $routerMapping['events']),
+        ]);
 
         $router->withModule('Default')
             ->addRoute('//<domain>/<presenter>[/<action>]', [
