@@ -79,7 +79,7 @@
   },
   {
     "question": "Na kolik platných cifer máme náš výsledek úlohy zadávat?",
-    "answer": "V zadání každé úlohy je uvedeno, kolik platných cifer vyžadujeme.",
+    "answer": "V zadání každé úlohy je uvedeno, kolik platných cifer vyžadujeme. Můžete ale zadávat odpovědi i s větším počtem platných cifer.",
     "lang": "cs",
     "category": "submits"
   },
@@ -289,7 +289,7 @@
   },
   {
     "question": "How many significant digits should one give in the solution?",
-    "answer": "Each task has specified how many significant digits the result should have.",
+    "answer": "Each task has specified how many significant digits the result should have. You can also submit result with more significant digits.",
     "lang": "en",
     "category": "submits"
   },
