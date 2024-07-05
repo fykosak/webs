@@ -200,7 +200,6 @@ class RouterFactory
             ]
         ];
         
-        // Adding dynamic routes based on router mapping configuration
         foreach ($specialRouterMapping['results'] as $lang => $translated) {
             $router->withModule('Default')->addRoute("//<domain>/$translated/<year ([0-9]{2})(-.*)?>", [
                 'presenter' => 'Results',
