@@ -7,7 +7,6 @@ namespace App;
 use Nette\Application\Routers\RouteList;
 use Nette\Routing\Route;
 use Nette\Routing\Router;
-use Tracy\Debugger;
 
 class RouterFactory
 {
@@ -182,18 +181,16 @@ class RouterFactory
         $router = new RouteList();
 
 
-
-        Debugger::barDump($domainList);
-
-        
-        $router->withModule('Default')->addRoute("//<domain>/results[/<year [0-9]{2}>]", [
+        $router->addRoute('//<domain>/<lang results|poradi>[/<year [0-9]{2}>]', [
+            'module' => 'Default',
             'presenter' => 'Results',
             'action' => 'default',
-            'lang' => 'cs'
-            // 'lang' => ['filterTable' => [
-            //     'poradi' => "cs",
-            //     'results' => "en",
-            // ]]
+            'year' => null,
+            'lang' => ['filterTable' => [
+                'poradi' => "cs",
+                'results' => "en",
+            ]],
+            null => self::useTranslateFilter($domainList, [])
         ]);
 
         $router->withModule('Default')
@@ -209,12 +206,12 @@ class RouterFactory
                 null => self::useTranslateFilter($domainList, $routerMapping['events']),
             ]);
 
-        // $router->withModule('Default')
-        //     ->addRoute('//<domain>/<presenter>[/<action>]', [
-        //         'presenter' => 'Default',
-        //         'action' => 'default',
-        //         null => self::useTranslateFilter($domainList, $routerMapping['default']),
-        //     ]);
+        $router->withModule('Default')
+            ->addRoute('//<domain>/<presenter>[/<action>]', [
+                'presenter' => 'Default',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
 
 
         return $router;
