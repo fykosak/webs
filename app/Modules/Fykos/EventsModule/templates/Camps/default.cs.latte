@@ -45,7 +45,17 @@
                 <div class="col-md-8 event-text-box">
                     <div class="subheader">{$event['nameNew'][$language->value]} – {$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}</div>
                     <h1>{$event['heading'][$language->value]}</h1>
-                    <p>{$event['reportNew'][$language->value]}</p>
+                    <p>
+                        {if $event['end'] < new \DateTime()}
+                            {if $event['reportNew'][$language->value]}
+                                {$event['reportNew'][$language->value]}
+                            {else}
+                                Report z akce momentálně není dostupný.
+                            {/if}
+                        {else}
+                            Akce ještě neproběhla.
+                        {/if}
+                    </p>
                     <div>
                         {* TODO link for the camp page *}
                         {* <a class="btn btn-primary" n:href=":Events:Fykos:">
