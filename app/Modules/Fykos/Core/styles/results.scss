@@ -1,6 +1,102 @@
-
-.yearbox {
-    width: 80%;
-    max-width: 100px;
+.content-down {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
+.year-and-series-select {
+
+    .series-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .series-box {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        flex: 1 0 10%;
+
+        &:hover,
+        &:focus {
+            background-color: #1175da;
+            color: white;
+        }
+
+        /* Fix aspect ratio to square */
+        &::before {
+            content: "";
+            display: block;
+            padding-top: 100%;
+        }
+
+        &>* {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .dropdown-menu {
+        width: 100%;
+        padding: 0;
+    }
+
+    .accordion-body {
+        padding: 0;
+    }
+
+    .year-select-button {
+        width: 100%;        
+    }
+
+    .dropdown-toggle::after {
+        transform: rotate(90deg);
+        transition: transform .1s ease-in-out;
+    }
+    .dropdown-toggle[aria-expanded="true"]::after {
+        transform: rotate(0deg);
+    }
+    
+
+    .dropdown {
+        padding: 0;
+    }
+
+    .dropdown-menu {
+        border: none;
+    }
+
+    .accordion-button {
+        background-color: white !important;
+        color: black !important;
+
+        &:focus {
+            box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+        }
+
+    }
+
+
+    .scrollable-menu {
+        height: auto;
+        max-height: 50vh;
+        overflow-x: hidden;
+    }
+
+
+    .current-year-accordion {
+        margin-top: 2px; // hack to achieve correct positioning
+
+        .accordion-button {
+            background-color: white;
+            color: black;
+        }
+
+        .accordion-button::after {
+            display: none;
+        }
+    }
+}

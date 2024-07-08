@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace App\Modules\Fykos\DefaultModule;
 
 use App\Models\Downloader\ProblemService;
+use Tracy\Debugger;
+
+use Throwable;
 
 class ProblemsPresenter extends BasePresenter
 {
@@ -47,5 +50,28 @@ class ProblemsPresenter extends BasePresenter
             7 => 'fas fa-flask',
             8 => 'fas fa-book'
         ];
+
+        $this->template->yearsAndSeries = $this->getYearsAndSeries();
+
+        $this->template->year = $year;
+    }
+
+
+    private function getYearsAndSeries(): array
+    {
+
+        error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
+        
+        $yearsAndSeries = [];
+        for ($year = self::CURRENT_YEAR; $year > 0; $year--) {
+            try {
+                $yearJson = $this->problemService->getYearJson('fykos', $year);
+                $availableSeriesNumbers = array_keys($yearJson);
+                $yearsAndSeries[$year] = $availableSeriesNumbers;
+            } catch (Throwable $e) {
+                continue;
+            }
+        }
+        return $yearsAndSeries;
     }
 }
