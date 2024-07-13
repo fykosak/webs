@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Modules\Vyfuk\DefaultModule;
 
-use App\Components\ImageGallery\ImageGalleryControl;
-use App\Components\PdfGallery\PdfGalleryControl;
 use App\Models\Downloader\EventService;
 use DateTime;
 use Exception;
@@ -49,9 +47,20 @@ class EventsPresenter extends BasePresenter
         $this->template->participants = implode(', ', $array);
     }
 
-    public function renderDefault(): void
+    public function renderDefault(?int $typeID = null): void
     {
-        $events = $this->eventService->getEvents([10, 11, 12, 15]);
+        $eventTypes = [
+            10 => 'tábor',
+            12 => 'Podzimní setkání',
+            11 => 'Jarní setkání',
+            15 => 'Kyberkoncil'
+        ];
+        $ids = array_keys($eventTypes);
+        $selectedId = in_array($typeID, $ids) ? $typeID : null;
+
+        $events = $this->eventService->getEvents($selectedId ? [$selectedId] : $ids);
+        $this->template->eventTypes = $eventTypes;
+        $this->template->selected = $selectedId;
         $this->template->events = array_reverse($events);
     }
 
