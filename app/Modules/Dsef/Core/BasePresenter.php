@@ -13,19 +13,14 @@ abstract class BasePresenter extends EventWebPresenter
 {
     public const EVENT_IDS = [2, 14];
 
-    public static function getEventYear(ModelEvent $event): string
+    protected function getEventIds(): array
     {
-        return $event->begin->format('Y');
-    }
-
-    public static function getEventMonth(ModelEvent $event): string
-    {
-        return $event->begin->format('m');
+        return [2, 14];
     }
 
     public static function getEventKey(ModelEvent $event): string
     {
-        return self::getEventYear($event) . '-' . self::getEventMonth($event);
+        return $event->getYear() . '-' . $event->getMonth();
     }
 
     protected function localize(): void

@@ -26,7 +26,7 @@ final class EventService extends AbstractJSONService
      * @param ModelEvent[] &$events
      * @param int[] $IDs IDs of events to remove from list.
      */
-    public function removeByIDs(array &$events, array $IDs): void
+    public static function removeByIDs(array &$events, array $IDs): void
     {
         $events = array_filter($events, function ($event) use ($IDs) {
             return (!in_array($event->eventId, $IDs));

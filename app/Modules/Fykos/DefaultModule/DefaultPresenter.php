@@ -8,26 +8,39 @@ class DefaultPresenter extends BasePresenter
 {
     public function renderDefault(): void
     {
+        $this->template->newsList = $this->loadNews();
+
         $this->loadEventData();
 
-        // Sort events by date
-        usort($this->template->events, function ($a, $b) {
-            $dateA = strtotime($a['date']);
-            $dateB = strtotime($b['date']);
-            return $dateA - $dateB;
-        });
+        $currentDate = strtotime(date('Y-m-d'));
+        // year_stage is enum of values: 'before', 'during', 'after'
+        $this->template->year_stage = null;
+        if ($currentDate < strtotime($this->template->timelineBegin)) {
+            $this->template->year_stage = 'before';
+        } elseif ($currentDate > strtotime($this->template->timelineEnd)) {
+            $this->template->year_stage = 'after';
+        } else {
+            $this->template->year_stage = 'during';
+        }
 
-        // Find the closest event
-        $this->template->countdownEventsIndices = $this->findCountdownEventIndices($this->template->events);
+        if ($this->template->year_stage === 'during') {         
+            // Sort events by date
+            usort($this->template->events, function ($a, $b) {
+                $dateA = strtotime($a['date']);
+                $dateB = strtotime($b['date']);
+                return $dateA - $dateB;
+            });
 
-        $this->template->numOfEvents = [
-            'cs' => count($this->template->events),
-            'en' => count(array_filter($this->template->events, function ($event) {
-                return $event['show-in-en'];
-            }))
-        ];
+            // Find the closest event
+            $this->template->countdownEventsIndices = $this->findCountdownEventIndices($this->template->events);
 
-        $this->template->newsList = $this->loadNews();
+            $this->template->numOfEvents = [
+                'cs' => count($this->template->events),
+                'en' => count(array_filter($this->template->events, function ($event) {
+                    return $event['show-in-en'];
+                }))
+            ];
+        }
     }
 
     public function loadNews(): array
@@ -141,7 +154,7 @@ class DefaultPresenter extends BasePresenter
                     'show-in-en' => true
             ]
         ];
-        $this->template->timelineBegin = date('Y-m-d', strtotime('2023-10-01'));
+        $this->template->timelineBegin = date('Y-m-d', strtotime('2023-09-01'));
         $this->template->timelineEnd = date('Y-m-d', strtotime('2024-05-31'));
     }
 

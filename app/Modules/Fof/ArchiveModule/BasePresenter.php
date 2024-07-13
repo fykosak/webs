@@ -18,11 +18,11 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
     public ?string $eventYear = null;
 
     private ModelEvent $event;
-    protected readonly EventService $serviceEvent;
+    protected readonly EventService $eventService;
 
-    public function injectServiceEvent(EventService $serviceEvent): void
+    public function injectEventService(EventService $eventService): void
     {
-        $this->serviceEvent = $serviceEvent;
+        $this->eventService = $eventService;
     }
 
     /**
@@ -39,7 +39,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
                 } else {
                     [$year, $month] = explode('-', $this->eventYear);
                 }
-                $events = $this->serviceEvent->getEventsByYear(
+                $events = $this->eventService->getEventsByYear(
                     [$this->context->getParameters()['eventTypeId']],
                     intval($year)
                 );

@@ -15,7 +15,8 @@ class CountdownComponent extends DIComponent
         Container $container,
         private readonly \DateTimeInterface $countdownTo,
         string $id = null
-    ) {
+    )
+    {
         parent::__construct($container);
         $this->id = $id ?? uniqid();
     }

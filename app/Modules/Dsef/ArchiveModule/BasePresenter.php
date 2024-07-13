@@ -24,11 +24,11 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     public ?string $eventMonth = null;
 
     protected ModelEvent $event;
-    protected readonly EventService $serviceEvent;
+    protected readonly EventService $eventService;
 
-    public function injectServiceEvent(EventService $serviceEvent): void
+    public function injectEventService(EventService $eventService): void
     {
-        $this->serviceEvent = $serviceEvent;
+        $this->eventService = $eventService;
     }
 
     /**
@@ -41,7 +41,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
             if (isset($this->eventYear) && isset($this->eventMonth)) {
                 $year = $this->eventYear;
                 $month = $this->eventMonth;
-                $events = $this->serviceEvent->getEventsByYear(
+                $events = $this->eventService->getEventsByYear(
                     self::EVENT_IDS,
                     intval($year)
                 );

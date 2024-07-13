@@ -1,5 +1,4 @@
 {varType App\Models\NetteDownloader\ORM\Models\ModelEvent $event}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
 {varType App\Modules\Core\Language $lang}
 
 {block content}
@@ -137,8 +136,9 @@
         </div>
     {elseif $event->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
         {switch $lang->value}
-            {case cs} Registrace je již uzavřena. Soutěžíme <strong>{$gamePhaseCalculator->getGameBegin() |date:'j. n. G:i'}</strong>.
-            {default} Registration is already closed. The competition starts <strong>{$gamePhaseCalculator->getGameBegin() |date:'F j, G:i'} CET</strong>.
+            {case cs} Registrace je již uzavřena. Soutěžíme <strong>{$event->game->begin|date:'j. n. G:i'}</strong>.
+        {default} Registration is already closed. The competition starts <strong>{$event->game->begin|date:'F j, G:i'}
+            CET</strong>.
         {/switch}
     {elseif !$event->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
         {switch $lang->value}
