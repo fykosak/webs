@@ -9,9 +9,9 @@
 <a class="btn btn-outline-primary mx-1" n:href="Events:Default $key">{$val}</a>
 {/if}
 {/foreach}
-<div n:foreach="$events as $key => $event" class="panel color-auto">
+<div n:foreach="$events as $key => $event" class="panel">
     <h2>{$event->nameNew[$lang]}</h2>
-    <p>{$event->reportNew[$lang]}</p>
+    {$event->description[$lang]|texParagraphs}
     <p>
         <a class="btn btn-primary mx-1" n:href="Events:detail $event->eventId">
             <i class="bi bi-info-circle"></i> Informace o akci

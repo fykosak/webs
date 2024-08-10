@@ -1,8 +1,8 @@
 {block title}{$event->nameNew[$lang]}{/block}
 
 {block content}
-<p>{$event->reportNew[$lang]}</p>
-<p>{$event->description[$lang]}</p>
+{$event->description[$lang]|texParagraphs}
+{$event->reportNew[$lang]|texParagraphs}
 {if $participants}
 <h2>Účastníci</h2>
 <p>{$participants}</p>

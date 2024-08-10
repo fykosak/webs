@@ -42,6 +42,7 @@ class EventsPresenter extends BasePresenter
         $persons = $event->end < new DateTime() ? $this->eventService->getEventParticipants($event->eventId) : array();
         $array = array();
         foreach ($persons as $person) {
+            if($person->status==='participated')
             $array[] = $person->name;
         }
         $this->template->participants = implode(', ', $array);
