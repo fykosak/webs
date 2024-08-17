@@ -15,7 +15,7 @@ abstract class EventWebPresenter extends BasePresenter
     protected readonly ServiceEventList $serviceEventList;
 
     public function injectEventWebServices(
-        DummyService     $dummyService,
+        DummyService $dummyService,
         ServiceEventList $serviceEventList
     ): void {
         $this->dummyService = $dummyService;

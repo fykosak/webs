@@ -23,7 +23,7 @@ class DefaultPresenter extends BasePresenter
             $this->template->year_stage = 'during';
         }
 
-        if ($this->template->year_stage === 'during') {         
+        if ($this->template->year_stage === 'during') {
             // Sort events by date
             usort($this->template->events, function ($a, $b) {
                 $dateA = strtotime($a['date']);

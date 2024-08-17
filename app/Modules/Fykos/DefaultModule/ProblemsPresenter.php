@@ -6,7 +6,6 @@ namespace App\Modules\Fykos\DefaultModule;
 
 use App\Models\Downloader\ProblemService;
 use Tracy\Debugger;
-
 use Throwable;
 
 class ProblemsPresenter extends BasePresenter
@@ -61,7 +60,7 @@ class ProblemsPresenter extends BasePresenter
     {
 
         error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
-        
+
         $yearsAndSeries = [];
         for ($year = self::CURRENT_YEAR; $year > 0; $year--) {
             try {

@@ -23,8 +23,7 @@ class ApiResultsComponent extends DIComponent
     public function __construct(
         Container $container,
         private readonly int $eventId
-    )
-    {
+    ) {
         parent::__construct($container);
     }
 
