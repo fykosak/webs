@@ -78,7 +78,7 @@ class DefaultPresenter extends BasePresenter
                     'cs' => 'Fyzikální Náboj',
                     'en' => null
                 ],
-                'date' => date('Y-m-d H:i:s', strtotime('2023-11-03 09:00:00')),
+                'date' => date('Y-m-d H:i:s', strtotime('2024-11-15 09:00:00')),
                 'show-in-en' => false
             ],
             'DSEF' => [
@@ -86,7 +86,7 @@ class DefaultPresenter extends BasePresenter
                     'cs' => 'DSEF',
                     'en' => null
                 ],
-                'date' => date('Y-m-d H:i:s', strtotime('2023-11-06 09:00:00')),
+                'date' => date('Y-m-d H:i:s', strtotime('2024-10-21 09:00:00')),
                 'show-in-en' => false
             ],
             'FOL' => [
@@ -94,7 +94,7 @@ class DefaultPresenter extends BasePresenter
                     'cs' => 'Fyziklání Online',
                     'en' => 'Physics Brawl Online'
                 ],
-                'date' => date('Y-m-d H:i:s', strtotime('2023-11-21 17:00:00')),
+                'date' => date('Y-m-d H:i:s', strtotime('2024-11-20 17:00:00')),
                 'show-in-en' => true
             ],
             'FOF' => [
@@ -102,7 +102,7 @@ class DefaultPresenter extends BasePresenter
                     'cs' => 'Fyziklání',
                     'en' => 'Fyziklani'
                 ],
-                'date' => date('Y-m-d H:i:s', strtotime('2024-02-16 10:30:00')),
+                'date' => date('Y-m-d H:i:s', strtotime('2025-02-14 10:30:00')),
                 'show-in-en' => true
             ],
             'serie-1' => [
@@ -110,52 +110,52 @@ class DefaultPresenter extends BasePresenter
                     'cs' => 'Deadline 1. série',
                     'en' => 'Deadline Series 1'
                 ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2023-10-10 23:59:59')),
+                    'date' => date('Y-m-d H:i:s', strtotime('2024-10-06 23:59:59')),
                     'show-in-en' => true
                 ],
-                'serie-2' => [
-                    'heading' => [
-                        'cs' => 'Deadline 2. série',
-                        'en' => 'Deadline Series 2'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2023-11-21 23:59:59')),
-                    'show-in-en' => true
+            'serie-2' => [
+                'heading' => [
+                    'cs' => 'Deadline 2. série',
+                    'en' => 'Deadline Series 2'
                 ],
-                'serie-3' => [
-                    'heading' => [
-                        'cs' => 'Deadline 3. série',
-                        'en' => 'Deadline Series 3'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2024-01-02 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2024-11-24 23:59:59')),
+                'show-in-en' => true
+            ],
+            'serie-3' => [
+                'heading' => [
+                    'cs' => 'Deadline 3. série',
+                    'en' => 'Deadline Series 3'
                 ],
-                'serie-4' => [
-                    'heading' => [
-                        'cs' => 'Deadline 4. série',
-                        'en' => 'Deadline Series 4'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2024-02-27 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2025-01-12 23:59:59')),
+                'show-in-en' => true
+            ],
+            'serie-4' => [
+                'heading' => [
+                    'cs' => 'Deadline 4. série',
+                    'en' => 'Deadline Series 4'
                 ],
-                'serie-5' => [
-                    'heading' => [
-                        'cs' => 'Deadline 5. série',
-                        'en' => 'Deadline Series 5'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2024-04-09 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2025-02-23 23:59:59')),
+                'show-in-en' => true
+            ],
+            'serie-5' => [
+                'heading' => [
+                    'cs' => 'Deadline 5. série',
+                    'en' => 'Deadline Series 5'
                 ],
-                'serie-6' => [
-                    'heading' => [
-                        'cs' => 'Deadline 6. série',
-                        'en' => 'Deadline Series 6'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2024-05-14 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2025-03-30 23:59:59')),
+                'show-in-en' => true
+            ],
+            'serie-6' => [
+                'heading' => [
+                    'cs' => 'Deadline 6. série',
+                    'en' => 'Deadline Series 6'
+                ],
+                'date' => date('Y-m-d H:i:s', strtotime('2025-05-11 23:59:59')),
+                'show-in-en' => true
             ]
         ];
-        $this->template->timelineBegin = date('Y-m-d', strtotime('2023-09-01'));
-        $this->template->timelineEnd = date('Y-m-d', strtotime('2024-05-31'));
+        $this->template->timelineBegin = date('Y-m-d', strtotime('2024-09-01'));
+        $this->template->timelineEnd = date('Y-m-d', strtotime('2025-05-31'));
     }
 
     public function findCountdownEventIndices(array $events): array

@@ -649,6 +649,9 @@
 {* Timeline data *}
 
 
+{* Output JSON data in a hidden div to be parsed by JS later *}
+<div id="events-data" style="display:none;" data-events='{json_encode($events)|noescape}'></div>
+
 <div class="dummy-timeline-begin d-none"><p>{$timelineBegin|noescape}</p></div>
 <div class="dummy-timeline-end d-none"><p>{$timelineEnd|noescape}</p></div>
 <div class="dummy-lang d-none"><p>{$lang|noescape}</p></div>
@@ -813,18 +816,54 @@
             });
         }
 
+        // Parse the dates of events for timeline from template data
+        let eventsJson = document.getElementById('events-data').getAttribute('data-events');
+        // console.log("Raw JSON:", eventsJson); // Log the raw JSON string
+        
+        let events;
+        try {
+            events = JSON.parse(eventsJson);
+            console.log("Parsed events:", events); // Log the parsed object
+        } catch (e) {
+            console.error("Error parsing JSON:", e);
+            console.log("Problematic JSON string:", eventsJson);
+            return; // Exit the function if JSON parsing fails
+        }
 
-        let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
+        let dates_events = [];
+        let dates_series = [];
+        let hide_event_in_en = [];
+        
+        let sortedEvents = Object.entries(events).sort((a, b) => new Date(a[1].date) - new Date(b[1].date));
+
+        sortedEvents.forEach(([key, event]) => {
+            let date = new Date(event.date);
+            let formattedDate = date.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+
+            if (key.startsWith('serie-')) {
+                dates_series.push(formattedDate);
+            } else {
+                dates_events.push(formattedDate);
+                hide_event_in_en.push(!event['show-in-en']);
+            }
+        });
+
+
+        // let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
         let images_events_v = ["/images/logos/Naboj_pointer.svg", "/images/logos/DSEF_pointer.svg", "/images/logos/FOL_pointer.svg", "/images/logos/FOF_pointer.svg"];
         let images_events_h = ["/images/logos/Naboj_pointer_h.svg", "/images/logos/DSEF_pointer_h.svg", "/images/logos/FOL_pointer_h.svg", "/images/logos/FOF_pointer_h.svg"];
 
-        let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09", "2024-05-14"];
+        // let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09", "2024-05-14"];
         let images_series_v = ["/images/logos/1_pointer.svg", "/images/logos/2_pointer.svg", "/images/logos/3_pointer.svg",
             "/images/logos/4_pointer.svg", "/images/logos/5_pointer.svg", "/images/logos/6_pointer.svg"];
         let images_series_h = ["/images/logos/1_pointer_h.svg", "/images/logos/2_pointer_h.svg", "/images/logos/3_pointer_h.svg",
             "/images/logos/4_pointer_h.svg", "/images/logos/5_pointer_h.svg", "/images/logos/6_pointer_h.svg"];
 
-        let hide_event_in_en = [true, true, false, false];
+        // let hide_event_in_en = [true, true, false, false];
+
+        // console.log("dates_events:", dates_events);
+        // console.log("dates_series:", dates_series);
+        // console.log("hide_event_in_en:", hide_event_in_en);
 
         let lang = document.querySelector('.dummy-lang p').innerText.trim();
 
