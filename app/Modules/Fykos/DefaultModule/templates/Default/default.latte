@@ -188,10 +188,10 @@
                                 {* Ad hoc solution for the positionings *}
                                 {php $eventCounter++}
                                 <div class="col-md-5 
-                                    {if $eventCounter == 1}offset-md-1 order-md-1 order-1
-                                    {elseif $eventCounter == 2}order-md-2 order-3 {if $lang !== 'cs'}offset-md-1{/if}
-                                    {elseif $eventCounter == 3}offset-md-2 order-md-3 order-2
-                                    {elseif $eventCounter == 4}order-md-4 order-4
+                                    {if $eventCounter == 1}offset-md-1
+                                    {elseif $eventCounter == 2}order-md-2 {if $lang !== 'cs'}offset-md-1{/if}
+                                    {elseif $eventCounter == 3}offset-md-2
+                                    {elseif $eventCounter == 4}order-md-4
                                     {/if} 
                                     mt-4" id="event-{$eventCounter}"
                                 >
