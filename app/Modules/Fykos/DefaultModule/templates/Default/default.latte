@@ -188,10 +188,8 @@
                                 {* Ad hoc solution for the positionings *}
                                 {php $eventCounter++}
                                 <div class="col-md-5 
-                                    {if $eventCounter == 1}offset-md-1
-                                    {elseif $eventCounter == 2}order-md-2 {if $lang !== 'cs'}offset-md-1{/if}
-                                    {elseif $eventCounter == 3}offset-md-2
-                                    {elseif $eventCounter == 4}order-md-4
+                                    {if $eventCounter%4 == 1}offset-md-1
+                                    {elseif $eventCounter%4 == 3}offset-md-2
                                     {/if} 
                                     mt-4" id="event-{$eventCounter}"
                                 >
@@ -240,15 +238,10 @@
                         {var $seriesCounter = 0}
                         {foreach $events as $key => $event}
                             {if $event['is_series'] && $event['show-on-timeline']}
-                                {* <div class="col-md-3 {if $iterator->odd}offset-md-1{else}offset-md-2{/if} mt-4 order-md-{$iterator->counter} order-{$iterator->counter}" id="{$key}"> *}
                                 {php $seriesCounter++}
-                                <div class="col-md-3 
-                                    {if $seriesCounter == 1}offset-md-1 mt-4
-                                    {elseif $seriesCounter == 2}mt-4
-                                    {elseif $seriesCounter == 3}mt-4
-                                    {elseif $seriesCounter == 4}offset-md-2 mt-4
-                                    {elseif $seriesCounter == 5}mt-4
-                                    {elseif $seriesCounter == 6}mt-4
+                                <div class="col-md-3 mt-4
+                                    {if $seriesCounter%6 == 1}offset-md-1
+                                    {elseif $seriesCounter%6 == 4}offset-md-2
                                     {/if}" 
                                     id="series-{$seriesCounter}"
                                 >
