@@ -58,7 +58,7 @@
                         </button>
                         <div class="accordion current-year-accordion">
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading{$yearOption}">
+                                <h2 class="accordion-header">
                                     <div class="accordion-button">
                                         {switch $language->value}
                                             {case 'cs'}Ročník {$year}
@@ -70,7 +70,7 @@
                                     <div class="accordion-body">
                                         <div class="series-container">
                                             {foreach $yearsAndSeries[$year] as $seriesOption}
-                                                <a class="series-box btn" href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+                                                <a class="series-box btn" href="{plink 'this' 'year'=>$year, 'series'=>$seriesOption}">{$seriesOption}</a>
                                             {/foreach}
                                         </div>
                                     </div>

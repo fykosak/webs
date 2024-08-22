@@ -37,6 +37,13 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+
+        &.full-width {
+            flex: 1 0 100%;
+            height: 3rem;
+            font-size: 1.2rem;
+            border-top: 1px solid lightgray;
+        }
     }
 
     .dropdown-menu {
@@ -65,9 +72,9 @@
         padding: 0;
     }
 
-    .dropdown-menu {
-        border: none;
-    }
+    // .dropdown-menu {
+    //     border: none;
+    // }
 
     .accordion-button {
         background-color: white !important;
