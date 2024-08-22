@@ -129,7 +129,7 @@
                                 <div style="display: flex; justify-content: space-between;">
                                     <h4><i class={$problemIcons[$problem->number]}></i><span class="skip-3px"></span>
                                         {$problem->getLabel()}...
-                                        {$problem->name[$lang]}</h4>
+                                        {$problem->name[$lang]|noescape}</h4>
                                     <div>
                                         {switch $language->value}
                                         {case 'cs'}
@@ -145,7 +145,7 @@
                             <div class="card-body">
                                 <div class="card-title">
                                     {$problem->task[$lang]|noescape}
-                                    
+
                                     {if $problem->number == 7}
                                         <a class="btn btn-primary mr-2 mb-3" n:href=":Events:Fykos:experiments">
                                             {switch $language->value}
@@ -176,7 +176,7 @@
                                             {/if}
                                             {if $problem->number == 8 && $serialPath}
                                                 <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
-                                                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> 
+                                                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
                                                     {switch $language->value}
                                                         {case 'cs'}Text seriálu {$series->series}. série
                                                         {default}Text of Serial Number {$series->series}
@@ -185,7 +185,7 @@
                                             {/if}
                                         </div>
                                         {if array_key_exists($lang, $problem->origin) && $problem->origin[$lang]}
-                                            <div><i>~ {$problem->origin[$lang]}</i></div>
+                                            <div><i>~ {$problem->origin[$lang]|noescape}</i></div>
                                         {/if}
                                     </div>
                                 {/if}
