@@ -53,6 +53,8 @@ class ProblemsPresenter extends BasePresenter
         $this->template->yearsAndSeries = $this->getYearsAndSeries();
 
         $this->template->year = $year;
+
+        $this->template->topicsNames = $this->getTopicNames();
     }
 
 
@@ -72,5 +74,103 @@ class ProblemsPresenter extends BasePresenter
             }
         }
         return $yearsAndSeries;
+    }
+
+    private function getTopicNames(): array
+    {
+        return [
+            "mechHmBodu" => [
+                "cs" => "Mechanika hmotného bodu",
+                "en" => "Mechanics of a point mass"
+                ],
+            "mechTuhTel" => [
+                "cs" => "Mechanika tuhého tělesa",
+                "en" => "Mechanics of a rigid body"
+                ],
+            "hydroMech" => [
+                "cs" => "Hydromechanika",
+                "en" => "Hydromechanics"
+                ],
+            "mechPlynu" => [
+                "cs" => "Mechanika plynu",
+                "en" => "Gas mechanics"
+                ],
+            "gravPole" => [
+                "cs" => "Gravitační pole",
+                "en" => "Gravitational field"
+                ],
+            "kmitani" => [
+                "cs" => "Kmitání",
+                "en" => "Oscillations"
+                ],
+            "vlneni" => [
+                "cs" => "Vlnění",
+                "en" => "Waves"
+                ],
+            "molFyzika" => [
+                "cs" => "Molekulová fyzika",
+                "en" => "Molecular physics"
+                ],
+            "termoDyn" => [
+                "cs" => "Termodynamika",
+                "en" => "Thermodynamics"
+                ],
+            "statFyz" => [
+                "cs" => "Statistická fyzika",
+                "en" => "Statistical physics"
+                ],
+            "optikaGeom" => [
+                "cs" => "Geometrická optika",
+                "en" => "Geometrical optics"
+                ],
+            "optikaVln" => [
+                "cs" => "Vlnová optika",
+                "en" => "Wave optics"
+                ],
+            "elProud" => [
+                "cs" => "Elektrický proud",
+                "en" => "Electric current"
+                ],
+            "elPole" => [
+                "cs" => "Elektrické pole",
+                "en" => "Electric field"
+                ],
+            "magPole" => [
+                "cs" => "Magnetické pole",
+                "en" => "Magnetic field"
+                ],
+            "relat" => [
+                "cs" => "Relativita",
+                "en" => "Relativity"
+                ],
+            "kvantFyz" => [
+                "cs" => "Kvantová fyzika",
+                "en" => "Quantum physics"
+                ],
+            "jadFyz" => [
+                "cs" => "Jaderná fyzika",
+                "en" => "Nuclear physics"
+                ],
+            "astroFyz" => [
+                "cs" => "Astrofyzika",
+                "en" => "Astrophysics"
+                ],
+            "matematika" => [
+                "cs" => "Matematika",
+                "en" => "Mathematics"
+                ],
+            "chemie" => [
+                "cs" => "Chemie",
+                "en" => "Chemistry"
+                ],
+            "biofyzika" => [
+                "cs" => "Biofyzika",
+                "en" => "Biophysics"
+                ],
+            "other" => [
+                "cs" => "Ostatní",
+                "en" => "Other"
+                ]
+        ];
     }
 }
