@@ -187,11 +187,11 @@
                             {if !$event['is_series'] && $event['show-on-timeline'] && ($event['show-in-en'] || $lang == 'cs')}
                                 {* Ad hoc solution for the positionings *}
                                 {php $eventCounter++}
-                                <div class="col-md-5 
+                                <div class="col-md-5 mt-4
                                     {if $eventCounter%4 == 1}offset-md-1
                                     {elseif $eventCounter%4 == 3}offset-md-2
-                                    {/if} 
-                                    mt-4" id="event-{$eventCounter}"
+                                    {/if}"
+                                    id="event-{$eventCounter}"
                                 >
                                     <a href="{$event['url']}">
                                         <div class="event {$key}-color-left-border">
