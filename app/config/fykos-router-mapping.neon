@@ -9,16 +9,19 @@ parameters:
                 Default: Default
                 ONas: About
                 Pravidla: Rules
-                Organizatori: Organizers
-                Historie: History
-                Kontakt: Contact
                 Zadani: Problems
                 ArchivUloh: ProblemsArchive
+            actions:
+                cs:
+                    historie: history
+                    organizatori: organizers
+                    kontakt: contact
         events:
             cs:
-                Default: Default
-                Akce: Events
-                Experimenty: Experiments
-                Pravidla: Rules
-                jakPsat: TexTutorial
-                
+                Soustredeni: Camps
+            actions:
+                cs:
+                    pravidla: rules
+                    jakPsat: texTutorial
+                    experimenty: experiments
+                    cena: price

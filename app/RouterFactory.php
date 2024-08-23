@@ -82,6 +82,14 @@ class RouterFactory
                     $params['presenter'] = $routerMapping[$params['lang']][$params['presenter']];
                 }
 
+                // Translate action
+                if (
+                    isset($routerMapping['actions'][$params['lang']]) &&
+                    isset($routerMapping['actions'][$params['lang']][$params['action']])
+                ) {
+                    $params['action'] = $routerMapping['actions'][$params['lang']][$params['action']];
+                }
+
                 return $params;
             },
 
@@ -94,6 +102,14 @@ class RouterFactory
                     if ($key !== false) {
                         // Return the FIRST occurrence
                         $params['presenter'] = $key;
+                    }
+                }
+
+                // Translate action
+                if (isset($routerMapping['actions'][$params['lang']])) {
+                    $key = array_search($params['action'], $routerMapping['actions'][$params['lang']]);
+                    if ($key !== false) {
+                        $params['action'] = $key;
                     }
                 }
 
@@ -186,7 +202,6 @@ class RouterFactory
     public static function createFykosRouter(?array $domainList, array $routerMapping): Router
     {
         $router = new RouteList();
-
 
         $router->addRoute('//<domain>/<lang results|poradi>[/<year ([0-9]{1,2})>]', [
             'module' => 'Default',
