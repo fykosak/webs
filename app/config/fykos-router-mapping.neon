@@ -14,7 +14,7 @@ parameters:
             actions:
                 cs:
                     historie: history
-                    organizatori: organizers
+                    lidi: organizers
                     kontakt: contact
         events:
             cs:
