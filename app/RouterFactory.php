@@ -82,6 +82,14 @@ class RouterFactory
                     $params['presenter'] = $routerMapping[$params['lang']][$params['presenter']];
                 }
 
+                // Translate action
+                if (
+                    isset($routerMapping['actions'][$params['lang']]) &&
+                    isset($routerMapping['actions'][$params['lang']][$params['action']])
+                ) {
+                    $params['action'] = $routerMapping['actions'][$params['lang']][$params['action']];
+                }
+
                 return $params;
             },
 
@@ -94,6 +102,14 @@ class RouterFactory
                     if ($key !== false) {
                         // Return the FIRST occurrence
                         $params['presenter'] = $key;
+                    }
+                }
+
+                // Translate action
+                if (isset($routerMapping['actions'][$params['lang']])) {
+                    $key = array_search($params['action'], $routerMapping['actions'][$params['lang']]);
+                    if ($key !== false) {
+                        $params['action'] = $key;
                     }
                 }
 
@@ -187,6 +203,16 @@ class RouterFactory
     {
         $router = new RouteList();
 
+        $router->addRoute('//<domain>/<lang events|akce>/[<presenter>[/<action>]]', [
+            'module' => 'Events',
+            'presenter' => 'Default',
+            'action' => 'default',
+            'lang' => ['filterTable' => [
+                'akce' => "cs",
+                'events' => "en",
+            ]],
+            null => self::useTranslateFilter($domainList, $routerMapping['events']),
+        ]);
 
         $router->addRoute('//<domain>/<lang results|poradi>[/<year ([0-9]{1,2})>]', [
             'module' => 'Default',
@@ -207,11 +233,12 @@ class RouterFactory
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
         
-        $router->addRoute('//<domain>/<module events>/[<presenter>[/<action>]]', [
-            'presenter' => 'Default',
-            'action' => 'default',
-            null => self::useTranslateFilter($domainList, $routerMapping['events']),
-        ]);
+
+        // $router->addRoute('//<domain>/<module events>/[<presenter>[/<action>]]', [
+        //     'presenter' => 'Default',
+        //     'action' => 'default',
+        //     null => self::useTranslateFilter($domainList, $routerMapping['events']),
+        // ]);
 
         $router->withModule('Default')
             ->addRoute('//<domain>/<presenter>[/<action>]', [

@@ -21,6 +21,15 @@ parameters:
                 Spoluprace: Cooperation
             en:
                 About: AboutTheCompetition
+            actions:
+                cs:
+                    uplna: complete
+                    organizacniRad: organizationalRegulations
+                    organisationalRegulations: organizationalRegulations # historical
+                    rozhodnutiKomise: resolutions
+                en:
+                    organisationalRegulations: organizationalRegulations # historical
+
         archive:
             cs:
                 Default: Default
