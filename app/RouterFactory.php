@@ -201,12 +201,12 @@ class RouterFactory
         ]);
 
         $router->withModule('Default')
-            ->addRoute('//<domain>/problems/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
+            ->addRoute('//<domain>/<presenter problems|zadani>/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
                 'presenter' => 'Problems',
                 'action' => 'default',
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
-
+        
         $router->addRoute('//<domain>/<module events>/[<presenter>[/<action>]]', [
             'presenter' => 'Default',
             'action' => 'default',
