@@ -188,7 +188,7 @@ class RouterFactory
         $router = new RouteList();
 
 
-        $router->addRoute('//<domain>/<lang results|poradi>[/<year [0-9]{2}>]', [
+        $router->addRoute('//<domain>/<lang results|poradi>[/<year ([0-9]{1,2})>]', [
             'module' => 'Default',
             'presenter' => 'Results',
             'action' => 'default',
@@ -201,7 +201,7 @@ class RouterFactory
         ]);
 
         $router->withModule('Default')
-            ->addRoute('//<domain>/problems/<year ([0-9]{2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
+            ->addRoute('//<domain>/problems/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
                 'presenter' => 'Problems',
                 'action' => 'default',
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
