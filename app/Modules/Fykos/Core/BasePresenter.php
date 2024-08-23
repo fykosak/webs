@@ -39,7 +39,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             new PageTitle(
                 $this->csen('Seminář', 'FYKOS Competition'),
                 'visible-sm-inline glyphicon glyphicon-info-sign'
-            ), // TODO
+            ),
             ':Events:Fykos:',
             [],
             [
@@ -47,22 +47,22 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                 new NavItem(new PageTitle($this->csen('Pravidla', 'Rules')), ':Events:Fykos:rules'),
                 new NavItem(
                     new PageTitle($this->csen('Jak psát řešení', 'How to Write Solutions')),
-                    ':Events:Fykos:TexTutorial'
+                    ':Events:Fykos:texTutorial'
                 ),
                 new NavItem(
                     new PageTitle($this->csen('Jak na experimenty', 'How to Do Experiments')),
-                    ':Events:Fykos:Experiments'
+                    ':Events:Fykos:experiments'
                 ),
             ],
         );
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('Zadání', 'Problems'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle($this->csen('Zadání', 'Problems'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
             ':Default:Problems:',
         );
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('Pořadí', 'Results'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle($this->csen('Pořadí', 'Results'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
             ':Default:Results:',
         );
 
@@ -73,7 +73,6 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 
         $items[] = new NavItem(
             new PageTitle($this->csen('Přihlásit se', 'Sign In'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
-            // TODO
             'https://db.fykos.cz',
         );
         return $items;
