@@ -50,6 +50,7 @@ class RouterFactory
         return [
             // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
             Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList): array {
+
                 // From where to extract the language
                 if (isset($domainList) && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
@@ -72,6 +73,15 @@ class RouterFactory
                     if (!isset($params['lang'])) {
                         $params['lang'] = 'en';
                     }
+                }
+
+                // Translate module
+                if (
+                    isset($params['module']) &&
+                    isset($routerMapping['modules'][$params['lang']]) &&
+                    isset($routerMapping['modules'][$params['lang']][$params['module']])
+                ) {
+                    $params['module'] = $routerMapping['modules'][$params['lang']][$params['module']];
                 }
 
                 // Translate presenter
@@ -97,6 +107,15 @@ class RouterFactory
             Route::FILTER_OUT => function (array $params) use ($routerMapping, $domainList): array {
                 // Always translate presenter based on language
 
+                // Translate module
+                if (isset($params['module']) && isset($routerMapping['modules'][$params['lang']])) {
+                    $key = array_search($params['module'], $routerMapping['modules'][$params['lang']]);
+                    if ($key !== false) {
+                        $params['module'] = $key;
+                    }
+                }
+
+                // Translate presenter
                 if (isset($routerMapping[$params['lang']])) {
                     $key = array_search($params['presenter'], $routerMapping[$params['lang']]);
                     if ($key !== false) {
@@ -203,27 +222,10 @@ class RouterFactory
     {
         $router = new RouteList();
 
-        $router->addRoute('//<domain>/<lang events|akce>/[<presenter>[/<action>]]', [
-            'module' => 'Events',
-            'presenter' => 'Default',
-            'action' => 'default',
-            'lang' => ['filterTable' => [
-                'akce' => "cs",
-                'events' => "en",
-            ]],
-            null => self::useTranslateFilter($domainList, $routerMapping['events']),
-        ]);
-
-        $router->addRoute('//<domain>/<lang results|poradi>[/<year ([0-9]{1,2})>]', [
-            'module' => 'Default',
+        $router->addRoute('//<domain>/<presenter results|poradi>/<year ([0-9]{1,2})>', [
             'presenter' => 'Results',
             'action' => 'default',
-            'year' => null,
-            'lang' => ['filterTable' => [
-                'poradi' => "cs",
-                'results' => "en",
-            ]],
-            null => self::useTranslateFilter($domainList, [])
+            null => self::useTranslateFilter($domainList, $routerMapping['default'])
         ]);
 
         $router->withModule('Default')
@@ -232,13 +234,13 @@ class RouterFactory
                 'action' => 'default',
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
-        
 
-        // $router->addRoute('//<domain>/<module events>/[<presenter>[/<action>]]', [
-        //     'presenter' => 'Default',
-        //     'action' => 'default',
-        //     null => self::useTranslateFilter($domainList, $routerMapping['events']),
-        // ]);
+        $router->addRoute('//<domain>/<module events|akce>/[<presenter>[/<action>]]', [
+            //'module' => 'Events',
+            'presenter' => 'Default',
+            'action' => 'default',
+            null => self::useTranslateFilter($domainList, $routerMapping['events']),
+        ]);
 
         $router->withModule('Default')
             ->addRoute('//<domain>/<presenter>[/<action>]', [
@@ -246,7 +248,6 @@ class RouterFactory
                 'action' => 'default',
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
-
 
         return $router;
     }

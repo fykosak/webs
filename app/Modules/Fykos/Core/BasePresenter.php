@@ -58,12 +58,19 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 
         $items[] = new NavItem(
             new PageTitle($this->csen('Zadání', 'Problems'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
-            ':Default:Problems:',
+            ':Default:Problems:default',
+            [
+                'year' => null,
+                'series' => null
+            ]
         );
 
         $items[] = new NavItem(
             new PageTitle($this->csen('Pořadí', 'Results'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
-            ':Default:Results:',
+            ':Default:Results:default',
+            [
+                'year' => null
+            ]
         );
 
         // $items[] = new NavItem(
