@@ -222,11 +222,13 @@ class RouterFactory
     {
         $router = new RouteList();
 
-        $router->addRoute('//<domain>/<presenter results|poradi>/<year ([0-9]{1,2})>', [
-            'presenter' => 'Results',
-            'action' => 'default',
-            null => self::useTranslateFilter($domainList, $routerMapping['default'])
-        ]);
+        $router
+            ->withModule('Default')
+            ->addRoute('//<domain>/<presenter results|poradi>/<year ([0-9]{1,2})>', [
+                'presenter' => 'Results',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default'])
+            ]);
 
         $router->withModule('Default')
             ->addRoute('//<domain>/<presenter problems|zadani>/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
@@ -236,7 +238,6 @@ class RouterFactory
             ]);
 
         $router->addRoute('//<domain>/<module events|akce>/[<presenter>[/<action>]]', [
-            //'module' => 'Events',
             'presenter' => 'Default',
             'action' => 'default',
             null => self::useTranslateFilter($domainList, $routerMapping['events']),
