@@ -33,9 +33,9 @@
                     </a>
                 </h1>
 
-                {if $control->getComponent('gallery')->hasPhotos('/photos/' . $eventKey['contestYear'] . '/')}
+                {if $control->getComponent('gallery')->hasPhotos('/media/photos/' . $eventKey['contestYear'] . '/')}
                     <div class="mt-5">
-                        {control gallery:randomLine '/photos/' . $eventKey['contestYear'] . '/'}
+                        {control gallery:randomLine '/media/photos/' . $eventKey['contestYear'] . '/'}
                     </div>
                 {/if}
                 {* Hack for missing photos *}

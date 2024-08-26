@@ -33,11 +33,11 @@
             </section>
         </div>
     {/if}
-    {if $control->getComponent('gallery')->hasPhotos('/photos/' . $event->year . '/')}
+    {if $control->getComponent('gallery')->hasPhotos('/media/photos/' . $event->year . '/')}
         <div class="panel color-auto">
             <section class="inner-container">
                 <h1>Fotografie z akce</h1>
-                {control gallery '/photos/' . $event->year . '/'}
+                {control gallery '/media/photos/' . $event->year . '/'}
             </section>
         </div>
     {/if}
