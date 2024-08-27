@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './style.scss';
+import { TranslatorProvider, useTranslator } from './resultsTranslator';
 
 interface Contestant {
     contestant: {
@@ -37,6 +38,7 @@ interface Props<Category extends string = string> {
 }
 
 function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks }) {
+    const { translate } = useTranslator();
     const [activeSeries, setActiveSeries] = useState<{ [key: string]: boolean }>({});
     const [sortColumn, setSortColumn] = useState<string | null>('Category Rank');
     const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
@@ -128,7 +130,7 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                         onMouseEnter={() => handleMouseEnter('Total Points')}
                         onMouseLeave={handleMouseLeave}
                     >
-                        Category<br />Rank
+                        {translate('categoryRank')}
                         {sortColumn === 'Category Rank' ? (
                             <span style={{ color: 'black' }}>
                                 {sortDirection === 'asc' ? '↓' : '↑'}
@@ -140,7 +142,7 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                         )}
                     </th>
                     <th className="centered-cell clickable-header" onClick={() => toggleSort('Name')}>
-                        Name
+                        {translate('name')}
                         {sortColumn === 'Name' ? (
                             <span style={{ color: 'black' }}>
                                 {sortDirection === 'asc' ? '↓' : '↑'}
@@ -155,7 +157,7 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                         onClick={() => toggleSort('School')}
                         className="centered-cell clickable-header"
                     >
-                        School
+                        {translate('school')}
                         {sortColumn === 'School' ? (
                             <span style={{ color: 'black' }}>
                                 {sortDirection === 'asc' ? '↓' : '↑'}
@@ -173,7 +175,7 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                         onMouseEnter={() => handleMouseEnter('Category Rank')}
                         onMouseLeave={handleMouseLeave}
                     >
-                        Total<br />Points
+                        {translate('totalPoints')}
                         {sortColumn === 'Category Rank' ? (
                             <span style={{ color: 'black' }}>
                                 {sortDirection === 'asc' ? '↓' : '↑'}
@@ -271,6 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function Results({ resultsData }: Props) {
+    const { translate } = useTranslator();
     const [activeCategories, setActiveCategories] = useState<{ [key: string]: boolean }>({});
 
     const toggleCategory = (category: string) => {
@@ -299,7 +302,7 @@ function Results({ resultsData }: Props) {
                     aria-controls={`collapse-category-${category}`}
                     onClick={() => toggleCategory(category)}
                 >
-                    Kategorie {categoryNumber}. ročníků
+                    {translate('categoryLabel', { categoryNumber })}
                 </button>
                 <div
                     className={`collapse toggle-content ${activeCategories[category] ? 'show' : ''}`}
@@ -313,3 +316,16 @@ function Results({ resultsData }: Props) {
 
     return <div>{categoryContainers}</div>;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const element = document.getElementById('contest-results');
+    if (element) {
+        const data = JSON.parse(element.getAttribute('data-data'));
+        ReactDOM.render(
+            <TranslatorProvider>
+                <Results resultsData={data} />
+            </TranslatorProvider>,
+            element
+        );
+    }
+});

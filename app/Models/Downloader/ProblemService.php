@@ -77,6 +77,20 @@ final class ProblemService extends AbstractJSONService
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
+    public function getYearJson(string $contest, int $year): array
+    {
+        return $this->cache->load(
+            sprintf("yearJson_%s_%d", $contest, $year),
+            function (&$dependencies) use ($contest, $year) {
+                $dependencies[Cache::EXPIRE] = $this->expiration;
+                return $this->downloader->download(new SeriesRequest($contest, $year));
+            }
+        );
+    }
+
     private function getMedia(string $contest, int $year, string $path): ?string
     {
         $path = sprintf('%s%s/%d/media/%s', $this->problemManagerURL, $contest, $year, $path);

@@ -71,7 +71,7 @@
                         {/if}
                     </ul>
                 {/if}
-            {if is_dir(__DIR__.'/../../../../www/fof/photos/'.$eventKey)}
+            {if is_dir(__DIR__.'/../../../../media/fof/photos/'.$eventKey)}
                 <ul class="stylized">
                     <li>
                         <a href="#competition">
@@ -81,7 +81,7 @@
                             {/switch}
                         </a>
                     </li>
-                    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/teams')}
+                    {if is_dir(__DIR__.'/../../../../media/fof/photos/' . $eventKey . '/teams')}
                         <li>
                             <a href="#backdrop">
                                 {switch $language->value}
@@ -91,7 +91,7 @@
                             </a>
                         </li>
                     {/if}
-                    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/winners')}
+                    {if is_dir(__DIR__.'/../../../../media/fof/photos/' . $eventKey . '/winners')}
                         <li>
                             <a href="#winners">
                                 {switch $language->value}
@@ -101,7 +101,7 @@
                             </a>
                         </li>
                     {/if}
-                    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/weekend')}
+                    {if is_dir(__DIR__.'/../../../../media/fof/photos/' . $eventKey . '/weekend')}
                         <li>
                             <a href="#weekend">
                                 {switch $language->value}
@@ -135,50 +135,50 @@
 {*        </div>*}
 {*    {/if}*}
 
-    {if is_dir(__DIR__.'/../../../../www/fof/photos/'.$eventKey)}
+    {if is_dir(__DIR__.'/../../../../media/fof/photos/'.$eventKey)}
         <div class="panel color-auto" id="competition">
             <section class="inner-container">
                 <h1>{switch $language->value}
                     {case 'cs'}Fotografie ze soutěže
                     {default}Photos from the competition
                 {/switch}</h1>
-                {control gallery "/photos/" . $eventKey . "/"}
+                {control gallery "/media/photos/" . $eventKey . "/"}
             </section>
         </div>
     {/if}
 
-    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/teams')}
+    {if is_dir(__DIR__.'/../../../../media/fof/photos/' . $eventKey . '/teams')}
         <div class="panel color-auto" id="backdrop">
             <section class="inner-container">
                 <h1>{switch $language->value}
                     {case 'cs'}Fotostěna
                     {default}Fyziklani Backdrop
                     {/switch}</h1>
-                {control gallery "/photos/" . $eventKey . "/teams"}
+                {control gallery "/media/photos/" . $eventKey . "/teams"}
             </section>
         </div>
     {/if}
 
-    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/winners')}
+    {if is_dir(__DIR__.'/../../../../media/fof/photos/' . $eventKey . '/winners')}
         <div class="panel color-auto" id="winners">
             <section class="inner-container">
                 <h1>{switch $language->value}
                     {case 'cs'}Fotografie vítězů
                     {default}Photos of the winners
                     {/switch}</h1>
-                {control gallery "/photos/" . $eventKey . "/winners"}
+                {control gallery "/media/photos/" . $eventKey . "/winners"}
             </section>
         </div>
     {/if}
 
-    {if is_dir(__DIR__.'/../../../../www/fof/photos/' . $eventKey . '/weekend')}
+    {if is_dir(__DIR__.'/../../../../media/fof/photos/' . $eventKey . '/weekend')}
         <div class="panel color-auto" id="weekend">
             <section class="inner-container">
                 <h1>{switch $language->value}
                     {case 'cs'}Doprovodný program Fyziklání
                     {default}Accompanying program of Fyziklani
                     {/switch}</h1>
-                {control gallery "/photos/" . $eventKey . "/weekend"}
+                {control gallery "/media/photos/" . $eventKey . "/weekend"}
             </section>
         </div>
     {/if}

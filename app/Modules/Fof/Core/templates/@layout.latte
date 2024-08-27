@@ -90,9 +90,13 @@
 
         <div class="panel sponsors">
             <div class="inner-container">
-                <div class="category category-full-line">
+                {*<div class="category category-full-line">*}
+                <div class="category">
                     <div class="category-title">{switch $language->value}{case cs}Organizátoři{default}Organized by{/switch}</div>
                     <div class="category-sponsors">
+                        <a {switch $language->value}{case cs}href="https://www.fykos.cz/"{default}href="https://www.fykos.org/"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/fykos_logo.png" alt="logo FYKOSu" style="max-width: 9rem">
+                        </a>
                         <a {switch $language->value}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
                             <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
                                 style="max-width: 8rem">
@@ -105,9 +109,6 @@
                                 <img src="{$basePath}/images/logos/msmt_en.jpg" alt="MŠMT logo" style="max-width: 9rem">
                             {/switch}
                         </a>
-                        <a {switch $language->value}{case cs}href="https://www.fykos.cz/"{default}href="https://www.fykos.org/"{/switch} style="text-align: center">
-                            <img src="{$basePath}/images/logos/fykos_logo.png" alt="logo FYKOSu" style="max-width: 9rem">
-                        </a>
                     </div>
                 </div>
                 <div class="category">
@@ -119,88 +120,86 @@
                         </a>
                     </div>
                 </div>
-                <div class="category">
+                {*<div class="category">
                     <div class="category-title">{switch $language->value}{case cs}Platinový partner{default}Platinum Partner{/switch}</div>
-                    <div class="category-sponsors">
+                    <div class="category-sponsors">*}
                         {*<a href="https://www.nadacecez.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/nadaceCEZ-logo.png" alt="Nadace CEZ logo" style="max-width: 5rem">
                         </a>*}
-                        <a href="https://www.nfneuron.cz/" style="text-align: center">
+                        {*<a href="https://www.nfneuron.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/neuron-logo.jpg" alt="Neuron logo" style="max-width: 10rem">
-                        </a>
-                    </div>
-                </div>
-                <div class="category">
+                        </a>*}
+                    {*</div>
+                </div>*}
+                {*<div class="category">
                     <div class="category-title">{switch $language->value}{case cs}Za podpory{default}Supported by{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.fabric.camp/" style="text-align: center">
                             <img src="{$basePath}/images/logos/fabric_title.png" alt="FABRIC logo" style="max-width: 7rem">
                         </a>
                     </div>
-                </div>
-                <div class="category">
+                </div>*}
+                {*<div class="category">
                     <div class="category-title">{switch $language->value}{case cs}Sříbrní partneři{default}Silver partners{/switch}</div>
-                    <div class="category-sponsors">
-                        <a href="http://www.kalabria.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo" style="max-width:7rem"></a>
-
-                        <a href="https://casioczech.fastcr.cz/" style="text-align: center">
+                    <div class="category-sponsors">*}
+                        {*<a href="http://www.kalabria.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo" style="max-width:7rem">
+                        </a>*}
+                        {*<a href="https://casioczech.fastcr.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo" style="max-width:7rem">
-                        </a>
-                         <a href="https://brilliant.org/" style="text-align: center">
+                        </a>*}
+                        {*<a href="https://brilliant.org/" style="text-align: center">
                             <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo" style="max-width:10rem">
-                        </a>
-                    </div>
-                </div>
-                <div class="category">
+                        </a>*}
+                    {*</div>
+                </div>*}
+                {*<div class="category">
                     <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}</div>
-                    <div class="category-sponsors">
-                        <a href="https://www.humusoft.cz/" style="text-align: center">
+                    <div class="category-sponsors">*}
+                        {*<a href="https://www.humusoft.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/Mathworks-Humusoft.png" alt="Humusoft and Mathworks logo" style="max-width: 20rem">
-                        </a>
-{*                        <a href="https://vida.cz/" style="text-align: center">*}
-{*                            <img src="{$basePath}/images/logos/vida-logo.png" alt="Vida logo" style="max-width:7rem">*}
-{*                        </a>*}
-                        <a href="https://www.escapepoint.cz/" style="text-align: center">
+                        </a>*}
+                        {*<a href="https://vida.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/vida-logo.png" alt="Vida logo" style="max-width:7rem">
+                        </a>*}
+                        {*<a href="https://www.escapepoint.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/escape-logo.jpg" alt="Escape logo" style="max-width: 10rem">
-                        </a>
-
-{*                        <a href="http://www.kalabria.cz/" style="text-align: center">*}
-{*                            <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo" style="max-width:7rem">*}
-{*                        </a>*}
-
-{*                        <a href="https://casioczech.fastcr.cz/" style="text-align: center">*}
-{*                            <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo" style="max-width:7rem">*}
-{*                        </a>*}
-{*                         <a href="https://brilliant.org/" style="text-align: center">*}
-{*                            <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo" style="max-width:10rem">*}
-{*                        </a>*}
-                        <a href="https://www.hobza.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/hobza-logo.jpg" alt="Hobza logo" style="max-width: 8rem">
-                        </a>
-{*                        <a href="https://www.quark.sk/" style="text-align: center">*}
-{*                            <img src="{$basePath}/images/logos/Quark-logo.png" alt="Quark logo" style="max-width: 9rem">*}
-{*                        </a>*}
-{*                        <a href="https://www.doller.cz/" style="text-align: center">*}
-{*                            <img src="{$basePath}/images/logos/doller-logo.png" alt="Doller logo" style="max-width: 9rem">*}
-{*                        </a>*}
-{*                        <a href="https://mindok.cz/" style="text-align: center">*}
-{*                            <img src="{$basePath}/images/logos/mindok.png" alt="Mindok logo" style="max-width: 12rem">*}
-{*                        </a>*}
-{*                        <a href="https://www.merkurtoys.cz/" style="text-align: center">*}
-{*                            <img src="{$basePath}/images/logos/merkur.png" alt="Merkur logo" style="max-width: 12rem">*}
-{*                        </a>*}
-{*                        <a href="https://efektivni-altruismus.cz/" style="text-align: center">*}
-{*                            <img src="{$basePath}/images/logos/czea.png" alt="CZEA logo" style="max-width: 15rem">*}
-{*                        </a>*}
-                        <a href="https://prometheus-nakl.cz/" style="text-align: center">
+                        </a>*}
+                        {*<a href="http://www.kalabria.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo" style="max-width:7rem">
+                        </a>*}
+                        {*<a href="https://casioczech.fastcr.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo" style="max-width:7rem">
+                        </a>*}
+                         {*<a href="https://brilliant.org/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo" style="max-width:10rem">
+                        </a>*}
+                        {*<a href="https://www.hobza.cz/" style="text-align: center">
+                          <img src="{$basePath}/images/logos/hobza-logo.jpg" alt="Hobza logo" style="max-width: 8rem">
+                        </a>*}
+                        {*<a href="https://www.quark.sk/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/Quark-logo.png" alt="Quark logo" style="max-width: 9rem">
+                        </a>*}
+                        {*<a href="https://www.doller.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/doller-logo.png" alt="Doller logo" style="max-width: 9rem">
+                        </a>*}
+                        {*<a href="https://mindok.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/mindok.png" alt="Mindok logo" style="max-width: 12rem">
+                        </a>*}
+                        {*<a href="https://www.merkurtoys.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/merkur.png" alt="Merkur logo" style="max-width: 12rem">
+                        </a>*}
+                        {*<a href="https://efektivni-altruismus.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/czea.png" alt="CZEA logo" style="max-width: 15rem">
+                        </a>*}
+                        {*<a href="https://prometheus-nakl.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/prometheus-logo.png" alt="Prometheus logo" style="max-width: 4rem">
-{*                        </a>      *}
-{*                        <a href="https://www.natur.cuni.cz/" style="text-align: center">*}
-{*                            <img src="{$basePath}/images/logos/prfuk-logo.jpeg" alt="Přírodovědecká fakulta" style="max-width: 12rem">*}
-{*                        </a>*}
-                    </div>
-                </div>
+                        </a>*}
+                        {*<a href="https://www.natur.cuni.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/prfuk-logo.jpeg" alt="Přírodovědecká fakulta" style="max-width: 12rem">
+                        </a>*}
+                    {*</div>
+                </div>*}
             </div>
         </div>
 
@@ -211,7 +210,7 @@
                     {switch $language->value}
                         {case 'cs'}
                         <p>
-                            Fyziklání {$newestEvent->begin|date:'Y'} je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 37. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
+                            Fyziklání {$newestEvent->begin|date:'Y'} je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající {$newestEvent->year}. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
                             <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                         </p>
                         <p>
@@ -219,7 +218,7 @@
                         </p>
                         {default}
                         <p>
-                            Fyziklani {$newestEvent->begin|date:'Y'} is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a group of university students organizing already 37th year of educational events with focus on physics. FYKOS is made up mostly of students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
+                            Fyziklani {$newestEvent->begin|date:'Y'} is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a group organizing educational events with focus on physics for more than {$newestEvent->year} years. FYKOS is made up mostly of students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
                         </p>
                         <p>
                             The realization of the competition was supported by the Ministry of Education, Youth and Sports of the Czech Republic.

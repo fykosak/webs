@@ -14,7 +14,7 @@
 {block main}
     {include 'simple.' . $eventKey . '.latte'}
 
-    {if $control->getComponent('scheduleParticipants')->hasData('dsef_morning') || $control->getComponent('scheduleParticipants')->hasData('dsef_afternoon')}
+    {*{if $control->getComponent('scheduleParticipants')->hasData('dsef_morning') || $control->getComponent('scheduleParticipants')->hasData('dsef_afternoon')}
         <div class="panel color-auto">
             <section class="inner-container">
                 <h1>Účastníci na programu</h1>
@@ -32,12 +32,12 @@
                 {control scheduleParticipants 'accommodation'}
             </section>
         </div>
-    {/if}
-    {if $control->getComponent('gallery')->hasPhotos('/photos/' . $event->year . '/')}
+        {/if}*}
+    {if $control->getComponent('gallery')->hasPhotos('/media/photos/' . $event->year . '/')}
         <div class="panel color-auto">
             <section class="inner-container">
                 <h1>Fotografie z akce</h1>
-                {control gallery '/photos/' . $event->year . '/'}
+                {control gallery '/media/photos/' . $event->year . '/'}
             </section>
         </div>
     {/if}
