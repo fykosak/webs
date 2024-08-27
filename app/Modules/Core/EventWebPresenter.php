@@ -12,7 +12,7 @@ use Nette\Application\UI\Template;
 abstract class EventWebPresenter extends BasePresenter
 {
     protected readonly DummyService $dummyService;
-    protected readonly EventService  $eventService;
+    protected readonly EventService $eventService;
 
     public function injectEventWebServices(
         DummyService $dummyService,

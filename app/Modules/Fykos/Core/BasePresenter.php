@@ -59,6 +59,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         $items[] = new NavItem(
             new PageTitle($this->csen('Zadání', 'Problems'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
             ':Default:Problems:default',
+            // @phpstan-ignore-next-line
             [
                 'year' => null,
                 'series' => null
@@ -68,6 +69,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         $items[] = new NavItem(
             new PageTitle($this->csen('Pořadí', 'Results'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
             ':Default:Results:default',
+            // @phpstan-ignore-next-line
             [
                 'year' => null
             ]
