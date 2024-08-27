@@ -23,7 +23,7 @@ class DefaultPresenter extends BasePresenter
             $this->template->year_stage = 'during';
         }
 
-        if ($this->template->year_stage === 'during') {         
+        if ($this->template->year_stage === 'during') {
             // Sort events by date
             usort($this->template->events, function ($a, $b) {
                 $dateA = strtotime($a['date']);
@@ -73,89 +73,162 @@ class DefaultPresenter extends BasePresenter
     public function loadEventData(): void
     {
         $this->template->events = [
-            'Naboj' => [
-                'heading' => [
-                    'cs' => 'Fyzikální Náboj',
-                    'en' => null
-                ],
-                'date' => date('Y-m-d H:i:s', strtotime('2023-11-03 09:00:00')),
-                'show-in-en' => false
-            ],
             'DSEF' => [
                 'heading' => [
                     'cs' => 'DSEF',
-                    'en' => null
+                    'en' => 'DSEF'  // Added English translation
                 ],
-                'date' => date('Y-m-d H:i:s', strtotime('2023-11-06 09:00:00')),
-                'show-in-en' => false
+                'date' => date('Y-m-d H:i:s', strtotime('2024-10-21 09:00:00')),
+                'show-in-en' => false,
+                'is_series' => false,
+                'url' => 'https://dsef.cz',
+                'description' => [
+                    'cs' => 'Den s experimentální fyzikou na Matfyzu',
+                    'en' => 'Day with experimental physics at Matfyz'
+                ],
+                'show-on-timeline' => true,
+                'logo_eventbox' => '/images/logos/dsef_symbol.svg',
+            ],
+            'Naboj' => [
+                'heading' => [
+                    'cs' => 'Fyzikální Náboj',
+                    'en' => 'Physical Náboj'  // Added English translation
+                ],
+                'date' => date('Y-m-d H:i:s', strtotime('2024-11-15 09:00:00')),
+                'show-in-en' => false,
+                'is_series' => false,
+                'url' => 'https://physics.naboj.org',
+                'description' => [
+                    'cs' => 'Týmová soutěž v Praze, Ostravě a jinde ve světě',
+                    'en' => 'Team competition in Prague, Ostrava, and elsewhere in the world'
+                ],
+                'show-on-timeline' => true,
+                'logo_eventbox' => '/images/logos/naboj_symbol.svg',
             ],
             'FOL' => [
                 'heading' => [
                     'cs' => 'Fyziklání Online',
                     'en' => 'Physics Brawl Online'
                 ],
-                'date' => date('Y-m-d H:i:s', strtotime('2023-11-21 17:00:00')),
-                'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2024-11-20 17:00:00')),
+                'show-in-en' => true,
+                'is_series' => false,
+                'url' => 'https://online.fyziklani.cz',
+                'description' => [
+                    'cs' => 'Celosvětová soutěž, které se může účastnit každý',
+                    'en' => 'Worldwide competition open to everyone'
+                ],
+                'show-on-timeline' => true,
+                'logo_eventbox' => '/images/logos/fyziklani_online_symbol.svg'
             ],
             'FOF' => [
                 'heading' => [
                     'cs' => 'Fyziklání',
                     'en' => 'Fyziklani'
                 ],
-                'date' => date('Y-m-d H:i:s', strtotime('2024-02-16 10:30:00')),
-                'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2025-02-14 10:30:00')),
+                'show-in-en' => true,
+                'is_series' => false,
+                'url' => 'https://fyziklani.cz',
+                'description' => [
+                    'cs' => 'Největší týmová fyzikální soutěž v Evropě',
+                    'en' => 'The largest team physics competition in Europe'
+                ],
+                'show-on-timeline' => true,
+                'logo_eventbox' => '/images/logos/fyziklani_symbol.svg'
             ],
             'serie-1' => [
                 'heading' => [
                     'cs' => 'Deadline 1. série',
                     'en' => 'Deadline Series 1'
                 ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2023-10-10 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2024-10-06 23:59:59')),
+                'show-in-en' => true,
+                'is_series' => true,
+                'description' => [
+                    'cs' => 'Rýže, kondenzátor a filodendron na cestě',
+                    'en' => 'Rice, capacitor, and philodendron on the road'
                 ],
-                'serie-2' => [
-                    'heading' => [
-                        'cs' => 'Deadline 2. série',
-                        'en' => 'Deadline Series 2'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2023-11-21 23:59:59')),
-                    'show-in-en' => true
+                'show-on-timeline' => true
+            ],
+            'serie-2' => [
+                'heading' => [
+                    'cs' => 'Deadline 2. série',
+                    'en' => 'Deadline Series 2'
                 ],
-                'serie-3' => [
-                    'heading' => [
-                        'cs' => 'Deadline 3. série',
-                        'en' => 'Deadline Series 3'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2024-01-02 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2024-11-24 23:59:59')),
+                'show-in-en' => true,
+                'is_series' => true,
+                'description' => [
+                    'cs' => 'Bitcoin, stromy a omrzování',
+                    'en' => 'Bitcoin, trees, and cold exposure'
                 ],
-                'serie-4' => [
-                    'heading' => [
-                        'cs' => 'Deadline 4. série',
-                        'en' => 'Deadline Series 4'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2024-02-27 23:59:59')),
-                    'show-in-en' => true
+                'show-on-timeline' => true
+            ],
+            'serie-3' => [
+                'heading' => [
+                    'cs' => 'Deadline 3. série',
+                    'en' => 'Deadline Series 3'
                 ],
-                'serie-5' => [
-                    'heading' => [
-                        'cs' => 'Deadline 5. série',
-                        'en' => 'Deadline Series 5'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2024-04-09 23:59:59')),
-                    'show-in-en' => true
+                'date' => date('Y-m-d H:i:s', strtotime('2025-01-12 23:59:59')),
+                'show-in-en' => true,
+                'is_series' => true,
+                'description' => [
+                    'cs' => 'Chleba, starý zářič a aquapark',
+                    'en' => 'Bread, radiation emitter, and water park'
                 ],
-                'serie-6' => [
-                    'heading' => [
-                        'cs' => 'Deadline 6. série',
-                        'en' => 'Deadline Series 6'
-                    ],
-                    'date' => date('Y-m-d H:i:s', strtotime('2024-05-14 23:59:59')),
-                    'show-in-en' => true
+                'show-on-timeline' => true
+            ],
+            'serie-4' => [
+                'heading' => [
+                    'cs' => 'Deadline 4. série',
+                    'en' => 'Deadline Series 4'
+                ],
+                'date' => date('Y-m-d H:i:s', strtotime('2025-02-23 23:59:59')),
+                'show-in-en' => true,
+                'is_series' => true,
+                'description' => [
+                    'cs' => 'Kouř, stín a raketou na zkoušku',
+                    'en' => 'Smoke, shadow, and rocketing to an exam'
+                ],
+                'show-on-timeline' => true
+            ],
+            'serie-5' => [
+                'heading' => [
+                    'cs' => 'Deadline 5. série',
+                    'en' => 'Deadline Series 5'
+                ],
+                'date' => date('Y-m-d H:i:s', strtotime('2025-03-30 23:59:59')),
+                'show-in-en' => true,
+                'is_series' => true,
+                'description' => [
+                    'cs' => 'Čtverec, minigolf a vagon ve vesmíru',
+                    'en' => 'Square, minigolf, and a wagon in space'
+                ],
+                'show-on-timeline' => true
+            ],
+            'serie-6' => [
+                'heading' => [
+                    'cs' => 'Deadline 6. série',
+                    'en' => 'Deadline Series 6'
+                ],
+                'date' => date('Y-m-d H:i:s', strtotime('2025-05-11 23:59:59')),
+                'show-in-en' => true,
+                'is_series' => true,
+                'description' => [
+                    'cs' => 'Akční film, ponorka a ořezávání tužky',
+                    'en' => 'Action movie, submarine, and pencil sharpening'
+                ],
+                'show-on-timeline' => true
             ]
         ];
-        $this->template->timelineBegin = date('Y-m-d', strtotime('2023-09-01'));
-        $this->template->timelineEnd = date('Y-m-d', strtotime('2024-05-31'));
+        $this->template->timelineBegin = date('Y-m-d', strtotime('2024-09-01'));
+        $this->template->timelineEnd = date('Y-m-d', strtotime('2025-05-31'));
+
+        // sort chronologically
+        // usort($this->template->events, function ($a, $b) {
+        //     return strtotime($a['date']) - strtotime($b['date']);
+        // });
     }
 
     public function findCountdownEventIndices(array $events): array

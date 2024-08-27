@@ -10,21 +10,50 @@
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
-        <h1>
-            {switch $language->value}
-                {case 'cs'}Výsledky {$year}. ročníku FYKOSu
-                {default}Results of FYKOS Year {$year}
-            {/switch}
-        </h1>
+    <div class="row">
+        <div class="col-md-8">
+                
+            <h1>
+                {switch $language->value}
+                    {case 'cs'}Výsledky {$year}. ročníku FYKOSu
+                    {default}Results of FYKOS Year {$year}
+                {/switch}
+            </h1>
 
-        <p>
-            {switch $language->value}
-                {case 'cs'}Zde najdete výsledkovou listinu {$year}. ročníku Fyzikálního korespondenčního semináře.
-                {default}Here you can find the results of the {$year}. year of the FYKOS correspondence competition.
-            {/switch}
-        </p>
+            <p>
+                {switch $language->value}
+                    {case 'cs'}Zde najdete výsledkovou listinu {$year}. ročníku Fyzikálního korespondenčního semináře.
+                    {default}Here you can find the results of the year {$year} of the FYKOS correspondence competition.
+                {/switch}
+            </p>
+        </div>
+        <div class="col-md-4 pl-md-2">
+            <div class="dropdown year-and-series-select">
+                <button class="btn btn-primary dropdown-toggle year-select-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    {switch $language->value}
+                        {case 'cs'}Vybrat ročník
+                        {default}Select Year
+                    {/switch}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="scrollable-menu">
+                        <div class="series-container">
+                            {for $yearOption = $currentYear; $yearOption >= 1; $yearOption--}
+                                <a class="series-box full-width btn" href="{plink 'this' 'year'=>$yearOption}">
+                                    {switch $language->value}
+                                        {case 'cs'}{$yearOption}. ročník ({$yearOption + 1987}/{($yearOption + 1988) % 100})
+                                        {default}Year {$yearOption}
+                                    {/switch}
+                                </a>                                    
+                            {/for}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
-        <div class="mb-3">
+        {* <div class="mb-3">
             <button class="btn btn-primary-inverted button-collapse-header" type="button" data-bs-toggle="collapse"
             data-bs-target="#resultFilters" aria-expanded="false" aria-controls="resultFilters">
                 {switch $language->value}
@@ -52,7 +81,7 @@
                     {/if}
                 {/for}
             </div>
-        </div>
+        </div> *}
 
         <p>
             {switch $language->value}

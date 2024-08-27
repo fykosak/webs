@@ -57,18 +57,16 @@
     </section>
 </div>
 
-
 <div class="panel color-auto">
     <section class="inner-container">
-        <h1>
+        <h1 class="org-category-header">
             {switch $language->value}
-                {case 'cs'}Organizátoři FYKOSu
-                {default}Organizers of FYKOS
+                {case 'cs'}Vedení FYKOSu
+                {default}FYKOS Leadership
             {/switch}
         </h1>
         <div class="container mt-5">
             <div class="row organizers">
-
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <img src="{$basePath}/images/people/person-kolorenc.jpg" class="card-img-top"
@@ -84,52 +82,78 @@
                                             {case 'cs'}Vedoucí FYKOSu
                                             {default}Head of FYKOS
                                         {/switch}
-                                        </td>
-                                </tr>
-                                {* <tr>
-                                    <td class="left-cell"><span class="icon"><i class="fas fa-school"></i></span></td>
-                                    <td class="right-cell">Vědecký pracovník na Ústavu teoretické fyziky MFF UK.</td>
-                                </tr> *}
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                {foreach $currentOrganizers as $organizer}
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-
-                        <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg"
-                            class="card-img-top"
-                            onerror="this.src = '/images/people/personUnknown.jpg'"
-                            alt="{$organizer['name']}">
-                        <h4 class="card-header">{$organizer['name']}</h4>
-                        <div class="card-body">
-                            <table>
-                                {if $organizer['role']}
-                                <tr>
-                                    <td class="left-cell"><span class="icon"><i class="fas fa-briefcase"></i></span>
+                                        {* Add font awesome questionmark which, when moused-over, will uncover text desription *}
+                                        <span class="info-icon"
+                                            title="{switch $language->value}
+                                                {case 'cs'}Vedoucí FYKOSu je formální pozice zaštiťující seminář vůči MFF UK v souladu s interními pravidly fakulty. O samotné exekutivní vedení organizace se stará hlavní organizátor.{default}The head of FYKOS is a formal position that represents the seminar to the Faculty of Mathematics and Physics of Charles University in accordance with the faculty's internal rules. The person responsible for the actual executive management of the organization is the Head Organizer.{/switch}">
+                                            <i class="fas fa-question-circle"></i>
+                                        </span>
                                     </td>
-                                    <td class="right-cell">{$organizer['role']}</td>
                                 </tr>
-                                {/if}
-                                {if $organizer['career'] and $lang == 'cs'}
+                                {if $lang == 'cs'}
                                     <tr>
                                         <td class="left-cell"><span class="icon"><i class="fas fa-school"></i></span></td>
-                                        <td class="right-cell">{$organizer['career']}</td>
+                                        <td class="right-cell">Vědecký pracovník na Ústavu teoretické fyziky MFF UK.</td>
                                     </tr>
                                 {/if}
-                                <tr>
-                                    <td class="left-cell"><span class="icon"><i class="fas fa-envelope"></i></span></td>
-                                    {switch $language->value}
-                                        {case 'cs'}<td class="right-cell"><a href="mailto:{$organizer['domainAlias']}@fykos.cz">{$organizer['domainAlias']}@fykos.cz</a></td>
-                                        {default}<td class="right-cell"><a href="mailto:{$organizer['domainAlias']}@fykos.org">{$organizer['domainAlias']}@fykos.org</a></td>
-                                    {/switch}
-                                </tr>
                             </table>
                         </div>
                     </div>
                 </div>
+
+                {php $lastOrgOrder = end($currentOrganizers)['order']}
+                {foreach $currentOrganizers as $organizer}
+                    {if $organizer['order'] == 3 and $lastOrgOrder > 3}
+                        <h1 class="org-category-header mt-3">
+                            {switch $language->value}
+                                {case 'cs'}Vedoucí dalších akcí a sekcí
+                                {default}Heads of Other Events and Sections
+                            {/switch}
+                        </h1>
+                    {/if}
+                    {if $organizer['order'] == 2 and $lastOrgOrder > 2}
+                        <h1 class="org-category-header mt-3">
+                            {switch $language->value}
+                                {case 'cs'}Další organizátoři
+                                {default}Other Organizers
+                            {/switch}
+                        </h1>
+                    {/if}
+                    {php $lastOrgOrder = $organizer['order']}
+
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg"
+                                class="card-img-top"
+                                onerror="this.src = '/images/people/personUnknown.jpg'"
+                                alt="{$organizer['name']}">
+                            <h4 class="card-header">{$organizer['name']}</h4>
+                            <div class="card-body">
+                                <table>
+                                    {if $organizer['role']}
+                                    <tr>
+                                        <td class="left-cell"><span class="icon"><i class="fas fa-briefcase"></i></span>
+                                        </td>
+                                        <td class="right-cell">{$organizer['role']}</td>
+                                    </tr>
+                                    {/if}
+                                    {if $organizer['career'] and $lang == 'cs'}
+                                        <tr>
+                                            <td class="left-cell"><span class="icon"><i class="fas fa-school"></i></span></td>
+                                            <td class="right-cell">{$organizer['career']}</td>
+                                        </tr>
+                                    {/if}
+                                    <tr>
+                                        <td class="left-cell"><span class="icon"><i class="fas fa-envelope"></i></span></td>
+                                        {switch $language->value}
+                                            {case 'cs'}<td class="right-cell"><a href="mailto:{$organizer['domainAlias']}@fykos.cz">{$organizer['domainAlias']}@fykos.cz</a></td>
+                                            {default}<td class="right-cell"><a href="mailto:{$organizer['domainAlias']}@fykos.org">{$organizer['domainAlias']}@fykos.org</a></td>
+                                        {/switch}
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 {/foreach}
             </div>
         </div>

@@ -1,6 +1,5 @@
 # FYKOS-webs
 
-
 Nette multisite codebase for the [Fyziklani](https://fyziklani.cz) and [Online Physics Brawl](https://online.fyziklani.cz) competitions.
 
 This project uses modified bootstrap file to support multiple websites sharing components and models.

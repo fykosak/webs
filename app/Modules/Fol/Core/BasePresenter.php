@@ -26,11 +26,9 @@ abstract class BasePresenter extends EventWebPresenter
     {
 
         $template = parent::createTemplate();
-        $template->fofEvent = $this->eventService->getNewest(
-            [
-                $this->context->getParameters()['fofEventTypeId'],
-            ]
-        );
+        $template->fofEvent = $this->eventService->getNewest([
+            $this->context->getParameters()['fofEventTypeId'],
+        ]);
         return $template;
     }
 
