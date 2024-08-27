@@ -13,12 +13,29 @@ class ModelEvent
     public readonly string $name;
     public readonly int $eventYear;
     public readonly int $year;
-    public readonly ?string $place;
-    public readonly ModelGame|null $game;
     public readonly \DateTimeImmutable $begin;
     public readonly \DateTimeImmutable $end;
     public readonly \DateTimeImmutable $registrationBegin;
     public readonly \DateTimeImmutable $registrationEnd;
+    public readonly ?string $report;
+    /**
+     * @var string[] $reportNew
+     */
+    public readonly array $reportNew;
+    /**
+     * @var string[] $description
+     */
+    public readonly array $description;
+    /**
+     * @var string[] $nameNew
+     */
+    public readonly array $nameNew;
+    public readonly ?string $place;
+    public readonly ?int $contestId;
+    public readonly ?array $schedule;
+
+
+    public readonly ModelGame|null $game;
     public readonly Period $registration; // TODO magic?
 
     public function getRegistrationPeriod(): Period

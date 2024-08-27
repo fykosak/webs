@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\Core;
 
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
 use App\Modules\Core\EventWebPresenter;
+use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use Nette\Application\UI\Template;
 
 abstract class BasePresenter extends EventWebPresenter
@@ -19,15 +18,17 @@ abstract class BasePresenter extends EventWebPresenter
         return $month < 10 ? ($year . '-' . $monthName) : $year;
     }
 
+
     /**
      * @throws \Throwable
      */
     protected function createTemplate(): Template
     {
+
         $template = parent::createTemplate();
-        $template->fofEvent = $this->serviceEventList->getNewest([
-                $this->context->getParameters()['fofEventTypeId'],
-            ]);
+        $template->fofEvent = $this->eventService->getNewest([
+            $this->context->getParameters()['fofEventTypeId'],
+        ]);
         return $template;
     }
 

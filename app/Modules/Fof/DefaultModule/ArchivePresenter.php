@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\DefaultModule;
 
-use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
+use App\Models\Downloader\EventService;
 
 class ArchivePresenter extends BasePresenter
 {
-    protected readonly ServiceEventList $serviceEvent;
+    protected readonly EventService $eventService;
 
-    public function injectServiceEvent(ServiceEventList $serviceEvent): void
+    public function injectEventService(EventService $eventService): void
     {
-        $this->serviceEvent = $serviceEvent;
+        $this->eventService = $eventService;
     }
 
     /**
@@ -20,7 +20,7 @@ class ArchivePresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $events = array_reverse($this->serviceEvent->getEvents($this->getEventIds()));// TODO
+        $events = array_reverse($this->eventService->getEvents($this->getEventIds())); // TODO
         $events = array_filter($events, function ($event) {
             //return true;
             return $event->end < new \DateTime('now');

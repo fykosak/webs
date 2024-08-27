@@ -6,3 +6,6 @@ parameters:
         # These methods are correctly used, PHPStan just does not see the definition because of interfaces.
         #- '#Method Nette\\Application\\UI\\Template::render\(\) invoked with 1 parameter, 0 required.#'
         #- '#Access to an undefined property Nette\\Application\\UI\\Presenter::\$lang.#'
+        # Readonly values are only assigned once, but inside inject methods, which phpstan does not see.
+        - '#Class [a-zA-Z0-9\\_]+ has an uninitialized readonly property \$[a-zA-Z0-9\\_]+. Assign it in the constructor.#'
+        - '#Readonly property [a-zA-Z0-9\\_]+::\$[a-zA-Z0-9\\_]+ is assigned outside of the constructor.#'
