@@ -125,7 +125,7 @@
                         <div class="card h-100">
                             <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg"
                                 class="card-img-top"
-                                onerror="this.src = '/images/people/personUnknown.jpg'"
+                                onerror="this.src = '/images/people/personUnknown.jpg';this.onerror=null;"
                                 alt="{$organizer['name']}">
                             <h4 class="card-header">{$organizer['name']}</h4>
                             <div class="card-body">
