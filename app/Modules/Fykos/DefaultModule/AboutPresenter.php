@@ -61,7 +61,7 @@ final class AboutPresenter extends BasePresenter
             );
 
             // For sorting by Czech alphabet
-            $collator = new Collator('cs_CZ');
+            $collator = new \Collator('cs_CZ');
 
             // Then, use this in your sorting function
             usort($currentOrganizers, function (array $a, array $b) use ($collator): int {
