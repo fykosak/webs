@@ -60,17 +60,21 @@ final class AboutPresenter extends BasePresenter
                     || $organizer['until'] == self::CURRENT_YEAR
             );
 
-            // sort by order
-            usort($currentOrganizers, function (array $a, array $b): int {
+            // For sorting by Czech alphabet
+            $collator = new Collator('cs_CZ');
+
+            // Then, use this in your sorting function
+            usort($currentOrganizers, function (array $a, array $b) use ($collator): int {
                 if ($a['order'] === $b['order']) {
                     $lastNameA = explode(' ', $a['name']);
                     $lastNameA = end($lastNameA);
                     $lastNameB = explode(' ', $b['name']);
                     $lastNameB = end($lastNameB);
-                    return $lastNameA <=> $lastNameB;
+                    return $collator->compare($lastNameA, $lastNameB);
                 }
                 return $b['order'] <=> $a['order'];
             });
+
         }
         $this->template->currentOrganizers = $currentOrganizers;
     }
