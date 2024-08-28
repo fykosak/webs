@@ -33,14 +33,14 @@ class EventsPresenter extends BasePresenter
         $this->template->event = $event;
         $this->template->galery = $this->createComponentGallery()->hasPhotos("/photos/event/" . $event->eventId);
         $this->template->pdf = $this->createComponentPdfGallery()->hasFiles("/download/event/" . $event->eventId);
-        $persons = $event->end < new DateTime() ? $this->eventService->getEventOrganizers($event->eventId) : array();
-        $array = array();
+        $persons = $event->end < new DateTime() ? $this->eventService->getEventOrganizers($event->eventId) : [];
+        $array = [];
         foreach ($persons as $person) {
             $array[] = $person->person->name;
         }
         $this->template->organizers = implode(', ', $array);
-        $persons = $event->end < new DateTime() ? $this->eventService->getEventParticipants($event->eventId) : array();
-        $array = array();
+        $persons = $event->end < new DateTime() ? $this->eventService->getEventParticipants($event->eventId) : [];
+        $array = [];
         foreach ($persons as $person) {
             if($person->status==='participated')
             $array[] = $person->name;

@@ -11,7 +11,7 @@
 {/foreach}
 <div n:foreach="$events as $key => $event" class="panel">
     <h2>{$event->nameNew[$lang]}</h2>
-    {$event->description[$lang]|texParagraphs}
+    {$event->description[$lang]|noescape}
     <p>
         <a class="btn btn-primary mx-1" n:href="Events:detail $event->eventId">
             <i class="bi bi-info-circle"></i> Informace o akci

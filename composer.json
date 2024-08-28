@@ -13,7 +13,6 @@
   "require": {
     "php": ">= 8.1",
     "nette/nette": "^v3.2.0",
-    "latte/latte": "^2",
     "fykosak/fksdb-downloader-core": "dev-dev-json-request#596e9a1",
     "fykosak/nette-fks-utils": "dev-dev-datetime-period",
     "ext-soap": "*",
