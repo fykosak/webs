@@ -49,7 +49,8 @@ class CampsPresenter extends BasePresenter
         if (!in_array($events['eventTypeId'], self::CAMPS_IDS)) {
             throw new ForbiddenRequestException();
         }
-        $this->template->events = $events;
+        $events['heading'] = $this->getEventHeading($events);
+        $this->template->event = $events;
         $this->template->participants = $this->downloader->download(new ParticipantsRequest((int)$id));
     }
 
@@ -66,11 +67,11 @@ class CampsPresenter extends BasePresenter
             $fullYear = $event['year'];
         }
 
-        $photosBasePath = './images/events/' . $eventType . '/rocnik' . $fullYear . '/carousel-photos';
+        $photosBasePath = './media/images/events/' . $eventType . '/rocnik' . $fullYear . '/carousel-photos';
         $photos = glob($photosBasePath . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
         if (empty($photos)) {
-            return $this->template->basePath . '/images/events/event-missing-photo.png';
+            return $this->template->basePath . '/media/images/events/event-missing-photo.png';
         }
 
         $photo = $photos[array_rand($photos)];

@@ -194,7 +194,8 @@
                                     id="event-{$eventCounter}"
                                 >
                                     <a href="{$event['url']}">
-                                        <div class="event {$key}-color-left-border">
+                                        {dump "event {$key}-color-left-border"}
+                                        <div class="event {$key|lower}-color-left-border">
                                             <div class="event-header">
                                                 <h3><img src="{$event['logo_eventbox']}" alt="{$event['heading'][$language->value]}" class="inline-logo">
                                                     {$event['heading'][$language->value]}
@@ -417,7 +418,7 @@
                     </h2>
                     <div class="embed-responsive embed-responsive-16by9">
                         <video class="embed-responsive-item left" controls>
-                            <source src="{$basePath}/videos/FOF.mp4" type="video/mp4">
+                            <source src="{$basePath}/media/videos/FOF.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -434,7 +435,7 @@
                     </h2>
                     <div class="embed-responsive embed-responsive-16by9">
                         <video class="embed-responsive-item" controls>
-                            <source src="{$basePath}/videos/DSEF.mp4" type="video/mp4">
+                            <source src="{$basePath}/media/videos/DSEF.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
