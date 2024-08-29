@@ -59,18 +59,20 @@ final class AboutPresenter extends BasePresenter
                 fn(array $organizer): bool => $organizer['until'] == null
                     || $organizer['until'] == self::CURRENT_YEAR
             );
-
-            // sort by order
+            
+            // sort by order and last name
+            setlocale(LC_COLLATE, 'cs_CZ.utf8');
             usort($currentOrganizers, function (array $a, array $b): int {
                 if ($a['order'] === $b['order']) {
                     $lastNameA = explode(' ', $a['name']);
                     $lastNameA = end($lastNameA);
                     $lastNameB = explode(' ', $b['name']);
                     $lastNameB = end($lastNameB);
-                    return $lastNameA <=> $lastNameB;
+                    return strcoll($lastNameA, $lastNameB);
                 }
                 return $b['order'] <=> $a['order'];
             });
+            
         }
         $this->template->currentOrganizers = $currentOrganizers;
     }
