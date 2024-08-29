@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Modules\Dsef\ArchiveModule;
 
 use App\Components\PersonSchedule\AllScheduleListComponent;
-use App\Models\Downloader\EventService;
 use App\Models\NetteDownloader\ORM\Models\ModelEvent;
 use App\Modules\Dsef\DefaultModule\CurrentPresenter;
 use App\Modules\Dsef\DefaultModule\RegistrationPresenter;
@@ -24,12 +23,6 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     public ?string $eventMonth = null;
 
     protected ModelEvent $event;
-    protected readonly EventService $eventService;
-
-    public function injectEventService(EventService $eventService): void
-    {
-        $this->eventService = $eventService;
-    }
 
     /**
      * @throws BadRequestException

@@ -18,12 +18,6 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
     public ?string $eventYear = null;
 
     private ModelEvent $event;
-    protected readonly EventService $eventService;
-
-    public function injectEventService(EventService $eventService): void
-    {
-        $this->eventService = $eventService;
-    }
 
     /**
      * @throws BadRequestException

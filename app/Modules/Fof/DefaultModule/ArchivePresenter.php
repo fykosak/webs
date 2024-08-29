@@ -4,17 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\DefaultModule;
 
-use App\Models\Downloader\EventService;
-
 class ArchivePresenter extends BasePresenter
 {
-    protected readonly EventService $eventService;
-
-    public function injectEventService(EventService $eventService): void
-    {
-        $this->eventService = $eventService;
-    }
-
     /**
      * @throws \Throwable
      */
