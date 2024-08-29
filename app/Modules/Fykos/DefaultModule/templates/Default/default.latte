@@ -198,12 +198,12 @@
                                         <div class="event {$key|lower}-color-left-border">
                                             <div class="event-header">
                                                 <h3><img src="{$event['logo_eventbox']}" alt="{$event['heading'][$language->value]}" class="inline-logo">
-                                                    {$event['heading'][$language->value]}
+                                                    {* {$event['heading'][$language->value]} *}
                                                 </h3>
                                                 <span class="event-date">{$event['date']|date:'j. n.'}</span>
                                             </div>
                                             <div>
-                                                <p>{$event['description'][$language->value]}</p>
+                                                <p class="text-start">{$event['description'][$language->value]|noescape}</p>
                                             </div>
                                         </div>
                                     </a>
@@ -253,7 +253,7 @@
                                                 <span class="event-date">{$event['date']|date:'j. n.'}</span>
                                             </div>
                                             <div>
-                                                <p>{$event['description'][$language->value]}</p>
+                                                <p class="text-start">{$event['description'][$language->value]|noescape}</p>
                                             </div>
                                         </div>
                                     </a>

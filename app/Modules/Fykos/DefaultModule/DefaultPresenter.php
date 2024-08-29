@@ -75,35 +75,35 @@ class DefaultPresenter extends BasePresenter
         $this->template->events = [
             'DSEF' => [
                 'heading' => [
-                    'cs' => 'DSEF',
-                    'en' => 'DSEF'  // Added English translation
+                    'cs' => 'Den s&nbsp;experimentální fyzikou',
+                    'en' => 'Day with experimental physics'
                 ],
                 'date' => date('Y-m-d H:i:s', strtotime('2024-10-21 09:00:00')),
                 'show-in-en' => false,
                 'is_series' => false,
                 'url' => 'https://dsef.cz',
                 'description' => [
-                    'cs' => 'Den s experimentální fyzikou na Matfyzu',
+                    'cs' => 'Den s&nbsp;experimentální fyzikou na Matfyzu',
                     'en' => 'Day with experimental physics at Matfyz'
                 ],
                 'show-on-timeline' => true,
-                'logo_eventbox' => '/images/logos/dsef_symbol.svg',
+                'logo_eventbox' => '/images/logos/dsef_logo.svg',
             ],
             'Naboj' => [
                 'heading' => [
                     'cs' => 'Fyzikální Náboj',
-                    'en' => 'Physical Náboj'  // Added English translation
+                    'en' => 'Physics Náboj'
                 ],
                 'date' => date('Y-m-d H:i:s', strtotime('2024-11-15 09:00:00')),
                 'show-in-en' => false,
                 'is_series' => false,
                 'url' => 'https://physics.naboj.org',
                 'description' => [
-                    'cs' => 'Týmová soutěž v Praze, Ostravě a jinde ve světě',
+                    'cs' => 'Týmová soutěž v&nbsp;Praze, Ostravě a&nbsp;jinde ve&nbsp;světě',
                     'en' => 'Team competition in Prague, Ostrava, and elsewhere in the world'
                 ],
                 'show-on-timeline' => true,
-                'logo_eventbox' => '/images/logos/naboj_symbol.svg',
+                'logo_eventbox' => '/images/logos/naboj_logo.svg',
             ],
             'FOL' => [
                 'heading' => [
@@ -119,7 +119,7 @@ class DefaultPresenter extends BasePresenter
                     'en' => 'Worldwide competition open to everyone'
                 ],
                 'show-on-timeline' => true,
-                'logo_eventbox' => '/images/logos/fyziklani_online_symbol.svg'
+                'logo_eventbox' => '/images/logos/fyziklani_online_logo.svg'
             ],
             'FOF' => [
                 'heading' => [
@@ -131,11 +131,11 @@ class DefaultPresenter extends BasePresenter
                 'is_series' => false,
                 'url' => 'https://fyziklani.cz',
                 'description' => [
-                    'cs' => 'Největší týmová fyzikální soutěž v Evropě',
+                    'cs' => 'Největší týmová fyzikální soutěž v&nbsp;Evropě',
                     'en' => 'The largest team physics competition in Europe'
                 ],
                 'show-on-timeline' => true,
-                'logo_eventbox' => '/images/logos/fyziklani_symbol.svg'
+                'logo_eventbox' => '/images/logos/fyziklani_logo.svg'
             ],
             'serie-1' => [
                 'heading' => [
@@ -146,7 +146,7 @@ class DefaultPresenter extends BasePresenter
                 'show-in-en' => true,
                 'is_series' => true,
                 'description' => [
-                    'cs' => 'Rýže, kondenzátor a filodendron na cestě',
+                    'cs' => 'Rýže, kondenzátor a&nbsp;filodendron na cestě',
                     'en' => 'Rice, capacitor, and philodendron on the road'
                 ],
                 'show-on-timeline' => true
@@ -160,7 +160,7 @@ class DefaultPresenter extends BasePresenter
                 'show-in-en' => true,
                 'is_series' => true,
                 'description' => [
-                    'cs' => 'Bitcoin, stromy a omrzování',
+                    'cs' => 'Bitcoin, stromy a&nbsp;omrzování',
                     'en' => 'Bitcoin, trees, and cold exposure'
                 ],
                 'show-on-timeline' => true
@@ -174,7 +174,7 @@ class DefaultPresenter extends BasePresenter
                 'show-in-en' => true,
                 'is_series' => true,
                 'description' => [
-                    'cs' => 'Chleba, starý zářič a aquapark',
+                    'cs' => 'Chleba, starý zářič a&nbsp;aquapark',
                     'en' => 'Bread, radiation emitter, and water park'
                 ],
                 'show-on-timeline' => true
@@ -188,8 +188,8 @@ class DefaultPresenter extends BasePresenter
                 'show-in-en' => true,
                 'is_series' => true,
                 'description' => [
-                    'cs' => 'Kouř, stín a raketou na zkoušku',
-                    'en' => 'Smoke, shadow, and rocketing to an exam'
+                    'cs' => 'Kouř, stín a&nbsp;raketou na zkoušku',
+                    'en' => 'Smoke, shadow, and rocketing to an&nbsp;exam'
                 ],
                 'show-on-timeline' => true
             ],
