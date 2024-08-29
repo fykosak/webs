@@ -1,13 +1,10 @@
-{varType array $data}
+{varType array $event}
 {varType array $participants}
 {varType App\Modules\Core\Language $language}
 
-{block title}{$data['nameNew'][$lang]}{/block}
+{block title}{$event['nameNew'][$lang]|capitalize}{/block}
 {block subtitle}
-    {switch $data['eventTypeId']}
-        {case 4}Jarní soustředění
-        {case 5}Podzimní soustředění
-    {/switch}
+    {$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}
 {/block}
 {block main}
     <div class="panel color-auto">
@@ -15,12 +12,12 @@
             {ifset subtitle}
                 <div class="subheader">{include subtitle}</div>{/ifset}
                 {ifset title}<h1>{include title}</h1>{/ifset}
-            <p>{$data['reportNew'][$lang]}</p>
+            <p>{$event['reportNew'][$lang]}</p>
         </section>
     </div>
     <div class="panel color-auto">
         <section class="inner-container">
-            <h1>Participants</h1>
+            <h1>Účastníci</h1>
             {foreach $participants as $participant}
                 {$participant['name']}{if !$iterator->isLast()},{else}.{/if}
             {/foreach}

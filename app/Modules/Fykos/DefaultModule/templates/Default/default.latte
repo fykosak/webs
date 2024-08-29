@@ -194,7 +194,8 @@
                                     id="event-{$eventCounter}"
                                 >
                                     <a href="{$event['url']}">
-                                        <div class="event {$key}-color-left-border">
+                                        {dump "event {$key}-color-left-border"}
+                                        <div class="event {$key|lower}-color-left-border">
                                             <div class="event-header">
                                                 <h3><img src="{$event['logo_eventbox']}" alt="{$event['heading'][$language->value]}" class="inline-logo">
                                                     {$event['heading'][$language->value]}

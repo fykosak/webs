@@ -49,7 +49,8 @@ class CampsPresenter extends BasePresenter
         if (!in_array($events['eventTypeId'], self::CAMPS_IDS)) {
             throw new ForbiddenRequestException();
         }
-        $this->template->events = $events;
+        $events['heading'] = $this->getEventHeading($events);
+        $this->template->event = $events;
         $this->template->participants = $this->downloader->download(new ParticipantsRequest((int)$id));
     }
 
