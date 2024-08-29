@@ -32,7 +32,7 @@
       // margin-bottom: 0;
     }
 
-    @media screen and (max-width: 992px){
+    @media screen and (max-width: 992px) {
       h1.header-text {
         font-size: 6rem;
       }
@@ -58,7 +58,7 @@
 
   .header-image-container {
     position: relative;
-    
+
   }
 
   .header-image {
@@ -194,26 +194,27 @@
     margin-bottom: .3rem;
   }
 
-
   .event-header {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
   }
 
+  .event-title {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 
   h3 {
     font-weight: bolder;
     font-size: 1.2rem;
-
-    @media screen and (max-width: 768px) {
-      font-size: 1rem;
-    }
-  }
-
-  .event-date {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-right: 5px;
+    margin: 0;
+    display: flex;
+    align-items: center;
   }
 
   .inline-logo {
@@ -221,6 +222,49 @@
     margin-right: 4px;
   }
 
+  @media screen and (max-width: 992px) {
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    .inline-logo {
+      height: 1.5rem;
+    }
+  }
+
+  .event-date {
+    font-size: 1rem;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 768px) {
+    .event-title {
+      flex-basis: 100%;
+      justify-content: space-between;
+    }
+
+    .event-date {
+      margin-left: auto;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .event-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .event-title {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .event-date {
+      margin-left: 0;
+      align-self: flex-start;
+    }
+  }
 }
 
 
@@ -358,11 +402,11 @@ $top-offset: $today-block-height / 2;
 
 .logo-event,
 .logo-series {
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 768px) {
     height: $timeline-logo-width;
   }
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 768px) {
     width: $timeline-logo-width;
   }
 }
@@ -422,6 +466,7 @@ $top-offset: $today-block-height / 2;
 
 
 .vertical-timeline-and-text-box {
+
   .start-timeline-text,
   .end-timeline-text {
     text-align: center;

@@ -67,13 +67,13 @@
                                 </h2>
                             {elseif $year_stage == 'during'}
                                 {if $countdownEventsIndices['previous'][$lang] !== null}
-                                    <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]} | {$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'}</h4>
+                                    <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]|noescape} | {$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'}</h4>
                                 {/if}
-                                <h2 class="next-event-heading">{$events[$countdownEventsIndices['upcoming'][$lang]]['heading'][$lang]} | {$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'j. n. Y'}
+                                <h2 class="next-event-heading">{$events[$countdownEventsIndices['upcoming'][$lang]]['heading'][$lang]|noescape} | {$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'j. n. Y'}
                                     | <span id="countdown-primary"></span>
                                 </h2>
                                 {if $countdownEventsIndices['next'][$lang] !== null}
-                                    <h4 class="minor-event-heading mb-0">{$events[$countdownEventsIndices['next'][$lang]]['heading'][$lang]} | {$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'j. n. Y'}
+                                    <h4 class="minor-event-heading mb-0">{$events[$countdownEventsIndices['next'][$lang]]['heading'][$lang]|noescape} | {$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'j. n. Y'}
                                     | <span id="countdown-secondary"></span></h4>
                                 {else}
                                     <h4 class="minor-event-heading mb-0">
@@ -194,13 +194,15 @@
                                     id="event-{$eventCounter}"
                                 >
                                     <a href="{$event['url']}">
-                                        {dump "event {$key}-color-left-border"}
                                         <div class="event {$key|lower}-color-left-border">
                                             <div class="event-header">
-                                                <h3><img src="{$event['logo_eventbox']}" alt="{$event['heading'][$language->value]}" class="inline-logo">
-                                                    {* {$event['heading'][$language->value]} *}
-                                                </h3>
-                                                <span class="event-date">{$event['date']|date:'j. n.'}</span>
+                                                <div class="event-title">
+                                                    <h3>
+                                                        <img src="{$event['logo_eventbox']}" alt="{$event['heading'][$language->value]|noescape}" class="inline-logo">
+                                                        {* {$event['heading'][$language->value]} *}
+                                                    </h3>
+                                                </div>
+                                                <span class="event-date">{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}</span>
                                             </div>
                                             <div>
                                                 <p class="text-start">{$event['description'][$language->value]|noescape}</p>
@@ -217,11 +219,11 @@
                         <div class="col-12 my-4">
                             <div id="timeline-horizontal-container" class="position-relative">
                                 <div class="start-timeline-text position-absolute">
-                                    <p>{$timelineBegin|date:'j. n. Y'|noescape}</p>
+                                    <p>{$timelineBegin|date:'j.'}&nbsp;{$timelineBegin|date:'n.'} {$timelineBegin|date:'Y'}</p>
                                 </div>
                                 <hr id="timeline-horizontal">
                                 <div class="end-timeline-text position-absolute">
-                                    <p>{$timelineEnd|date:'j. n. Y'|noescape}</p>
+                                    <p>{$timelineEnd|date:'j.'}&nbsp;{$timelineEnd|date:'n.'} {$timelineEnd|date:'Y'}</p>
                                 </div>
                             </div>
                         </div>
@@ -249,8 +251,10 @@
                                     <a n:href=":Default:Problems:default">
                                         <div class="event series w-md-100 w-90">
                                             <div class="event-header">
-                                                <h3>{$event['heading'][$language->value]}</h3>
-                                                <span class="event-date">{$event['date']|date:'j. n.'}</span>
+                                                <div class="event-title">
+                                                    <h3>{$event['heading'][$language->value]|noescape}</h3>
+                                                    <span class="event-date">{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}</span>
+                                                </div>
                                             </div>
                                             <div>
                                                 <p class="text-start">{$event['description'][$language->value]|noescape}</p>
@@ -686,12 +690,15 @@
         
         let sortedEvents = Object.entries(events).sort((a, b) => new Date(a[1].date) - new Date(b[1].date));
 
-        sortedEvents.forEach(([key, event]) => {
+        console.log("Sorted events:", sortedEvents);
+
+        sortedEvents.forEach(([id, event]) => {
+            let key = event['key'];
             if (event['show-on-timeline']) { 
                 let date = new Date(event.date);
                 let formattedDate = date.toISOString().split('T')[0]; // Format as YYYY-MM-DD
 
-                if (key.startsWith('serie-')) {
+                if (event['is_series']) {
                     dates_series.push(formattedDate);
                 } else {
                     dates_events.push(formattedDate);
