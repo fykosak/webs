@@ -20,6 +20,7 @@ parameters:
         events:
             cs:
                 Soustredeni: Camps
+                Staze: Internships
             actions:
                 cs:
                     pravidla: rules
