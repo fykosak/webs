@@ -2,9 +2,40 @@
 
 {block main}
 <div class="panel color-auto">
-    <div class="inner-container" >
-        <h1 style="color:red">TODO zadání úloh</h1>
-        <a class="btn btn-primary my-2" n:href="Problems:Bingo">Bingo</a>
+    <div class="inner-container">
+        <div>
+
+            <h1>
+                Zadání {$series->series}. série {$series->year}. ročníku
+            </h1>
+            <div>
+                Termín odevzdání: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>
+            </div>
+            <a class="btn btn-primary my-2" n:href="Section:howToEngage">Jak se zapojit</a>
+            <a class="btn btn-primary my-2" n:href="Problems:Bingo">Bingo</a>
+        </div>
+
+
+        <div class="mt-5">
+            {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
+            {php $batchPath = $problemService->getBatch('vyfuk', $series, $lang)}
+            {if $serialPath}
+            <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
+                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text seriálu {$series->series}.
+                série
+            </a>
+            {/if}
+            {if new Datetime() > $series->getDeadline() && $batchPath}
+            <a class="btn btn-primary my-2 mr-4" href="{$batchPath}">
+                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka s řešeními
+            </a>
+            {/if}
+            <div class="row mt-3">
+                {foreach $problems as $problem}
+                {control problem $problem, $language}
+                {/foreach}
+            </div>
+        </div>
     </div>
 </div>
 {/block}

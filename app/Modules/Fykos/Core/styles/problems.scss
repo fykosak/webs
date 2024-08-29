@@ -1,70 +1,5 @@
 /////// Problems
 
-
-.problem-card {
-  display: flex;
-  justify-content: space-between;
-
-  .card-header h4 {
-    color: white;
-  }
-
-  .card-footer i {
-    color: $primary-color;
-  }
-
-  .header-problem-1,
-  .header-problem-2 {
-    background-color: var(--task-color-1);
-  }
-
-  .header-problem-3,
-  .header-problem-4,
-  .header-problem-5 {
-    background-color: var(--task-color-3);
-  }
-
-  .header-problem-6 {
-    background-color: var(--task-color-P);
-  }
-
-  .header-problem-7 {
-    background-color: var(--task-color-E);
-  }
-
-  .header-problem-8 {
-    background-color: var(--task-color-S);
-  }
-
-  .figure {
-    img {
-      max-height: 200px;
-      object-fit: contain;
-    }
-  }
-
-  .card-header {
-    h4 {
-      margin: 0;
-    }
-  }
-
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-
-    .solution-and-origin {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-
-}
-
-
 .modal-dialog {
   margin: auto;
   max-width: 80vw;
@@ -100,3 +35,4 @@
   display: inline-block;
   width: 3px;
 }
+

@@ -17,7 +17,7 @@
     <meta property="og:description" content="{include description}"/>{/ifset}
     <meta property="og:type" content="website">
     <meta property="og:locale" content="cs"/>{**
-    
+
     twitter **}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{$basePath}/images/logo_orange.svg">
@@ -25,14 +25,37 @@
     <meta property="twitter:domain" content="vyfuk.org">
     <meta property="twitter:url" content="{plink //this}">{ifset description}
     <meta name="twitter:description" content="{include description}"/>{/ifset}{**
-    
+
     links **}
     <link href="{$basePath}/images/icon.png" rel="icon" type="image/png"/>
     <link href="{asset 'assets/main.css'}" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {block head}{/block}
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+        crossorigin="anonymous"></script>
+    <script n:syntax=off>
+        MathJax = {
+            loader: {
+                load: ['[tex]/mhchem', '[tex]/upgreek']
+            },
+            tex: {
+                packages: {
+                    '[+]': ['mhchem', 'upgreek']
+                },
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['\\eq{', '}']]
+            }
+        }
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
     <script src="{asset 'assets/main.js'}"></script>
 {block scripts}{/block}</head>
 
