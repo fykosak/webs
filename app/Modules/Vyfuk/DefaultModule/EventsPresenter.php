@@ -31,8 +31,8 @@ class EventsPresenter extends BasePresenter
             $this->error();
         }
         $this->template->event = $event;
-        $this->template->galery = $this->createComponentGallery()->hasPhotos("/photos/event/" . $event->eventId);
-        $this->template->pdf = $this->createComponentPdfGallery()->hasFiles("/download/event/" . $event->eventId);
+        $this->template->galery = $this->getComponent('gallery')->hasPhotos("/photos/event/" . $event->eventId);
+        $this->template->pdf = $this->getComponent('pdfGallery')->hasFiles("/download/event/" . $event->eventId);
         $persons = $event->end < new DateTime() ? $this->eventService->getEventOrganizers($event->eventId) : [];
         $array = [];
         foreach ($persons as $person) {
@@ -42,8 +42,9 @@ class EventsPresenter extends BasePresenter
         $persons = $event->end < new DateTime() ? $this->eventService->getEventParticipants($event->eventId) : [];
         $array = [];
         foreach ($persons as $person) {
-            if($person->status==='participated')
-            $array[] = $person->name;
+            if ($person->status === 'participated') {
+                $array[] = $person->name;
+            }
         }
         $this->template->participants = implode(', ', $array);
     }
