@@ -57,9 +57,9 @@ final class AboutPresenter extends BasePresenter
             $currentOrganizers = array_filter(
                 $allOrganizers,
                 fn(array $organizer): bool => $organizer['until'] == null
-                    || $organizer['until'] == self::CURRENT_YEAR
+                || $organizer['until'] == self::CURRENT_YEAR
             );
-            
+
             // sort by order and last name
             setlocale(LC_COLLATE, 'cs_CZ.utf8');
             usort($currentOrganizers, function (array $a, array $b): int {
@@ -72,7 +72,7 @@ final class AboutPresenter extends BasePresenter
                 }
                 return $b['order'] <=> $a['order'];
             });
-            
+
         }
         $this->template->currentOrganizers = $currentOrganizers;
     }
