@@ -66,11 +66,11 @@ class CampsPresenter extends BasePresenter
             $fullYear = $event['year'];
         }
 
-        $photosBasePath = '.media/images/events/' . $eventType . '/rocnik' . $fullYear . '/carousel-photos';
+        $photosBasePath = './media/images/events/' . $eventType . '/rocnik' . $fullYear . '/carousel-photos';
         $photos = glob($photosBasePath . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
         if (empty($photos)) {
-            return $this->template->basePath . 'media/images/events/event-missing-photo.png';
+            return $this->template->basePath . '/media/images/events/event-missing-photo.png';
         }
 
         $photo = $photos[array_rand($photos)];
