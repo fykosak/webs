@@ -198,15 +198,14 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
+    /* Provides space between wrapped elements */
   }
 
   .event-title {
     display: flex;
     align-items: center;
     flex-grow: 1;
-    flex-wrap: wrap;
-    gap: 10px;
   }
 
   h3 {
@@ -217,16 +216,7 @@
     align-items: center;
   }
 
-  .inline-logo {
-    height: 1.8rem;
-    margin-right: 4px;
-  }
-
-  @media screen and (max-width: 992px) {
-    h3 {
-      font-size: 1.1rem;
-    }
-
+  @media screen and (max-width: 768px) {
     .inline-logo {
       height: 1.5rem;
     }
@@ -235,20 +225,18 @@
   .event-date {
     font-size: 1rem;
     font-weight: bold;
+    margin-left: auto;
+    /* Pushes the date to the right when there's space */
     white-space: nowrap;
+    /* Prevents the date from breaking into multiple lines */
   }
 
-  @media screen and (max-width: 768px) {
-    .event-title {
-      flex-basis: 100%;
-      justify-content: space-between;
-    }
-
-    .event-date {
-      margin-left: auto;
-    }
+  .inline-logo {
+    height: 1.8rem;
+    margin-right: 4px;
   }
 
+  /* Add a media query for smaller screens if needed */
   @media screen and (max-width: 480px) {
     .event-header {
       flex-direction: column;
@@ -262,9 +250,36 @@
 
     .event-date {
       margin-left: 0;
-      align-self: flex-start;
+      /* Resets the auto margin on very small screens */
     }
   }
+
+  // .event-header {
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
+
+
+  // h3 {
+  //   font-weight: bolder;
+  //   font-size: 1.2rem;
+
+  //   @media screen and (max-width: 768px) {
+  //     font-size: 1rem;
+  //   }
+  // }
+
+  // .event-date {
+  //   font-size: 1rem;
+  //   font-weight: bold;
+  //   margin-right: 5px;
+  // }
+
+  // .inline-logo {
+  //   height: 1.8rem;
+  //   margin-right: 4px;
+  // }
+
 }
 
 
@@ -402,11 +417,11 @@ $top-offset: $today-block-height / 2;
 
 .logo-event,
 .logo-series {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 992px) {
     height: $timeline-logo-width;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 992px) {
     width: $timeline-logo-width;
   }
 }
