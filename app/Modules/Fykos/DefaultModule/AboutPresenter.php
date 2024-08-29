@@ -72,7 +72,6 @@ final class AboutPresenter extends BasePresenter
                 }
                 return $b['order'] <=> $a['order'];
             });
-
         }
         $this->template->currentOrganizers = $currentOrganizers;
     }
