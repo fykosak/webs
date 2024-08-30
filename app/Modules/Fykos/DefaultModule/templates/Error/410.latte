@@ -1,6 +1,18 @@
-{block content}
-<h1 n:block=title>Page Not Found</h1>
+{varType App\Modules\Core\Language $language}
 
-<p>The page you requested has been taken off the site. We apologize for the inconvenience.</p>
+{block title}
+{switch $language->value}{case 'cs'}Fuč{default}Gone{/switch}
+{/block}
+
+{block content}
+{switch $language->value}
+{case 'cs'}
+<p>Požadovaná stránka se již na webu nenachází.</p>
 
 <p><small>error 410</small></p>
+{default}
+<p>The page you requested has been taken off the site.</p>
+
+<p><small>error 410</small></p>
+{/switch}
+{/block}
