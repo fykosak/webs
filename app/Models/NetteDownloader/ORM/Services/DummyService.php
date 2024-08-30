@@ -23,4 +23,12 @@ class DummyService extends AbstractJSONService
     {
         return $this->getItem($request, [], $model, true, $explicitExpiration);
     }
+
+    /**
+     * @throws \Throwable
+     */
+    public function getFlat(Request $request, string $model, ?string $explicitExpiration = null)
+    {
+        return $this->getItem($request, [], $model, false, $explicitExpiration);
+    }
 }

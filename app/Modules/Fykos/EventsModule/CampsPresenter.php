@@ -14,13 +14,6 @@ class CampsPresenter extends BasePresenter
 {
     private const CAMPS_IDS = [4, 5];
 
-    private readonly FKSDBDownloader $downloader;
-
-    public function inject(FKSDBDownloader $downloader): void
-    {
-        $this->downloader = $downloader;
-    }
-
     public function getEventHeading(array $event): array
     {
         if ($event['eventTypeId'] == 4) {

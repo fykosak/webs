@@ -1,6 +1,6 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
-
+{varType App\Models\Downloader\ContestYearModel $currentYear}
 {block title}Seminář FYKOS{/block}
 
 {block main}
@@ -19,8 +19,11 @@
                 {case cs}FYKOS (FYzikální KOrespondenční Seminář) je individuální soutěž, která pro středoškoláky představuje skvělou
                     možnosti si zajímavým způsobem rozšířit chápání fyziky a světa kolem nás, a to např. skrze naše úlohy,
                     zpětnou vazbu, vzorová řešení, rozšiřující texty či účasti na našich akcích. FYKOS je nejstarší soutěží
-                    stejnojmenné organizace a&nbsp;momentálně probíhá již jeho {$currentYear}. ročník.
-                {default}FYKOS is an individual competition that offers high school students a great opportunity to expand their understanding of physics and the world around us in an interesting way, e.g. through our problems, feedback, sample solutions, supplementary texts or participation in our events. FYKOS is the oldest competition of the organization of the same name and is currently in its {$currentYear}{switch $currentYear % 10}{case 1}st{case 2}nd{case 3}rd{default}th{/switch} year.
+                    stejnojmenné organizace a&nbsp;momentálně probíhá již jeho {$currentYear->year}. ročník.
+                {default}FYKOS is an individual competition that offers high school students a great opportunity to
+                expand their understanding of physics and the world around us in an interesting way, e.g. through our problems,
+                feedback, sample solutions, supplementary texts or participation in our events. FYKOS is the oldest competition
+                of the organization of the same name and is currently in its {$currentYear->year}{switch $currentYear->year % 10}{case 1}st{case 2}nd{case 3}rd{default}th{/switch} year.
             {/switch}
         </p>
         <a class="btn btn-primary mb-3" n:href=":Default:About:default">{switch $language->value}{case cs}O organizaci FYKOS{default}About FYKOS Group{/switch}</a>

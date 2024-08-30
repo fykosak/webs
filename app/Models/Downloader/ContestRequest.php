@@ -6,26 +6,26 @@ namespace App\Models\Downloader;
 
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 
-final class EventOrganizersRequest implements Request
+final class ContestRequest implements Request
 {
-    public function __construct(private readonly int $eventId)
+    public function __construct(private readonly int $contestId)
     {
     }
 
     public function getMethod(): string
     {
-        return 'events/' . $this->eventId . '/organizers';
+        return 'contests/' . $this->contestId;
     }
 
     public function getParams(): array
     {
         return [
-            'eventId' => $this->eventId,
+            'contestId' => $this->contestId,
         ];
     }
 
     public function getCacheKey(): string
     {
-        return sprintf('event-organizers-list.%d', $this->eventId);
+        return sprintf('contest.%d', $this->contestId);
     }
 }

@@ -4,17 +4,10 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
-use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 
 final class AboutPresenter extends BasePresenter
 {
-    private readonly FKSDBDownloader $downloader;
-
-    public function inject(FKSDBDownloader $downloader): void
-    {
-        $this->downloader = $downloader;
-    }
 
     /**
      * @throws \Throwable
@@ -57,7 +50,7 @@ final class AboutPresenter extends BasePresenter
             $currentOrganizers = array_filter(
                 $allOrganizers,
                 fn(array $organizer): bool => $organizer['until'] == null
-                    || $organizer['until'] == self::CURRENT_YEAR
+                    || $organizer['until'] === $this->getCurrentYear()->year
             );
             
             // sort by order and last name
@@ -72,7 +65,6 @@ final class AboutPresenter extends BasePresenter
                 }
                 return $b['order'] <=> $a['order'];
             });
-            
         }
         $this->template->currentOrganizers = $currentOrganizers;
     }

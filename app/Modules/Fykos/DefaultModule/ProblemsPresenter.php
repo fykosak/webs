@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Modules\Fykos\DefaultModule;
 
 use App\Models\Downloader\ProblemService;
-use Tracy\Debugger;
 use Throwable;
 
 class ProblemsPresenter extends BasePresenter
@@ -27,7 +26,7 @@ class ProblemsPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $year = $this->year ?? self::CURRENT_YEAR;
+        $year = $this->year ?? $this->getCurrentYear()->year;
         $series = $this->series ?? $this->problemService->getLatestSeries('fykos', $year);
         $series = $this->problemService->getSeries('fykos', $year, $series);
         $this->template->series = $series;
@@ -64,11 +63,11 @@ class ProblemsPresenter extends BasePresenter
         error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 
         $yearsAndSeries = [];
-        for ($year = self::CURRENT_YEAR; $year > 0; $year--) {
+        foreach ($this->getContest()->years as $year) {
             try {
-                $yearJson = $this->problemService->getYearJson('fykos', $year);
+                $yearJson = $this->problemService->getYearJson('fykos', $year->year);
                 $availableSeriesNumbers = array_keys($yearJson);
-                $yearsAndSeries[$year] = $availableSeriesNumbers;
+                $yearsAndSeries[$year->year] = $availableSeriesNumbers;
             } catch (Throwable $e) {
                 continue;
             }

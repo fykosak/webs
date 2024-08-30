@@ -1,6 +1,6 @@
 {block title}Podpořte nás{/block}
 {block main}
-
+{varType App\Models\Downloader\ContestYearModel $currentYear}
 
 <style>
 
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="subheader">Pomáhejte inspirovat budoucí vědce</div>
         <h1>Podpořte FYKOS</h1>
         <p>
-            FYKOS již {$currentYear} let inspiruje a vzdělává středoškoláky v oblasti fyziky a příbuzných oborů. Naše soutěže, semináře a další vzdělávací akce ročně osloví tisíce mladých lidí, podporují jejich zájem o vědu a techniku a pomáhají jim rozvíjet jejich talent. Vaše podpora umožňuje FYKOSu pokračovat v této důležité misi a rozšiřovat náš dosah na ještě více nadaných studentů.
+            FYKOS již {$currentYear->year} let inspiruje a vzdělává středoškoláky v oblasti fyziky a příbuzných oborů. Naše soutěže, semináře a další vzdělávací akce ročně osloví tisíce mladých lidí, podporují jejich zájem o vědu a techniku a pomáhají jim rozvíjet jejich talent. Vaše podpora umožňuje FYKOSu pokračovat v této důležité misi a rozšiřovat náš dosah na ještě více nadaných studentů.
         </p>
         <a class="btn btn-primary mt-2" href="#why-support">Proč nás podpořit?</a>
         <a class="btn btn-primary mt-2" href="#how-to-support">Jak nás podpořit</a>
@@ -157,8 +157,8 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="col-md-4">
                 <div class="info-block p-3 mb-4">
-                    <h4><i class="info-icon fas fa-history"></i>{$currentYear} let tradice</h4>
-                    <p>Již {$currentYear} let organizujeme soutěže, semináře a další vzdělávací akce pro mladé talenty. V akcích kombinujeme dekádami osvědčené postupy s inovacemi a neustálým zlepšováním našich akcí.</p>
+                    <h4><i class="info-icon fas fa-history"></i>{$currentYear->year} let tradice</h4>
+                    <p>Již {$currentYear->year} let organizujeme soutěže, semináře a další vzdělávací akce pro mladé talenty. V akcích kombinujeme dekádami osvědčené postupy s inovacemi a neustálým zlepšováním našich akcí.</p>
                 </div>
             </div>
             <div class="col-md-4">

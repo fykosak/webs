@@ -33,7 +33,8 @@ abstract class AbstractJSONService
         string $modelClassName,
         bool $asArray = false,
         ?string $explicitExpiration = null
-    ) {
+    ): mixed
+    {
         return $this->cache->load(
             $request->getCacheKey() . '_' . implode('.', $path),
             function (&$dependencies) use ($request, $path, $modelClassName, $asArray, $explicitExpiration) {
