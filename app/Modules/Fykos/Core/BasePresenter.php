@@ -15,8 +15,6 @@ use Nette\Utils\DateTime;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
-    public const CURRENT_YEAR = 37; // TODO: get from db
-
     protected readonly FKSDBDownloader $downloader;
     protected readonly DummyService $dummyService;
 
