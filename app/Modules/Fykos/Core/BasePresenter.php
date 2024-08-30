@@ -9,7 +9,7 @@ use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
-    public const CURRENT_YEAR = 37; // TODO: get from db
+    public const CURRENT_YEAR = 38; // TODO: get from db
 
     /**
      * @return NavItem[]
