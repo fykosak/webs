@@ -8,7 +8,6 @@ use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 
 final class AboutPresenter extends BasePresenter
 {
-
     /**
      * @throws \Throwable
      */
@@ -52,7 +51,6 @@ final class AboutPresenter extends BasePresenter
                 fn(array $organizer): bool => $organizer['until'] == null
                     || $organizer['until'] === $this->getCurrentYear()->year
             );
-            
             // sort by order and last name
             setlocale(LC_COLLATE, 'cs_CZ.utf8');
             usort($currentOrganizers, function (array $a, array $b): int {
