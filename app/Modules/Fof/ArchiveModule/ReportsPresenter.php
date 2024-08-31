@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\ArchiveModule;
 
-use App\Models\NetteDownloader\ORM\Models\ModelTeam;
+use App\Models\Downloader\TeamModel;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
@@ -30,8 +30,8 @@ class ReportsPresenter extends BasePresenter
     public function getTeams(array $teamIds): array
     {
         return \array_filter(
-            $this->dummyService->get(new TeamsRequest($this->getEvent()->eventId), ModelTeam::class),
-            fn(ModelTeam $team): bool => in_array($team->teamId, $teamIds)
+            $this->dummyService->get(new TeamsRequest($this->getEvent()->eventId), TeamModel::class),
+            fn(TeamModel $team): bool => in_array($team->teamId, $teamIds)
         );
     }
 }

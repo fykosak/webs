@@ -1,3 +1,4 @@
+{varType App\Models\Downloader\ContestYearModel $currentYear}
 {block title}About Us{/block}
 {block main}
 <div class="panel color-auto">
@@ -10,7 +11,7 @@
 
             FYKOS is supported by the <a href="https://www.mff.cuni.cz">Faculty of Mathematics and Physics, Charles University</a>
             (CUNI MFF)
-            and the Ministry of Education, Youth and Sports of the Czech Republic, and has a rich {$currentYear}-year
+            and the Ministry of Education, Youth and Sports of the Czech Republic, and has a rich {$currentYear->year}-year
             history of organizing educational events.
         </p>
         <p>

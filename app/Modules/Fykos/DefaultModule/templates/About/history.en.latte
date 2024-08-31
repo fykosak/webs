@@ -1,3 +1,4 @@
+{varType App\Models\Downloader\ContestYearModel $currentYear}
 {block title}
     History
 {/block}
@@ -8,7 +9,7 @@
         <h1>History of FYKOS</h1>
         <p>
             The FYKOS group has a rich history of organizing physics competitions and other educational events for high
-            school students for over {$currentYear} years. From its humble beginnings as a small group of students, it
+            school students for over {$currentYear->year} years. From its humble beginnings as a small group of students, it
             has gradually grown into a team of dozens of organizers who contribute to the organization of many
             educational activities each year.
         </p>

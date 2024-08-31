@@ -1,3 +1,4 @@
+{varType App\Models\Downloader\ContestYearModel $currentYear}
 {block title}O nás{/block}
 {block main}
 <div class="panel color-auto">
@@ -10,8 +11,8 @@
 
             FYKOS zaštiťují <a href="https://www.mff.cuni.cz">Matematicko-fyzikální fakulta Univerzity Karlovy</a>
             (MFF UK)
-            a&nbsp;Ministerstvo školství, mládeže a&nbsp;tělovýchovy ČR, a&nbsp;má za sebou bohatou {$currentYear}letou
-            historii pořádání vzdělávacích akcí.
+            a&nbsp;Ministerstvo školství, mládeže a&nbsp;tělovýchovy ČR, a&nbsp;má za sebou
+            bohatou {$currentYear->year}letou historii pořádání vzdělávacích akcí.
         </p>
         <p>
             <a n:href="About:organizers">Organizátoři</a> jsou převážně studenti MFF UK, nicméně ve FYKOSu působí i&nbsp;studenti 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\DefaultModule;
 
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\Downloader\EventModel;
 use Fykosak\Utils\DateTime\Phase;
 use Nette\Application\BadRequestException;
 
@@ -13,7 +13,7 @@ class RegistrationPresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    public static function isVisible(ModelEvent $event): bool
+    public static function isVisible(EventModel $event): bool
     {
         return $event->getRegistrationPeriod()->is(Phase::onGoing);
     }

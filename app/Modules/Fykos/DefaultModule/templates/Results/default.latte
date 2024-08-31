@@ -1,5 +1,6 @@
 {varType int $year}
-{varType int $currentYear}
+{varType App\Models\Downloader\ContestYearModel $currentYear}
+{varType App\Models\Downloader\ContestModel $contest}
 {varType App\Modules\Core\Language $language}
 {block title}
     {switch $language->value}
@@ -38,14 +39,15 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <div class="scrollable-menu">
                         <div class="series-container">
-                            {for $yearOption = $currentYear; $yearOption >= 1; $yearOption--}
-                                <a class="series-box full-width btn" href="{plink 'this' 'year'=>$yearOption}">
+                            {foreach array_reverse($contest->years) as $contestYear}
+                                {varType App\Models\Downloader\ContestYearModel $contestYear}
+                                <a class="series-box full-width btn" href="{plink 'this' 'year'=>$contestYear->year}">
                                     {switch $language->value}
-                                        {case 'cs'}{$yearOption}. ročník ({$yearOption + 1987}/{($yearOption + 1988) % 100})
-                                        {default}Year {$yearOption}
+                                        {case 'cs'}{$contestYear->year}. ročník ({$contestYear->begin->format('Y')}/{$contestYear->end->format('y')})
+                                        {default}Year {$contestYear->year}
                                     {/switch}
-                                </a>                                    
-                            {/for}
+                                </a>
+                            {/foreach}
                         </div>
                     </div>
                 </div>

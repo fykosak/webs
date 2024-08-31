@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Modules\Core;
 
+use App\Models\Downloader\DummyService;
 use App\Models\Downloader\EventService;
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Services\DummyService;
+use App\Models\Downloader\EventModel;
 use Nette\Application\UI\Template;
 
 abstract class EventWebPresenter extends BasePresenter
@@ -35,7 +35,7 @@ abstract class EventWebPresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    protected function getNewestEvent(): ModelEvent
+    protected function getNewestEvent(): EventModel
     {
         static $newestEvent;
         if (!isset($newestEvent)) {

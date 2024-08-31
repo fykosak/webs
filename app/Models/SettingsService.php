@@ -12,7 +12,7 @@ namespace App\Models;
 class SettingsService
 {
     public function __construct(
-        public readonly array $domains
+        public readonly ?array $domains
     ) {
     }
 }

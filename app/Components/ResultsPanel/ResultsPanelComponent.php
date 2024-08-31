@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App\Components\ResultsPanel;
 
 use App\Components\ApiResults\ApiResultsComponent;
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\Downloader\EventModel;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
 final class ResultsPanelComponent extends DIComponent
 {
-    public function __construct(Container $container, private readonly ModelEvent $event)
+    public function __construct(Container $container, private readonly EventModel $event)
     {
         parent::__construct($container);
     }

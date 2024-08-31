@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Components\TeamResults;
 
-use App\Models\NetteDownloader\ORM\Models\ModelTeam;
-use App\Models\NetteDownloader\ORM\Services\DummyService;
+use App\Models\Downloader\DummyService;
+use App\Models\Downloader\TeamModel;
 use App\Modules\Core\Language;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\Components\DIComponent;
@@ -43,14 +43,14 @@ class TeamResultsComponent extends DIComponent
     }
 
     /**
-     * @return ModelTeam[][]
+     * @return TeamModel[][]
      * @throws \Throwable
      */
     protected function loadTeams(): array
     {
 
         $teams = [];
-        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), ModelTeam::class) as $team) {
+        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), TeamModel::class) as $team) {
             if ($team->state != 'participated' && $team->state != 'disqualified') {
                 continue;
             }
@@ -75,18 +75,18 @@ class TeamResultsComponent extends DIComponent
         return $teams;
     }
 
-    protected function passesFilters(ModelTeam $team): bool
+    protected function passesFilters(TeamModel $team): bool
     {
         return $this->passesOneMemberFilter($team)
             && $this->passesCountryFilter($team);
     }
 
-    protected function passesOneMemberFilter(ModelTeam $team): bool
+    protected function passesOneMemberFilter(TeamModel $team): bool
     {
         return !$this->filterData['OneMemberTeams'] || count($team->members) == 1;
     }
 
-    protected function passesCountryFilter(ModelTeam $team): bool
+    protected function passesCountryFilter(TeamModel $team): bool
     {
         $ISOsForTeam = [];
 
@@ -128,7 +128,7 @@ class TeamResultsComponent extends DIComponent
 
         $countryISOs = [];
         $categories = [];
-        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), ModelTeam::class) as $team) {
+        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), TeamModel::class) as $team) {
             if ($team->state !== 'participated' && $team->state !== 'disqualified') {
                 continue;
             }

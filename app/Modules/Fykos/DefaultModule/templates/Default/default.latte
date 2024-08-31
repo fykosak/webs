@@ -1,6 +1,6 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
-{varType int $currentYear}
+{varType App\Models\Downloader\ContestYearModel $currentYear}
 {varType array $events}
 {varType array $countdownEventsIndices}
 {varType array $numOfEvents}
@@ -27,8 +27,8 @@
                         {/switch}
                     <p class="header-text">
                         {switch $language->value}
-                            {case 'cs'}FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již {$currentYear}&nbsp;let.
-                            {default}FYKOS has been organizing non-profit educational events in physics for {$currentYear} years.
+                            {case 'cs'}FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již {$currentYear->year}&nbsp;let.
+                            {default}FYKOS has been organizing non-profit educational events in physics for {$currentYear->year} years.
                         {/switch}
                     </p>
                     <a class="btn btn-light mt-2" href="#timeline">
