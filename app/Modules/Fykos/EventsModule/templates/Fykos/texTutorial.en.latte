@@ -1,8 +1,133 @@
-{block title}Jak psát řešení{/block}
+{block title}How to write solutions{/block}
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
-            Placeholder
+            <h1>How to write solutions</h1>
+            <h2>You get what you see, but do you really want it?</h2>
+            <p>
+                You have probably prepared texts on a computer many times, using programs like Microsoft Word or its relatives. Word is a WYSIWYG editor, which means that we edit the output directly (What You See Is What You Get). However, this violates the principle of separating content and form.
+            </p>
+            <p>
+                Creating documents in TeX is similar to writing programs. You work with source code (in a text editor), which is then compiled (TeX does that) into the final form, such as PDF. To create documents using TeX, you need an editor, a compiler (TeX), and a viewer (such as Adobe Reader).
+            </p>
+            <p>
+                Why complicate your work compared to Word? As mentioned before, this approach leads to better separation of content and form (easy potential change of the final form). You can use our <a href="https://www.overleaf.com/read/znmqrqdvkpyk#99f1ed">solution template</a>, which includes everything you need. And if it involves typesetting mathematical expressions, TeX is the clear choice.
+            </p>
         </section>
     </div>
+
+    <div class="panel color-auto" id="Overleaf">
+        <section class="inner-container">
+            <h2>Overleaf</h2>
+            <p>
+            Overleaf is an online environment for creating and managing LaTeX documents, capable of compiling. The advantage is that you don't need to install anything, we have prepared a template for you, just sign in, copy the project, and you can start TeXing.
+            Another advantage is the presence of an online storage and opening in a browser, so you can TeX from any device with a browser.
+            </p>
+            <p>One disadvantage is that online assumes TeX compilation, but part of TeXing may involve generating a source file using a script, which may not be executable on Overleaf.</p>
+            <h3>Procedure</h3>
+            <ol>
+                <li>Register on <a href="https://www.overleaf.com">Overleaf</a>, either using Google or an email address</li>
+                <li>Open our <a href="https://www.overleaf.com/read/znmqrqdvkpyk#99f1ed">template</a></li>
+                <li>Start editing the template (name, task type, series number)</li>
+                <li>
+                    You can start TeXing. Look up LaTeX tutorials as needed (Hint: Overleaf has quite good <a href="https://www.overleaf.com/learn/latex/Tutorials">tutorials</a> for beginners.)
+                </li>
+            </ol>
+        </section>
+    </div>
+    <div class="panel color-auto" id="Local-compiler">
+        <section class="inner-container">
+            <h2>Installation of a local compiler</h2>
+            <p>Local installation provides more options, greater control, and functionality even offline.</p>
+            <p>
+                We mentioned earlier how many programs are needed to compile TeX documents. 
+                You don't have to worry about finding and configuring all of them. 
+                For Windows, there is the MiKTeX TeX distribution <a href="https://miktex.org/">MiKTeX</a>, which takes care of everything for you.
+            </p>
+            <p><strong>Download the clickable installer from the MiKTeX website.</strong></p>
+            <p>The distribution also includes the TeXworks editor. Open it and write the following document in UTF-8 (choose the encoding at the bottom right):</p> 
+            <code>
+                {='\documentclass[12pt,a4paper]{article}'}<br>
+                <br>
+                {='% basic packages'}<br>
+                {='\usepackage[utf8]{inputenc}'}<br>
+                {='\usepackage[czech]{babel}'}<br>
+                {='\usepackage[T1]{fontenc}'}<br>
+                {='\usepackage[headheight=20pt,margin=2cm,tmargin=3cm, headsep=2cm]{geometry}'}<br>
+                {='\usepackage{lmodern}'}<br>
+                <br>
+                {='% header'}<br>
+                {='\usepackage{fancyhdr}'}<br>
+                {='\usepackage{lastpage}'}<br>
+                {='\fancyhf{}'}<br>
+                {='\cfoot{\thepage/\pageref{LastPage}}'}<br>
+                {='\pagestyle{fancy}'}<br>
+                <br>
+                {='% header content'}<br>
+                {='\lhead{\textbf{Problem V-P}}'}<br>
+                {='\rhead{Faculty of Mathematics and Physics, \textbf{Diligent Student}}'}<br>
+                <br>
+                {='\begin{document}'}<br>
+                {='Solution of the problem'}<br>
+                {='\end{document}'}<br>
+
+            </code>
+            <p>
+            We just need to replace the line <code>{='Solution of the problem'}</code> with our solution. Anything after the <code>{='%'}</code> character is considered a comment by the LaTeX compiler, until it encounters a new line. The compiler doesn't care how many lines we skip; it will create a new line itself if the text doesn't fit on the current line, or we can force a new line using <code>{='\\\\'}</code>. 
+            </p>
+            <p>
+            <strong>Start the compilation with the green button.</strong> If everything is fine, the first page typeset by TeX will appear on the right side of the editor. It's a normal PDF file opened in the integrated viewer. You can use Ctrl+click to switch between the source code and the corresponding place in the PDF, and vice versa.
+            </p>
+            <h3>Other editors</h3>
+            <p>There are a few other editors worth mentioning.</p>
+            <ul>
+                <li><p><a href="http://www.texstudio.org/">TeXstudio</a> - has autocompletion that helps with LaTeX syntax</p></li>
+                <li><p><a href="https://code.visualstudio.com/">Visual Studio Code</a> - a versatile text editor with many useful extensions</p></li>
+            </ul>
+                {*
+                <a class="btn btn-primary my-2" href="http://www.winshell.de" >Win-shell</a>
+                <a class="btn btn-primary my-2" href="http://notepad-plus-plus.org">Notepad++</a>
+                <a class="btn btn-primary my-2" href="http://www.tug.org/texworks">TeXworks</a>
+                <a class="btn btn-primary my-2" href="http://www.texstudio.org/" >TeXstudio</a>
+                <a class="btn btn-primary my-2" href="http://www.latexeditor.org">LEd</a>
+                <a class="btn btn-primary my-2" href="https://www.xm1math.net/texmaker/">TeXmaker</a>
+                <a class="btn btn-primary my-2" href="https://code.visualstudio.com/">Visual Studio Code</a>
+                <a class="btn btn-primary my-2" href="https://www.vim.org/">Vim</a>
+                *}
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="sazba">
+        <section class="inner-container">
+            <h1>Sazba matematiky</h1>
+            <p>Kvůli sazbě matematiky jsme si zvolili TeX. Řekněme si tedy, jak na to. Krátké vzorečky, vztahy a proměnné se sází v řádkovém režimu mezi dolary</p>
+            <code>Pro čísla na kostce platí {='$0 < n < 7$'}.</code>
+            <p>Větší a složitější vzorce sázíme v blokovém režimu mezi dvojice dolarů.</p>
+            <code>Síla je dána jako<br>
+                {='$$'}<br>
+                {='    F = mg \sin(\alpha)\,.'}<br>
+                {='$$'}
+            </code>
+            <p>Argumenty maker se uzavírají mezi složené závorky (je-li argument jeden znak, je možné je vynechat). Nejčastěji používanými příkazy jsou</p>
+            <ul>
+                <li>mocnění  <code>{='$2^5 = 32$'}</code></li>
+                <li>odmocňování <code>{='$\sqrt{1-\sin^2(x)} = |\cos(x)|$'}</code></li>
+                <li>zlomky <code>{='$\frac{p}{q}$'}</code></li>
+                <li>dolní index<code>{='$a_1$'}</code></li>
+            </ul>
+            <p>Pokud nechcete instalovat celou TeXovou mašinérii, lze použít podobnou syntaxi v editoru rovnic v OO Writeru i v MS Wordu.</p>
+            
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="Odkazy">
+        <section class="inner-container">
+            <h1>Odkazy</h1>
+            <ul>
+                <li><a href="https://tex.stackexchange.com/">TeX - Stack Exchange</a> - obsáhlé forum, anglicky</li>
+                <li><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">OEIS list matematických symbolů</a></li>
+            </ul>
+        </section>
+    </div>
+
 {/block}
