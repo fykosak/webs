@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\DefaultModule;
 
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\Downloader\EventModel;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\UI\Template;

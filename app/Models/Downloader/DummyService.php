@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Models\NetteDownloader\ORM\Services;
+namespace App\Models\Downloader;
 
-use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use Nette\Caching\Storage;
 
-class DummyService extends AbstractJSONService
+final class DummyService extends AbstractJSONService
 {
     public function __construct(string $expiration, Storage $storage, FKSDBDownloader $downloader)
     {

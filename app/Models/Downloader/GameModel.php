@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Models\NetteDownloader\ORM\Models;
+namespace App\Models\Downloader;
 
 use Fykosak\Utils\DateTime\Period;
 
-class ModelGame
+final class GameModel
 {
     public readonly ?array $availablePoints;
     public readonly ?int $tasksOnBoard;

@@ -6,7 +6,7 @@ namespace App\Models\Downloader;
 
 use Nette\Utils\DateTime;
 
-class ContestYearModel
+final class ContestYearModel
 {
     public int $year;
     public bool $active;

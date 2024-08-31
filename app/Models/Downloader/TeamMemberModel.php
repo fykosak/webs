@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Models\NetteDownloader\ORM\Models;
+namespace App\Models\Downloader;
 
 /**
  * Member is a person attendina a team event.
  */
-class ModelMember extends ModelPerson
+class TeamMemberModel extends PersonModel
 {
     public ?array $school;
 }
