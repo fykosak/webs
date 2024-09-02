@@ -13,7 +13,7 @@
         <h1>Základní informace</h1>
 
         <p>Den s experimentální fyzikou {$newestEvent->begin|date: 'Y'} se bude konat {$newestEvent->begin|date: 'j. n. Y'}, tentokrát na Karlově.
-            Registrace bude otevřená od 24.9. do 18.10.
+            Registrace bude otevřená od {$newestEvent->registrationBegin|date: 'j. n.'} do {$newestEvent->registrationEnd|date: 'j. n. Y'}.
             Rozvržení jednotlivých exkurzí budeme postupně přidávat.
             Pro účastníky z daleka bude jako každý rok připravené ubytování z neděle na pondělí.
             <!-- <a href="#prihlasovani">Přihlašování</a> -->
