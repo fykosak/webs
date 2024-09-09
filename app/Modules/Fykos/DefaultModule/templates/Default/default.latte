@@ -449,6 +449,16 @@
     </section>
 </div>
 
+{* Tooltips *}
+<script>
+    // Initialize all tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
+
+
 {if $year_stage == "during"}
     {* Countdown for the very top of the page *}
     <script>
