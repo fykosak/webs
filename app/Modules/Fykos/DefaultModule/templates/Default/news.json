@@ -13,34 +13,34 @@
     ],
     "cs" : [
         {
-            "title": "Třetí série je tady!",
-            "text": "Druhá série sice skončila, ale nezoufejte! Na webu je už zveřejněné zadání nových úloh! Můžete se ponořit do výpočtů účinnosti zvlhčovače vzduchu, rychlosti transportu v mikrosvětě buněk nebo práce nutné k ponoření skleničky pod vodu. Čas na vyřešení úloh a zaslání svých řešení máte do 2. 1.!",
-            "link": "https://fykos.cz/zadani",
+            "title": "Je tu 38. ročník",
+            "text": "Vaše očekávání se naplnilo a přichází nový ročník! Opět na vás čeká šest sérií neobvyklých fyzikálních úloh a dvě nezapomenutelná soustředění. Pojďme si spolu užít rok plný společných akcí a fyziky!",
+            "link": "https://beta.fykos.cz/zadani",
             "link-text": "Zadání",
             "color": "fykos"
         },
         {
-            "title": "Přihlaste se na Fyziklání 2024",
-            "text": "Spouští registrace na Fyziklání 2024, které se bude konat 16. 2. v Praze. Čeká vás tam týmová soutěž v počítání zajímavých fyzikálních úloh, ale i bohatý doprovodný program! Tak neváhejte a přihlašte svůj tým!",
-            "link": "https://fyziklani.cz",
-            "link-text": "Fyziklání",
-            "color": "fof"
+            "title": "Otevření registrace na Fyziklání Online",
+            "text": "Všichni milovníci fyziky pozor! Spouští se přihlášky na letošní Fyziklání Online. Tak dejte dohromady partu až pěti kamarádů a 20.11. si zasoutěžte s tisíci fyzikálních nadšenců z celého světa!",
+            "link": "https://online.fyziklani.cz/",
+            "link-text": "Web Fyziklání Online",
+            "color": "fol"
         }
     ],
     "en" : [
         {
-            "title": "Third Series Is Here!",
-            "text": "The second series is over, but don't worry! The problems of the third series are already published on the website! You can dive into calculations of the efficiency of an air humidifier, the speed of transport in the micro-world of cells or the work needed to submerge a glass under water. You have time to solve the problems and send your solutions until 2nd January!",
-            "link": "https://fykos.cz/zadani",
-            "link-text": "Problems",
+            "title": "Year 38 Is Here",
+            "text": "Your waiting has come to an end, and Year 38 is here! Once again, six series of unusual physics problems await you. Let's enjoy a year full of events and physics together!",
+            "link": "https://fykos.org/events/start",
+            "link-text": "Events",
             "color": "fykos"
         },
         {
-            "title": "Register for Fyziklani 2024",
-            "text": "Registration for Fyziklani 2024, which will take place on February 16 in Prague, has been launched. You can look forward to a team competition in solving interesting physics problems, but also a rich accompanying program! So don't hesitate and register your team!",
-            "link": "https://fyziklani.org",
-            "link-text": "Fyziklani",
-            "color": "fof"
+            "title": "Registration for Physics Brawl Online",
+            "text": "Registration for this year's Physics Brawl Online is open. So get together up to five friends and dive into solving all kinds of physics problems on November 20!",
+            "link": "https://physicsbrawl.org/",
+            "link-text": "Physics Brawl Online",
+            "color": "fol"
         }
     ]
 }
