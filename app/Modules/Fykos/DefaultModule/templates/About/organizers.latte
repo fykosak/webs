@@ -83,11 +83,19 @@
                                             {default}Head of FYKOS
                                         {/switch}
                                         {* Add font awesome questionmark which, when moused-over, will uncover text desription *}
-                                        <span class="info-icon"
+                                        <span class="info-icon" 
+                                            data-bs-toggle="tooltip" 
+                                            data-bs-placement="top" 
+                                            data-bs-html="true" 
                                             title="{switch $language->value}
                                                 {case 'cs'}Vedoucí FYKOSu je formální pozice zaštiťující seminář vůči MFF UK v souladu s interními pravidly fakulty. O samotné exekutivní vedení organizace se stará hlavní organizátor.{default}The head of FYKOS is a formal position that represents the seminar to the Faculty of Mathematics and Physics of Charles University in accordance with the faculty's internal rules. The person responsible for the actual executive management of the organization is the Head Organizer.{/switch}">
                                             <i class="fas fa-question-circle"></i>
                                         </span>
+                                        {* <span class="info-icon"
+                                            title="{switch $language->value}
+                                                {case 'cs'}Vedoucí FYKOSu je formální pozice zaštiťující seminář vůči MFF UK v souladu s interními pravidly fakulty. O samotné exekutivní vedení organizace se stará hlavní organizátor.{default}The head of FYKOS is a formal position that represents the seminar to the Faculty of Mathematics and Physics of Charles University in accordance with the faculty's internal rules. The person responsible for the actual executive management of the organization is the Head Organizer.{/switch}">
+                                            <i class="fas fa-question-circle"></i>
+                                        </span> *}
                                     </td>
                                 </tr>
                                 {if $lang == 'cs'}
