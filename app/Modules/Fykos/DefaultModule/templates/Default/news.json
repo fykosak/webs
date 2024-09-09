@@ -1,5 +1,16 @@
 
 {
+    "komentář k používání" : [
+        "všechny novinky jsou v tomto souboru",
+        "každá novinka je objekt s klíči title, text, link, link-text a color uzavřené ve složených závorkách. Jednotlivé novinky jsou odděleny čárkami",
+        "barvy -- pokud se novinka týká akce, co má námi danou barvu, tak dodržujte ideálně tyto barvy -- lze napsat prostě 'fof', 'fol', 'fykos', 'dsef', 'naboj'.",
+        "jinak se dá použít libovolná barva v hex formátu, např. '#000000' je černá. Ale pozor, ať se to do stránky graficky hodí.",
+        "ad text -- Pozor na kapitalizace u nadpisů, hlavně v angličtině... 'Tohle je nadpis', ale v en 'This Is a Heading' (google 'title-style capitalization')",
+        "Název tlačítka se bere jako nadpis a taky ho kapitalizujeme dle stejných pravidel",
+        "Pokud chceš v textu uvozovky, buď uvoď daný text jednoduchou uvozovkou ' místo dvojitou, nebo v textu použij backslash: \" ",
+        "pokud něco nefunguje, dost možná je někde špatně čárka",
+        "do novinek se dají dávat i html elementy"
+    ],
     "cs" : [
         {
             "title": "Třetí série je tady!",

@@ -64,6 +64,8 @@ class DefaultPresenter extends BasePresenter
                 case 'dsef':
                     $news['color'] = '#f2b72b';
                     break;
+                case 'naboj':
+                    $news['color'] = '#c22d86';
             }
         }
 
