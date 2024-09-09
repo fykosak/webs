@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace App\Modules\Vyfuk\DefaultModule;
 
+use App\Components\ImagePreviewModal\ImagePreviewModalComponent;
 use App\Components\Problem\Problem;
 use App\Models\Downloader\ProblemService;
 use Throwable;
 
 class ProblemsPresenter extends BasePresenter
 {
-    public const CURRENT_YEAR = 13;
+    public const CURRENT_YEAR = 14;
 
     private readonly ProblemService $problemService;
 
@@ -69,5 +70,10 @@ class ProblemsPresenter extends BasePresenter
         $series = $this->series ?? $this->problemService->getLatestSeries('vyfuk', $year);
         $seriesModel = $this->problemService->getSeries('vyfuk', $year, $series);
         return new Problem($this->getContext(), $seriesModel);
+    }
+
+    protected function createComponentImagePreviewModal(): ImagePreviewModalComponent
+    {
+        return new ImagePreviewModalComponent($this->getContext());
     }
 }

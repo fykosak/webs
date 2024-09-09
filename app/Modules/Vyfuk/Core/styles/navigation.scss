@@ -1,10 +1,10 @@
 nav {
   .navbar-brand img {
-    height: 10em;
+    height: 1.25em;
   }
 
   @include media-breakpoint-up(lg) {
-    > div {
+    >div {
       max-width: $page-width;
       margin: 0 auto !important;
       padding: 1rem !important;
@@ -24,9 +24,15 @@ nav {
   }
 
   .nav-item {
+
     //padding: 1rem;
     //@include media-breakpoint-up(lg) { padding: 0 .1rem; }
-    @include media-breakpoint-up(xl) { padding: 0 .3rem; }
-    @include media-breakpoint-up(xxl) { padding: 0 1rem; }
+    @include media-breakpoint-up(xl) {
+      padding: 0 .3rem;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      padding: 0 1rem;
+    }
   }
 }

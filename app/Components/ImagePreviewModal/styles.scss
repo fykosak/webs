@@ -1,0 +1,25 @@
+#imagePreviewModal {
+  .modal-dialog {
+    margin: auto;
+    max-width: 80vw;
+    max-height: 80vh;
+
+    img {
+      height: 60vh;
+      width: 60vw;
+      object-fit: contain;
+    }
+
+    .modal-header {
+      //  display: flex;
+      //  justify-content: space-between;
+      //  align-items: center;
+      padding: .5rem 1.5rem;
+    }
+
+    //.modal-title {
+    //  margin: 0;
+    //  flex-grow: 1;
+    //}
+  }
+}

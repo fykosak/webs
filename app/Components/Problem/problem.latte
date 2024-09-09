@@ -27,7 +27,7 @@
             <div class="card-title">
                 {$problem->task[$language->value]|noescape}
 
-                {if $problem->number == 7}
+                {if $problem->contest == 'fykos' && $problem->number == 7}
                 <a class="btn btn-primary mr-2 mb-3" href={plink :Events:Fykos:experiments}>
                     {switch $language->value}
                     {case 'cs'}Návod pro řešení experimentálních úloh
@@ -72,12 +72,14 @@
             {/if}
         </div>
 
+        {if count($problem->topics)}
         <div class="card-footer">
             {foreach $problem->topics as $topic}
             <span style="margin-right: 1rem;"><i class="fas fa-tag"></i>
                 {App\Models\Downloader\ProblemModel::getTopicLabel($topic, $language->value)}</span>
             {/foreach}
         </div>
+        {/if}
     </div>
 </div>
 {/block}

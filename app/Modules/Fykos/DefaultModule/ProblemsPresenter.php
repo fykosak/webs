@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
+use App\Components\ImagePreviewModal\ImagePreviewModalComponent;
 use App\Components\Problem\Problem;
 use App\Models\Downloader\ProblemService;
 use Throwable;
@@ -67,5 +68,10 @@ class ProblemsPresenter extends BasePresenter
         $series = $this->series ?? $this->problemService->getLatestSeries('fykos', $year);
         $seriesModel = $this->problemService->getSeries('fykos', $year, $series);
         return new Problem($this->getContext(), $seriesModel);
+    }
+
+    protected function createComponentImagePreviewModal(): ImagePreviewModalComponent
+    {
+        return new ImagePreviewModalComponent($this->getContext());
     }
 }

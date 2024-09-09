@@ -178,7 +178,8 @@ class ProblemModel
             ],
             "experimenty" => [
                 "cs" => "Experimenty"
-            ]
+            ],
+            default => $topic
         };
 
         return $topicLabels[$lang] ?? $topic;

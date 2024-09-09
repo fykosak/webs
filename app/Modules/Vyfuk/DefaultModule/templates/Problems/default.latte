@@ -15,6 +15,33 @@
             <a class="btn btn-primary my-2" n:href="Problems:Bingo">Bingo</a>
         </div>
 
+        <div class="col-md-4 pl-md-2 content-down">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    {switch $language->value}
+                    {case 'cs'}Vybrat ročník a sérii
+                    {default}Select Year and Series
+                    {/switch}
+                </button>
+                <div class="dropdown-menu p-0">
+                    {foreach $yearsAndSeries as $yearOption => $seriesList}
+                    <div class="list-group list-group-horizontal-sm">
+                        <div class="list-group-item active text-nowrap">
+                            ročník {$yearOption}
+                        </div>
+                        {foreach $seriesList as $seriesOption}
+                        <a class="list-group-item list-group-item-action"
+                            href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+                        {/foreach}
+                    </div>
+                    {/foreach}
+                </div>
+            </div>
+        </div>
+
+
+
 
         <div class="mt-5">
             {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
@@ -38,4 +65,7 @@
         </div>
     </div>
 </div>
+
+{control imagePreviewModal}
+
 {/block}
