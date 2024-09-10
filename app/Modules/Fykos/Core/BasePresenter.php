@@ -55,6 +55,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                 new NavItem(new PageTitle($this->csen('Organizátoři', 'Organizers')), ':Default:About:organizers'),
                 new NavItem(new PageTitle($this->csen('Historie', 'History')), ':Default:About:history'),
                 new NavItem(new PageTitle($this->csen('Kontakt', 'Contact')), ':Default:About:contact'),
+                new NavItem(new PageTitle($this->csen('Podpořte nás', 'Support Us')), ':Default:SupportUs:'),
             ],
         );
 

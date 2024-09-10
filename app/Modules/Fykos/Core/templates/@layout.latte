@@ -204,37 +204,36 @@
                             {/switch}
                         </ul>
                     </nav>
-                    {* <nav>
+                    <nav>
                         <ul>
                             {switch $language->value}
                                 {case cs}
                                 <li>Podpora FYKOSu
                                     <ul>
                                         <li><a n:href=":Default:SupportUs:">Jak podpořit FYKOS</a></li>
-                                        <li><a n:href=":Default:Merch:">Merch</a></li>
+                                        {* <li><a n:href=":Default:Merch:">Merch</a></li> *}
                                     </ul>
                                 </li>
                                 {default}
-                                <li>For partners
+                                <li>Support FYKOS
                                     <ul>
                                         <li><a n:href=":Default:Partners:">Support us</a></li>
-                                        <li><a href="">Logos and materials</a></li>
-                                        <li><a href="">Contact</a></li>
+                                        {* <li><a href="">Logos and materials</a></li>
+                                        <li><a href="">Contact</a></li> *}
                                     </ul>
                                 </li>
                             {/switch}
                         </ul>
-                    </nav> *}
+                    </nav> 
 
                 </div>
                 <div class="col-md-3">
                     <nav>
                         <ul>
-                            {switch $language->value}
-                            {case cs}
-                            <li>Sledujte nás
-                                {default}
-                            <li>Follow us on social media
+                            <li>
+                                {switch $language->value}
+                                    {case cs}Sledujte nás
+                                    {default}Follow us on social media
                                 {/switch}
                                 <ul>
                                     <li>
@@ -251,23 +250,18 @@
                     </nav>
                     <nav>
                         <ul>
-                            {switch $language->value}
-                            {case cs}
-                            <li>Kontakt
-                                {default}
-                            <li>Contact
+                            <li>
+                                {switch $language->value}
+                                    {case cs}Kontakt
+                                    {default}Contact
                                 {/switch}
                                 <ul>
-                                    {switch $language->value}
-                                        {case cs}
-                                        <li>
-                                            <a n:href=":Default:About:contact">Kontaktní informace</a>
-                                        </li>
-                                        {default}
-                                        <li>
-                                            <a n:href=":Default:About:contact">Contact information</a>
-                                        </li>
-                                    {/switch}
+                                    <li>
+                                        {switch $language->value}
+                                            {case cs}<a n:href=":Default:About:contact">Kontaktní informace</a>
+                                            {default}<a n:href=":Default:About:contact">Contact information</a>
+                                        {/switch}
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
