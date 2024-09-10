@@ -2,102 +2,7 @@
 {block main}
 {varType App\Models\Downloader\ContestYearModel $currentYear}
 
-<style>
 
-/* Additional styles for the Support Us page */
-
-.testimonial-card {
-    background-color: #f8f9fa;
-    border-left: 5px solid #007bff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.testimonial-card blockquote {
-    font-style: italic;
-    margin-bottom: 0.5rem;
-}
-
-.testimonial-card footer {
-    text-align: right;
-    font-weight: bold;
-}
-
-.contact-info {
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.contact-info i&nbsp;{
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #007bff;
-}
-
-#how-to-support .info-block {
-    height: 100%;
-}
-
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-.testimonial-card {
-    background-color: #f8f9fa;
-    border-left: 5px solid #007bff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.testimonial-card blockquote {
-    font-style: italic;
-    margin-bottom: 0.5rem;
-}
-
-.testimonial-card footer {
-    text-align: right;
-    font-weight: bold;
-}
-
-.contact-info {
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.contact-info i&nbsp;{
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #007bff;
-}
-
-#how-to-support .info-block {
-    height: 100%;
-}
-
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.QR-code-payment {
-    max-height: 200px;
-    margin-top: 10px;
-}
-</style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -115,8 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
-
-
 <div class="panel color-auto">
     <section class="inner-container">
         <div class="subheader">Pomáhejte inspirovat budoucí vědce</div>
@@ -164,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="testimonial-card p-3 mb-4">
                     <blockquote>
                         "I had a&nbsp;great time at Prague, met with so many amazing people from other countries, organizers were so kind to us. We still talk with other teams so overall it was a&nbsp;great experience. Right now, I am reading a&nbsp;book that was given to us as a&nbsp;prize so thank you for that as well :)"
-                        <footer>— anonymní účastník Fyziklání 2024</footer>
+                        <footer>— účastník Fyziklání 2024</footer>
                     </blockquote>
                 </div>
             </div>
@@ -185,37 +88,43 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="subheader">Jak nás můžete podpořit</div>
         <h2 class="section-header">Způsoby podpory</h2>
         <div class="row fade-in-section">
-            <div class="col-lg-10 mb-4 mt-4">
+            <div class="col-lg-12 mb-4 mt-4">
                 <div class="info-block p-4">
                     <h3><i class="info-icon fas fa-hand-holding-usd mr-2"></i>Finanční dary</h3>
                     <p>Nejjednodušším a&nbsp;nejúčinějším způsobem, jak nás podpořit, je přímý finanční dar. Tem bude využit exkluzivně na pořádání a&nbsp;rozvoj našich akcí. Jako malý bonus jsou dary FYKOSu jakožto neziskové organizaci částečně odečitatelné z&nbsp;daní.</p>
                     <div class="row mt-4">
                         <h4>Bankovní převod</h4>
                         <small>Prosím, uveďte "Dar pro FYKOS" jako poznámku k platbě. Pokud chcete, abychom Vám zaslali potvrzení pro daňové účely, přidejte i&nbsp;svůj email.</small>
-                        <div class="col-md-6">
-                            <h5 class="mt-3">Účet v českých korunách</h5>
-                            <div>
-                                Číslo účtu: 2102414676 / 2010<br>
-                                IBAN: CZ96 2010 0000 0021 0241 4676<br>
-                                BIC/SWIFT: FIOBCZPPXXX
+                        <div class="col-lg-6">
+                            <div class="row mt-4">
+                                <div class="col-sm-8">
+                                    <h5>Účet v českých korunách</h5>
+                                    Číslo účtu: 2102414676 / 2010<br>
+                                    IBAN: CZ96 2010 0000 0021 0241 4676<br>
+                                    BIC/SWIFT: FIOBCZPPXXX
+                                </div>
+                                <div class="col-sm-4">
+                                    <img class="QR-code-payment" src="/images/QRPlatba_na_ucet_CZK.png" alt="QR kód pro platbu v CZK">
+                                </div>
                             </div>
-                            <img class="QR-code-payment" src="/images/QRPlatba_na_ucet_CZK.png" alt="QR kód pro platbu v CZK">
                         </div>
-                        <div class="col-md-6">
-                            <h5 class="mt-3">Účet v EURech</h5>
-                            <div>
-                                Číslo účtu: 2202414681 / 2010<br>
-                                IBAN: CZ05 2010 0000 0022 0241 4681<br>
-                                BIC/SWIFT: FIOBCZPPXXX
-                            </div>
-                        <div class="col-md-6">
-                            <img class="QR-code-payment" src="/images/QRPlatba_na_ucet_EUR.png" alt="QR kód pro platbu v EUR">
+                        <div class="col-lg-6">
+                            <div class="row mt-4">
+                                <div class="col-sm-8">
+                                    <h5>Účet v EURech</h5>
+                                    Číslo účtu: 2202414681 / 2010<br>
+                                    IBAN: CZ05 2010 0000 0022 0241 4681<br>
+                                    BIC/SWIFT: FIOBCZPPXXX
+                                </div>
+                                <div class="col-sm-4">
+                                    <img class="QR-code-payment" src="/images/QRPlatba_na_ucet_EUR.png" alt="QR kód pro platbu v EUR">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="offset-lg-2 col-lg-10 mb-4 mt-4">
+            <div class="col-lg-12 mb-4 mt-4">
                 <div class="info-block p-4">
                     <h3><i class="info-icon fas fa-building mr-2"></i>Firemní partnerství</h3>
                     <p>Firmy nás mohou podpořit skrze:</p>
@@ -227,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <a href="#contact" class="btn btn-outline-primary mt-2">Kontaktujte nás pro více informací</a>
                 </div>
             </div>
-            <div class="col-lg-10 mb-4 mt-4">
+            <div class="col-lg-12 mb-4 mt-4">
                 <div class="info-block p-4">
                     <h3><i class="info-icon fas fa-share-alt mr-2"></i>Šíření povědomí</h3>
                     <p>Pomůžete nám i&nbsp;tím, že o FYKOSu řeknete ostatním:</p>
@@ -266,5 +175,8 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </section>
 </div>
+
+
+
 
 {/block}
