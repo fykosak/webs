@@ -72,6 +72,10 @@ class ProblemsPresenter extends BasePresenter
                 continue;
             }
         }
+
+        // sort in decreasing order by key
+        krsort($yearsAndSeries);
+
         return $yearsAndSeries;
     }
 

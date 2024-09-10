@@ -22,8 +22,10 @@
                     <h1 class="header-text">FYKOS</h1>
                     <h2 class="header-text">
                         {switch $language->value}
-                            {case 'cs'}Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2>
-                            {default}We inspire and educate<br>high-schoolers in physics.</h2>
+                            {* {case 'cs'}Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2> *}
+                            {case 'cs'}Zažijte fyziku s&nbsp;námi!</h2>
+                            {* {default}We inspire and educate<br>high-schoolers in physics.</h2> *}
+                            {default}Experience physics with us!</h2>
                         {/switch}
                     <p class="header-text">
                         {switch $language->value}
@@ -67,13 +69,13 @@
                                 </h2>
                             {elseif $year_stage == 'during'}
                                 {if $countdownEventsIndices['previous'][$lang] !== null}
-                                    <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]|noescape} | {$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'}</h4>
+                                    <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]|noescape} | {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}
                                 {/if}
-                                <h2 class="next-event-heading">{$events[$countdownEventsIndices['upcoming'][$lang]]['heading'][$lang]|noescape} | {$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'j. n. Y'}
+                                <h2 class="next-event-heading">{$events[$countdownEventsIndices['upcoming'][$lang]]['heading'][$lang]|noescape} | {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}
                                     | <span id="countdown-primary"></span>
                                 </h2>
                                 {if $countdownEventsIndices['next'][$lang] !== null}
-                                    <h4 class="minor-event-heading mb-0">{$events[$countdownEventsIndices['next'][$lang]]['heading'][$lang]|noescape} | {$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'j. n. Y'}
+                                    <h4 class="minor-event-heading mb-0">{$events[$countdownEventsIndices['next'][$lang]]['heading'][$lang]|noescape} | {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}
                                     | <span id="countdown-secondary"></span></h4>
                                 {else}
                                     <h4 class="minor-event-heading mb-0">
@@ -139,10 +141,8 @@
         </h1>
         <p>
             {switch $language->value}
-                {case 'cs'}FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní
-                    {if $year_stage == 'during'}.{elseif $year_stage == 'before'} akce nadcházejícího ročníku.{elseif $year_stage == 'after'} akce minulého ročníku.{/if}
-                {default}FYKOS organizes about ten educational events for high school students every year. Here you can find the main ones
-                    {if $year_stage == 'during'}.{elseif $year_stage == 'before'} of the upcoming school year.{elseif $year_stage == 'after'} of the past school year.{/if}
+                {case 'cs'}FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní{if $year_stage == 'during'}.{elseif $year_stage == 'before'} akce nadcházejícího ročníku.{elseif $year_stage == 'after'} akce minulého ročníku.{/if}
+                {default}FYKOS organizes about ten educational events for high school students every year. Here you can find the main ones{if $year_stage == 'during'}.{elseif $year_stage == 'before'} of the upcoming school year.{elseif $year_stage == 'after'} of the past school year.{/if}
             {/switch}
         </p>
         <a class="btn btn-primary" n:href=":Events:Default:default">
@@ -202,7 +202,7 @@
                                                         {* {$event['heading'][$language->value]} *}
                                                     </h3>
                                                 </div>
-                                                <span class="event-date">{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}</span>
+                                                <span class="event-date">{switch $lang}{case 'cs'}{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}{default}{$event['date']|date:'M j'|replace:' ':'&nbsp;'|noescape}{/switch}</span>
                                             </div>
                                             <div>
                                                 <p class="text-start">{$event['description'][$language->value]|noescape}</p>
@@ -219,11 +219,11 @@
                         <div class="col-12 my-4">
                             <div id="timeline-horizontal-container" class="position-relative">
                                 <div class="start-timeline-text position-absolute">
-                                    <p>{$timelineBegin|date:'j.'}&nbsp;{$timelineBegin|date:'n.'} {$timelineBegin|date:'Y'}</p>
+                                    <p>{switch $lang}{case 'cs'}{$timelineBegin|date:'j.'}&nbsp;{$timelineBegin|date:'n.'} {$timelineBegin|date:'Y'}{default}{$timelineBegin|date:'M'}&nbsp;{$timelineBegin|date:'j'}, {$timelineBegin|date:'Y'}{/switch}
                                 </div>
                                 <hr id="timeline-horizontal">
                                 <div class="end-timeline-text position-absolute">
-                                    <p>{$timelineEnd|date:'j.'}&nbsp;{$timelineEnd|date:'n.'} {$timelineEnd|date:'Y'}</p>
+                                    <p>{switch $lang}{case 'cs'}{$timelineEnd|date:'j.'}&nbsp;{$timelineEnd|date:'n.'} {$timelineEnd|date:'Y'}{default}{$timelineEnd|date:'M'}&nbsp;{$timelineEnd|date:'j'}, {$timelineEnd|date:'Y'}{/switch}
                                 </div>
                             </div>
                         </div>
@@ -253,7 +253,7 @@
                                             <div class="event-header">
                                                 <div class="event-title">
                                                     <h3>{$event['heading'][$language->value]|noescape}</h3>
-                                                    <span class="event-date">{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}</span>
+                                                    <span class="event-date">{switch $lang}{case 'cs'}{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}{default}{$event['date']|date:'M j'|replace:' ':'&nbsp;'|noescape}{/switch}</span>
                                                 </div>
                                             </div>
                                             <div>
