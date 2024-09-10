@@ -30,7 +30,7 @@ class EventsPresenter extends BasePresenter
         if ($event->contestId != 2) {
             $this->error();
         }
-        $this->template->event = $event;
+        $this->template->event = $event->makeParagraphs('description')->makeParagraphs('reportNew');
         $this->template->galery = $this->getComponent('gallery')->hasPhotos("/photos/event/" . $event->eventId);
         $this->template->pdf = $this->getComponent('pdfGallery')->hasFiles("/download/event/" . $event->eventId);
         $persons = $event->end < new DateTime() ? $this->eventService->getEventOrganizers($event->eventId) : [];
@@ -61,6 +61,9 @@ class EventsPresenter extends BasePresenter
         $selectedId = in_array($typeID, $ids) ? $typeID : null;
 
         $events = $this->eventService->getEvents($selectedId ? [$selectedId] : $ids);
+        foreach ($events as $e) {
+            $e->makeParagraphs('description');
+        }
         $this->template->eventTypes = $eventTypes;
         $this->template->selected = $selectedId;
         $this->template->events = array_reverse($events);
