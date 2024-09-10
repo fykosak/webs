@@ -99,10 +99,11 @@ class ModelEvent
         $arr = mb_split("\n\n", $s);
         foreach ($arr as $key => $value) {
             $value = trim(implode(' ', mb_split("\\s+", $value)));
-            if ($value === '')
+            if ($value === '') {
                 unset($arr[$key]);
-            else
+            } else {
                 $arr[$key] = "<p>$value</p>";
+            }
         }
         return implode('', $arr);
     }
