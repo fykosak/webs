@@ -233,7 +233,8 @@
 
   .inline-logo {
     height: 1.8rem;
-    margin-right: 4px;
+    margin-right: 0.2px;
+    margin-bottom: 0.3rem;
   }
 
   /* Add a media query for smaller screens if needed */
@@ -241,6 +242,7 @@
     .event-header {
       flex-direction: column;
       align-items: flex-start;
+      gap: 0;
     }
 
     .event-title {
