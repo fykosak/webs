@@ -13,7 +13,7 @@
     <section class="inner-container">
     <div class="row">
         <div class="col-md-8">
-                
+            {dump $results}
             <h1>
                 {switch $language->value}
                     {case 'cs'}Výsledky {$year}. ročníku FYKOSu
@@ -53,37 +53,6 @@
                 </div>
             </div>
         </div>
-        
-
-        {* <div class="mb-3">
-            <button class="btn btn-primary-inverted button-collapse-header" type="button" data-bs-toggle="collapse"
-            data-bs-target="#resultFilters" aria-expanded="false" aria-controls="resultFilters">
-                {switch $language->value}
-                    {case 'cs'}Změnit ročník
-                    {default}Change Year
-                {/switch}
-            </button>
-
-            <!-- The collapsible content -->
-            <div class="collapse toggle-content inverse-background p-3" id="resultFilters">
-                {for $y = $currentYear; $y >= 1; $y--}
-                    {if $y % 10 == 0}
-                        <div class="row">
-                    {elseif $y == $currentYear}
-                        <div class="row">
-                        {for $i = 0; $i < 10 - $currentYear % 10; $i++}
-                            <div class="col"></div>
-                        {/for}
-                    {/if}
-                    <div class="col">
-                        <a class="btn btn-primary m-2 yearbox" href="{plink 'this' 'year'=>$y}">{$y}</a>
-                    </div>
-                    {if $y % 10 == 1}
-                        </div>
-                    {/if}
-                {/for}
-            </div>
-        </div> *}
 
         <p>
             {switch $language->value}

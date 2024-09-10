@@ -169,10 +169,17 @@
                                                     {/switch}
                                                 </a>
                                             {else}
-                                                {switch $language->value}
-                                                    {case 'cs'}Řešení této úlohy zveřejníme brzy.
-                                                    {default}We will publish the solution to this problem soon.
-                                                {/switch}
+                                                {if $series->getDeadline() && $series->getDeadline() > new DateTime('-1 year')}
+                                                    {switch $language->value}
+                                                        {case 'cs'}Řešení této úlohy zveřejníme brzy.
+                                                        {default}We will publish the solution to this problem soon.
+                                                    {/switch}
+                                                {else}
+                                                    {switch $language->value}
+                                                        {case 'cs'}Řešení této úlohy momentálně není dostupné.
+                                                        {default}The solution to this problem is currently not available.
+                                                    {/switch}
+                                                {/if}
                                             {/if}
                                             {if $problem->number == 8 && $serialPath}
                                                 <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
@@ -185,7 +192,7 @@
                                             {/if}
                                         </div>
                                         {if array_key_exists($lang, $problem->origin) && $problem->origin[$lang]}
-                                            <div><i>~ {$problem->origin[$lang]|noescape}</i></div>
+                                            <div><i>{$problem->origin[$lang]|noescape}</i></div>
                                         {/if}
                                     </div>
                                 {/if}
