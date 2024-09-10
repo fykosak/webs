@@ -44,6 +44,10 @@ const translations: Translations = {
       cs: 'Kategorie {categoryNumber}. ročníků',
       en: 'Category {categoryNumber}',
     },
+    maxNumPointsHeader: {
+      cs: 'Maximální počet bodů',
+      en: 'Max Number of Points',
+    },
     // Add more translations as needed
   };
 
