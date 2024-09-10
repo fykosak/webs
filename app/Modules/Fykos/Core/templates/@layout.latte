@@ -1,5 +1,6 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
+{varType int $currentYear}
 <!DOCTYPE html>
 <html lang="{$lang}">
 
@@ -144,21 +145,19 @@
                     {* <div class="logo" style="font-size: 1cm; font-weight: bold">FYKOS<small>{switch $language->value}{case cs}.cz{default}.org{/switch}</small></div> *}
                     <p>
                         {switch $language->value}
-                            {case cs}FYKOS je skupina pořádající vzdělávací akce pro středoškoláky ve fyzice s&nbsp;37letou tradicí.
+                            {case cs}FYKOS je skupina pořádající vzdělávací akce pro středoškoláky ve fyzice s&nbsp;{$currentYear->year}letou tradicí.
                             FYKOS je tvořen převážně studenty
                             <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
-                            {default}FYKOS is a group organizing educational physics events for high school students with a 37-year tradition.
+                            {default}FYKOS is a group organizing educational physics events for high school students with a {$currentYear->year}-year tradition.
                             FYKOS is mainly composed of students from the
                             <a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a>.
-                            {/switch}
+                        {/switch}
                     </p>
                     <p>
                         {switch $language->value}
-                            {case cs}Akce FYKOSu jsou spoluvyhlašovány <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální
-                            fakultou Univerzity Karlovy</a>
-                            a Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
-                            {default}FYKOS events are co-organized by the <a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a>
-                            and the Ministry of Education, Youth and Sports.
+                            {case cs}Akce FYKOSu jsou vyhlašovány <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální
+                            fakultou Univerzity Karlovy</a> a zpravidla podporovány Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
+                            {default}FYKOS events are announced by the <a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a> and usually supported by the Ministry of Education, Youth and Sports.
                         {/switch}
                     </p>
                     <p>
