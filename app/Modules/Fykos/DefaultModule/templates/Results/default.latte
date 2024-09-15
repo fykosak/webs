@@ -40,6 +40,7 @@
                     <div class="scrollable-menu">
                         <div class="series-container">
                             {foreach array_reverse($contest->years) as $contestYear}
+                                {if $contestYear->year < 15}{break}{/if} {* Hide years for which data is not available *}
                                 {varType App\Models\Downloader\ContestYearModel $contestYear}
                                 <a class="series-box full-width btn" href="{plink 'this' 'year'=>$contestYear->year}">
                                     {switch $language->value}
