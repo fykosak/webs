@@ -6,6 +6,9 @@ namespace App\Modules\Fykos\DefaultModule;
 
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 
+use Nette\Application\BadRequestException;
+use Nette\Http\IResponse;
+
 class ResultsPresenter extends BasePresenter
 {
     /** @persistent */
