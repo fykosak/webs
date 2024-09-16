@@ -20,19 +20,8 @@
             <div class="row">
                 <div class="col-lg-7 col-md-6 header-text-container">
                     <h1 class="header-text">FYKOS</h1>
-                    <h2 class="header-text">
-                        {switch $language->value}
-                            {* {case 'cs'}Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2> *}
-                            {case 'cs'}Zažijte fyziku s&nbsp;námi!</h2>
-                            {* {default}We inspire and educate<br>high-schoolers in physics.</h2> *}
-                            {default}Experience physics with us!</h2>
-                        {/switch}
-                    <p class="header-text">
-                        {switch $language->value}
-                            {case 'cs'}FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již {$currentYear->year}&nbsp;let.
-                            {default}FYKOS has been organizing non-profit educational events in physics for {$currentYear->year} years.
-                        {/switch}
-                    </p>
+                    <h2 class="header-text">{$headerText[$lang]['slogan']|noescape}</h2>
+                    <p class="header-text">{$headerText[$lang]['description']|noescape}</p>
                     <a class="btn btn-light mt-2" href="#timeline">
                         {switch $language->value}
                             {case 'cs'}Jste tu poprvé?
