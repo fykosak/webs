@@ -11,10 +11,12 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="subheader">
-                        {switch $language->value}
-                            {case 'cs'}Deadline pro odeslání: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>.
-                            {default}Deadline for submission: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}, CET</strong>.
-                        {/switch}
+                        {if $series->getDeadline()}
+                            {switch $language->value}
+                                {case 'cs'}Deadline pro odeslání: <strong>{$series->getDeadline()|date:"j. n. Y, H:i"}</strong>.
+                                {default}Deadline for submission: <strong>{$series->getDeadline()|date:"M. j, Y, H:i"}, CET</strong>.
+                            {/switch}
+                        {/if}
                     </div>
                     <h1>
                         {switch $language->value}
@@ -131,14 +133,16 @@
                                         {$problem->getLabel()}...
                                         {$problem->name[$lang]|noescape}</h4>
                                     <div>
-                                        {switch $language->value}
-                                        {case 'cs'}
-                                        <h4>{$problem->points} bod{if $problem->points == 1}{elseif
-                                            $problem->points > 1
-                                            && $problem->points < 5}y{else}ů{/if}</h4>
-                                        {default}
-                                        <h4>{$problem->points} point{if $problem->points == 1}{else}s{/if}</h4>
-                                        {/switch}
+                                        {if $problem->points}
+                                            {switch $language->value}
+                                                {case 'cs'}
+                                                <h4>{$problem->points} bod{if $problem->points == 1}{elseif
+                                                    $problem->points > 1
+                                                    && $problem->points < 5}y{else}ů{/if}</h4>
+                                                {default}
+                                                <h4>{$problem->points} point{if $problem->points == 1}{else}s{/if}</h4>
+                                            {/switch}
+                                        {/if}
                                     </div>
                                 </div>
                             </div>
