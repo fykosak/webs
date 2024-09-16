@@ -289,8 +289,7 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                 </tr>
                 <tr className="max-points-row">
                     <th></th>
-                    <th>{translate('maxNumPointsHeader')}</th>
-                    <th></th>
+                    <th colSpan={2}>{translate('maxNumPointsHeader')}</th>
                     {Object.entries(tasks).map(([series, tasksInSeries]) => {
                         const seriesMaxPoints = tasksInSeries.reduce((sum, task) => sum + (typeof task.points === 'number' ? task.points : 0), 0);
                         return (
