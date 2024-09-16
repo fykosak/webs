@@ -42,7 +42,7 @@ const translations: Translations = {
     },
     categoryLabel: {
       cs: 'Kategorie {categoryNumber}. ročníků',
-      en: 'Category {categoryNumber}',
+      en: 'Category of high-school year {categoryNumber}',
     },
     maxNumPointsHeader: {
       cs: 'Maximální počet bodů',
