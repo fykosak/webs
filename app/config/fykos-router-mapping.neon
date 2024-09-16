@@ -18,6 +18,7 @@ parameters:
                     historie: history
                     organizatori: organizers
                     kontakt: contact
+                    byvaliOrganizatori: allPastOrganizers
         events:
             cs:
                 Soustredeni: Camps
