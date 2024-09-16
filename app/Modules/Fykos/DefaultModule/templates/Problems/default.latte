@@ -2,7 +2,12 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
 
-{block title}Zadání{/block}
+{block title}
+    {switch $language->value}
+        {case 'cs'}Zadání r{$series->year}s{$series->series}
+        {default}Problems y{$series->year}s{$series->series}
+    {/switch}
+{/block}
 {block main}
 
 <div class="panel color-auto">

@@ -1,7 +1,12 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
 {varType App\Models\Downloader\ContestYearModel $currentYear}
-{block title}Seminář FYKOS{/block}
+{block title}
+    {switch $language->value}
+        {case cs}Seminář FYKOS
+        {default}FYKOS Competition
+    {/switch}
+{/block}
 
 {block main}
 <div class="panel color-auto">
