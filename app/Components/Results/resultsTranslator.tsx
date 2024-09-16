@@ -56,6 +56,14 @@ const translations: Translations = {
       cs: 's4-6',
       en: 's4-6',
     },
+    allCategories: {
+      cs: 'Všechny kategorie',
+      en: 'All Categories',
+    },
+    totalRank: {
+      cs: 'Celkové<br>pořadí',
+      en: 'Total<br>Rank',
+    },
   };
 
 export class Translator {

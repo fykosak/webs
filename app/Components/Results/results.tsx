@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './style.scss';
 import { TranslatorProvider, useTranslator } from './resultsTranslator';
+import { co } from '@fullcalendar/core/internal-common';
 
 interface Contestant {
     contestant: {
@@ -11,6 +12,7 @@ interface Contestant {
     submits: {
         [key: number]: number;
     }
+    totalRank: number;
     sunOneToThree: number;
     sumFourToSix: number;
     sum: number;
@@ -39,7 +41,7 @@ interface Props<Category extends string = string> {
     };
 }
 
-function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks }) {
+function CategoryResults({ submits, tasks, isAllCategories = false }: { submits: Submits, tasks: Tasks, isAllCategories?: boolean }) {
     const { translate } = useTranslator();
     const [activeSeries, setActiveSeries] = useState<{ [key: string]: boolean }>({});
     const [sortColumn, setSortColumn] = useState<string | null>('Category Rank');
@@ -67,6 +69,9 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                     const schoolB = b.contestant.school || '';
                     return sortDirection === 'asc' ? schoolA.localeCompare(schoolB) : schoolB.localeCompare(schoolA);
                 } else if (sortColumn === 'Category Rank') {
+                    if (isAllCategories) {
+                        return sortDirection === 'asc' ? a.totalRank - b.totalRank : b.totalRank - a.totalRank;
+                    }
                     return sortDirection === 'asc' ? a.rank[0] - b.rank[0] : b.rank[0] - a.rank[0];
                 } else if (sortColumn === 's1-3') {
                     return sortDirection === 'asc' ? b.sunOneToThree - a.sunOneToThree : a.sunOneToThree - b.sunOneToThree;
@@ -126,6 +131,24 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
         contestant.sum = sumOneToThree === null || sumFourToSix === null ? null : sumOneToThree + sumFourToSix;
     }
 
+    // if isAllCategories, calculate total rank, i.e. sort contestants by their points sum
+    if (isAllCategories) {
+        // create a copy of the array
+        const tempSubmits = [...submits];
+        
+        tempSubmits.sort((a, b) => {
+            return b.sum - a.sum;
+        });
+        // if two contestants have the same sum, they should have the same rank
+        let currentRank = 0;
+        tempSubmits.forEach((contestant, index) => {
+            if (index === 0 || contestant.sum !== tempSubmits[index - 1].sum) {
+                currentRank += 1;
+            }
+            contestant.totalRank = currentRank;
+        });
+    }
+
     return (
         <table className="table table-hover contest-results table-sm">
             <thead>
@@ -136,7 +159,7 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                         onMouseEnter={() => handleMouseEnter('Category Rank')}
                         onMouseLeave={handleMouseLeave}
                     >
-                        {translate('categoryRank')}&nbsp;
+                        {isAllCategories ? translate('totalRank') : translate('categoryRank')}&nbsp;
                         {sortColumn === 'Category Rank' ? (
                             <span style={{ color: 'black' }}>
                                 {sortDirection === 'asc' ? '↑' : '↓'}
@@ -322,7 +345,7 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                     }
                     return (
                         <tr key={`contestant-${contestant.contestant.contestantId}-${index}`}>
-                            <td className="centered-cell">{contestant.rank[0]}</td>
+                            <td className="centered-cell">{isAllCategories ? contestant.totalRank : contestant.rank[0]}</td>
                             <td>{contestant.contestant.name}</td>
                             <td>{contestant.contestant.school}</td>
                             {seriesContainers}
@@ -439,6 +462,37 @@ function Results({ resultsData }: Props) {
             </div>
         );
     });
+
+    // append total results, i.e. results for all categories
+    const allCategories = Object.values(resultsData.submits).reduce((allCategories, categorySubmits) => {
+        return allCategories.concat(categorySubmits);
+    }, []);
+
+    const allTasks = resultsData.tasks[sortedCategories[0]];
+
+    categoryContainers.push(
+        <div>
+            <button
+                className="btn btn-primary button-collapse-header"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse-all-categories"
+                aria-expanded={activeCategories.all ? 'true' : 'false'}
+                aria-controls="collapse-all-categories"
+                onClick={() => toggleCategory('all')}
+            >
+                {translate('allCategories')}
+            </button>
+            <div
+                className={`collapse toggle-content ${activeCategories.all ? 'show' : ''}`}
+                id="collapse-all-categories"
+            >
+                <CategoryResults submits={allCategories} tasks={allTasks} isAllCategories={true} />
+            </div>
+        </div>
+    );
+
+
 
     return <div>{categoryContainers}</div>;
 }
