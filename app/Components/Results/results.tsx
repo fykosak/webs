@@ -173,7 +173,7 @@ function CategoryResults({ submits, tasks }: { submits: Submits, tasks: Tasks })
                         {translate('school')}&nbsp;
                         {sortColumn === 'School' ? (
                             <span style={{ color: 'black' }}>
-                                {sortDirection === 'asc' ? '↓' : '↑'}
+                                {sortDirection === 'asc' ? '↑' : '↓'}
                             </span>
                         ) : (
                             <span className="inactive-arrow">
