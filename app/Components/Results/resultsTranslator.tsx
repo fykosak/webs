@@ -48,7 +48,14 @@ const translations: Translations = {
       cs: 'Maximální počet bodů',
       en: 'Max Number of Points',
     },
-    // Add more translations as needed
+    sumOneToThree: {
+      cs: 's1-3',
+      en: 's1-3',
+    },
+    sumFourToSix: {
+      cs: 's4-6',
+      en: 's4-6',
+    },
   };
 
 export class Translator {
