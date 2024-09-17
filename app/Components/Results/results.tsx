@@ -213,7 +213,7 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                         onMouseEnter={() => handleMouseEnter('Name')}
                         onMouseLeave={handleMouseLeave}
                     >
-                        {translate('name')}&nbsp;
+                        {translate('name')}<br />
                         {sortColumn === 'Name' ? (
                             <span style={{ color: 'black' }}>
                                 {sortDirection === 'asc' ? '↑' : '↓'}
@@ -230,7 +230,7 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                         onMouseEnter={() => handleMouseEnter('School')}
                         onMouseLeave={handleMouseLeave}
                     >
-                        {translate('school')}&nbsp;
+                        {translate('school')}<br />
                         {sortColumn === 'School' ? (
                             <span style={{ color: 'black' }}>
                                 {sortDirection === 'asc' ? '↑' : '↓'}
@@ -276,7 +276,6 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                         onMouseEnter={() => handleMouseEnter('s1-3')}
                         onMouseLeave={handleMouseLeave}
                     >
-                        {translate('sumOneToThree')}<br />
                         {sortColumn === 's1-3' ? (
                             <span style={{ color: 'black' }}>
                                 {sortDirection === 'asc' ? '↓' : '↑'}
@@ -285,7 +284,7 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                             <span className="inactive-arrow">
                                 ↓
                             </span>
-                        )}
+                        )}s<br/>1-3
                     </th>
                     {showS4To6 && (
                         <th
@@ -294,7 +293,6 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                             onMouseEnter={() => handleMouseEnter('s4-6')}
                             onMouseLeave={handleMouseLeave}
                         >
-                            {translate('sumFourToSix')}<br />
                             {sortColumn === 's4-6' ? (
                                 <span style={{ color: 'black' }}>
                                     {sortDirection === 'asc' ? '↓' : '↑'}
@@ -303,7 +301,7 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                                 <span className="inactive-arrow">
                                     ↓
                                 </span>
-                            )}
+                            )}s<br/>4-6
                         </th>
                     )}
                     <th
