@@ -500,7 +500,7 @@ function Results({ resultsData }: Props) {
                     {translate('categoryLabel', { categoryNumber })}
                 </button>
                 <div
-                    className={`collapse toggle-content ${activeCategories[category] ? 'show' : ''}`}
+                    className={`collapse toggle-content scrollable-container ${activeCategories[category] ? 'show' : ''}`}
                     id={`collapse-category-${category}`}
                 >
                     <CategoryResults submits={resultsData.submits[category]} tasks={resultsData.tasks[category]} />
@@ -530,7 +530,7 @@ function Results({ resultsData }: Props) {
                 {translate('allCategories')}
             </button>
             <div
-                className={`collapse toggle-content ${activeCategories.all ? 'show' : ''}`}
+                className={`collapse toggle-content scrollable-container ${activeCategories.all ? 'show' : ''}`}
                 id="collapse-all-categories"
             >
                 <CategoryResults submits={allCategories} tasks={allTasks} isAllCategories={true} />
