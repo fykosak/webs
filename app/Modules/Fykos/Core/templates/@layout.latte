@@ -276,8 +276,38 @@
             </div>
         </div>
     </footer>
+    
+    <div id="old-website-notice">
+        <span>
+            {switch $language->value}
+                {case cs}Pokud hledáte starou webovou stránku, najdete ji na <a href="https://old.fykos.cz">https://old.fykos.cz</a>
+                {default}If you are looking for the old website, you may find it at <a href="https://old.fykos.org">https://old.fykos.org</a>
+            {/switch}
+        </span>
+        <button id="hide-notice">
+            {switch $language->value}
+                {case cs}Skrýt
+                {default}Hide
+            {/switch}
+        </button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var notice = document.getElementById('old-website-notice');
+            var hideButton = document.getElementById('hide-notice');
 
+            // Check if the notice should be hidden
+            if (sessionStorage.getItem('hideOldWebsiteNotice') !== 'true') {
+                notice.style.display = 'block';
+            }
 
+            hideButton.addEventListener('click', function() {
+                notice.style.display = 'none';
+                // Save the user's preference for this session
+                sessionStorage.setItem('hideOldWebsiteNotice', 'true');
+            });
+        });
+    </script>
     {/block}
 </body>
 
