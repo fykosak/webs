@@ -64,6 +64,10 @@ const translations: Translations = {
       cs: 'Celkové<br>pořadí',
       en: 'Total<br>Rank',
     },
+    category: {
+      cs: 'Kategorie',
+      en: 'Category',
+    },
   };
 
 export class Translator {
