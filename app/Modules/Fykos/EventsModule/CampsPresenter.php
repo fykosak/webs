@@ -9,6 +9,9 @@ use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
 use Nette\Application\ForbiddenRequestException;
+use Tracy\Debugger;
+use Nette\Application\BadRequestException;
+use Nette\Http\IResponse;
 
 class CampsPresenter extends BasePresenter
 {
@@ -31,20 +34,43 @@ class CampsPresenter extends BasePresenter
         }
     }
 
+    public function eventYearToCalendarYear(int $eventYear, int $season): int
+    {
+        if ($season == 4) {
+            return 1986 + $eventYear + 1;
+        } else { // $season == 5
+            return 1986 + $eventYear;
+        }
+    }
+
     /**
-     * @throws ForbiddenRequestException
      * @throws \Throwable
      */
-    public function renderDetail(): void
+    public function renderDetail(int $year, int $season): void
     {
-        $id = $this->getParameter('id');
-        $events = $this->downloader->download(new EventRequest((int)$id));
-        if (!in_array($events['eventTypeId'], self::CAMPS_IDS)) {
-            throw new ForbiddenRequestException();
+        $events = $this->downloader->download(new EventListRequest([$season]));
+
+        //  find event by year
+        Debugger::barDump($events);
+
+        $event = null;
+        foreach ($events as $e) {
+            if ($this->eventYearToCalendarYear($e['year'], $e['eventTypeId']) == $year) {
+                $event = $e;
+                break;
+            }
         }
-        $events['heading'] = $this->getEventHeading($events);
-        $this->template->event = $events;
-        $this->template->participants = $this->downloader->download(new ParticipantsRequest((int)$id));
+        
+        if ($event === null) {
+            throw new BadRequestException(
+                $this->csen('Stránka nenalezena', 'Page not found'),
+                IResponse::S404_NOT_FOUND
+            );
+        }
+        
+        $event['heading'] = $this->getEventHeading($event);
+        $this->template->event = $event;
+        $this->template->participants = $this->downloader->download(new ParticipantsRequest((int)$event['eventId']));
     }
 
     public function getEventPhoto(array $event): string
