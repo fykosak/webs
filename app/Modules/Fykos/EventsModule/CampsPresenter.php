@@ -50,9 +50,6 @@ class CampsPresenter extends BasePresenter
     {
         $events = $this->downloader->download(new EventListRequest([$season]));
 
-        //  find event by year
-        Debugger::barDump($events);
-
         $event = null;
         foreach ($events as $e) {
             if ($this->eventYearToCalendarYear($e['year'], $e['eventTypeId']) == $year) {

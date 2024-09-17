@@ -2,11 +2,12 @@
 {varType array $participants}
 {varType App\Modules\Core\Language $language}
 
-{block title}{$event['nameNew'][$lang]|capitalize}{/block}
+{block title}{$event['nameNew'][$lang]|firstUpper}{/block}
 {block subtitle}
     {$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}
 {/block}
 {block main}
+{dump $event}
     <div class="panel color-auto">
         <section class="inner-container">
             {ifset subtitle}
