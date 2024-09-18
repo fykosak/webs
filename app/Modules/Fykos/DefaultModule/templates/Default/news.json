@@ -13,10 +13,10 @@
     ],
     "cs" : [
         {
-            "title": "Je tu 38. ročník",
-            "text": "Vaše očekávání se naplnilo a přichází nový ročník! Opět na vás čeká šest sérií neobvyklých fyzikálních úloh a dvě nezapomenutelná soustředění. Pojďme si spolu užít rok plný společných akcí a fyziky!",
-            "link": "https://beta.fykos.cz/zadani",
-            "link-text": "Zadání",
+            "title": "Letní stáže",
+            "text": "Fyzika se neobejde bez vědecké práce, která se neodmyslitelně pojí s experimenty! Letos se nejlepší řešitelé experimentálních úloh budou moct zúčastnit dvoutýdenní letní stáže na vědeckých pracovištích v Praze a zkusit si tak, co všechno práce v laboratoři obnáší! Neváhejte a pusťte se do měření. Jestli si ale ještě nejste jistí, jak na zpracování experimentů, může vám pomoct náš návod.",
+            "link": "https://fykos.cz/akce/fykos/experimenty",
+            "link-text": "Návod",
             "color": "fykos"
         },
         {
@@ -28,13 +28,6 @@
         }
     ],
     "en" : [
-        {
-            "title": "Year 38 Is Here",
-            "text": "Your waiting has come to an end, and Year 38 is here! Once again, six series of unusual physics problems await you. Let's enjoy a year full of events and physics together!",
-            "link": "https://fykos.org/events/start",
-            "link-text": "Events",
-            "color": "fykos"
-        },
         {
             "title": "Registration for Physics Brawl Online",
             "text": "Registration for this year's Physics Brawl Online is open. So get together up to five friends and dive into solving all kinds of physics problems on November 20!",
