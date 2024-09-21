@@ -171,12 +171,12 @@
                             href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img
                                 class="other-logo"
                                 src="{$basePath}/images/logos/fyziklani_online_logo_white_{$lang}.png"
-                                style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        <a target="_blank"
+                                style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a><a target="_blank"
                             href="{switch $language->value}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img
                                 class="other-logo" src="{$basePath}/images/logos/fyziklani_white_logo.svg"
                                 style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        {if $lang=='cs'}<a target="_blank" href="https://dsef.cz/"><img class="other-logo"
+                        {if $lang=='cs'}
+                        <a target="_blank" href="https://dsef.cz/"><img class="other-logo"
                                 src="{$basePath}/images/logos/dsef_logo_white.png"
                                 style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
                         {/if}
@@ -297,14 +297,14 @@
             var hideButton = document.getElementById('hide-notice');
 
             // Check if the notice should be hidden
-            if (sessionStorage.getItem('hideOldWebsiteNotice') !== 'true') {
+            if (localStorage.getItem('hideOldWebsiteNotice') !== 'true') {
                 notice.style.display = 'block';
             }
 
             hideButton.addEventListener('click', function() {
                 notice.style.display = 'none';
                 // Save the user's preference for this session
-                sessionStorage.setItem('hideOldWebsiteNotice', 'true');
+                localStorage.setItem('hideOldWebsiteNotice', 'true');
             });
         });
     </script>
