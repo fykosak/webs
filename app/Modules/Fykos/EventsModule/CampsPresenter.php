@@ -67,7 +67,11 @@ class CampsPresenter extends BasePresenter
         
         $event['heading'] = $this->getEventHeading($event);
         $this->template->event = $event;
-        $this->template->participants = $this->downloader->download(new ParticipantsRequest((int)$event['eventId']));
+        $participants = $this->downloader->download(new ParticipantsRequest((int)$event['eventId']));
+        $participants = array_filter($participants, function ($participant) {
+            return $participant['status'] == 'participated';
+        });
+        $this->template->participants = $participants;
     }
 
     public function getEventPhoto(array $event): string
