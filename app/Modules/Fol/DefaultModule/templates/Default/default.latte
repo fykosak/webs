@@ -212,9 +212,12 @@
                         FYKOSí lahve,<br/>trička a mikiny
                     </div>
                     {default}
-                    <a class="price-box factorio-box small" href="https://www.factorio.com/">
+                    {*<a class="price-box factorio-box small" href="https://www.factorio.com/">
                         Factorio license
-                    </a>
+                    </a>*}
+                     <a class="price-box propagacni-box small">
+                                FYKOS's bottles,<br/>T-shirts and other prices 
+                            </a>
                     {/switch}
 
                     {switch $language->value}
@@ -235,9 +238,12 @@
                                 Knihy<br/>podle<br/>výběru
                             </div>
                         {default}
-                            <a class="price-box propagacni-box small">
+                            <div class="price-box large knihy-box">
+                                Books<br/>by your<br/>choice
+                            </div>
+                            {*<a class="price-box propagacni-box small">
                                 FYKOS's bottles,<br/>T-shirts and other prices 
-                            </a>
+                            </a>*}
                     {/switch}
 
                       <a class="price-box small chess-box" href="https://www.chess.com/">
@@ -267,9 +273,12 @@
                                 Deskovky<br>a karetní<br>hry
                             </div>
                         {default}
-                            <a class="price-box small kerbal-box" href="http://www.kerbalspaceprogram.com/games-kerbal-space-program/">
+                              <div class="price-box small deskovky-box">
+                                Board <br>and card<br>games
+                            </div>
+                           {* <a class="price-box small kerbal-box" href="http://www.kerbalspaceprogram.com/games-kerbal-space-program/">
                                 Kerbal Space Program game license
-                            </a>
+                            </a>*}
                     {/switch}
 
 {*                    <a class="price-box large" href="http://www.graphmatica.com/" style="background-color: #019A69">*}
@@ -277,25 +286,27 @@
 {*                            {default}Software<br/>Graphmatica<br/>{/switch}*}
 {*                    </a>*}
 
-{*                    {switch $language->value}
+                   {switch $language->value}
                         {case cs}
-                            <div class="price-box large" style="background-color: #00ae6b; display: flex; align-items: center;">
-                                O dalších cenách jednáme se sponzory...
+                            <div class="price-box large" style="background-color: #f79c55; display: flex; align-items: center;">
+                                Další ceny pro vás připravujeme...
                             </div>
                         {default}
-                            <div class="price-box large" style="background-color: #00ae6b; display: flex; align-items: center;">
+                            <div class="price-box large" style="background-color: #f79c55; display: flex; align-items: center;">
                                 We are preparing more prizes...
                             </div>
-                    {/switch}*}
+                    {/switch}
 
-                    <a class="price-box large avast-box" href="https://avast.com/">
+ {*                   <a class="price-box large avast-box" href="https://avast.com/">
                         {switch $language->value}
                             {case cs}Licence na<br/>
                                 <img src="{$basePath}/images/logos/avast.png" alt="Avast" style="max-height: 3rem">
                             {default}License to<br/>
                                 <img src="{$basePath}/images/logos/avast.png" alt="Avast" style="max-height: 3rem">
                         {/switch}
-                    </a>
+                    </a>*}
+
+
                 </div>
             </div>
         </section>

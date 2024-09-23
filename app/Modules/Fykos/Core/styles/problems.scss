@@ -12,6 +12,16 @@
   .card-footer i {
     color: $primary-color;
   }
+  
+  .card-body {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  
+  .card-body .card-title {
+    display: inline-block;
+    min-width: 100%;
+  }
 
   .header-problem-1,
   .header-problem-2 {

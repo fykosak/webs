@@ -22,11 +22,20 @@ Require all granted
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 
-    RewriteRule ^(.*)/start$ /$1/ [R=301,L]
-    RewriteRule ^rocnik([0-9]+)/ulohy/serie([0-9]+) /zadani/$1/$2 [R=301,L]
-    RewriteRule ^o-nas/co-je-fykos /akce/fykos [R=301,L]
+	RewriteRule ^(.*)/start$ /$1/ [R=301,L]
+	RewriteRule ^rocnik([0-9]+)/ulohy/serie([0-9]+) /zadani/$1/$2 [R=301,L]
+	RewriteRule ^o-nas/co-je-fykos /o-nas [R=301,L]
+	RewriteRule ^o-nas/pravidla /akce/fykos/pravidla [R=301,L]
+	RewriteRule ^o-nas/merch /merch [R=301,L]
+	RewriteRule ^ulohy/elektronicka-reseni /akce/fykos/jak-psat [R=301,L]
+	RewriteRule ^problems/electronic-solutions /events/fykos/tex-tutorial [R=301,L]
+	RewriteRule ^ulohy/rocenky /o-nas/historie [R=301,L]
+	RewriteRule ^terminy /akce/ [R=301,L]
+	RewriteRule ^ulohy/archiv /zadani [R=301,L]
+	RewriteRule ^sex/jak-na-to /akce/fykos/experimenty [R=301,L]
+	RewriteRule ^o-nas/sin-slavy /o-nas/byvali-organizatori [R=301,L]
 
-	RewriteRule !\.(pdf|js|mjs|ico|gif|jpg|jpeg|png|webp|svg|css|rar|zip|7z|tar\.gz|map|eot|ttf|otf|woff|woff2)$ index.php [L]
+	RewriteRule !\.(pdf|js|mjs|ico|gif|jpg|jpeg|png|webp|svg|css|rar|zip|7z|tar\.gz|map|eot|ttf|otf|woff|woff2|mp4)$ index.php [L]
 
 </IfModule>
 

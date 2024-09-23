@@ -117,4 +117,10 @@ final class ProblemService extends AbstractJSONService
         $path = 'serial' . $series->series . '.' . $lang . '.pdf';
         return $this->getMedia($contest, $series->year, $path);
     }
+
+    public function getYearbook(string $contest, int $year, string $lang): ?string
+    {
+        $path = 'yearbook.pdf';
+        return $this->getMedia($contest, $year, $path);
+    }
 }

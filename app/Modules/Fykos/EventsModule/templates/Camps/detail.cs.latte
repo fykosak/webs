@@ -2,11 +2,12 @@
 {varType array $participants}
 {varType App\Modules\Core\Language $language}
 
-{block title}{$event['nameNew'][$lang]|capitalize}{/block}
+{block title}{$event['nameNew'][$lang]|firstUpper}{/block}
 {block subtitle}
     {$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}
 {/block}
 {block main}
+{dump $event}
     <div class="panel color-auto">
         <section class="inner-container">
             {ifset subtitle}
@@ -21,6 +22,12 @@
             {foreach $participants as $participant}
                 {$participant['name']}{if !$iterator->isLast()},{else}.{/if}
             {/foreach}
+        </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>Fotogalerie</h1>
+            {control gallery:randomLine "/media/images/events/sous-podzim/rocnik37/carousel-photos/"}
         </section>
     </div>
 {/block}

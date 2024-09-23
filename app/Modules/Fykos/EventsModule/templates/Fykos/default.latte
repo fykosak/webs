@@ -1,7 +1,12 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
 {varType App\Models\Downloader\ContestYearModel $currentYear}
-{block title}Seminář FYKOS{/block}
+{block title}
+    {switch $language->value}
+        {case cs}Seminář FYKOS
+        {default}FYKOS Competition
+    {/switch}
+{/block}
 
 {block main}
 <div class="panel color-auto">
@@ -145,8 +150,8 @@
             </div>
             <div class="description">
                 {switch $language->value}
-                    {case cs}Ne, každá úloha se počítá a z každého pokusu se můžete něco naučit. Řešitelé, kteří spočítají úplně všechno, jsou spíše výjimkou. Hodnotíme především snahu a postup.
-                    {default}No, each problem counts and you can learn something from each attempt. Participants who solve everything are rather an exception. We evaluate mainly the effort and the process.
+                    {case cs}Ne, každá úloha se počítá a z každého pokusu se můžete něco naučit. Řešitelé, kteří vyřeší úplně všechny úlohy, jsou spíše výjimkou. Hodnotíme především snahu a postup.
+                    {default}No, each problem counts and you can learn something from each attempt. Participants who solve all problems are rather an exception. We mainly evaluate effort and approach.
                 {/switch}
             </div>
         </div>
@@ -206,11 +211,11 @@
             {switch $language->value}
                 {case cs}Řešitelé FYKOSu získávají praxi v řešení fyzikálních problémů a&nbsp;hlubší náhled na jejich podstatu.
                     FYKOS též slouží jako
-                    velmi vhodná přípravou pro současné a&nbsp;budoucí úspěšné řešitele jiných fyzikálních soutěží (<a
+                    velmi vhodná příprava pro současné a&nbsp;budoucí úspěšné řešitele jiných fyzikálních soutěží (<a
                         href="http://fyzikalniolympiada.cz/">Fyzikální olympiáda</a>, <a
                         href="http://www.jcmf.cz/?q=cz/node/35">Turnaj
                         mladých fyziků</a> apod.). Je také dobrým odrazovým
-                    můstkem pro studium na <a href="http://mff.cuni.cz/">Matematicko-fyzikální fakultě UK</a> nebo dalších technických fakultách.
+                    můstkem pro studium na <a href="http://mff.cuni.cz/">Matematicko-fyzikální fakultě UK</a> nebo na dalších technických fakultách.
                 {default}FYKOS participants gain practice in solving physics problems and a deeper understanding of their nature.
                     FYKOS also serves as
                     a great preparation for current and future successful participants in other physics competitions (Physics Olympiads, <a href="https://physicsbrawl.org/">Physics Brawl Online</a>, etc.). It is also a good stepping stone

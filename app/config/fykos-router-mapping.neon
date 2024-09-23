@@ -12,11 +12,13 @@ parameters:
                 Zadani: Problems
                 ArchivUloh: ProblemsArchive
                 Poradi: Results
+                PodporteNas: SupportUs
             actions:
                 cs:
                     historie: history
                     organizatori: organizers
                     kontakt: contact
+                    byvaliOrganizatori: allPastOrganizers
         events:
             cs:
                 Soustredeni: Camps

@@ -4,10 +4,32 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
+use App\Models\Downloader\ProblemService;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 
 final class AboutPresenter extends BasePresenter
 {
+    private readonly ProblemService $problemService;
+
+    public function injectServiceProblem(ProblemService $problemService): void
+    {
+        $this->problemService = $problemService;
+    }
+
+    public function getYearbookLink(int $year): ?string
+    {
+        $yearbookPath = $this->problemService->getYearbook('fykos', $year, $this->template->lang);
+        
+        if ($yearbookPath) {
+            return $this->template->getLatte()->renderToString(__DIR__ . '/templates/About/yearbookLink.' . $this->template->lang . '.latte', [
+                'yearbookPath' => $yearbookPath,
+                'year' => $year,
+            ]);
+        }
+        
+        return null;
+    }
+
     /**
      * @throws \Throwable
      */

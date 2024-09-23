@@ -41,6 +41,27 @@ class DefaultPresenter extends BasePresenter
                 }))
             ];
         }
+
+        $this->template->headerText = $this->getHeaderText();
+    }
+
+    public function getHeaderText(): array
+    {
+        $headerTextOptions = [
+            [
+                'cs' => [
+                    'slogan' => 'Zažijte fyziku s&nbsp;námi!',
+                    'description' => 'Organizujeme pro vás neziskové vzdělávací akce ve fyzice již ' . $this->getCurrentYear()->year . ' let.'
+                ],
+                'en' => [
+                    'slogan' => 'Experience physics with us!',
+                    'description' => 'FYKOS has been organizing non-profit educational events in physics for ' . $this->getCurrentYear()->year . ' years.'
+                ]
+            ]
+        ];
+
+        # Choose randomly from the options
+        return $headerTextOptions[array_rand($headerTextOptions)];
     }
 
     public function loadNews(): array
@@ -64,6 +85,8 @@ class DefaultPresenter extends BasePresenter
                 case 'dsef':
                     $news['color'] = '#f2b72b';
                     break;
+                case 'naboj':
+                    $news['color'] = '#c22d86';
             }
         }
 
