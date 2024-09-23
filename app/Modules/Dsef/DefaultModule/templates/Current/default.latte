@@ -13,10 +13,13 @@
         <h1>Základní informace</h1>
 
         <p>Den s experimentální fyzikou se bude konat {$newestEvent->begin|date: 'j. n. Y'}, tentokrát na Tróji.
-            Registrace se otevře {$newestEvent->registrationBegin|date: 'j. n.'} a skončí {$newestEvent->registrationEnd|date: 'j. n. Y'}.
-            Rozvržení jednotlivých exkurzí budeme postupně přidávat. Již nyní můžeme slíbit, že pro účastníky z daleka bude jako každý rok připravené ubytování z neděle na pondělí.
+            Registrace se otevře {$newestEvent->registrationBegin|date: 'j. n.'} a skončí
+            {$newestEvent->registrationEnd|date: 'j. n. Y'}.
+            Rozvržení jednotlivých exkurzí budeme postupně přidávat. Již nyní můžeme slíbit, že pro účastníky z daleka
+            bude jako každý rok připravené ubytování z neděle na pondělí.
             <!-- <a href="#prihlasovani">Přihlašování</a> -->
-            Pokud máte nějaký dotaz nebo problém, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.
+            Pokud máte nějaký dotaz nebo problém, neváhejte nám napsat na e-mail <a
+                href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.
         </p>
         <!--
         <p>
@@ -45,7 +48,7 @@
         <p>
             <b> Bude oznámena</b> <br>
             Mgr. Pavel Stránský, Ph.D.
-          
+
             Anotaci pošle
 
         </p>
@@ -60,65 +63,74 @@
      </section>
 </div>
 -->
-     <div class="panel color-auto">
-            <section class="inner-container" id="prihlasovani">
-                <h1>Přihlašování</h1>
-                <p>
-                  Přihlašování na letošní ročník Dne s experimentální fyzikou se spustí {$newestEvent->registrationBegin|date: 'j. n. Y'}.
+<div class="panel color-auto">
+    <section class="inner-container" id="prihlasovani">
+        <h1>Přihlašování</h1>
+        <p>
+            Přihlašování na letošní ročník Dne s experimentální fyzikou se spustí {$newestEvent->registrationBegin|date:
+            'j. n. Y'}.
 
-                    Exkurze mají dopolední a odpolední část, v každé z nich jsou účastníci rozdělení do několika skupin,
-                    jejichž program se liší. Výjimku tvoří exkurze do ELI a Ondřejova, které budou celodenní. Svou skupinu si zvolíte už v přihlášce a pokud bude volná kapacita, je možné
-                    si ji do konce registrace měnit podle vašich preferencí.
+            Exkurze mají dopolední a odpolední část, v každé z nich jsou účastníci rozdělení do několika skupin,
+            jejichž program se liší. Výjimku tvoří exkurze do ELI a Ondřejova, které budou celodenní. Svou skupinu si
+            zvolíte už v přihlášce a pokud bude volná kapacita, je možné
+            si ji do konce registrace měnit podle vašich preferencí.
 
-                </p>
-            <p>
-<!--
+        </p>
+        <p>
+            <!--
                 <a href="{plink :Default:Registration:Default}" type="button"
                    class="btn btn-primary btn-block" style="border-radius: 0">Registrovat se</a>
 -->
-			</p>
-            </section>
+        </p>
+    </section>
+</div>
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Ubytování</h1>
+
+        <h5 id="kde-je-ubytovani-a-jake">Kde je ubytování a jaké?</h5>
+        <div class="level5">
+            <ul>
+                <li class="level1">
+                    <div class="li"> Ubytování je v <a href="https://plushostels.com/cs/praha" class="urlextern"
+                            title="https://plushostels.com/cs/praha">Hostelu PLUS</a> na Holešovicích. </div>
+                </li>
+                <li class="level1">
+                    <div class="li"> Ubytováni budete pohromadě na velkých pokojích (7 až 8 lůžkové).</div>
+                </li>
+                <li class="level1">
+                    <div class="li"> V ceně ubytování jsou malé ručníky.</div>
+                </li>
+            </ul>
         </div>
-        
-        <div class="panel color-auto">
-            <section class="inner-container">
-                <h1>Ubytování</h1>
 
-                <h5 id="kde-je-ubytovani-a-jake">Kde je ubytování a jaké?</h5>
-                    <div class="level5">
-                        	<ul>
-                                <li class="level1"><div class="li"> Ubytování je v <a href="https://plushostels.com/cs/praha" class="urlextern" title="https://plushostels.com/cs/praha">Hostelu PLUS</a> na Holešovicích. </div>
-                                </li>
-                                <li class="level1"><div class="li"> Ubytováni budete pohromadě na velkých pokojích (7 až 8 lůžkové).</div>
-                                </li>
-                                <li class="level1"><div class="li"> V ceně ubytování jsou malé ručníky.</div>
-                                </li>
-                            </ul>
-                    </div>
-
-                <h5 id="placeni-za-ubytovani">Placení za ubytování</h5>
-                    <div class="level5">
-                        <ul>
-                            <li class="level1"><div class="li"> Poplatek za ubytování je <strong>300 Kč</strong></div>
-                            </li>
-   <!--
+        <h5 id="placeni-za-ubytovani">Placení za ubytování</h5>
+        <div class="level5">
+            <ul>
+                <li class="level1">
+                    <div class="li"> Poplatek za ubytování je <strong>300 Kč</strong></div>
+                </li>
+                <!--
                          <li class="level1"><div class="li"> Ubytování se bude platit předem.</div>
                             </li>
 -->
-                        </ul>
+            </ul>
 
-                    </div>
-                    <h5 id="prijezd-na-ubytovani">Příjezd na ubytování</h5>
-                    <div class="level5">
-                        <ul>
-                            <li class="level1"><div class="li"> Přijet na ubytování můžete od <strong>16 hodin</strong>.</div>
-                            </li>
-                            <li class="level1"><div class="li"> Recepce na hotelu je otevřená nonstop, během večera můžete dorazit kdykoliv.</div>
-            				</li>
-                        </ul>
-                    </div>
-            </section>
         </div>
+        <h5 id="prijezd-na-ubytovani">Příjezd na ubytování</h5>
+        <div class="level5">
+            <ul>
+                <li class="level1">
+                    <div class="li"> Přijet na ubytování můžete od <strong>16 hodin</strong>.</div>
+                </li>
+                <li class="level1">
+                    <div class="li"> Recepce na hotelu je otevřená nonstop, během večera můžete dorazit kdykoliv.</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
 
 
 <div class="panel color-auto">
@@ -211,7 +223,7 @@
                         <td class="col2"><a href="#POH">POH</a></td>
                         <td class="col3"><a href="#MAK">MAK</a></td>
                     </tr>
-<!--
+                    <!--
                     <tr class="row14">
                         <th class="col0">Mike</th>
                         <td class="col1"><a href="#Ramanova-spektroskopie">RAM</a></td>
@@ -244,46 +256,38 @@
                     </tr>
                     <tr class="row3">
                         <th class="col0" colspan="2"></th>
-                        <td class="col2" colspan="2"><a href="#MACH"
-                                 >MACH</a></td>
+                        <td class="col2" colspan="2"><a href="#MACH">MACH</a></td>
                     </tr>
                     <tr class="row18">
                         <th class="col0" colspan="2">Oscar</th>
-                        <td class="col2" colspan="2"><a href="#MACH"
-                                 >FEL ČVUT</a></td>
+                        <td class="col2" colspan="2"><a href="#MACH">FEL ČVUT</a></td>
                     </tr>
                     <tr class="row19">
                         <th class="col0" colspan="2">Papa</th>
-                        <td class="col2" colspan="2"><a
-                                href="#JH-INST"
-                                 >Mikrotron - oddělení urychlovačů ÚJF AV ČR</a></td>
+                        <td class="col2" colspan="2"><a href="#JH-INST">Mikrotron - oddělení urychlovačů ÚJF AV ČR</a>
+                        </td>
                     </tr>
                     <tr class="row20">
                         <th class="col0" colspan="2">Quebec</th>
-                        <td class="col2" colspan="2"><a
-                                href="#PALS">PALS + THz</a></td>
+                        <td class="col2" colspan="2"><a href="#PALS">PALS + THz</a></td>
                     </tr>
                     <tr class="row21">
                         <th class="col0" colspan="2">Romeo</th>
-                        <td class="col2" colspan="2"><a
-                                href="#FZUS">Ústav experimentální botaniky</a></td>
+                        <td class="col2" colspan="2"><a href="#FZUS">Ústav experimentální botaniky</a></td>
                     </tr>
                     <tr class="row22">
                         <th class="col0" colspan="2">Sierra</th>
-                        <td class="col2" colspan="2"><a
-                                href="#MIKR">Oddělení magnetik a supravodičů FZ) </a></td>
+                        <td class="col2" colspan="2"><a href="#MIKR">Oddělení magnetik a supravodičů FZ) </a></td>
                     </tr>
                     <tr class="row23">
                         <th class="col0" colspan="2">Tango</th>
-                        <td class="col2" colspan="2"><a
-                                href="#GOLEM">Proton Therapy center</a></td>
+                        <td class="col2" colspan="2"><a href="#GOLEM">Proton Therapy center</a></td>
                     </tr>
                     <tr class="row24">
                         <th class="col0" colspan="2">Uniform</th>
-                        <td class="col2" colspan="2"><a
-                                href="#VDG">ÚJF AV ČR, pracoviště Řež u Prahy</a></td>
+                        <td class="col2" colspan="2"><a href="#VDG">ÚJF AV ČR, pracoviště Řež u Prahy</a></td>
                     </tr>
-<!--
+                    <!--
                     <tr class="row25">
                         <th class="col0" colspan="2">Victor</th>
                         <td class="col2" colspan="2"><a
@@ -351,32 +355,32 @@
             </table>
         </div>
 -->
-        <div class="table sectionedit5">
-            <table class="inline table">
-                <thead>
-                    <tr class="row27">
-                        <th class="col0 header" colspan="2"></th>
-                        <th class="col2 header" colspan="2"> Celodenní exkurze</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="row28">
-                        <td class="col0" colspan="2"></td>
-                        <td class="col2" colspan="2"> 11:00 – 16:00</td>
-                    </tr>
-                    <tr class="row29">
-                        <th class="col0" colspan="2">Sigma</th>
-                        <td class="col2" colspan="2"><a href="#ELI-Beamlines"
-                                >ELI Beamlines Dolní Břežany</a></td>
-                    </tr>
-                    <tr class="row29">
-                        <th class="col0" colspan="2">Sigma</th>
-                        <td class="col2" colspan="2"><a href="#Ondrejov"
-                                >Astronomický ústav AV ČR Ondřejov</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                    <div class="table sectionedit5">
+                        <table class="inline table">
+                            <thead>
+                                <tr class="row27">
+                                    <th class="col0 header" colspan="2"></th>
+                                    <th class="col2 header" colspan="2"> Celodenní exkurze</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="row28">
+                                    <td class="col0" colspan="2"></td>
+                                    <td class="col2" colspan="2"> 11:00 – 16:00</td>
+                                </tr>
+                                <tr class="row29">
+                                    <th class="col0" colspan="2">Sigma</th>
+                                    <td class="col2" colspan="2"><a href="#ELI-Beamlines">ELI Beamlines Dolní
+                                            Břežany</a></td>
+                                </tr>
+                                <tr class="row29">
+                                    <th class="col0" colspan="2">Sigma</th>
+                                    <td class="col2" colspan="2"><a href="#Ondrejov">Astronomický ústav AV ČR
+                                            Ondřejov</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
     </section>
 </div>
 
@@ -391,105 +395,111 @@
         <h4 id="ATM">Průlet atmosférou: modely a měření (ATM)</h4>
 
         <p>
-          Začneme krátkou ukázkou simulátoru tornáda.
-          Dále budeme pokračovat s dvojkyvadlem, na kterém předvedeme důležitost 
-          počátečních podmínek v chaotickém systému. Exkurzi zakončíme ukázkou modelových
-          a naměřených dat s následnou návštěvou našich meteorologických přístrojů. 
+            Začneme krátkou ukázkou simulátoru tornáda.
+            Dále budeme pokračovat s dvojkyvadlem, na kterém předvedeme důležitost
+            počátečních podmínek v chaotickém systému. Exkurzi zakončíme ukázkou modelových
+            a naměřených dat s následnou návštěvou našich meteorologických přístrojů.
         </p>
 
         <h4 id="MIK">Mikroskopie STM a AFM (MIK)</h4>
-        <p>Laboratoř kryogenní mikroskopie STM-AFM. 
-          Zaměřujeme se na zobrazení atomární a elektronové struktury povrchů
-          pomocí rastrovací tunelové mikroskopie a mikroskopie atomárních sil. 
-          Pomocí atomárně ostrého hrotu dokážeme zobrazit povrchy protřednictvím 
-          kvantového tunelování elektronů nebo měření síly v jednotlivých 
-          chemických vazbách. Výzkum je zaměřený materiály využitelné v elektronice,
-          katalýze nebo oragnické chemii.
+        <p>Laboratoř kryogenní mikroskopie STM-AFM.
+            Zaměřujeme se na zobrazení atomární a elektronové struktury povrchů
+            pomocí rastrovací tunelové mikroskopie a mikroskopie atomárních sil.
+            Pomocí atomárně ostrého hrotu dokážeme zobrazit povrchy protřednictvím
+            kvantového tunelování elektronů nebo měření síly v jednotlivých
+            chemických vazbách. Výzkum je zaměřený materiály využitelné v elektronice,
+            katalýze nebo oragnické chemii.
         </p>
 
         <h4 id="PLA">Plazma ve vesmíru a laboratoři (PLA)</h4>
         <p>
-			Laboratoř Elementárních procesů v plazmatu se zabývá studiem interakcí iontů
-          s molekulami a elektrony v mezihvězdném plazmatu. K dispozici máme několik 
-          experimentálních zařízení, které nám umožňují provádět měření při teplotách
-          až -260 °C, které jsou typické pro mezihvězdná oblaka plynu. 
-          Využíváme iontové pasti a metody vysoce citlivé laserové absorpční spektroskopie.
+            Laboratoř Elementárních procesů v plazmatu se zabývá studiem interakcí iontů
+            s molekulami a elektrony v mezihvězdném plazmatu. K dispozici máme několik
+            experimentálních zařízení, které nám umožňují provádět měření při teplotách
+            až -260 °C, které jsou typické pro mezihvězdná oblaka plynu.
+            Využíváme iontové pasti a metody vysoce citlivé laserové absorpční spektroskopie.
         </p>
 
         <h4 id="POH">Fyzikální pohled na povrchové chemické reakce (POH)</h4>
         <p>
-			Chemické reakce na rozhraní pevná látka/plyn nebo pevná látka/kapalina definují
-účinnost mnoha přístrojů. Pro ilustraci můžeme uvést například
-palivové články, baterií a obecně katalyzátory. 
-Získávání informací o reaktantech, meziproduktech reakce a stavu reaktoru
-je však nečekaně obtížný úkol. V rámci této exkurze,
-se seznámíme s elementárními fyzikálně-chemickými technikami
-umožňujícími určit chemický stav, krystalografickou strukturu,
-a morfologii chemicky aktivních technologických rozhraní.
+            Chemické reakce na rozhraní pevná látka/plyn nebo pevná látka/kapalina definují
+            účinnost mnoha přístrojů. Pro ilustraci můžeme uvést například
+            palivové články, baterií a obecně katalyzátory.
+            Získávání informací o reaktantech, meziproduktech reakce a stavu reaktoru
+            je však nečekaně obtížný úkol. V rámci této exkurze,
+            se seznámíme s elementárními fyzikálně-chemickými technikami
+            umožňujícími určit chemický stav, krystalografickou strukturu,
+            a morfologii chemicky aktivních technologických rozhraní.
         </p>
 
         <h4 id="SPA">Vesmír ve skříni (SPA)</h4>
         <p>Historie Laboratoře kosmické fyziky sahá do začátku sedmdesátých let minulého
-          století, i když skupina oficiálně vznikla až v roce 1990. Problematika má dva 
-          úzce spojené směry – vývoj (v minulosti i výroba) přístrojů pro měření plazmatu 
-          a nabitých částic v kosmickém prostředí a vlastní výzkum procesů, které v 
-          meziplanetárním prostoru probíhají. V poslední době je tento výzkum zaměřen 
-          hlavně na problematiku vzniku a vývoje slunečního větru a na jeho interakci
-          se Zemí nebo dalšími planetami sluneční soustavy a procesy spojenými s touto
-          interakcí (např. vlny v plazmatu). Druhý výzkumný směr je se zabývá prachovými 
-          částicemi v kosmickém prostoru. Protože jedním z důležitých parametrů je 
-          elektrický náboj, který prachové zrno nese, jsou v laboratoři jsou studovány 
-          procesy vedoucí k nabíjení prachu jeho interakcí s okolním plazmatem a UV zářením. Tento laboratorní výzkum je doplněn studiem prachu registrovaného kosmickými sondami, například při průchodu Saturnovými prstenci.
+            století, i když skupina oficiálně vznikla až v roce 1990. Problematika má dva
+            úzce spojené směry – vývoj (v minulosti i výroba) přístrojů pro měření plazmatu
+            a nabitých částic v kosmickém prostředí a vlastní výzkum procesů, které v
+            meziplanetárním prostoru probíhají. V poslední době je tento výzkum zaměřen
+            hlavně na problematiku vzniku a vývoje slunečního větru a na jeho interakci
+            se Zemí nebo dalšími planetami sluneční soustavy a procesy spojenými s touto
+            interakcí (např. vlny v plazmatu). Druhý výzkumný směr je se zabývá prachovými
+            částicemi v kosmickém prostoru. Protože jedním z důležitých parametrů je
+            elektrický náboj, který prachové zrno nese, jsou v laboratoři jsou studovány
+            procesy vedoucí k nabíjení prachu jeho interakcí s okolním plazmatem a UV zářením. Tento laboratorní výzkum
+            je doplněn studiem prachu registrovaného kosmickými sondami, například při průchodu Saturnovými prstenci.
         </p>
 
-        
+
         <h4 id="VOD">Vodík jako zdroj energie (VOD)</h4>
         <p>
 
-      </p>
+        </p>
 
         <h4 id="MOS">Mössbaeurova spektroskopie (MOS)</h4>
         <p>
-          
+
         </p>
 
         <h4 id="SEM">Jaderná magnetická rezonance (SEM)</h4>
         <p>
-			Nukleární magnetická rezonance (NMR) je nedestruktivní metoda pro 
-          studium struktury a dynamiky hmoty s uplatněním ve fyzice, chemii, 
-          biologii, medicíně a materiálových vědách. NMR využívá statické a
-          radiofrekvenční magnetické pole k vyvolání rezonance v atomových
-          jádrech, což umožňuje nahlédnout s vysokým rozlišením do chemického 
-           složení, lokální atomové struktury a symetrie a důležitých fyzikálních
-           interakcí. V laboratoři NMR na Univerzitě Karlově studujeme širokou 
-           škálu systémů od roztoků a kapalin až po magneticky tvrdé látky. 
+            Nukleární magnetická rezonance (NMR) je nedestruktivní metoda pro
+            studium struktury a dynamiky hmoty s uplatněním ve fyzice, chemii,
+            biologii, medicíně a materiálových vědách. NMR využívá statické a
+            radiofrekvenční magnetické pole k vyvolání rezonance v atomových
+            jádrech, což umožňuje nahlédnout s vysokým rozlišením do chemického
+            složení, lokální atomové struktury a symetrie a důležitých fyzikálních
+            interakcí. V laboratoři NMR na Univerzitě Karlově studujeme širokou
+            škálu systémů od roztoků a kapalin až po magneticky tvrdé látky.
 
         </p>
         <h4 id="DET">Křemíkové detektory (DET)</h4>
         <p>
-            Experiment ATLAS na urychlovači LHC ve švýcarském CERNu bude 
-            v nadcházejících letech vylepšen výměnou opotřebovaných částí a 
-            zvýšením detekčních schopností. Za tímto účelem na našem 
-            pracovišti testujeme vlastnosti a připravujeme výrobu 
-            páskových detektorů s křemíkovým senzorem. 
-            Podobné úkoly jsme řešili pro pixelový detektor 
+            Experiment ATLAS na urychlovači LHC ve švýcarském CERNu bude
+            v nadcházejících letech vylepšen výměnou opotřebovaných částí a
+            zvýšením detekčních schopností. Za tímto účelem na našem
+            pracovišti testujeme vlastnosti a připravujeme výrobu
+            páskových detektorů s křemíkovým senzorem.
+            Podobné úkoly jsme řešili pro pixelový detektor
             DEPFET pro experiment Belle II v japonském KEK.
 
         </p>
-              <h4 id="MAK">Makromolekulární fyzika (MAK)</h4>
+        <h4 id="MAK">Makromolekulární fyzika (MAK)</h4>
         <p>
-            
+
         </p>
-             <h4 id="LOW"> Nízké teploty (LOW)</h4>
+        <h4 id="LOW"> Nízké teploty (LOW)</h4>
         <p>
-            
+
         </p>
         <h4 id="ELI-Beamlines">ELI Beamlines Dolní Břežany</h4>
         <p>
-            ELI Beamlines je výzkumné laserové centrum, které je součástí evropské vědecko-výzkumné organizace The Extreme Light Infrastructure ERIC.
-            V ELI Beamlines mezinárodní tým vědců a vědkyň provozuje jedny z nejintenzivnějších laserových systémů na světě. Díky nim máme k dispozici unikátní nástroje umožňující průkopnický výzkum nejen v oblasti fyziky a materiálových věd, ale také v biomedicíně a laboratorní astrofyzice. ELI je centrum zaměřené na základní fyzikální výzkum. Jedná se o největší vědecký projekt v historii ČR. V současné době zaměstnáváme 350 zaměstnanců z více než 28 zemí světa. Centrum se nachází v obci Dolní Břežany, nedaleko Prahy.
+            ELI Beamlines je výzkumné laserové centrum, které je součástí evropské vědecko-výzkumné organizace The
+            Extreme Light Infrastructure ERIC.
+            V ELI Beamlines mezinárodní tým vědců a vědkyň provozuje jedny z nejintenzivnějších laserových systémů na
+            světě. Díky nim máme k dispozici unikátní nástroje umožňující průkopnický výzkum nejen v oblasti fyziky a
+            materiálových věd, ale také v biomedicíně a laboratorní astrofyzice. ELI je centrum zaměřené na základní
+            fyzikální výzkum. Jedná se o největší vědecký projekt v historii ČR. V současné době zaměstnáváme 350
+            zaměstnanců z více než 28 zemí světa. Centrum se nachází v obci Dolní Břežany, nedaleko Prahy.
         </p>
-<!--
+        <!--
 
         <h4 id="PALS">Prague asteerix laser system a THz</h4>
         <p>
@@ -507,10 +517,10 @@ a morfologii chemicky aktivních technologických rozhraní.
 
         <h4 id="MIKR">Mikrotron - oddělení urychlovačů ÚJF AV</h4>
         <p>
-			Mikrotron je cyklický urychlovač relativistických elektronů s
-          možností konverze primárního elektronového svazku na sekundární fotonový svazek
-          nebo neutrony.
-          Umístěn je na detašovaném pracovišti v Karlínském tunelu v Praze, mimo řežský areál.
+            Mikrotron je cyklický urychlovač relativistických elektronů s
+            možností konverze primárního elektronového svazku na sekundární fotonový svazek
+            nebo neutrony.
+            Umístěn je na detašovaném pracovišti v Karlínském tunelu v Praze, mimo řežský areál.
         </p>
 
         <h4 id="VDG">Urychlovač Van Der Graaf a Ústav částicové a jaderné fyziky</h4>
@@ -527,9 +537,9 @@ a morfologii chemicky aktivních technologických rozhraní.
         </p>
               <h4 id="GOLEM">Tokamak GOLEM</h4>
         <p>
-			Fúze jako potenciální zdroj čisté energie budoucnosti. Tokamak jako nejperspektivnější zařízení
-          	k dostažení fúze na Zemi. Golem jako tokamak, na který si můžete sáhnout. Zveme vás na exkurzi na školní tokamak
-          	Golem na Fakultě jaderné a fyzikálně inženýrské ČVUT.
+            Fúze jako potenciální zdroj čisté energie budoucnosti. Tokamak jako nejperspektivnější zařízení
+            k dostažení fúze na Zemi. Golem jako tokamak, na který si můžete sáhnout. Zveme vás na exkurzi na školní tokamak
+            Golem na Fakultě jaderné a fyzikálně inženýrské ČVUT.
         </p>
               <h4 id="Ond">Astronomický ústav Ondřejov </h4>
         <p>
@@ -537,25 +547,25 @@ a morfologii chemicky aktivních technologických rozhraní.
         </p>
               <h4 id="MOGE">Proton t</h4>
         <p>
-			Na exkurzi se obeznámíte s metodou zobrazovací průtokové cytometrie s ukázkou na přístroji ImageStream®X Mk II,
+            Na exkurzi se obeznámíte s metodou zobrazovací průtokové cytometrie s ukázkou na přístroji ImageStream®X Mk II,
             dále bude vysvětlen princip práce elektronových mikroskopů a možností zobrazování v elektronech v různých módech s ukázkou obrázků/výsledků.
-          	Podíváme se konkrétně na transmisní a skenovací elektronový mikroskop a uvidíte některé speciální postupy přípravy biologických vzorků pro elektronovou mikroskopii.
+            Podíváme se konkrétně na transmisní a skenovací elektronový mikroskop a uvidíte některé speciální postupy přípravy biologických vzorků pro elektronovou mikroskopii.
             V poslední řadě v Ústavu molekulární genetiky nahlédnete do principu vyhledávání potenciálních nových léků a bioaktivních sloučenin pomocí nejmodernějších technologií s vysokou propustností (tzv. high-throughput screening). Hledání chemických sloučenin, které by svými vlastnostmi překonaly současná léčiva, představuje náročný úkol. Svým rozsahem a složitostí jej lze přirovnat ke hledání jehly v kupce sena a bez využití nejmodernějších technologií je v podstatě neuskutečnitelný. Zájemcům představíme technologické zázemí a myšlenkové postupy, které ve vyhledávání takových sloučenin využíváme, a mimo jiné i názorně předvedeme robotická zařízení schopná zpracovat až stovky tisíc vzorků za den.
 
         </p>
 
            <h4 id="UTER">ÚJF AV ČR, pracoviště Řez u Prahy</h4>
         <p>
-			
-        
+
+
         </p>
            <h4 id="UTER">ÚJV ČEZ, pracoviště Řez u Prahy</h4>
         <p>
-			
+
         </p>
-        
+
 
 -->
     </section>
 </div>
-{\block}
+{/block}
