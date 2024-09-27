@@ -1,7 +1,9 @@
 {block title}{$event->nameNew[$lang]}{/block}
 
 {block content}
-{$event->description[$lang]|noescape}
+<p>
+    {$event->description[$lang]|noescape}
+</p>
 {$event->reportNew[$lang]|noescape}
 {if $participants}
 <h2>Účastníci</h2>
