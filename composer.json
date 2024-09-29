@@ -37,7 +37,7 @@
       "tests/api/commandWithApi.sh vendor/bin/tester tests/ -p php -s -c tests/php.ini -j 8"
     ],
     "latteLint": [
-      "vendor/bin/latte-lint app/ --strict"
+      "tests/lint-latte.php"
     ],
     "testCoverage": [
       "@clearTestCache",
