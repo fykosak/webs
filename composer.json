@@ -37,6 +37,8 @@
       "tests/api/commandWithApi.sh vendor/bin/tester tests/ -p php -s -c tests/php.ini -j 8"
     ],
     "latteLint": [
+      "mkdir -p app/config/local/",
+      "if [ ! -f /tmp/foo.txt ]; then cp app/config/config.local.neon.example app/config/local/vyfuk.neon; fi",
       "tests/lint-latte.php"
     ],
     "testCoverage": [
