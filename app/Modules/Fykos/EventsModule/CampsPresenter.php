@@ -57,17 +57,17 @@ class CampsPresenter extends BasePresenter
                 break;
             }
         }
-        
+
         if ($event === null) {
             throw new BadRequestException(
                 $this->csen('Stránka nenalezena', 'Page not found'),
                 IResponse::S404_NOT_FOUND
             );
         }
-        
+
         $event['heading'] = $this->getEventHeading($event);
         $this->template->event = $event;
-        $participants = $this->downloader->download(new ParticipantsRequest((int)$event['eventId']));
+        $participants = $this->downloader->download(new ParticipantsRequest((int) $event['eventId']));
         $participants = array_filter($participants, function ($participant) {
             return $participant['status'] == 'participated';
         });

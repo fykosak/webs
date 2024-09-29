@@ -54,16 +54,16 @@ if (class_exists(Nette\Bridges\FormsLatte\FormMacros::class)) {
 
 $ok = (new Latte\Tools\Linter($engine, $debug))->scanDirectory(__DIR__ . '/../app/');
 
-function rrmdir($dir)
-{
+$rrmdir = function ($dir, $rrmdir) {
     foreach (glob($dir . '/*') as $file) {
-        if (is_dir($file))
-            rrmdir($file);
-        else
+        if (is_dir($file)) {
+            $rrmdir($file, $rrmdir);
+        } else {
             unlink($file);
+        }
     }
     rmdir($dir);
-}
-rrmdir($tempfile);
+};
+$rrmdir($tempfile, $rrmdir);
 
 exit($ok ? 0 : 1);
