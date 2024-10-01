@@ -13,12 +13,12 @@
 <h2>Organizátoři</h2>
 <p>{$organizers}</p>
 {/if}
-{if $pdf}
+{if $hasPdfs}
 <h2>Dokumenty ke stažení</h2>
-{control pdfGallery "/download/event/" . $event->eventId}
+{control pdfGallery "/media/download/event/" . $event->eventId}
 {/if}
-{if $galery}
+{if $hasGallery}
 <h2>Galerie</h2>
-{control gallery "/photos/event/" . $event->eventId}
+{control gallery "/media/photos/event/" . $event->eventId}
 {/if}
 {/block}

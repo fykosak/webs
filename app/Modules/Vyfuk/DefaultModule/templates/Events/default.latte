@@ -17,7 +17,7 @@
             {/foreach}
         </p>
     </section>
-    <section n:foreach="$events as $key => $event" class="inner-container">
+    <section n:foreach="$events as $key => $event" class="inner-container my-5">
         <h2>{$event->nameNew[$lang]}</h2>
         <p>
             {$event->description[$lang]|noescape}

@@ -31,8 +31,8 @@ class EventsPresenter extends BasePresenter
             $this->error();
         }
         $this->template->event = $event;
-        $this->template->galery = $this->getComponent('gallery')->hasPhotos("/photos/event/" . $event->eventId);
-        $this->template->pdf = $this->getComponent('pdfGallery')->hasFiles("/download/event/" . $event->eventId);
+        $this->template->hasGallery = $this->getComponent('gallery')->hasPhotos("/media/photos/event/" . $event->eventId);
+        $this->template->hasPdfs = $this->getComponent('pdfGallery')->hasFiles("/media/download/event/" . $event->eventId);
         $persons = $event->end < new DateTime() ? $this->eventService->getEventOrganizers($event->eventId) : [];
         $array = [];
         foreach ($persons as $person) {

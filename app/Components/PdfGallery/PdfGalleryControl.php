@@ -52,6 +52,7 @@ class PdfGalleryControl extends DIComponent
         foreach ($pdfs as $index => &$pdffile) {
             $pdffile['index'] = $index;
         }
+
         return $pdfs;
     }
 
@@ -76,7 +77,7 @@ class PdfGalleryControl extends DIComponent
     {
         return count($this->cache->load(
             [$path, $this->wwwDir],
-            fn () => self::getPdfs($path, $this->wwwDir)
+            fn() => self::getPdfs($path, $this->wwwDir)
         )) > 0;
     }
 }
