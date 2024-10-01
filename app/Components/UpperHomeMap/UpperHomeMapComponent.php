@@ -6,7 +6,7 @@ namespace App\Components\UpperHomeMap;
 
 use App\Components\Countdown\CountdownComponent;
 use App\Components\Map\MapComponent;
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\Downloader\EventModel;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
@@ -14,7 +14,7 @@ final class UpperHomeMapComponent extends DIComponent
 {
     public function __construct(
         Container $container,
-        private readonly ModelEvent $event
+        private readonly EventModel $event
     ) {
         parent::__construct($container);
     }

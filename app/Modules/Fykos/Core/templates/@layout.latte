@@ -1,5 +1,6 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
+{varType int $currentYear}
 <!DOCTYPE html>
 <html lang="{$lang}">
 
@@ -144,21 +145,19 @@
                     {* <div class="logo" style="font-size: 1cm; font-weight: bold">FYKOS<small>{switch $language->value}{case cs}.cz{default}.org{/switch}</small></div> *}
                     <p>
                         {switch $language->value}
-                            {case cs}FYKOS je skupina pořádající vzdělávací akce pro středoškoláky ve fyzice s&nbsp;37letou tradicí.
+                            {case cs}FYKOS je skupina pořádající vzdělávací akce pro středoškoláky ve fyzice s&nbsp;{$currentYear->year}letou tradicí.
                             FYKOS je tvořen převážně studenty
                             <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
-                            {default}FYKOS is a group organizing educational physics events for high school students with a 37-year tradition.
+                            {default}FYKOS is a group organizing educational physics events for high school students with a {$currentYear->year}-year tradition.
                             FYKOS is mainly composed of students from the
                             <a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a>.
-                            {/switch}
+                        {/switch}
                     </p>
                     <p>
                         {switch $language->value}
-                            {case cs}Akce FYKOSu jsou spoluvyhlašovány <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální
-                            fakultou Univerzity Karlovy</a>
-                            a Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
-                            {default}FYKOS events are co-organized by the <a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a>
-                            and the Ministry of Education, Youth and Sports.
+                            {case cs}Akce FYKOSu jsou vyhlašovány <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální
+                            fakultou Univerzity Karlovy</a> a zpravidla podporovány Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
+                            {default}FYKOS events are announced by the <a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a> and usually supported by the Ministry of Education, Youth and Sports.
                         {/switch}
                     </p>
                     <p>
@@ -169,17 +168,18 @@
                     </p>
                     <div class="other-logos">
                         <a target="_blank"
-                            href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img
+                            href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img
                                 class="other-logo"
                                 src="{$basePath}/images/logos/fyziklani_online_logo_white_{$lang}.png"
-                                style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        <a target="_blank"
+                                style="height: 2rem; margin: 0 1rem 1rem 0" /></a><a target="_blank"
                             href="{switch $language->value}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img
                                 class="other-logo" src="{$basePath}/images/logos/fyziklani_white_logo.svg"
-                                style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        {if $lang=='cs'}<a target="_blank" href="https://dsef.cz/"><img class="other-logo"
+                                style="height: 2rem; margin: 0 1rem 1rem 0" /></a>
+                        {if $lang=='cs'}
+                        <a target="_blank" href="https://dsef.cz/"><img class="other-logo"
                                 src="{$basePath}/images/logos/dsef_logo_white.png"
-                                style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>{/if}
+                                style="height: 2rem; margin: 0 1rem 1rem 0" /></a>
+                        {/if}
                     </div>
                 </div>
                 <div class="col-md-3 mt-2 mt-md-0">
@@ -205,37 +205,38 @@
                             {/switch}
                         </ul>
                     </nav>
-                    {* <nav>
+                    <nav>
                         <ul>
                             {switch $language->value}
                                 {case cs}
-                                <li>Podpora FYKOSu
+                                <li>Další informace
                                     <ul>
                                         <li><a n:href=":Default:SupportUs:">Jak podpořit FYKOS</a></li>
-                                        <li><a n:href=":Default:Merch:">Merch</a></li>
+                                        <li><a n:href=":Default:About:contact">Kontakt</a></li>
+                                        {* <li><a n:href=":Default:Merch:">Merch</a></li> *}
                                     </ul>
                                 </li>
                                 {default}
-                                <li>For partners
+                                <li>Other Information
                                     <ul>
-                                        <li><a n:href=":Default:Partners:">Support us</a></li>
-                                        <li><a href="">Logos and materials</a></li>
-                                        <li><a href="">Contact</a></li>
+                                        <li><a n:href=":Default:SupportUs:">Support us</a></li>
+                                        <li><a n:href=":Default:About:contact">Contact</a></li>
+                                        {* <li><a href="">Logos and materials</a></li>
+                                        <li><a href="">Contact</a></li> *}
                                     </ul>
                                 </li>
                             {/switch}
                         </ul>
-                    </nav> *}
+                    </nav> 
 
                 </div>
                 <div class="col-md-3">
                     <nav>
                         <ul>
-                            {switch $language->value}
-                            {case cs}
-                            <li>Sledujte nás
-                                {default}
-                            <li>Follow us on social media
+                            <li>
+                                {switch $language->value}
+                                    {case cs}Sledujte nás
+                                    {default}Follow Us on Social Media
                                 {/switch}
                                 <ul>
                                     <li>
@@ -250,29 +251,24 @@
                             </li>
                         </ul>
                     </nav>
-                    <nav>
+                    {* <nav>
                         <ul>
-                            {switch $language->value}
-                            {case cs}
-                            <li>Kontakt
-                                {default}
-                            <li>Contact
+                            <li>
+                                {switch $language->value}
+                                    {case cs}Kontakt
+                                    {default}Contact
                                 {/switch}
                                 <ul>
-                                    {switch $language->value}
-                                        {case cs}
-                                        <li>
-                                            <a n:href=":Default:About:contact">Kontaktní informace</a>
-                                        </li>
-                                        {default}
-                                        <li>
-                                            <a n:href=":Default:About:contact">Contact information</a>
-                                        </li>
-                                    {/switch}
+                                    <li>
+                                        {switch $language->value}
+                                            {case cs}<a n:href=":Default:About:contact">Kontaktní informace</a>
+                                            {default}<a n:href=":Default:About:contact">Contact information</a>
+                                        {/switch}
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> *}
                 </div>
                 <div style="position: relative;">
                     <a href="#top" style="position: absolute; bottom: 0; right: 0;"><i class="fas fa-arrow-up"></i></a>
@@ -280,8 +276,38 @@
             </div>
         </div>
     </footer>
+    
+    <div id="old-website-notice">
+        <span>
+            {switch $language->value}
+                {case cs}Pokud hledáte starou webovou stránku, najdete ji na <a href="https://old.fykos.cz">https://old.fykos.cz</a>
+                {default}If you are looking for the old website, you may find it at <a href="https://old.fykos.org">https://old.fykos.org</a>
+            {/switch}
+        </span>
+        <button id="hide-notice">
+            {switch $language->value}
+                {case cs}Skrýt
+                {default}Hide
+            {/switch}
+        </button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var notice = document.getElementById('old-website-notice');
+            var hideButton = document.getElementById('hide-notice');
 
+            // Check if the notice should be hidden
+            if (localStorage.getItem('hideOldWebsiteNotice') !== 'true') {
+                notice.style.display = 'block';
+            }
 
+            hideButton.addEventListener('click', function() {
+                notice.style.display = 'none';
+                // Save the user's preference for this session
+                localStorage.setItem('hideOldWebsiteNotice', 'true');
+            });
+        });
+    </script>
     {/block}
 </body>
 

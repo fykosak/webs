@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Models\NetteDownloader\ORM\Models;
+namespace App\Models\Downloader;
 
-class ModelTeam
+class TeamModel
 {
     public string $category;
     public \DateTimeImmutable $created;
@@ -20,12 +20,12 @@ class ModelTeam
     public int $teamId;
 
     /**
-     * @var ModelMember[]
+     * @var TeamMemberModel[]
      */
     public array $members;
 
     /**
-     * @var ModelPerson[]
+     * @var PersonModel[]
      */
     public array $teachers;
 }

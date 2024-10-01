@@ -1,7 +1,7 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
-{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $fofEvent}
-{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
+{varType App\Models\Downloader\EventModel $fofEvent}
+{varType App\Models\Downloader\EventModel $newestEvent}
 <!DOCTYPE html>
 <html lang="{$language->value}">
 <head>
@@ -147,14 +147,14 @@
                     <div class="category-sponsors">
                         <a href="https://www.chess.com/" style="text-align: center">
                             <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Chess logo" style="max-height: 5rem; max-width: 12rem"></a>
-                        <a href="https://www.factorio.com/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/factorio.png" alt="Factorio logo" style="max-height: 5rem; max-width: 12rem"></a>
+                        {*<a href="https://www.factorio.com/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/factorio.png" alt="Factorio logo" style="max-height: 5rem; max-width: 12rem"></a>*}
                         <a href="https://www.wolfram.com/mathematica/" style="text-align: center">
                             <img src="{$basePath}/images/logos/wolfram.png" alt="Wolfram logo" style="max-height: 5rem; max-width: 12rem"></a>
-                        <a href="https://www.kerbalspaceprogram.com/games-kerbal-space-program" style="text-align: center">
-                            <img src="{$basePath}/images/logos/Kerbal.png" alt="Kerbal logo" style="max-height: 5rem; max-width: 12rem"></a>
-                        <a {switch $language->value}{case 'cs'}href="https://www.avast.com/"{default}href="https://www.avast.com/en-us/index"{/switch} style="text-align: center">
-                            <img src="{$basePath}/images/logos/avast.png" alt="Avast logo" style="max-height: 5rem; max-width: 12rem"></a>
+                        {*<a href="https://www.kerbalspaceprogram.com/games-kerbal-space-program" style="text-align: center">
+                            <img src="{$basePath}/images/logos/Kerbal.png" alt="Kerbal logo" style="max-height: 5rem; max-width: 12rem"></a>*}
+                        {*<a {switch $language->value}{case 'cs'}href="https://www.avast.com/"{default}href="https://www.avast.com/en-us/index"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/avast.png" alt="Avast logo" style="max-height: 5rem; max-width: 12rem"></a>*}
                     </div>
                 </div>
             </div>

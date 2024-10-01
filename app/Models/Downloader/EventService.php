@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader;
 
-use App\Models\Downloader\EventOrganizersRequest;
-use App\Models\Downloader\FKSDBDownloader;
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
-use App\Models\NetteDownloader\ORM\Services\AbstractJSONService;
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
@@ -23,7 +18,7 @@ final class EventService extends AbstractJSONService
     }
 
     /**
-     * @param ModelEvent[] &$events
+     * @param EventModel[] &$events
      * @param int[] $IDs IDs of events to remove from list.
      */
     public static function removeByIDs(array &$events, array $IDs): void
@@ -71,19 +66,19 @@ final class EventService extends AbstractJSONService
         );
     }
 
-    public function getEvent(int $eventId, ?string $explicitExpiration = null): ModelEvent
+    public function getEvent(int $eventId, ?string $explicitExpiration = null): EventModel
     {
         return $this->getItem(
             new EventRequest($eventId),
             [],
-            ModelEvent::class,
+            EventModel::class,
             false,
             $explicitExpiration
         );
     }
 
     /**
-     * @return ModelPersonSchedule[]
+     * @return PersonScheduleModel[]
      * @throws \Throwable
      */
     public function getPersonSchedule(int $eventId, ?string $explicitExpiration = null): array
@@ -91,7 +86,7 @@ final class EventService extends AbstractJSONService
         return $this->getItem(
             new EventRequest($eventId),
             ['personSchedule'],
-            ModelPersonSchedule::class,
+            PersonScheduleModel::class,
             true,
             $explicitExpiration
         );
@@ -100,7 +95,7 @@ final class EventService extends AbstractJSONService
     // eventList
     /**
      * @param int[] $eventTypeIds
-     * @return ModelEvent[]
+     * @return EventModel[]
      * @throws \Throwable
      */
     public function getEvents(array $eventTypeIds, ?string $explicitExpiration = null): array
@@ -108,24 +103,24 @@ final class EventService extends AbstractJSONService
         $items = $this->getItem(
             new EventListRequest($eventTypeIds),
             [],
-            ModelEvent::class,
+            EventModel::class,
             true,
             $explicitExpiration
         );
-        usort($items, fn (ModelEvent $a, ModelEvent $b): int => $a->begin <=> $b->begin);
+        usort($items, fn(EventModel $a, EventModel $b): int => $a->begin <=> $b->begin);
         return $items;
     }
 
     /**
      * @param int[] $eventTypeIds
-     * @return ModelEvent[]
+     * @return EventModel[]
      * @throws \Throwable
      */
     public function getEventsByYear(array $eventTypeIds, int $year, ?string $explicitExpiration = null): array
     {
         return array_filter(
             $this->getEvents($eventTypeIds, $explicitExpiration),
-            fn (ModelEvent $event): bool => $year === (int)$event->begin->format('Y')
+            fn(EventModel $event): bool => $year === (int)$event->begin->format('Y')
         );
     }
 
@@ -133,7 +128,7 @@ final class EventService extends AbstractJSONService
      * @param int[] $eventTypeIds
      * @throws \Throwable
      */
-    public function getNewest(array $eventTypeIds, ?string $explicitExpiration = null): ModelEvent
+    public function getNewest(array $eventTypeIds, ?string $explicitExpiration = null): EventModel
     {
         $events = $this->getEvents($eventTypeIds, $explicitExpiration);
         return end($events);

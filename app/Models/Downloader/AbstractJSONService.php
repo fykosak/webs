@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\Models\NetteDownloader\ORM\Services;
+namespace App\Models\Downloader;
 
-use App\Models\Downloader\NetteDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
@@ -33,7 +32,7 @@ abstract class AbstractJSONService
         string $modelClassName,
         bool $asArray = false,
         ?string $explicitExpiration = null
-    ) {
+    ): mixed {
         return $this->cache->load(
             $request->getCacheKey() . '_' . implode('.', $path),
             function (&$dependencies) use ($request, $path, $modelClassName, $asArray, $explicitExpiration) {

@@ -6,19 +6,15 @@ namespace App\Models\Downloader;
 
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 
-class ScheduleRequest implements Request
+final class ScheduleRequest implements Request
 {
-    private int $eventId;
-    /** @var string[] */
-    private array $types;
-
     /**
      * @param string[] $types
      */
-    public function __construct(int $eventId, array $types)
-    {
-        $this->types = $types;
-        $this->eventId = $eventId;
+    public function __construct(
+        private readonly int $eventId,
+        private readonly array $types,
+    ) {
     }
 
     public function getMethod(): string

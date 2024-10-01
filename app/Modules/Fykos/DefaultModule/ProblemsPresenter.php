@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Modules\Fykos\DefaultModule;
 
 use App\Models\Downloader\ProblemService;
-use Tracy\Debugger;
 use Throwable;
 
 class ProblemsPresenter extends BasePresenter
@@ -27,7 +26,7 @@ class ProblemsPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $year = $this->year ?? self::CURRENT_YEAR;
+        $year = $this->year ?? $this->getCurrentYear()->year;
         $series = $this->series ?? $this->problemService->getLatestSeries('fykos', $year);
         $series = $this->problemService->getSeries('fykos', $year, $series);
         $this->template->series = $series;
@@ -64,15 +63,19 @@ class ProblemsPresenter extends BasePresenter
         error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 
         $yearsAndSeries = [];
-        for ($year = self::CURRENT_YEAR; $year > 0; $year--) {
+        foreach ($this->getContest()->years as $year) {
             try {
-                $yearJson = $this->problemService->getYearJson('fykos', $year);
+                $yearJson = $this->problemService->getYearJson('fykos', $year->year);
                 $availableSeriesNumbers = array_keys($yearJson);
-                $yearsAndSeries[$year] = $availableSeriesNumbers;
+                $yearsAndSeries[$year->year] = $availableSeriesNumbers;
             } catch (Throwable $e) {
                 continue;
             }
         }
+
+        // sort in decreasing order by key
+        krsort($yearsAndSeries);
+
         return $yearsAndSeries;
     }
 
@@ -82,95 +85,95 @@ class ProblemsPresenter extends BasePresenter
             "mechHmBodu" => [
                 "cs" => "Mechanika hmotného bodu",
                 "en" => "Mechanics of a point mass"
-                ],
+            ],
             "mechTuhTel" => [
                 "cs" => "Mechanika tuhého tělesa",
                 "en" => "Mechanics of a rigid body"
-                ],
+            ],
             "hydroMech" => [
                 "cs" => "Hydromechanika",
                 "en" => "Hydromechanics"
-                ],
+            ],
             "mechPlynu" => [
                 "cs" => "Mechanika plynu",
                 "en" => "Gas mechanics"
-                ],
+            ],
             "gravPole" => [
                 "cs" => "Gravitační pole",
                 "en" => "Gravitational field"
-                ],
+            ],
             "kmitani" => [
                 "cs" => "Kmitání",
                 "en" => "Oscillations"
-                ],
+            ],
             "vlneni" => [
                 "cs" => "Vlnění",
                 "en" => "Waves"
-                ],
+            ],
             "molFyzika" => [
                 "cs" => "Molekulová fyzika",
                 "en" => "Molecular physics"
-                ],
+            ],
             "termoDyn" => [
                 "cs" => "Termodynamika",
                 "en" => "Thermodynamics"
-                ],
+            ],
             "statFyz" => [
                 "cs" => "Statistická fyzika",
                 "en" => "Statistical physics"
-                ],
+            ],
             "optikaGeom" => [
                 "cs" => "Geometrická optika",
                 "en" => "Geometrical optics"
-                ],
+            ],
             "optikaVln" => [
                 "cs" => "Vlnová optika",
                 "en" => "Wave optics"
-                ],
+            ],
             "elProud" => [
                 "cs" => "Elektrický proud",
                 "en" => "Electric current"
-                ],
+            ],
             "elPole" => [
                 "cs" => "Elektrické pole",
                 "en" => "Electric field"
-                ],
+            ],
             "magPole" => [
                 "cs" => "Magnetické pole",
                 "en" => "Magnetic field"
-                ],
+            ],
             "relat" => [
                 "cs" => "Relativita",
                 "en" => "Relativity"
-                ],
+            ],
             "kvantFyz" => [
                 "cs" => "Kvantová fyzika",
                 "en" => "Quantum physics"
-                ],
+            ],
             "jadFyz" => [
                 "cs" => "Jaderná fyzika",
                 "en" => "Nuclear physics"
-                ],
+            ],
             "astroFyz" => [
                 "cs" => "Astrofyzika",
                 "en" => "Astrophysics"
-                ],
+            ],
             "matematika" => [
                 "cs" => "Matematika",
                 "en" => "Mathematics"
-                ],
+            ],
             "chemie" => [
                 "cs" => "Chemie",
                 "en" => "Chemistry"
-                ],
+            ],
             "biofyzika" => [
                 "cs" => "Biofyzika",
                 "en" => "Biophysics"
-                ],
+            ],
             "other" => [
                 "cs" => "Ostatní",
                 "en" => "Other"
-                ]
+            ]
         ];
     }
 }

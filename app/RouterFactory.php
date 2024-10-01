@@ -237,6 +237,20 @@ class RouterFactory
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
 
+        $router->withModule('Events')
+            ->addRoute('//<domain>/akce/soustredeni/<year>-<season>', [
+                'presenter' => 'Camps',
+                'action' => 'detail',
+                'season' => [
+                    Route::FILTER_IN => function($season) {
+                        return $season === 'jaro' ? 4 : 5;
+                    },
+                    Route::FILTER_OUT => function($id) {
+                        return $id == 4 ? 'jaro' : 'podzim';
+                    }
+                ]
+            ]);
+
         $router->addRoute('//<domain>/<module events|akce>/[<presenter>[/<action>]]', [
             'presenter' => 'Default',
             'action' => 'default',

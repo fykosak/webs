@@ -55,7 +55,7 @@
 
                 <ol class="team-list">
                     {foreach $teamsForCategory AS $team}
-                        {varType App\Models\NetteDownloader\ORM\Models\ModelTeam $team}
+                        {varType App\Models\Downloader\EventModel $team}
                         {if $team->state == 'disqualified' || $team->state == 'missed' || $team->state == 'participated' || $team->state == 'applied' || $team->state == 'approved' || $team->state == 'pending'}
                             <li id="{$team->teamId}" class="team-state-{$team->state}">
                                 <strong>{$team->name}</strong>:
@@ -63,10 +63,10 @@
                             {if $team->members && count($team->members)}
                                     {php
                                         $members = $team->members;
-                                        usort($members, fn(App\Models\NetteDownloader\ORM\Models\ModelMember $a,App\Models\NetteDownloader\ORM\Models\ModelMember $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))
+                                        usort($members, fn(App\Models\Downloader\TeamMemberModel $a,App\Models\Downloader\TeamMemberModel $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))
                                     }
                                     {foreach $members as $key => $member}
-                                        {varType App\Models\NetteDownloader\ORM\Models\ModelMember $member}
+                                        {varType App\Models\Downloader\TeamMemberModel $member}
                                         {$member->name}
                                         {do $inSchool++}
                                         {if $iterator->isLast() || (!is_null($members[$key + 1]) && isset($member->school) && isset($members[$key + 1]->school) && $member->school['schoolId'] != $members[$key + 1]->school['schoolId'])}

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Components\UpperHomePrague;
 
 use App\Components\Countdown\CountdownComponent;
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\Downloader\EventModel;
 use Fykosak\Utils\Components\DIComponent;
 use Fykosak\Utils\DateTime\Phase;
 use Nette\DI\Container;
@@ -14,7 +14,7 @@ final class UpperHomePrague extends DIComponent
 {
     public function __construct(
         Container $container,
-        private readonly ModelEvent $event
+        private readonly EventModel $event
     ) {
         parent::__construct($container);
     }

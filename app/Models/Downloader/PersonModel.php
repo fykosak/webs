@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader;
 
-class ModelPerson
+class PersonModel
 {
     public ?int $personId;
 

@@ -1,4 +1,14 @@
-{block content}
-<h1 n:block=title>Oops...</h1>
+{varType App\Modules\Core\Language $language}
 
+{block title}
+{switch $language->value}{case 'cs'}Ajaj...{default}Oops...{/switch}
+{/block}
+
+{block content}
+{switch $language->value}
+{case 'cs'}
+<p>Váš prohlížeč nám zaslal požadavek, který náš server neumí zpracovat.</p>
+{default}
 <p>Your browser sent a request that this server could not understand or process.</p>
+{/switch}
+{/block}

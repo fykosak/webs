@@ -9,17 +9,13 @@ use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
 use Nette\Application\ForbiddenRequestException;
+use Tracy\Debugger;
+use Nette\Application\BadRequestException;
+use Nette\Http\IResponse;
 
 class CampsPresenter extends BasePresenter
 {
     private const CAMPS_IDS = [4, 5];
-
-    private readonly FKSDBDownloader $downloader;
-
-    public function inject(FKSDBDownloader $downloader): void
-    {
-        $this->downloader = $downloader;
-    }
 
     public function getEventHeading(array $event): array
     {
@@ -38,20 +34,44 @@ class CampsPresenter extends BasePresenter
         }
     }
 
+    public function eventYearToCalendarYear(int $eventYear, int $season): int
+    {
+        if ($season == 4) {
+            return 1986 + $eventYear + 1;
+        } else { // $season == 5
+            return 1986 + $eventYear;
+        }
+    }
+
     /**
-     * @throws ForbiddenRequestException
      * @throws \Throwable
      */
-    public function renderDetail(): void
+    public function renderDetail(int $year, int $season): void
     {
-        $id = $this->getParameter('id');
-        $events = $this->downloader->download(new EventRequest((int)$id));
-        if (!in_array($events['eventTypeId'], self::CAMPS_IDS)) {
-            throw new ForbiddenRequestException();
+        $events = $this->downloader->download(new EventListRequest([$season]));
+
+        $event = null;
+        foreach ($events as $e) {
+            if ($this->eventYearToCalendarYear($e['year'], $e['eventTypeId']) == $year) {
+                $event = $e;
+                break;
+            }
         }
-        $events['heading'] = $this->getEventHeading($events);
-        $this->template->event = $events;
-        $this->template->participants = $this->downloader->download(new ParticipantsRequest((int)$id));
+        
+        if ($event === null) {
+            throw new BadRequestException(
+                $this->csen('Stránka nenalezena', 'Page not found'),
+                IResponse::S404_NOT_FOUND
+            );
+        }
+        
+        $event['heading'] = $this->getEventHeading($event);
+        $this->template->event = $event;
+        $participants = $this->downloader->download(new ParticipantsRequest((int)$event['eventId']));
+        $participants = array_filter($participants, function ($participant) {
+            return $participant['status'] == 'participated';
+        });
+        $this->template->participants = $participants;
     }
 
     public function getEventPhoto(array $event): string

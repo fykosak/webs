@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Models\NetteDownloader\ORM\Models;
+namespace App\Models\Downloader;
 
 use Fykosak\Utils\DateTime\Period;
 
-class ModelEvent
+final class EventModel
 {
     public readonly int $eventId;
     public readonly int $eventTypeId;
@@ -35,7 +35,7 @@ class ModelEvent
     public readonly ?array $schedule;
 
 
-    public readonly ModelGame|null $game;
+    public readonly GameModel|null $game;
     public readonly Period $registration; // TODO magic?
 
     public function getRegistrationPeriod(): Period
