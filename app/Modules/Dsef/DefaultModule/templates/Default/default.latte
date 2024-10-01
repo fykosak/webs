@@ -1,4 +1,4 @@
-{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
+{varType App\Models\Downloader\EventModel $newestEvent}
 
 {block title}Hlavní stránka{/block}
 
@@ -60,9 +60,9 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <div class="subheader">Z minulých let</div>
-            <h1>Nepřesvědčili jsme vás?</h1>
+            <h1>Stále váháte?</h1>
             <div class="row strips">
-                {control gallery:randomLine "/photos/front-page/"}
+                {control gallery:randomLine "/media/photos/front-page/"}
             </div>
             <div>
                 <a href="https://www.matfyz.cz/clanky/den-s-experimentalni-fyzikou-ukazal-jak-se-dela-veda" class="btn btn-panel-action text-start">Den s experimentální fyzikou ukázal, jak se dělá věda</a>
@@ -75,7 +75,7 @@
         <section class="inner-container">
             <div class="subheader">DSEF 2024</div>
             <h1>K nadcházejícímu ročníku</h1>
-            <p>DSEF 2024 pro vás začneme připravovat v létě. Začátkem podzimu zveřejníme více informací a spustíme přihlašování. Pro aktuální informace sledujte tyto stránky. Pokud máte nějaký dotaz, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</p>
+            <p>DSEF 2024 se bude konat {$newestEvent->begin|date: 'j. n. Y'} na Karlově, a již ho pro vás pilně připravujeme. Registrace se otevře {$newestEvent->registrationBegin|date: 'j. n.'}. Aktuální informace k blížící se registraci můžete sledovat na stránce <a n:href="Current:default">stránce letošního ročníku</a>. Pokud máte nějaký dotaz, neváhejte se nám ozvat na <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</p>
         </section>
     </div>
 

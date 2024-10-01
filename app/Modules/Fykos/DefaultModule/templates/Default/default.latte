@@ -1,6 +1,6 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
-{varType int $currentYear}
+{varType App\Models\Downloader\ContestYearModel $currentYear}
 {varType array $events}
 {varType array $countdownEventsIndices}
 {varType array $numOfEvents}
@@ -20,17 +20,8 @@
             <div class="row">
                 <div class="col-lg-7 col-md-6 header-text-container">
                     <h1 class="header-text">FYKOS</h1>
-                    <h2 class="header-text">
-                        {switch $language->value}
-                            {case 'cs'}Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2>
-                            {default}We inspire and educate<br>high-schoolers in physics.</h2>
-                        {/switch}
-                    <p class="header-text">
-                        {switch $language->value}
-                            {case 'cs'}FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již {$currentYear}&nbsp;let.
-                            {default}FYKOS has been organizing non-profit educational events in physics for {$currentYear} years.
-                        {/switch}
-                    </p>
+                    <h2 class="header-text">{$headerText[$lang]['slogan']|noescape}</h2>
+                    <p class="header-text">{$headerText[$lang]['description']|noescape}</p>
                     <a class="btn btn-light mt-2" href="#timeline">
                         {switch $language->value}
                             {case 'cs'}Jste tu poprvé?
@@ -58,22 +49,22 @@
                     </div>
                     <div class="center-content-horizontally-md content-down mt-3 mt-md-0">
                         <div class="header-image-dates">
-                            {if $countdownEventsIndices['upcoming'][$lang] == $numOfEvents[$lang]}
+                            {if $year_stage == 'after' or $year_stage == 'before'}
                                 <h2 class="next-event-heading">
                                     {switch $language->value}
                                         {case 'cs'}Nový ročník FYKOSu přichází již brzy! Užívejte prázdniny!
                                         {default}New year of FYKOS is coming soon! Enjoy your holidays!
                                     {/switch}
                                 </h2>
-                            {else}
+                            {elseif $year_stage == 'during'}
                                 {if $countdownEventsIndices['previous'][$lang] !== null}
-                                    <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]} | {$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'}</h4>
+                                    <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]|noescape} | {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}
                                 {/if}
-                                <h2 class="next-event-heading">{$events[$countdownEventsIndices['upcoming'][$lang]]['heading'][$lang]} | {$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'j. n. Y'}
+                                <h2 class="next-event-heading">{$events[$countdownEventsIndices['upcoming'][$lang]]['heading'][$lang]|noescape} | {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}
                                     | <span id="countdown-primary"></span>
                                 </h2>
                                 {if $countdownEventsIndices['next'][$lang] !== null}
-                                    <h4 class="minor-event-heading mb-0">{$events[$countdownEventsIndices['next'][$lang]]['heading'][$lang]} | {$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'j. n. Y'}
+                                    <h4 class="minor-event-heading mb-0">{$events[$countdownEventsIndices['next'][$lang]]['heading'][$lang]|noescape} | {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}
                                     | <span id="countdown-secondary"></span></h4>
                                 {else}
                                     <h4 class="minor-event-heading mb-0">
@@ -139,8 +130,8 @@
         </h1>
         <p>
             {switch $language->value}
-                {case 'cs'}FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní.
-                {default}FYKOS organizes about ten educational events for high school students every year. Here you can find the main ones.
+                {case 'cs'}FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní{if $year_stage == 'during'}.{elseif $year_stage == 'before'} akce nadcházejícího ročníku.{elseif $year_stage == 'after'} akce minulého ročníku.{/if}
+                {default}FYKOS organizes about ten educational events for high school students every year. Here you can find the main ones{if $year_stage == 'during'}.{elseif $year_stage == 'before'} of the upcoming school year.{elseif $year_stage == 'after'} of the past school year.{/if}
             {/switch}
         </p>
         <a class="btn btn-primary" n:href=":Events:Default:default">
@@ -169,10 +160,8 @@
 
 
                 <div class="col-9 col-md-12">
-
                     <!-- Row for events -->
                     <div class="row">
-
                         <div class="col-12 timeline-section-header mt-5 d-md-none">
                             <h3>
                                 {switch $language->value}
@@ -182,134 +171,55 @@
                             </h3>
                         </div>
 
-                        <!-- First Row -->
-                        {if $lang == 'cs'}
-                            <div class="col-md-5 offset-md-1 order-md-1 order-1 mt-4" id="event-1">
-                                <a href="https://physics.naboj.org" target="_blank">
-                                    <div class="event naboj-color-left-border">
-                                        <div class="event-header">
-                                            <h3><img src="/images/logos/naboj_symbol.svg" class="inline-logo">
-                                                Fyzikální Náboj
-                                            </h3>
-                                            <span class="event-date">3.&nbsp;11.</span>
+                        {var $eventCounter = 0}
+                        {foreach $events as $key => $event}
+                            {if !$event['is_series'] && $event['show-on-timeline'] && ($event['show-in-en'] || $lang == 'cs')}
+                                {* Ad hoc solution for the positionings *}
+                                {php $eventCounter++}
+                                <div class="col-md-5 mt-4
+                                    {if $eventCounter%4 == 1}offset-md-1
+                                    {elseif $eventCounter%4 == 3}offset-md-2
+                                    {/if}"
+                                    id="event-{$eventCounter}"
+                                >
+                                    <a href="{$event['url']}">
+                                        <div class="event {$event['key']|lower}-color-left-border">
+                                            <div class="event-header">
+                                                <div class="event-title">
+                                                    <h3>
+                                                        <img src="{$event['logo_eventbox']}" alt="{$event['heading'][$language->value]|noescape}" class="inline-logo">
+                                                        {* {$event['heading'][$language->value]} *}
+                                                    </h3>
+                                                </div>
+                                                <span class="event-date">{switch $lang}{case 'cs'}{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}{default}{$event['date']|date:'M j'|replace:' ':'&nbsp;'|noescape}{/switch}</span>
+                                            </div>
+                                            <div>
+                                                <p class="text-start">{$event['description'][$language->value]|noescape}</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <p>{switch $language->value}
-                                                    {case 'cs'}Týmová soutěž v Praze, Ostravě a jinde ve světě
-                                                    {default}Team competition in Prague, Ostrava, and elsewhere in the world
-                                                {/switch}</p>
-                                            {* <p>{switch $language->value}
-                                                    {case 'cs'}Otevření registrace sledujte na webu
-                                                    {default}Follow the website for registration opening
-                                                {/switch}</p> *}
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        {/if}
-
-                        <div class="col-md-5 order-md-2 order-3 mt-4 {if $lang != 'cs'}offset-md-1{/if}" id="event-3">
-                            <a href="https://online.fyziklani.cz" target="_blank">
-                                <div class="event fol-color-left-border">
-                                    <div class="event-header">
-                                        <h3><img src="/images/logos/fyziklani_online_symbol.svg" class="inline-logo">
-                                            {switch $language->value}
-                                                {case 'cs'}Fyziklání Online
-                                                {default}Physics Brawl Online
-                                            {/switch}</h3>
-                                        <span class="event-date">22.&nbsp;11.</span>
-                                    </div>
-                                    <div>
-                                        <p>{switch $language->value}
-                                                {case 'cs'}Celosvětová soutěž, které se může účastnit každý
-                                                {default}Worldwide competition open to everyone
-                                            {/switch}</p>
-                                        {* <p>{switch $language->value}
-                                                {case 'cs'}Registrace od 1.&nbsp;9. do 2&nbsp;hodin před soutěží.
-                                                {default}Registration from 1.&nbsp;9. to 2&nbsp;hours before the competition.
-                                            {/switch}</p> *}
-                                    </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-
-                        <!-- Second Row -->
-                        {if $lang == 'cs'}
-                        <div class="col-md-5 offset-md-2 order-md-3 order-2 mt-4" id="event-2">
-                            <a href="https://dsef.cz" target="_blank">
-                                <div class="event dsef-color-left-border">
-                                    <div class="event-header">
-                                        <h3><img src="/images/logos/dsef_symbol.svg" class="inline-logo">
-                                            {switch $language->value}
-                                                {case 'cs'}DSEF
-                                                {default}DSEF
-                                            {/switch}
-                                        </h3>
-                                        <span class="event-date">6.&nbsp;11.</span>
-                                    </div>
-                                    <div>
-                                        <p>{switch $language->value}
-                                                {case 'cs'}Den s experimentální fyzikou na Matfyzu
-                                                {default}Day with experimental physics at Matfyz
-                                            {/switch}</p>
-                                        {* <p>{switch $language->value}
-                                                {case 'cs'}Registrace od 2.&nbsp;10. do 3.&nbsp;11.
-                                                {default}Registration from 2.&nbsp;10. to 3.&nbsp;11.
-                                            {/switch}</p> *}
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        {/if}
-                        <div class="col-md-5 order-md-4 order-4 mt-4" id="event-4">
-                            <a href="https://fyziklani.cz" target="_blank">
-                                <div class="event fof-color-left-border">
-                                    <div class="event-header">
-                                        <h3><img src="/images/logos/fyziklani_symbol.svg" class="inline-logo">
-                                            {switch $language->value}
-                                                {case 'cs'}Fyziklání
-                                                {default}Fyziklani
-                                            {/switch}
-                                        </h3>
-                                        <span class="event-date">16.&nbsp;2.</span>
-                                    </div>
-                                    <div>
-                                        <p>{switch $language->value}
-                                                {case 'cs'}Největší týmová fyzikální soutěž v Evropě
-                                                {default}The largest team physics competition in Europe
-                                            {/switch}</p>
-                                        {* <p>{switch $language->value}
-                                                {case 'cs'}Registrace od 22.&nbsp;11. do 9.&nbsp;2.
-                                                {default}Registration from 22.&nbsp;11. to 9.&nbsp;2.
-                                            {/switch}</p> *}
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                            {/if}
+                        {/foreach}
                     </div>
 
                     {* Horizontal timeline -- hide on small screens *}
                     <div class="row d-none d-md-block">
                         <div class="col-12 my-4">
                             <div id="timeline-horizontal-container" class="position-relative">
-                                <!-- Added position-relative class -->
                                 <div class="start-timeline-text position-absolute">
-                                    <p>{$timelineBegin|date:'j. n. Y'|noescape}</p>
+                                    <p>{switch $lang}{case 'cs'}{$timelineBegin|date:'j.'}&nbsp;{$timelineBegin|date:'n.'} {$timelineBegin|date:'Y'}{default}{$timelineBegin|date:'M'}&nbsp;{$timelineBegin|date:'j'}, {$timelineBegin|date:'Y'}{/switch}
                                 </div>
                                 <hr id="timeline-horizontal">
                                 <div class="end-timeline-text position-absolute">
-                                    <p>{$timelineEnd|date:'j. n. Y'|noescape}</p>
+                                    <p>{switch $lang}{case 'cs'}{$timelineEnd|date:'j.'}&nbsp;{$timelineEnd|date:'n.'} {$timelineEnd|date:'Y'}{default}{$timelineEnd|date:'M'}&nbsp;{$timelineEnd|date:'j'}, {$timelineEnd|date:'Y'}{/switch}
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Row for series -->
-                    {* TODO: if its before the deadline of a given series, link to the generic task assignent page.
-                    If it's after, link to the assignment page of the specific series *}
                     <div class="row">
-
-                        {* Timeline header -- show on small screens *}
                         <div class="timeline-section-header mt-5 mt-md-0 d-md-none">
                             <h3>{switch $language->value}
                                     {case 'cs'}Série semináře
@@ -317,107 +227,36 @@
                                 {/switch}</h3>
                         </div>
 
-                        <!-- Third Row -->
-                        <div class="col-md-3 offset-md-1 mt-4 order-md-1 order-1" id="series-1">
-                            <div class="event series w-md-100 w-90">
-                                <div class="event-header">
-                                    <h3>{switch $language->value}
-                                            {case 'cs'}1. série
-                                            {default}1st Series
-                                        {/switch}</h3>
-                                    <span class="event-date">10.&nbsp;10.</span>
+                        {var $seriesCounter = 0}
+                        {foreach $events as $key => $event}
+                            {if $event['is_series'] && $event['show-on-timeline']}
+                                {php $seriesCounter++}
+                                <div class="col-md-3 mt-4
+                                    {if $seriesCounter%6 == 1}offset-md-1
+                                    {elseif $seriesCounter%6 == 4}offset-md-2
+                                    {/if}" 
+                                    id="series-{$seriesCounter}"
+                                >
+                                    <a n:href=":Default:Problems:default">
+                                        <div class="event series w-md-100 w-90">
+                                            <div class="event-header">
+                                                <div class="event-title">
+                                                    <h3>{$event['heading'][$language->value]|noescape}</h3>
+                                                    <span class="event-date">{switch $lang}{case 'cs'}{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}{default}{$event['date']|date:'M j'|replace:' ':'&nbsp;'|noescape}{/switch}</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="text-start">{$event['description'][$language->value]|noescape}</p>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div>
-                                    <p>{switch $language->value}
-                                            {case 'cs'}Velryba, nové kolo a&nbsp;tření papíru
-                                            {default}Whale, new wheel, and paper rubbing
-                                        {/switch}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mt-4 order-md-2 order-3" id="series-3">
-                            <div class="event series w-md-100 w-90">
-                                <div class="event-header">
-                                    <h3>{switch $language->value}
-                                            {case 'cs'}3. série
-                                            {default}3rd Series
-                                        {/switch}</h3>
-                                    <span class="event-date">2.&nbsp;1.</span>
-                                </div>
-                                <div>
-                                    <p>{switch $language->value}
-                                            {case 'cs'}Zvlhčovač, blesky a&nbsp;proteinový motor
-                                            {default}Humidifier, lightning, and protein motor
-                                        {/switch}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mt-4 order-md-3 order-5" id="series-5">
-                            <div class="event series w-md-100 w-90">
-                                <div class="event-header">
-                                    <h3>{switch $language->value}
-                                            {case 'cs'}5. série
-                                            {default}5th Series
-                                        {/switch}</h3>
-                                    <span class="event-date">9.&nbsp;4.</span>
-                                </div>
-                                <p>{switch $language->value}
-                                        {case 'cs'}Bowling, med a&nbsp;potápějící se člun
-                                        {default}Bowling, honey, and sinking boat
-                                    {/switch}</p>
-                            </div>
-                        </div>
-
-                        <!-- Fourth Row -->
-                        <div class="col-md-3 offset-md-2 mt-4 order-md-4 order-2" id="series-2">
-                            <div class="event series w-md-100 w-90">
-                                <div class="event-header">
-                                    <h3>{switch $language->value}
-                                            {case 'cs'}2. série
-                                            {default}2nd Series
-                                        {/switch}</h3>
-                                    <span class="event-date">21.&nbsp;11.</span>
-                                </div>
-                                <p>{switch $language->value}
-                                        {case 'cs'}Pneumatika, cola a&nbsp;perpetuum mobile
-                                        {default}Pneumatics, cola, and perpetual motion
-                                    {/switch}</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mt-4 order-md-5 order-4" id="series-4">
-                            <div class="event series w-md-100 w-90">
-                                <div class="event-header">
-                                    <h3>{switch $language->value}
-                                            {case 'cs'}4. série
-                                            {default}4th Series
-                                        {/switch}</h3>
-                                    <span class="event-date">27.&nbsp;2.</span>
-                                </div>
-                                <p>{switch $language->value}
-                                        {case 'cs'}Hokejista, svítilna a&nbsp;pozorování letadla
-                                        {default}Hockey player, flashlight, and airplane observation
-                                    {/switch}</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mt-4 order-6" id="series-6">
-                            <div class="event series w-md-100 w-90">
-                                <div class="event-header">
-                                    <h3>{switch $language->value}
-                                            {case 'cs'}6. série
-                                            {default}6th Series
-                                        {/switch}</h3>
-                                    <span class="event-date">14.&nbsp;5.</span>
-                                </div>
-                                <p>
-                                    {switch $language->value}
-                                        {case 'cs'}Antineutrína, ponorka a&nbsp;magnety
-                                        {default}Antineutrinos, submarine, and magnets
-                                    {/switch}
-                                </p>
-                            </div>
-                        </div>
+                            {/if}
+                        {/foreach}
                     </div>
                 </div>
+
+
             </div>
         </div>
     </section>
@@ -444,19 +283,19 @@
                 {default}Physics Correspondence Competition is our oldest traditional event. It takes place throughout the year and each edition is divided into 6 series (which are represented by their numbers on the timeline above). Here is a brief description of how the seminar works.
             {/switch}
         </p>
-        <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:OrganisationalRegulations" *}>
+        <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:default">
             {switch $language->value}
                 {case 'cs'}O semináři
                 {default}About the Competition
             {/switch}
         </a>
-        <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:complete" *}>
+        <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:rules">
             {switch $language->value}
                 {case 'cs'}Úplná pravidla
                 {default}Complete Rules
             {/switch}
         </a>
-        <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:complete" *}>
+        <a class="btn btn-primary my-2 mr-4" n:href=":Default:Problems:default">
             {switch $language->value}
                 {case 'cs'}Zadání aktuální série
                 {default}Current Series Assignment
@@ -478,7 +317,7 @@
                             {switch $language->value}
                                 {case 'cs'}Zadání vám přijde poštou nebo ho najdete přímo tady na webu.
                                     Nemusíte vyřešit všechny úlohy, každý pokus se počítá.
-                                {default}The assignment will be sent to you by mail or you can find it directly here on the website.
+                                {default}You can find the directly here on the website.
                                     You don't have to solve all the problems, every attempt counts.
                             {/switch}
                         </p>
@@ -571,8 +410,8 @@
                         {/switch}
                     </h2>
                     <div class="embed-responsive embed-responsive-16by9">
-                        <video class="embed-responsive-item left" controls>
-                            <source src="{$basePath}/videos/FOF.mp4" type="video/mp4">
+                        <video class="embed-responsive-item left" controls poster="{$basePath}/images/fof-video-poster.jpg">
+                            <source src="{$basePath}/media/videos/FOF2023.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -588,8 +427,8 @@
                         {/switch}
                     </h2>
                     <div class="embed-responsive embed-responsive-16by9">
-                        <video class="embed-responsive-item" controls>
-                            <source src="{$basePath}/videos/DSEF.mp4" type="video/mp4">
+                        <video class="embed-responsive-item" controls poster="{$basePath}/images/dsef-video-poster.png">
+                            <source src="{$basePath}/media/videos/DSEF.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -599,49 +438,67 @@
     </section>
 </div>
 
-{* Countdown for the very top of the page *}
+
+{* Tooltips *}
 <script>
-    function countdownTimer(countDownDate, elementId) {
-        // Update the countdown every 1 second
-        var countdown = setInterval(function () {
-
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the countdown date
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the countdown in the element with the specified id
-            document.getElementById(elementId).innerHTML = ("0" + days).slice(-2) + ":" + ("0" + hours).slice(-2) + ":"
-                + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
-
-            // If the countdown is finished, display a message
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.getElementById(elementId).innerHTML = "";
-            }
-        }, 1000);
-    }
-
-    // Set the date we're counting down to
-    {if $countdownEventsIndices['upcoming'][$lang] < $numOfEvents[$lang]}
-        var countDownDatePrimary = new Date({$events[$countdownEventsIndices['upcoming'][$lang]]['date']});
-    {/if}
-    {if $countdownEventsIndices['next'][$lang] < $numOfEvents[$lang]}
-        var countDownDateSecondary = new Date({$events[$countdownEventsIndices['next'][$lang]]['date']});
-    {/if}
-
-    // Call the countdownTimer function with the specified date and element id
-    countdownTimer(countDownDatePrimary, 'countdown-primary');
-    countdownTimer(countDownDateSecondary, 'countdown-secondary');
+    // Initialize all tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
 </script>
 
+
+{if $year_stage == "during"}
+    {* Countdown for the very top of the page *}
+    <script>
+        function countdownTimer(countDownDate, elementId) {
+            // Update the countdown every 1 second
+            var countdown = setInterval(function () {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the countdown date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the countdown in the element with the specified id
+                document.getElementById(elementId).innerHTML = ("0" + days).slice(-2) + ":" + ("0" + hours).slice(-2) + ":"
+                    + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+
+                // If the countdown is finished, display a message
+                if (distance < 0) {
+                    clearInterval(countdown);
+                    document.getElementById(elementId).innerHTML = "";
+                }
+            }, 1000);
+        }
+
+        // Set the date we're counting down to
+        {if $countdownEventsIndices['upcoming'][$lang] < $numOfEvents[$lang]}
+            var countDownDatePrimary = new Date({$events[$countdownEventsIndices['upcoming'][$lang]]['date']});
+        {/if}
+        {if !is_null($countdownEventsIndices['next'][$lang]) && $countdownEventsIndices['next'][$lang] < $numOfEvents[$lang]}
+            var countDownDateSecondary = new Date({$events[$countdownEventsIndices['next'][$lang]]['date']});
+        {/if}
+
+        // Call the countdownTimer function with the specified date and element id
+        countdownTimer(countDownDatePrimary, 'countdown-primary');
+        countdownTimer(countDownDateSecondary, 'countdown-secondary');
+    </script>
+{/if}
+
+{* Timeline data *}
+
+
+{* Output JSON data in a hidden div to be parsed by JS later *}
+<div id="events-data" style="display:none;" data-events='{json_encode($events)|noescape}'></div>
 
 <div class="dummy-timeline-begin d-none"><p>{$timelineBegin|noescape}</p></div>
 <div class="dummy-timeline-end d-none"><p>{$timelineEnd|noescape}</p></div>
@@ -659,6 +516,11 @@
 
         const timelineBegin = new Date(timelineBeginElement.innerText.trim());
         const timelineEnd = new Date(timelineEndElement.innerText.trim());
+
+        function yearStageIsDuring() {
+            return new Date() >= timelineBegin && new Date() <= timelineEnd;
+        }
+
 
         // Init the timeline and set logos around it
         function calculatePositionPercentages(dates, timelineId) {
@@ -767,9 +629,11 @@
             positions_series.forEach((position, index) => {
                 positionLogo(position, 'logo-series', `series-${index + 1}`, timelineId, images_series[index]);
             });
-            position_today.forEach((position, index) => {
-                positionLogo(position, 'today-block', 'today-block', timelineId);
-            });
+            if (yearStageIsDuring()) {
+                position_today.forEach((position, index) => {
+                    positionLogo(position, 'today-block', 'today-block', timelineId);
+                });
+            }
         };
 
         const observer = new IntersectionObserver(entries => {
@@ -800,18 +664,75 @@
             });
         }
 
+        // Parse the dates of events for timeline from template data
+        let eventsJson = document.getElementById('events-data').getAttribute('data-events');
+        // console.log("Raw JSON:", eventsJson); // Log the raw JSON string
+        
+        let events;
+        try {
+            events = JSON.parse(eventsJson);
+            console.log("Parsed events:", events); // Log the parsed object
+        } catch (e) {
+            console.error("Error parsing JSON:", e);
+            console.log("Problematic JSON string:", eventsJson);
+            return; // Exit the function if JSON parsing fails
+        }
 
-        let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
-        let images_events_v = ["/images/logos/Naboj_pointer.svg", "/images/logos/DSEF_pointer.svg", "/images/logos/FOL_pointer.svg", "/images/logos/FOF_pointer.svg"];
-        let images_events_h = ["/images/logos/Naboj_pointer_h.svg", "/images/logos/DSEF_pointer_h.svg", "/images/logos/FOL_pointer_h.svg", "/images/logos/FOF_pointer_h.svg"];
+        let dates_events = [];
+        let dates_series = [];
+        
+        let images_events_v = [];
+        let images_events_h = [];
+        let images_series_v = [];
+        let images_series_h = [];
 
-        let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09", "2024-05-14"];
-        let images_series_v = ["/images/logos/1_pointer.svg", "/images/logos/2_pointer.svg", "/images/logos/3_pointer.svg",
-            "/images/logos/4_pointer.svg", "/images/logos/5_pointer.svg", "/images/logos/6_pointer.svg"];
-        let images_series_h = ["/images/logos/1_pointer_h.svg", "/images/logos/2_pointer_h.svg", "/images/logos/3_pointer_h.svg",
-            "/images/logos/4_pointer_h.svg", "/images/logos/5_pointer_h.svg", "/images/logos/6_pointer_h.svg"];
+        let hide_event_in_en = [];
+        
+        let sortedEvents = Object.entries(events).sort((a, b) => new Date(a[1].date) - new Date(b[1].date));
 
-        let hide_event_in_en = [true, true, false, false];
+        console.log("Sorted events:", sortedEvents);
+
+        sortedEvents.forEach(([id, event]) => {
+            let key = event['key'];
+            if (event['show-on-timeline']) { 
+                let date = new Date(event.date);
+                let formattedDate = date.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+
+                if (event['is_series']) {
+                    dates_series.push(formattedDate);
+                } else {
+                    dates_events.push(formattedDate);
+                    hide_event_in_en.push(!event['show-in-en']);
+                }
+
+                if (event['is_series']) {
+                    images_series_v.push(`/images/logos/${key}_pointer.svg`);
+                    images_series_h.push(`/images/logos/${key}_pointer_h.svg`);
+                } else {
+                    images_events_v.push(`/images/logos/${key}_pointer.svg`);
+                    images_events_h.push(`/images/logos/${key}_pointer_h.svg`);
+                }
+            }
+        });
+
+        
+
+
+        // let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
+        // let images_events_v = ["/images/logos/Naboj_pointer.svg", "/images/logos/DSEF_pointer.svg", "/images/logos/FOL_pointer.svg", "/images/logos/FOF_pointer.svg"];
+        // let images_events_h = ["/images/logos/Naboj_pointer_h.svg", "/images/logos/DSEF_pointer_h.svg", "/images/logos/FOL_pointer_h.svg", "/images/logos/FOF_pointer_h.svg"];
+
+        // let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09", "2024-05-14"];
+        // let images_series_v = ["/images/logos/1_pointer.svg", "/images/logos/2_pointer.svg", "/images/logos/3_pointer.svg",
+            // "/images/logos/4_pointer.svg", "/images/logos/5_pointer.svg", "/images/logos/6_pointer.svg"];
+        // let images_series_h = ["/images/logos/1_pointer_h.svg", "/images/logos/2_pointer_h.svg", "/images/logos/3_pointer_h.svg",
+            // "/images/logos/4_pointer_h.svg", "/images/logos/5_pointer_h.svg", "/images/logos/6_pointer_h.svg"];
+
+        // let hide_event_in_en = [true, true, false, false];
+
+        // console.log("dates_events:", dates_events);
+        // console.log("dates_series:", dates_series);
+        // console.log("hide_event_in_en:", hide_event_in_en);
 
         let lang = document.querySelector('.dummy-lang p').innerText.trim();
 

@@ -1,7 +1,7 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
-{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $fofEvent}
-{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
+{varType App\Models\Downloader\EventModel $fofEvent}
+{varType App\Models\Downloader\EventModel $newestEvent}
 <!DOCTYPE html>
 <html lang="{$language->value}">
 <head>
@@ -31,9 +31,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;800&display=swap" rel="stylesheet">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27814405-2"></script>
-    <script src="https://kit.fontawesome.com/f424cd1bbe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script n:syntax="off">
         window.dataLayer = window.dataLayer || [];
 
@@ -146,14 +147,14 @@
                     <div class="category-sponsors">
                         <a href="https://www.chess.com/" style="text-align: center">
                             <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Chess logo" style="max-height: 5rem; max-width: 12rem"></a>
-                        <a href="https://www.factorio.com/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/factorio.png" alt="Factorio logo" style="max-height: 5rem; max-width: 12rem"></a>
+                        {*<a href="https://www.factorio.com/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/factorio.png" alt="Factorio logo" style="max-height: 5rem; max-width: 12rem"></a>*}
                         <a href="https://www.wolfram.com/mathematica/" style="text-align: center">
                             <img src="{$basePath}/images/logos/wolfram.png" alt="Wolfram logo" style="max-height: 5rem; max-width: 12rem"></a>
-                        <a href="https://www.kerbalspaceprogram.com/games-kerbal-space-program" style="text-align: center">
-                            <img src="{$basePath}/images/logos/Kerbal.png" alt="Kerbal logo" style="max-height: 5rem; max-width: 12rem"></a>
-                        <a {switch $language->value}{case 'cs'}href="https://www.avast.com/"{default}href="https://www.avast.com/en-us/index"{/switch} style="text-align: center">
-                            <img src="{$basePath}/images/logos/avast.png" alt="Avast logo" style="max-height: 5rem; max-width: 12rem"></a>
+                        {*<a href="https://www.kerbalspaceprogram.com/games-kerbal-space-program" style="text-align: center">
+                            <img src="{$basePath}/images/logos/Kerbal.png" alt="Kerbal logo" style="max-height: 5rem; max-width: 12rem"></a>*}
+                        {*<a {switch $language->value}{case 'cs'}href="https://www.avast.com/"{default}href="https://www.avast.com/en-us/index"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/avast.png" alt="Avast logo" style="max-height: 5rem; max-width: 12rem"></a>*}
                     </div>
                 </div>
             </div>
@@ -166,7 +167,7 @@
                     {switch $language->value}
                         {case 'cs'}
                         <p>
-                            Fyziklání Online je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající již 37. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
+                            Fyziklání Online je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající již {$newestEvent->year}. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
                             <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                         </p>
                         <p>
@@ -174,7 +175,7 @@
                         </p>
                         {default}
                         <p>
-                            Physics Brawl Online is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a group of university students organizing already 37th year of educational events with focus on physics. FYKOS is made up mostly of students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
+                            Physics Brawl Online is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a group organizing educational events with focus on physics for more than {$newestEvent->year} years. FYKOS is made up mostly of students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
                         </p>
                         <p>
                             The realisation of the competition was supported by the Ministry of Education, Youth and Sports of the Czech Republic.
@@ -239,10 +240,10 @@
                             <ul>
                                 <li>
                                     <a class="social-sites" href="https://www.facebook.com/FYKOS">
-                                    <i class="fa fa-facebook fa-2x"></i>
+                                    <i class="fa-brands fa-square-facebook fa-2x"></i>
                                     </a>
                                     <a class="social-sites" href="https://www.instagram.com/fykosak/">
-                                    <i class="fa fa-instagram fa-2x"></i>
+                                    <i class="fa-brands fa-instagram fa-2x"></i>
                                     </a>
                                 </li>
                             </ul>

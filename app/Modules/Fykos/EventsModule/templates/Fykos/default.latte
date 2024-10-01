@@ -1,12 +1,17 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
-
-{block title}Seminář FYKOS{/block}
+{varType App\Models\Downloader\ContestYearModel $currentYear}
+{block title}
+    {switch $language->value}
+        {case cs}Seminář FYKOS
+        {default}FYKOS Competition
+    {/switch}
+{/block}
 
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
-        <!-- <div class="subheader">Základní informace</div> -->
+        {* <div class="subheader">Základní informace</div> *}
         <h1>
             {switch $language->value}
                 {case cs}Fyzikální korespondenční seminář
@@ -19,8 +24,11 @@
                 {case cs}FYKOS (FYzikální KOrespondenční Seminář) je individuální soutěž, která pro středoškoláky představuje skvělou
                     možnosti si zajímavým způsobem rozšířit chápání fyziky a světa kolem nás, a to např. skrze naše úlohy,
                     zpětnou vazbu, vzorová řešení, rozšiřující texty či účasti na našich akcích. FYKOS je nejstarší soutěží
-                    stejnojmenné organizace a&nbsp;momentálně probíhá již jeho {$currentYear}. ročník.
-                {default}FYKOS is an individual competition that offers high school students a great opportunity to expand their understanding of physics and the world around us in an interesting way, e.g. through our problems, feedback, sample solutions, supplementary texts or participation in our events. FYKOS is the oldest competition of the organization of the same name and is currently in its {$currentYear}{switch $currentYear % 10}{case 1}st{case 2}nd{case 3}rd{default}th{/switch} year.
+                    stejnojmenné organizace a&nbsp;momentálně probíhá již jeho {$currentYear->year}. ročník.
+                {default}FYKOS is an individual competition that offers high school students a great opportunity to
+                expand their understanding of physics and the world around us in an interesting way, e.g. through our problems,
+                feedback, sample solutions, supplementary texts or participation in our events. FYKOS is the oldest competition
+                of the organization of the same name and is currently in its {$currentYear->year}{switch $currentYear->year % 10}{case 1}st{case 2}nd{case 3}rd{default}th{/switch} year.
             {/switch}
         </p>
         <a class="btn btn-primary mb-3" n:href=":Default:About:default">{switch $language->value}{case cs}O organizaci FYKOS{default}About FYKOS Group{/switch}</a>
@@ -61,8 +69,8 @@
             </div>
             <div class="description">
                 {switch $language->value}
-                    {case cs}6x ročně publikujeme <a n:href=":Default:Problems:">zde na webu</a> sérii 8 úloh -- některé teoretické, některé experimentální apod. -- na které máte asi měsíc
-                    {default}We publish a series of 8 problems 6 times a year -- some theoretical, some experimental, etc. -- which you have about a month to solve
+                    {case cs}6x ročně publikujeme <a n:href=":Default:Problems:">zde na webu</a> sérii 8 úloh – některé teoretické, některé experimentální apod. – na které máte asi měsíc
+                    {default}We publish a series of 8 problems 6 times a year – some theoretical, some experimental, etc. – which you have about a month to solve
                 {/switch}
             </div>
         </div>
@@ -117,8 +125,8 @@
             </div>
             <div class="description">
                 {switch $language->value}
-                    {case cs}Jakákoliv literatura, libovolné počítačové programy / programovací jazyky (Wolfram, Geogebra,...) i internet. Pokud si nevíte rady, můžete i konzultovat. Konzultovat a opisovat je rozdíl! Zároveň je zakázáno použití nástrojů generativní umělé inteligence. Toto zahrnuje mimo jiné nástroje typu ChatGPT. Seminář slouží hlavně pro Vás, abyste se ve fyzice zlepšili -- jakékoliv opisování nebo přílišné využívání AI tento cíl zhatí.
-                    {default}Any literature, any computer programs / programming languages (Wolfram, Geogebra,...) and the internet. If you are stuck, you can consult. Consulting and copying are different things! Also, the use of generative AI tools is prohibited. This includes tools such as ChatGPT. The seminar is mainly for you to improve in physics -- any copying or excessive use of AI will ruin this goal.
+                    {case cs}Jakákoliv literatura, libovolné počítačové programy / programovací jazyky (Wolfram, Geogebra, ...) i internet. Pokud si nevíte rady, můžete i konzultovat. Konzultovat a opisovat je rozdíl! Zároveň je zakázáno použití nástrojů generativní umělé inteligence. Toto zahrnuje mimo jiné nástroje typu ChatGPT. Seminář slouží hlavně pro Vás, abyste se ve fyzice zlepšili – jakékoliv opisování nebo přílišné využívání AI tento cíl zhatí.
+                    {default}Any literature, any computer programs / programming languages (Wolfram, Geogebra, ...) and the internet. If you are stuck, you can consult. Consulting and copying are different things! Also, the use of generative AI tools is prohibited. This includes tools such as ChatGPT. The seminar is mainly for you to improve in physics – any copying or excessive use of AI will ruin this goal.
                 {/switch}
             </div>
         </div>
@@ -142,8 +150,8 @@
             </div>
             <div class="description">
                 {switch $language->value}
-                    {case cs}Ne, každá úloha se počítá a z každého pokusu se můžete něco naučit. Řešitelé, kteří spočítají úplně všechno, jsou spíše výjimkou. Hodnotíme především snahu a postup.
-                    {default}No, each problem counts and you can learn something from each attempt. Participants who solve everything are rather an exception. We evaluate mainly the effort and the process.
+                    {case cs}Ne, každá úloha se počítá a z každého pokusu se můžete něco naučit. Řešitelé, kteří vyřeší úplně všechny úlohy, jsou spíše výjimkou. Hodnotíme především snahu a postup.
+                    {default}No, each problem counts and you can learn something from each attempt. Participants who solve all problems are rather an exception. We mainly evaluate effort and approach.
                 {/switch}
             </div>
         </div>
@@ -183,7 +191,7 @@
                 <div class="description">
                     FYKOS každým rokem vydává tzv. ročenku, která shrnuje celý příslušný ročník
                     semináře. Od zadání úloh přes autorská řešení a seriál na pokračování až po výsledkovou listinu a krátké zprávy o
-                    všech proběhlých akcích organizovaných FYKOSem. Dostanou ji všichni účatníci daného ročníku (pokud o ni mají zájem). Pokud byste chtěli některou ze starších ročenek, napište nám na <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>.
+                    všech proběhlých akcích organizovaných FYKOSem. Dostanou ji všichni účastníci daného ročníku (pokud o ni mají zájem). Pokud byste chtěli některou ze starších ročenek, napište nám na <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>.
                 </div>
             </div>
         {/if}
@@ -203,15 +211,15 @@
             {switch $language->value}
                 {case cs}Řešitelé FYKOSu získávají praxi v řešení fyzikálních problémů a&nbsp;hlubší náhled na jejich podstatu.
                     FYKOS též slouží jako
-                    velmi vhodná přípravou pro současné a&nbsp;budoucí úspěšné řešitele jiných fyzikálních soutěží (<a
+                    velmi vhodná příprava pro současné a&nbsp;budoucí úspěšné řešitele jiných fyzikálních soutěží (<a
                         href="http://fyzikalniolympiada.cz/">Fyzikální olympiáda</a>, <a
-                        href="http://www.jcmf.cz/?q=cz/node/35">Turnaj
+                        href="https://www.tmfcr.cz">Turnaj
                         mladých fyziků</a> apod.). Je také dobrým odrazovým
-                    můstkem pro studium na <a href="http://mff.cuni.cz/">Matematicko-fyzikální fakultě UK</a> nebo dalších technických fakultách.
+                    můstkem pro studium na <a href="https://mff.cuni.cz/">Matematicko-fyzikální fakultě UK</a> nebo na dalších technických fakultách.
                 {default}FYKOS participants gain practice in solving physics problems and a deeper understanding of their nature.
                     FYKOS also serves as
-                    a great preparation for current and future successful participants in other physics competitions (Physics Olympiads, <a href="https://physicsbrawl.org/">Physics Brawl Online</a>, etc.). It is also a good stepping stone
-                    for studying at the <a href="http://mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a> or other technical faculties.
+                    a great preparation for current and future successful participants in other physics competitions (Physics Olympiads, <a href="https://physicsbrawl.org/">Physics Brawl Online</a>, <a href="https://www.iypt.org/">IYPT</a>, etc.). It is also a good stepping stone
+                    for studying at the <a href="https://mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a> or other technical faculties.
             {/switch}
         </p>
         {if $lang == 'cs'}
@@ -225,7 +233,7 @@
             {case cs}
                 <h3>Odměny za řešení</h3>
                 <p>
-                    Největší odměnou úspěšným řešitelům jsou <a href=":Events:Camps:">soustředění</a>, která
+                    Největší odměnou úspěšným řešitelům jsou <a n:href=":Events:Camps:">soustředění</a>, která
                     se konají dvakrát do roka a&nbsp;jsou na ně zvaní řešitelé podle umístění v semináři. Na řešitele tam čekají přednášky z oblastí fyziky, matematiky a informatiky, různé hry
                     a soutěže nebo skupinové zpracování experimentů. Tradičním dárkem pro účastníky soustředění jsou různé FYKOSí předměty,
                     jako například trička, hrnky, ponožky či bloky.

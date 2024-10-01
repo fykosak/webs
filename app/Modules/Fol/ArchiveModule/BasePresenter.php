@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\ArchiveModule;
 
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
+use App\Models\Downloader\EventService;
+use App\Models\Downloader\EventModel;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
@@ -17,19 +17,13 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
     /** @persistent */
     public ?string $eventYear = null;
 
-    private ModelEvent $event;
-    protected readonly ServiceEventList $serviceEvent;
-
-    public function injectServiceEvent(ServiceEventList $serviceEvent): void
-    {
-        $this->serviceEvent = $serviceEvent;
-    }
+    private EventModel $event;
 
     /**
      * @throws BadRequestException
      * @throws \Throwable
      */
-    protected function getEvent(): ModelEvent
+    protected function getEvent(): EventModel
     {
         if (!isset($this->event)) {
             if (isset($this->eventYear)) {
@@ -39,7 +33,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
                 } else {
                     [$year, $month] = explode('-', $this->eventYear);
                 }
-                $events = $this->serviceEvent->getEventsByYear(
+                $events = $this->eventService->getEventsByYear(
                     [$this->context->getParameters()['eventTypeId']],
                     intval($year)
                 );

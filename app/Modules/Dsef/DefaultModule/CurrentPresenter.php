@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Dsef\DefaultModule;
 
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\Downloader\EventModel;
 use Nette\Application\BadRequestException;
 
 class CurrentPresenter extends BasePresenter
@@ -12,7 +12,7 @@ class CurrentPresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    public static function isVisible(ModelEvent $event): bool
+    public static function isVisible(EventModel $event): bool
     {
         return !$event->isLongAfterTheEvent();
     }

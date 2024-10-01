@@ -2,15 +2,55 @@
 
 {block title}Merch{/block}
 {block main}
+
+    <style>
+        .construction-row {
+            margin-top: 20px;
+            padding: 20px;
+
+            img {
+                width: 100%;
+            }
+
+            p {
+                margin-top: auto;
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+        }
+    </style>
+
     <div class="panel color-auto">
         <section class="inner-container">
-            <h1>
+            {* <h1>
                 {switch $language->value}
                 {case 'cs'}FYKOSí merch
                 {default}FYKOS merch
                 {/switch}
-            </h1>
-            <div>
+            </h1> *}
+            <div class="row construction-row">   
+                <div class="col-md-3">
+                    <img src="{$basePath}/images/fykosak_construction_red.svg">
+                </div>
+                <div class="col-md-9">
+                    <p>
+                        {switch $language->value}
+                            {case 'cs'}Tato stránka je momentálně ve výstavbě.<br> Mezitím se můžete podívat na starou verzi stránky.
+                            {default}This page is currently under construction.<br> In the meantime, you can check out the old version of the page.
+                        {/switch}
+                    </p>
+                        {switch $language->value}
+                            {case 'cs'}<a class="btn btn-primary mt-3" href="https://old.fykos.cz/o-nas/merch">Stará verze stránky</a>
+                            {default}<a class="btn btn-primary mt-3" href="https://old.fykos.org/about-us/merch">Old version of the page</a>
+                        {/switch}
+                </div>
+            </div>
+
+
+            
+
+
+            {* <div>
                 <p>
                     {switch $language->value}
                     {case 'cs'}
@@ -120,14 +160,14 @@
                     <img src="{$basePath}/images/merch/tricka_Kuba_Sima.JPG" class="img-fluid my-2"> <br>
 
 
-                    {*<div class="row strips">
+                    <div class="row strips">
                         <div class="col-md-6">
                             <img src="modry.JPG">
                         </div>
                         <div class="col-md-6">
                             <img src="cerveny.JPG">
                         </div>
-                    </div>*}
+                    </div>
                     <div style="text-align: center;">
                         <h5><strong>
                                 {switch $language->value}
@@ -156,7 +196,7 @@
                         {default} Beanie with embroided FYKOS logo will keep your head warm in style.
                         {/switch}
                     </p>
-                        <img src="{$basePath}/images/merch/merch-cepice_bez_Tomáše.jpg" class="img-fluid my-2" style="width: 100%;"> <br>
+                        <img src="{$basePath}/images/merch/merch-cepice_bez_Tomáše.jpg" class="img-fluid my-2" style="width: 100%;"> <br> *}
 
                     {*<div class="row strips">
                         <div class="col-md-6">
@@ -165,7 +205,7 @@
                         <div class="col-md-6">
                             <img src="cerveny.JPG">
                         </div>
-                    </div>*}
+                    </div>
                     <div style="text-align: center;">
                         <h5><strong>
                                 {switch $language->value}
@@ -218,4 +258,4 @@
             </div>
         </section>
     </div>
-{/block}
+{/block} *}

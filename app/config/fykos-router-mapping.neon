@@ -9,17 +9,26 @@ parameters:
                 Default: Default
                 ONas: About
                 Pravidla: Rules
-                Organizatori: Organizers
-                Historie: History
-                Kontakt: Contact
                 Zadani: Problems
-                Poradi: Results
                 ArchivUloh: ProblemsArchive
+                Poradi: Results
+                PodporteNas: SupportUs
+            actions:
+                cs:
+                    historie: history
+                    organizatori: organizers
+                    kontakt: contact
+                    byvaliOrganizatori: allPastOrganizers
         events:
             cs:
-                Default: Default
-                Akce: Events
-                Experimenty: Experiments
-                Pravidla: Rules
-                jakPsat: TexTutorial
-                
+                Soustredeni: Camps
+                Staze: Internships
+            actions:
+                cs:
+                    pravidla: rules
+                    jakPsat: texTutorial
+                    experimenty: experiments
+                    cena: price
+            modules:
+                cs:
+                    Akce: Events

@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Dsef\ArchiveModule;
 
 use App\Components\PersonSchedule\AllScheduleListComponent;
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
+use App\Models\Downloader\EventModel;
 use App\Modules\Dsef\DefaultModule\CurrentPresenter;
 use App\Modules\Dsef\DefaultModule\RegistrationPresenter;
 use Fykosak\Utils\UI\Navigation\NavItem;
@@ -23,25 +22,19 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     /** @persistent */
     public ?string $eventMonth = null;
 
-    protected ModelEvent $event;
-    protected readonly ServiceEventList $serviceEvent;
-
-    public function injectServiceEvent(ServiceEventList $serviceEvent): void
-    {
-        $this->serviceEvent = $serviceEvent;
-    }
+    protected EventModel $event;
 
     /**
      * @throws BadRequestException
      * @throws \Throwable
      */
-    protected function getEvent(): ModelEvent
+    protected function getEvent(): EventModel
     {
         if (!isset($this->event)) {
             if (isset($this->eventYear) && isset($this->eventMonth)) {
                 $year = $this->eventYear;
                 $month = $this->eventMonth;
-                $events = $this->serviceEvent->getEventsByYear(
+                $events = $this->eventService->getEventsByYear(
                     self::EVENT_IDS,
                     intval($year)
                 );

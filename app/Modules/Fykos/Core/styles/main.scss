@@ -47,10 +47,6 @@ $navbar-dark-hover-color: $text-on-primary;
 $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import '../../../../../node_modules/flag-icon-css/sass/flag-icon';
 
-
-// @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
-// @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
-
 // @import '../../../../Models/OldFykos/css/cssAll';
 
 @import "./../../../Fol/Core/styles/layout";
@@ -76,4 +72,5 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import "./problems";
 @import "./events";
 @import "./results";
+@import "./supportUs";
 // @import "./navigation"; // use the one from FOL and FOF

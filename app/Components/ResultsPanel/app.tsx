@@ -1,25 +1,24 @@
-import React, { memo, useContext, useEffect, useMemo, useState } from 'react';
+import React, { memo, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useData } from '../ApiResults/use-data';
 import { useTeamPoints } from '../ApiResults/use-team-points';
-import { useToggle } from '../../../js/use-toggle';
 import { CountdownPortalContext, LangContext } from './main';
 import { Team } from '../ApiResults/team-interface';
 import { DataInterface, isDataInterfaceVisible } from '../ApiResults/data-interface';
 
-export const App: React.FC<{ url: string, teams: Team[], results: DataInterface }> = memo(({url, teams, results}) => {
+export const App: React.FC<{ url: string, teams: Team[], results: DataInterface }> = memo(({ url, teams, results }) => {
     const data = useData(url, results);
     const showLive = data && new Date(data.times.gameEnd).getTime() > new Date().getTime();
     const lang = useContext(LangContext);
     return <>
         {showLive && <p>{lang === 'cs' ? 'Výsledky jsou živě ze soutěže' : 'Results are live from the competition'}</p>}
-        {isDataInterfaceVisible(data) ? <ForVisibleResults data={data} teams={teams}/> :
-            <ForHiddenResults data={data}/>}
-        <CountDownPortal results={results}/>
+        {isDataInterfaceVisible(data) ? <ForVisibleResults data={data} teams={teams} /> :
+            <ForHiddenResults data={data} />}
+        <CountDownPortal results={results} />
     </>
 });
 
-const CountDownPortal: React.FC<{ results: DataInterface }> = memo(({results}) => {
+const CountDownPortal: React.FC<{ results: DataInterface }> = memo(({ results }) => {
     const element = useContext(CountdownPortalContext);
 
     const [, stateTrigger] = useState<object>({});
@@ -38,10 +37,10 @@ const CountDownPortal: React.FC<{ results: DataInterface }> = memo(({results}) =
     const seconds = Math.floor(diff / 1000);
 
     return createPortal(after || <span>
-    {String(hours).padStart(2, '0')}:
+        {String(hours).padStart(2, '0')}:
         {String(minutes).padStart(2, '0')}:
         {String(seconds).padStart(2, '0')}
-  </span>, element);
+    </span>, element);
 });
 
 /**
@@ -87,7 +86,13 @@ function generateSQL(points: ReturnType<typeof useTeamPoints> | null) {
     console.log(query); // writes the output to the browser console
 }
 
-export const ForVisibleResults: React.FC<{ data: DataInterface<true>, teams: Team[] }> = ({data, teams}) => {
+const useToggle = (initialState: boolean = false): [boolean, () => void] => {
+    const [state, setState] = useState(initialState);
+    const toggle = useCallback(() => setState(state => !state), []);
+    return [state, toggle];
+}
+
+export const ForVisibleResults: React.FC<{ data: DataInterface<true>, teams: Team[] }> = ({ data, teams }) => {
     const points = useTeamPoints(data);
     const [showFull, toggleShowFull] = useToggle();
     const lang = useContext(LangContext);
@@ -97,12 +102,12 @@ export const ForVisibleResults: React.FC<{ data: DataInterface<true>, teams: Tea
         <div className="row strips">
             {data.categories.map(c =>
                 <div className="col-md">
-                    <CategoryColumn category={c} points={points} showFull={showFull} mappedTeams={mappedTeams}/>
+                    <CategoryColumn category={c} points={points} showFull={showFull} mappedTeams={mappedTeams} />
                 </div>,
             )}
         </div>
         {showFull && false && <div className="row">
-            <CategoryColumn category={'O'} points={points} showFull={true} mappedTeams={mappedTeams}/>
+            <CategoryColumn category={'O'} points={points} showFull={true} mappedTeams={mappedTeams} />
         </div>}
         <button onClick={toggleShowFull} className="btn btn-panel-action">{showFull ? (
             lang === 'cs' ? 'Skrýt' : 'Hide'
@@ -112,7 +117,7 @@ export const ForVisibleResults: React.FC<{ data: DataInterface<true>, teams: Tea
     </>;
 }
 
-export const ForHiddenResults: React.FC<{ data: DataInterface }> = memo(({data}) => {
+export const ForHiddenResults: React.FC<{ data: DataInterface }> = memo(({ data }) => {
     const lang = useContext(LangContext);
     return <div className={'hidden-results'}>
         {lang === 'cs' ? 'Výsledky jsou před koncem soutěže skryté.' : 'Results are hidden before the end of the competition.'}
@@ -132,13 +137,13 @@ const CategoryColumn: React.FC<{
     showFull: boolean,
     mappedTeams: Record<number, Team>,
 }>
-    = memo(({category, points, showFull, mappedTeams}) => {
-    const lang = useContext(LangContext);
-    //generateSQL(points); // writes the output to the browser console
+    = memo(({ category, points, showFull, mappedTeams }) => {
+        const lang = useContext(LangContext);
+        //generateSQL(points); // writes the output to the browser console
 
-    const sorted = useMemo(() => points
-        ?.filter(p => p.team.category === category)
-        .sort((a, b) => {
+        const sorted = useMemo(() => points
+            ?.filter(p => p.team.category === category)
+            .sort((a, b) => {
                 if (a.team.disqualified !== b.team.disqualified) {
                     return (a.team.disqualified ? 1 : 0) - (b.team.disqualified ? 1 : 0);
                 }
@@ -152,28 +157,28 @@ const CategoryColumn: React.FC<{
                     return b.points - a.points;
                 }
             },
-        ).filter((_, i) => showFull || i < 10), [points, showFull]);
+            ).filter((_, i) => showFull || i < 10), [points, showFull]);
 
-    return <>
-        <div className="category-title">
-            {lang === 'cs' ?
-                <>Kategorie {CATEGORY_NAMES[category as keyof typeof CATEGORY_NAMES]}</> :
-                <>{CATEGORY_NAMES[category as keyof typeof CATEGORY_NAMES]} category</>
-            }
-        </div>
-        <table>
-            {sorted?.map((p, i) => <tr className={p.points || p.team.disqualified ? '' : 'zero-points'}>
-                <td>{p.team.disqualified ? 'DSQ' : (p.points ? `${i + 1}.` : '-')}</td>
-                <td>
-                    <div className="team-name">{mappedTeams[p.team.teamId]?.name ?? p.team.name}</div>
-                    <div className="flags">
-                        {[...new Set(mappedTeams[p.team.teamId]?.participants.map(p => p.countryIso))].filter(iso => iso !== 'ZZ').map(iso =>
-                            <span className={`flag-icon flag-icon-${iso?.toLowerCase()}`}/>,
-                        )}
-                    </div>
-                </td>
-                <td>{p.team.disqualified ? 'x' : p.points}</td>
-            </tr>)}
-        </table>
-    </>;
-});
+        return <>
+            <div className="category-title">
+                {lang === 'cs' ?
+                    <>Kategorie {CATEGORY_NAMES[category as keyof typeof CATEGORY_NAMES]}</> :
+                    <>{CATEGORY_NAMES[category as keyof typeof CATEGORY_NAMES]} category</>
+                }
+            </div>
+            <table>
+                {sorted?.map((p, i) => <tr className={p.points || p.team.disqualified ? '' : 'zero-points'}>
+                    <td>{p.team.disqualified ? 'DSQ' : (p.points ? `${i + 1}.` : '-')}</td>
+                    <td>
+                        <div className="team-name">{mappedTeams[p.team.teamId]?.name ?? p.team.name}</div>
+                        <div className="flags">
+                            {[...new Set(mappedTeams[p.team.teamId]?.participants.map(p => p.countryIso))].filter(iso => iso !== 'ZZ').map(iso =>
+                                <span className={`flag-icon flag-icon-${iso?.toLowerCase()}`} />,
+                            )}
+                        </div>
+                    </td>
+                    <td>{p.team.disqualified ? 'x' : p.points}</td>
+                </tr>)}
+            </table>
+        </>;
+    });

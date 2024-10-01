@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Components\Map;
 
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Models\ModelTeam;
-use App\Models\NetteDownloader\ORM\Services\DummyService;
+use App\Models\Downloader\DummyService;
+use App\Models\Downloader\EventModel;
+use App\Models\Downloader\TeamModel;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
@@ -21,7 +21,7 @@ class MapComponent extends DIComponent
     /** @var string[] */
     protected array $teamCountries;
 
-    public function __construct(Container $container, private readonly ModelEvent $event)
+    public function __construct(Container $container, private readonly EventModel $event)
     {
         parent::__construct($container);
     }
@@ -38,7 +38,7 @@ class MapComponent extends DIComponent
     {
         $this->teamCount = 0;
         $this->teamCountries = [];
-        foreach ($this->dummyService->get(new TeamsRequest($this->event->eventId), ModelTeam::class) as $team) {
+        foreach ($this->dummyService->get(new TeamsRequest($this->event->eventId), TeamModel::class) as $team) {
             if (!in_array($team->state, ['participated', 'disqualified', 'applied', 'pending', 'approved'])) {
                 continue;
             }

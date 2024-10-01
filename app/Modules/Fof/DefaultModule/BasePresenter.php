@@ -38,10 +38,10 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
             ),
             ':Default:Accommodation:default',
         );
-        $items[] = new NavItem(
-            new PageTitle($this->csen('Program', 'Schedule'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
-            ':Default:Schedule:default',
-        );
+        //$items[] = new NavItem(
+        //    new PageTitle($this->csen('Program', 'Schedule'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
+        //    ':Default:Schedule:default',
+        //);
 
         if (TeamsPresenter::isVisible($this->getNewestEvent())) {
             $items[] = new NavItem(

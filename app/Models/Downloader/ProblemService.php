@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader;
 
-use App\Models\NetteDownloader\ORM\Services\AbstractJSONService;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 
@@ -77,6 +76,20 @@ final class ProblemService extends AbstractJSONService
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
+    public function getYearJson(string $contest, int $year): array
+    {
+        return $this->cache->load(
+            sprintf("yearJson_%s_%d", $contest, $year),
+            function (&$dependencies) use ($contest, $year) {
+                $dependencies[Cache::EXPIRE] = $this->expiration;
+                return $this->downloader->download(new SeriesRequest($contest, $year));
+            }
+        );
+    }
+
     private function getMedia(string $contest, int $year, string $path): ?string
     {
         $path = sprintf('%s%s/%d/media/%s', $this->problemManagerURL, $contest, $year, $path);
@@ -103,5 +116,11 @@ final class ProblemService extends AbstractJSONService
     {
         $path = 'serial' . $series->series . '.' . $lang . '.pdf';
         return $this->getMedia($contest, $series->year, $path);
+    }
+
+    public function getYearbook(string $contest, int $year, string $lang): ?string
+    {
+        $path = 'yearbook.pdf';
+        return $this->getMedia($contest, $year, $path);
     }
 }

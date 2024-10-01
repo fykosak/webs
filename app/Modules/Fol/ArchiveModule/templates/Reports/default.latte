@@ -34,7 +34,7 @@
             <div n:class="panel, $counter ? color-light : color-dark">
                 <section class="inner-container row">
                     <div class="col-md-4" id="{$reportId}-container" n:if="count($report->images)">
-                        <img id="{$reportId}" src="{$basePath . '/photos/' . $report->images[0]->filename}" class="img-fluid">
+                        <img id="{$reportId}" src="{$basePath . '/media/photos/' . $report->images[0]->filename}" class="img-fluid">
                         <div class="row gallery-thumbnails" id="{$reportId}-row">
                             {varType bool $solo} {* true when there's only one picture *}
                             {do $solo = true}
@@ -46,9 +46,9 @@
                                 {/if}
                                 {do $noImage = false}
                                 {varType string $source}
-                                {do $source = $basePath . '/photos/' . $reportImage->filename}
+                                {do $source = $basePath . '/media/photos/' . $reportImage->filename}
                                 <div class="col-4">
-                                    <img src="{$basePath}/photos/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$reportId});" class="img-fluid">
+                                    <img src="{$basePath}/media/photos/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$reportId});" class="img-fluid">
                                 </div>
                             {/foreach}
                             <script n:if="$solo">

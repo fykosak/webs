@@ -33,9 +33,15 @@
                     </a>
                 </h1>
 
-                {if $control->getComponent('gallery')->hasPhotos('/photos/' . $eventKey['fykos-year'] . '/')}
+                {if $control->getComponent('gallery')->hasPhotos('/media/photos/' . $eventKey['contestYear'] . '/')}
                     <div class="mt-5">
-                        {control gallery:randomLine '/photos/' . $eventKey['fykos-year'] . '/'}
+                        {control gallery:randomLine '/media/photos/' . $eventKey['contestYear'] . '/'}
+                    </div>
+                {/if}
+                {* Hack for missing photos *}
+                {if $eventKey['year'] == 34}
+                    <div class="mt-5">
+                        Tento ročník proběhl kvůli pandemii COVID-19 online.
                     </div>
                 {/if}
             </section>

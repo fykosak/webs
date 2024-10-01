@@ -1,3 +1,4 @@
+{varType App\Models\Downloader\ContestYearModel $currentYear}
 {block title}
     Historie
 {/block}
@@ -7,7 +8,7 @@
         <section class="inner-container">
             <h1>Historie FYKOSu</h1>
             <p>
-                Skupina FYKOS má velmi bohatou {$currentYear}letou historii organizace soutěží a dalších vzdělávacích akcí ve fyzice pro žáky středních škol. Od svého založení jako malé skupinky studentů se postupně rozrostla na tým desítek organizátorů, kteří se každoročně podílejí na organizaci mnoha vzdělávacích akcí.
+                Skupina FYKOS má velmi bohatou {$currentYear->year}letou historii organizace soutěží a dalších vzdělávacích akcí ve fyzice pro žáky středních škol. Od svého založení jako malé skupinky studentů se postupně rozrostla na tým desítek organizátorů, kteří se každoročně podílejí na organizaci mnoha vzdělávacích akcí.
             </p>
             <p>
                 Na této stránce naleznete podrobný popis všech ročníků s FYKOSu, spojených podle hlavního organizátora (studenta MFF UK, který FYKOS v dané době vedl).
@@ -30,12 +31,12 @@
         <section class="inner-container">
             <h2>1987 – 1990 (Pavel Krtouš)</h2>
             <p>
-                Šéfem FYKOSu byl Pavel Krtouš. Vedoucím semináře byl až do roku 1995 Leoš Dvořák. Aby nedošlo k mýlce, vysvětleme, že pojmem šéf, místo něhož je v 18. ročníku začalo používat označení hlavní organizátor, máme na mysli studenta MFF UK, který koordinuje ostatní organizátory a stará se o běh celého semináře. Vedoucí semináře je oproti tomu funkce spíše formální, může jím být jedině zaměstnanec fakulty, který zajišťuje zejména finance a oficiální  (poznamenejme, že v současnosti i finance a kominkace přešla z naprosté většiny na samotné organizátory). V těchto dobách, kdy se FYKOSu ještě neříkalo FYKOS (ale FKS), byly finance získávány přes FV SSM (fakultní výbor Socialistického svazu mládeže). K tomu, jak se psala zadání i vzorová řešení, se vyjádřil Pavel Krtouš takto: „Když jsme u technických detailů, tak psací stroj, na kterém se seminář začal dělat, byla taková stará úžasná remingtonka se speciálně dodělávanými českými a matematickými znaky (tj. byla předělaná některá kladívka s původně německými znaky na znaky nové, a to s ohledem i na to, že na tom stroji brácha chtěl psát matematický seminář).“ Série se pak (hlavně v pozdějších ročnících) kopírovaly v reprografickém středisku v budově MFF UK na Malé Straně. V prvních ročnících často i pokoutně v podniku, kde tehdy pracoval Pavlův otec. Důvod byl ten, že povolení ke kopírování na MFF UK muselo projít přes dlouhotrvající administrativu. Pro databázi řešitelů se využíval program Přemka Dědice, psaný na ZX Spektru.
+                Šéfem FYKOSu byl Pavel Krtouš. Vedoucím semináře byl až do roku 1995 Leoš Dvořák. Aby nedošlo k mýlce, vysvětleme, že pojmem šéf, místo něhož je v 18. ročníku začalo používat označení hlavní organizátor, máme na mysli studenta MFF UK, který koordinuje ostatní organizátory a stará se o běh celého semináře. Vedoucí semináře je oproti tomu funkce spíše formální, může jím být jedině zaměstnanec fakulty, který zajišťuje zejména finance a oficiální  (poznamenejme, že v současnosti i finance a komunikace přešla z naprosté většiny na samotné organizátory). V těchto dobách, kdy se FYKOSu ještě neříkalo FYKOS (ale FKS), byly finance získávány přes FV SSM (fakultní výbor Socialistického svazu mládeže). K tomu, jak se psala zadání i vzorová řešení, se vyjádřil Pavel Krtouš takto: „Když jsme u technických detailů, tak psací stroj, na kterém se seminář začal dělat, byla taková stará úžasná remingtonka se speciálně dodělávanými českými a matematickými znaky (tj. byla předělaná některá kladívka s původně německými znaky na znaky nové, a to s ohledem i na to, že na tom stroji brácha chtěl psát matematický seminář).“ Série se pak (hlavně v pozdějších ročnících) kopírovaly v reprografickém středisku v budově MFF UK na Malé Straně. V prvních ročnících často i pokoutně v podniku, kde tehdy pracoval Pavlův otec. Důvod byl ten, že povolení ke kopírování na MFF UK muselo projít přes dlouhotrvající administrativu. Pro databázi řešitelů se využíval program Přemka Dědice, psaný na ZX Spektru.
             </p>
             <ul>
-                <li><a>1. ročník 1987/88</a></li>
-                <li><a>2. ročník 1988/89</a></li>
-                <li><a>3. ročník 1989/90</a></li>
+                <li><a>1. ročník 1987/88</a> {$presenter->getYearbookLink(1)|noescape}</li>
+                <li><a>2. ročník 1988/89</a> {$presenter->getYearbookLink(2)|noescape}</li>
+                <li><a>3. ročník 1989/90</a> {$presenter->getYearbookLink(3)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -47,8 +48,8 @@
                 Během 3. ročníku šéfování semináře po Pavlu Krtoušovi přebral Jan Slovák. Po Sametové revoluci financování semináře přešlo pod Jednotu českých matematiků a fyziků. Tematickým úlohám se začalo říkat Seriál na pokračování. Vzhledem k tomu, že většina organizátorů byli studenti teoretické fyziky, začali k úřadování používat počítačovou učebnu katedry. Důsledkem toho v 5. ročníku program T602 začal nahrazovat nepohodlný psací stroj. Také databáze řešitelů se přepsala pro PC. V červnu roku 1993 Honza Slovák, David Maxera, Petr Hellinger a Marek Polášek obdrželi cenu ministra školství za organizaci FKS.
             </p>
             <ul>
-                <li><a>4. ročník 1990/91</a></li>
-                <li><a>5. ročník 1991/92</a></li>
+                <li><a>4. ročník 1990/91</a> {$presenter->getYearbookLink(4)|noescape}</li>
+                <li><a>5. ročník 1991/92</a> {$presenter->getYearbookLink(5)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -60,7 +61,7 @@
                 Již během 5. ročníku seminář organizoval i tým Vojtěcha Pravdy, tomu bylo šéfování předáno na podzim roku 1992. Během šestého ročníku semináře se zcela přešlo na vyrábění komentářů pomocí počítače. Od 6. ročníku bylo opravovatelům povoleno dávat za skvěle vyřešené úlohy více bodů než Studentu Pilnému.
             </p>
             <ul>
-                <li><a>6. ročník 1992/93</a></li>
+                <li><a>6. ročník 1992/93</a> {$presenter->getYearbookLink(6)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -72,8 +73,8 @@
                 Filip Münz a jeho tým přinesli do semináře několik zásadních změn. Díky Filipovi byl 7. a následující dva ročníky psány v editoru Word. Od té doby máme elektronický archiv, za což budiž Filipovi věčná sláva. Databáze řešitelů byla převedena do Excelu, což vydrželo až do 15. ročníku. V osmém ročníku se také díky Filipovi, Petru Žemlovi a Petru Macháčkovi začal pořádat každý týden kroužek fyziky pro středoškoláky z okolí Prahy. Tentýž rok se začaly vydávat ročenky se zadáním a řešením všech úloh. Za Filipova působení získal seminář (alespoň neoficiálně) místnost číslo 1121 na katedře teoretické fyziky. Tam se každou středu scházel tým organizátorů.
             </p>
             <ul>
-                <li><a>7. ročník 1993/94</a></li>
-                <li><a>8. ročník 1994/95</a></li>
+                <li><a>7. ročník 1993/94</a> {$presenter->getYearbookLink(7)|noescape}</li>
+                <li><a>8. ročník 1994/95</a> {$presenter->getYearbookLink(8)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -94,8 +95,8 @@
                 V desátém ročníku dostala zadání a řešení úloh novou tvář, neboť Halef se odhodlal je začít tvořit v TeXu, což se také děje dodnes, a tak brožurky FKS po typografické stránce mohou díky TeXu konkurovat vědeckým časopisům. Kroužek fyziky vedl Halef s Filipem a Tomášem Kočkou. Hlavním TeXařem se stal Karel Houfek.
             </p>
             <ul>
-                <li><a>9. ročník 1995/96</a></li>
-                <li><a>10. ročník 1996/97</a></li>
+                <li><a>9. ročník 1995/96</a> {$presenter->getYearbookLink(9)|noescape}</li>
+                <li><a>10. ročník 1996/97</a> {$presenter->getYearbookLink(10)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -107,7 +108,7 @@
                 V 10. ročníku po Halefovi šéfování přebral Honza Hradil. Honzovi do zásluh kromě toho, že byl výborný tahoun soustředění, připadá zejména to, že začal semináři říkat FYKOS a rozšířil povědomí o něm i mezi internetovou komunitu, jelikož to byl právě on, kdo v 10. ročníku po pokusech Filipa Münze i Pavla Krtouše udělal FYKOSí webové stránky, ze kterých se po několika iteracích přepisování vyvinuly ty, na které se právě díváte. E-mailová adresa fykos@mff.cuni.cz se poprvé objevila v zadání 5. série 10. ročníku. V listopadu 1997 také vznikla e-mailová konference pro organizátory fykos-l@kolej.mff.cuni.cz, která pak sloužila mnoho let. Kroužek fyziky vedl Luboš Zrnečko s výpomocí Jindry Kolorenče.
             </p>
             <ul>
-                <li><a>11. ročník 1997/98</a></li>
+                <li><a>11. ročník 1997/98</a> {$presenter->getYearbookLink(11)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -119,8 +120,8 @@
                 V těchto letech semináři šéfoval Jirka Franta. Sám své šéfování nazval jako období stabilizace po bouřlivém rozvoji. Podnikl se pokus o propagaci semináře do anglicky mluvících zemí, ale tehdy se návrh neuchytil. Díky Jirkovi od léta 1999 parta organizátorů několik let každoročně sjížděla jeden z českých toků (postupně Lužnice, Vltava, Otava, Lužnice, Ohře). Začaly se pořádat FYKOSí Vánoční besídky, jejichž tradice funguje dodnes. TeXařem byl Petr Janeček. Kroužek fyziky vedla Jana Gřondilová a Pavel Bubák, kteří ho v roce 2001 předali pod Katedru didaktiky fyziky.
             </p>
             <ul>
-                <li><a>12. ročník 1998/99</a></li>
-                <li><a>13. ročník 1999/2000</a></li>
+                <li><a>12. ročník 1998/99</a> {$presenter->getYearbookLink(12)|noescape}</li>
+                <li><a>13. ročník 1999/2000</a> {$presenter->getYearbookLink(13)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -132,8 +133,8 @@
                 Po Jirkovi převzal šéfování Honza Prokleška. Rozmach internetu na středních školách způsobil, že jsme v 15. ročníku umožnili řešitelům posílat svá řešení elektronicky. Také na podzim 2001 vznikla e-mailová konference pro řešitele fykos-l@mff.cuni.cz. TeXová makra nově přepsal Honza Houštěk, spolu s ním série TeXali Karel Honzl a Honza Prokleška. Webmasterem se stal Ondra Pejchal. Na Ústavu teoretické fyziky jsme dostali novou (menší) místnost č. 1106.
             </p>
             <ul>
-                <li><a>14. ročník 2000/01</a></li>
-                <li><a>15. ročník 2001/02</a></li>
+                <li><a>14. ročník 2000/01</a> {$presenter->getYearbookLink(14)|noescape}</li>
+                <li><a>15. ročník 2001/02</a> {$presenter->getYearbookLink(15)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -145,8 +146,8 @@
                 V tomto období FYKOSu šéfoval Honza Houštěk. Od 16. ročníku začal FYKOS díky Tomáši Matouškovi používat SQL databázi řešitelů. Tehdy byla společná s databází propagačního oddělení i ostatních korespondenčních seminářů a měla webové rozhraní, takže se do ní dalo nahlédnout odkudkoliv a kdykoliv.
             </p>
             <ul>
-                <li><a>16. ročník 2002/03</a></li>
-                <li><a>17. ročník 2003/04</a></li>
+                <li><a>16. ročník 2002/03</a> {$presenter->getYearbookLink(16)|noescape}</li>
+                <li><a>17. ročník 2003/04</a> {$presenter->getYearbookLink(17)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -162,9 +163,9 @@
                 V roce 2006 se podruhé v historii FYKOSu podařilo zrealizovat výjezdní soustředění s exkurzí do CERNu. Jeho organizátoři byli Honza Prachař a Pavel Brom, hlavním koordinátorem byl však RNDr. Jiří Dolejší, finance zajistila PhDr. Alena Havlíčková. Ve 20. ročníku se povedlo zorganizovat dvě nové akce – <a href="https://fyziklani.cz">FYKOSí Fyziklání</a> (tříhodinová fyzikální soutěž pro pětičlenná družstva ze středních škol pořádaná na MFF UK) a Týden s aplikovanou fyzikou (navazující na DSEF, navštěvují se vědecká a technická pracoviště po celém Česku) – které se následně staly tradičními FYKOSími akcemi.
             </p>
             <ul>
-                <li><a>18. ročník 2004/05</a></li>
-                <li><a>19. ročník 2005/06</a></li>
-                <li><a>20. ročník 2006/07</a></li>
+                <li><a>18. ročník 2004/05</a> {$presenter->getYearbookLink(18)|noescape}</li>
+                <li><a>19. ročník 2005/06</a> {$presenter->getYearbookLink(19)|noescape}</li>
+                <li><a>20. ročník 2006/07</a> {$presenter->getYearbookLink(20)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -176,9 +177,9 @@
                 Hlavním organizátorem byl Aleš Podolník. Vedoucím semináře byl Přemysl Kolorenč (od roku 2008). FYKOS byl stále financován Oddělením pro vnější vztahy a propagaci, které vedla Alena Havlíčková, s mírnou podporou Skupiny ČEZ. Každý rok se konala dvě soustředění, Týden s aplikovanou fyzikou (do roku 2009), Den s experimentální fyzikou a FYKOSí Fyziklání. Experimentální sekci koordinoval Pavel Brom. Organizační tým FYKOSu se rekrutoval převážně z řad bývalých řešitelů. Brožurky sázel v TeXu Tomáš Jirotka pomocí maker, která vytvořil Honza Houštěk. S korekturami pomáhali Marek Nečada, Jakub Michálek a Lukáš Ledvina. Zadání překládal do angličtiny Honza Hradil.
             </p>
             <ul>
-                <li><a>21. ročník 2007/08</a></li>
-                <li><a>22. ročník 2008/09</a></li>
-                <li><a>23. ročník 2009/10</a></li>
+                <li><a>21. ročník 2007/08</a> {$presenter->getYearbookLink(21)|noescape}</li>
+                <li><a>22. ročník 2008/09</a> {$presenter->getYearbookLink(22)|noescape}</li>
+                <li><a>23. ročník 2009/10</a> {$presenter->getYearbookLink(23)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -193,9 +194,9 @@
                 FYKOS každý rok stále pořádal dvě soustředění, Den s experimentální fyzikou a Fyziklání. Současně se také v 25. ročníku vrátil Týden s aplikovanou fyzikou a byla založena nová tradice týmové online fyzikální soutěže <a href="https://online.fyziklani.cz">Fyziklání Online</a>. Proběhlo také mnoho dalších vylepšení a inovací. Společně se vznikem části FYKOSu pro základní školy – Výfuk (Výpočty fyzikálních úkolů) začaly být nově pořádány i akce pro žáky základních škol (tábory Výfuku, víkendová setkání a MFnáboj). Vedoucím Výfuku byl Marek Nečada. Experimentální sekci koordinoval Pavel Brom, po kterém ji přebrala Tereza Steinhartová. Organizační tým FYKOSu se rekrutoval převážně z řad bývalých řešitelů, ale byla snaha nabírat i další studenty (příkladem je f(Aleš)). Letáky a brožurky sázel v TeXu Michal Koutný pomocí maker, která sám předělal, ale jejichž původ vycházel z dřívějších maker. TeXání po něm přebral Tomáš Pikálek. S korekturami pomáhali Marek Nečada (jazykové i odborné), Dominika Kalasová (jazykové), Lukáš Ledvina (odborné) a Jakub Vošmera (odborné). Zadání do angličtiny překládal Honza Humplík.
             </p>
             <ul>
-                <li><a>24. ročník 2010/11</a></li>
-                <li><a>25. ročník 2011/12</a></li>
-                <li><a>26. ročník 2012/13</a></li>
+                <li><a>24. ročník 2010/11</a> {$presenter->getYearbookLink(24)|noescape}</li>
+                <li><a>25. ročník 2011/12</a> {$presenter->getYearbookLink(25)|noescape}</li>
+                <li><a>26. ročník 2012/13</a> {$presenter->getYearbookLink(26)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -207,8 +208,8 @@
                 Hlavním organizátorem byl Aleš Flandera, jeho zástupcem byl Karel Kolář. Vedoucím semináře stále byl Přemysl Kolorenč. FYKOS byl nadále financován skrz Oddělení pro vnější vztahy a propagaci MFF UK, které vedla Alena Havlíčková, a do roku 2014 částečně Skupinou ČEZ. FYKOS každý rok dál pořádal dvě soustředění, Den s experimentální fyzikou, Fyziklání a Fyziklání online. Týden s aplikovanou fyzikou se realizoval od té doby na základě toho, že se podaří sehnat nějaké finance navíc. Vedoucí Výfuku byl Patrik Švančara až do okamžiku oddělení semináře. Výfuk se od FYKOSu oddělil k 1. lednu 2014. Experimentální sekci koordinovala Tereza Steinhartová, významně pomáhal Erik Hendrych. Letáky a brožurky sázel v TeXu Tomáš Pikálek. S korekturami pomáhali Dominika Kalasová (jazykové), Lukáš Ledvina (odborné), Jakub Vošmera (odborné) a Miroslav Hanzelka (odborné i jazykové). Zadání překládal do angličtiny Jakub Doležal.
             </p>
             <ul>
-                <li><a>27. ročník 2013/14</a></li>
-                <li><a>28. ročník 2014/15</a></li>
+                <li><a>27. ročník 2013/14</a> {$presenter->getYearbookLink(27)|noescape}</li>
+                <li><a>28. ročník 2014/15</a> {$presenter->getYearbookLink(28)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -220,8 +221,8 @@
                 Hlavním organizátorem byl Miroslav Hanzelka, jeho zástupcem Aleš Flandera. Vedoucím semináře byl nadále Přemysl Kolorenč. FYKOS byl stále financován skrz Oddělení pro vnější vztahy a propagaci MFF UK, které vedla PhDr. Alena Havlíčková. Obě Fyziklání byla spoluvyhlašovaná a kofinancovaná Ministerstvem školství, mládeže a tělovýchovy. Kategorie A soutěže FYKOSí Fyziklání byla zařazena do programu Excelence středních škol. Každý rok opět probíhala dvě soustředění, Den s experimentální fyzikou, FYKOSí Fyziklání, Fyziklání online a přednášky pro SŠ. Nově se do repertoáru přidala původem slovenská soutěž Fyzikální Náboj a k přednáškám přibyl rozšiřující fyzikální seminář pro maturitní ročníky. Experimentální sekci vedl Erik Hendrych. Letáky a brožurky sázela v TeXu Markéta Calábková. S korekturami pomáhali Kristína Nešporová (jazykové), Šimon Knoška (jazykové SK), Miroslav Hanzelka (odborné i jazykové), Jakub Dolejší (odborné) a Filip Ayazi (odborné). Zadání překládal do angličtiny Petr Doležal.
             </p>
             <ul>
-                <li><a>29. ročník 2015/16</a></li>
-                <li><a>30. ročník 2016/17</a></li>
+                <li><a>29. ročník 2015/16</a> {$presenter->getYearbookLink(29)|noescape}</li>
+                <li><a>30. ročník 2016/17</a> {$presenter->getYearbookLink(30)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -233,7 +234,7 @@
                 Hlavním organizátorem byl Daniel Dupkala, jeho zástupcem byl Jakub Dolejší (Krásný Kuba). Vedoucím semináře byl Přemysl Kolorenč. FYKOS byl nadále financován skrz Oddělení pro vnější vztahy a propagaci MFF UK, které vedla PhDr. Alena Havlíčková, a také Ministerstvem školství, mládeže a tělovýchovy, přičemž některé kategorie soutěží byly zařazeny do programu Excelence středních škol. Proběhla dvě soustředění ročně, Den s experimentální fyzikou, FYKOSí Fyziklání, Fyziklání online, Fyzikální Náboj, přednášky pro SŠ a maturitní či přesněji rozšiřující seminář. Experimentální sekci vedl Erik Hendrych. Letáky a brožurky sázela v TeXu Markéta Calábková. S korekturami pomáhali Kristína Nešporová (jazykové), Šimon Knoška (jazykové SK), Miroslav Hanzelka (odborné i jazykové), Jakub Dolejší (odborné) a Filip Ayazi (odborné). Zadání překládal do angličtiny Petr Doležal. V květnu byl spuštěn nový web FYKOSu.
             </p>
             <ul>
-                <li><a>30. ročník 2016/17</a></li>
+                <li><a>30. ročník 2016/17</a> {$presenter->getYearbookLink(30)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -247,15 +248,15 @@
                 (OVVP) MFF UK bylo zrušeno sloučením s Oddělením mediální komunikace (OMK) k 31. 12. 2017, od 1. 1. 2018 je FYKOS
                 financován přes Oddělení propagace a mediální komunikace (OPMK). FYKOS každý rok, pokud nám v tom nezabránil COVID-19,
                 stále pořádal dvě soustředění, Den s experimentální fyzikou, FYKOSí Fyziklání (od roku 2019 přejmenováno na Fyziklání),
-                Fyziklání online (od 2021 Fyziklání Online), Fyzikální Náboj a přednášky pro SŠ. Jednou se skutečnil i Týden s aplikovanou
+                Fyziklání online (od 2021 Fyziklání Online), Fyzikální Náboj a přednášky pro SŠ. Jednou se uskutečnil i Týden s aplikovanou
                 fyzikou v Praze a okolí. Fyziklání bylo rozšířeno do zahraničí, a tedy pořádané i v angličtině. Experimentální sekci
-                vedl Erik Hendrych. Letáky a brožurky sázela v TeXu Markéta Calábková a Matěj Rzehulka.
+                vedl Erik Hendrych. Letáky a brožurky sázela v TeXu Markéta Calábková (nyní již Machovou) a Matěj Rzehulka.
             </p>
             <ul>
-                <li><a>31. ročník 2017/18</a></li>
-                <li><a>32. ročník 2018/19</a></li>
-                <li><a>33. ročník 2019/20</a></li>
-                <li><a>34. ročník 2020/21</a></li>
+                <li><a>31. ročník 2017/18</a> {$presenter->getYearbookLink(31)|noescape}</li>
+                <li><a>32. ročník 2018/19</a> {$presenter->getYearbookLink(32)|noescape}</li>
+                <li><a>33. ročník 2019/20</a> {$presenter->getYearbookLink(33)|noescape}</li>
+                <li><a>34. ročník 2020/21</a> {$presenter->getYearbookLink(34)|noescape}</li>
             </ul>
         </section>
     </div>
@@ -264,7 +265,7 @@
         <section class="inner-container">
             <h2>2021 - ? (Martin Vaněk)</h2>
             <p>
-                Hlavním organizátorem byl Martin Vaněk, zástupcem nejprve Daniela Pittnerová, poté Vojtěch David a Elena Chochoľaková,
+                Hlavním organizátorem byl Martin Vaněk, zástupcem nejprve Daniela Dupkalová, poté Vojtěch David a Elena Chochoľaková,
                 vedoucím semináře byl dále Přemysl Kolorenč. FYKOS stále spadá pod Ústav teoretické fyziky MFF UK a Oddělení propagace
                 a mediální komunikace (OPMK) MFF UK. Akce FYKOSu v tomto období pokračují svůj velký růst, který započal u minulých dvou
                 hlavních organizátorů – Fyziklání (vedené nejprve Danielem Dupkalou a poté Vojtěchem Davidem) má poprvé v roce 2023 přes
@@ -275,9 +276,9 @@
 {*                Napsat o nových webech, vypsat vedoucí jednotlivých akcí, napsat o expanzi*}
             </p>
             <ul>
-                <li><a>35. ročník 2021/22</a></li>
-                <li><a>36. ročník 2022/23</a></li>
-              	<li><a>37. ročník 2023/24</a></li>
+                <li><a>35. ročník 2021/22</a> {$presenter->getYearbookLink(35)|noescape}</li>
+                <li><a>36. ročník 2022/23</a> {$presenter->getYearbookLink(36)|noescape}</li>
+              	<li><a>37. ročník 2023/24</a> {$presenter->getYearbookLink(37)|noescape}</li>
             </ul>
         </section>
     </div>

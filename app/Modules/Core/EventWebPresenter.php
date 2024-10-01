@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 namespace App\Modules\Core;
 
-use App\Models\GamePhaseCalculator;
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Services\DummyService;
+use App\Models\Downloader\DummyService;
+use App\Models\Downloader\EventService;
+use App\Models\Downloader\EventModel;
 use Nette\Application\UI\Template;
 
 abstract class EventWebPresenter extends BasePresenter
 {
-    protected GamePhaseCalculator $gamePhaseCalculator;
-    protected DummyService $dummyService;
+    protected readonly DummyService $dummyService;
+    protected EventService $eventService;
 
     public function injectEventWebServices(
-        GamePhaseCalculator $calculator,
-        DummyService $dummyService
+        DummyService $dummyService,
+        EventService $eventService
     ): void {
-        $this->gamePhaseCalculator = $calculator;
         $this->dummyService = $dummyService;
+        $this->eventService = $eventService;
     }
 
     /**
@@ -28,7 +28,6 @@ abstract class EventWebPresenter extends BasePresenter
     protected function createTemplate(): Template
     {
         $template = parent::createTemplate();
-        $template->gamePhaseCalculator = $this->gamePhaseCalculator;
         $template->newestEvent = $this->getNewestEvent();
         return $template;
     }
@@ -36,12 +35,17 @@ abstract class EventWebPresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    protected function getNewestEvent(): ModelEvent
+    protected function getNewestEvent(): EventModel
     {
         static $newestEvent;
         if (!isset($newestEvent)) {
-            $newestEvent = $this->gamePhaseCalculator->getFKSDBEvent();
+            $newestEvent = $this->eventService->getNewest($this->getEventIds());
         }
         return $newestEvent;
     }
+
+    /**
+     * @return int[]
+     */
+    abstract protected function getEventIds(): array;
 }

@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace App\Components\PersonSchedule;
 
+use App\Models\Downloader\EventService;
 use App\Models\Downloader\FKSDBDownloader;
+use App\Models\Downloader\PersonScheduleModel;
 use App\Models\Downloader\ScheduleRequest;
-use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
-use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
 final class AllScheduleListComponent extends DIComponent
 {
-    private readonly ServiceEventDetail $serviceEventDetail;
+    private readonly EventService $eventService;
     private readonly FKSDBDownloader $downloader;
 
-    /** @var ModelPersonSchedule[][] | null */
+    /** @var PersonScheduleModel[][] | null */
     private ?array $groupedPersonSchedule = null;
 
     public function __construct(private readonly int $eventId, Container $container)
@@ -24,9 +24,9 @@ final class AllScheduleListComponent extends DIComponent
         parent::__construct($container);
     }
 
-    public function injectPrimary(ServiceEventDetail $serviceEventDetail, FKSDBDownloader $downloader): void
+    public function injectPrimary(EventService $eventService, FKSDBDownloader $downloader): void
     {
-        $this->serviceEventDetail = $serviceEventDetail;
+        $this->eventService = $eventService;
         $this->downloader = $downloader;
     }
 
@@ -60,14 +60,14 @@ final class AllScheduleListComponent extends DIComponent
     }
 
     /**
-     * @return ModelPersonSchedule[][]
+     * @return PersonScheduleModel[][]
      * @throws \Throwable
      */
     private function getGroupedPersonSchedule(): array
     {
         if (is_null($this->groupedPersonSchedule)) {
             $groups = [];
-            $personSchedule = $this->serviceEventDetail->getPersonSchedule($this->eventId);
+            $personSchedule = $this->eventService->getPersonSchedule($this->eventId);
             foreach ($personSchedule as $item) {
                 $groups[$item->scheduleItemId] = $groups[$item->scheduleItemId] ?? [];
                 $groups[$item->scheduleItemId][] = $item;

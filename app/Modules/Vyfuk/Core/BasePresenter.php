@@ -22,10 +22,10 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             [],
             [
                 new NavItem(new PageTitle('Co je Výfuk?'), ':Default:About:default'),
-                new NavItem(new PageTitle('Historie'), ':Default:About:History'),
-                new NavItem(new PageTitle('Organizátoři'), ':Default:About:Organizers'),
-                new NavItem(new PageTitle('Podpořte nás'), ':Default:About:Sponsors'),
-                new NavItem(new PageTitle('Kontakt'), ':Default:About:Contact'),
+                new NavItem(new PageTitle('Historie'), ':Default:About:history'),
+                new NavItem(new PageTitle('Organizátoři'), ':Default:About:organizers'),
+                new NavItem(new PageTitle('Podpořte nás'), ':Default:About:sponsors'),
+                new NavItem(new PageTitle('Kontakt'), ':Default:About:contact'),
             ],
         );
 
@@ -34,11 +34,10 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
             ':default',
             [],
             [
-                new NavItem(new PageTitle('Pravidla'), ':Default:Section:Rules'),
-                new NavItem(new PageTitle('Jak se zapojit'), ':default'), //TODO
-                new NavItem(new PageTitle('Pro učitele'), ':Default:Section:Teachers'),
-                new NavItem(new PageTitle('Jak psát řešení'), ':default'), //TODO
-                new NavItem(new PageTitle('Rady a tipy'), ':default'),
+                new NavItem(new PageTitle('Pravidla'), ':Default:Section:rules'),
+                new NavItem(new PageTitle('Jak se zapojit'), ':Default:Section:howToEngage'),
+                new NavItem(new PageTitle('Pro učitele'), ':Default:Section:teachers'),
+                new NavItem(new PageTitle('Rady a tipy'), ':Default:Section:tips'),
             ],
         );
 
@@ -54,13 +53,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 
         $items[] = new NavItem(
             new PageTitle('Akce'),
-            ':default',
-            [],
-            [
-                new NavItem(new PageTitle('Akce'), ':Default:Events:default'), //TODO uspořádání odkazů
-                new NavItem(new PageTitle('Tábor'), ':Default:Events:camp'),
-                new NavItem(new PageTitle('Setkání'), ':Default:Events:meeting'),
-            ],
+            ':Default:Events:default',
         );
 
         $items[] = new NavItem(

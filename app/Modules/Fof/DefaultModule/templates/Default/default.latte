@@ -1,5 +1,5 @@
 {varType App\Modules\Core\Language $language}
-{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
+{varType App\Models\Downloader\EventModel $newestEvent}
 {block title}
     {switch $language->value}
         {case 'cs'} Hlavní stránka
@@ -24,19 +24,26 @@
                     {/switch}
                 </h1>
                 <div class="subheader col-md-10">
-                    {switch $language->value}
-                        {*{case 'cs'}<p>Přihlas se společně až s pětičlenným týmem a&nbsp;přijeďte si do Prahy zasoutěžit.</p>*}
-                        {*{default}<p>Sign up with a team of up to five and come to Prague, Czech Republic to compete with others.</p>*}
-                        {*{case 'cs'}<p>Registace pro rok 2024 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 20 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>*}
-                        {*{default}<p>Registration for the year 2024 is open!<br>Last year, almost 1200 of us gathered from more than 20 countries around the world. Come and enjoy this physics feast with us again this year!</p>*}
-
-                        {case 'cs'}<p>Děkujeme za úžasnou soutěž!</p>
-                        {default}<p>Thanks for the amazing competition!</p>
-                    {/switch}
+                    {if $newestEvent->getGamePeriod()->isAfter()}
+                        {switch $language->value}
+                            {case 'cs'}<p>Děkujeme za úžasnou soutěž!</p>
+                            {default}<p>Thanks for the amazing competition!</p>
+                        {/switch}
+                    {elseif $newestEvent->getRegistrationPeriod()->isOnGoing()}
+                        {switch $language->value}
+                            {case 'cs'}<p>Registace pro rok 2024 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 20 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>
+                            {default}<p>Registration for the year 2024 is open!<br>Last year, almost 1200 of us gathered from more than 20 countries around the world. Come and enjoy this physics feast with us again this year!</p>
+                        {/switch}
+                    {elseif $newestEvent->getRegistrationPeriod()->isBefore()}
+                        {switch $language->value}
+                            {case 'cs'}<p>Přihlas se společně až s pětičlenným týmem a&nbsp;přijeďte si do Prahy zasoutěžit.</p>
+                            {default}<p>Sign up with a team of up to five and come to Prague, Czech Republic to compete with others.</p>
+                        {/switch}
+                    {/if}
                 </div>
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>
-                    <a target="_blank" href="{$basePath}/download/2024/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>
+                    {*<a target="_blank" href="{$basePath}/download/2024/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>*}
                     <a n:href="Merch:" class="btn btn-light">Merch</a>
                     <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)" n:href="Registration:" class="btn btn-primary">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
@@ -90,7 +97,7 @@
                         další. Za každou úlohu sbírají body.
                     </div>
                     <div class="col-md-4">Nejlepší týmy vyhrávají věcné ceny a nehynoucí slávu v naší soutěži,
-                        která se koná každý rok, letos máme již 17. ročník.
+                        která se koná každý rok, letos máme již {$newestEvent->eventYear}. ročník.
                     </div>
                 </div>
                 <a n:href="Rules:" class="btn btn-panel-action">Jak to funguje</a>
@@ -108,7 +115,7 @@
                     </div>
                     <div class="col-md-4">
                         The best teams win prizes and undying glory in our competition, which has been held
-                        annually for 17 years now.
+                        annually for {$newestEvent->eventYear} year now.
                     </div>
                 </div>
                 <a n:href="Rules:" class="btn btn-panel-action">How does it work</a>

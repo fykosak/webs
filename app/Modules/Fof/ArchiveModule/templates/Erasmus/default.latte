@@ -1,6 +1,6 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
-{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $event}
+{varType App\Models\Downloader\EventModel $event}
 {varType string $eventKey}
 
 {block subtitle}
@@ -46,7 +46,7 @@
                 {default}Photos
                 {/switch}</h1>
             <div class="mt-5">
-                {control gallery '/photos/' . $eventKey . '/erasmus/'}
+                {control gallery '/media/photos/' . $eventKey . '/erasmus/'}
             </div>
         </section>
     </div>
