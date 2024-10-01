@@ -19,14 +19,14 @@ final class AboutPresenter extends BasePresenter
     public function getYearbookLink(int $year): ?string
     {
         $yearbookPath = $this->problemService->getYearbook('fykos', $year, $this->template->lang);
-        
+
         if ($yearbookPath) {
             return $this->template->getLatte()->renderToString(__DIR__ . '/templates/About/yearbookLink.' . $this->template->lang . '.latte', [
                 'yearbookPath' => $yearbookPath,
                 'year' => $year,
             ]);
         }
-        
+
         return null;
     }
 
