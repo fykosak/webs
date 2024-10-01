@@ -1,0 +1,16 @@
+.card {
+    border-color: $primary-color;
+
+    h4 {
+        background-color: $primary-color;
+        color: $text-on-primary;
+    }
+
+    .left-cell {
+        .icon {
+            color: $primary-color;
+        }
+
+        padding-right: 10px;
+    }
+}

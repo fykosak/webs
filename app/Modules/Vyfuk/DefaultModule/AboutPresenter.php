@@ -24,12 +24,13 @@ class AboutPresenter extends BasePresenter
     {
         $allOrganizers = $this->FKSDBDownloader->download(new OrganizersRequest(2));
         $currentOrganizers = [];
+        $currentYear = $this->getCurrentYear()->year;
 
         if ($allOrganizers !== []) {
             $currentOrganizers = array_filter(
                 $allOrganizers,
-                fn (array $organizer): bool => $organizer['until'] == null
-                    || $organizer['until'] == $this->getCurrentYear()
+                fn(array $organizer): bool => $organizer['until'] == null
+                || $organizer['until'] == $currentYear
             );
 
             // sort by order
@@ -40,22 +41,11 @@ class AboutPresenter extends BasePresenter
                 return $b['order'] <=> $a['order'];
             });
         }
-        array_walk($currentOrganizers, function (& $org) {
+        array_walk($currentOrganizers, function (&$org) {
             if ($org["name"] == "Kamilo Tomáš") {
                 $org["name"] = "Míla Tomášová";
             }
         });
         $this->template->organizers = $currentOrganizers;
-    }
-
-    public function getCurrentYear(): int
-    {
-        $contests = $this->FKSDBDownloader->download(new ContestsRequest());
-        foreach ($contests as $c) {
-            if ($c['contestId'] == 2) {
-                return $c['currentYear'];
-            }
-        }
-        return 0;
     }
 }
