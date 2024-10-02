@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <title>{ifset title}{include title} | {/ifset}Výfuk</title>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="author" content="{** TODO **}"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="{** TODO **}" />
     <meta name="theme-color" content="#ff4800">
-{ifset description}    <meta name="description" content="{include description}"/>{/ifset}{**
-
-    facebook **}
+    {ifset description}
+    <meta name="description" content="{include description}" />
+    {/ifset}
+    {* facebook *}
     <meta property="og:title" content="{ifset title}{include title} | {/ifset}Výfuk">
-    <meta property="og:url" content="{plink //this}"/>
+    <meta property="og:url" content="{plink //this}" />
     <meta property="og:image" content="{$basePath}/images/logo_orange.svg">
-    <meta property="og:image:type" content="image/svg+xml"/>{ifset description}
-    <meta property="og:description" content="{include description}"/>{/ifset}
+    <meta property="og:image:type" content="image/svg+xml" />{ifset description}
+    <meta property="og:description" content="{include description}" />{/ifset}
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="cs"/>{**
-    
-    twitter **}
+    <meta property="og:locale" content="cs" />
+    {* twitter *}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{$basePath}/images/logo_orange.svg">
     <meta name="twitter:title" content="{ifset title}{include title} | {/ifset}Výfuk">
     <meta property="twitter:domain" content="vyfuk.org">
     <meta property="twitter:url" content="{plink //this}">{ifset description}
-    <meta name="twitter:description" content="{include description}"/>{/ifset}{**
-    
-    links **}
-    <link href="{$basePath}/images/icon.png" rel="icon" type="image/png"/>
-    <link href="{asset 'assets/main.css'}" rel="stylesheet"/>
+    <meta name="twitter:description" content="{include description}" />{/ifset}{** links **}
+    <link href="{$basePath}/images/icon.png" rel="icon" type="image/png" />
+    <link href="{asset 'assets/main.css'}" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f424cd1bbe.js" crossorigin="anonymous"></script>
     {block head}{/block}
     <script src="{asset 'assets/main.js'}"></script>
-{block scripts}{/block}</head>
+    {block scripts}{/block}
+</head>
 
 <body>
-{block body}
+    {block body}
     {control navigation "/images/logo.svg", "Vyfuk.org", false}
     <main>
         {block main}
-            <div class="panel color-light">
-                <section class="inner-container">
-                    {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
-                    {ifset title}<h1>{include title}</h1>{/ifset}
-                    {include content}
-                </section>
-            </div>
+        <div class="panel color-light">
+            <section class="inner-container">
+                {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+                {ifset title}<h1>{include title}</h1>{/ifset}
+                {include content}
+            </section>
+        </div>
         {/block}
     </main>
     {* TODO vizuální oddělení main a footer *}
@@ -71,19 +74,24 @@
                     <div class="category-title">Sponzoři</div>
                     <div class="category-sponsors">
                         <a href="https://www.prusa3d.com/cs" style="text-align: center">
-                            <img src="{$basePath}/images/logos/prusa_logo.png" alt="Prusa logo" style="max-height: 5rem; max-width: 12rem">
+                            <img src="{$basePath}/images/logos/prusa_logo.png" alt="Prusa logo"
+                                style="max-height: 5rem; max-width: 12rem">
                         </a>
                         <a href="https://prometheus-nakl.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/prometheus_logo.png" alt="Prometheus logo" style="max-height: 5rem; max-width: 12rem">
+                            <img src="{$basePath}/images/logos/prometheus_logo.png" alt="Prometheus logo"
+                                style="max-height: 5rem; max-width: 12rem">
                         </a>
                         <a href="https://mindok.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/mindok_logo.gif" alt="Mindok logo" style="max-height: 5rem; max-width: 12rem">
+                            <img src="{$basePath}/images/logos/mindok_logo.gif" alt="Mindok logo"
+                                style="max-height: 5rem; max-width: 12rem">
                         </a>
                         <a href="https://vesmir.cz/cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/vesmir_logo.png" alt="Vesmír logo" style="max-height: 5rem; max-width: 12rem">
+                            <img src="{$basePath}/images/logos/vesmir_logo.png" alt="Vesmír logo"
+                                style="max-height: 5rem; max-width: 12rem">
                         </a>
                         <a href="https://cez.cz" style="text-align: center">
-                            <img src="{$basePath}/images/logos/cez_logo.png" alt="Čez logo" style="max-height: 5rem; max-width: 12rem">
+                            <img src="{$basePath}/images/logos/cez_logo.png" alt="Čez logo"
+                                style="max-height: 5rem; max-width: 12rem">
                         </a>
                     </div>
                 </div>
@@ -93,9 +101,12 @@
         <div class="panel footer">
             <div class="inner-container row">
                 <div class="col-md-6">
-                    <div class="logo" style="font-size: 1cm; font-weight: bold"><img class="logo" style="margin-right: 1rem; margin-bottom: 0rem" src="{$basePath}/images/logo.svg" alt="Výfuk" />vyfuk<small>.org</small></div>
+                    <div class="logo" style="font-size: 1cm; font-weight: bold"><img class="logo"
+                            style="margin-right: 1rem; margin-bottom: 0rem" src="{$basePath}/images/logo.svg"
+                            alt="Výfuk" />vyfuk<small>.org</small></div>
                     <p>
-                        Korespondenční seminář Výfuk je organizován studenty a přáteli <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
+                        Korespondenční seminář Výfuk je organizován studenty a přáteli <a
+                            href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                         Je zastřešen Oddělením propagace a mediální komunikace MFF UK a podporován Katedrou didaktiky
                         fyziky MFF UK, jejími zaměstnanci a Jednotou českých matematiků a fyziků.
                     </p>
@@ -137,7 +148,7 @@
                             <li>Sledujte nás
                                 <ul>
                                     <li>
-                                    <a style="margin-right: 1.5rem" href="https://www.instagram.com/ksvyfuk/">
+                                        <a style="margin-right: 1.5rem" href="https://www.instagram.com/ksvyfuk/">
                                             <i class="bi bi-instagram"></i>
                                         </a>
                                         <a style="margin-right: 1.5rem" href="{$basePath}/discord">
@@ -146,7 +157,8 @@
                                         <a style="margin-right: 1.5rem;" href="https://facebook.com/ksvyfuk">
                                             <i class="bi bi-facebook"></i>
                                         </a>
-                                        <a style="margin-right: 1.5rem" href="https://www.youtube.com/channel/UCUBv3Ydd-laLSY5DMimoE7w">
+                                        <a style="margin-right: 1.5rem"
+                                            href="https://www.youtube.com/channel/UCUBv3Ydd-laLSY5DMimoE7w">
                                             <i class="bi bi-youtube"></i>
                                         </a>
                                     </li>
@@ -160,6 +172,7 @@
         </div>
     </footer>
 
-{/block}
+    {/block}
 </body>
+
 </html>
