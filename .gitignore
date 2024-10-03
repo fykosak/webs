@@ -8,6 +8,7 @@ temp/*
 !vendor/others
 www/*/documents
 www/*/assets
+www/*/photos
 node_modules
 coverage.html
 **__pycache__

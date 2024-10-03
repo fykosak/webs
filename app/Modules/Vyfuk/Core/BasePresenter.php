@@ -4,11 +4,22 @@ declare(strict_types=1);
 
 namespace App\Modules\Vyfuk\Core;
 
+use App\Models\Downloader\ContestModel;
+use App\Models\Downloader\ContestRequest;
+use App\Models\Downloader\ContestYearModel;
+use App\Models\Downloader\DummyService;
+use DateTime;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
+    private readonly DummyService $dummyService;
+
+    public function injectDummyService(DummyService $dummyService): void
+    {
+        $this->dummyService = $dummyService;
+    }
     /**
      * @return NavItem[]
      */
@@ -78,5 +89,21 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     {
         $this->lang = 'cs';
         parent::localize();
+    }
+
+    public function getCurrentYear(): ?ContestYearModel
+    {
+        $contest = $this->getContest();
+        foreach ($contest->years as $year) {
+            if ($year->active) {
+                return $year;
+            }
+        }
+        return null;
+    }
+
+    public function getContest(): ContestModel
+    {
+        return $this->dummyService->getFlat(new ContestRequest(2), ContestModel::class);
     }
 }
