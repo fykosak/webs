@@ -6,7 +6,7 @@ namespace App\Modules\Fykos\DefaultModule;
 
 use App\Models\Downloader\ProblemService;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
-use \Nette\Bridges\ApplicationLatte\DefaultTemplate;
+use Nette\Bridges\ApplicationLatte\DefaultTemplate;
 
 /**
  * @property DefaultTemplate $template
