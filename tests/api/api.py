@@ -14,7 +14,8 @@ events = {
         "registrationEnd":"1970-12-03T12:00:00+01:00",
         "report": None,
         "name":"Fyziklání online",
-        "eventTypeId":9
+        "eventTypeId":9,
+        "game": {'availablePoints': 150,'tasksOnBoard' : 6,'hardVisible' : False,"begin":"1970-01-04T20:00:00+01:00","end":"1970-01-04T22:00:00+01:00",'resultsVisible': True}
     },
     "201": {
         "eventId":94,
@@ -26,8 +27,22 @@ events = {
         "registrationEnd":"2099-12-31T00:00:00+01:00",
         "report": None,
         "name":"Fyziklání online",
-        "eventTypeId":9
-    }
+        "eventTypeId":9,
+        "game": {'availablePoints': 150,'tasksOnBoard' : 6,'hardVisible' : False,"begin":"2999-12-30T20:00:00+01:00","end":"2999-12-31T22:00:00+01:00",'resultsVisible': True}
+    },    
+    "202": {
+        "eventId":8,
+        "year":28,
+        "eventYear":4,
+        "begin":"1970-01-04T00:00:00+01:00",
+        "end":"1970-01-04T00:00:00+01:00",
+        "registrationBegin":"1970-09-30T20:00:00+02:00",
+        "registrationEnd":"1970-12-03T12:00:00+01:00",
+        "report": None,
+        "name":"Fyziklání online",
+        "eventTypeId":1,
+        "game": {'availablePoints': 150,'tasksOnBoard' : 6,'hardVisible' : False,"begin":"1970-01-04T20:00:00+01:00","end":"1970-01-04T22:00:00+01:00",'resultsVisible': True}
+    },
 }
 
 def getDsefEvents():
@@ -63,6 +78,8 @@ def getDsefEvents():
         "eventTypeId":2
     }
     return dsefEvents
+
+events.update(getDsefEvents())
 
 def getTeams():
     states = ["participated", "disqualified", "applied", "pending", "approved", "canceled"]
@@ -102,25 +119,25 @@ def getTeams():
         teams.append(team)
     return teams
 
-@app.get("/events")
+@app.route("/events/")
 def getEventList():
     print(request.json)
     eventTypes = request.json["eventTypes"]
     if (eventTypes is None):
         return "Event type id not specified", 400
-    if (2 in eventTypes):
-        return getDsefEvents()
-    return jsonify(events)
+    print({key:events[key] for key in events if events[key].get("eventTypeId") in eventTypes})
+    return {key:events[key] for key in events if events[key].get("eventTypeId") in eventTypes}
 
-@app.get("/events/<id>/schedule")
+@app.route("/events/<id>/schedule")
 def getSchedule(id):
     return '{}'
 
-@app.get("/events/<id>/teams")
+@app.route("/events/<id>/teams")
 def getTeams(id):
     return '{}'
 
-@app.get("/GetEvent")
+
+@app.route("/GetEvent")
 def getEvent():
     eventId = request.args.get('event_id', default=None)
     if (eventId is None):
@@ -135,5 +152,3 @@ def getEvent():
         event["teams"] = getTeams()
         return events[eventId]
     return "Invalid event id", 400
-
-getDsefEvents()
