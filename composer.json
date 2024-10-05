@@ -37,7 +37,9 @@
       "tests/api/commandWithApi.sh vendor/bin/tester tests/ -p php -s -c tests/php.ini -j 8"
     ],
     "latteLint": [
-      "vendor/bin/latte-lint app/ --strict"
+      "mkdir -p app/config/local/",
+      "if [ ! -f app/config/local/vyfuk.neon ]; then cp app/config/config.local.neon.example app/config/local/vyfuk.neon; fi",
+      "tests/lint-latte.php"
     ],
     "testCoverage": [
       "@clearTestCache",

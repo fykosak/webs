@@ -6,7 +6,11 @@ namespace App\Modules\Fykos\DefaultModule;
 
 use App\Models\Downloader\ProblemService;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
+use Nette\Bridges\ApplicationLatte\DefaultTemplate;
 
+/**
+ * @property DefaultTemplate $template
+ */
 final class AboutPresenter extends BasePresenter
 {
     private readonly ProblemService $problemService;

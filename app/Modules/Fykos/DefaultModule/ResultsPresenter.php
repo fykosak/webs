@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Modules\Fykos\DefaultModule;
 
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
-
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
 

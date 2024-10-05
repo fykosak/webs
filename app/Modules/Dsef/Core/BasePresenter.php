@@ -28,5 +28,4 @@ abstract class BasePresenter extends EventWebPresenter
         $this->lang = 'cs';
         parent::localize();
     }
-
 }

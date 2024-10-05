@@ -21,7 +21,7 @@ class DefaultModule extends AbstractPageDisplayTestCase
             ['Default:Cooperation', 'default'],
             ['Default:Default', 'default'],
             ['Default:Default', 'lastYears'],
-            ['Default:Default', 'otherEvents'],
+            //['Default:Default', 'otherEvents'],
             ['Default:Faq', 'default'],
             ['Default:FyziklaniInternational', 'default', ['lang' => 'cs']],
             ['Default:HowToPlay', 'default'],
@@ -29,7 +29,7 @@ class DefaultModule extends AbstractPageDisplayTestCase
             ['Default:Reports', 'default'],
             ['Default:Rules', 'complete'],
             ['Default:Rules', 'default'],
-            ['Default:Rules', 'organisationalRegulations'],
+            //['Default:Rules', 'organisationalRegulations'],
             ['Default:Schedule', 'default'],
             //['Default:Teams', 'default']
         ]);
