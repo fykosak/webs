@@ -89,7 +89,8 @@ class CampsPresenter extends BasePresenter
 
     public function getEventPhoto(array $event): string
     {
-        $photos = glob($this->getEventPhotoBasePath($event) . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+        // find images in www directory (index.php is in www dir, so ./ resolves to it)
+        $photos = glob('.' . $this->getEventPhotoBasePath($event) . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
         if (empty($photos)) {
             return $this->template->basePath . '/media/images/events/event-missing-photo.png';
