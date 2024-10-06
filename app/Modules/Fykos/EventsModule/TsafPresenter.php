@@ -49,11 +49,15 @@ class TsafPresenter extends BasePresenter
         });
         $this->template->participants = $participants;
 
-        $this->template->galleryPath = "/media/images/events/" . ($event['eventTypeId'] == 4 ? 'sous-jaro' : 'sous-podzim') . "/rocnik" . ($event['year'] < 10 ? '0' : '') . $event['year'] . "/carousel-photos/";
+        // $this->template->galleryPath = "/media/images/events/" . ($event['eventTypeId'] == 4 ? 'sous-jaro' : 'sous-podzim') . "/rocnik" . ($event['year'] < 10 ? '0' : '') . $event['year'] . "/carousel-photos/";
+        $this->template->galleryPath = "";
     }
 
     public function getEventPhoto(array $event): string
     {
+        // choose a photo for the event randomly from the available ones
+        return $this->template->basePath . '/media/images/events/event-missing-photo.png';
+
         // if ($event['year'] < 10) {
         //     $fullYear = '0' . $event['year'];
         // } else {
@@ -69,7 +73,6 @@ class TsafPresenter extends BasePresenter
 
         // $photo = $photos[array_rand($photos)];
         // return substr($photo, 1); // remove leading dot
-        return "";
     }
 
     /**
