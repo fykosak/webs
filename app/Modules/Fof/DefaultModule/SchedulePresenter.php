@@ -42,7 +42,7 @@ final class SchedulePresenter extends BasePresenter
         $groups = $this->downloader->download(
             new ScheduleRequest(
                 $this->getNewestEvent()->eventId,
-                ['weekend', 'weekend_info', 'teacher_present']
+                ['weekend', 'info', 'teacher_present']
             )
         );
         usort($groups, fn(array $aGroup, array $bGroup): int => $aGroup['start'] <=> $bGroup['start']);

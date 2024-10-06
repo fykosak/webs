@@ -47,8 +47,6 @@
                     <h1>{$event['heading'][$language->value]}</h1>
                     <p>
                         {if new \DateTime($event['end']) < new \DateTime()}
-                            {dump new \DateTime()}
-                            {dump $event['end']}
                             {if $event['reportNew'][$language->value]}
                                 {$event['reportNew'][$language->value]}
                             {else}
