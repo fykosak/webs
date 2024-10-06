@@ -90,4 +90,10 @@ class TsafPresenter extends BasePresenter
 
         $this->template->events = $events;
     }
+
+    public function eventHasDate(array $event, int $year, int $month): bool
+    {
+        $eventBegin = strtotime($event['begin']);
+        return date('Y', $eventBegin) == $year && date('m', $eventBegin) == $month;
+    }
 }

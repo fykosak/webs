@@ -14,6 +14,9 @@
                 <div class="subheader">{include subtitle}</div>{/ifset}
                 {ifset title}<h1>{include title}</h1>{/ifset}
             <p>{$event['reportNew'][$lang]}</p>
+            {if $presenter->eventHasDate($event, "2017", "11")}
+                <p>Ad hoc text for the event with date 2017-12</p>
+            {/if}
         </section>
     </div>
     <div class="panel color-auto">
