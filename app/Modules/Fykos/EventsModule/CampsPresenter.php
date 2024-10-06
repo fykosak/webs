@@ -4,12 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\EventsModule;
 
-use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
-use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
-use Nette\Application\ForbiddenRequestException;
-use Tracy\Debugger;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
 
@@ -57,16 +53,17 @@ class CampsPresenter extends BasePresenter
                 break;
             }
         }
-        
+
         if ($event === null) {
             throw new BadRequestException(
                 $this->csen('Stránka nenalezena', 'Page not found'),
-                IResponse::S404_NOT_FOUND
+                IResponse::S404_NotFound
             );
         }
-        
+
         $event['heading'] = $this->getEventHeading($event);
         $this->template->event = $event;
+        $this->template->photoPath = $this->getEventPhotoBasePath($event);
         $participants = $this->downloader->download(new ParticipantsRequest((int)$event['eventId']));
         $participants = array_filter($participants, function ($participant) {
             return $participant['status'] == 'participated';
@@ -74,7 +71,7 @@ class CampsPresenter extends BasePresenter
         $this->template->participants = $participants;
     }
 
-    public function getEventPhoto(array $event): string
+    private function getEventPhotoBasePath(array $event): string
     {
         if ($event['eventTypeId'] == 4) {
             $eventType = 'sous-jaro';
@@ -87,8 +84,12 @@ class CampsPresenter extends BasePresenter
             $fullYear = $event['year'];
         }
 
-        $photosBasePath = './media/images/events/' . $eventType . '/rocnik' . $fullYear . '/carousel-photos';
-        $photos = glob($photosBasePath . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+        return '/media/images/events/' . $eventType . '/rocnik' . $fullYear . '/carousel-photos';
+    }
+
+    public function getEventPhoto(array $event): string
+    {
+        $photos = glob($this->getEventPhotoBasePath($event) . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
         if (empty($photos)) {
             return $this->template->basePath . '/media/images/events/event-missing-photo.png';
