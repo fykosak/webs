@@ -38,25 +38,26 @@
                             Akce ještě neproběhla.
                         {/if}
                     </p>
+                    {* TODO link for the event page.. the syntax is public function renderDetail(int $year, int $month): void *}
+                    {var $year = (new \DateTime($event['begin']))->format('Y')}
+                    {var $month = (new \DateTime($event['begin']))->format('m')}
                     <div>
-                        {* TODO link for the camp page *}
-                        {* <a class="btn btn-primary" n:href=":Events:Fykos:">
-                            Více o semináři
-                        </a> *}
+                        <a class="btn btn-primary" n:href=":Events:Tsaf:detail year:$year, month:$month">
+                            Více o akci
+                        </a>
                     </div>
                 </div>
                 {* {dump $event} *}
                 <div class="col-md-4 event-img-box">
                     {* TODO: link for the camp page and correct picture *}
-                    {* <a n:href=":Events:Fykos:"> *}
+                    <a n:href=":Events:Tsaf:detail year:$year, month:$month">
                         <img src="{$basePath}{$event['photo']}" alt="{$event['nameNew'][$language->value]}"
                         class="event-img">
-                    {* </a> *}
+                    </a>
                 </div>
             </div>
         </section>
     </div>
 {/foreach}
-
 
 {/block}
