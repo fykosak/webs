@@ -302,7 +302,7 @@ class DefaultPresenter extends BasePresenter
         $nextIndexEn = null;
 
         // Find the previous event with $event['show-in-en'] == true
-        for ($i = $closestIndexEn - 1; $i >= 0; $i--) {
+        for ($i = $upcomingIndexEn - 1; $i >= 0; $i--) {
             if ($this->template->events[$i]['show-in-en']) {
                 $previousIndexEn = $i;
                 break;
@@ -310,7 +310,7 @@ class DefaultPresenter extends BasePresenter
         }
 
         // Find the next event with $event['show-in-en'] == true
-        for ($i = $closestIndexEn + 1; $i < count($this->template->events); $i++) {
+        for ($i = $upcomingIndexEn + 1; $i < count($this->template->events); $i++) {
             if ($this->template->events[$i]['show-in-en']) {
                 $nextIndexEn = $i;
                 break;
