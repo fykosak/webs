@@ -6,27 +6,60 @@
         {ifset title}<h1>{include title}</h1>{/ifset}
     </section>
     <section class="inner-container">
-        <p>
-            {foreach $eventTypes as $key => $val}
-            {if $selected==$key}
-            <a class="btn btn-primary mx-1" n:href="Events:Default $key">{$val}</a>
-            {else}
-            <a class="btn btn-outline-primary mx-1" n:href="Events:Default $key">{$val}</a>
-            {/if}
-            {/foreach}
-        </p>
+        <div class="row event-box">
+            <div class="col-md-7 event-text-box">
+                <h2>Tábor</h2>
+                <p>
+                    Viktorův skvělý text!
+                    Fyzikální korespondenční seminář je kontinuální soutěží probíhající celý akademický rok. Je
+                    původní
+                    a
+                    nejstarší aktivitou FYKOSu, který od ní také přejal své jméno; koná se každý rok od založení
+                    FYKOSu
+                    v&nbsp;roce
+                    1987. Je zaměřen především na zlepšování schopností účastníků ve fyzice prostřednictvím
+                    poskytování
+                    individuální zpětné vazby, různě obtížných příkladů a pokročilých studijních textů.
+                </p>
+                <a class="btn btn-primary" n:href="Events:tabor">
+                    Naše tábory
+                </a>
+            </div>
+            <div class="col-md-5 event-img-box">
+                <a n:href="Events:tabor">
+                    <img src="/images/tabor.jpg" alt="" class="event-img">
+                </a>
+            </div>
+        </div>
     </section>
-    <section n:foreach="$events as $key => $event" class="inner-container my-5">
-        <h2>{$event->nameNew[$lang]}</h2>
-        <p>
-            {$event->description[$lang]|noescape}
-        </p>
-        <p>
-            <a class="btn btn-primary mx-1" n:href="Events:detail $event->eventId">
-                <i class="bi bi-info-circle"></i> Informace o akci
-            </a>
-        </p>
-        {control gallery:randomLine "/photos/event/" . $event->eventId}
+</div>
+<div class="panel color-light">
+    <section class="inner-container">
+        <div class="row event-box">
+            <div class="col-md-7 event-text-box">
+                <h2>Setkání</h2>
+                <p>
+                    Viktorův skvělý text!
+                    Fyzikální korespondenční seminář je kontinuální soutěží probíhající celý akademický rok. Je
+                    původní
+                    a
+                    nejstarší aktivitou FYKOSu, který od ní také přejal své jméno; koná se každý rok od založení
+                    FYKOSu
+                    v&nbsp;roce
+                    1987. Je zaměřen především na zlepšování schopností účastníků ve fyzice prostřednictvím
+                    poskytování
+                    individuální zpětné vazby, různě obtížných příkladů a pokročilých studijních textů.
+                </p>
+                <a class="btn btn-primary" n:href="Events:setkani">
+                    Naše setkání
+                </a>
+            </div>
+            <div class="col-md-5 event-img-box">
+                <a n:href="Events:tabor">
+                    <img src="/images/setkani.jpg" alt="" class="event-img">
+                </a>
+            </div>
+        </div>
     </section>
 </div>
 {/block}

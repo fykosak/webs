@@ -7,10 +7,13 @@
     </section>
     <section class="inner-container">
         <p>
-            <a class="btn btn-outline-primary mx-1" n:href="Events:tabor">tábor</a>
-            <a class="btn btn-primary mx-1" n:href="Events:setkani">setkání</a>
+            odstavec
+        </p>
+        <p>
+            odstavec
         </p>
     </section>
+
     <section n:foreach="$events as $key => $event" class="inner-container my-5">
         <h2>{$event->nameNew[$lang]}</h2>
         <p>
@@ -21,7 +24,7 @@
                 <i class="bi bi-info-circle"></i> Informace o akci
             </a>
         </p>
-        {control gallery:randomLine "/photos/event/" . $event->eventId}
+        {control gallery:randomLine "/media/photos/event/" . $event->eventId}
     </section>
 </div>
 {/block}

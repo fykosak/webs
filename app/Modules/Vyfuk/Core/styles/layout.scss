@@ -8,11 +8,6 @@ body {
   background-color: black;
 }
 
-.btn-primary {
-  @extend .btn-primary;
-  color: $text-on-primary;
-}
-
 .btn-outline {
   @extend .btn-outline;
   text-align: center;

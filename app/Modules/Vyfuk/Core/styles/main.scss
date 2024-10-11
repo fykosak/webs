@@ -10,7 +10,7 @@ $text-on-primary: white;
 $text-dimmed: #CCCCCC;
 
 $page-width: 77rem;
-
+$min-contrast-ratio: 3;
 $base-font-size: 18px;
 
 // Use the following font weights.
@@ -37,6 +37,7 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import "./layout";
 @import "./titlepage";
 @import "./navigation";
+@import "./other.scss"
 
 // @import "./../../../Fol/Core/styles/layout";
 // @import "./../../../Fol/Core/styles/titlepage";
