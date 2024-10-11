@@ -7,7 +7,6 @@
     </section>
     <section class="inner-container">
         <p>
-            <a class="btn btn-outline-primary mx-1" n:href="Events:Calendar">kalendář</a>
             {foreach $eventTypes as $key => $val}
             {if $selected==$key}
             <a class="btn btn-primary mx-1" n:href="Events:Default $key">{$val}</a>
