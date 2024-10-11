@@ -61,4 +61,14 @@ class EventsPresenter extends BasePresenter
         $this->template->selected = $selectedId;
         $this->template->events = array_reverse($events);
     }
+
+    public function renderTabor(): void
+    {
+        $this->template->events = array_reverse($this->eventService->getEvents([10]));
+    }
+    public function renderSetkani(): void
+    {
+        $this->template->events = array_reverse($this->eventService->getEvents([11, 12]));
+    }
+
 }
