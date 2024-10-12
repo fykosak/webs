@@ -37,7 +37,9 @@ class ProblemsPresenter extends BasePresenter
 
         $problems = [];
         foreach ($series->problems as $probNum) {
-            $problems[] = $this->problemService->getProblem('vyfuk', $series->year, $series->series, $probNum);
+            $problem = $this->problemService->getProblem('vyfuk', $series->year, $series->series, $probNum);
+            $problem->topics = [];
+            $problems[] = $problem;
         }
         $this->template->problems = $problems;
         $this->template->problemService = $this->problemService;

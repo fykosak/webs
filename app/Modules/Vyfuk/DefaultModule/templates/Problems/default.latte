@@ -4,41 +4,96 @@
 <div class="panel color-auto">
     <div class="inner-container">
         <div>
-
             <h1>
                 Zadání {$series->series}. série {$series->year}. ročníku
             </h1>
             <div>
                 Termín odevzdání: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>
             </div>
-            <a class="btn btn-primary my-2" n:href="Section:howToEngage">Jak se zapojit</a>
-            <a class="btn btn-primary my-2" n:href="Problems:Bingo">Bingo</a>
-        </div>
+            <a class="btn btn-secondary my-2" n:href="Section:howToEngage">Jak se zapojit</a>
+            <a class="btn btn-secondary my-2" n:href="Problems:Bingo">Bingo</a>
 
-        <div class="col-md-4 pl-md-2 content-down">
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    {switch $language->value}
-                    {case 'cs'}Vybrat ročník a sérii
-                    {default}Select Year and Series
-                    {/switch}
-                </button>
-                <div class="dropdown-menu p-0">
-                    {foreach $yearsAndSeries as $yearOption => $seriesList}
-                    <div class="list-group list-group-horizontal-sm">
-                        <div class="list-group-item active text-nowrap">
-                            ročník {$yearOption}
-                        </div>
-                        {foreach $seriesList as $seriesOption}
-                        <a class="list-group-item list-group-item-action"
-                            href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+            <div class="float-end">
+                <div class="dropdown series-selector">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {switch $language->value}
+                        {case 'cs'}Vybrat ročník a sérii
+                        {default}Select Year and Series
+                        {/switch}
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end p-0">
+                        {foreach $yearsAndSeries as $yearOption => $seriesList}
+                        <ul class="list-group list-group-horizontal-sm">
+                            <li class="list-group-item list-group-item-secondary text-nowrap">
+                                {$yearOption}. ročník
+                            </li>
+                            {foreach $seriesList as $seriesOption}
+                            <a n:class="'list-group-item list-group-item-action', $series->year == $yearOption && $series->series == $seriesOption ? list-group-item-primary"
+                                href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+                            {/foreach}
+                        </ul>
+                        {/foreach}
+                        {foreach $yearsAndSeries as $yearOption => $seriesList}
+                        <ul class="list-group list-group-horizontal-sm">
+                            <li class="list-group-item list-group-item-secondary text-nowrap">
+                                {$yearOption}. ročník
+                            </li>
+                            {foreach $seriesList as $seriesOption}
+                            <a n:class="'list-group-item list-group-item-action', $series->year == $yearOption && $series->series == $seriesOption ? list-group-item-primary"
+                                href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+                            {/foreach}
+                        </ul>
+                        {/foreach}
+                        {foreach $yearsAndSeries as $yearOption => $seriesList}
+                        <ul class="list-group list-group-horizontal-sm">
+                            <li class="list-group-item list-group-item-secondary text-nowrap">
+                                {$yearOption}. ročník
+                            </li>
+                            {foreach $seriesList as $seriesOption}
+                            <a n:class="'list-group-item list-group-item-action', $series->year == $yearOption && $series->series == $seriesOption ? list-group-item-primary"
+                                href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+                            {/foreach}
+                        </ul>
+                        {/foreach}
+                        {foreach $yearsAndSeries as $yearOption => $seriesList}
+                        <ul class="list-group list-group-horizontal-sm">
+                            <li class="list-group-item list-group-item-secondary text-nowrap">
+                                {$yearOption}. ročník
+                            </li>
+                            {foreach $seriesList as $seriesOption}
+                            <a n:class="'list-group-item list-group-item-action', $series->year == $yearOption && $series->series == $seriesOption ? list-group-item-primary"
+                                href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+                            {/foreach}
+                        </ul>
+                        {/foreach}
+                        {foreach $yearsAndSeries as $yearOption => $seriesList}
+                        <ul class="list-group list-group-horizontal-sm">
+                            <li class="list-group-item list-group-item-secondary text-nowrap">
+                                {$yearOption}. ročník
+                            </li>
+                            {foreach $seriesList as $seriesOption}
+                            <a n:class="'list-group-item list-group-item-action', $series->year == $yearOption && $series->series == $seriesOption ? list-group-item-primary"
+                                href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+                            {/foreach}
+                        </ul>
+                        {/foreach}
+                        {foreach $yearsAndSeries as $yearOption => $seriesList}
+                        <ul class="list-group list-group-horizontal-sm">
+                            <li class="list-group-item list-group-item-secondary text-nowrap">
+                                {$yearOption}. ročník
+                            </li>
+                            {foreach $seriesList as $seriesOption}
+                            <a n:class="'list-group-item list-group-item-action', $series->year == $yearOption && $series->series == $seriesOption ? list-group-item-primary"
+                                href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+                            {/foreach}
+                        </ul>
                         {/foreach}
                     </div>
-                    {/foreach}
                 </div>
             </div>
         </div>
+
 
 
 
