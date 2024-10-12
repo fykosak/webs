@@ -23,7 +23,8 @@ $font-weight-bold: 800;
 $primary: $primary-color;
 $secondary: $complementary-color;
 $enable-rounded: true;
-$border-radius: .5rem;
+$border-radius: 6px;
+$card-border-width: 0;
 
 // Navbar
 $navbar-dark-color: $text-on-primary;

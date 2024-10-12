@@ -220,10 +220,11 @@ class ProblemModel
             };
         } elseif ($this->contest === 'vyfuk') {
             return match ($this->number) {
-                1 => 'fas fa-smile',
+                1 => 'fas fa-pencil',
                 2 => 'fas fa-calculator',
-                3, 4 => 'fas fa-pencil',
-                5 => 'fas fa-cogs',
+                3 => 'fas fa-magnet',
+                4 => 'fas fa-cogs',
+                5 => 'fas fa-lightbulb',
                 6 => 'fas fa-flask',
                 7 => 'fas fa-book'
             };

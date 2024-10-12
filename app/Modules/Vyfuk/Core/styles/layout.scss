@@ -267,6 +267,9 @@ a:hover {
 }
 
 .series-selector {
+  .dropdown-toggle {
+    min-width: 16rem;
+  }
   .dropdown-menu {
     max-height: 14rem;
     overflow-y: auto;
@@ -276,6 +279,9 @@ a:hover {
     text-align: center;
   }
   @include media-breakpoint-up(sm) {
+    .dropdown {
+      
+    }
     .list-group:first-child {
       .list-group-item:first-child {
         border-top-left-radius: inherit;
@@ -294,3 +300,36 @@ a:hover {
     }
   }
 }
+
+@keyframes shake {
+  0% {
+    transform: translate(0, 0) rotate(0deg)
+  }
+  20% {
+    transform: translate(2px, 1px) rotate(-5deg)
+  }
+  40% {
+    transform: translate(-2px, -1px) rotate(-8deg)
+  }
+  60% {
+    transform: translate(-2px, 1px) rotate(-2deg)
+  }
+  80% {
+    transform: translate(0, -1px) rotate(-4deg)
+  }
+  100% {
+      transform: translate(0, 0) rotate(0deg)
+  }
+}
+
+.nav-link:hover > .icon, .nav-link:hover > i, .navbar-brand:hover, #footerLogo:hover {
+  animation: shake 0.2s;
+  animation-timing-function: ease-in-out;
+}
+
+
+// TODO use this on 1st April
+// *:hover {
+//   animation: shake 0.2s;
+//   animation-timing-function: ease-in-out;
+// }

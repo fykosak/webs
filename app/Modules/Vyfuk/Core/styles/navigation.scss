@@ -1,6 +1,6 @@
 nav {
   .navbar-brand img {
-    height: 1.25em;
+    height: 2em;
   }
 
   @include media-breakpoint-up(lg) {
@@ -8,14 +8,6 @@ nav {
       max-width: $page-width;
       margin: 0 auto !important;
       padding: 0 1rem !important;
-    }
-
-    .navbar-brand {
-      flex-grow: 1;
-
-      img {
-        height: 2em;
-      }
     }
 
     .navbar-collapse {

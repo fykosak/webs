@@ -1,5 +1,9 @@
 .problem-card {
+  margin-bottom: 3rem !important;
   .problem-header {
-    background-color: $primary-color;
+    // background-color: $gray-500;
+    h4 {
+      color: $primary-color;
+    }
   }
 }
