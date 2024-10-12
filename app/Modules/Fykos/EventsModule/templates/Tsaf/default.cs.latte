@@ -1,0 +1,63 @@
+{varType App\Modules\Core\Language $language}
+{block title}Soustředění{/block}
+{block main}
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <!-- <div class="subheader">Základní informace</div> -->
+        <h1>Týden s aplikovanou fyzikou</h1>
+        {dump $events}
+        <p>
+            Text o TSAFu
+        </p>
+
+        <p>
+            Další text o TSAFu.
+        </p>
+        {* <a n:href=":Events:Camps:price" class="btn btn-primary">Cena soustředění</a> *}
+    </section>
+</div>
+
+{foreach $events as $event}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="row event-box">
+                <div class="col-md-8 event-text-box">
+                    <div class="subheader">{$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}</div>
+                    <h1>{$event['nameNew'][$language->value]}</h1>
+                    <p>
+                        {if new \DateTime($event['end']) < new \DateTime()}
+                            {dump new \DateTime()}
+                            {dump $event['end']}
+                            {if $event['reportNew'][$language->value]}
+                                {$event['reportNew'][$language->value]}
+                            {else}
+                                Report z akce momentálně není dostupný.
+                            {/if}
+                        {else}
+                            Akce ještě neproběhla.
+                        {/if}
+                    </p>
+                    {* TODO link for the event page.. the syntax is public function renderDetail(int $year, int $month): void *}
+                    {var $year = (new \DateTime($event['begin']))->format('Y')}
+                    {var $month = (new \DateTime($event['begin']))->format('m')}
+                    <div>
+                        <a class="btn btn-primary" n:href=":Events:Tsaf:detail year:$year, month:$month">
+                            Více o akci
+                        </a>
+                    </div>
+                </div>
+                {* {dump $event} *}
+                <div class="col-md-4 event-img-box">
+                    {* TODO: link for the camp page and correct picture *}
+                    <a n:href=":Events:Tsaf:detail year:$year, month:$month">
+                        <img src="{$basePath}{$event['photo']}" alt="{$event['nameNew'][$language->value]}"
+                        class="event-img">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+{/foreach}
+
+{/block}

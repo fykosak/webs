@@ -251,6 +251,12 @@ class RouterFactory
                 ]
             ]);
 
+        $router->withModule('Events')
+        ->addRoute('//<domain>/akce/tsaf/<year>-<month>', [
+            'presenter' => 'Tsaf',
+            'action' => 'detail'
+        ]);
+
         $router->addRoute('//<domain>/<module events|akce>/[<presenter>[/<action>]]', [
             'presenter' => 'Default',
             'action' => 'default',
