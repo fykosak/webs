@@ -92,6 +92,11 @@ a:hover {
     }
   }
 
+  &.sponsors {
+    padding-bottom: 5rem;
+    padding-top: 3rem;
+  }
+
   &.sponsors .inner-container .sponsors-row {
     display: flex;
     flex-wrap: wrap;
