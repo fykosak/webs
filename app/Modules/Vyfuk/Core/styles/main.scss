@@ -1,7 +1,7 @@
 // Our theme
 $primary-color: #ff4800; // Do not forget to modify meta theme-color in ../templates/@layout.latte as well
 $primary-color-dimmed: darken($primary-color, 20%);
-$complementary-color: #ffdd31;
+$complementary-color: #495057;
 
 $panel-color-dark: #f5f5f5;
 $panel-color-light: white;
@@ -22,7 +22,8 @@ $font-weight-bold: 800;
 // Override bootstrap variables
 $primary: $primary-color;
 $secondary: $complementary-color;
-$border-radius: 0;
+$enable-rounded: true;
+$border-radius: .5rem;
 
 // Navbar
 $navbar-dark-color: $text-on-primary;
