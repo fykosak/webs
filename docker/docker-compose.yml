@@ -16,6 +16,7 @@ services:
       - ..:/var/www/html # path to webs repository
       - ./config/apache.conf:/etc/apache2/sites-available/000-default.conf # site config
       - ./config/php.ini:/usr/local/etc/php/php-local.ini # site config
+      - ./config/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini # xdebug config
       - ./config/msmtprc:/etc/msmtprc # mail config
     ports:
       - 8080-8084:8080-8084 # opened ports mapping, not needed with proxy
