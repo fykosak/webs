@@ -3,7 +3,7 @@
 <div class="container mt-5">
     <div class="row organizers">
         {foreach $organizers as $organizer}
-        <div class="col-md-4 mb-4">
+        <div class="col-md-6 col-xl-4 mb-4">
             <div class="card h-100">
                 <img src="/media/images/people/{$organizer['personId']}.jpg" class="card-img-top"
                     onerror="this.src = '/images/organizer_default.jpg'" alt="{$organizer['name']}">
