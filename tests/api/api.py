@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from random import choice
 import os, glob
 
 app = Flask(__name__)
@@ -31,7 +32,7 @@ events = {
         "game": {'availablePoints': 150,'tasksOnBoard' : 6,'hardVisible' : False,"begin":"2999-12-30T20:00:00+01:00","end":"2999-12-31T22:00:00+01:00",'resultsVisible': True}
     },    
     "202": {
-        "eventId":8,
+        "eventId":202,
         "year":28,
         "eventYear":4,
         "begin":"1970-01-04T00:00:00+01:00",
@@ -43,7 +44,140 @@ events = {
         "eventTypeId":1,
         "game": {'availablePoints': 150,'tasksOnBoard' : 6,'hardVisible' : False,"begin":"1970-01-04T20:00:00+01:00","end":"1970-01-04T22:00:00+01:00",'resultsVisible': True}
     },
+    "290":{
+        "eventId":290,
+        "year":4,
+        "eventYear":4,
+        "begin":"2015-08-02T00:00:00+02:00",
+        "end":"2015-08-14T00:00:00+02:00",
+        "registrationBegin":"2015-08-02T00:00:00+02:00",
+        "registrationEnd":"2015-08-14T00:00:00+02:00",
+        "registration":{
+            "begin":"2015-08-02T00:00:00+02:00",
+            "end":"2015-08-14T00:00:00+02:00"
+            },
+        "report":"<p>Report</p>",
+        "reportNew":{
+            "cs":"<p>reportcz</p>",
+            "en":None
+            },
+        "description":{
+            "cs":"DescriptionCz",
+            "en":None
+            },
+        "name":"name290",
+        "nameNew":{
+            "cs":"namecz290",
+            "en":"nameen290"
+            },
+        "eventTypeId":10,
+        "place":None,
+        "contestId":2
+    },
+    "291":{
+        "eventId":291,
+        "year":4,
+        "eventYear":4,
+        "begin":"2015-08-02T00:00:00+02:00",
+        "end":"2015-08-14T00:00:00+02:00",
+        "registrationBegin":"2015-08-02T00:00:00+02:00",
+        "registrationEnd":"2015-08-14T00:00:00+02:00",
+        "registration":{
+            "begin":"2015-08-02T00:00:00+02:00",
+            "end":"2015-08-14T00:00:00+02:00"
+            },
+        "report":"<p>Report</p>",
+        "reportNew":{
+            "cs":"<p>reportcz</p>",
+            "en":None
+            },
+        "description":{
+            "cs":"DescriptionCz",
+            "en":None
+            },
+        "name":"name291",
+        "nameNew":{
+            "cs":"namecz290",
+            "en":"nameen290"
+            },
+        "eventTypeId":11,
+        "place":None,
+        "contestId":2
+    },
+    "292":{
+        "eventId":292,
+        "year":4,
+        "eventYear":4,
+        "begin":"2015-08-02T00:00:00+02:00",
+        "end":"2015-08-14T00:00:00+02:00",
+        "registrationBegin":"2015-08-02T00:00:00+02:00",
+        "registrationEnd":"2015-08-14T00:00:00+02:00",
+        "registration":{
+            "begin":"2015-08-02T00:00:00+02:00",
+            "end":"2015-08-14T00:00:00+02:00"
+            },
+        "report":"<p>Report</p>",
+        "reportNew":{
+            "cs":"<p>reportcz</p>",
+            "en":None
+            },
+        "description":{
+            "cs":"DescriptionCz",
+            "en":None
+            },
+        "name":"name292",
+        "nameNew":{
+            "cs":"namecz290",
+            "en":"nameen290"
+            },
+        "eventTypeId":12,
+        "place":None,
+        "contestId":2
+    },
+    "293":{
+        "eventId":293,
+        "year":4,
+        "eventYear":4,
+        "begin":"2015-08-02T00:00:00+02:00",
+        "end":"2015-08-14T00:00:00+02:00",
+        "registrationBegin":"2015-08-02T00:00:00+02:00",
+        "registrationEnd":"2015-08-14T00:00:00+02:00",
+        "registration":{
+            "begin":"2015-08-02T00:00:00+02:00",
+            "end":"2015-08-14T00:00:00+02:00"
+            },
+        "report":"<p>Report</p>",
+        "reportNew":{
+            "cs":"<p>reportcz</p>",
+            "en":None
+            },
+        "description":{
+            "cs":"DescriptionCz",
+            "en":None
+            },
+        "name":"name292",
+        "nameNew":{
+            "cs":"namecz290",
+            "en":"nameen290"
+            },
+        "eventTypeId":15,
+        "place":None,
+        "contestId":2
+    }
 }
+
+
+app.personID=0
+def createPerson():
+    app.personID+=1
+    return {
+                "name":f"Test {app.personID}",
+                "personId":app.personID,
+                "email":f"test{app.personID}@example.com",
+                "code":None,
+            "school":{"schoolId":1,"nameFull":"A School","name":"Gymnázium","nameAbbrev":"G","countryISO":choice(["CS", "SK", "ZZ"])},
+            "studyYear":"H_2"}
+            
 
 def getDsefEvents():
     dsefEvents = {}
@@ -81,42 +215,33 @@ def getDsefEvents():
 
 events.update(getDsefEvents())
 
-def getTeams():
+def generateTeams():
     states = ["participated", "disqualified", "applied", "pending", "approved", "canceled"]
-    memberCountries = ["cs", "sk", "zz", None]
     teams = []
     teamIndex = 0
     for state in states:
         team = {
-            "teamId":7047,
+            "teamId":teamIndex,
             "name":f"Team {teamIndex}",
-            "status":state,
+            "code":None,
+            "state":state,
             "category":"A",
             "created":"1970-01-01T00:00:00+00:00",
             "phone":"+42012345679",
-            "password":None,
-            "points":24,
-            "rankCategory":70,
-            "rankTotal":224,
+            "points":122,
+            "rankCategory":8,
+            "rankTotal":23,
+            "rank":{"category":8,"total":23},
             "forceA":0,
-            "gameLang":"cs",
-            "members":[],
-            "teachers":[]
-        }
-        teamIndex += 1
-        memberIndex = 0
-        for country in memberCountries:
-            team["members"].append({
-                "name":f"Test {memberIndex}",
-                "personId":teamIndex * 5 + memberIndex,
-                "email":"test@example.com",
-                "schoolId":1,
-                "schoolName":"MFF UK",
-                "studyYear":1,
-                "countryIso":country
-            })
-            memberIndex += 1
+            "gameLang":None,
+            "place":None,
+            "teachers":[createPerson()],
+            "members":[]
+            }
+        for i in range(5):
+            team["members"].append(createPerson())
         teams.append(team)
+        teamIndex += 1
     return teams
 
 @app.route("/events/")
@@ -130,11 +255,53 @@ def getEventList():
 
 @app.route("/events/<id>/schedule")
 def getSchedule(id):
-    return '{}'
+    return {
+        "129": {
+            "groupId": 129,
+            "type": "teacher_present",
+            "registration": {
+                "begin": None,
+                "end": "2023-02-10T23:59:00+01:00"
+            },
+            "name": {
+                "cs": "Program pro učitele",
+                "en": "Program for Teachers"
+            },
+            "eventId": 173,
+            "start": "2023-02-10T10:00:00+01:00",
+            "end": "2023-02-10T13:00:00+01:00",
+            "items": {
+                "347": {
+                    "groupId": 129,
+                    "itemId": 347,
+                    "price": [],
+                    "capacity": {
+                        "total": 100,
+                        "used": 23
+                    },
+                    "name": {
+                        "cs": "Program pro učitele",
+                        "en": "Program for Teachers"
+                    },
+                    "begin": "2023-02-10T10:00:00+01:00",
+                    "end": "2023-02-10T13:00:00+01:00",
+                    "description": {
+                        "cs": "Alternativní program v průběhu soutěže",
+                        "en": "Alternative program during the contest"
+                    },
+                    "longDescription": {
+                        "cs": None,
+                        "en": None
+                    },
+                    "available": True
+                }
+            }
+        }
+    }
 
 @app.route("/events/<id>/teams")
 def getTeams(id):
-    return '{}'
+    return jsonify( generateTeams())
 
 
 @app.route("/GetEvent")
@@ -145,10 +312,10 @@ def getEvent():
     dsefEvents = getDsefEvents()
     if (eventId in dsefEvents):
         event = dsefEvents[eventId]
-        event["teams"] = getTeams()
+        event["teams"] = generateTeams()
         return dsefEvents[eventId]
     if (eventId in events):
         event = events[eventId]
-        event["teams"] = getTeams()
+        event["teams"] = generateTeams()
         return events[eventId]
     return "Invalid event id", 400

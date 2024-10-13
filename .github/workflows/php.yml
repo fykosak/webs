@@ -39,4 +39,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: output
-          path: tests/**/*.actual
+          path: |
+            tests/**/*.actual
+            temp/tester/log/api.log
