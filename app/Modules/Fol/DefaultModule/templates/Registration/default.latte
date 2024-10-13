@@ -48,7 +48,7 @@
     {/switch}
 
     <div class="d-grid gap-2">
-        <a href="https://db.fykos.cz/event{$newestEvent->eventId}/TeamApplication/create?lang={$lang}" type="button"
+        <a href="https://db.fykos.cz/events/{$newestEvent->eventId}/teams/create?lang={$lang}" type="button"
            class="btn btn-primary btn-lg btn-block" style="border-radius: 0">{switch $language->value}{case cs}Registrovat tým{default}Register team{/switch}</a>
     </div>
 {/block}
