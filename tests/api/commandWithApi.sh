@@ -6,7 +6,7 @@
 
 # run the webserver serving the testing data as background task
 mkdir -p temp/tester/log
-export FLASK_APP=tests/api/api.py 
+export FLASK_APP=tests/api/api.py
 nohup flask run -h 127.0.0.1 -p 8090 > temp/tester/log/api.log 2>&1 < /dev/null &
 sleep 1
 
@@ -15,7 +15,7 @@ $*
 EXIT_CODE=$?
 
 # kill the webservr
-kill -9 $(ps aux | grep 'flask --app tests/api/api.py' | head -n1 | awk '{print $2}')
+kill -9 $(ps aux | grep 'flask run -h 127.0.0.1 -p 8090' | head -n1 | awk '{print $2}')
 
 # exit with the same code as the main command did
 exit $EXIT_CODE
