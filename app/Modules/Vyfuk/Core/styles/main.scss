@@ -28,7 +28,7 @@ $card-border-width: 0;
 
 // Navbar
 $navbar-dark-color: $text-on-primary;
-$navbar-dark-hover-color: $text-on-primary;
+$navbar-dark-hover-color: $text-dimmed;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 @import 'bootstrap-icons/font/bootstrap-icons.scss';
