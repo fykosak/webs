@@ -1,0 +1,36 @@
+.card {
+    max-width: 400px;
+    border-color: $primary-color;
+    margin: 0 auto;
+
+    h4 {
+        background-color: $primary-color;
+        color: $text-on-primary;
+    }
+
+    .card-img-top {
+        object-fit: cover;
+        height: 350px;
+    }
+
+    .card-body {
+        tbody {
+            vertical-align: top;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0 5px;
+        }
+
+
+        .left-cell {
+            .icon {
+                color: $primary-color;
+            }
+
+            padding-right: 10px;
+            padding-top: 2px;
+        }
+    }
+}
