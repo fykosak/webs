@@ -44,8 +44,8 @@ $navbar-dark-color: $text-on-primary;
 $navbar-dark-hover-color: $text-on-primary;
 
 @import "node_modules/bootstrap/scss/bootstrap";
-$flag-icon-css-path: '/node_modules/flag-icon-css/flags';
-@import '../../../../../node_modules/flag-icon-css/sass/flag-icon';
+$flag-icons-path: '/node_modules/flag-icons/flags';
+@import "../../../../../node_modules/flag-icons/sass/flag-icons";
 
 // @import '../../../../Models/OldFykos/css/cssAll';
 
