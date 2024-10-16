@@ -111,7 +111,9 @@ class DefaultPresenter extends BasePresenter
                     'en' => 'Day with experimental physics at Matfyz'
                 ],
                 'show-on-timeline' => true,
-                'logo_eventbox' => '/images/logos/dsef_logo.svg',
+                'logo_eventbox' => [
+                    'cs' => '/images/logos/dsef_logo.svg'
+                ]
             ],
             'Naboj' => [
                 'key' => 'naboj',
@@ -128,7 +130,9 @@ class DefaultPresenter extends BasePresenter
                     'en' => 'Team competition in Prague, Ostrava, and elsewhere in the world'
                 ],
                 'show-on-timeline' => true,
-                'logo_eventbox' => '/images/logos/naboj_logo.svg',
+                'logo_eventbox' => [
+                    'cs' => '/images/logos/naboj_logo.svg'
+                ]
             ],
             'FOL' => [
                 'key' => 'fol',
@@ -145,7 +149,10 @@ class DefaultPresenter extends BasePresenter
                     'en' => 'Worldwide competition open to everyone'
                 ],
                 'show-on-timeline' => true,
-                'logo_eventbox' => '/images/logos/fyziklani_online_logo.svg'
+                'logo_eventbox' => [
+                    'cs' =>  '/images/logos/fyziklani_online_logo.svg',
+                    'en' => '/images/logos/physics_brawl_online_logo.svg'
+                ]
             ],
             'FOF' => [
                 'key' => 'fof',
@@ -162,7 +169,10 @@ class DefaultPresenter extends BasePresenter
                     'en' => 'The largest team physics competition in Europe'
                 ],
                 'show-on-timeline' => true,
-                'logo_eventbox' => '/images/logos/fyziklani_logo.svg'
+                'logo_eventbox' => [
+                    'cs' =>  '/images/logos/fyziklani_logo.svg',
+                    'en' =>  '/images/logos/fyziklani_logo.svg'
+                ]
             ],
             'serie-1' => [
                 'key' => 'serie-1',
@@ -189,7 +199,7 @@ class DefaultPresenter extends BasePresenter
                 'show-in-en' => true,
                 'is_series' => true,
                 'description' => [
-                    'cs' => 'Bitcoin, stromy a&nbsp;omrzování',
+                    'cs' => 'Bitcoin, stromy a&nbsp;otužování',
                     'en' => 'Bitcoin, trees, and cold exposure'
                 ],
                 'show-on-timeline' => true
@@ -302,7 +312,7 @@ class DefaultPresenter extends BasePresenter
         $nextIndexEn = null;
 
         // Find the previous event with $event['show-in-en'] == true
-        for ($i = $closestIndexEn - 1; $i >= 0; $i--) {
+        for ($i = $upcomingIndexEn - 1; $i >= 0; $i--) {
             if ($this->template->events[$i]['show-in-en']) {
                 $previousIndexEn = $i;
                 break;
@@ -310,7 +320,7 @@ class DefaultPresenter extends BasePresenter
         }
 
         // Find the next event with $event['show-in-en'] == true
-        for ($i = $closestIndexEn + 1; $i < count($this->template->events); $i++) {
+        for ($i = $upcomingIndexEn + 1; $i < count($this->template->events); $i++) {
             if ($this->template->events[$i]['show-in-en']) {
                 $nextIndexEn = $i;
                 break;

@@ -119,13 +119,20 @@
                 {php $batchPath = $problemService->getBatch('fykos', $series, $lang)}
                 {if $serialPath}
                     <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
-                        <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text seriálu {$series->series}.
-                        série
+                        <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
+                        {switch $language->value}
+                            {case 'cs'}Text seriálu {$series->series}. série
+                            {default}Text of Serial Number {$series->series}
+                        {/switch}
                     </a>
                 {/if}
                 {if new Datetime() > $series->getDeadline() && $batchPath}
                     <a class="btn btn-primary my-2 mr-4" href="{$batchPath}">
-                        <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka s řešeními
+                        <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
+                        {switch $language->value}
+                            {case 'cs'}Brožurka s řešeními
+                            {default}Brochure with solutions (cs)
+                        {/switch}
                     </a>
                 {/if}
                 <div class="row mt-3">

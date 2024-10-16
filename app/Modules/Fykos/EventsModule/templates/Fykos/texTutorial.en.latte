@@ -73,7 +73,9 @@
 
             </code>
             <p>
-            We just need to replace the line <code>{='Solution of the problem'}</code> with our solution. Anything after the <code>{='%'}</code> character is considered a comment by the LaTeX compiler, until it encounters a new line. The compiler doesn't care how many lines we skip; it will create a new line itself if the text doesn't fit on the current line, or we can force a new line using <code>{='\\\\'}</code>. 
+            We just need to replace the line <code>{='Solution of the problem'}</code> with our solution. Anything after the <code>{='%'}</code>
+            character is considered a comment by the LaTeX compiler, until it encounters a new line. The compiler doesn't care how many lines we skip;
+            it will create a new line itself if the text doesn't fit on the current line, or we can force a new line using <code>{='\\\\'}</code>. 
             </p>
             <p>
             <strong>Start the compilation with the green button.</strong> If everything is fine, the first page typeset by TeX will appear on the right side of the editor. It's a normal PDF file opened in the integrated viewer. You can use Ctrl+click to switch between the source code and the corresponding place in the PDF, and vice versa.
@@ -99,33 +101,33 @@
 
     <div class="panel color-auto" id="sazba">
         <section class="inner-container">
-            <h1>Sazba matematiky</h1>
-            <p>Kvůli sazbě matematiky jsme si zvolili TeX. Řekněme si tedy, jak na to. Krátké vzorečky, vztahy a proměnné se sází v řádkovém režimu mezi dolary</p>
-            <code>Pro čísla na kostce platí {='$0 < n < 7$'}.</code>
-            <p>Větší a složitější vzorce sázíme v blokovém režimu mezi dvojice dolarů.</p>
-            <code>Síla je dána jako<br>
+            <h1>Math typesetting</h1>
+            <p>For typesetting of math we choesed TeX. So let say how to do it. Short equations and variables in line we write in between dollar signs.</p>
+            <code>For numbers on dice {='$0 < n < 7$'}.</code>
+            <p>Larger and more complicated equations we write in block mode by writing it in between pair of dollar signs.</p>
+            <code>Resulting force is<br>
                 {='$$'}<br>
                 {='    F = mg \sin(\alpha)\,.'}<br>
                 {='$$'}
             </code>
-            <p>Argumenty maker se uzavírají mezi složené závorky (je-li argument jeden znak, je možné je vynechat). Nejčastěji používanými příkazy jsou</p>
+            <p>Macro arguments are enclosed between compound brackets (if the argument is a single character, they can be omitted). The most commonly used commands are</p>
             <ul>
-                <li>mocnění  <code>{='$2^5 = 32$'}</code></li>
-                <li>odmocňování <code>{='$\sqrt{1-\sin^2(x)} = |\cos(x)|$'}</code></li>
-                <li>zlomky <code>{='$\frac{p}{q}$'}</code></li>
-                <li>dolní index <code>{='$a_1$'}</code></li>
+                <li>superscripts <code>{='$2^5 = 32$'}</code></li>
+                <li>squere root <code>{='$\sqrt{1-\sin^2(x)} = |\cos(x)|$'}</code></li>
+                <li>fractions <code>{='$\frac{p}{q}$'}</code></li>
+                <li>subscripts <code>{='$a_1$'}</code></li>
             </ul>
-            <p>Pokud nechcete instalovat celou TeXovou mašinérii, lze použít podobnou syntaxi v editoru rovnic v OO Writeru i v MS Wordu.</p>
+            <p>If you don't want to install the whole TeX machine, you can use similar syntax in the equation editor in OO Writer and in MS Word.</p>
             
         </section>
     </div>
 
     <div class="panel color-auto" id="Odkazy">
         <section class="inner-container">
-            <h1>Odkazy</h1>
+            <h1>Links</h1>
             <ul>
-                <li><a href="https://tex.stackexchange.com/">TeX – Stack Exchange</a> – obsáhlé forum, anglicky</li>
-                <li><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">OEIS list matematických symbolů</a></li>
+                <li><a href="https://tex.stackexchange.com/">TeX – Stack Exchange</a> – comprehensive forum</li>
+                <li><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">OEIS list mathematics symbols</a></li>
             </ul>
         </section>
     </div>
