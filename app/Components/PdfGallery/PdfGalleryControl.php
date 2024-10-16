@@ -77,9 +77,7 @@ class PdfGalleryControl extends DIComponent
      */
     public function render(?string $path = null, ?string $style = null): void
     {
-        if ($style === null) {
-            $style = $path===null ? "List" : $style = "Buttons";
-        }
+        $style ??= $path == null ? "Buttons" : "List";
         $renderFile = __DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery' . $style . '.latte';
 
         $path ??= $this->wwwDir . strtolower(str_replace(':', '/', $this->getPresenter()->getAction(true)));
