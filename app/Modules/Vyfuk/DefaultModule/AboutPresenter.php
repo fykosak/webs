@@ -41,11 +41,6 @@ class AboutPresenter extends BasePresenter
                 return $b['order'] <=> $a['order'];
             });
         }
-        array_walk($currentOrganizers, function (&$org) {
-            if ($org["name"] == "Kamilo Tomáš") {
-                $org["name"] = "Míla Tomášová";
-            }
-        });
         $this->template->organizers = $currentOrganizers;
     }
 }
