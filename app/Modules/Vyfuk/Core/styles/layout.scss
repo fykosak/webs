@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   // font-size: $base-font-size;
 }
@@ -42,16 +43,18 @@ nav.navbar {
 
 ul.stylized {
   list-style: none;
-    li::before {
-      content: " ";
-      background-color: #000;
-      display: block;
-      width: .5rem;
-      height: .5rem;
-      margin-left: -1.5rem;
-      position: absolute;
-      margin-top: 0.5rem;
-    }
+
+  li::before {
+    content: " ";
+    background-color: #000;
+    display: block;
+    width: .5rem;
+    height: .5rem;
+    margin-left: -1.5rem;
+    position: absolute;
+    margin-top: 0.5rem;
+  }
+
   &.correction {
     @media screen and (max-width: 1280px) {
       padding-left: 3rem;
@@ -69,14 +72,21 @@ a:hover {
  * Panel is a rectangle with .inner-container.
  */
 .panel {
-  padding-bottom: 4rem;
+  padding: 4rem 0;
   /*margin-bottom: 2rem;*/
   color: #4a4a4a;
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: black;
   }
 
-  &.color-dark, &.color-auto:nth-of-type(2n) {
+  &.color-dark,
+  &.color-auto:nth-of-type(2n) {
     background-color: $panel-color-dark;
 
     .inverse-background {
@@ -84,7 +94,9 @@ a:hover {
     }
   }
 
-  &.color-light, &.sponsors, &.color-auto:nth-of-type(2n+1) {
+  &.color-light,
+  &.sponsors,
+  &.color-auto:nth-of-type(2n+1) {
     background-color: $panel-color-light;
 
     .inverse-background {
@@ -107,9 +119,11 @@ a:hover {
     a {
       display: block;
       text-decoration: none;
+
       img {
         @extend .img-fluid;
       }
+
       .text {
         text-align: center;
         color: black;
@@ -120,15 +134,19 @@ a:hover {
   }
 
   &.footer {
+    padding-top: 0rem;
+
     &::before {
       height: 40px;
       content: " ";
       width: 100%;
       background: url(edge.svg) repeat-x center top;
       display: block;
-      top: -40px; /*height of edge.svg*/
+      top: -40px;
+      /*height of edge.svg*/
       position: relative;
     }
+
     background-color: #000000;
     color: white;
 
@@ -155,7 +173,7 @@ a:hover {
       @extend .img-fluid;
     }
 
-    .image{
+    .image {
       max-height: 10rem;
       margin-bottom: 2rem;
       margin-right: 1rem;
@@ -167,9 +185,11 @@ a:hover {
       margin-top: 1rem;
       padding-top: 1rem;
       border-top: 1px solid #FFFFFF80;
+
       .other-logo {
         @extend .img-fluid;
         opacity: .5;
+
         &:hover {
           opacity: 1;
         }
@@ -178,7 +198,7 @@ a:hover {
   }
 
   // Inner container
-  & > .inner-container {
+  &>.inner-container {
     margin: 0 auto;
     padding: 0 1rem;
     max-width: $page-width;
@@ -187,7 +207,7 @@ a:hover {
   &.registration {
     padding: 2.5rem 0;
 
-    & > .inner-container {
+    &>.inner-container {
       display: flex;
       align-items: center;
 
@@ -202,12 +222,14 @@ a:hover {
   .subheader {
     font-weight: bold;
     color: $primary-color;
+
     &.complementary {
       color: $complementary-color;
     }
   }
 
-  &.color-primary, &.registration {
+  &.color-primary,
+  &.registration {
     background-color: $primary-color;
     color: white;
 
@@ -234,18 +256,18 @@ a:hover {
 
 
 .panel.footer nav {
-  & > ul > li {
+  &>ul>li {
     margin: 1rem 0;
 
-      a {
-        text-decoration: none;
-        color: white;
-        font-weight: normal;
-      }
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: normal;
+    }
 
-      div {
-        margin-bottom: 1rem;
-      }
+    div {
+      margin-bottom: 1rem;
+    }
   }
 
   ul {
@@ -267,7 +289,9 @@ a:hover {
   }
 
   @keyframes blink-target {
-    100% { background-color: rgba($complementary-color, 0); }
+    100% {
+      background-color: rgba($complementary-color, 0);
+    }
   }
 }
 
