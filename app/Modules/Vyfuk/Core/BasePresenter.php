@@ -7,7 +7,7 @@ namespace App\Modules\Vyfuk\Core;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 
-abstract class BasePresenter extends \App\Modules\Core\BasePresenter
+abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
 {
     /**
      * @return NavItem[]
@@ -73,5 +73,9 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     {
         $this->lang = 'cs';
         parent::localize();
+    }
+    public function getContestId(): int
+    {
+        return 2;
     }
 }
