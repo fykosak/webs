@@ -1,6 +1,6 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
-{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
+{varType App\Models\Downloader\EventModel $newestEvent}
 
 <!DOCTYPE html>
 <html lang="cs">
@@ -27,8 +27,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;800&display=swap" rel="stylesheet">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script src="https://kit.fontawesome.com/f424cd1bbe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     {block head}{/block}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="{asset 'assets/main.js'}"></script>
@@ -64,8 +66,8 @@
                 {else}
                     {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
                         {switch $language->value}
-                            {case 'cs'}Registrace se otevře v říjnu!
-                            {default} Registration will open in October!
+                            {case 'cs'}Registrace se otevře na konci září!
+                            {default} Registration will open in September!
                         {/switch}
                     {else}
                         {switch $language->value}
@@ -79,44 +81,44 @@
 
         <div class="panel sponsors">
             <div class="inner-container">
-                <div class="sponsors-row">
-                    <a href="https://www.mff.cuni.cz/" style="text-align: center">
-                        <div class="text">
+                {*<div class="category category-full-line">*}
+                <div class="category">
+                    <div class="category-title">{switch $language->value}{case cs}Organizátoři{default}Organized by{/switch}</div>
+                    <div class="category-sponsors">
+                        <a {switch $language->value}{case cs}href="https://www.fykos.cz/"{default}href="https://www.fykos.org/"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/fykos_logo.png" alt="logo FYKOSu" style="max-width: 9rem">
+                        </a>
+                        <a {switch $language->value}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
+                                 style="max-width: 8rem">
+                        </a>
+                        <a href="https://www.msmt.cz/" style="text-align: center">
                             {switch $language->value}
-                                {case 'cs'}Organizátor akce
-                                {default}Competition Organizer
+                                {case cs}
+                                <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
+                            {default}
+                                <img src="{$basePath}/images/logos/msmt_en.jpg" alt="MŠMT logo" style="max-width: 9rem">
                             {/switch}
-                        </div>
-                        <img src="{$basePath}/images/logos/mff.png" alt="MFF logo" style="max-height: 6rem; max-width: 13rem">
-                    </a>
-                    <a href="https://www.msmt.cz/" style="text-align: center">
-                        <div class="text">
-                            {switch $language->value}
-                                {case 'cs'}Organizátor akce
-                                {default}Competition Organizer
-                            {/switch}
-                        </div>
-                        <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-height: 6rem; max-width: 13rem">
-                    </a>
-                    <a href="https://www.iaps.info/" style="text-align: center">
-                        <div class="text">
-                            {switch $language->value}
-                                {case 'cs'}Partner
-                                {default}Partner
-                            {/switch}
-                        </div>
-                        <img src="{$basePath}/images/logos/iaps_logo.png" alt="IAPS logo" style="max-height: 6rem; max-width: 13rem">
-                    </a>
+                        </a>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="category-title">{switch $language->value}{case cs}Partner{default}Partner{/switch}</div>
+                    <div class="category-sponsors">
+                        <a href="https://www.iaps.info/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/iaps_logo.png" alt="IAPS logo" style="max-height: 10rem; max-width: 13rem">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="panel footer">
             <div class="inner-container row">
                 <div class="col-md-6">
-{*                    <img class="logo" src="{$basePath}/images/logo.svg" alt="DSEF" />*}
-                    <div class="logo" style="font-size: 1cm; font-weight: bold">DSEF<small>.cz</small></div>
+                    <img class="logo" src="{$basePath}/images/logos/dsef2024_logo_white.svg" alt="DSEF" />
                     <p>
-                        DSEF je organizován <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 37. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
+                        DSEF je organizován <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 38. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
                         <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                     </p>
                     <p>
@@ -127,7 +129,7 @@
                     </p>
                     <div class="other-logos">
                         <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/logos/fykos_logo_white.png" alt="FYKOS" style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        <a target="_blank" href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
+                        <a target="_blank" href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                         <a target="_blank" href="{switch $language->value}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_white_logo.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                     </div>
                 </div>
@@ -143,10 +145,10 @@
                             <ul>
                                 <li>
                                     <a class="social-sites" href="https://www.facebook.com/FYKOS">
-                                    <i class="fa fa-facebook fa-2x"></i>
+                                    <i class="fa-brands fa-square-facebook fa-2x"></i>
                                     </a>
                                     <a class="social-sites" href="https://www.instagram.com/fykosak/">
-                                    <i class="fa fa-instagram fa-2x"></i>
+                                    <i class="fa-brands fa-instagram fa-2x"></i>
                                     </a>
                                 </li>
                             </ul>

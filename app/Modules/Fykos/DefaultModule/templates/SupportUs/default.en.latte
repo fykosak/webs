@@ -1,10 +1,163 @@
-{block title}Podpořte FYKOS{/block}
+{block title}Support Us{/block}
 {block main}
+{varType App\Models\Downloader\ContestYearModel $currentYear}
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    });
+
+    document.querySelectorAll('.fade-in-section').forEach((section) => {
+        observer.observe(section);
+    });
+});
+</script>
 <div class="panel color-auto">
     <section class="inner-container">
-        <h1>How to support FYKOS?</h1>
-        <p> Do you like our activities and do you want to support us? You can do that by sending us some financial donation, 
-          providinfg prizes for winners or refreshments for the events. You can also buy our <a href = "/merch">merch</a>.</p>
+        <div class="subheader">Help Inspire Future Scientists</div>
+        <h1>Support FYKOS</h1>
+        <p>
+            FYKOS has been inspiring and educating high school students in the field of physics and related disciplines for {$currentYear->year} years. Our competitions, seminars, and other educational events reach thousands of young people each year, fostering their interest in science and technology and helping them develop their talents. Your support enables FYKOS to continue this important mission and expand our reach to even more talented students.
+        </p>
+        <a class="btn btn-primary mt-2" href="#why-support">Why Support Us?</a>
+        <a class="btn btn-primary mt-2" href="#how-to-support">How to Support Us</a>
+    </section>
+</div>
+<div class="panel color-auto" id="why-support">
+    <section class="inner-container">
+        <div class="subheader">Why Support FYKOS?</div>
+        <h1 class="section-header">Our Impact on the Future of Science</h1>
+        <div class="row fade-in-section">
+            <div class="col-md-4">
+                <div class="info-block p-3 mb-4">
+                    <h4><i class="info-icon fas fa-users"></i>Thousands of Students</h4>
+                    <p>Every year, we inspire and educate thousands of high school students in the field of physics and related disciplines. For many of our participants, FYKOS events are what sparked their interest in a scientific career.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-block p-3 mb-4">
+                    <h4><i class="info-icon fas fa-history"></i>{$currentYear->year} Years of Tradition</h4>
+                    <p>For {$currentYear->year} years, we have been organizing competitions, seminars, and other educational events for young talents. In our organization, we combine decades of proven practices with innovation and continuous improvement of our events.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-block p-3 mb-4">
+                    <h4><i class="info-icon fas fa-hand-holding-heart"></i>Non-Profit</h4>
+                    <p>We organize events not for money, but because we believe in their purpose. Participation in all events is either free (often providing financial support for accommodation to increase accessibility) or for a symbolic fee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="subheader">What People Say About Us</div>
+        <h2>Testimonials from Participants</h2>
+        <div class="row fade-in-section">
+            <div class="col-md-6">
+                <div class="testimonial-card p-3 mb-4">
+                    <blockquote>
+                        "I had a great time in Prague, met so many amazing people from other countries, and the organizers were so kind to us. We still keep in touch with other teams, so overall it was a great experience. Right now, I am reading a book that was given to us as a prize, so thank you for that as well :)"
+                        <footer>— Participant of Fyziklání 2024</footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="testimonial-card p-3 mb-4">
+                    <blockquote>
+                        "[Fyziklání is] a unique competition for high school students organized by students of the Faculty of Mathematics and Physics, Charles University, where a thousand young people interested in physics gather in one place. It is an event that, as far as I know, has no equivalent abroad, and many promotion departments at the best universities in the world could envy it to Charles University."
+                        <footer>— Prof. Lenka Zdeborová, EPFL</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="panel color-auto" id="how-to-support">
+    <section class="inner-container">
+        <div class="subheader">How You Can Support Us</div>
+        <h2 class="section-header">Ways to Support Us</h2>
+        <div class="row fade-in-section">
+            <div class="col-lg-12 mb-4 mt-4">
+                <div class="info-block p-4">
+                    <h3><i class="info-icon fas fa-building mr-2"></i>Corporate Partnerships</h3>
+                    <p>Companies can support us through:</p>
+                    <ul class="mt-3">
+                        <li>Financial sponsorship of our events</li>
+                        <li>Providing prizes for competition winners</li>
+                    </ul>
+                    <p class="mt-3">We are happy to discuss partnership opportunities with you, where you can not only support a good cause but also promote your company among thousands of talented high school students.</p>
+                    <a href="#contact" class="btn btn-outline-primary mt-2">Contact Us for More Information</a>
+                </div>
+            </div>
+            <div class="col-lg-12 mb-4 mt-4">
+                <div class="info-block p-4">
+                    <h3><i class="info-icon fas fa-hand-holding-usd mr-2"></i>Financial Donations</h3>
+                    <p>The easiest and most effective way to support us is through direct financial donations. These will be used exclusively for organizing and developing our events. As a small bonus, donations to FYKOS as a non-profit organization are partially tax-deductible.</p>
+                    <div class="row mt-4">
+                        <h4>Bank Transfer</h4>
+                        <small>Please include "Donation for FYKOS" as a payment note. If you would like us to send you a confirmation for tax purposes, please also include your email.</small>
+                        <div class="col-lg-6">
+                            <div class="row mt-4">
+                                <div class="col-sm-8">
+                                    <h5>Account in EUR</h5>
+                                    Account Number: 2202414681 / 2010<br>
+                                    IBAN: CZ05 2010 0000 0022 0241 4681<br>
+                                    BIC/SWIFT: FIOBCZPPXXX
+                                </div>
+                                <div class="col-sm-4">
+                                    <img class="QR-code-payment" src="/images/QRPlatba_na_ucet_EUR.png" alt="QR code for EUR payment">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mb-4 mt-4">
+                <div class="info-block p-4">
+                    <h3><i class="info-icon fas fa-share-alt mr-2"></i>Spreading Awareness</h3>
+                    <p>You can also help us by spreading the word about FYKOS:</p>
+                    <ul class="mt-3">
+                        <li>Share information about our events on social media</li>
+                        <li>Inform your acquaintances with high school-aged children</li>
+                        <li>Connect us with representatives of organizations that may want to collaborate with us</li>
+                    </ul>
+                    <div class="mt-3">
+                        <a href="https://www.facebook.com/FYKOS" class="btn btn-outline-primary mr-2"><i class="fa-brands fa-square-facebook"></i> Share on Facebook</a>
+                        <a href="https://www.instagram.com/fykosak" class="btn btn-outline-primary"><i class="fab fa-instagram"></i> Share on Instagram</a>
+                    </div>
+              </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="panel color-auto" id="contact">
+    <section class="inner-container">
+        <div class="subheader">Contact Us</div>
+        <h2 class="section-header">Have Questions About Support?</h2>
+        <p>For more information about support options or to discuss collaboration, please feel free to contact us:</p>
+        <div class="row fade-in-section">
+            <div class="col-md-4">
+                <div class="contact-info p-3">
+                    <i class="fas fa-envelope"></i> Email: <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-info p-3">
+                    <i class="fas fa-phone"></i> Phone: +420 739 584 436
+                </div>
+            </div>
+        </div>
     </section>
 </div>
 

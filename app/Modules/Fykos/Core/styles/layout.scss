@@ -1,3 +1,7 @@
+.panel {
+  padding: 4.3rem 0;
+}
+
 .btn-container {
   display: flex;
   flex-wrap: wrap;
@@ -37,4 +41,23 @@ ul {
 
 p {
   text-align: justify;
+}
+
+
+#old-website-notice {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(256, 256, 256, 0.9);
+  border-top: 1px solid black;
+  text-align: center;
+  padding: 10px;
+  z-index: 1000;
+  display: none; /* Hide by default */
+}
+#hide-notice {
+  border: none;
+  padding: 0 5px;
+  margin-left: 10px;
+  cursor: pointer;
 }

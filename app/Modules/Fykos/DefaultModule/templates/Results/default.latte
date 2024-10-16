@@ -1,5 +1,6 @@
 {varType int $year}
-{varType int $currentYear}
+{varType App\Models\Downloader\ContestYearModel $currentYear}
+{varType App\Models\Downloader\ContestModel $contest}
 {varType App\Modules\Core\Language $language}
 {block title}
     {switch $language->value}
@@ -10,85 +11,68 @@
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
-    <div class="row">
-        <div class="col-md-8">
-                
-            <h1>
-                {switch $language->value}
-                    {case 'cs'}Výsledky {$year}. ročníku FYKOSu
-                    {default}Results of FYKOS Year {$year}
-                {/switch}
-            </h1>
-
-            <p>
-                {switch $language->value}
-                    {case 'cs'}Zde najdete výsledkovou listinu {$year}. ročníku Fyzikálního korespondenčního semináře.
-                    {default}Here you can find the results of the year {$year} of the FYKOS correspondence competition.
-                {/switch}
-            </p>
-        </div>
-        <div class="col-md-4 pl-md-2">
-            <div class="dropdown year-and-series-select">
-                <button class="btn btn-primary dropdown-toggle year-select-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="row">
+            <div class="col-md-8">
+                {dump $results}
+                <h1>
                     {switch $language->value}
-                        {case 'cs'}Vybrat ročník
-                        {default}Select Year
+                        {case 'cs'}Výsledky {$year}. ročníku FYKOSu
+                        {default}Results of FYKOS Year {$year}
                     {/switch}
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div class="scrollable-menu">
-                        <div class="series-container">
-                            {for $yearOption = $currentYear; $yearOption >= 1; $yearOption--}
-                                <a class="series-box full-width btn" href="{plink 'this' 'year'=>$yearOption}">
+                </h1>
+
+                <p>
+                    {switch $language->value}
+                        {case 'cs'}Zde najdete výsledkovou listinu {$year}. ročníku Fyzikálního korespondenčního semináře.
+                        {default}Here you can find the results of the year {$year} of the FYKOS correspondence competition.
+                    {/switch}
+                </p>
+            </div>
+            <div class="col-md-4 pl-md-2">
+                <div class="dropdown year-and-series-select">
+                    <button class="btn btn-primary dropdown-toggle year-select-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        {switch $language->value}
+                            {case 'cs'}Vybrat ročník
+                            {default}Select Year
+                        {/switch}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="scrollable-menu">
+                            <div class="series-container">
+                                {foreach array_reverse($contest->years) as $contestYear}
+                                    {continueIf $contestYear->year === 38} {* Hide year 38 for body-ready *}
+                                    {if $contestYear->year > 18} {* Hide years for which data is not available *}
+                                        {varType App\Models\Downloader\ContestYearModel $contestYear}
+                                        <a class="series-box full-width btn" href="{plink 'this' 'year'=>$contestYear->year}">
+                                            {switch $language->value}
+                                                {case 'cs'}{$contestYear->year}. ročník ({$contestYear->begin->format('Y')}/{$contestYear->end->format('y')})
+                                                {default}Year {$contestYear->year}
+                                            {/switch}
+                                        </a>
+                                    {/if}
+                                {/foreach}
+                                {* Add comment about missing years *}
+
+                                <div class="series-box full-width btn">
                                     {switch $language->value}
-                                        {case 'cs'}{$yearOption}. ročník ({$yearOption + 1987}/{($yearOption + 1988) % 100})
-                                        {default}Year {$yearOption}
+                                        {case 'cs'}Ročníky 1-18 nejsou dostupné
+                                        {default}Years 1-18 are not available
                                     {/switch}
-                                </a>                                    
-                            {/for}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
 
-        {* <div class="mb-3">
-            <button class="btn btn-primary-inverted button-collapse-header" type="button" data-bs-toggle="collapse"
-            data-bs-target="#resultFilters" aria-expanded="false" aria-controls="resultFilters">
+            <p>
                 {switch $language->value}
-                    {case 'cs'}Změnit ročník
-                    {default}Change Year
+                    {case 'cs'}Ze základu se zobrazuje suma bodů za každou sérii. Kliknutím na nadpis série zobrazíte konkrétní počty bodů za jednotlivé úlohy dané série.
+                    {default}By default, the sum of points for each series is displayed. By clicking on the title of the series, you can see the specific number of points for each task of the given series.
                 {/switch}
-            </button>
-
-            <!-- The collapsible content -->
-            <div class="collapse toggle-content inverse-background p-3" id="resultFilters">
-                {for $y = $currentYear; $y >= 1; $y--}
-                    {if $y % 10 == 0}
-                        <div class="row">
-                    {elseif $y == $currentYear}
-                        <div class="row">
-                        {for $i = 0; $i < 10 - $currentYear % 10; $i++}
-                            <div class="col"></div>
-                        {/for}
-                    {/if}
-                    <div class="col">
-                        <a class="btn btn-primary m-2 yearbox" href="{plink 'this' 'year'=>$y}">{$y}</a>
-                    </div>
-                    {if $y % 10 == 1}
-                        </div>
-                    {/if}
-                {/for}
-            </div>
-        </div> *}
-
-        <p>
-            {switch $language->value}
-                {case 'cs'}Ze základu se zobrazuje suma bodů za každou sérii. Kliknutím na nadpis série zobrazíte konkrétní počty bodů za jednotlivé úlohy dané série.
-                {default}By default, the sum of points for each series is displayed. By clicking on the title of the series, you can see the specific number of points for each task of the given series.
-            {/switch}
-        </p>
+            </p>
+        
+        </div>
         <div id="contest-results" data-data="{json_encode($results)}"></div>
     </section>
 </div>

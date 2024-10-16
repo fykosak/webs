@@ -8,6 +8,7 @@ use App\Components\ImageGallery\ImageGalleryControl;
 use App\Components\Navigation\Navigation;
 use App\Components\PdfGallery\PdfGalleryControl;
 use App\Models\Exceptions\UnderConstructionException;
+use App\Models\SettingsService;
 use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Fykosak\Utils\UI\Navigation\NavItem;
@@ -22,10 +23,12 @@ abstract class BasePresenter extends Presenter
     public Language $language;
 
     public GettextTranslator $translator;
+    public SettingsService $settings;
 
-    public function injectServices(GettextTranslator $translator): void
+    public function injectServices(GettextTranslator $translator, SettingsService $settings): void
     {
         $this->translator = $translator;
+        $this->settings = $settings;
     }
 
     /**
@@ -69,7 +72,7 @@ abstract class BasePresenter extends Presenter
     }
 
 
-// -------------- i18n ------------------
+    // -------------- i18n ------------------
 
     /**
      * @throws UnsupportedLanguageException
@@ -78,7 +81,14 @@ abstract class BasePresenter extends Presenter
     {
         // Lang is null in error presenter because no rote rule was applied
         if (!isset($this->lang) || !$this->lang) {
-            $this->lang = 'en'; // todo guess language by domain
+            // guess language by domain
+            $hostname = $this->getHttpRequest()->getUrl()->getHost();
+            if (isset($this->settings->domains[$hostname])) {
+                $this->lang = $this->settings->domains[$hostname];
+            } else {
+                // default to en
+                $this->lang = 'en';
+            }
         }
         $this->language = Language::from($this->lang);
 

@@ -8,13 +8,6 @@ use App\Models\Downloader\EventService;
 
 class ArchivePresenter extends BasePresenter
 {
-    protected readonly EventService $eventService;
-
-    public function injectEventService(EventService $eventService): void
-    {
-        $this->eventService = $eventService;
-    }
-
     /**
      * @throws \Throwable
      */

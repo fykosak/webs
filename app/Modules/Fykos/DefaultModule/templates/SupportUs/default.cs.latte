@@ -1,100 +1,8 @@
 {block title}Podpořte nás{/block}
 {block main}
+{varType App\Models\Downloader\ContestYearModel $currentYear}
 
 
-<style>
-
-/* Additional styles for the Support Us page */
-
-.testimonial-card {
-    background-color: #f8f9fa;
-    border-left: 5px solid #007bff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.testimonial-card blockquote {
-    font-style: italic;
-    margin-bottom: 0.5rem;
-}
-
-.testimonial-card footer {
-    text-align: right;
-    font-weight: bold;
-}
-
-.contact-info {
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.contact-info i {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #007bff;
-}
-
-#how-to-support .info-block {
-    height: 100%;
-}
-
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-.testimonial-card {
-    background-color: #f8f9fa;
-    border-left: 5px solid #007bff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.testimonial-card blockquote {
-    font-style: italic;
-    margin-bottom: 0.5rem;
-}
-
-.testimonial-card footer {
-    text-align: right;
-    font-weight: bold;
-}
-
-.contact-info {
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.contact-info i {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #007bff;
-}
-
-#how-to-support .info-block {
-    height: 100%;
-}
-
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-</style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -112,38 +20,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
-
-
 <div class="panel color-auto">
     <section class="inner-container">
         <div class="subheader">Pomáhejte inspirovat budoucí vědce</div>
         <h1>Podpořte FYKOS</h1>
         <p>
-            FYKOS již {$currentYear} let inspiruje a vzdělává středoškoláky v oblasti fyziky a příbuzných oborů. Naše soutěže, semináře a další vzdělávací akce ročně osloví tisíce mladých lidí, podporují jejich zájem o vědu a techniku a pomáhají jim rozvíjet jejich talent. Vaše podpora umožňuje FYKOSu pokračovat v této důležité misi a rozšiřovat náš dosah na ještě více nadaných studentů.
+            FYKOS již {$currentYear->year} let inspiruje a&nbsp;vzdělává středoškoláky v&nbsp;oblasti fyziky a&nbsp;příbuzných oborů. Naše soutěže, semináře a&nbsp;další vzdělávací akce ročně osloví tisíce mladých lidí, podporují jejich zájem o vědu a&nbsp;techniku a&nbsp;pomáhají jim rozvíjet jejich talent. Vaše podpora umožňuje FYKOSu pokračovat v&nbsp;této důležité misi a&nbsp;rozšiřovat náš dosah na ještě více nadaných studentů.
         </p>
         <a class="btn btn-primary mt-2" href="#why-support">Proč nás podpořit?</a>
         <a class="btn btn-primary mt-2" href="#how-to-support">Jak nás podpořit</a>
     </section>
 </div>
-{* 
-<div class="panel color-primary title-panel">
-    <section class="inner-container">
-        <div class="header-container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 header-text-container">
-                    <h1 class="header-text">Podpořte nás</h1>
-                    <h2 class="header-text">Pomozte nám inspirovat budoucí vědce a inženýry.</h2>
-                    <p class="header-text">
-                        FYKOS již {$currentYear} let vzdělává středoškoláky v oblasti fyziky. Vaše podpora nám umožní pokračovat v této důležité misi.
-                    </p>
-                    <a class="btn btn-light mt-2" href="#why-support">Proč nás podpořit?</a>
-                    <a class="btn btn-light ml-2 mt-2" href="#how-to-support">Jak nás podpořit</a>
-                </div>
-            </div>
-        </div>
-    </section>
-</div> *}
-
 <div class="panel color-auto" id="why-support">
     <section class="inner-container">
         <div class="subheader">Proč podpořit FYKOS?</div>
@@ -152,19 +39,19 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="col-md-4">
                 <div class="info-block p-3 mb-4">
                     <h4><i class="info-icon fas fa-users"></i>Tisíce studentů</h4>
-                    <p>Každoročně inspirujeme a vzděláváme tisíce středoškoláků v oblasti fyziky a příbuzných oborů. Pro mnoho z našich účastníků jsou právě FYKOSí akce to, co je podnítilo k zájmu o vědeckou kariéru.</p>
+                    <p>Každoročně inspirujeme a&nbsp;vzděláváme tisíce středoškoláků v&nbsp;oblasti fyziky a&nbsp;příbuzných oborů. Pro mnoho z&nbsp;našich účastníků jsou právě FYKOSí akce to, co je podnítilo k zájmu o vědeckou kariéru.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="info-block p-3 mb-4">
-                    <h4><i class="info-icon fas fa-history"></i>{$currentYear} let tradice</h4>
-                    <p>Již {$currentYear} let organizujeme soutěže, semináře a další vzdělávací akce pro mladé talenty. V akcích kombinujeme dekádami osvědčené postupy s inovacemi a neustálým zlepšováním našich akcí.</p>
+                    <h4><i class="info-icon fas fa-history"></i>{$currentYear->year} let tradice</h4>
+                    <p>Již {$currentYear->year} let pořádáme soutěže, semináře a&nbsp;další vzdělávací akce pro mladé talenty. Při organizaci kombinujeme dekádami osvědčené postupy s&nbsp;inovacemi a&nbsp;neustálým zlepšováním našich akcí.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="info-block p-3 mb-4">
                     <h4><i class="info-icon fas fa-hand-holding-heart"></i>Neziskovost</h4>
-                    <p>Akce pořádáme ne pro peníze, ale protože v nich vidíme smysl. Účast na všech akcích je buď zdarma (mnohdy i poskytujeme finančí podporu na ubytování pro vyšší dostupnost), nebo pouze za symbolickou cenu.</p>
+                    <p>Akce pořádáme ne pro peníze, ale protože v&nbsp;nich vidíme smysl. Účast na všech akcích je buď zdarma (mnohdy i&nbsp;poskytujeme finančí podporu na ubytování pro vyšší dostupnost), nebo pouze za symbolickou cenu.</p>
                 </div>
             </div>
         </div>
@@ -179,33 +66,15 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="col-md-6">
                 <div class="testimonial-card p-3 mb-4">
                     <blockquote>
-                        "FYKOS mi otevřel dveře do fascinujícího světa fyziky. Díky jejich akcím jsem si uvědomil, že chci studovat fyziku na vysoké škole."
-                        <footer>— Jan Novák, bývalý účastník, nyní student MFF UK</footer>
+                        "I had a&nbsp;great time at Prague, met with so many amazing people from other countries, organizers were so kind to us. We still talk with other teams so overall it was a&nbsp;great experience. Right now, I am reading a&nbsp;book that was given to us as a&nbsp;prize so thank you for that as well :)"
+                        <footer>— účastník Fyziklání 2024</footer>
                     </blockquote>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="testimonial-card p-3 mb-4">
                     <blockquote>
-                        "Organizace FYKOSu mi dala neocenitelné zkušenosti s vedením projektů a týmovou prací. Tyto dovednosti nyní denně využívám ve svém zaměstnání."
-                        <footer>— Petra Svobodová, bývalá organizátorka</footer>
-                    </blockquote>
-                </div>
-            </div>
-        </div>
-        <div class="row fade-in-section">
-            <div class="col-md-6">
-                <div class="testimonial-card p-3 mb-4">
-                    <blockquote>
-                        "I had a great time at Prague, met with so many amazing people from other countries, organizers were so kind to us. We still talk with other teams so overall it was a great experience. Right now, I am reading a book that was given to us as a prize so thank you for that as well :)"
-                        <footer>— anonymní účastník Fyziklání 2024</footer>
-                    </blockquote>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="testimonial-card p-3 mb-4">
-                    <blockquote>
-                        "[Fyziklání je] vcelku unikátní soutěž pro středoškoláky organizovaná studenty MFF UK, kdy se na jednom místě sejde tisícovka mladých lidí se zájmem o fyziku. Je to akce, která, pokud vím, nemá v zahraničí obdoby a leckteré oddělení propagace na nejlepším světových univerzitách by ji MFF UK mohla závidět.
+                        "[Fyziklání je] vcelku unikátní soutěž pro středoškoláky organizovaná studenty MFF UK, kdy se na jednom místě sejde tisícovka mladých lidí se zájmem o fyziku. Je to akce, která, pokud vím, nemá v&nbsp;zahraničí obdoby a&nbsp;leckteré oddělení propagace na nejlepším světových univerzitách by ji MFF UK mohla závidět.
                         <footer>— prof. Lenka Zdeborová, EPFL</footer>
                     </blockquote>
                 </div>
@@ -219,48 +88,66 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="subheader">Jak nás můžete podpořit</div>
         <h2 class="section-header">Způsoby podpory</h2>
         <div class="row fade-in-section">
-            <div class="col-lg-10 mb-4 mt-4">
-                <div class="info-block p-4">
-                    <h3><i class="info-icon fas fa-hand-holding-usd mr-2"></i>Finanční dary</h3>
-                    <p>Nejjednodušším a nejúčinějším způsobem, jak nás podpořit, je přímý finanční dar. Tem bude využit exkluzivně na pořádání a&nbsp;rozvoj našich akcí. Jako malý bonus jsou dary FYKOSu jakožto neziskové organizaci částečně odečitatelné z daní.</p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <h5>Online platba</h5>
-                            <a href="https://www.darujme.cz/projekt/XXX" class="btn btn-primary btn-lg btn-block mt-2">Darovat přes Darujme.cz</a>
-                        </div>
-                        <div class="col-md-6 mt-3 mt-md-0">
-                            <h5>Bankovní převod</h5>
-                            <p class="font-weight-bold">Číslo účtu: XXXX-XXXXXXXXXX/XXXX</p>
-                            <small>Prosím, uveďte "Dar pro FYKOS" jako poznámku k platbě.</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="offset-lg-2 col-lg-10 mb-4 mt-4">
+            <div class="col-lg-12 mb-4 mt-4">
                 <div class="info-block p-4">
                     <h3><i class="info-icon fas fa-building mr-2"></i>Firemní partnerství</h3>
-                    <p>Firmy nás mohou podpořit několika způsoby:</p>
+                    <p>Firmy nás mohou podpořit skrze:</p>
                     <ul class="mt-3">
                         <li>Finanční sponzorství našich akcí</li>
                         <li>Poskytnutí cen pro vítěze soutěží</li>
                     </ul>
-                    <p class="mt-3">Rádi s vámi prodiskutujeme možnosti partnerství, v rámci kterého můžete kromě podpoření dobré věci také zviditelnit svou firmu mezi tisícovkami nadaných středoškoláků.</p>
+                    <p class="mt-3">Rádi s&nbsp;vámi prodiskutujeme možnosti partnerství, v&nbsp;rámci kterého můžete kromě podpoření dobré věci také zviditelnit svou firmu mezi tisícovkami nadaných středoškoláků.</p>
                     <a href="#contact" class="btn btn-outline-primary mt-2">Kontaktujte nás pro více informací</a>
                 </div>
             </div>
-            <div class="col-lg-10 mb-4 mt-4">
+            <div class="col-lg-12 mb-4 mt-4">
+                <div class="info-block p-4">
+                    <h3><i class="info-icon fas fa-hand-holding-usd mr-2"></i>Finanční dary</h3>
+                    <p>Nejjednodušším a&nbsp;nejúčinějším způsobem, jak nás podpořit, je přímý finanční dar. Tem bude využit exkluzivně na pořádání a&nbsp;rozvoj našich akcí. Jako malý bonus jsou dary FYKOSu jakožto neziskové organizaci částečně odečitatelné z&nbsp;daní.</p>
+                    <div class="row mt-4">
+                        <h4>Bankovní převod</h4>
+                        <small>Prosím, uveďte "Dar pro FYKOS" jako poznámku k platbě. Pokud chcete, abychom Vám zaslali potvrzení pro daňové účely, přidejte i&nbsp;svůj email.</small>
+                        <div class="col-lg-6">
+                            <div class="row mt-4">
+                                <div class="col-sm-8">
+                                    <h5>Účet v českých korunách</h5>
+                                    Číslo účtu: 2102414676 / 2010<br>
+                                    IBAN: CZ96 2010 0000 0021 0241 4676<br>
+                                    BIC/SWIFT: FIOBCZPPXXX
+                                </div>
+                                <div class="col-sm-4">
+                                    <img class="QR-code-payment" src="/images/QRPlatba_na_ucet_CZK.png" alt="QR kód pro platbu v CZK">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="row mt-4">
+                                <div class="col-sm-8">
+                                    <h5>Účet v EURech</h5>
+                                    Číslo účtu: 2202414681 / 2010<br>
+                                    IBAN: CZ05 2010 0000 0022 0241 4681<br>
+                                    BIC/SWIFT: FIOBCZPPXXX
+                                </div>
+                                <div class="col-sm-4">
+                                    <img class="QR-code-payment" src="/images/QRPlatba_na_ucet_EUR.png" alt="QR kód pro platbu v EUR">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mb-4 mt-4">
                 <div class="info-block p-4">
                     <h3><i class="info-icon fas fa-share-alt mr-2"></i>Šíření povědomí</h3>
-                    <p>Pomůžete nám i tím, že o FYKOSu řeknete ostatním:</p>
+                    <p>Pomůžete nám i&nbsp;tím, že o FYKOSu řeknete ostatním:</p>
                     <ul class="mt-3">
                         <li>Sdílejte informace o našich akcích na sociálních sítích</li>
-                        <li>Informujte své známé s dětmi středoškolského věku</li>
-                        <li>Kontaktujte místní školy a navrhněte jim spolupráci s FYKOSem</li>
-                        <li>Napište článek nebo blog o vašich zkušenostech s FYKOSem</li>
+                        <li>Informujte své známé s&nbsp;dětmi středoškolského věku</li>
+                        <li>Propojte nás se zástupci organizací, které by s námi mohly chtít spolupracovat</li>
                     </ul>
                     <div class="mt-3">
-                        <a href="#" class="btn btn-outline-primary mr-2"><i class="fab fa-facebook-f mr-2"></i>Sdílet na Facebooku</a>
-                        <a href="#" class="btn btn-outline-primary"><i class="fab fa-twitter mr-2"></i>Sdílet na Twitteru</a>
+                        <a href="https://www.facebook.com/FYKOS" class="btn btn-outline-primary mr-2"><i class="fa-brands fa-square-facebook"></i>  Sdílet na Facebooku</a>
+                        <a href="https://www.instagram.com/fykosak" class="btn btn-outline-primary"><i class="fab fa-instagram"></i>  Sdílet na Instagramu</a>
                     </div>
               </div>
             </div>
@@ -282,16 +169,14 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="col-md-4">
                 <div class="contact-info p-3">
-                    <i class="fas fa-phone"></i> Telefon: +420 XXX XXX XXX
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="contact-info p-3">
-                    <i class="fas fa-map-marker-alt"></i> Adresa: Ke Karlovu 3, 121 16 Praha 2
+                    <i class="fas fa-phone"></i> Telefon: +420 739 584 436
                 </div>
             </div>
         </div>
     </section>
 </div>
+
+
+
 
 {/block}

@@ -104,6 +104,11 @@ a:hover {
     }
   }
 
+  &.sponsors {
+    padding-bottom: 5rem;
+    padding-top: 3rem;
+  }
+
   &.sponsors .inner-container .sponsors-row {
     display: flex;
     flex-wrap: wrap;
@@ -129,6 +134,19 @@ a:hover {
   }
 
   &.footer {
+    padding-top: 0rem;
+
+    &::before {
+      height: 40px;
+      content: " ";
+      width: 100%;
+      background: url(edge.svg) repeat-x center top;
+      display: block;
+      top: -40px;
+      /*height of edge.svg*/
+      position: relative;
+    }
+
     background-color: #000000;
     color: white;
 
@@ -149,8 +167,17 @@ a:hover {
     }
 
     .logo {
-      max-height: 3rem;
+      max-height: 4rem;
+      margin-bottom: 1rem;
+      margin-right: 1rem;
+      @extend .img-fluid;
+    }
+
+    .image {
+      max-height: 10rem;
       margin-bottom: 2rem;
+      margin-right: 1rem;
+      margin-top: 2rem;
       @extend .img-fluid;
     }
 
@@ -230,16 +257,16 @@ a:hover {
 
 .panel.footer nav {
   &>ul>li {
-    font-weight: bold;
+    margin: 1rem 0;
 
-    & li {
-      margin: 1rem 0;
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: normal;
+    }
 
-      a {
-        text-decoration: none;
-        color: white;
-        font-weight: normal;
-      }
+    div {
+      margin-bottom: 1rem;
     }
   }
 

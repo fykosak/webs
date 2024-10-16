@@ -1,16 +1,17 @@
+{varType App\Models\Downloader\ContestYearModel $currentYear}
 {block title}About Us{/block}
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
         <div class="subheader">Basic Information</div>
-        <h1>What and Who is FYKOS?</h1>
+        <h1>What and Who Is FYKOS?</h1>
         <p>
             FYKOS is a group organizing competitions and other educational events in physics (and related fields)
             for high school students.
 
             FYKOS is supported by the <a href="https://www.mff.cuni.cz">Faculty of Mathematics and Physics, Charles University</a>
             (CUNI MFF)
-            and the Ministry of Education, Youth and Sports of the Czech Republic, and has a rich {$currentYear}-year
+            and the Ministry of Education, Youth and Sports of the Czech Republic, and has a rich {$currentYear->year}-year
             history of organizing educational events.
         </p>
         <p>
@@ -21,7 +22,7 @@
             and the Department of Physics Didactics of CUNI MFF.
         </p>
         <p>
-            The original event of FYKOS, after which the group is named, is the FYKOS correspondence competition, which you can read about on the <a n:href=":Events:Fykos:">competition's page</a>. Although it started as a small correspondence competition in physics, FYKOS has evolved into a prominent association
+            The original event of FYKOS, after which the group is named, is the FYKOS correspondence competition, which you can read about on the <a n:href=":Events:Fykos:">competition's page</a>. Although it started as a small correspondence competition in physics, FYKOS has evolved into a group
             that annually organizes events for thousands of young people interested in technical fields, supports their education, and provides
             them with opportunities and possibilities for further growth.
         </p>
@@ -96,9 +97,10 @@
         </div>
 
         <p>
-            FYKOS thus contributes to the development, connection, and building of a community
+            FYKOS thus contributes to the development, connection, and building of a&nbsp;community
             of talented people interested in physics and science in general, both for participants and organizers.
         </p>
+        <a class="btn btn-primary" n:href="SupportUs:">Want to Support FYKOS in Its Mission?</a>
     </section>
 </div>
 {/block}

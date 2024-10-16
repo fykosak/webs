@@ -6,8 +6,8 @@ namespace App\Components\PersonSchedule;
 
 use App\Models\Downloader\EventService;
 use App\Models\Downloader\FKSDBDownloader;
+use App\Models\Downloader\PersonScheduleModel;
 use App\Models\Downloader\ScheduleRequest;
-use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
@@ -16,7 +16,7 @@ final class AllScheduleListComponent extends DIComponent
     private readonly EventService $eventService;
     private readonly FKSDBDownloader $downloader;
 
-    /** @var ModelPersonSchedule[][] | null */
+    /** @var PersonScheduleModel[][] | null */
     private ?array $groupedPersonSchedule = null;
 
     public function __construct(private readonly int $eventId, Container $container)
@@ -60,7 +60,7 @@ final class AllScheduleListComponent extends DIComponent
     }
 
     /**
-     * @return ModelPersonSchedule[][]
+     * @return PersonScheduleModel[][]
      * @throws \Throwable
      */
     private function getGroupedPersonSchedule(): array

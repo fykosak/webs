@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Fol\ArchiveModule;
 
 use App\Models\Downloader\EventService;
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\Downloader\EventModel;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
@@ -17,19 +17,13 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
     /** @persistent */
     public ?string $eventYear = null;
 
-    private ModelEvent $event;
-    protected readonly EventService $eventService;
-
-    public function injectEventService(EventService $eventService): void
-    {
-        $this->eventService = $eventService;
-    }
+    private EventModel $event;
 
     /**
      * @throws BadRequestException
      * @throws \Throwable
      */
-    protected function getEvent(): ModelEvent
+    protected function getEvent(): EventModel
     {
         if (!isset($this->event)) {
             if (isset($this->eventYear)) {

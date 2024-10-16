@@ -20,32 +20,55 @@ const TranslatorContext = createContext<{
 });
 
 const translations: Translations = {
-    categoryRank: {
-      cs: 'Pořadí<br>v kategorii',
-      en: 'Category<br>Rank',
-    },
-    name: {
-      cs: 'Jméno',
-      en: 'Name',
-    },
-    school: {
-      cs: 'Škola',
-      en: 'School',
-    },
-    totalPoints: {
-      cs: 'Celkem<br>bodů',
-      en: 'Total<br>Points',
-    },
-    selectYear: {
-      cs: 'Vybrat ročník',
-      en: 'Select Year',
-    },
-    categoryLabel: {
-      cs: 'Kategorie {categoryNumber}. ročníků',
-      en: 'Category {categoryNumber}',
-    },
-    // Add more translations as needed
-  };
+  categoryRank: {
+    cs: 'Pořadí<br>v kategorii',
+    en: 'Category<br>Rank',
+  },
+  name: {
+    cs: 'Jméno',
+    en: 'Name',
+  },
+  school: {
+    cs: 'Škola',
+    en: 'School',
+  },
+  totalPoints: {
+    cs: 'Celkem<br>bodů',
+    en: 'Total<br>Points',
+  },
+  selectYear: {
+    cs: 'Vybrat ročník',
+    en: 'Select Year',
+  },
+  categoryLabel: {
+    cs: 'Kategorie {categoryNumber}. ročníků',
+    en: 'Category of high-school year {categoryNumber}',
+  },
+  maxNumPointsHeader: {
+    cs: 'Maximální počet bodů',
+    en: 'Max Number of Points',
+  },
+  // sumOneToThree: {
+  //   cs: 's&#8203;1-3', // Using zero-width space to allow break between 's' and '1-3'
+  //   en: 's&#8203;1-3', // Using zero-width space to allow break between 's' and '1-3'
+  // },
+  // sumFourToSix: {
+  //   cs: 's&#8203;4-6', // Using zero-width space to allow break between 's' and '4-6'
+  //   en: 's&#8203;4-6', // Using zero-width space to allow break between 's' and '4-6'
+  // },
+  allCategories: {
+    cs: 'Všechny kategorie',
+    en: 'All Categories',
+  },
+  totalRank: {
+    cs: 'Celkové<br>pořadí',
+    en: 'Total<br>Rank',
+  },
+  category: {
+    cs: 'Kat.',
+    en: 'Cat.',
+  },
+};
 
 export class Translator {
   private language: Lang;

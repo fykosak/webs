@@ -4,13 +4,41 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\Core;
 
+use App\Models\Downloader\ContestModel;
+use App\Models\Downloader\ContestRequest;
+use App\Models\Downloader\ContestYearModel;
+use App\Models\Downloader\DummyService;
+use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
+use Nette\Utils\DateTime;
 
 abstract class BasePresenter extends \App\Modules\Core\BasePresenter
 {
-    public const CURRENT_YEAR = 37; // TODO: get from db
+    protected readonly FKSDBDownloader $downloader;
+    protected readonly DummyService $dummyService;
 
+    final public function inject(FKSDBDownloader $downloader, DummyService $dummyService): void
+    {
+        $this->downloader = $downloader;
+        $this->dummyService = $dummyService;
+    }
+
+    public function getCurrentYear(): ?ContestYearModel
+    {
+        $contest = $this->getContest();
+        foreach ($contest->years as $year) {
+            if ($year->begin < new DateTime() && $year->end > new DateTime()) {
+                return $year;
+            }
+        }
+        return null;
+    }
+
+    public function getContest(): ContestModel
+    {
+        return $this->dummyService->getFlat(new ContestRequest(1), ContestModel::class);
+    }
     /**
      * @return NavItem[]
      */
@@ -27,6 +55,7 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
                 new NavItem(new PageTitle($this->csen('Organizátoři', 'Organizers')), ':Default:About:organizers'),
                 new NavItem(new PageTitle($this->csen('Historie', 'History')), ':Default:About:history'),
                 new NavItem(new PageTitle($this->csen('Kontakt', 'Contact')), ':Default:About:contact'),
+                new NavItem(new PageTitle($this->csen('Podpořte nás', 'Support Us')), ':Default:SupportUs:'),
             ],
         );
 
@@ -90,6 +119,6 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
     protected function beforeRender(): void
     {
         parent::beforeRender();
-        $this->template->currentYear = self::CURRENT_YEAR;
+        $this->template->currentYear = $this->getCurrentYear();
     }
 }

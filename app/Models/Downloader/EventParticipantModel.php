@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader;
 
-class EventParticipantModel
+final class EventParticipantModel
 {
     public string $name;
     public int $personId;

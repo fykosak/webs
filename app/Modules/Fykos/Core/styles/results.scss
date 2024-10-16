@@ -17,6 +17,7 @@
         text-align: center;
         justify-content: center;
         flex: 1 0 10%;
+        max-height: 3rem;
 
         &:hover,
         &:focus {
@@ -56,17 +57,18 @@
     }
 
     .year-select-button {
-        width: 100%;        
+        width: 100%;
     }
 
     .dropdown-toggle::after {
         transform: rotate(90deg);
         transition: transform .1s ease-in-out;
     }
+
     .dropdown-toggle[aria-expanded="true"]::after {
         transform: rotate(0deg);
     }
-    
+
 
     .dropdown {
         padding: 0;
@@ -105,5 +107,25 @@
         .accordion-button::after {
             display: none;
         }
+    }
+}
+
+.scrollable-container {
+    overflow-x: auto;
+    max-width: 100vw;
+    padding-bottom: 15px;
+    /* Add some padding to ensure scrollbar doesn't cover content */
+}
+
+.scrollable-container>div {
+    min-width: max-content;
+    /* Ensures the content doesn't wrap */
+}
+
+@media (max-width: 992px) {
+    .scrollable-container {
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scrolling on iOS devices */
+        font-size: .7rem;
     }
 }

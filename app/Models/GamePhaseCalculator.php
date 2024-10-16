@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\Downloader\EventService;
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\Downloader\EventModel;
 use Nette\SmartObject;
 
 /**
@@ -25,7 +25,7 @@ final class GamePhaseCalculator
      * year.
      * @throws \Throwable
      */
-    public function getFKSDBEvent(): ?ModelEvent
+    public function getFKSDBEvent(): ?EventModel
     {
         static $fksdbEvent;
         if (!isset($fksdbEvent[$this->eventTypeId])) {

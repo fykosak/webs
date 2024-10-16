@@ -1,5 +1,5 @@
 {varType App\Modules\Core\Language $language}
-{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $newestEvent}
+{varType App\Models\Downloader\EventModel $newestEvent}
 {block title}
     {switch $language->value}
         {case 'cs'} Hlavní stránka
@@ -44,7 +44,7 @@
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>
                     {*<a target="_blank" href="{$basePath}/download/2024/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>*}
-                    <a n:href="Merch:" class="btn btn-light">Merch</a>
+                    {* <a n:href="Merch:" class="btn btn-light">Merch</a> *}
                     <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)" n:href="Registration:" class="btn btn-primary">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
             </div>

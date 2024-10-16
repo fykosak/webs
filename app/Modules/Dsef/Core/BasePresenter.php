@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Dsef\Core;
 
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
+use App\Models\Downloader\EventModel;
 use App\Modules\Core\EventWebPresenter;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
@@ -18,7 +18,7 @@ abstract class BasePresenter extends EventWebPresenter
         return [2, 14];
     }
 
-    public static function getEventKey(ModelEvent $event): string
+    public static function getEventKey(EventModel $event): string
     {
         return $event->getYear() . '-' . $event->getMonth();
     }
@@ -27,27 +27,5 @@ abstract class BasePresenter extends EventWebPresenter
     {
         $this->lang = 'cs';
         parent::localize();
-    }
-
-    /**
-     * @return NavItem[]
-     */
-    protected function getNavItems(): array
-    {
-        $items = [];
-        $items[] = new NavItem(
-            new PageTitle('Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Registration:',
-        );
-        $items[] = new NavItem(
-            new PageTitle('Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Current:',
-        );
-        $items[] = new NavItem(
-            new PageTitle('Minulé ročníky', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-            'Archive:',
-        );
-
-        return $items;
     }
 }

@@ -1,6 +1,6 @@
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
-{varType int $currentYear}
+{varType App\Models\Downloader\ContestYearModel $currentYear}
 {varType array $events}
 {varType array $countdownEventsIndices}
 {varType array $numOfEvents}
@@ -20,17 +20,8 @@
             <div class="row">
                 <div class="col-lg-7 col-md-6 header-text-container">
                     <h1 class="header-text">FYKOS</h1>
-                    <h2 class="header-text">
-                        {switch $language->value}
-                            {case 'cs'}Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2>
-                            {default}We inspire and educate<br>high-schoolers in physics.</h2>
-                        {/switch}
-                    <p class="header-text">
-                        {switch $language->value}
-                            {case 'cs'}FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již {$currentYear}&nbsp;let.
-                            {default}FYKOS has been organizing non-profit educational events in physics for {$currentYear} years.
-                        {/switch}
-                    </p>
+                    <h2 class="header-text">{$headerText[$lang]['slogan']|noescape}</h2>
+                    <p class="header-text">{$headerText[$lang]['description']|noescape}</p>
                     <a class="btn btn-light mt-2" href="#timeline">
                         {switch $language->value}
                             {case 'cs'}Jste tu poprvé?
@@ -67,13 +58,13 @@
                                 </h2>
                             {elseif $year_stage == 'during'}
                                 {if $countdownEventsIndices['previous'][$lang] !== null}
-                                    <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]} | {$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'}</h4>
+                                    <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]|noescape} | {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}
                                 {/if}
-                                <h2 class="next-event-heading">{$events[$countdownEventsIndices['upcoming'][$lang]]['heading'][$lang]} | {$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'j. n. Y'}
+                                <h2 class="next-event-heading">{$events[$countdownEventsIndices['upcoming'][$lang]]['heading'][$lang]|noescape} | {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}
                                     | <span id="countdown-primary"></span>
                                 </h2>
                                 {if $countdownEventsIndices['next'][$lang] !== null}
-                                    <h4 class="minor-event-heading mb-0">{$events[$countdownEventsIndices['next'][$lang]]['heading'][$lang]} | {$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'j. n. Y'}
+                                    <h4 class="minor-event-heading mb-0">{$events[$countdownEventsIndices['next'][$lang]]['heading'][$lang]|noescape} | {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}
                                     | <span id="countdown-secondary"></span></h4>
                                 {else}
                                     <h4 class="minor-event-heading mb-0">
@@ -139,10 +130,8 @@
         </h1>
         <p>
             {switch $language->value}
-                {case 'cs'}FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní
-                    {if $year_stage == 'during'}.{elseif $year_stage == 'before'} akce nadcházejícího ročníku.{elseif $year_stage == 'after'} akce minulého ročníku.{/if}
-                {default}FYKOS organizes about ten educational events for high school students every year. Here you can find the main ones
-                    {if $year_stage == 'during'}.{elseif $year_stage == 'before'} of the upcoming school year.{elseif $year_stage == 'after'} of the past school year.{/if}
+                {case 'cs'}FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní{if $year_stage == 'during'}.{elseif $year_stage == 'before'} akce nadcházejícího ročníku.{elseif $year_stage == 'after'} akce minulého ročníku.{/if}
+                {default}FYKOS organizes about ten educational events for high school students every year. Here you can find the main ones{if $year_stage == 'during'}.{elseif $year_stage == 'before'} of the upcoming school year.{elseif $year_stage == 'after'} of the past school year.{/if}
             {/switch}
         </p>
         <a class="btn btn-primary" n:href=":Events:Default:default">
@@ -194,15 +183,18 @@
                                     id="event-{$eventCounter}"
                                 >
                                     <a href="{$event['url']}">
-                                        <div class="event {$key}-color-left-border">
+                                        <div class="event {$event['key']|lower}-color-left-border">
                                             <div class="event-header">
-                                                <h3><img src="{$event['logo_eventbox']}" alt="{$event['heading'][$language->value]}" class="inline-logo">
-                                                    {$event['heading'][$language->value]}
-                                                </h3>
-                                                <span class="event-date">{$event['date']|date:'j. n.'}</span>
+                                                <div class="event-title">
+                                                    <h3>
+                                                        <img src="{$event['logo_eventbox'][$lang]}" alt="{$event['heading'][$language->value]|noescape}" class="inline-logo">
+                                                        {* {$event['heading'][$language->value]} *}
+                                                    </h3>
+                                                </div>
+                                                <span class="event-date">{switch $lang}{case 'cs'}{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}{default}{$event['date']|date:'M j'|replace:' ':'&nbsp;'|noescape}{/switch}</span>
                                             </div>
                                             <div>
-                                                <p>{$event['description'][$language->value]}</p>
+                                                <p class="text-start">{$event['description'][$language->value]|noescape}</p>
                                             </div>
                                         </div>
                                     </a>
@@ -216,11 +208,11 @@
                         <div class="col-12 my-4">
                             <div id="timeline-horizontal-container" class="position-relative">
                                 <div class="start-timeline-text position-absolute">
-                                    <p>{$timelineBegin|date:'j. n. Y'|noescape}</p>
+                                    <p>{switch $lang}{case 'cs'}{$timelineBegin|date:'j.'}&nbsp;{$timelineBegin|date:'n.'} {$timelineBegin|date:'Y'}{default}{$timelineBegin|date:'M'}&nbsp;{$timelineBegin|date:'j'}, {$timelineBegin|date:'Y'}{/switch}
                                 </div>
                                 <hr id="timeline-horizontal">
                                 <div class="end-timeline-text position-absolute">
-                                    <p>{$timelineEnd|date:'j. n. Y'|noescape}</p>
+                                    <p>{switch $lang}{case 'cs'}{$timelineEnd|date:'j.'}&nbsp;{$timelineEnd|date:'n.'} {$timelineEnd|date:'Y'}{default}{$timelineEnd|date:'M'}&nbsp;{$timelineEnd|date:'j'}, {$timelineEnd|date:'Y'}{/switch}
                                 </div>
                             </div>
                         </div>
@@ -248,11 +240,13 @@
                                     <a n:href=":Default:Problems:default">
                                         <div class="event series w-md-100 w-90">
                                             <div class="event-header">
-                                                <h3>{$event['heading'][$language->value]}</h3>
-                                                <span class="event-date">{$event['date']|date:'j. n.'}</span>
+                                                <div class="event-title">
+                                                    <h3>{$event['heading'][$language->value]|noescape}</h3>
+                                                    <span class="event-date">{switch $lang}{case 'cs'}{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}{default}{$event['date']|date:'M j'|replace:' ':'&nbsp;'|noescape}{/switch}</span>
+                                                </div>
                                             </div>
                                             <div>
-                                                <p>{$event['description'][$language->value]}</p>
+                                                <p class="text-start">{$event['description'][$language->value]|noescape}</p>
                                             </div>
                                         </div>
                                     </a>
@@ -416,8 +410,8 @@
                         {/switch}
                     </h2>
                     <div class="embed-responsive embed-responsive-16by9">
-                        <video class="embed-responsive-item left" controls>
-                            <source src="{$basePath}/videos/FOF.mp4" type="video/mp4">
+                        <video class="embed-responsive-item left" controls poster="{$basePath}/images/fof-video-poster.jpg">
+                            <source src="{$basePath}/media/videos/FOF2023.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -433,8 +427,8 @@
                         {/switch}
                     </h2>
                     <div class="embed-responsive embed-responsive-16by9">
-                        <video class="embed-responsive-item" controls>
-                            <source src="{$basePath}/videos/DSEF.mp4" type="video/mp4">
+                        <video class="embed-responsive-item" controls poster="{$basePath}/images/dsef-video-poster.png">
+                            <source src="{$basePath}/media/videos/DSEF.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -443,6 +437,17 @@
         </div>
     </section>
 </div>
+
+
+{* Tooltips *}
+<script>
+    // Initialize all tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
+
 
 {if $year_stage == "during"}
     {* Countdown for the very top of the page *}
@@ -685,12 +690,15 @@
         
         let sortedEvents = Object.entries(events).sort((a, b) => new Date(a[1].date) - new Date(b[1].date));
 
-        sortedEvents.forEach(([key, event]) => {
+        console.log("Sorted events:", sortedEvents);
+
+        sortedEvents.forEach(([id, event]) => {
+            let key = event['key'];
             if (event['show-on-timeline']) { 
                 let date = new Date(event.date);
                 let formattedDate = date.toISOString().split('T')[0]; // Format as YYYY-MM-DD
 
-                if (key.startsWith('serie-')) {
+                if (event['is_series']) {
                     dates_series.push(formattedDate);
                 } else {
                     dates_events.push(formattedDate);

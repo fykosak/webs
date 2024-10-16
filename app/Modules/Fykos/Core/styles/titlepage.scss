@@ -32,7 +32,7 @@
       // margin-bottom: 0;
     }
 
-    @media screen and (max-width: 992px){
+    @media screen and (max-width: 992px) {
       h1.header-text {
         font-size: 6rem;
       }
@@ -58,7 +58,7 @@
 
   .header-image-container {
     position: relative;
-    
+
   }
 
   .header-image {
@@ -130,42 +130,46 @@
 }
 
 .video-container {
-  padding: 0;
   width: 95%;
 
-  .embed-responsive-16by9 {
+  .embed-responsive {
     position: relative;
-    margin: 0;
-    /* Centering the video embed */
-  }
-
-  .embed-responsive-16by9::before {
-    content: "";
-    display: block;
-  }
-
-
-
-  .embed-responsive-item {
-    display: block;
     width: 100%;
+    padding: 0;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 56.25%; // 16:9 Aspect Ratio
+    }
+
+    .embed-responsive-item,
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      object-fit: cover;
+    }
   }
 
+  &.right {
+
+    margin-left: auto;
+
+    h2 {
+      text-align: right;
+    }
+
+    @media screen and (max-width: 992px) {
+      margin-left: 0;
+    }
+  }
 }
 
-.video-container.right {
-
-  margin-left: auto;
-
-  h2 {
-    text-align: right;
-  }
-
-  @media screen and (max-width: 992px) {
-    margin-left: 0;
-
-  }
-}
 
 /// events section
 
@@ -194,32 +198,93 @@
     margin-bottom: .3rem;
   }
 
-
   .event-header {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    /* Provides space between wrapped elements */
   }
 
+  .event-title {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
 
   h3 {
     font-weight: bolder;
     font-size: 1.2rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
 
-    @media screen and (max-width: 768px) {
-      font-size: 1rem;
+  @media screen and (max-width: 768px) {
+    .inline-logo {
+      height: 1.5rem;
     }
   }
 
   .event-date {
     font-size: 1rem;
     font-weight: bold;
-    margin-right: 5px;
+    margin-left: auto;
+    /* Pushes the date to the right when there's space */
+    white-space: nowrap;
+    /* Prevents the date from breaking into multiple lines */
   }
 
   .inline-logo {
     height: 1.8rem;
-    margin-right: 4px;
+    margin-right: 0.2px;
+    margin-bottom: 0.3rem;
   }
+
+  /* Add a media query for smaller screens if needed */
+  @media screen and (max-width: 480px) {
+    .event-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    .event-title {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .event-date {
+      margin-left: 0;
+      /* Resets the auto margin on very small screens */
+    }
+  }
+
+  // .event-header {
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
+
+
+  // h3 {
+  //   font-weight: bolder;
+  //   font-size: 1.2rem;
+
+  //   @media screen and (max-width: 768px) {
+  //     font-size: 1rem;
+  //   }
+  // }
+
+  // .event-date {
+  //   font-size: 1rem;
+  //   font-weight: bold;
+  //   margin-right: 5px;
+  // }
+
+  // .inline-logo {
+  //   height: 1.8rem;
+  //   margin-right: 4px;
+  // }
 
 }
 
@@ -422,6 +487,7 @@ $top-offset: $today-block-height / 2;
 
 
 .vertical-timeline-and-text-box {
+
   .start-timeline-text,
   .end-timeline-text {
     text-align: center;

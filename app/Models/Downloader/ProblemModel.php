@@ -18,7 +18,7 @@ class ProblemModel
      * @var string[]
      */
     public ?array $origin = [];
-    public int $points;
+    public ?int $points; // null for backwards compatibility
     /**
      * @var string[]
      */
