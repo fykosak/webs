@@ -37,5 +37,4 @@ abstract class ContestPresenter extends BasePresenter
         return null;
     }
     abstract public function getContestId(): int;
-    abstract public function getContestName(): string;
 }

@@ -96,8 +96,4 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
     {
         return 1;
     }
-    public function getContestName(): string
-    {
-        return "Fykos";
-    }
 }

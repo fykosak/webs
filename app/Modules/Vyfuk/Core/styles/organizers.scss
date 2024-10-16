@@ -13,11 +13,24 @@
         height: 350px;
     }
 
-    .left-cell {
-        .icon {
-            color: $primary-color;
+    .card-body {
+        tbody {
+            vertical-align: top;
         }
 
-        padding-right: 10px;
+        table {
+            border-collapse: separate;
+            border-spacing: 0 5px;
+        }
+
+
+        .left-cell {
+            .icon {
+                color: $primary-color;
+            }
+
+            padding-right: 10px;
+            padding-top: 2px;
+        }
     }
 }
