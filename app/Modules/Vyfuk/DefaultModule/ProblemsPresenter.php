@@ -11,8 +11,6 @@ use Throwable;
 
 class ProblemsPresenter extends BasePresenter
 {
-    public const CURRENT_YEAR = 14;
-
     private readonly ProblemService $problemService;
 
     /** @persistent */
@@ -30,7 +28,7 @@ class ProblemsPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $year = $this->year ?? self::CURRENT_YEAR;
+        $year = $this->year ?? $this->getCurrentYear()->year;
         $series = $this->series ?? $this->problemService->getLatestSeries('vyfuk', $year);
         $series = $this->problemService->getSeries('vyfuk', $year, $series);
         $this->template->series = $series;
@@ -54,21 +52,25 @@ class ProblemsPresenter extends BasePresenter
         error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 
         $yearsAndSeries = [];
-        for ($year = self::CURRENT_YEAR; $year > 0; $year--) {
+        foreach ($this->getContest()->years as $year) {
             try {
-                $yearJson = $this->problemService->getYearJson('vyfuk', $year);
+                $yearJson = $this->problemService->getYearJson('vyfuk', $year->year);
                 $availableSeriesNumbers = array_keys($yearJson);
-                $yearsAndSeries[$year] = $availableSeriesNumbers;
+                $yearsAndSeries[$year->year] = $availableSeriesNumbers;
             } catch (Throwable $e) {
                 continue;
             }
         }
+
+        // sort in decreasing order by key
+        krsort($yearsAndSeries);
+
         return $yearsAndSeries;
     }
 
     protected function createComponentProblem(): Problem
     {
-        $year = $this->year ?? self::CURRENT_YEAR;
+        $year = $this->year ?? $this->getCurrentYear()->year;
         $series = $this->series ?? $this->problemService->getLatestSeries('vyfuk', $year);
         $seriesModel = $this->problemService->getSeries('vyfuk', $year, $series);
         return new Problem($this->getContext(), $seriesModel);

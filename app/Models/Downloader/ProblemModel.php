@@ -216,7 +216,8 @@ class ProblemModel
                 3, 4, 5 => 'fas fa-brain',
                 6 => 'fas fa-lightbulb',
                 7 => 'fas fa-flask',
-                8 => 'fas fa-book'
+                8 => 'fas fa-book',
+                default => ''
             };
         } elseif ($this->contest === 'vyfuk') {
             return match ($this->number) {
@@ -226,8 +227,11 @@ class ProblemModel
                 4 => 'fas fa-cogs',
                 5 => 'fas fa-lightbulb',
                 6 => 'fas fa-flask',
-                7 => 'fas fa-book'
+                7 => 'fas fa-book',
+                default => ''
             };
         }
+
+        return '';
     }
 }

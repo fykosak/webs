@@ -22,31 +22,38 @@ class DefaultModule extends AbstractPageDisplayTestCase
 
 class TestModule extends AboutPresenter
 {
-    private array $addresses = [];
+    const ignoredPages = [
+        ':Default:Problems:default'
+    ];
+
     /**
      * @return NavItem[]
      */
     public function getPages(): array
     {
-        $this->parseItems($this->getNavItems());
         return array_map(function ($item) {
             $parts = preg_split('/:/', $item);
             $action = $parts[count($parts) - 1];
             unset($parts[count($parts) - 1]);
             return [substr(join(':', $parts), 1), $action];
         }, array_filter(
-            $this->addresses,
-            function ($a) {
-                return str_starts_with($a, ':') && count(preg_split('/:/', $a)) > 2;
+            $this->parseItems($this->getNavItems()),
+            function ($presenterName) {
+                return str_starts_with($presenterName, ':')
+                    && count(preg_split('/:/', $presenterName)) > 2
+                    && !in_array($presenterName, self::ignoredPages);
             }
         ));
     }
     public function parseItems(array $items)
     {
+        $addresses = [];
         foreach ($items as $item) {
-            $this->addresses[] = $item->destination;
+            $addresses[] = $item->destination;
             $this->parseItems($item->children);
         }
+
+        return $addresses;
     }
 }
 

@@ -4,10 +4,12 @@
     <div class="row organizers">
         {foreach $organizers as $organizer}
         <div class="col-md-6 col-xl-4 mb-4">
-            <div class="card h-100">
+            <div class="card organizer-card h-100">
                 <img src="/media/photos/people/{$organizer['personId']}.jpg" class="card-img-top"
                     onerror="this.src = '/images/organizer_default.svg'" alt="{$organizer['name']}">
-                <h4 class="card-header">{if $organizer['academicDegreePrefix']}{$organizer['academicDegreePrefix']}&#160{/if}{$organizer['name']}{if $organizer['academicDegreeSuffix']}&#160{$organizer['academicDegreeSuffix']}{/if}</h4>
+                <h4 class="card-header">{if
+                    $organizer['academicDegreePrefix']}{$organizer['academicDegreePrefix']}&#160{/if}{$organizer['name']}{if
+                    $organizer['academicDegreeSuffix']}&#160{$organizer['academicDegreeSuffix']}{/if}</h4>
                 <div class="card-body">
                     <table>
                         {if $organizer['role']}

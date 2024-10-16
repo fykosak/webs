@@ -53,7 +53,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
 
         $items[] = new NavItem(
             new PageTitle('Akce', 'fa-solid fa-calendar-days'),
-            ':default'
+            ':Default:Events:'
         );
 
         $items[] = new NavItem(

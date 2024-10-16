@@ -24,7 +24,7 @@ $primary: $primary-color;
 $secondary: $complementary-color;
 $enable-rounded: true;
 $border-radius: 6px;
-$card-border-width: 0;
+//$card-border-width: 0;
 
 // Navbar
 $navbar-dark-color: $text-on-primary;
@@ -39,7 +39,7 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import "./layout";
 @import "./titlepage";
 @import "./navigation";
-@import "./organizers"
+@import "./organizers";
 
 // @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 // @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
