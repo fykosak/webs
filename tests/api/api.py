@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from random import choice
+from datetime import  datetime
 import os, glob
 
 app = Flask(__name__)
@@ -319,3 +320,36 @@ def getEvent():
         event["teams"] = generateTeams()
         return events[eventId]
     return "Invalid event id", 400
+
+@app.route("/contests/<id>")
+def getContest(id):
+    return {
+        "contestId":id,
+        "contest":("vyfuk" if id==2 else "fykos"),
+        "name":("VYFUK" if id==2 else "FYKOS"),
+        "years":[
+            {"year":1,
+            "active":False,
+            "begin":str(datetime.now().year-2)+"-09-01T00:00:00+02:00",
+            "end":str(datetime.now().year-1)+"-08-31T23:59:59+02:00"},
+            {"year":2,
+            "active":True,
+            "begin":str(datetime.now().year-1)+"-09-01T00:00:00+02:00",
+            "end":str(datetime.now().year+1)+"-08-31T23:59:59+02:00"},
+        ]}
+@app.route("/contests/<id>/organizers")
+def orgs(id):
+    return {0:{
+        "name":"jmeno",
+        "personId":1,
+        "email":"mail@mail.cz",
+        "academicDegreePrefix":None,
+        "academicDegreeSuffix":None,
+        "career":"Studuje.",
+        "contribution":None,
+        "order":0,
+        "role":None,
+        "since":0,"until":None,
+        "texSignature":"podpis",
+        "domainAlias":"jmeno"
+        }}

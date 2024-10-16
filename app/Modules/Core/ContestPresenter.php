@@ -8,7 +8,7 @@ use App\Models\Downloader\ContestModel;
 use App\Models\Downloader\ContestRequest;
 use App\Models\Downloader\ContestYearModel;
 use App\Models\Downloader\DummyService;
-use DateTime;
+use Nette\Utils\DateTime;
 
 abstract class ContestPresenter extends BasePresenter
 {
