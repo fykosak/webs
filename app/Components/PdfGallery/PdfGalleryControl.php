@@ -10,11 +10,14 @@ use Nette\Caching\Storage;
 use Nette\DI\Container;
 use Nette\Utils\Finder;
 use Nette\Utils\UnknownImageFileException;
+use Smalot\PdfParser\Config;
+use Smalot\PdfParser\Parser;
 
 class PdfGalleryControl extends DIComponent
 {
     private readonly string $wwwDir;
     private readonly Cache $cache;
+    private bool|string $notRenderToStr = true;
 
     public function __construct(Container $container)
     {
@@ -36,11 +39,23 @@ class PdfGalleryControl extends DIComponent
             return [];
         }
 
+        $parser = new Config();
+        $parser->setRetainImageContent(false);
+        $parser = new Parser(config: $parser);
+
+
         foreach ($iterator as $file) {
+            try {
+                $info = $parser->parseFile($file->getRealPath())->getDetails();
+                $name = $info["Title"] ?? ($info["title"] ?? '');
+            } catch (\Exception $e) {
+                $name = '';
+            }
+
             $wwwPath = substr($file->getPathname(), strlen($wwwDir));
             $pdfs[] = [
                 'src' => $wwwPath,
-                'name' => $file->getBasename('.pdf'),
+                'name' => $name ?: $file->getBasename('.pdf'),
             ];
         }
 
@@ -60,21 +75,44 @@ class PdfGalleryControl extends DIComponent
      * @throws UnknownImageFileException
      * @throws \Throwable
      */
-    public function render(string $path): void
+    public function render(?string $path = null, ?string $style = null): void
     {
+        if ($style === null) {
+            $style = $path===null ? "List" : $style = "Buttons";
+        }
+        $renderFile = __DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery' . $style . '.latte';
+
+        $path ??= $this->wwwDir . strtolower(str_replace(':', '/', $this->getPresenter()->getAction(true)));
+
         $this->template->pdfs = $this->cache->load(
             [$path, $this->wwwDir],
             fn() => self::getPdfs($path, $this->wwwDir)
         );
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery.latte');
+        if ($this->notRenderToStr == true) {
+            $this->template->render($renderFile);
+            return;
+        }
+        $this->notRenderToStr = $this->template->renderToString($renderFile);
+    }
+
+    public function renderToString(?string $path = null, string $style = "default"): string
+    {
+        $this->notRenderToStr = false;
+        $this->render($path, $style);
+        if (is_bool($this->notRenderToStr)) {
+            throw new \Exception('Component ' . __CLASS__ . ' did not render properly!');
+        }
+        return $this->notRenderToStr;
     }
 
     /**
      * @throws UnknownImageFileException
      * @throws \Throwable
      */
-    public function hasFiles(string $path): bool
+    public function hasFiles(?string $path = null): bool
     {
+        $path ??= $this->wwwDir . strtolower(str_replace(':', '/', $this->getPresenter()->getAction(true)));
+
         return count($this->cache->load(
             [$path, $this->wwwDir],
             fn() => self::getPdfs($path, $this->wwwDir)
