@@ -13,19 +13,23 @@ use Nette\Utils\DateTime;
 abstract class ContestPresenter extends BasePresenter
 {
     private readonly DummyService $dummyService;
+
     public function injectDummyService(DummyService $dummyService): void
     {
         $this->dummyService = $dummyService;
     }
+
     protected function beforeRender(): void
     {
         parent::beforeRender();
         $this->template->currentYear = $this->getCurrentYear();
     }
+
     public function getContest(): ContestModel
     {
         return $this->dummyService->getFlat(new ContestRequest($this->getContestId()), ContestModel::class);
     }
+
     public function getCurrentYear(): ?ContestYearModel
     {
         $contest = $this->getContest();
@@ -36,5 +40,6 @@ abstract class ContestPresenter extends BasePresenter
         }
         return null;
     }
+
     abstract public function getContestId(): int;
 }

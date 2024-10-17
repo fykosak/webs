@@ -21,7 +21,7 @@
                 <ul class="nav navbar-nav">
                     {foreach $items as $item}
                         {var $isDropdown = count($item->children)}
-                        <div
+                        <li
                             {if $isDropdown}
                                 class="nav-item dropdown"
                                 aria-expanded="false"
@@ -41,10 +41,10 @@
                                     class="nav-link"
                                 {/if}
                                 title="{$item->title->title}">
-                                <span class="hidden-sm">{$item->title->title}</span>
                                 {if $item->title->icon}
                                     <i class="{$item->title->icon}" title="{$item->title->title}"></i>
                                 {/if}
+                                <span class="hidden-sm">{$item->title->title}</span>
                             </a>
                             {if $isDropdown}
                                 <div class="dropdown-menu">
@@ -60,7 +60,7 @@
                                     {/foreach}
                                 </div>
                             {/if}
-                        </div>
+                        </li>
                     {/foreach}
                 </ul>
                 {if $hasI18n}
