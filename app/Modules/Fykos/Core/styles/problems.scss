@@ -1,6 +1,5 @@
 /////// Problems
 
-
 .problem-card {
   display: flex;
   justify-content: space-between;
@@ -12,12 +11,12 @@
   .card-footer i {
     color: $primary-color;
   }
-  
+
   .card-body {
     overflow-x: auto;
     max-width: 100%;
   }
-  
+
   .card-body .card-title {
     display: inline-block;
     min-width: 100%;

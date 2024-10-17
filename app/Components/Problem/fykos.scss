@@ -1,0 +1,25 @@
+.problem-card {
+
+  .problem-header-1,
+  .problem-header-2 {
+    background-color: var(--task-color-1);
+  }
+
+  .problem-header-3,
+  .problem-header-4,
+  .problem-header-5 {
+    background-color: var(--task-color-3);
+  }
+
+  .problem-header-6 {
+    background-color: var(--task-color-P);
+  }
+
+  .problem-header-7 {
+    background-color: var(--task-color-E);
+  }
+
+  .problem-header-8 {
+    background-color: var(--task-color-S);
+  }
+}

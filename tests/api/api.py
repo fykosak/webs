@@ -31,7 +31,7 @@ events = {
         "name":"Fyziklání online",
         "eventTypeId":9,
         "game": {'availablePoints': 150,'tasksOnBoard' : 6,'hardVisible' : False,"begin":"2999-12-30T20:00:00+01:00","end":"2999-12-31T22:00:00+01:00",'resultsVisible': True}
-    },    
+    },
     "202": {
         "eventId":202,
         "year":28,
@@ -178,7 +178,7 @@ def createPerson():
                 "code":None,
             "school":{"schoolId":1,"nameFull":"A School","name":"Gymnázium","nameAbbrev":"G","countryISO":choice(["CS", "SK", "ZZ"])},
             "studyYear":"H_2"}
-            
+
 
 def getDsefEvents():
     dsefEvents = {}
@@ -337,6 +337,7 @@ def getContest(id):
             "begin":str(datetime.now().year-1)+"-09-01T00:00:00+02:00",
             "end":str(datetime.now().year+1)+"-08-31T23:59:59+02:00"},
         ]}
+
 @app.route("/contests/<id>/organizers")
 def orgs(id):
     return {0:{

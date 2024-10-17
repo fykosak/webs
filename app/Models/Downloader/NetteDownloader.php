@@ -42,12 +42,14 @@ abstract class NetteDownloader
     public function download(Request $request, ?string $explicitExpiration = null): array
     {
         $data = $this->cache->load($request->getCacheKey() . '-json');
+
         if (!$data || $data['expire'] < time()) {
             try {
                 $newData = $this->downloader->download($request);
-            } catch (DownloaderException $e) {
+            } catch (DownloaderException) {
                 $newData = null;
             }
+
             if ($newData) {
                 // if new data is successfully downloaded
                 $this->cache->save($request->getCacheKey() . '-json', [
@@ -66,6 +68,7 @@ abstract class NetteDownloader
                 throw new DownloaderException("Downloader failed to download data");
             }
         }
+
         return $data['data'];
     }
 }

@@ -4,8 +4,8 @@
 
 {block title}
     {switch $language->value}
-        {case 'cs'}Zadání r{$series->year}s{$series->series}
-        {default}Problems y{$series->year}s{$series->series}
+        {case 'cs'}Zadání r. {$series->year} s. {$series->series}
+        {default}Problems y. {$series->year} s. {$series->series}
     {/switch}
 {/block}
 {block main}
@@ -25,42 +25,43 @@
                     </div>
                     <h1>
                         {switch $language->value}
-                            {case 'cs'}Zadání {$series->series}. série {$series->year}. ročníku
-                            {default}Assignment of Series {$series->series} of Year {$series->year}
+                        {case 'cs'}Zadání {$series->series}. série {$series->year}. ročníku
+                        {default}Assignment of Series {$series->series} of Year {$series->year}
                         {/switch}
                     </h1>
 
                     <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:">
                         {switch $language->value}
-                            {case 'cs'}O semináři
-                            {default}About the Competition
+                        {case 'cs'}O semináři
+                        {default}About the Competition
                         {/switch}
                     </a>
                     <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:Rules">
                         {switch $language->value}
-                            {case 'cs'}Pravidla
-                            {default}Rules
+                        {case 'cs'}Pravidla
+                        {default}Rules
                         {/switch}
                     </a>
                     <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:TexTutorial">
                         {switch $language->value}
-                            {case 'cs'}Jak psát řešení
-                            {default}How to Write Solutions
+                        {case 'cs'}Jak psát řešení
+                        {default}How to Write Solutions
                         {/switch}
                     </a>
                     <a class="btn btn-primary my-2 mr-4" n:href=":Default:Results:">
                         {switch $language->value}
-                            {case 'cs'}Pořadí řešitelů
-                            {default}Results
+                        {case 'cs'}Pořadí řešitelů
+                        {default}Results
                         {/switch}
                     </a>
                 </div>
                 <div class="col-md-4 pl-md-2 content-down">
                     <div class="dropdown year-and-series-select">
-                        <button class="btn btn-primary dropdown-toggle year-select-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-primary dropdown-toggle year-select-button" type="button"
+                            id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             {switch $language->value}
-                                {case 'cs'}Vybrat ročník a sérii
-                                {default}Select Year and Series
+                            {case 'cs'}Vybrat ročník a sérii
+                            {default}Select Year and Series
                             {/switch}
                         </button>
                         <div class="accordion current-year-accordion">
@@ -68,16 +69,17 @@
                                 <h2 class="accordion-header">
                                     <div class="accordion-button">
                                         {switch $language->value}
-                                            {case 'cs'}Ročník {$year}
-                                            {default}Year {$year}
+                                        {case 'cs'}Ročník {$series->year}
+                                        {default}Year {$series->year}
                                         {/switch}
                                     </div>
                                 </h2>
                                 <div class="accordion-collapse">
                                     <div class="accordion-body">
                                         <div class="series-container">
-                                            {foreach $yearsAndSeries[$year] as $seriesOption}
-                                                <a class="series-box btn" href="{plink 'this' 'year'=>$year, 'series'=>$seriesOption}">{$seriesOption}</a>
+                                            {foreach $yearsAndSeries[$series->year] as $seriesOption}
+                                            <a class="series-box btn"
+                                                href="{plink 'this' 'year'=>$series->year, 'series'=>$seriesOption}">{$seriesOption}</a>
                                             {/foreach}
                                         </div>
                                     </div>
@@ -88,25 +90,30 @@
                             <div class="scrollable-menu">
                                 <div class="accordion" id="competitionAccordion">
                                     {foreach $yearsAndSeries as $yearOption => $seriesList}
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="heading{$yearOption}">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#year{$yearOption}" aria-expanded="false" aria-controls="year{$yearOption}">
-                                                    {switch $language->value}
-                                                        {case 'cs'}Ročník {$yearOption}
-                                                        {default}Year {$yearOption}
-                                                    {/switch}
-                                                </button>
-                                            </h2>
-                                            <div id="year{$yearOption}" class="accordion-collapse collapse" aria-labelledby="heading{$yearOption}" data-bs-parent="#competitionAccordion">
-                                                <div class="accordion-body">
-                                                    <div class="series-container">
-                                                        {foreach $seriesList as $seriesOption}
-                                                            <a class="series-box btn" href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
-                                                        {/foreach}
-                                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="heading{$yearOption}">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#year{$yearOption}"
+                                                aria-expanded="false" aria-controls="year{$yearOption}">
+                                                {switch $language->value}
+                                                {case 'cs'}Ročník {$yearOption}
+                                                {default}Year {$yearOption}
+                                                {/switch}
+                                            </button>
+                                        </h2>
+                                        <div id="year{$yearOption}" class="accordion-collapse collapse"
+                                            aria-labelledby="heading{$yearOption}"
+                                            data-bs-parent="#competitionAccordion">
+                                            <div class="accordion-body">
+                                                <div class="series-container">
+                                                    {foreach $seriesList as $seriesOption}
+                                                    <a class="series-box btn"
+                                                        href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+                                                    {/foreach}
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                     {/foreach}
                                 </div>
                             </div>
@@ -137,90 +144,7 @@
                 {/if}
                 <div class="row mt-3">
                     {foreach $problems as $problem}
-                    <div class="col-md-12">
-                        <div class="card mb-3 problem-card">
-                            <div class="card-header header-problem-{$problem->number}">
-                                <div style="display: flex; justify-content: space-between;">
-                                    <h4><i class={$problemIcons[$problem->number]}></i><span class="skip-3px"></span>
-                                        {$problem->getLabel()}...
-                                        {$problem->name[$lang]|noescape}</h4>
-                                    <div>
-                                        {if $problem->points}
-                                            {switch $language->value}
-                                                {case 'cs'}
-                                                <h4>{$problem->points} bod{if $problem->points == 1}{elseif
-                                                    $problem->points > 1
-                                                    && $problem->points < 5}y{else}ů{/if}</h4>
-                                                {default}
-                                                <h4>{$problem->points} point{if $problem->points == 1}{else}s{/if}</h4>
-                                            {/switch}
-                                        {/if}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-title">
-                                    {$problem->task[$lang]|noescape}
-
-                                    {if $problem->number == 7}
-                                        <a class="btn btn-primary mr-2 mb-3" n:href=":Events:Fykos:experiments">
-                                            {switch $language->value}
-                                                {case 'cs'}Návod pro řešení experimentálních úloh
-                                                {default}Instructions for Experimental Tasks
-                                            {/switch}
-                                        </a>
-                                    {/if}
-                                </div>
-                                {if new Datetime() > $series->getDeadline()}
-                                    <div class="solution-and-origin">
-                                        <div>
-                                            {php $solutionPath = $problemService->getSolution($problem, $lang)}
-                                            {if $solutionPath}
-                                                <a class="btn btn-primary" target="_blank" href="{$solutionPath}">
-                                                    <i class="far fa-file-pdf"></i>
-                                                    <span class="skip-3px"></span>
-                                                    {switch $language->value}
-                                                        {case 'cs'}Řešení
-                                                        {default}Solution
-                                                    {/switch}
-                                                </a>
-                                            {else}
-                                                {if $series->getDeadline() && $series->getDeadline() > new DateTime('-1 year')}
-                                                    {switch $language->value}
-                                                        {case 'cs'}Řešení této úlohy zveřejníme brzy.
-                                                        {default}We will publish the solution to this problem soon.
-                                                    {/switch}
-                                                {else}
-                                                    {switch $language->value}
-                                                        {case 'cs'}Řešení této úlohy momentálně není dostupné.
-                                                        {default}The solution to this problem is currently not available.
-                                                    {/switch}
-                                                {/if}
-                                            {/if}
-                                            {if $problem->number == 8 && $serialPath}
-                                                <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
-                                                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
-                                                    {switch $language->value}
-                                                        {case 'cs'}Text seriálu {$series->series}. série
-                                                        {default}Text of Serial Number {$series->series}
-                                                    {/switch}
-                                                </a>
-                                            {/if}
-                                        </div>
-                                        {if array_key_exists($lang, $problem->origin) && $problem->origin[$lang]}
-                                            <div><i>{$problem->origin[$lang]|noescape}</i></div>
-                                        {/if}
-                                    </div>
-                                {/if}
-                            </div>
-
-                            <div class="card-footer">
-                                {foreach $problem->topics as $topic}
-                                <span style="margin-right: 1rem;"><i class="fas fa-tag"></i> {$topicsNames[$topic][$lang]}</span>
-                                {/foreach}
-                            </div>
-                        </div>
-                    </div>
+                        {control problem $problem}
                     {/foreach}
                 </div>
             </div>
@@ -228,53 +152,9 @@
     </section>
 </div>
 
-<!-- This is for details of the images in problem statements -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="imageModalLabel">
-                    {switch $language->value}
-                        {case 'cs'}Náhled obrázku
-                        {default}Image Preview
-                    {/switch}
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body text-center">
-                <img id="modalImage" src="" alt="" class="img-fluid">
-                <div id="modalCaption" class="mt-2"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var figures = document.querySelectorAll("figure img");
-        figures.forEach(function(img) {
-            img.style.cursor = "pointer";
-            img.addEventListener("click", function() {
-                var modal = document.getElementById("imageModal");
-                var modalImg = document.getElementById("modalImage");
-                var captionText = document.getElementById("modalCaption");
+{control imagePreviewModal}
 
-                modalImg.src = img.src;
-                captionText.innerHTML = img.alt;
-
-                $(modal).modal('show');
-            });
-        });
-    });
-
-    // Explicitly handle the close button
-    document.querySelector(".modal .close").addEventListener("click", function() {
-        $('#imageModal').modal('hide');
-    });
-</script>
-
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <!-- This is for the dropdown menu for year selection -->
 <script>
@@ -286,12 +166,9 @@
     });
 
     // Keep the .dropdown-menu visible even if some .accordion-button is clicked
-    $('.dropdown-menu').on('click', function(e) {
+    $('.dropdown-menu').on('click', function (e) {
         e.stopPropagation();
     });
-
 </script>
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 {/block}
