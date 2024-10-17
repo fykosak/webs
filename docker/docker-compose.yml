@@ -5,7 +5,8 @@ services:
   webs:
     image: webs
     build:
-      context: . # path to docker dir in webs
+      context: .. # path to docker dir in webs
+      dockerfile: docker/Dockerfile
     restart: on-failure:3
     container_name: webs
     environment:

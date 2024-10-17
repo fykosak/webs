@@ -4,7 +4,6 @@ on:
   push:
     branchers:
       - master
-      - dev-docker
     paths:
       - 'docker/**'
       - '.github/workflows/deploy-image.yml'
