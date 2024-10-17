@@ -68,7 +68,7 @@ class ProblemsPresenter extends BasePresenter
 
     protected function createComponentProblem(): ProblemComponent
     {
-        $year = $this->year;
+        $year = $this->year ?? $this->getCurrentYear()->year;
         $series = $this->series ?? $this->problemService->getLatestSeries('fykos', $year);
         $seriesModel = $this->problemService->getSeries('fykos', $year, $series);
         return new ProblemComponent($this->getContext(), $seriesModel);
