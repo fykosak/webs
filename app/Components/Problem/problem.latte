@@ -26,26 +26,25 @@
         <div class="card-body">
             <div class="card-title">
                 {if $problem->contest == 'vyfuk' && $problem->number == 1 && $problem->series < 7}
-                    <p><small><i>Tato úloha je určena pouze pro žáky šestých a sedmých ročníků.</i></small></p>
+                    <p><small><i>Tato úloha je určena pouze pro žáky šestých a sedmých ročníků. </i></small></p>
                 {/if}
                 {$problem->task[$language->value]|noescape}
 
                 {if $problem->contest == 'fykos' && $problem->number == 7}
-                <a class="btn btn-primary mr-2 mb-3" href={plink :Events:Fykos:experiments}>
-                    {switch $language->value}
-                    {case 'cs'}Návod pro řešení experimentálních úloh
-                    {default}Instructions for Experimental Tasks
-                    {/switch}
-                </a>
+                    <a class="btn btn-primary mr-2 mb-3" href={plink :Events:Fykos:experiments}>
+                        {switch $language->value}
+                        {case 'cs'}Návod pro řešení experimentálních úloh
+                        {default}Instructions for Experimental Tasks
+                        {/switch}
+                    </a>
                 {elseif $problem->contest == 'vyfuk'}
                     {if $problem->number == 6}
-                    <a class="btn btn-secondary mr-2 mb-3" href={plink :Default:Section:howToExperiment}>
-                        <i class="fas fa-rocket"></i>
-                        Jak psát experimenty
-                    </a>
+                        <a class="btn btn-secondary mr-2 mb-3" href={plink :Default:Section:howToExperiment}>
+                            <i class="fas fa-rocket"></i>
+                            Jak psát experimenty
+                        </a>
                     {elseif $problem->number == 7}
                     {/if}
-                    
                 {/if}
             </div>
             {if new Datetime() > $series->getDeadline()}
@@ -87,8 +86,10 @@
         {if count($problem->topics)}
         <div class="card-footer">
             {foreach $problem->topics as $topic}
-            <span style="margin-right: 1rem;"><i class="fas fa-tag"></i>
-                {App\Models\Downloader\ProblemModel::getTopicLabel($topic, $language->value)}</span>
+            <span style="margin-right: 1rem;">
+                <i class="fas fa-tag mr-1"></i>
+                {App\Models\Downloader\ProblemModel::getTopicLabel($topic, $language->value)}
+            </span>
             {/foreach}
         </div>
         {/if}

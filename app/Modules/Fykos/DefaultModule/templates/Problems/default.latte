@@ -4,8 +4,8 @@
 
 {block title}
     {switch $language->value}
-        {case 'cs'}Zadání r{$series->year}s{$series->series}
-        {default}Problems y{$series->year}s{$series->series}
+        {case 'cs'}Zadání r. {$series->year} s. {$series->series}
+        {default}Problems y. {$series->year} s. {$series->series}
     {/switch}
 {/block}
 {block main}
@@ -144,90 +144,7 @@
                 {/if}
                 <div class="row mt-3">
                     {foreach $problems as $problem}
-                    <div class="col-md-12">
-                        <div class="card mb-3 problem-card">
-                            <div class="card-header header-problem-{$problem->number}">
-                                <div style="display: flex; justify-content: space-between;">
-                                    <h4><i class={$problemIcons[$problem->number]}></i><span class="skip-3px"></span>
-                                        {$problem->getLabel()}...
-                                        {$problem->name[$lang]|noescape}</h4>
-                                    <div>
-                                        {if $problem->points}
-                                            {switch $language->value}
-                                                {case 'cs'}
-                                                <h4>{$problem->points} bod{if $problem->points == 1}{elseif
-                                                    $problem->points > 1
-                                                    && $problem->points < 5}y{else}ů{/if}</h4>
-                                                {default}
-                                                <h4>{$problem->points} point{if $problem->points == 1}{else}s{/if}</h4>
-                                            {/switch}
-                                        {/if}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-title">
-                                    {$problem->task[$lang]|noescape}
-
-                                    {if $problem->number == 7}
-                                        <a class="btn btn-primary mr-2 mb-3" n:href=":Events:Fykos:experiments">
-                                            {switch $language->value}
-                                                {case 'cs'}Návod pro řešení experimentálních úloh
-                                                {default}Instructions for Experimental Tasks
-                                            {/switch}
-                                        </a>
-                                    {/if}
-                                </div>
-                                {if new Datetime() > $series->getDeadline()}
-                                    <div class="solution-and-origin">
-                                        <div>
-                                            {php $solutionPath = $problemService->getSolution($problem, $lang)}
-                                            {if $solutionPath}
-                                                <a class="btn btn-primary" target="_blank" href="{$solutionPath}">
-                                                    <i class="far fa-file-pdf"></i>
-                                                    <span class="skip-3px"></span>
-                                                    {switch $language->value}
-                                                        {case 'cs'}Řešení
-                                                        {default}Solution
-                                                    {/switch}
-                                                </a>
-                                            {else}
-                                                {if $series->getDeadline() && $series->getDeadline() > new DateTime('-1 year')}
-                                                    {switch $language->value}
-                                                        {case 'cs'}Řešení této úlohy zveřejníme brzy.
-                                                        {default}We will publish the solution to this problem soon.
-                                                    {/switch}
-                                                {else}
-                                                    {switch $language->value}
-                                                        {case 'cs'}Řešení této úlohy momentálně není dostupné.
-                                                        {default}The solution to this problem is currently not available.
-                                                    {/switch}
-                                                {/if}
-                                            {/if}
-                                            {if $problem->number == 8 && $serialPath}
-                                                <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
-                                                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
-                                                    {switch $language->value}
-                                                        {case 'cs'}Text seriálu {$series->series}. série
-                                                        {default}Text of Serial Number {$series->series}
-                                                    {/switch}
-                                                </a>
-                                            {/if}
-                                        </div>
-                                        {if array_key_exists($lang, $problem->origin) && $problem->origin[$lang]}
-                                            <div><i>{$problem->origin[$lang]|noescape}</i></div>
-                                        {/if}
-                                    </div>
-                                {/if}
-                            </div>
-
-                            <div class="card-footer">
-                                {foreach $problem->topics as $topic}
-                                <span style="margin-right: 1rem;"><i class="fas fa-tag"></i> {$topicsNames[$topic][$lang]}</span>
-                                {/foreach}
-                            </div>
-                        </div>
-                    </div>
+                        {control problem $problem, $language}
                     {/foreach}
                 </div>
             </div>
