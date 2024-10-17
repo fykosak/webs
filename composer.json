@@ -20,7 +20,8 @@
     "ext-gettext": "*",
     "ext-json": "*",
     "68publishers/asset": "^3.3",
-    "netresearch/jsonmapper": "^4.0"
+    "netresearch/jsonmapper": "^4.0",
+    "smalot/pdfparser": "^2.11"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.7.2",
