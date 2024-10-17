@@ -7,11 +7,10 @@ namespace App\Components\Problem;
 use App\Models\Downloader\ProblemModel;
 use App\Models\Downloader\ProblemService;
 use App\Models\Downloader\SeriesModel;
-use App\Modules\Core\Language;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
-class Problem extends DIComponent
+class ProblemComponent extends DIComponent
 {
     private readonly ProblemService $problemService;
 
@@ -25,12 +24,12 @@ class Problem extends DIComponent
         $this->problemService = $problemService;
     }
 
-    public function render(ProblemModel $problem, Language $language)
+    public function render(ProblemModel $problem)
     {
         $this->template->series = $this->series;
         $this->template->problemService = $this->problemService;
         $this->template->problem = $problem;
-        $this->template->language = $language;
+        $this->template->language = $this->translator->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'problem.latte');
     }
 }

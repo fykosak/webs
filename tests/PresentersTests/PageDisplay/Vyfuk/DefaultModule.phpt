@@ -17,6 +17,7 @@ class DefaultModule extends AbstractPageDisplayTestCase
         return self::getPageLangVariants([
             // tasks
             // ['Default:Problems', 'default'],
+            ['Default:Problems', 'bingo'],
             // results
             ['Default:Results', 'default'],
             // about us
