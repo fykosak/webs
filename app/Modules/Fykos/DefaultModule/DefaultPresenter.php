@@ -199,7 +199,7 @@ class DefaultPresenter extends BasePresenter
                 'show-in-en' => true,
                 'is_series' => true,
                 'description' => [
-                    'cs' => 'Bitcoin, stromy a&nbsp;omrzování',
+                    'cs' => 'Bitcoin, stromy a&nbsp;otužování',
                     'en' => 'Bitcoin, trees, and cold exposure'
                 ],
                 'show-on-timeline' => true

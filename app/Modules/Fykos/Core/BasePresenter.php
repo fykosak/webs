@@ -4,40 +4,16 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\Core;
 
-use App\Models\Downloader\ContestModel;
-use App\Models\Downloader\ContestRequest;
-use App\Models\Downloader\ContestYearModel;
-use App\Models\Downloader\DummyService;
 use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
-use Nette\Utils\DateTime;
 
-abstract class BasePresenter extends \App\Modules\Core\BasePresenter
+abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
 {
     protected readonly FKSDBDownloader $downloader;
-    protected readonly DummyService $dummyService;
-
-    final public function inject(FKSDBDownloader $downloader, DummyService $dummyService): void
+    final public function inject(FKSDBDownloader $downloader): void
     {
         $this->downloader = $downloader;
-        $this->dummyService = $dummyService;
-    }
-
-    public function getCurrentYear(): ?ContestYearModel
-    {
-        $contest = $this->getContest();
-        foreach ($contest->years as $year) {
-            if ($year->begin < new DateTime() && $year->end > new DateTime()) {
-                return $year;
-            }
-        }
-        return null;
-    }
-
-    public function getContest(): ContestModel
-    {
-        return $this->dummyService->getFlat(new ContestRequest(1), ContestModel::class);
     }
     /**
      * @return NavItem[]
@@ -116,9 +92,8 @@ abstract class BasePresenter extends \App\Modules\Core\BasePresenter
         return $items;
     }
 
-    protected function beforeRender(): void
+    public function getContestId(): int
     {
-        parent::beforeRender();
-        $this->template->currentYear = $this->getCurrentYear();
+        return 1;
     }
 }

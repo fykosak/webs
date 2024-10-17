@@ -1,7 +1,58 @@
 {block title}Organizátoři{/block}
-
-{block main}
-<div class="panel color-auto">
-    <h1 class="inner-container" style="color:red">TODO organizátoři Výfuku</h1>
+{block content}
+<div class="container mt-5">
+    <div class="row organizers">
+        {foreach $organizers as $organizer}
+        <div class="col-md-6 col-xl-4 mb-4">
+            <div class="card h-100">
+                <img src="/media/photos/people/{$organizer['personId']}.jpg" class="card-img-top"
+                    onerror="this.src = '/images/organizer_default.svg'" alt="{$organizer['name']}">
+                <h4 class="card-header">{if $organizer['academicDegreePrefix']}{$organizer['academicDegreePrefix']}&#160{/if}{$organizer['name']}{if $organizer['academicDegreeSuffix']}&#160{$organizer['academicDegreeSuffix']}{/if}</h4>
+                <div class="card-body">
+                    <table>
+                        {if $organizer['role']}
+                        <tr>
+                            <td class="left-cell"><span class="icon"><i class="bi bi-people"></i></span></td>
+                            <td class="right-cell">{$organizer['role']}</td>
+                        </tr>
+                        {/if}
+                        {if $organizer['career']}
+                        <tr>
+                            <td class="left-cell"><span class="icon"><i class="bi bi-bank2"></i></span></td>
+                            <td class="right-cell">{$organizer['career']}</td>
+                        </tr>
+                        {/if}
+                        {if $organizer['domainAlias']}
+                        <tr>
+                            <td class="left-cell"><span class="icon"><i class="bi bi-envelope"></i></span></td>
+                            <td class="right-cell"><a
+                                    href="mailto:{$organizer['domainAlias']}@vyfuk.org">{$organizer['domainAlias']}@vyfuk.org</a>
+                            </td>
+                        </tr>
+                        {/if}
+                        {*<tr>
+                            <td class="left-cell"><span class="icon"><i class="bi bi-clock"></i></span></td>
+                            <td class="right-cell">
+                                {if $organizer['until'] and $organizer['until'] != $organizer['since']}
+                                ročníky {$organizer['since']} - {$organizer['until']}
+                                {elseif $organizer['until']}
+                                ročník {$organizer['since']}
+                                {else}
+                                od ročníku {$organizer['since']}
+                                {/if}
+                            </td>
+                        </tr>
+                        *}{if $organizer['contribution']}
+                        <tr>
+                            <td class="left-cell"><span class="icon"><i class="bi bi-trophy"></i></span></td>
+                            <td class="right-cell">{$organizer['contribution']}</td>
+                        </tr>
+                        {/if}
+                    </table>
+                </div>
+            </div>
+        </div>
+        {/foreach}
+    </div>
 </div>
 {/block}

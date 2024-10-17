@@ -4,18 +4,14 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\EventsModule;
 
-use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
-use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
-use Nette\Application\ForbiddenRequestException;
-use Tracy\Debugger;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
 
 class TsafPresenter extends BasePresenter
 {
-    private const TSAF_IDS = [6,7];
+    private const TSAF_IDS = [6, 7];
 
     /**
      * @throws \Throwable
@@ -23,18 +19,18 @@ class TsafPresenter extends BasePresenter
     public function renderDetail(int $year, int $month): void
     {
         // filter events by year
-        
+
         $events = $this->downloader->download(new EventListRequest(self::TSAF_IDS));
 
         $event = null;
         foreach ($events as $e) {
             $eventBegin = strtotime($e["begin"]);
             if (date('Y', $eventBegin) == $year && date('m', $eventBegin) == $month) {
-            $event = $e;
-            break;
+                $event = $e;
+                break;
             }
         }
-        
+
         if ($event === null) {
             throw new BadRequestException(
                 $this->csen('Stránka nenalezena', 'Page not found'),
