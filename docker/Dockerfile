@@ -1,4 +1,4 @@
-FROM ghcr.io/fykosak/webs:dev-docker
+FROM ghcr.io/fykosak/webs:master
 
 # install xdebug for local development
 RUN pecl install xdebug && docker-php-ext-enable xdebug
