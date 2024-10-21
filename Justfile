@@ -58,7 +58,7 @@ stop:
     -{{ runner }} rm "{{ name }}" &> /dev/null
 
 # Restart container
-restart: stop start
+restart: stop (start "--detach")
 
 # Ensure that container is running in the background
 ensure:
