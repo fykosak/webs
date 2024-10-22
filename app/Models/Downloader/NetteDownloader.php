@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader;
 
+use Exception;
 use Fykosak\FKSDBDownloaderCore\Downloader;
+use Fykosak\FKSDBDownloaderCore\DownloaderException;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\SmartObject;
+use Nette\Utils\DateTime;
 
 abstract class NetteDownloader
 {
@@ -38,12 +41,34 @@ abstract class NetteDownloader
      */
     public function download(Request $request, ?string $explicitExpiration = null): array
     {
-        return $this->cache->load(
-            $request->getCacheKey() . '-json',
-            function (&$dependencies) use ($request, $explicitExpiration): array {
-                $dependencies[Cache::EXPIRE] = $explicitExpiration ?? $this->expiration;
-                return $this->downloader->download($request);
+        $data = $this->cache->load($request->getCacheKey() . '-json');
+
+        if (!$data || $data['expire'] < time()) {
+            try {
+                $newData = $this->downloader->download($request);
+            } catch (DownloaderException) {
+                $newData = null;
             }
-        );
+
+            if ($newData) {
+                // if new data is successfully downloaded
+                $this->cache->save($request->getCacheKey() . '-json', [
+                    'expire' => DateTime::from($explicitExpiration ?? $this->expiration)->format('U'),
+                    'data' => $newData
+                ]);
+                $data = ['data' => $newData];
+            } elseif ($data) {
+                // if we have at least old data
+                $this->cache->save($request->getCacheKey() . '-json', [
+                    'expire' => DateTime::from($explicitExpiration ?? $this->expiration)->format('U'),
+                    'data' => $data['data']
+                ]);
+            } else {
+                // if no data is available
+                throw new DownloaderException("Downloader failed to download data");
+            }
+        }
+
+        return $data['data'];
     }
 }

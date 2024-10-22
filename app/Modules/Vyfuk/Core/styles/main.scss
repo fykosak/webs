@@ -1,7 +1,7 @@
 // Our theme
 $primary-color: #ff4800; // Do not forget to modify meta theme-color in ../templates/@layout.latte as well
 $primary-color-dimmed: darken($primary-color, 20%);
-$complementary-color: #ffdd31;
+$complementary-color: #495057;
 
 $panel-color-dark: #f5f5f5;
 $panel-color-light: white;
@@ -22,11 +22,13 @@ $font-weight-bold: 800;
 // Override bootstrap variables
 $primary: $primary-color;
 $secondary: $complementary-color;
-$border-radius: 0;
+$enable-rounded: true;
+$border-radius: 6px;
+//$card-border-width: 0;
 
 // Navbar
 $navbar-dark-color: $text-on-primary;
-$navbar-dark-hover-color: $text-on-primary;
+$navbar-dark-hover-color: $text-dimmed;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 @import 'bootstrap-icons/font/bootstrap-icons.scss';
@@ -37,18 +39,11 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 @import "./layout";
 @import "./titlepage";
 @import "./navigation";
+@import "./organizers";
 
-// @import "./../../../Fol/Core/styles/layout";
-// @import "./../../../Fol/Core/styles/titlepage";
-// @import "./../../../Fol/Core/styles/navigation";
+// @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+// @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
 
-// @import "./../../../Fof/DefaultModule/styles/organisers";
-// @import "./../../../Fof/DefaultModule/styles/rules";
-// @import "./../../../Fof/DefaultModule/styles/timeline";
-
-
-// @import '../../../../Components/ResultsPanel/styles';
-// @import '../../../../Components/UpperHomePrague/styles';
-// @import '../../../../Components/TeamResults/styles';
-
-// @import '../../../../Models/OldFykos/css/cssAll';
+@import '../../../../Components/Problem/problem';
+@import '../../../../Components/Problem/vyfuk';
+@import '../../../../Components/ImagePreviewModal/styles';

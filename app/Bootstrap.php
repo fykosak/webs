@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace App;
 
+// phpcs:disable
+require __DIR__ . '/../vendor/autoload.php';
+// phpcs:enable
+
 use Nette\Configurator;
 
 class Bootstrap
