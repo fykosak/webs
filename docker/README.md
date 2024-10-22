@@ -5,7 +5,7 @@
 - nutnost: nainstalovaný `docker` a `docker-compose-plugin`
 - vytvoření aktuální image: `docker compose build` (potřeba spustit před prvním spuštěním)
 - spuštění: `docker compose up`
-- doplnění přihlašovacích údajů do FKSDB do `local/*.neon` (nutno případné promazání cache v `temp` )
+- doplnění přihlašovacích údajů do FKSDB do `app/config/local/*.neon` (nutno případné promazání cache v `temp` )
 - přístup: `localhost` na portech `8080-8084`
 - spouštění příkazů uvnitř dockeru (`composer install`, `npm build` atd.): `docker exec -it webs <příkaz>`
     - nainstalování composer balíčků: `docker exec -it webs composer install`
