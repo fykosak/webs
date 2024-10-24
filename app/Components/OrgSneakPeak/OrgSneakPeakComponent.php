@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Components\OrgSneakPeak;
 
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 
 use Nette\DI\Container;
 
-class OrgSneakPeakComponent extends BaseComponent
+class OrgSneakPeakComponent extends DIComponent
 {
     private FKSDBDownloader $downloader;
 
@@ -53,19 +53,19 @@ class OrgSneakPeakComponent extends BaseComponent
         return $parsedOrganizers;
     }
 
-    public function get_org(array $organizers, $id): array
+    public function get_org(array $organizers, $personId): array
     {
         foreach ($organizers as $organizer) {
-            if ($organizer['personId'] == $id) {
+            if ($organizer['personId'] == $personId) {
                 return $organizer;
             }
         }
         return [];
     }
 
-    public function render($id = null, $title = null)
+    public function render($personId = null, $title = null)
     {
-        $this->template->organizer = $this->get_org($this->organizers, $id);
+        $this->template->organizer = $this->get_org($this->organizers, $personId);
         if ($title == null) {
             $this->template->title = $this->template->organizer['name'];
         } else {

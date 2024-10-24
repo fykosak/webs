@@ -7,6 +7,7 @@ namespace App\Modules\Fykos\Core;
 use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
+use App\Components\OrgSneakPeak\OrgSneakPeakComponent;
 
 abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
 {
@@ -95,5 +96,10 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
     public function getContestId(): int
     {
         return 1;
+    }
+
+    public function createComponentOrgSneakPeak(): OrgSneakPeakComponent
+    {
+        return new OrgSneakPeakComponent($this->getContext());
     }
 }

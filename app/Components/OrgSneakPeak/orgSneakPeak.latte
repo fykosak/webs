@@ -19,14 +19,14 @@
             <table>
                 {* If org is still active *}
                 {if !$organizer['until']} 
-                    {if $organizer['role']}
+                    {if $organizer['role'] and $lang == 'cs'}
                     <tr>
                         <td class="left-cell"><span class="icon"><i class="fas fa-briefcase"></i></span>
                         </td>
                         <td class="right-cell">{$organizer['role']}</td>
                     </tr>
                     {/if}
-                    {if $organizer['career']}
+                    {if $organizer['career'] and $lang == 'cs'}
                     <tr>
                         <td class="left-cell"><span class="icon"><i class="fas fa-school"></i></span></td>
                         <td class="right-cell">{$organizer['career']}</td>
@@ -34,8 +34,12 @@
                     {/if}
                     <tr>
                         <td class="left-cell"><span class="icon"><i class="fas fa-envelope"></i></span></td>
-                        <td class="right-cell"><a
-                            href="mailto:{$organizer['domainAlias']}@fykos.cz">{$organizer['domainAlias']}@fykos.cz</a></td>
+                        <td class="right-cell">
+                            {switch $lang}
+                                {case 'cs'} <a href="mailto:{$organizer['domainAlias']}@fykos.cz">{$organizer['domainAlias']}@fykos.cz</a>
+                                {default} <a href="mailto:{$organizer['domainAlias']}@fykos.org">{$organizer['domainAlias']}@fykos.org</a>
+                            {/switch}
+                        </td>
                     </tr>
                 {else} {* If org is not active anymore *}
                     <tr>

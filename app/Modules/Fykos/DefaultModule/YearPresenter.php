@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
-use App\Components\OrgSneakPeak\OrgSneakPeakComponent;
-
 class YearPresenter extends BasePresenter
 {
     public $year = 36; // todo get from url
@@ -55,11 +53,6 @@ class YearPresenter extends BasePresenter
             $event["n-href-url"] = "/images/events/default/fykos.png";
         }
         return $data;
-    }
-
-    public function createComponentOrgSneakPeak(): OrgSneakPeakComponent
-    {
-        return new OrgSneakPeakComponent($this->getContext());
     }
 
     public function renderDefault(): void
