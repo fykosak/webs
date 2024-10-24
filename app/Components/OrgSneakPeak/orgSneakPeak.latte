@@ -10,9 +10,9 @@
 
 <div class="person-dropcard organizers">
     <div class="card h-100">
-        <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg" 
+        <img src="{$basePath}/media/images/people/person{$organizer['personId']}.jpg" 
             class="card-img-top"
-            onerror="this.src = '/images/people/personUnknown.jpg'"
+            onerror="this.src = '/media/images/people/personUnknown.jpg'"
             alt="{$organizer['name']}">
         <h4 class="card-header">{$organizer['name']}</h4>
         <div class="card-body">
@@ -35,7 +35,7 @@
                     <tr>
                         <td class="left-cell"><span class="icon"><i class="fas fa-envelope"></i></span></td>
                         <td class="right-cell">
-                            {switch $lang}
+                            {switch $lang}  
                                 {case 'cs'} <a href="mailto:{$organizer['domainAlias']}@fykos.cz">{$organizer['domainAlias']}@fykos.cz</a>
                                 {default} <a href="mailto:{$organizer['domainAlias']}@fykos.org">{$organizer['domainAlias']}@fykos.org</a>
                             {/switch}
