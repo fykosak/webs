@@ -4,36 +4,100 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\EventsModule;
 
-use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
-use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
-use Nette\Application\ForbiddenRequestException;
+use Nette\Application\BadRequestException;
+use Nette\Http\IResponse;
 
 class CampsPresenter extends BasePresenter
 {
     private const CAMPS_IDS = [4, 5];
 
-    private FKSDBDownloader $downloader;
-
-    public function inject(FKSDBDownloader $downloader): void
+    public function getEventHeading(array $event): array
     {
-        $this->downloader = $downloader;
+        if ($event['eventTypeId'] == 4) {
+            $year = 1986 + $event['year'] + 1;
+            return [
+                'cs' => 'Jarní soustředění ' . $year,
+                'en' => 'Spring camp ' . $year,
+            ];
+        } else { // $event['eventTypeId'] == 5
+            $year = 1986 + $event['year'];
+            return [
+                'cs' => 'Podzimní soustředění ' . $year,
+                'en' => 'Autumn camp ' . $year,
+            ];
+        }
+    }
+
+    public function eventYearToCalendarYear(int $eventYear, int $season): int
+    {
+        if ($season == 4) {
+            return 1986 + $eventYear + 1;
+        } else { // $season == 5
+            return 1986 + $eventYear;
+        }
     }
 
     /**
-     * @throws ForbiddenRequestException
      * @throws \Throwable
      */
-    public function renderDetail(): void
+    public function renderDetail(int $year, int $season): void
     {
-        $id = $this->getParameter('id');
-        $data = $this->downloader->download(new EventRequest((int)$id));
-        if (!in_array($data['eventTypeId'], self::CAMPS_IDS)) {
-            throw new ForbiddenRequestException();
+        $events = $this->downloader->download(new EventListRequest([$season]));
+
+        $event = null;
+        foreach ($events as $e) {
+            if ($this->eventYearToCalendarYear($e['year'], $e['eventTypeId']) == $year) {
+                $event = $e;
+                break;
+            }
         }
-        $this->template->data = $data;
-        $this->template->participants = $this->downloader->download(new ParticipantsRequest((int)$id));
+
+        if ($event === null) {
+            throw new BadRequestException(
+                $this->csen('Stránka nenalezena', 'Page not found'),
+                IResponse::S404_NotFound
+            );
+        }
+
+        $event['heading'] = $this->getEventHeading($event);
+        $this->template->event = $event;
+        $this->template->photoPath = $this->getEventPhotoBasePath($event);
+        $participants = $this->downloader->download(new ParticipantsRequest((int)$event['eventId']));
+        $participants = array_filter($participants, function ($participant) {
+            return $participant['status'] == 'participated';
+        });
+        $this->template->participants = $participants;
+    }
+
+    private function getEventPhotoBasePath(array $event): string
+    {
+        if ($event['eventTypeId'] == 4) {
+            $eventType = 'sous-jaro';
+        } else { // $event['eventTypeId'] == 5
+            $eventType = 'sous-podzim';
+        }
+        if ($event['year'] < 10) {
+            $fullYear = '0' . $event['year'];
+        } else {
+            $fullYear = $event['year'];
+        }
+
+        return '/media/images/events/' . $eventType . '/rocnik' . $fullYear . '/carousel-photos';
+    }
+
+    public function getEventPhoto(array $event): string
+    {
+        // find images in www directory (index.php is in www dir, so ./ resolves to it)
+        $photos = glob('.' . $this->getEventPhotoBasePath($event) . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+
+        if (empty($photos)) {
+            return $this->template->basePath . '/media/images/events/event-missing-photo.png';
+        }
+
+        $photo = $photos[array_rand($photos)];
+        return substr($photo, 1); // remove leading dot
     }
 
     /**
@@ -41,19 +105,18 @@ class CampsPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $data = $this->downloader->download(new EventListRequest(self::CAMPS_IDS));
+        $events = $this->downloader->download(new EventListRequest(self::CAMPS_IDS));
 
         // sort by date
-        usort($data, function ($a, $b) {
+        usort($events, function ($a, $b) {
             return strtotime($b['begin']) - strtotime($a['begin']);
         });
 
-        $this->template->data = $data;
+        foreach ($events as &$event) {
+            $event['heading'] = $this->getEventHeading($event);
+            $event['photo'] = $this->getEventPhoto($event);
+        }
 
-        // Debugger::dump($data); // Display data in Nette Debugger
-
-        // foreach ($this->template->camps as &$camp) {
-        //     $camp['link'] = 'https://fykos.cz/rocnik' . $camp['year'] . '/sous-' . $camp['season'] . '/start';
-        // }
+        $this->template->events = $events;
     }
 }

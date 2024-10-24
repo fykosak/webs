@@ -18,14 +18,16 @@ class DefaultPresenter extends BasePresenter
     {
         return new UpperHomeMapComponent(
             $this->getContext(),
-            $this->gamePhaseCalculator,
-            $this->gamePhaseCalculator->getFKSDBEvent()
+            $this->getNewestEvent()
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentUpperHomeBeforeRegistration(): UpperHomeBeforeRegistrationComponent
     {
-        return new UpperHomeBeforeRegistrationComponent($this->getContext());
+        return new UpperHomeBeforeRegistrationComponent($this->getContext(), $this->getNewestEvent());
     }
 
     /**
@@ -33,11 +35,14 @@ class DefaultPresenter extends BasePresenter
      */
     protected function createComponentCountdown(): CountdownComponent
     {
-        return new CountdownComponent($this->getContext(), $this->gamePhaseCalculator->getGameBegin());
+        return new CountdownComponent($this->getContext(), $this->getNewestEvent()->game->begin);
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentResultsPanel(): ResultsPanelComponent
     {
-        return new ResultsPanelComponent($this->getContext());
+        return new ResultsPanelComponent($this->getContext(), $this->getNewestEvent());
     }
 }

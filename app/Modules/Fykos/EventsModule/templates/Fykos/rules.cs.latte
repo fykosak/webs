@@ -1,94 +1,80 @@
-{block title}Plné znění pravidel FYKOSu{/block}
+{block title}Pravidla{/block}
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>Pravidla FYKOSu</h1>
-            <p>Zde naleznete plné znění pravidel Fyzikálního korespondenčního semináře.</p>
+            <p>Na této stránce naleznete plné znění pravidel Fyzikálního korespondenčního semináře.</p>
             <a class="btn btn-primary my-2" n:href=":Events:Fykos:default">Základní informace o semináři</a>
-            {* <a class="btn btn-primary my-2" href="#registrace">Registrace</a>         
-            <a class="btn btn-primary my-2" href="#prubeh">Průběh</a>
-            <a class="btn btn-primary my-2" href="#vyhodnoceni">Vyhodnocení</a>
-            <a class="btn btn-primary my-2" href="#ostatní">Bodové zvýhodnění</a> *}
         </section>
     </div>
 
-    <div class="panel color-auto" id="registrace">
+    <div class="panel color-auto">
         <section class="inner-container">
-            <h2>Registrace</h2>
+            <h1>Registrace</h1>
             <p>
                 Řešitelem FYKOSu se může stát každý středoškolák, případně základoškolák, se zájmem o fyziku, který je schopen komunikovat česky, slovensky nebo anglicky. Řešení se odevzdávají elektronicky prostřednictvím <a href="https://db.fykos.cz">webového rozhraní</a>.
             </p>
-            <p>Před odesláním první série se musíte zaregistrovat do <a href="https://db.fykos.cz">databáze</a> a při tom vyplnit údaje (své jméno, školu, třídu, rok maturity, adresu bydliště a datum narození).</p>
+            <p>Před odesláním první série se musíte zaregistrovat do <a href="https://db.fykos.cz">databáze</a> a při tom vyplnit údaje (své jméno, školu, třídu, rok maturity a adresu bydliště).</p>
             <p>Registrace je možná kdykoliv v průběhu roku.</p>
 
         </section>
     </div>
 
-    <div class="panel color-auto" id="prubeh">
+    <div class="panel color-auto">
         <section class="inner-container">
-            <h2>Průběh</h2>
+            <h1>Průběh</h1>
             <p>
-                Šestkrát do roka dostanete poštou tzv. sérii, která obsahuje zadání osmi úloh (úlohy jsou dostupné i online na těchto stránkách). Máte přibližně měsíc na vymyšlení řešení, které nám zašlete nejpozději do určeného termínu. Se zadáním další série dostanete zpět svá opravená a okomentovaná řešení z minulé série spolu s autorským řešením všech úloh.
+                Šestkrát do roka publikujeme <a n:href=":Default:Problems:">zde na webu</a> sérii, která obsahuje zadání osmi úloh. Máte přibližně měsíc na vymyšlení řešení, které nám zašlete nejpozději do určeného termínu. My vám řešení opravíme a okomentujeme, co se vám povedlo a nepovedlo a jak byste se mohli dále zlepšit.
             </p>
             <p>
-                Pět úloh vychází ze středoškolského učiva a snaží se ho dále rozšířit. První dvě úlohy jsou zpravidla jednodušší a zvládne je i šikovný prvák. Šestá úloha je problémová, což znamená, že k jejímu řešení se budete muset hlouběji zamyslet nad fyzikální podstatou problému a případně také něco nastudovat. Předposlední úloha je experimentální. Očekává se, že zadaný experiment nejen teoreticky navrhnete, ale zejména prakticky zrealizujete a z naměřených hodnot spočítáte výsledek a jeho chybu. Poslední úloha souvisí se seriálem na pokračování, který vám během roku přiblíží nějakou zajímavou partii fyziky. Seriál obashuje doprovodné texty.
+                Pět úloh vychází ze středoškolského učiva a snaží se ho dále rozšířit. První dvě úlohy jsou zpravidla jednodušší a zvládne je i šikovný prvák. Šestá úloha je problémová, což znamená, že k jejímu řešení se budete muset hlouběji zamyslet nad fyzikální podstatou problému a případně také něco nastudovat. Předposlední úloha je experimentální. Očekává se, že zadaný experiment nejen teoreticky navrhnete, ale zejména prakticky zrealizujete a z naměřených hodnot spočítáte výsledek a jeho chybu. Poslední úloha souvisí s textem na pokračování – tzv. seriálem – který vám během roku přiblíží nějakou zajímavou partii fyziky.
             </p>
             <p>
-                Svá řešení posílejte v elektronickém formátu, a to prostřednictvím webového formuláře. Každé řešení musí být v samostatném souboru formátu pdf. Na každou stranu dokumentu s řešením důsledně uvádějte své jméno a příjmení. Pokud si s elektronickým řešení nevíte rady, mužete si přečíst tento <a href="#">návod.</a> {*TODO: doplnit odkaz a stránku*}
+                Svá řešení posílejte <strong>elektronicky ve formátu pdf</strong>, a to prostřednictvím webového formuláře. Každé řešení musí být v samostatném souboru formátu pdf. Na každou stranu dokumentu s řešením důsledně uvádějte své jméno a příjmení. Pokud si s elektronickým řešení nevíte rady, mužete si přečíst tento <a n:href=":Events:Fykos:texTutorial">návod.</a>
             </p>
             <p>
                 Není nutné posílat řešení všech úloh, i jedna vyřešená úloha má smysl. Řešitelé, kteří spočítají úplně všechno, jsou spíše výjimkou. Často je dobré poslat i částečné řešení, které není „dotažené“ úplně do konce.
             </p>
-            
-            <h3>Jak má řešení vypadat</h3>
-            <p>Celý návod najdete <a href="#">zde</a></p> {*TODO: doplnit odkaz a stránku*}
+
+            <h2>Jak má řešení vypadat</h2>
+            {* <p>Celý návod najdete <a href="#">zde</a></p>  *}
             <ul>
-                <li>Řešení každé z úloh pište na <strong>zvláštní</strong> list papíru (či do zvláštního elektronického dokumentu v pdf), u horního okraje napište číslo úlohy a podepište se. Je-li řešení některé vaší úlohy na více listech, podepište se na každý list, očíslujte je a na každý napište, kolik má úloha celkem listů.</li>
-                <li>Obecně platí žádost o úhledné písmo (nečitelná řešení a nekvalitní fotografie řešení psaného rukou nemůžeme opravit a ani obodovat) a samostatnou práci. Na kolektivní řešitele (především ty, kteří si nedají práci s vysvětlením vlastními slovy) se díváme skrz prsty!</li>
-                <li>U experimentální úlohy je důležitý především experiment a dostatečný rozbor toho, co vám vyšlo, případně proč to nevyšlo tak, jak mělo, a co by se tedy příště dalo zlepšit. Víc informací o tom, jak psát experimentálku, najdete <a href="#">zde</a>.</li> {*TODO: přidat odkaz na manuál k SExu*}
-                <li>Při řešení jakékoliv úlohy se nebojte sáhnout po nějaké chytré knize. Nebo si související informace vyhledat na internetu. Nebojte se konzultovat své problémy s kýmkoliv. Konzultovat a opisovat je rozdíl! Naopak opisovat je zakázáno. Citovat můžete, ale musíte vždy uvést zdroj, který citujete.</li>
+                <li>Řešení každé z úloh pište do samostatného elektronického dokumentu v pdf (tj. odděleného od řešení ostatních úloh), u horního okraje napište číslo úlohy, číslo série a svoje jméno. Je-li řešení některé vaší úlohy na více listech, podepište se na každý list.</li>
+                <li>Obecně platí žádost o úhledné písmo (nečitelná řešení a nekvalitní fotografie řešení psaného rukou nemůžeme opravit a ani obodovat) a samostatnou práci. Na kolektivní řešitele (především ty, kteří si nedají práci s vysvětlením vlastními slovy) se díváme skrz prsty a vyhrazujeme si právo je znevýhodnit či při opakovaném opisování vyloučit.</li>
+                <li>U experimentální úlohy je důležité především <strong>experiment provést</strong> a dostatečný rozbor toho, co vám vyšlo, případně proč to nevyšlo tak, jak mělo, a co by se tedy příště dalo zlepšit. Víc informací o tom, jak psát experimentálku, najdete <a href="#">zde</a>.</li> {*TODO: přidat odkaz na manuál k SExu*}
+                <li>Při řešení jakékoliv úlohy se nebojte sáhnout po nějaké chytré knize. Nebo si související informace vyhledat na internetu. Citovat můžete, ale musíte vždy uvést zdroj, který citujete.</li>
                 <li><strong>Nemusíte poslat řešení všech úloh.</strong> I jenom jedna úloha má smysl. Nebojte se poslat třeba jen náznak řešení či nějaký zajímavý postřeh k úloze. Fyzika je hra a zábava.</li>
-                <li>Odesláním příkladů do série souhlasíte se zveřejněním výsledků ve formě základních údajů (svého jména, příjmení, kategorie, školy a bodů) ve výsledkové listině na internetových stránkách, v brožurkách a ročenkách FYKOSu.</li>
-                <li>Řešení posílejte včas. Pozdní odeslání netolerujeme. Každá série má své datum odeslání. Všechna došlá řešení zpracováváme najednou a pár opozdilců nám přidělává práci. Nemluvě o tom, že se snažíme co nejrychleji na stránkách zveřejnit autorská řešení úloh a po jejich zveřejnění už nemá úlohy ani smysl posílat.</li>
+                <li>Řešení posílejte včas. Pozdní odeslání netolerujeme. Každá série má své datum odeslání, které je přímo u zadání.</li>
             </ul>
 
-            <h3>Posílání řešení</h3>
+            <h2>Posílání řešení</h2>
             <ul>
                 <li>Adresa formuláře pro upload řešení je <a href="https://db.fykos.cz">db.fykos.cz</a>.</li>
-                <li>Jediným akceptovaným formátem pro vaše řešení je <strong>.pdf</strong>, protože se dá tisknout a prohlížet na různých systémech.</li>
-                <li>Svá řešení můžete poslat jako naskenované stránky, musíte je však před odesláním převést do pdf.</li>
-                <li>Zde najdete návod, <a href="textutorial">jak vytvářet elektronická řešení</a>.</li> 
+                <li>Jediným akceptovaným formátem pro vaše řešení je <strong>.pdf</strong>, protože se dá tisknout a prohlížet bez problémů na různých systémech.</li>
+                <li>Svá řešení můžete poslat jako naskenované stránky, musíte je však před odesláním převést do pdf, např. pomocí aplikace jako je Adobe Scan.</li>
+                <li>Ve vašem zájmu ovšem doporučujeme se naučit psát hezká elektronická řešení / protokoly, což se vám jistě bude hodit i mimo FYKOS. Jak na to si můžete přečíst v našem <a n:href=":Events:Fykos:texTutorial">návodu</a>.</li>
                 <li>Pokud se vám nedaří nahrát soubor, ujistěte se, že není příliš velký (cca přes 30 MB).</li>
-                <li>Pokud nemůžete splnit naše požadavky, napište dotaz na <a href="mailto:fykos-solutions@fykos.cz">fykos-solutions@fykos.cz</a>. Nějaké řešení jistě najdeme.</li>
+                <li>Pokud nemůžete splnit naše požadavky, napište dotaz na <a href="mailto:fykos-solutions@fykos.cz">fykos-solutions@fykos.cz</a>. Pokusíme se vám pomoci.</li>
+                <li>Odesláním příkladů do série souhlasíte se zveřejněním výsledků ve formě základních údajů (svého jména, příjmení, kategorie, školy a bodů) ve výsledkové listině na internetových stránkách, v brožurkách a ročenkách FYKOSu.</li>
             </ul>
         </section>
     </div>
 
-    <div class="panel color-auto" id="vyhodnoceni">
+    <div class="panel color-auto">
         <section class="inner-container">
-            <h2>Vyhodnocení</h2>
+            <h1>Vyhodnocení a odměny</h1>
             <p>
                 Řešitelé jsou rozděleni do čtyř kategorií podle ročníků na střední škole.
             </p>
             <p>
-                Hodnotíme spíše <strong>postup</strong> vašeho řešení, ne až tolik číselné výsledky (v těch může udělat chybu každý). Bodově zvýhodněni bonusovými body jsou ti, kteří ve svých řešeních vymyslí něco originálního či fyzikálně hlubokého. Proto se nebojte psát více k danému problému; čím více nad něčím přemýšlíme, tím lépe.
+                Hodnotíme spíše <strong>postup</strong> vašeho řešení, ne až tolik číselné výsledky (v těch může udělat chybu každý). Ti, kteří ve svých řešeních vymyslí něco originálního či fyzikálně hlubokého nebo vypracují řešení obzvláště zodpovědně a hezky, mohou dostat bonusový bod. Proto se nebojte psát více k danému problému; čím více nad něčím přemýšlíme, tím lépe.
             </p>
             <p>
-                Za každou úlohu dostáváte podle míry správnosti vašeho řešení určitý počet bodů daný obtížností úlohy. Podle celkového počtu získaných bodů je pak sestavováno pořadí v jednotlivých kategoriích. Aktuální stav pořadí najdete na webu s autorským řešením každé série. Pro přibližně prvních třicet nejlepších řešitelů na konci roku máme hodnotné a zajímavé ceny (odborné a populární knížky o fyzice a dalších přírodních vědách, deskové hry, trička s logem semináře apod.). Zhruba 40 nejlepších řešitelů také zveme na soustředění, která se konají dvakrát ročně.
+                Od 25. ročníku (2011/12) jsou bodově zvýhodněni řešitelé v kategorii 1. a 2. ročníků a to tak, že jejich bodový zisk za úlohy 1 a 2 se násobí dvěma. Žádná jiná bodová zvýhodnění než ta zmíněná zde nejsou.
             </p>
             <p>
-                Řešení opravíme a pošleme je zpátky, a to buď poštou, nebo prostřednictvím <a href="https://db.fykos.cz">databáze</a>, přes kterou se úlohy nahrávají.
+                Za každou úlohu dostáváte podle míry správnosti vašeho řešení určitý počet bodů daný obtížností úlohy. Podle celkového počtu získaných bodů je pak sestavováno <a n:href=":Default:Results:">pořadí</a> v jednotlivých kategoriích. Pro ty nejlepší máme na konci roku připraveny zajímavé ceny (odborné a populární knížky o fyzice a dalších přírodních vědách, deskové hry, trička s logem semináře nebo fyzikálními rovnicemi apod.). Alespoň 30 nejlepších řešitelů také zveme na soustředění, která se konají dvakrát ročně.
             </p>
-        </section>
-    </div>
-
-    <div class="panel color-auto" id="ostatní">
-        <section class="inner-container">
-            <h2>Bodové zvýhodnění</h2>
-            <p>
-                Od 25. ročníku (2011/12) jsou bodově zvýhodněni řešitelé v kategorii 1. a 2. ročníků a to tak, že jejich bodový zisk za úlohy 1 a 2 se násobí dvěma. Žádné jiné bodové zvýhodnění není.
-            </p>
-
         </section>
     </div>
 

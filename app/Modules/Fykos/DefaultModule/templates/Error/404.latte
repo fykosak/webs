@@ -1,7 +1,22 @@
-{block title}Page Not Found{/block}
-{block content}
+{varType App\Modules\Core\Language $language}
 
-<p>The page you requested could not be found. It is possible that the page no longer exists.</p>
-<p>Visit the <a n:href="Default:default">front page</a> and look there.</p>
+{block title}
+{switch $language->value}{case 'cs'}Stránka nenalezena{default}Page not found{/switch}
+{/block}
+
+{block content}
+{switch $language->value}
+{case 'cs'}
+<p>Požadovanou stránku jsme nenašli.</p>
+<p>Pokud víte, že stránka dříve existovala, můžete se po ní podívat na <a href='https://old.fykos.cz'>staré verzi stránek</a>.</p>
+<p>Jinak můžete přejít na <a n:href='Default:default'>hlavní stránku</a>.</p>
 
 <p><small>error 404</small></p>
+{default}
+<p>The page you requested could not be found.</p>
+<p>If you know that the page existed before, you can look at the <a href='https://old.fykos.org'>old version of the website</a>.</p>
+<p>Otherwise, you can go to the <a n:href='Default:default'>main page</a>.</p>
+
+<p><small>error 404</small></p>
+{/switch}
+{/block}

@@ -1,5 +1,8 @@
+{varType string $lang}
+{varType App\Modules\Core\Language $language}
+{varType int $currentYear}
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="{$lang}">
 
 <head>
     <title>
@@ -13,9 +16,14 @@
     <meta name="theme-color" content="#1175DA">
 
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Den s experimentální fyzikou"/>
-    {*<meta property="og:image" content="{_'http://physicsbrawl.org/images/fyziklani-logo.png'}"/>*}
-    {*<meta property="og:description" content="{_'Team competition in solving physics problems.'}"/>*}
+    <meta property="og:title" content="FYKOS"/>
+    <meta property="og:image" content="{switch $language->value}{case cs}https://fykos.cz/images/fykos-og-image-cs.png{default}https://fykos.org/images/fykos-og-image-en.png{/switch}"/>
+    <meta property="og:description"
+        {switch $language->value}
+            {case cs}content="Skupina pořádající vzdělávací soutěže ve fyzice pro středoškoláky."
+            {default}content="Group organizing educational events in physics for high-school students."
+        {/switch}
+    >
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:locale" content="cs"/>
     <meta property="og:url" content="{plink //this}"/>
@@ -24,15 +32,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;800&display=swap" rel="stylesheet">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script src="https://kit.fontawesome.com/f424cd1bbe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     {block head}{/block}
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
         integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
         crossorigin="anonymous"></script>
-    <script>
+    <script n:syntax=off>
         MathJax = {
+            loader: {
+                load: ['[tex]/mhchem', '[tex]/upgreek']
+            },
             tex: {
+                packages: {
+                    '[+]': ['mhchem', 'upgreek']
+                },
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
                 displayMath: [['\\eq{', '}']]
             }
@@ -49,7 +66,7 @@
 <body>
 
     {block body}
-    {control navigation "/images/logo.svg", "FYKOS"}
+    {control navigation '/images/logo.svg', 'FYKOS'}
     <main>
         {block main}
         <div class="panel color-light">
@@ -65,17 +82,17 @@
         <div class="panel registration">
             <div class="inner-container">
                 <div class="text">
-                    Chcete vědět více?
+                    {switch $language->value}{case cs}Chcete vědět více?{default}Want to Know More?{/switch}
                 </div>
-                <div style="btn-container">
+                <div class="btn-container">
                     <a class="btn btn-outline m-2" n:href=":Default:About:default">
-                        O&nbsp;nás
+                        {switch $language->value}{case cs}O&nbsp;nás{default}About Us{/switch}
                     </a>
                     <a class="btn btn-outline m-2" n:href=":Events:Default:default">
-                        Akce
+                        {switch $language->value}{case cs}Akce{default}Events{/switch}
                     </a>
                     <a class="btn btn-outline m-2" n:href=":Events:Fykos:default">
-                        Seminář
+                        {switch $language->value}{case cs}Seminář{default}FYKOS Competition{/switch}
                     </a>
                 </div>
             </div>
@@ -84,22 +101,35 @@
         <div class="panel sponsors">
             <div class="inner-container">
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Pořadatelé{default}Organizers{/switch}</div>
+                    <div class="category-title">{switch $language->value}{case cs}Pořadatelé{default}Organizers{/switch}</div>
                     <div class="category-sponsors">
-                        <a {switch $lang}{case cs}href="https://www.mff.cuni.cz/"
+                        <a {switch $language->value}{case cs}href="https://www.mff.cuni.cz/"
                             {default}href="https://www.mff.cuni.cz/en" {/switch} style="text-align: center">
                             <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
                                 style="max-width: 8rem">
                         </a>
                         <a href="https://www.msmt.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/msmt_cs.jpg" class="sponsor-logo" alt="MŠMT logo"
-                                style="width: 8rem">
+                            {switch $language->value}
+                            {case cs}
+                                <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
+                            {default}
+                                <img src="{$basePath}/images/logos/msmt_en.jpg" alt="MŠMT logo" style="max-width: 9rem">
+                            {/switch}
                         </a>
                     </div>
                 </div>
                 <div class="category">
-                    <div class="category-title">{switch $lang}{case cs}Generální partner{default}General
+                    <div class="category-title">{switch $language->value}{case cs}Generální partner{default}General
                         Partner{/switch}</div>
+                    <div class="category-sponsors">
+                        <a href="https://www.cez.cz/" style="text-align: center">
+                            {switch $language->value}{case cs}<img src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo" style="max-width: 10rem">
+                          	{default}<img src="{$basePath}/images/logos/CEZ_Group_Logo_EN.png" alt="CEZ group logo" style="max-width: 10rem">{/switch}
+                        </a>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="category-title">{switch $language->value}{case cs}Hlavní partner{default}Main Partner{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.kellnerfoundation.cz" style="text-align: center">
                             <img src="/images/logos/tkff.svg" class="sponsor-logo" alt="TKFF logo" style="width: 8rem;">
@@ -112,40 +142,51 @@
         <div class="panel footer">
             <div class="inner-container row">
                 <div class="col-md-6">
-                    {* <img class="logo" src="{$basePath}/images/logo.svg" alt="DSEF" />*}
-                    <div class="logo" style="font-size: 1cm; font-weight: bold">FYKOS<small>.cz</small></div>
+                    <img class="logo" src="{$basePath}/images/logo.svg" alt="FYKOS" />
+                    {* <div class="logo" style="font-size: 1cm; font-weight: bold">FYKOS<small>{switch $language->value}{case cs}.cz{default}.org{/switch}</small></div> *}
                     <p>
-                        FYKOS skupina pořádající vzdělávací soutěže pro středoškoláky ve fyzice s&nbsp;37letou tradicí.
-                        FYKOS je tvořen převážně studenty
-                        <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
+                        {switch $language->value}
+                            {case cs}FYKOS je skupina pořádající vzdělávací akce pro středoškoláky ve fyzice s&nbsp;{$currentYear->year}letou tradicí.
+                            FYKOS je tvořen převážně studenty
+                            <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
+                            {default}FYKOS is a group organizing educational physics events for high school students with a {$currentYear->year}-year tradition.
+                            FYKOS is mainly composed of students from the
+                            <a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a>.
+                        {/switch}
                     </p>
                     <p>
-                        Akce FYKOSu jsou spoluvyhlašovány <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální
-                            fakultou Univerzity Karlovy</a>
-                        a Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
+                        {switch $language->value}
+                            {case cs}Akce FYKOSu jsou vyhlašovány <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální
+                            fakultou Univerzity Karlovy</a> a zpravidla podporovány Ministerstvem školství, mládeže a&nbsp;tělovýchovy.
+                            {default}FYKOS events are announced by the <a href="https://www.mff.cuni.cz/">Faculty of Mathematics and Physics, Charles University</a> and usually supported by the Ministry of Education, Youth and Sports.
+                        {/switch}
                     </p>
                     <p>
-                        <strong>#fykos</strong> <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
+                        {switch $language->value}
+                            {case cs}<strong>#fykos</strong> <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
+                            {default}<strong>#fykos</strong> <a href="mailto:fykos@fykos.org">fykos@fykos.org</a>
+                        {/switch}
                     </p>
                     <div class="other-logos">
                         <a target="_blank"
-                            href="{switch $lang}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img
+                            href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img
                                 class="other-logo"
                                 src="{$basePath}/images/logos/fyziklani_online_logo_white_{$lang}.png"
-                                style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        <a target="_blank"
-                            href="{switch $lang}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img
+                                style="height: 2rem; margin: 0 1rem 1rem 0" /></a><a target="_blank"
+                            href="{switch $language->value}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img
                                 class="other-logo" src="{$basePath}/images/logos/fyziklani_white_logo.svg"
-                                style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        {if $lang=='cs'}<a target="_blank" href="https://dsef.cz/"><img class="other-logo"
+                                style="height: 2rem; margin: 0 1rem 1rem 0" /></a>
+                        {if $lang=='cs'}
+                        <a target="_blank" href="https://dsef.cz/"><img class="other-logo"
                                 src="{$basePath}/images/logos/dsef_logo_white.png"
-                                style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>{/if}
+                                style="height: 2rem; margin: 0 1rem 1rem 0" /></a>
+                        {/if}
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mt-2 mt-md-0">
                     <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                 <li>Pro účastníky a učitele
                                     <ul>
@@ -155,71 +196,80 @@
                                     </ul>
                                 </li>
                                 {default}
-                                {* TODO *}
+                                <li>For Participants and Teachers
+                                    <ul>
+                                        <li><a n:href=":Default:About:">About Us</a></li>
+                                        <li><a n:href=":Events:Default:">Events</a></li>
+                                        <li><a n:href=":Events:Fykos:">FYKOS Competition</a></li>
+                                    </ul>
+                                </li>
                             {/switch}
                         </ul>
                     </nav>
-                    {* <nav>
+                    <nav>
                         <ul>
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
-                                <li>Podpora FYKOSu
+                                <li>Další informace
                                     <ul>
                                         <li><a n:href=":Default:SupportUs:">Jak podpořit FYKOS</a></li>
-                                        <li><a n:href=":Default:Merch:">Merch</a></li>
+                                        <li><a n:href=":Default:About:contact">Kontakt</a></li>
+                                        {* <li><a n:href=":Default:Merch:">Merch</a></li> *}
                                     </ul>
                                 </li>
                                 {default}
-                                <li>For partners
+                                <li>Other Information
                                     <ul>
-                                        <li><a n:href=":Default:Partners:">Support us</a></li>
-                                        <li><a href="">Logos and materials</a></li>
-                                        <li><a href="">Contact</a></li>
+                                        <li><a n:href=":Default:SupportUs:">Support us</a></li>
+                                        <li><a n:href=":Default:About:contact">Contact</a></li>
+                                        {* <li><a href="">Logos and materials</a></li>
+                                        <li><a href="">Contact</a></li> *}
                                     </ul>
                                 </li>
                             {/switch}
                         </ul>
-                    </nav> *}
+                    </nav> 
 
                 </div>
                 <div class="col-md-3">
                     <nav>
                         <ul>
-                            {switch $lang}
-                            {case cs}
-                            <li>Sledujte nás
-                                {default}
-                            <li>Follow us on social media
+                            <li>
+                                {switch $language->value}
+                                    {case cs}Sledujte nás
+                                    {default}Follow Us on Social Media
                                 {/switch}
                                 <ul>
                                     <li>
                                         <a class="social-sites" href="https://www.facebook.com/FYKOS">
-                                            <i class="fa fa-facebook fa-2x"></i>
+                                            <i class="fa-brands fa-square-facebook fa-2x"></i>
                                         </a>
                                         <a class="social-sites" href="https://www.instagram.com/fykosak/">
-                                            <i class="fa fa-instagram fa-2x"></i>
+                                            <i class="fa-brands fa-instagram fa-2x"></i>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                     </nav>
-                    <nav>
+                    {* <nav>
                         <ul>
-                            {switch $lang}
-                            {case cs}
-                            <li>Kontakt
-                                {default}
-                            <li>Contact
+                            <li>
+                                {switch $language->value}
+                                    {case cs}Kontakt
+                                    {default}Contact
                                 {/switch}
                                 <ul>
                                     <li>
-                                        <a n:href=":Default:About:contact">Kontaktní informace</a>
+                                        {switch $language->value}
+                                            {case cs}<a n:href=":Default:About:contact">Kontaktní informace</a>
+                                            {default}<a n:href=":Default:About:contact">Contact information</a>
+                                        {/switch}
                                     </li>
                                 </ul>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> *}
                 </div>
                 <div style="position: relative;">
                     <a href="#top" style="position: absolute; bottom: 0; right: 0;"><i class="fas fa-arrow-up"></i></a>
@@ -227,8 +277,38 @@
             </div>
         </div>
     </footer>
+    
+    <div id="old-website-notice">
+        <span>
+            {switch $language->value}
+                {case cs}Pokud hledáte starou webovou stránku, najdete ji na <a href="https://old.fykos.cz">https://old.fykos.cz</a>
+                {default}If you are looking for the old website, you may find it at <a href="https://old.fykos.org">https://old.fykos.org</a>
+            {/switch}
+        </span>
+        <button id="hide-notice">
+            {switch $language->value}
+                {case cs}Skrýt
+                {default}Hide
+            {/switch}
+        </button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var notice = document.getElementById('old-website-notice');
+            var hideButton = document.getElementById('hide-notice');
 
+            // Check if the notice should be hidden
+            if (localStorage.getItem('hideOldWebsiteNotice') !== 'true') {
+                notice.style.display = 'block';
+            }
 
+            hideButton.addEventListener('click', function() {
+                notice.style.display = 'none';
+                // Save the user's preference for this session
+                localStorage.setItem('hideOldWebsiteNotice', 'true');
+            });
+        });
+    </script>
     {/block}
 </body>
 

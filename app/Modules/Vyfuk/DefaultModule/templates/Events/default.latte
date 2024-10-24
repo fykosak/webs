@@ -1,0 +1,33 @@
+{block title}Akce{/block}
+{block main}
+<div class="panel color-light">
+    <section class="inner-container">
+        {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+        {ifset title}<h1>{include title}</h1>{/ifset}
+    </section>
+    <section class="inner-container">
+        <p>
+            <a class="btn btn-outline-primary mx-1" n:href="Events:Calendar">kalendář</a>
+            {foreach $eventTypes as $key => $val}
+            {if $selected==$key}
+            <a class="btn btn-primary mx-1" n:href="Events:Default $key">{$val}</a>
+            {else}
+            <a class="btn btn-outline-primary mx-1" n:href="Events:Default $key">{$val}</a>
+            {/if}
+            {/foreach}
+        </p>
+    </section>
+    <section n:foreach="$events as $key => $event" class="inner-container my-5">
+        <h2>{$event->nameNew[$lang]}</h2>
+        <p>
+            {$event->description[$lang]|noescape}
+        </p>
+        <p>
+            <a class="btn btn-primary mx-1" n:href="Events:detail $event->eventId">
+                <i class="bi bi-info-circle"></i> Informace o akci
+            </a>
+        </p>
+        {control gallery:randomLine "/media/photos/event/" . $event->eventId}
+    </section>
+</div>
+{/block}

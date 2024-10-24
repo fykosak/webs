@@ -26,8 +26,6 @@
   }
 }
 
-
-
 /* Organizers */
 
 .organizers {
@@ -68,6 +66,12 @@
 
   .right-cell {
     padding-left: .5rem;
+  }
+
+  .info-icon {
+    color: $primary-color;
+    padding-left: .2rem;
+    font-size: 1rem;
   }
 
 }

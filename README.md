@@ -1,6 +1,5 @@
 # FYKOS-webs
 
-
 Nette multisite codebase for the [Fyziklani](https://fyziklani.cz) and [Online Physics Brawl](https://online.fyziklani.cz) competitions.
 
 This project uses modified bootstrap file to support multiple websites sharing components and models.
@@ -9,6 +8,31 @@ This project uses modified bootstrap file to support multiple websites sharing c
  - `PHP 8.1`
  - `Apache` with `mod_rewrite`
  - sql database
+
+## Development
+
+As a convenience for `podman` based setups, you can use [just](https://just.systems/)
+command runner for your development environment. For `docker` see below. All
+commands are documented by running `just` in this directory.
+
+If you want to speedrun the setup, here is a tasklist:
+
+1. Install `just` and `podman`
+2. Configure your FKSDB login with `just login` (this may break with `'` in password)
+3. Download deps via `just setup`
+4. When developing, start with `just dev`
+5. End your session using `just stop`
+
+To use `docker` instead of `podman`, instead of `just cmd` write `just runner=docker cmd`.
+This is untested, so contact @rkuklik if you run into issues.
+
+To access the websites (after running `just dev`), following links can be used:
+
+- [vyfuk](http://localhost:8080)
+- [fykos](http://localhost:8081)
+- [fol](http://localhost:8082)
+- [fof](http://localhost:8083)
+- [dsef](http://localhost:8084)
 
 ## Installation
 
@@ -106,7 +130,7 @@ the page by deleting the symlink without deleting the actual configuration)
 
 Configuring hosts file
 * Explanation: Since wsl has its own IP adress, and we use a browser over on Windows, we need
-to configure Windows's DNS to route us over to wsl. 
+to configure Windows's DNS to route us over to wsl.
 1. open the file `C:/Windows/System32/drivers/etc/hosts` as administrator
 2. paste the example contents of `/etc/hosts` and save
 3. open wsl and type `ip a` and find out the IP adress of WSL (usually something like eth0: ... *inet 172.22.207.240/20* ...)
@@ -118,7 +142,7 @@ Configuring MySql
 * Explanation: some parts of the web need an access to a database to work.
 1. open wsl
 2. start mysql (`sudo mysql`). You may encounter errors, in which case google how to solve them.
-3. you are now in mysql shell (the line starts with `mysql>`). 
+3. you are now in mysql shell (the line starts with `mysql>`).
 4. Create databases for FOL and FOF: (a) `create database fol ;` (b) `create database fof ;`
 5. Create user with a password, e.g.: `CREATE USER 'fykos'@'localhost' IDENTIFIED BY 'password';`
 6. Set privileges for the newly created user:  (a) `GRANT ALL PRIVILEGES ON fol.* TO 'fykos'@'localhost' WITH GRANT OPTION;` (b) same, only with fof
@@ -134,10 +158,10 @@ Inserting tables and data
 
 
 Configuring neon files
-* Explanation: these files contain secret data such as passwords and connection strings. 
-It is something like appsettings.json. These data are then used in the application to 
+* Explanation: these files contain secret data such as passwords and connection strings.
+It is something like appsettings.json. These data are then used in the application to
 connect to various resources, such as the database.
-* `.local` files always override the configurations from files without the `.local`. We only 
+* `.local` files always override the configurations from files without the `.local`. We only
 edit the `.local` files, which are intentionally excluded from git.
 1. tell somebody to send you at least the `fksdbDownloader` credentials and fill them out
 2. fill out the database name in the connection strings (e.g. `dsn: 'mysql:host=localhost;dbname=fof'`)

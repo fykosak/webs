@@ -11,10 +11,10 @@
     "GPL-3.0"
   ],
   "require": {
-    "php": ">= 7.4",
-    "nette/nette": "^v3.1.0",
-    "fykosak/fksdb-downloader-core": "dev-dev-json-request#c52a8fb",
-    "fykosak/nette-fks-utils": "dev-dev-context-translator",
+    "php": ">= 8.1",
+    "nette/nette": "^v3.2.0",
+    "fykosak/fksdb-downloader-core": "dev-dev-json-request#596e9a1",
+    "fykosak/nette-fks-utils": "dev-dev-datetime-period",
     "ext-soap": "*",
     "ext-dom": "*",
     "ext-gettext": "*",
@@ -23,7 +23,7 @@
     "netresearch/jsonmapper": "^4.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "3.6.0",
+    "squizlabs/php_codesniffer": "3.7.2",
     "nette/tester": "^v2.4.1",
     "phpstan/phpstan": "1.10.21",
     "phpstan/phpstan-nette": "^1.2"
@@ -35,6 +35,11 @@
     "test": [
       "@clearTestCache",
       "tests/api/commandWithApi.sh vendor/bin/tester tests/ -p php -s -c tests/php.ini -j 8"
+    ],
+    "latteLint": [
+      "mkdir -p app/config/local/",
+      "if [ ! -f app/config/local/vyfuk.neon ]; then cp app/config/config.local.neon.example app/config/local/vyfuk.neon; fi",
+      "tests/lint-latte.php"
     ],
     "testCoverage": [
       "@clearTestCache",

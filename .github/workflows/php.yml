@@ -9,7 +9,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['7.4' , '8.0' , '8.1']
+        php: ['8.1']
+#        php: ['8.1','8.2','8.3']
     steps:
       - uses: actions/checkout@v2
         name: Checkout
@@ -35,7 +36,9 @@ jobs:
         name: Test
       - if: failure()
         name: Failure output
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: output
-          path: tests/**/*.actual
+          path: |
+            tests/**/*.actual
+            temp/tester/log/api.log

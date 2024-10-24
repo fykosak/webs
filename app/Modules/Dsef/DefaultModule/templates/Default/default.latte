@@ -1,3 +1,5 @@
+{varType App\Models\Downloader\EventModel $newestEvent}
+
 {block title}Hlavní stránka{/block}
 
 {block main}
@@ -11,14 +13,14 @@
                 <div class="subheader">
                     <p>Den plný přednášek a exkurzí po fyzikálních laboratořích (nejen) MFF UK.</p>
                 </div>
-                {if $gamePhaseCalculator->isRegistration($gamePhaseCalculator::BEFORE)}<time class="competition-date" datetime="{$gamePhaseCalculator->getFKSDBEvent()->begin |date:'Y-m-d'}">
-                    {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}<time class="competition-date" datetime="{$newestEvent->begin |date:'Y-m-d'}">
+                    {$newestEvent->begin |date:'j. n. Y'}
                 </time>{/if}
 {*                <div class="buttons">*}
-{*                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $lang}{case 'cs'}O soutěži{default}About{/switch}</a>*}
-{*                    <a n:if="$gamePhaseCalculator->isRegistration(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $lang}{case 'cs'}Registrace{default}Register{/switch}</a>*}
-{*                    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->isGame(App\Models\GamePhaseCalculator::AFTER)}*}
-{*                        <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $lang}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>*}
+{*                    <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>*}
+{*                    <a n:if="$gamePhaseCalculator->getFKSDBEvent()->getRegistrationPeriod()->is(App\Models\GamePhaseCalculator::NOW)" n:href="Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>*}
+{*                    {if $gamePhaseCalculator->isNearTheCompetition(App\Models\GamePhaseCalculator::NOW) && !$gamePhaseCalculator->getFKSDBEvent()->getGamePeriod()->is(App\Models\GamePhaseCalculator::AFTER)}*}
+{*                        <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $language->value}{case 'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>*}
 {*                    {/if}*}
 {*                </div>*}
 {*            </div>*}
@@ -58,9 +60,9 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <div class="subheader">Z minulých let</div>
-            <h1>Nepřesvědčili jsme vás?</h1>
+            <h1>Stále váháte?</h1>
             <div class="row strips">
-                {control gallery:randomLine "/photos/front-page/"}
+                {control gallery:randomLine "/media/photos/front-page/"}
             </div>
             <div>
                 <a href="https://www.matfyz.cz/clanky/den-s-experimentalni-fyzikou-ukazal-jak-se-dela-veda" class="btn btn-panel-action text-start">Den s experimentální fyzikou ukázal, jak se dělá věda</a>
@@ -71,9 +73,9 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
-            <div class="subheader">DSEF 2023</div>
+            <div class="subheader">DSEF 2024</div>
             <h1>K nadcházejícímu ročníku</h1>
-            <p>DSEF 2023 pro vás začneme připravovat v létě. Začátkem podzimu zveřejníme více informací a spustíme přihlašování. Pro aktuální informace sledujte tyto stránky. Pokud máte nějaký dotaz, neváhejte nám napsat na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</p>
+            <p>DSEF 2024 se bude konat {$newestEvent->begin|date: 'j. n. Y'} na Karlově, a již ho pro vás pilně připravujeme. Registrace se otevře {$newestEvent->registrationBegin|date: 'j. n.'}. Aktuální informace k blížící se registraci můžete sledovat na stránce <a n:href="Current:default">stránce letošního ročníku</a>. Pokud máte nějaký dotaz, neváhejte se nám ozvat na <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</p>
         </section>
     </div>
 

@@ -1,33 +1,27 @@
+{varType App\Modules\Core\Language $language}
 {block title}Scholarship Program{/block}
 
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
-          {* 
+          {*
           	{ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
                 {ifset title}<h1>{include title}</h1>{/ifset}
 			*}
-          <h1>Scholarship</h1>
+            <div class="alert alert-warning">Please note that the Fyziklani Scholarship program ended in 2024 and does not take place for this year's competition. Below is a description of the program from last year.</div>
 
+            <h1>Scholarship</h1>
 
-          <p><strong>Please note the applications are closed for this year.</strong> If you still want to participate without the scholarship, we may still be able to help you, e.g. via providing an invitation letter. In that case, please reach out to us at <a href="mailto:fyziklani@fykos.org">fyziklani@fykos.org</a>. </p>
+            <p>If you want to participate without the scholarship, we may still be able to help you, e.g. via providing an invitation letter. In that case, please reach out to us at <a href="mailto:fyziklani@fykos.org">fyziklani@fykos.org</a>. </p>
 
+            <p>Last year, for the Fyziklani competition and its accompanying program, we were offering a full scholarship to several teams that would not be able to participate otherwise.</p>
 
-            <p>This year, for the Fyziklani competition and its accompanying program, we are offering a full scholarship to several teams that would not be able to participate otherwise.</p>
+            <p>This scholarship aimed to make the program more accessible to a broader range of students. To educate, build a global network of highly-talented students interested in physics, and show the participants opportunities to make it easier to use their talent well.</p>
 
-            <p>This scholarship aims to make the program more accessible to a broader range of students. To educate, build a global network of highly-talented students interested in physics, and show the participants opportunities to make it easier to use their talent well.</p>
-
-            <p>The accepted teams will attend the entire accompanying program of Fyziklani as well as several closely related extension activities creating about a week-long memorable experience. We built upon a similar event from Fyziklani 2023 as well as the 2022 Fyziklani International Youth Exchange.</p>
-
-            <a class="btn btn-primary my-2" n:href="Schedule:default">
-                {switch $lang}
-                    {case cs}Accompanying Program
-                    {default}Accompanying Program
-                {/switch}
-            </a>
+            <p>The accepted teams did attend the entire accompanying program of Fyziklani as well as several closely related extension activities creating about a week-long memorable experience. We built upon a similar event from Fyziklani 2023 as well as the 2022 Fyziklani International Youth Exchange.</p>
 
             <a class="btn btn-primary my-2" n:href=":Archive:Erasmus: eventYear: 2022">
-                {switch $lang}
+                {switch $language->value}
                     {case cs}Youth Exchange 2022
                     {default}Youth Exchange 2022
                 {/switch}
@@ -38,62 +32,28 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>Focus and Eligible Teams</h1>
-            <p>All costs will be covered for selected teams, including travel from the participants’ countries to Prague and back, accommodation (most likely in the same hotel as for all other participants of Fyziklani), meals, tickets for the city public transport for the duration of the stay, and travel insurance.<br>
-            The teams, in turn, must take part in the entire program (unless very serious circumstances prevent them).</p>
+            <p>All costs were covered for selected teams, including travel from the participants’ countries to Prague and back, accommodation (in the same hotel as for all other participants of Fyziklani), meals, tickets for the city public transport for the duration of the stay, and travel insurance.<br>
+            The teams, in turn, had to take part in the entire program (unless very serious circumstances prevented them).</p>
 
-            <p>After being selected, the teams will also participate in preparation and supporting the event in minor ways (examples from last years include creating a presentation about science in their country, preparing for a cultural evening and writing reports from the event).</p>
+            <p>After being selected, the teams also participated in preparation and supporting the event in minor ways (e.g. creating a presentation about science in their country, preparing for a cultural evening and writing reports from the event).</p>
 
-            <p>The applications are for high-school (or equivalent) students only and should be made in a team of up to 5, where all the participants are at least 15 years old and from at most 2 different schools.</p>
+            <p>The applications were for high-school (or equivalent) students only and were in a team of up to 5, where all the participants were at least 15 years old and from at most 2 different schools.</p>
 
             <p>Any team satisfying the above criteria anywhere in the world can apply. Note, however, that while Fyziklani aims to be open to all high-school students all around the world, the resources for this scholarship are limited. Thus, it is aimed preferentially (not exclusively) at highly-talented students from economically less-advantaged backgrounds or from areas where the students have comparatively fewer opportunities than in Europe.</p>
-            
-            <p>We also recommend to, before applying, register in the Physics Brawl Online, which is essentially an online version of Fyziklani. Firstly, it will give you an idea of how Fyziklani itself works, and secondly, it is relevant to the application.</p>
-
-            <p>Applications for the scholarship ended on November 30, 2023. The results have been announced to the applicants.</p>
-
-            <!-- <a class="btn btn-primary my-2 mb-3" href="https://forms.gle/vY7xRULNhi6TD6vh8">
-            Apply for the Scholarship
-            </a> -->
-            <a class="btn btn-primary my-2 mb-3" href="https://physicsbrawl.org">
-            Physics Brawl Online
-            </a>
 
             <p>If you have any questions regarding the scholarship, you may contact us at  <a href="mailto:scholarship@fyziklani.org">scholarship@fyziklani.org</a>.</p>
 
-            <p>The scholarship is possible thanks to the kind sponsorship of FABRIC, a non-profit that organizes camps for highly talented students interested in understanding themselves and the world.</p>
+            <p>The scholarship was possible thanks to the kind sponsorship of FABRIC, a non-profit that organizes camps for highly talented students interested in understanding themselves and the world.</p>
 
             <a class="btn btn-primary my-2" href="https://www.fabric.camp/">
-            {switch $lang}
-            {case cs}More About FABRIC
+            {switch $language->value}
+            {case cs}Více o FABRIC
             {default}More About FABRIC
             {/switch}
             </a>
-            {* <a class="btn btn-primary my-2" href="https://www.aspr.camp/">
-            {switch $lang}
-            {case cs}ASPR Camp
-            {default}ASPR Camp
-            {/switch}
-            </a>
-            <a class="btn btn-primary my-2" href="https://www.warp.camp/">
-            {switch $lang}
-            {case cs}WARP Camp
-            {default}WARP Camp
-            {/switch}
-            </a> *}
+
+            <div class="alert alert-warning">Please note that the Fyziklani Scholarship program ended in 2024 and does not take place for this year's competition. This page describes the program from last year.</div>
         </section>
     </div>
 
-    <div class="panel color-auto">
-        <section class="inner-container">
-            <h1>
-                {switch $lang}
-                {case cs}Program Fyziklání a doprovodného programu
-                {default}Schedule of Fyziklani and Its Accompanying Program
-                {/switch}
-            </h1>
-            <p>The schedule of the scholarship will be (up to minor details) essentially identical to the Fyziklani accompanying program. Any student that is not accepted for the scholarship is more than welcome to participate in any part of the program (they will just not get their expenses reimbursed).</p>
-            {include "../schedule.latte"}
-        </section>
-    </div>
-
-{/block main} 
+{/block main}

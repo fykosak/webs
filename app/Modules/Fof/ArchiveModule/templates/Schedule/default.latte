@@ -1,19 +1,18 @@
-{varType string $lang}
-{varType App\Models\NetteDownloader\ORM\Models\ModelEvent $event}
-{varType string $eventKey}
+{varType App\Modules\Core\Language $language}
+{varType App\Models\Downloader\EventModel $event}
 
 {block subtitle}
-{switch $lang}
-{case "cs"}Archivní stránka programu z roku {$event->begin|date: "Y"}
-{default}Archive page of the schedule in {$event->begin|date: "Y"}
+{switch $language->value}
+    {case 'cs'}Archivní stránka programu z roku {$event->begin|date: 'Y'}
+    {default}Archive page of the schedule in {$event->begin|date: 'Y'}
 {/switch}
 {/block}
 
 {block title}
-{switch $lang}
-{case "cs"}Program roku {$event->begin|date: "Y"}
-{default}Schedule of Year {$event->begin|date: "Y"}
-{/switch}
+    {switch $language->value}
+        {case 'cs'}Program roku {$event->begin|date: 'Y'}
+        {default}Schedule of Year {$event->begin|date: 'Y'}
+    {/switch}
 {/block}
 
 {block main}
@@ -25,11 +24,11 @@
         <div class="timeline timeline-wider">
 
             <div>
-                <div class="timeline-group">{switch $lang}{case cs}Pondělí 6. 2.{default}Monday, Feb 6{/switch}</div>
+                <div class="timeline-group">{switch $language->value}{case cs}Pondělí 6. 2.{default}Monday, Feb 6{/switch}</div>
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <div class="timeline-title">Příjezd na ubytování</div>
@@ -51,11 +50,11 @@
             </div>
 
             <div>
-                <div class="timeline-group">{switch $lang}{case cs}Úterý 7. 2.{default}Tuesday, Feb 7{/switch}</div>
+                <div class="timeline-group">{switch $language->value}{case cs}Úterý 7. 2.{default}Tuesday, Feb 7{/switch}</div>
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <time class="timeline-element-date">09:00 - 09:30</time>
@@ -78,7 +77,7 @@
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <time class="timeline-element-date">09:30 - 11:30</time>
@@ -99,7 +98,7 @@
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <time class="timeline-element-date">13:30 - 17:30</time>
@@ -123,7 +122,7 @@
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <time class="timeline-element-date">17:30 - 18:30</time>
@@ -145,7 +144,7 @@
                 </div>
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <time class="timeline-element-date">18:30 - 22:30</time>
@@ -164,11 +163,11 @@
 
 
             <div>
-                <div class="timeline-group">{switch $lang}{case cs}Středa 8. 2.{default}Wednesday, Feb 8{/switch}</div>
+                <div class="timeline-group">{switch $language->value}{case cs}Středa 8. 2.{default}Wednesday, Feb 8{/switch}</div>
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <time class="timeline-element-date">8:00 - 16:00</time>
@@ -192,7 +191,7 @@
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <time class="timeline-element-date">19:00 - 21:30</time>
@@ -211,8 +210,8 @@
 
             </div>
             <div>
-                <div class="timeline-group">{switch $lang}{case cs}Čtvrtek 9. 2.{default}Thursday, Feb 9{/switch}</div>
-                {switch $lang}
+                <div class="timeline-group">{switch $language->value}{case cs}Čtvrtek 9. 2.{default}Thursday, Feb 9{/switch}</div>
+                {switch $language->value}
                 {case cs}
                 <div>
                     <span class="timeline-element-icon"></span>
@@ -251,7 +250,7 @@
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div>
                         <span class="timeline-element-icon"></span>
@@ -281,12 +280,12 @@
             </div>
 
             <div>
-                <div class="timeline-group">{switch $lang}{case cs}Pátek 10. 2.{default}Friday, Feb 10{/switch}</div>
+                <div class="timeline-group">{switch $language->value}{case cs}Pátek 10. 2.{default}Friday, Feb 10{/switch}</div>
 
                 <div>
                     <span class="timeline-element-icon"></span>
                     <div class="timeline-element-content">
-                        <div class="timeline-title">{switch $lang}{case cs}Prezence týmů v PVA EXPO{default}Team arrival
+                        <div class="timeline-title">{switch $language->value}{case cs}Prezence týmů v PVA EXPO{default}Team arrival
                             at PVA EXPO{/switch}</div>
                         <time class="timeline-element-date">09:00 - 09:45</time>
                     </div>
@@ -295,7 +294,7 @@
                 <div>
                     <span class="timeline-element-icon"></span>
                     <div class="timeline-element-content">
-                        <div class="timeline-title">{switch $lang}{case cs}Otevírací ceremoniál{default}Opening
+                        <div class="timeline-title">{switch $language->value}{case cs}Otevírací ceremoniál{default}Opening
                             ceremony{/switch}</div>
                         <time class="timeline-element-date">10:00 - 10:25</time>
                     </div>
@@ -304,7 +303,7 @@
                 <div>
                     <span class="timeline-element-icon"></span>
                     <div class="timeline-element-content">
-                        <div class="timeline-competition-title">{switch $lang}{case
+                        <div class="timeline-competition-title">{switch $language->value}{case
                                 cs}Soutěž{default}Competition{/switch}</div>
                         <time class="timeline-element-date">10:30 - 13:30</time>
                     </div>
@@ -312,7 +311,7 @@
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <div class="timeline-title">Prezentace o FYKOSu</div>
@@ -335,7 +334,7 @@
                 <div>
                     <span class="timeline-element-icon"></span>
                     <div class="timeline-element-content">
-                        <div class="timeline-title">{switch $lang}{case cs}Závěrečný ceremoniál, vyhlášení
+                        <div class="timeline-title">{switch $language->value}{case cs}Závěrečný ceremoniál, vyhlášení
                             výsledků{default}Announcement of results{/switch}</div>
                         <time class="timeline-element-date">14:00 - 14:45</time>
                     </div>
@@ -344,7 +343,7 @@
                 <div>
                     <span class="timeline-element-icon"></span>
                     <div class="timeline-element-content">
-                        <div class="timeline-title">{switch $lang}{case cs}Společné focení vítězů{default}Joint photo
+                        <div class="timeline-title">{switch $language->value}{case cs}Společné focení vítězů{default}Joint photo
                             shoot of the winners{/switch}</div>
                         <time class="timeline-element-date">14:45 - 14:50</time>
                     </div>
@@ -352,7 +351,7 @@
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <div class="timeline-title">Rozbor řešení úloh</div>
@@ -373,7 +372,7 @@
                 </div>
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <div class="timeline-title">Párty</div>
@@ -397,11 +396,11 @@
             </div>
 
             <div>
-                <div class="timeline-group">{switch $lang}{case cs}Sobota 11. 2.{default}Saturday, Feb 11{/switch}</div>
+                <div class="timeline-group">{switch $language->value}{case cs}Sobota 11. 2.{default}Saturday, Feb 11{/switch}</div>
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <div class="timeline-title">Přednášky</div>
@@ -423,7 +422,7 @@
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <div class="timeline-title">Exkurze</div>
@@ -445,7 +444,7 @@
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <div class="timeline-title">Raut</div>
@@ -467,11 +466,11 @@
             </div>
 
             <div>
-                <div class="timeline-group">{switch $lang}{case cs}Neděle 12. 2.{default}Sunday, Feb 12{/switch}</div>
+                <div class="timeline-group">{switch $language->value}{case cs}Neděle 12. 2.{default}Sunday, Feb 12{/switch}</div>
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <div class="timeline-title">Závěrečný ceremoniál</a></div>
@@ -493,7 +492,7 @@
 
                 <div>
                     <span class="timeline-element-icon"></span>
-                    {switch $lang}
+                    {switch $language->value}
                     {case cs}
                     <div class="timeline-element-content">
                         <div class="timeline-title">Městská hra</div>

@@ -1,47 +1,83 @@
 {varType string $lang}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Modules\Core\Language $language}
+{varType App\Models\Downloader\ContestYearModel $currentYear}
+{varType array $events}
+{varType array $countdownEventsIndices}
+{varType array $numOfEvents}
+
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case 'cs'} Hlavní stránka
         {default} Main page
     {/switch}
 {/block}
 
 {block main}
+
 <div class="panel color-primary title-panel">
     <section class="inner-container">
         <div class="header-container">
             <div class="row">
-                <div class="col-md-7 header-text-container">
+                <div class="col-lg-7 col-md-6 header-text-container">
                     <h1 class="header-text">FYKOS</h1>
-                    <h2 class="header-text">Inspirujeme a&nbsp;vzděláváme<br>středoškoláky ve&nbsp;fyzice.</h2>
-                    <p class="header-text">FYKOS organizuje neziskové vzdělávací akce ve&nbsp;fyzice již
-                        {$currentYear}&nbsp;let.
-                        {* Zjistěte více na stránce <a n:href=":Default:About:default">o&nbsp;nás</a>.*}</p>
-                    <a class="btn btn-light" href="#timeline">
-                        Jste tu poprvé?
+                    <h2 class="header-text">{$headerText[$lang]['slogan']|noescape}</h2>
+                    <p class="header-text">{$headerText[$lang]['description']|noescape}</p>
+                    <a class="btn btn-light mt-2" href="#timeline">
+                        {switch $language->value}
+                            {case 'cs'}Jste tu poprvé?
+                            {default}First Time Here?
+                        {/switch}
                     </a>
-                    <a class="btn btn-light ml-2" href="#news">
-                        Novinky
+                    <a class="btn btn-light ml-2 mt-2" href="#news">
+                        {switch $language->value}
+                            {case 'cs'}Novinky
+                            {default}News
+                        {/switch}
                     </a>
-                    <a class="btn btn-outline ml-2" n:href=":Default:About:">
-                        O&nbsp;nás
+                    <a class="btn btn-outline ml-2 mt-2" n:href=":Default:About:">
+                        {switch $language->value}
+                            {case 'cs'}O&nbsp;nás
+                            {default}About&nbsp;Us
+                        {/switch}
                     </a>
                 </div>
-                <div class="col-md-5 header-image-container">
+
+                <div class="col-lg-5 col-md-6 mt-md-0 mt-3 header-image-container">
                     <div class="center-content-horizontally-md">
                         <img id="header-image" class="header-image"
                             src="{$basePath}/images/logos/fykos_symbol_no_border.svg" alt="FYKOS logo">
                     </div>
                     <div class="center-content-horizontally-md content-down mt-3 mt-md-0">
                         <div class="header-image-dates">
-                            <h4 class="minor-event-heading">{$events['previous']['name']} | {$events['previous']['date-text']}</h4>
-                            <h2 class="next-event-heading">{$events['upcoming']['name']} | {$events['upcoming']['date-text']}
-                                | <span id="countdown-primary"></span>
-                            </h2>
-                            <h4 class="minor-event-heading mb-0">{$events['next']['name']} | {$events['next']['date-text']}
-                                | <span
-                                        id="countdown-secondary"></span></h4>
+                            {if $year_stage == 'after' or $year_stage == 'before'}
+                                <h2 class="next-event-heading">
+                                    {switch $language->value}
+                                        {case 'cs'}Nový ročník FYKOSu přichází již brzy! Užívejte prázdniny!
+                                        {default}New year of FYKOS is coming soon! Enjoy your holidays!
+                                    {/switch}
+                                </h2>
+                            {elseif $year_stage == 'during'}
+                                {if $countdownEventsIndices['previous'][$lang] !== null}
+                                    <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]|noescape} | 
+                                    {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}
+                                {/if}
+                                <h2 class="next-event-heading">{$events[$countdownEventsIndices['upcoming'][$lang]]['heading'][$lang]|noescape} | 
+                                {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}<br>
+                                <span id="countdown-primary"></span>
+                                </h2>
+                                {if $countdownEventsIndices['next'][$lang] !== null}
+                                    <h4 class="minor-event-heading mb-0">{$events[$countdownEventsIndices['next'][$lang]]['heading'][$lang]|noescape} | 
+                                    {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}<br>
+                                    <span id="countdown-secondary"></span></h4>
+                                {else}
+                                    <h4 class="minor-event-heading mb-0">
+                                        {switch $language->value}
+                                            {case 'cs'}Nový ročník FYKOSu přichází již brzy! Užívejte prázdniny!
+                                            {default}New year of FYKOS is coming soon! Enjoy your holidays!
+                                        {/switch}
+                                    </h4>
+                                {/if}
+                            {/if}
                         </div>
                     </div>
                 </div>
@@ -52,42 +88,30 @@
 
 <div class="panel color-dark" id="news">
     <section class="inner-container">
-        <div class="subheader">Pro ty, kdo FYKOS dobře znají</div>
-        <h1 class="section-header">Novinky a aktuality</h1>
-        <!-- <div class="row mt-5"> -->
-        <!-- <div class="col-md-6"> -->
+        <div class="subheader">
+            {switch $language->value}
+                {case 'cs'}Pro ty, kdo FYKOS dobře znají
+                {default}For Those Who Know FYKOS Well
+            {/switch}
+        </div>
+        <h1 class="section-header">
+            {switch $language->value}
+                {case 'cs'}Novinky a aktuality
+                {default}News and Updates
+            {/switch}
+        </h1>
         <div class="fade-in-section">
-            <div class="card">
-                <div class="card-body news-card">
-                    <div style="display: flex; justify-content: space-between;">
-                        <h4 class="card-title">Třetí série je tady!</h4>
-                        <div><a n:href=":Default:Problems:" class="btn btn-primary">Zadání</a></div>
+            {foreach $newsList[$lang] as $news}
+                <div class="card mt-3">
+                    <div class="card-body news-card" style="border-left: 5px solid {$news['color']|noescape}">
+                        <div style="display: flex; justify-content: space-between;">
+                            <h4 class="card-title">{$news['title']}</h4>
+                            <div><a href="{$news['link']}" class="btn btn-primary" style="background-color: {$news['color']|noescape}; border: 1px solid {$news['color']|noescape}">{$news['link-text']}</a></div>
+                        </div>
+                        <p class="card-text">{$news['text']|noescape}</p>
                     </div>
-                    <p class="card-text">Druhá série sice skončila, ale nezoufejte! Na webu je už zveřejněné zadání
-                        nových
-                        úloh! Můžete se ponořit do výpočtů účinnosti zvlhčovače vzduchu, rychlosti transportu v
-                        mikrosvětě
-                        buněk nebo práce nutné k ponoření skleničky pod vodu. Čas na vyřešení úloh a zaslání svých
-                        řešení
-                        máte do 2. 1.! </p>
                 </div>
-            </div>
-            <!-- </div> -->
-            <!-- <div class="col-md-6"> -->
-            <div class="card mt-3">
-                <div class="card-body news-card fof-news-color">
-                    <div style="display: flex; justify-content: space-between;">
-                        <h4 class="card-title">Přihlaste se na Fyziklání 2024</h4>
-                        <div><a href="fyziklani.cz" class="btn btn-primary">Fyziklání</a></div>
-                    </div>
-                    <p class="card-text"> Spouští registrace na Fyziklání 2024, které se bude konat 16. 2. v Praze. Čeká
-                        vás
-                        tam týmová soutěž v počítání zajímavých fyzikálních úloh, ale i bohatý doprovodný program! Tak
-                        neváhejte a přihlašte svůj tým!</p>
-                </div>
-            </div>
-            <!-- </div> -->
-            <!-- </div> -->
+            {/foreach}
         </div>
     </section>
 </div>
@@ -95,198 +119,147 @@
 
 <div class="panel color-light" id="timeline">
     <section class="inner-container">
-        <div class="subheader">Naše hlavní akce</div>
-        <h1 class="section-header">Co vše organizujeme?</h1>
-        <p>FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní.</p>
+        <div class="subheader">
+            {switch $language->value}
+                {case 'cs'}Naše hlavní akce
+                {default}Our Main Events
+            {/switch}
+        </div>
+        <h1 class="section-header">
+            {switch $language->value}
+                {case 'cs'}Co vše organizujeme?
+                {default}What Do We Organize?
+            {/switch}
+        </h1>
+        <p>
+            {switch $language->value}
+                {case 'cs'}FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní{if $year_stage == 'during'}.{elseif $year_stage == 'before'} akce nadcházejícího ročníku.{elseif $year_stage == 'after'} akce minulého ročníku.{/if}
+                {default}FYKOS organizes about ten educational events for high school students every year. Here you can find the main ones{if $year_stage == 'during'}.{elseif $year_stage == 'before'} of the upcoming school year.{elseif $year_stage == 'after'} of the past school year.{/if}
+            {/switch}
+        </p>
         <a class="btn btn-primary" n:href=":Events:Default:default">
-            Stránka všech akcí
+            {switch $language->value}
+                {case 'cs'}Stránka všech akcí
+                {default}Page of All Events
+            {/switch}
         </a>
 
         <div class="fade-in-section mt-5 mt-md-0">
             <div class="row mt-5">
 
                 {* Vertical timeline *}
-                <div id="timeline-vertical-container"
-                    class="col-3 col-md-0 d-md-none position-relative d-flex flex-column align-items-center mt-5">
-                    <div class="start-timeline-text mb-3">
-                        <p>1.&nbsp;10. 2023</p>
+                <div class="col-3 col-md-0 vertical-timeline-and-text-box d-md-none position-relative d-flex flex-column align-items-center mt-5">
+                    <div class="start-timeline-text">
+                        {$timelineBegin|date:'j. n. Y'|noescape}
                     </div>
-                    <div id="timeline-vertical" class="d-block border-left h-100">
+                    <div id="timeline-vertical-container" class="h-100 my-2">
+                        <div id="timeline-vertical" class="d-block border-left h-100">
                     </div>
-                    <div class="end-timeline-text mt-3">
-                        <p>30.&nbsp;5. 2024</p>
+                    </div>
+                    <div class="end-timeline-text">
+                        {$timelineEnd|date:'j. n. Y'|noescape}
                     </div>
                 </div>
 
 
                 <div class="col-9 col-md-12">
-
                     <!-- Row for events -->
                     <div class="row">
-
                         <div class="col-12 timeline-section-header mt-5 d-md-none">
-                            <h3>Soutěže a exkurze</h3>
+                            <h3>
+                                {switch $language->value}
+                                    {case 'cs'}Soutěže a exkurze
+                                    {default}Competitions and Excursions
+                                {/switch}
+                            </h3>
                         </div>
 
-                        <!-- First Row -->
-                        <div class="col-md-5 offset-md-1 order-md-1 order-1 mt-4" id="event-1">
-                            <a href="https://physics.naboj.org" target="_blank">
-                                <div class="event naboj-color-left-border">
-                                    <div class="event-header">
-                                        <h3><img src="/images/logos/naboj_symbol.svg" class="inline-logo">
-                                            Fyzikální Náboj
-                                        </h3>
-                                        <span class="event-date">3.&nbsp;11.</span>
-                                    </div>
-                                    <div>
-                                        <p>Týmová soutěž v Praze, Ostravě a jinde ve světě</p>
-                                        <p>Otevření registrace sledujte na webu</p>
-                                    </div>
+                        {var $eventCounter = 0}
+                        {foreach $events as $key => $event}
+                            {if !$event['is_series'] && $event['show-on-timeline'] && ($event['show-in-en'] || $lang == 'cs')}
+                                {* Ad hoc solution for the positionings *}
+                                {php $eventCounter++}
+                                <div class="col-md-5 mt-4
+                                    {if $eventCounter%4 == 1}offset-md-1
+                                    {elseif $eventCounter%4 == 3}offset-md-2
+                                    {/if}"
+                                    id="event-{$eventCounter}"
+                                >
+                                    <a href="{$event['url']}">
+                                        <div class="event {$event['key']|lower}-color-left-border">
+                                            <div class="event-header">
+                                                <div class="event-title">
+                                                    <h3>
+                                                        <img src="{$event['logo_eventbox'][$lang]}" alt="{$event['heading'][$language->value]|noescape}" class="inline-logo">
+                                                        {* {$event['heading'][$language->value]} *}
+                                                    </h3>
+                                                </div>
+                                                <span class="event-date">{switch $lang}{case 'cs'}{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}{default}{$event['date']|date:'M j'|replace:' ':'&nbsp;'|noescape}{/switch}</span>
+                                            </div>
+                                            <div>
+                                                <p class="text-start">{$event['description'][$language->value]|noescape}</p>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="col-md-5 order-md-2 order-3 mt-4" id="event-3">
-                            <a href="https://online.fyziklani.cz" target="_blank">
-                                <div class="event fol-color-left-border">
-                                    <div class="event-header">
-                                        <h3><img src="/images/logos/fyziklani_online_symbol.svg" class="inline-logo">
-                                            Fyziklání
-                                            Online</h3>
-                                        <span class="event-date">22.&nbsp;11.</span>
-                                    </div>
-                                    <div>
-                                        <p>Celosvětová soutěž, které se může účastnit každý</p>
-                                        <p>Registrace od 1.&nbsp;9. do 2&nbsp;hodin před soutěží.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Second Row -->
-                        <div class="col-md-5 offset-md-2 order-md-3 order-2 mt-4" id="event-2">
-                            <a href="https://dsef.cz" target="_blank">
-                                <div class="event dsef-color-left-border">
-                                    <div class="event-header">
-                                        <h3><img src="/images/logos/dsef_symbol.svg" class="inline-logo"> DSEF
-                                        </h3>
-                                        <span class="event-date">6.&nbsp;11.</span>
-                                    </div>
-                                    <div>
-                                        <p>Den s experimentální fyzikou na Matfyzu</p>
-                                        <p>Registrace od 2.&nbsp;10. do 3.&nbsp;11.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-5 order-md-4 order-4 mt-4" id="event-4">
-                            <a href="https://fyziklani.cz" target="_blank">
-                                <div class="event fof-color-left-border">
-                                    <div class="event-header">
-                                        <h3><img src="/images/logos/fyziklani_symbol.svg" class="inline-logo">
-                                            Fyziklání
-                                        </h3>
-                                        <span class="event-date">16.&nbsp;2.</span>
-                                    </div>
-                                    <div>
-                                        <p>Největší týmová fyzikální soutěž v Evropě</p>
-                                        <p>Registrace od 22.&nbsp;11. do 9.&nbsp;2.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                            {/if}
+                        {/foreach}
                     </div>
 
                     {* Horizontal timeline -- hide on small screens *}
                     <div class="row d-none d-md-block">
                         <div class="col-12 my-4">
                             <div id="timeline-horizontal-container" class="position-relative">
-                                <!-- Added position-relative class -->
                                 <div class="start-timeline-text position-absolute">
-                                    <p>1.&nbsp;10. 2023</p>
+                                    <p>{switch $lang}{case 'cs'}{$timelineBegin|date:'j.'}&nbsp;{$timelineBegin|date:'n.'} {$timelineBegin|date:'Y'}{default}{$timelineBegin|date:'M'}&nbsp;{$timelineBegin|date:'j'}, {$timelineBegin|date:'Y'}{/switch}
                                 </div>
                                 <hr id="timeline-horizontal">
                                 <div class="end-timeline-text position-absolute">
-                                    <p>30.&nbsp;5. 2024</p>
+                                    <p>{switch $lang}{case 'cs'}{$timelineEnd|date:'j.'}&nbsp;{$timelineEnd|date:'n.'} {$timelineEnd|date:'Y'}{default}{$timelineEnd|date:'M'}&nbsp;{$timelineEnd|date:'j'}, {$timelineEnd|date:'Y'}{/switch}
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
 
                     <!-- Row for series -->
-                    {* TODO: if its before the deadline of a given series, link to the generic task assignent page.
-                    If it's after, link to the assignment page of the specific series *}
                     <div class="row">
-
-                        {* Timeline header -- show on small screens *}
                         <div class="timeline-section-header mt-5 mt-md-0 d-md-none">
-                            <h3>Série semináře</h3>
+                            <h3>{switch $language->value}
+                                    {case 'cs'}Série semináře
+                                    {default}FYKOS Series
+                                {/switch}</h3>
                         </div>
 
-                        <!-- Third Row -->
-                        <div class="col-md-3 offset-md-1 mt-4 order-md-1 order-1" id="series-1">
-                            <div class="event series w-md-100 w-90">
-                                <div class="event-header">
-                                    <h3>1. série</h3>
-                                    <span class="event-date">10.&nbsp;10.</span>
+                        {var $seriesCounter = 0}
+                        {foreach $events as $key => $event}
+                            {if $event['is_series'] && $event['show-on-timeline']}
+                                {php $seriesCounter++}
+                                <div class="col-md-3 mt-4
+                                    {if $seriesCounter%6 == 1}offset-md-1
+                                    {elseif $seriesCounter%6 == 4}offset-md-2
+                                    {/if}" 
+                                    id="series-{$seriesCounter}"
+                                >
+                                    <a n:href=":Default:Problems:default">
+                                        <div class="event series w-md-100 w-90">
+                                            <div class="event-header">
+                                                <div class="event-title">
+                                                    <h3>{$event['heading'][$language->value]|noescape}</h3>
+                                                    <span class="event-date">{switch $lang}{case 'cs'}{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}{default}{$event['date']|date:'M j'|replace:' ':'&nbsp;'|noescape}{/switch}</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="text-start">{$event['description'][$language->value]|noescape}</p>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div>
-                                    <p>Velryba, nové kolo a&nbsp;tření papíru</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mt-4 order-md-2 order-3" id="series-3">
-                            <div class="event series w-md-100 w-90">
-                                <div class="event-header">
-                                    <h3>3. série</h3>
-                                    <span class="event-date">2.&nbsp;1.</span>
-                                </div>
-                                <div>
-                                    <p>Zvlhčovač, blesky a&nbsp;proteinový motor</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mt-4 order-md-3 order-5" id="series-5">
-                            <div class="event series w-md-100 w-90">
-                                <div class="event-header">
-                                    <h3>5. série</h3>
-                                    <span class="event-date">9.&nbsp;4.</span>
-                                </div>
-                                <p>Bowling, med a&nbsp;potápějící se člun</p>
-                            </div>
-                        </div>
-
-                        <!-- Fourth Row -->
-                        <div class="col-md-3 offset-md-2 mt-4 order-md-4 order-2" id="series-2">
-                            <div class="event series w-md-100 w-90">
-                                <div class="event-header">
-                                    <h3>2. série</h3>
-                                    <span class="event-date">21.&nbsp;11.</span>
-                                </div>
-                                <p>Pneumatika, cola a&nbsp;perpetuum mobile</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mt-4 order-md-5 order-4" id="series-4">
-                            <div class="event series w-md-100 w-90">
-                                <div class="event-header">
-                                    <h3>4. série</h3>
-                                    <span class="event-date">27.&nbsp;2.</span>
-                                </div>
-                                <p>Hokejista, svítilna a&nbsp;pozorování letadla</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mt-4 order-6" id="series-6">
-                            <div class="event series w-md-100 w-90">
-                                <div class="event-header">
-                                    <h3>6. série</h3>
-                                    <span class="event-date">14.&nbsp;5.</span>
-                                </div>
-                                <p>Antineutrína, ponorka a&nbsp;magnety</p>
-                            </div>
-                        </div>
+                            {/if}
+                        {/foreach}
                     </div>
                 </div>
+
+
             </div>
         </div>
     </section>
@@ -295,19 +268,41 @@
 
 <div class="panel color-dark" id="seminar">
     <section class="inner-container">
-        <div class="subheader">Netradiční fyzikální problémy, které vám dají zabrat</div>
-        <h1 class="title">Fyzikální korespondenční seminář</h1>
-        <p>Fyzikální korespondenční seminář je naší nejstarší tradiční akcí. Probíhá celý rok a každý ročník je rozdělen
-            do 6 sérií (které jsou na časové ose výše znázorněny jejich čísly). Zde je stručný popis fungování semináře.
+        <div class="subheader">
+            {switch $language->value}
+                {case 'cs'}Netradiční fyzikální problémy, které vám dají zabrat
+                {default}Unconventional Physics Problems That Will Test Your Skills
+            {/switch}
+        </div>
+        <h1 class="title">
+            {switch $language->value}
+                {case 'cs'}Fyzikální korespondenční seminář
+                {default}Physics Correspondence Competition
+            {/switch}
+        </h1>
+        <p>
+            {switch $language->value}
+                {case 'cs'}Fyzikální korespondenční seminář je naší nejstarší tradiční akcí. Probíhá celý rok a každý ročník je rozdělen do 6 sérií (které jsou na časové ose výše znázorněny jejich čísly). Zde je stručný popis fungování semináře.
+                {default}Physics Correspondence Competition is our oldest traditional event. It takes place throughout the year and each edition is divided into 6 series (which are represented by their numbers on the timeline above). Here is a brief description of how the seminar works.
+            {/switch}
         </p>
-        <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:complete" *}>
-            Úplná pravidla
+        <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:default">
+            {switch $language->value}
+                {case 'cs'}O semináři
+                {default}About the Competition
+            {/switch}
         </a>
-        <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:complete" *}>
-            Zadání aktuální série
+        <a class="btn btn-primary my-2 mr-4" n:href=":Events:Fykos:rules">
+            {switch $language->value}
+                {case 'cs'}Úplná pravidla
+                {default}Complete Rules
+            {/switch}
         </a>
-        <a class="btn btn-primary my-2 mr-4" {* n:href="Rules:OrganisationalRegulations" *}>
-            O semináři
+        <a class="btn btn-primary my-2 mr-4" n:href=":Default:Problems:default">
+            {switch $language->value}
+                {case 'cs'}Zadání aktuální série
+                {default}Current Series Assignment
+            {/switch}
         </a>
 
         <div class="row mt-5 fade-in-section">
@@ -316,23 +311,39 @@
                 <a n:href=":Default:Problems:" class="link-no-decor">
                     <div class="info-block p-3 mb-4">
                         <h4><i class="info-icon fas fa-book-open mb-2"></i>
-                            Podívejte se na úlohy aktuální série</h4>
-                        <p>Zadání vám přijde poštou nebo ho najdete přímo tady na webu. {* TODO: add link to problems *}
-                            Nemusíte vyřešit všechny úlohy, každý pokus se počítá.
+                            {switch $language->value}
+                                {case 'cs'}Podívejte se na úlohy aktuální série
+                                {default}Check Out the Current Series Problems
+                            {/switch}
+                        </h4>
+                        <p>
+                            {switch $language->value}
+                                {case 'cs'}Zadání vám přijde poštou nebo ho najdete přímo tady na webu.
+                                    Nemusíte vyřešit všechny úlohy, každý pokus se počítá.
+                                {default}You can find the directly here on the website.
+                                    You don't have to solve all the problems, every attempt counts.
+                            {/switch}
                         </p>
                     </div>
                 </a>
             </div>
 
             <!-- Block 2 -->
-            <div class="col-md-6">
+            <div class="col-md-6 mt-2">
                 <a href="https://db.fykos.cz" class="link-no-decor">
                     <div class="info-block p-3 mb-4 mt-md-5">
                         <h4><i class="info-icon fas fa-upload mb-2"></i>
-                            Nahrajte řešení do FKSDB</h4>
-                        <p>Můžete psát ručně a nascanovat nebo psát rovnou elektronicky. {* TODO: add link to the latex
-                            guide *}
-                            Akceptujeme pouze formát pdf.</p>
+                            {switch $language->value}
+                                {case 'cs'}Nahrajte řešení do FKSDB
+                                {default}Upload Solutions to FKSDB
+                            {/switch}
+                        </h4>
+                        <p>
+                            {switch $language->value}
+                                {case 'cs'}Můžete psát ručně a nascanovat nebo psát rovnou elektronicky. Akceptujeme pouze formát pdf.
+                                {default}You can write by hand and scan or write directly electronically. We only accept the pdf format.
+                            {/switch}
+                        </p>
                     </div>
                 </a>
             </div>
@@ -342,42 +353,68 @@
                 <a href="https://db.fykos.cz" class="link-no-decor">
                     <div class="info-block p-3 mb-4 mt-md-n5">
                         <h4><i class="info-icon fas fa-search mb-2"></i>
-                            Prohlédněte si svá opravená řešení</h4>
-                        <p>Naši organizátoři vám řešení opraví a pošlou zpátky a pomůžou vám se zlepšit. Zároveň
-                            publikujeme
-                            vzorová řešení.</p>
+                            {switch $language->value}
+                                {case 'cs'}Prohlédněte si svá opravená řešení
+                                {default}View Your Corrected Solutions
+                            {/switch}
+                        </h4>
+                        <p>
+                            {switch $language->value}
+                                {case 'cs'}Naši organizátoři vám řešení opraví a pošlou zpátky a pomůžou vám se zlepšit. Zároveň publikujeme vzorová řešení.
+                                {default}Our organizers will correct your solutions and send them back to you, helping you improve. We also publish sample solutions.
+                            {/switch}
+                        </p>
                     </div>
                 </a>
             </div>
 
             <!-- Block 4 -->
-            <div class="col-md-6">
-                <a n:href=":Events:Camps:" class="link-no-decor">
-                    <div class="info-block p-3 mb-4">
-                        <h4><i class="info-icon fas fa-bus mb-2"></i> Pojeďte s námi na soustředění</h4>
-                        <p>Pro nejlepší řešitele pořádáme dvakrát do roka soustředění
-                            plné fyziky, přednášek, experimentů,
-                            ale i her a další zábavy.</p>
-                    </div>
-                </a>
-            </div>
+            {if $lang == 'cs'}
+                <div class="col-md-6 mt-2">
+                    <a n:href=":Events:Camps:" class="link-no-decor">
+                        <div class="info-block p-3 mb-4">
+                            <h4><i class="info-icon fas fa-bus mb-2"></i>
+                                Pojeďte s námi na soustředění
+                            </h4>
+                            <p>
+                                Pro nejlepší řešitele pořádáme dvakrát do roka soustředění plné fyziky, přednášek, experimentů, ale i her a další zábavy.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            {/if}
         </div>
     </section>
 </div>
 
 <div class="panel color-light">
     <section class="inner-container">
-        <div class="subheader">Ochutnávka našich akcí</div>
-        <h1 class="section-header">Co s námi můžete zažít?</h1>
+        <div class="subheader">
+            {switch $language->value}
+                {case 'cs'}Ochutnávka našich akcí
+                {default}A Taste of Our Events
+            {/switch}
+        </div>
+        <h1 class="section-header">
+            {switch $language->value}
+                {case 'cs'}Co s námi můžete zažít?
+                {default}What Can You Experience With Us?
+            {/switch}
+        </h1>
 
         <div class="row fade-in-section video-row">
             <!-- First video -->
             <div class="col-lg-6">
                 <div class=" video-container left">
-                    <h2>Soutěže...</h2>
+                    <h2>
+                        {switch $language->value}
+                            {case 'cs'}Soutěže...
+                            {default}Competitions...
+                        {/switch}
+                    </h2>
                     <div class="embed-responsive embed-responsive-16by9">
-                        <video class="embed-responsive-item left" controls>
-                            <source src="{$basePath}/videos/FOF.mp4" type="video/mp4">
+                        <video class="embed-responsive-item left" controls poster="{$basePath}/images/fof-video-poster.jpg">
+                            <source src="{$basePath}/media/videos/FOF2023.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -386,10 +423,15 @@
             <!-- Second video -->
             <div class="col-lg-6">
                 <div class="video-container right pt-4 pt-lg-0">
-                    <h2>...a vědu!</h2>
+                    <h2>
+                        {switch $language->value}
+                            {case 'cs'}...a vědu!
+                            {default}...and science!
+                        {/switch}
+                    </h2>
                     <div class="embed-responsive embed-responsive-16by9">
-                        <video class="embed-responsive-item" controls>
-                            <source src="{$basePath}/videos/DSEF.mp4" type="video/mp4">
+                        <video class="embed-responsive-item" controls poster="{$basePath}/images/dsef-video-poster.png">
+                            <source src="{$basePath}/media/videos/DSEF.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -399,98 +441,94 @@
     </section>
 </div>
 
-{*
-<div class="panel color-light">
-    <section class="inner-container" id="testimonials">
-        <div class="subheader">Reference</div>
-        <h1 class="section-header">Co o nás říkají?</h1>
-        <div class="row fade-in-section">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                            aliquam, velit ut dapibus aliquet, mauris nunc aliquam nunc, nec lacinia nisl nunc id
-                            justo.</p>
-                        <p class="card-signature"><em>~ Jane Smith</em></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <p class="card-signature"><em>~ Jane Smith</em></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                            veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                        <p class="card-signature"><em>~ Mike Johnson</em></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-*}
 
-{* Countdown for the very top of the page *}
+{* Tooltips *}
 <script>
-    function countdownTimer(countDownDate, elementId) {
-        // Update the countdown every 1 second
-        var countdown = setInterval(function () {
-
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the countdown date
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the countdown in the element with the specified id
-            document.getElementById(elementId).innerHTML = ("0" + days).slice(-2) + ":" + ("0" + hours).slice(-2) + ":"
-                + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
-
-            // If the countdown is finished, display a message
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.getElementById(elementId).innerHTML = "EXPIRED";
-            }
-        }, 1000);
-    }
-
-    // Set the date we're counting down to
-    var countDownDatePrimary = new Date("January 3, 2024 00:00:00").getTime();
-    var countDownDateSecondary = new Date("February 16, 2024 10:00:00").getTime();
-
-    // Call the countdownTimer function with the specified date and element id
-    countdownTimer(countDownDatePrimary, "countdown-primary");
-    countdownTimer(countDownDateSecondary, "countdown-secondary");
+    // Initialize all tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
 </script>
 
 
-{* Timeline positioning *}
-<script n:syntax=off>
-    document.addEventListener("DOMContentLoaded", function () {
+{if $year_stage == "during"}
+    {* Countdown for the very top of the page *}
+    <script>
+        function countdownTimer(countDownDate, elementId) {
+            // Update the countdown every 1 second
+            var countdown = setInterval(function () {
 
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the countdown date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the countdown in the element with the specified id
+                document.getElementById(elementId).innerHTML = days + " d " + ("0" + hours).slice(-2) + " h "
+                    + ("0" + minutes).slice(-2) + " m " + ("0" + seconds).slice(-2) + " s";
+
+                // If the countdown is finished, display a message
+                if (distance < 0) {
+                    clearInterval(countdown);
+                    document.getElementById(elementId).innerHTML = "";
+                }
+            }, 1000);
+        }
+
+        // Set the date we're counting down to
+        {if $countdownEventsIndices['upcoming'][$lang] < $numOfEvents[$lang]}
+            var countDownDatePrimary = new Date({$events[$countdownEventsIndices['upcoming'][$lang]]['date']});
+        {/if}
+        {if !is_null($countdownEventsIndices['next'][$lang]) && $countdownEventsIndices['next'][$lang] < $numOfEvents[$lang]}
+            var countDownDateSecondary = new Date({$events[$countdownEventsIndices['next'][$lang]]['date']});
+        {/if}
+
+        // Call the countdownTimer function with the specified date and element id
+        countdownTimer(countDownDatePrimary, 'countdown-primary');
+        countdownTimer(countDownDateSecondary, 'countdown-secondary');
+    </script>
+{/if}
+
+{* Timeline data *}
+
+
+{* Output JSON data in a hidden div to be parsed by JS later *}
+<div id="events-data" style="display:none;" data-events='{json_encode($events)|noescape}'></div>
+
+<div class="dummy-timeline-begin d-none"><p>{$timelineBegin|noescape}</p></div>
+<div class="dummy-timeline-end d-none"><p>{$timelineEnd|noescape}</p></div>
+<div class="dummy-lang d-none"><p>{$lang|noescape}</p></div>
+
+{* Timeline positioning *}
+<script n:syntax="off">
+    document.addEventListener('DOMContentLoaded', function () {
 
         const logoSizePx = 30;
 
+        // Access the timeline begin and end dates from the existing elements
+        const timelineBeginElement = document.querySelector('.dummy-timeline-begin p');
+        const timelineEndElement = document.querySelector('.dummy-timeline-end p');
+
+        const timelineBegin = new Date(timelineBeginElement.innerText.trim());
+        const timelineEnd = new Date(timelineEndElement.innerText.trim());
+
+        function yearStageIsDuring() {
+            return new Date() >= timelineBegin && new Date() <= timelineEnd;
+        }
+
+
         // Init the timeline and set logos around it
         function calculatePositionPercentages(dates, timelineId) {
-            const startDate = new Date("2023-10-01");
-            const endDate = new Date("2024-05-30");
+            const startDate = timelineBegin;
+            const endDate = timelineEnd;
             const totalDays = (endDate - startDate);
             let positions = [];
 
@@ -502,18 +540,22 @@
                 positions.push(positionPercentage);
             }
 
-
             let logoSizePercentage;
-            // Phase 2: Adjust overlapping positions
+
             if (timelineId == "#timeline-vertical-container") {
                 const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
                 const containerWidth = document.querySelector('#timeline-vertical-container').offsetWidth;
-                let effectiveLogoSizePx = Math.min(logoSizePx, containerWidth * 0.3)
+                let effectiveLogoSizePx = Math.min(logoSizePx, containerWidth * 0.4)
 
                 logoSizePercentage = effectiveLogoSizePx / verticalTimelineHeight * 100;
             } else {
                 logoSizePercentage = logoSizePx / document.querySelector(timelineId).offsetWidth * 100;
             }
+
+            // move the logos to the left/top by half of their width so that they are centered correctly
+            positions = positions.map(position => position - logoSizePercentage / 2);
+
+            // Phase 2: Adjust overlapping positions
             for (let i = 0; i < positions.length - 1; i++) {
                 if (Math.abs(positions[i] - positions[i + 1]) < logoSizePercentage) {
                     const avgPosition = (positions[i] + positions[i + 1]) / 2;
@@ -529,11 +571,11 @@
             let logoElem;
 
             if (imageUrl) {
-                logoElem = document.createElement("img");
+                logoElem = document.createElement('img');
                 logoElem.src = imageUrl;
             } else if (classStr === 'today-block') {
                 // Create the outer div
-                logoElem = document.createElement("div");
+                logoElem = document.createElement('div');
 
                 // // Create the inner <i> element
                 // const iconElem = document.createElement("i");
@@ -542,23 +584,24 @@
                 // // Append the <i> element to the div
                 // logoElem.appendChild(iconElem);
             } else {
-                logoElem = document.createElement("div");
+                logoElem = document.createElement('div');
             }
 
             logoElem.classList.add(classStr);
-            logoElem.id = "logo-" + eventBoxId;
+            logoElem.id = 'logo-' + eventBoxId;
 
             // Update position
-            if (timelineId == "#timeline-vertical-container") {
+            if (timelineId == '#timeline-vertical-container') {
                 // Adjust for the fact that now we have the logos as a children of an element
                 // that also in its height contains texts
-                const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
-                const timelineContainerHeight = document.querySelector('#timeline-vertical-container').offsetHeight;
-                const topOffset = document.querySelector('.start-timeline-text').offsetHeight;
 
-                const newPositionPercentage = (verticalTimelineHeight * positionPercentage + topOffset) / timelineContainerHeight;
+                // const verticalTimelineHeight = document.querySelector('#timeline-vertical').offsetHeight;
+                // const timelineContainerHeight = document.querySelector('#timeline-vertical-container').offsetHeight;
+                // const topOffset = document.querySelector('.start-timeline-text').offsetHeight;
 
-                logoElem.style.top = `${newPositionPercentage}%`;
+                // const newPositionPercentage = (verticalTimelineHeight * positionPercentage + topOffset) / timelineContainerHeight;
+
+                logoElem.style.top = `${positionPercentage}%`;
             } else {
                 logoElem.style.left = `${positionPercentage}%`;
             }
@@ -568,7 +611,7 @@
             document.querySelector(timelineId).appendChild(logoElem);
         }
 
-        function positionTimelineElements(timelineId) {
+        function positionTimelineElements(timelineId, images_events, images_series, hide_event_in_en, lang) {
 
             // Remove existing dynamically added elements first
             const existingLogos = document.querySelectorAll('.logo-event, .logo-series, .today-block');
@@ -581,16 +624,20 @@
             let position_today = calculatePositionPercentages([today], timelineId)
 
             positions_events.forEach((position, index) => {
-                positionLogo(position, "logo-event", `event-${index + 1}`, timelineId, images_events[index]);
+                if (lang === 'en' && hide_event_in_en[index]) {
+                    return; // Skip hiding the logo
+                }
+                positionLogo(position, 'logo-event', `event-${index + 1}`, timelineId, images_events[index]);
             });
             positions_series.forEach((position, index) => {
-                positionLogo(position, "logo-series", `series-${index + 1}`, timelineId, images_series[index]);
+                positionLogo(position, 'logo-series', `series-${index + 1}`, timelineId, images_series[index]);
             });
-            position_today.forEach((position, index) => {
-                positionLogo(position, "today-block", "today-block", timelineId);
-            });
+            if (yearStageIsDuring()) {
+                position_today.forEach((position, index) => {
+                    positionLogo(position, 'today-block', 'today-block', timelineId);
+                });
+            }
         };
-
 
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -620,13 +667,77 @@
             });
         }
 
+        // Parse the dates of events for timeline from template data
+        let eventsJson = document.getElementById('events-data').getAttribute('data-events');
+        // console.log("Raw JSON:", eventsJson); // Log the raw JSON string
+        
+        let events;
+        try {
+            events = JSON.parse(eventsJson);
+            console.log("Parsed events:", events); // Log the parsed object
+        } catch (e) {
+            console.error("Error parsing JSON:", e);
+            console.log("Problematic JSON string:", eventsJson);
+            return; // Exit the function if JSON parsing fails
+        }
 
-        let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
-        let images_events = ["/images/logos/Naboj_pointer.svg", "/images/logos/DSEF_pointer.svg", "/images/logos/FOL_pointer.svg", "/images/logos/FOF_pointer.svg"];
+        let dates_events = [];
+        let dates_series = [];
+        
+        let images_events_v = [];
+        let images_events_h = [];
+        let images_series_v = [];
+        let images_series_h = [];
 
-        let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09", "2024-05-14"];
-        let images_series = ["/images/logos/1_pointer.svg", "/images/logos/2_pointer.svg", "/images/logos/3_pointer.svg",
-            "/images/logos/4_pointer.svg", "/images/logos/5_pointer.svg", "/images/logos/6_pointer.svg"];
+        let hide_event_in_en = [];
+        
+        let sortedEvents = Object.entries(events).sort((a, b) => new Date(a[1].date) - new Date(b[1].date));
+
+        console.log("Sorted events:", sortedEvents);
+
+        sortedEvents.forEach(([id, event]) => {
+            let key = event['key'];
+            if (event['show-on-timeline']) { 
+                let date = new Date(event.date);
+                let formattedDate = date.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+
+                if (event['is_series']) {
+                    dates_series.push(formattedDate);
+                } else {
+                    dates_events.push(formattedDate);
+                    hide_event_in_en.push(!event['show-in-en']);
+                }
+
+                if (event['is_series']) {
+                    images_series_v.push(`/images/logos/${key}_pointer.svg`);
+                    images_series_h.push(`/images/logos/${key}_pointer_h.svg`);
+                } else {
+                    images_events_v.push(`/images/logos/${key}_pointer.svg`);
+                    images_events_h.push(`/images/logos/${key}_pointer_h.svg`);
+                }
+            }
+        });
+
+        
+
+
+        // let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];
+        // let images_events_v = ["/images/logos/Naboj_pointer.svg", "/images/logos/DSEF_pointer.svg", "/images/logos/FOL_pointer.svg", "/images/logos/FOF_pointer.svg"];
+        // let images_events_h = ["/images/logos/Naboj_pointer_h.svg", "/images/logos/DSEF_pointer_h.svg", "/images/logos/FOL_pointer_h.svg", "/images/logos/FOF_pointer_h.svg"];
+
+        // let dates_series = ["2023-10-10", "2023-11-21", "2024-01-02", "2024-02-27", "2024-04-09", "2024-05-14"];
+        // let images_series_v = ["/images/logos/1_pointer.svg", "/images/logos/2_pointer.svg", "/images/logos/3_pointer.svg",
+            // "/images/logos/4_pointer.svg", "/images/logos/5_pointer.svg", "/images/logos/6_pointer.svg"];
+        // let images_series_h = ["/images/logos/1_pointer_h.svg", "/images/logos/2_pointer_h.svg", "/images/logos/3_pointer_h.svg",
+            // "/images/logos/4_pointer_h.svg", "/images/logos/5_pointer_h.svg", "/images/logos/6_pointer_h.svg"];
+
+        // let hide_event_in_en = [true, true, false, false];
+
+        // console.log("dates_events:", dates_events);
+        // console.log("dates_series:", dates_series);
+        // console.log("hide_event_in_en:", hide_event_in_en);
+
+        let lang = document.querySelector('.dummy-lang p').innerText.trim();
 
         let timelineId; // vertical or horizontal
         let mdBreakpoint = 768;
@@ -638,12 +749,16 @@
             // Update the current state
             if (isBelowThreshold) {
                 timelineId = "#timeline-vertical-container";
+                images_events = images_events_h;
+                images_series = images_series_h;
             } else {
                 timelineId = "#timeline-horizontal-container";
+                images_events = images_events_v;
+                images_series = images_series_v;
             };
 
             // Create logos and position them
-            positionTimelineElements(timelineId);
+            positionTimelineElements(timelineId, images_events, images_series, hide_event_in_en, lang);
 
             // Attach hover events to newly created logos
             attachLogoHoverEvents();
@@ -653,7 +768,7 @@
         updateTimelineIdAndPositionElements();
 
         // Re-execute when window resizes
-        window.addEventListener("resize", updateTimelineIdAndPositionElements);
+        window.addEventListener('resize', updateTimelineIdAndPositionElements);
 
         // Fading in of the sections
         document.querySelectorAll('.fade-in-section').forEach(section => {

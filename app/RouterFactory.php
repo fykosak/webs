@@ -16,7 +16,7 @@ class RouterFactory
     private static function havingDomainLanguage(array $languages, ?array $domainList): array
     {
         return [
-            // todo fix code duplication
+                // todo fix code duplication
             Route::FILTER_IN => function (array $params) use ($languages, $domainList) {
                 // From where to extract the language
                 if (isset($domainList) && count($domainList)) {
@@ -48,8 +48,9 @@ class RouterFactory
     private static function useTranslateFilter(?array $domainList, array $routerMapping): array
     {
         return [
-            // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
+                // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
             Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList): array {
+
                 // From where to extract the language
                 if (isset($domainList) && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
@@ -74,6 +75,15 @@ class RouterFactory
                     }
                 }
 
+                // Translate module
+                if (
+                    isset($params['module']) &&
+                    isset($routerMapping['modules'][$params['lang']]) &&
+                    isset($routerMapping['modules'][$params['lang']][$params['module']])
+                ) {
+                    $params['module'] = $routerMapping['modules'][$params['lang']][$params['module']];
+                }
+
                 // Translate presenter
                 if (
                     isset($routerMapping[$params['lang']]) &&
@@ -82,18 +92,43 @@ class RouterFactory
                     $params['presenter'] = $routerMapping[$params['lang']][$params['presenter']];
                 }
 
+                // Translate action
+                if (
+                    isset($routerMapping['actions'][$params['lang']]) &&
+                    isset($routerMapping['actions'][$params['lang']][$params['action']])
+                ) {
+                    $params['action'] = $routerMapping['actions'][$params['lang']][$params['action']];
+                }
+
                 return $params;
             },
 
-            // From params to URL
+                // From params to URL
             Route::FILTER_OUT => function (array $params) use ($routerMapping, $domainList): array {
                 // Always translate presenter based on language
 
+                // Translate module
+                if (isset($params['module']) && isset($routerMapping['modules'][$params['lang']])) {
+                    $key = array_search($params['module'], $routerMapping['modules'][$params['lang']]);
+                    if ($key !== false) {
+                        $params['module'] = $key;
+                    }
+                }
+
+                // Translate presenter
                 if (isset($routerMapping[$params['lang']])) {
                     $key = array_search($params['presenter'], $routerMapping[$params['lang']]);
                     if ($key !== false) {
                         // Return the FIRST occurrence
                         $params['presenter'] = $key;
+                    }
+                }
+
+                // Translate action
+                if (isset($routerMapping['actions'][$params['lang']])) {
+                    $key = array_search($params['action'], $routerMapping['actions'][$params['lang']]);
+                    if ($key !== false) {
+                        $params['action'] = $key;
                     }
                 }
 
@@ -166,23 +201,18 @@ class RouterFactory
     {
         $router = new RouteList();
 
+        $router->withModule('Default')
+            ->addRoute('//<domain>/<presenter>[/<action>]', [
+                'presenter' => 'Default',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
         $router->withModule('Archive')
             ->addRoute('//<domain>/<eventYear ([0-9]{4})(-.*)?>/<eventMonth>/[<presenter>/[<action>]]', [
                 'presenter' => 'Default',
                 'action' => 'default',
                 null => self::useTranslateFilter($domainList, $routerMapping['archive']),
-            ]);
-
-        $router->withModule('Default')
-            ->addRoute('//<domain>/(international|erasmus)', [
-                'presenter' => 'Erasmus',
-                'lang' => 'cs',
-                null => self::havingDomainLanguage(['cs'], $domainList),
-            ], $router::ONE_WAY)
-            ->addRoute('//<domain>/<presenter>[/<action>]', [
-                'presenter' => 'Default',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
 
         return $router;
@@ -192,25 +222,46 @@ class RouterFactory
     {
         $router = new RouteList();
 
-        $router->withModule('Default')
-        ->addRoute('//<domain>/problems/<year ([0-9]{2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
-            'presenter' => 'Problems',
-            'action' => 'default',
-            null => self::useTranslateFilter($domainList, $routerMapping['default']),
-        ]);
-
-        $router->withModule('Default')
-        ->addRoute('//<domain>/results/<year ([0-9]{2})(-.*)?>', [
-            'presenter' => 'Results',
-            'action' => 'default',
-            null => self::useTranslateFilter($domainList, $routerMapping['default']),
-        ]);
-
-        $router->addRoute('//<domain>/<module events>/[<presenter>[/<action>]]', [
-                'presenter' => 'Default',
+        $router
+            ->withModule('Default')
+            ->addRoute('//<domain>/<presenter results|poradi>/<year ([0-9]{1,2})>', [
+                'presenter' => 'Results',
                 'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['events']),
+                null => self::useTranslateFilter($domainList, $routerMapping['default'])
             ]);
+
+        $router->withModule('Default')
+            ->addRoute('//<domain>/<presenter problems|zadani>/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
+                'presenter' => 'Problems',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
+        $router->withModule('Events')
+            ->addRoute('//<domain>/akce/soustredeni/<year>-<season>', [
+                'presenter' => 'Camps',
+                'action' => 'detail',
+                'season' => [
+                    Route::FILTER_IN => function ($season) {
+                        return $season === 'jaro' ? 4 : 5;
+                    },
+                    Route::FILTER_OUT => function ($id) {
+                        return $id == 4 ? 'jaro' : 'podzim';
+                    }
+                ]
+            ]);
+
+        $router->withModule('Events')
+        ->addRoute('//<domain>/akce/tsaf/<year>-<month>', [
+            'presenter' => 'Tsaf',
+            'action' => 'detail'
+        ]);
+
+        $router->addRoute('//<domain>/<module events|akce>/[<presenter>[/<action>]]', [
+            'presenter' => 'Default',
+            'action' => 'default',
+            null => self::useTranslateFilter($domainList, $routerMapping['events']),
+        ]);
 
         $router->withModule('Default')
             ->addRoute('//<domain>/<presenter>[/<action>]', [
@@ -224,6 +275,22 @@ class RouterFactory
 
     public static function createVyfukRouter(?array $domainList, array $routerMapping): Router
     {
-        return self::createFykosRouter($domainList, $routerMapping);
+        $router = new RouteList();
+
+        $router->withModule('Default')
+            ->addRoute('//<domain>/<presenter zadani>/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
+                'presenter' => 'Problems',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
+        $router->withModule('Default')
+            ->addRoute('//<domain>/<presenter>[/<action>]', [
+                'presenter' => 'Default',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
+        return $router;
     }
 }

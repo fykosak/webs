@@ -4,23 +4,24 @@ declare(strict_types=1);
 
 namespace App\Components\TeamResults;
 
-use App\Models\NetteDownloader\ORM\Models\ModelTeam;
-use App\Models\NetteDownloader\ORM\Services\DummyService;
+use App\Models\Downloader\DummyService;
+use App\Models\Downloader\TeamModel;
+use App\Modules\Core\Language;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\Application\UI\Form;
 use Nette\DI\Container;
 
-class TeamResultsComponent extends BaseComponent
+class TeamResultsComponent extends DIComponent
 {
-    protected DummyService $serviceTeam;
-    protected int $eventId;
+    protected readonly DummyService $serviceTeam;
     protected ?array $filterData = null;
 
-    public function __construct(Container $container, int $eventId)
-    {
+    public function __construct(
+        Container $container,
+        protected readonly int $eventId
+    ) {
         parent::__construct($container);
-        $this->eventId = $eventId;
     }
 
     public function injectServiceTeam(DummyService $serviceTeam): void
@@ -42,15 +43,15 @@ class TeamResultsComponent extends BaseComponent
     }
 
     /**
-     * @return ModelTeam[][]
+     * @return TeamModel[][]
      * @throws \Throwable
      */
     protected function loadTeams(): array
     {
 
         $teams = [];
-        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), ModelTeam::class) as $team) {
-            if ($team->status != 'participated' && $team->status != 'disqualified') {
+        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), TeamModel::class) as $team) {
+            if ($team->state != 'participated' && $team->state != 'disqualified') {
                 continue;
             }
             if (is_null($this->filterData) || $this->passesFilters($team)) {
@@ -74,23 +75,23 @@ class TeamResultsComponent extends BaseComponent
         return $teams;
     }
 
-    protected function passesFilters(ModelTeam $team): bool
+    protected function passesFilters(TeamModel $team): bool
     {
         return $this->passesOneMemberFilter($team)
             && $this->passesCountryFilter($team);
     }
 
-    protected function passesOneMemberFilter(ModelTeam $team): bool
+    protected function passesOneMemberFilter(TeamModel $team): bool
     {
         return !$this->filterData['OneMemberTeams'] || count($team->members) == 1;
     }
 
-    protected function passesCountryFilter(ModelTeam $team): bool
+    protected function passesCountryFilter(TeamModel $team): bool
     {
         $ISOsForTeam = [];
 
         foreach ($team->members as $member) {
-            $iso = $member->school['coutryISO'] ?? 'zz';
+            $iso = $member->school['countryISO'] ?? 'zz';
             if (!in_array($iso, $ISOsForTeam)) {
                 $ISOsForTeam[] = $iso;
             }
@@ -127,8 +128,8 @@ class TeamResultsComponent extends BaseComponent
 
         $countryISOs = [];
         $categories = [];
-        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), ModelTeam::class) as $team) {
-            if ($team->status !== 'participated' && $team->status !== 'disqualified') {
+        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), TeamModel::class) as $team) {
+            if ($team->state !== 'participated' && $team->state !== 'disqualified') {
                 continue;
             }
             if ($team->members) {
@@ -148,7 +149,7 @@ class TeamResultsComponent extends BaseComponent
         // one member teams
         $form->addCheckbox(
             'OneMemberTeams',
-            $this->translator->lang === 'cs' ? 'Pouze jednočlenné týmy' : 'One member teams only'
+            $this->translator->lang === Language::cs ? 'Pouze jednočlenné týmy' : 'One member teams only'
         );
 
         // countries
@@ -163,7 +164,7 @@ class TeamResultsComponent extends BaseComponent
             $countryISOContainer->addCheckbox(
                 $countryISO,
                 sprintf(
-                    $this->translator->lang === 'cs' ? '%s:%s účastníků' : '%s:%s participants',
+                    $this->translator->lang === Language::cs ? '%s:%s účastníků' : '%s:%s participants',
                     $countryISO,
                     $count
                 )

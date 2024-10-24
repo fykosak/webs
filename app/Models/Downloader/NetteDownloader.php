@@ -4,47 +4,36 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader;
 
+use Exception;
 use Fykosak\FKSDBDownloaderCore\Downloader;
+use Fykosak\FKSDBDownloaderCore\DownloaderException;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\SmartObject;
+use Nette\Utils\DateTime;
 
 abstract class NetteDownloader
 {
     use SmartObject;
 
     private Downloader $downloader;
-    private string $username;
-    private string $password;
-    private string $expiration;
-    private string $jsonApiUrl;
     private Cache $cache;
 
     public function __construct(
         string $jsonApiUrl,
         string $username,
+        #[\SensitiveParameter]
         string $password,
-        string $expiration,
+        private readonly string $expiration,
         Storage $storage
     ) {
         $this->cache = new Cache($storage, self::class);
-        $this->username = $username;
-        $this->password = $password;
-        $this->jsonApiUrl = $jsonApiUrl;
-        $this->expiration = $expiration;
-    }
-
-    public function getDownloader(): Downloader
-    {
-        if (!isset($this->downloader)) {
-            $this->downloader = new Downloader(
-                $this->jsonApiUrl,
-                $this->username,
-                $this->password,
-            );
-        }
-        return $this->downloader;
+        $this->downloader = new Downloader(
+            $jsonApiUrl,
+            $username,
+            $password,
+        );
     }
 
     /**
@@ -52,12 +41,34 @@ abstract class NetteDownloader
      */
     public function download(Request $request, ?string $explicitExpiration = null): array
     {
-        return $this->cache->load(
-            $request->getCacheKey() . '-json',
-            function (&$dependencies) use ($request, $explicitExpiration): array {
-                $dependencies[Cache::EXPIRE] = $explicitExpiration ?? $this->expiration;
-                return $this->getDownloader()->download($request);
+        $data = $this->cache->load($request->getCacheKey() . '-json');
+
+        if (!$data || $data['expire'] < time()) {
+            try {
+                $newData = $this->downloader->download($request);
+            } catch (DownloaderException) {
+                $newData = null;
             }
-        );
+
+            if ($newData) {
+                // if new data is successfully downloaded
+                $this->cache->save($request->getCacheKey() . '-json', [
+                    'expire' => DateTime::from($explicitExpiration ?? $this->expiration)->format('U'),
+                    'data' => $newData
+                ]);
+                $data = ['data' => $newData];
+            } elseif ($data) {
+                // if we have at least old data
+                $this->cache->save($request->getCacheKey() . '-json', [
+                    'expire' => DateTime::from($explicitExpiration ?? $this->expiration)->format('U'),
+                    'data' => $data['data']
+                ]);
+            } else {
+                // if no data is available
+                throw new DownloaderException("Downloader failed to download data");
+            }
+        }
+
+        return $data['data'];
     }
 }

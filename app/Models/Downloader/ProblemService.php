@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader;
 
-use App\Models\NetteDownloader\ORM\Services\AbstractJSONService;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 
@@ -12,13 +11,20 @@ final class ProblemService extends AbstractJSONService
 {
     private string $problemManagerURL;
 
-    public function __construct(string $expiration, string $problemManagerURL, Storage $storage, ProblemManagerDownloader $downloader)
-    {
+    public function __construct(
+        string $expiration,
+        string $problemManagerURL,
+        Storage $storage,
+        ProblemManagerDownloader $downloader
+    ) {
         $this->downloader = $downloader;
         $this->problemManagerURL = $problemManagerURL;
         parent::__construct($expiration, $storage);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getProblem(
         string $contest,
         int $year,
@@ -35,6 +41,9 @@ final class ProblemService extends AbstractJSONService
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getSeries(
         string $contest,
         int $year,
@@ -50,9 +59,11 @@ final class ProblemService extends AbstractJSONService
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getLatestSeries(string $contest, int $year): int
     {
-
         return $this->cache->load(
             sprintf("lastSeries_%s", $contest),
             function (&$dependencies) use ($contest, $year) {
@@ -60,7 +71,21 @@ final class ProblemService extends AbstractJSONService
                 $json = $this->downloader->download(new SeriesRequest($contest, $year));
 
                 $series = end($json);
-                return $series["series"];
+                return $series['series'];
+            }
+        );
+    }
+
+    /**
+     * @throws \Throwable
+     */
+    public function getYearJson(string $contest, int $year): array
+    {
+        return $this->cache->load(
+            sprintf("yearJson_%s_%d", $contest, $year),
+            function (&$dependencies) use ($contest, $year) {
+                $dependencies[Cache::EXPIRE] = $this->expiration;
+                return $this->downloader->download(new SeriesRequest($contest, $year));
             }
         );
     }
@@ -91,5 +116,11 @@ final class ProblemService extends AbstractJSONService
     {
         $path = 'serial' . $series->series . '.' . $lang . '.pdf';
         return $this->getMedia($contest, $series->year, $path);
+    }
+
+    public function getYearbook(string $contest, int $year, string $lang): ?string
+    {
+        $path = 'yearbook.pdf';
+        return $this->getMedia($contest, $year, $path);
     }
 }

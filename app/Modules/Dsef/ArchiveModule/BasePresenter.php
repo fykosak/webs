@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Dsef\ArchiveModule;
 
 use App\Components\PersonSchedule\AllScheduleListComponent;
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Services\ServiceEventList;
+use App\Models\Downloader\EventModel;
 use App\Modules\Dsef\DefaultModule\CurrentPresenter;
 use App\Modules\Dsef\DefaultModule\RegistrationPresenter;
 use Fykosak\Utils\UI\Navigation\NavItem;
@@ -23,25 +22,19 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
     /** @persistent */
     public ?string $eventMonth = null;
 
-    protected ModelEvent $event;
-    protected ServiceEventList $serviceEvent;
-
-    public function injectServiceEvent(ServiceEventList $serviceEvent): void
-    {
-        $this->serviceEvent = $serviceEvent;
-    }
+    protected EventModel $event;
 
     /**
      * @throws BadRequestException
      * @throws \Throwable
      */
-    protected function getEvent(): ModelEvent
+    protected function getEvent(): EventModel
     {
         if (!isset($this->event)) {
             if (isset($this->eventYear) && isset($this->eventMonth)) {
                 $year = $this->eventYear;
                 $month = $this->eventMonth;
-                $events = $this->serviceEvent->getEventsByYear(
+                $events = $this->eventService->getEventsByYear(
                     self::EVENT_IDS,
                     intval($year)
                 );
@@ -74,7 +67,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
         $key = parent::getEventKey($this->getEvent());
 
         return [
-            str_replace('.latte', '.' . $key . '.' . $this->lang . '.latte', end($files)),
+            str_replace('.latte', '.' . $key . '.' . $this->language->value . '.latte', end($files)),
             str_replace('.latte', '.' . $key . '.latte', end($files)),
             ...$files,
         ];
@@ -97,25 +90,29 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
         return new AllScheduleListComponent($this->event->eventId, $this->getContext());
     }
 
+    /**
+     * @return NavItem[]
+     * @throws \Throwable
+     */
     protected function getNavItems(): array
     {
         $items = [];
-        if (RegistrationPresenter::isVisible($this->gamePhaseCalculator)) {
+        if (RegistrationPresenter::isVisible($this->getNewestEvent())) {
             $items[] = new NavItem(
-                new PageTitle(null, 'Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle('Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Registration:',
             );
         }
 
-        if (CurrentPresenter::isVisible($this->gamePhaseCalculator)) {
+        if (CurrentPresenter::isVisible($this->getNewestEvent())) {
             $items[] = new NavItem(
-                new PageTitle(null, 'Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle('Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Current:',
             );
         }
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Archiv', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle('Archiv', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Archive:default',
         );
         return $items;

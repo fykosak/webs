@@ -7,7 +7,7 @@ namespace App\Components\ApiResults;
 use App\Models\Downloader\FKSDBDownloader;
 use App\Models\Game\Connector;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\Application\AbortException;
 use Nette\Application\Responses\JsonResponse;
 use Nette\DI\Container;
@@ -15,38 +15,37 @@ use Nette\Utils\Json;
 use Nette\Utils\JsonException;
 use Throwable;
 
-class ApiResultsComponent extends BaseComponent
+class ApiResultsComponent extends DIComponent
 {
-    private Connector $gameServerApiConnector;
-    private FKSDBDownloader $downloader;
-    private int $eventId;
+    private readonly Connector $gameServerApiConnector;
+    private readonly FKSDBDownloader $downloader;
 
-    public function __construct(Container $container, int $eventId)
-    {
+    public function __construct(
+        Container $container,
+        private readonly int $eventId
+    ) {
         parent::__construct($container);
-        $this->eventId = $eventId;
     }
 
-    public function injectGameServerApiConnector(Connector $connector): void
+    public function inject(Connector $connector, FKSDBDownloader $downloader): void
     {
+        $this->downloader = $downloader;
         $this->gameServerApiConnector = $connector;
     }
 
-    public function injectServiceTeam(FKSDBDownloader $downloader): void
-    {
-        $this->downloader = $downloader;
-    }
-
+    /**
+     * @throws Throwable
+     */
     private function serialiseTeams(): array
     {
         $teams = [];
         foreach ($this->downloader->download(new TeamsRequest($this->eventId)) as $team) {
-            if ($team['status'] === 'cancelled') {
+            if ($team['state'] === 'cancelled') {
                 continue;
             }
 
             $members = [];
-            foreach ($team->members as $member) {
+            foreach ($team['members'] as $member) {
                 $members[] = [
                     'name' => $member['name'],
                     'schoolName' => $member['school']['name'] ?? '',
@@ -70,9 +69,6 @@ class ApiResultsComponent extends BaseComponent
     public function serialiseResults(): array
     {
         $data = $this->gameServerApiConnector->getResults();
-        if (strtotime($data['times']['gameEnd']) <= time()) {
-            $data['times']['visible'] = true;
-        }
         if (!$data['times']['visible']) {
             // results are hidden
             $data['submits'] = null;
@@ -89,6 +85,7 @@ class ApiResultsComponent extends BaseComponent
 
     /**
      * @throws JsonException
+     * @throws Throwable
      */
     public function renderTeamsData(): void
     {

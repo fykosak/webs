@@ -1,14 +1,14 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 {block subtitle}
 
 
-{*    {switch $lang}*}
+{*    {switch $language->value}*}
 {*        {case cs}Historie Fyziklání*}
 {*        {default}History and Previous Fyziklani*}
 {*    {/switch}*}
 {/block}
 {*{block title}*}
-{*    {switch $lang}*}
+{*    {switch $language->value}*}
 {*        {case cs}Jak soutěž vznikla?*}
 {*        {default}What was the origin of the competition?*}
 {*    {/switch}*}
@@ -18,19 +18,19 @@
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
-        <h1>{switch $lang}
+        <h1>{switch $language->value}
             {case cs}Historie Fyziklání
             {default}History and Previous Fyziklani
             {/switch}
         </h1>
       	<a class="btn btn-primary my-2" n:href="Archive:default">
         <div>
-            {switch $lang}
+            {switch $language->value}
                 {case cs}Minulé ročníky
                 {default}Previous years of Fyziklani
             {/switch}
         </div></a>
-    {switch $lang}
+    {switch $language->value}
     {case cs}
         <p>
             Fyziklání se poprvé konalo v roce 2006. Vzniklo jako česká obdoba soutěže Fyzikální náboj, která je organizována na Slovensku. Od počátku je Fyziklání zcela organizováno organizátory FYKOSu, převážně studenty MFF UK v Praze. Fakulta zároveň od začátku oficiálně zastřešuje celou soutěž.

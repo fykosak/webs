@@ -4,31 +4,29 @@ declare(strict_types=1);
 
 namespace App\Components\PersonSchedule;
 
+use App\Models\Downloader\EventService;
 use App\Models\Downloader\FKSDBDownloader;
+use App\Models\Downloader\PersonScheduleModel;
 use App\Models\Downloader\ScheduleRequest;
-use App\Models\NetteDownloader\ORM\Models\ModelPersonSchedule;
-use App\Models\NetteDownloader\ORM\Services\ServiceEventDetail;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
-final class AllScheduleListComponent extends BaseComponent
+final class AllScheduleListComponent extends DIComponent
 {
-    private ServiceEventDetail $serviceEventDetail;
-    private int $eventId;
-    private FKSDBDownloader $downloader;
+    private readonly EventService $eventService;
+    private readonly FKSDBDownloader $downloader;
 
-    /** @var ModelPersonSchedule[][] | null */
+    /** @var PersonScheduleModel[][] | null */
     private ?array $groupedPersonSchedule = null;
 
-    public function __construct(int $eventId, Container $container)
+    public function __construct(private readonly int $eventId, Container $container)
     {
-        $this->eventId = $eventId;
         parent::__construct($container);
     }
 
-    public function injectPrimary(ServiceEventDetail $serviceEventDetail, FKSDBDownloader $downloader): void
+    public function injectPrimary(EventService $eventService, FKSDBDownloader $downloader): void
     {
-        $this->serviceEventDetail = $serviceEventDetail;
+        $this->eventService = $eventService;
         $this->downloader = $downloader;
     }
 
@@ -55,21 +53,21 @@ final class AllScheduleListComponent extends BaseComponent
     {
         $data = $this->downloader->download(new ScheduleRequest($this->eventId, $groupType ? [$groupType] : []));
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'layout.latte', [
-            'lang' => $this->translator->lang,
             'personGroups' => $this->getGroupedPersonSchedule(),
+            'lang' => $this->translator->lang,
             'scheduleGroups' => $data,
         ]);
     }
 
     /**
-     * @return ModelPersonSchedule[][]
+     * @return PersonScheduleModel[][]
      * @throws \Throwable
      */
     private function getGroupedPersonSchedule(): array
     {
         if (is_null($this->groupedPersonSchedule)) {
             $groups = [];
-            $personSchedule = $this->serviceEventDetail->getPersonSchedule($this->eventId);
+            $personSchedule = $this->eventService->getPersonSchedule($this->eventId);
             foreach ($personSchedule as $item) {
                 $groups[$item->scheduleItemId] = $groups[$item->scheduleItemId] ?? [];
                 $groups[$item->scheduleItemId][] = $item;

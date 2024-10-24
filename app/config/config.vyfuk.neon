@@ -6,11 +6,5 @@ services:
     - App\RouterFactory::createVyfukRouter(%domains%, %router-mapping%)
 
 includes:
+    - vyfuk-router-mapping.neon
     - config.neon
-
-parameters:
-    router-mapping:
-        default:
-            cs:
-        events:
-            cs:

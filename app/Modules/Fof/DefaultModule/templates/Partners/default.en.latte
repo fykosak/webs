@@ -1,3 +1,4 @@
+{varType App\Models\Downloader\EventModel $newestEvent}
 {block title}Support Fyziklani{/block}
 
 {block content}
@@ -7,7 +8,10 @@
                 {*          <div class="subheader">O soutěži</div>*}
                 <h1>Who are we?</h1>
                 <p>
-                    FYKOS is a group of university students working at the Faculty of Mathematics and Physics of Charles University. Every year we organize several educational and popularization events to raise awareness and attractiveness of physics among students and the general public. The second pillar of FYKOS is the organization of physics competitions, primarily for high school students. One of our biggest and most prestigious competitions is Fyziklani, {$gamePhaseCalculator->getFKSDBEvent()->eventYear}th year of which we are organizing this year on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'j. n. Y'}.
+                    FYKOS is a group of university students working at the Faculty of Mathematics and Physics of Charles University.
+                    Every year we organize several educational and popularization events to raise awareness and attractiveness of physics among students and the general public.
+                    The second pillar of FYKOS is the organization of physics competitions, primarily for high school students.
+                    One of our biggest and most prestigious competitions is Fyziklani, {$newestEvent->eventYear}th year of which we are organizing this year on {$newestEvent->begin|date:'j. n. Y'}.
                 </p>
             </section>
         </div>
@@ -16,7 +20,8 @@
             <section class="inner-container">
                 <h1>Why to support us?</h1>
                 <p>
-                    The main goal of the cooperation is to spread awareness about Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} and thus generally about physics and natural sciences among young people and the general public. At the same time, we want to offer high school students the opportunity to compete in strong international competition and improve in physics. Participation in the competition also helps to develop students' potential and refine physical thinking, which is now extremely desirable not only in the field of physics. Therefore, the promotion of Fyziklani {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'Y'} indirectly contributes to the growth of youth education and indirectly also to the promotion of higher education.
+                    The main goal of the cooperation is to spread awareness about Fyziklani {$newestEvent->begin|date:'Y'} and thus generally about physics and natural sciences among young people and the general public.
+                    At the same time, we want to offer high school students the opportunity to compete in strong international competition and improve in physics. Participation in the competition also helps to develop students' potential and refine physical thinking, which is now extremely desirable not only in the field of physics. Therefore, the promotion of Fyziklani {$newestEvent->begin|date:'Y'} indirectly contributes to the growth of youth education and indirectly also to the promotion of higher education.
                 </p>
                 <p>
                     On the other hand, FYKOS media partners will get the opportunity to promote themselves on our websites, social networks, through promotional materials and leaflets, or directly at FYKOS events in the form of an advertising banner.

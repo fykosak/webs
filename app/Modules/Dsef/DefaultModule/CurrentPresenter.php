@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Dsef\DefaultModule;
 
-use App\Models\GamePhaseCalculator;
+use App\Models\Downloader\EventModel;
 use Nette\Application\BadRequestException;
 
 class CurrentPresenter extends BasePresenter
@@ -12,9 +12,9 @@ class CurrentPresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    public static function isVisible(GamePhaseCalculator $gamePhaseCalculator): bool
+    public static function isVisible(EventModel $event): bool
     {
-        return !$gamePhaseCalculator->isLongAfterTheEvent();
+        return !$event->isLongAfterTheEvent();
     }
 
     /**
@@ -22,7 +22,7 @@ class CurrentPresenter extends BasePresenter
      */
     public function actionDefault(): void
     {
-        if (!self::isVisible($this->gamePhaseCalculator)) {
+        if (!self::isVisible($this->getNewestEvent())) {
             $this->error();
         }
     }

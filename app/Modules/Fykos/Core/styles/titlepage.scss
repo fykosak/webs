@@ -1,7 +1,6 @@
 /// Generic
 
 
-
 .fade-in-section {
   opacity: 0;
   transform: translateY(50px);
@@ -20,11 +19,6 @@
   color: $text-on-primary;
 
   .header-text-container {
-    z-index: 2;
-    /* Higher z-index to ensure text is above the image */
-    position: relative;
-    /* Needed for z-index to take effect */
-
 
     h1.header-text {
       font-size: 8rem;
@@ -38,8 +32,20 @@
       // margin-bottom: 0;
     }
 
+    @media screen and (max-width: 992px) {
+      h1.header-text {
+        font-size: 6rem;
+      }
+
+      h2.header-text {
+        font-size: 2rem;
+      }
+    }
 
     @media screen and (max-width: 768px) {
+
+      margin-top: -3rem;
+
       h1.header-text {
         font-size: 5rem;
       }
@@ -47,63 +53,48 @@
       h2.header-text {
         font-size: 2rem;
       }
-
     }
+  }
+
+  .header-image-container {
+    position: relative;
+
+  }
+
+  .header-image {
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-image-dates {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
   }
 
   .header-image-container {
     .minor-event-heading {
       font-size: .9rem;
-      font-weight: 400;
+      font-weight: 500;
       color: rgba(195, 192, 192, 0.5) !important;
     }
 
     .next-event-heading {
       font-size: 1.3rem;
-      font-weight: 400;
+      font-weight: 500;
       color: white !important;
-
-    }
-
-    .header-image-dates {
-      z-index: 2;
     }
 
     .header-image {
-      position: absolute;
-      z-index: 0;
       opacity: .2;
       max-height: 20rem;
 
-      @media (max-width: 768px) {
-        display: none;
-      }
-    }
-
-    // .center-content-horizontally-md {
-    //   @media screen and (min-width: 768px) {
-    //     padding-left: 5%;
-    //   }
-    // }
-
-    .content-down {
-      display: flex;
-      align-items: flex-end;
-      /* Align content at the bottom */
-      height: 100%;
-      /* Set the height of the container to 100% */
     }
   }
 
-}
-
-
-.header-image,
-.header-container {
-  // this ensures the event blocks always have the same height
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 
 
@@ -111,19 +102,13 @@
 
 .news-card {
   border-left: 5px solid $primary-color;
+
   a {
-      margin-bottom: 10px;
+    margin-bottom: 10px;
   }
 
   .card-title {
     margin-right: .7rem;
-  }
-}
-.fof-news-color {
-  border-left: 5px solid $fof-color;
-  .btn-primary {
-    background-color: $fof-color;
-    border-color: $fof-color;
   }
 }
 
@@ -145,42 +130,46 @@
 }
 
 .video-container {
-  padding: 0;
   width: 95%;
 
-  .embed-responsive-16by9 {
+  .embed-responsive {
     position: relative;
-    margin: 0;
-    /* Centering the video embed */
-  }
-
-  .embed-responsive-16by9::before {
-    content: "";
-    display: block;
-  }
-
-
-
-  .embed-responsive-item {
-    display: block;
     width: 100%;
+    padding: 0;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 56.25%; // 16:9 Aspect Ratio
+    }
+
+    .embed-responsive-item,
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      object-fit: cover;
+    }
   }
 
+  &.right {
+
+    margin-left: auto;
+
+    h2 {
+      text-align: right;
+    }
+
+    @media screen and (max-width: 992px) {
+      margin-left: 0;
+    }
+  }
 }
 
-.video-container.right {
-
-  margin-left: auto;
-
-  h2 {
-    text-align: right;
-  }
-
-  @media screen and (max-width: 992px) {
-    margin-left: 0;
-
-  }
-}
 
 /// events section
 
@@ -209,32 +198,93 @@
     margin-bottom: .3rem;
   }
 
-
   .event-header {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    /* Provides space between wrapped elements */
   }
 
+  .event-title {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
 
   h3 {
     font-weight: bolder;
     font-size: 1.2rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
 
-    @media screen and (max-width: 768px) {
-      font-size: 1rem;
+  @media screen and (max-width: 768px) {
+    .inline-logo {
+      height: 1.5rem;
     }
   }
 
   .event-date {
     font-size: 1rem;
     font-weight: bold;
-    margin-right: 5px;
+    margin-left: auto;
+    /* Pushes the date to the right when there's space */
+    white-space: nowrap;
+    /* Prevents the date from breaking into multiple lines */
   }
 
   .inline-logo {
     height: 1.8rem;
-    margin-right: 4px;
+    margin-right: 0.2px;
+    margin-bottom: 0.3rem;
   }
+
+  /* Add a media query for smaller screens if needed */
+  @media screen and (max-width: 480px) {
+    .event-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    .event-title {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .event-date {
+      margin-left: 0;
+      /* Resets the auto margin on very small screens */
+    }
+  }
+
+  // .event-header {
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
+
+
+  // h3 {
+  //   font-weight: bolder;
+  //   font-size: 1.2rem;
+
+  //   @media screen and (max-width: 768px) {
+  //     font-size: 1rem;
+  //   }
+  // }
+
+  // .event-date {
+  //   font-size: 1rem;
+  //   font-weight: bold;
+  //   margin-right: 5px;
+  // }
+
+  // .inline-logo {
+  //   height: 1.8rem;
+  //   margin-right: 4px;
+  // }
 
 }
 
@@ -315,9 +365,11 @@ $timeline-horizontal-half-border-width: 4px;
 $timeline-logo-width: 30px;
 $timeline-logo-height: 40px;
 $buffer-logo-timeline: 3px;
-$top-offset: $timeline-horizontal-half-border-width + $timeline-logo-height + $buffer-logo-timeline;
+// $top-offset: $timeline-horizontal-half-border-width + $timeline-logo-height + $buffer-logo-timeline;
 
 $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-border-width);
+
+$top-offset: $today-block-height / 2;
 
 #timeline-horizontal-container {
 
@@ -366,12 +418,18 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
   position: absolute;
   z-index: 5;
   /* To ensure it's above the line and other elements */
-  max-width: 30% !important;
+  max-width: 50% !important;
 }
 
 .logo-event,
 .logo-series {
-  width: $timeline-logo-width;
+  @media screen and (max-width: 992px) {
+    height: $timeline-logo-width;
+  }
+
+  @media screen and (min-width: 992px) {
+    width: $timeline-logo-width;
+  }
 }
 
 
@@ -388,12 +446,12 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
 // Larger screen positioning
 @media screen and (min-width: 768px) {
   .logo-event {
-    top: calc(50% - $top-offset);
+    bottom: calc(50% + $top-offset);
     /* 50% aligns with the middle line; minus 10px moves it up */
   }
 
   .logo-series {
-    bottom: calc(50% - $top-offset);
+    top: calc(50% + $top-offset);
     /* 50% aligns with the middle line; plus 10px moves it down */
   }
 
@@ -407,12 +465,12 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
 @media screen and (max-width: 768px) {
 
   .logo-event {
-    right: calc(50% - $top-offset);
+    left: calc(50% + $top-offset);
     /* 50% aligns with the middle line; minus 10px moves it up */
   }
 
   .logo-series {
-    left: calc(50% - $top-offset);
+    right: calc(50% + $top-offset);
     /* 50% aligns with the middle line; plus 10px moves it down */
   }
 
@@ -422,11 +480,13 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
   }
 }
 
+
 .order-6 {
   order: 6 !important;
 }
 
-#timeline-vertical-container {
+
+.vertical-timeline-and-text-box {
 
   .start-timeline-text,
   .end-timeline-text {
@@ -434,10 +494,20 @@ $today-block-height: 2 * ($buffer-logo-timeline + $timeline-horizontal-half-bord
   }
 }
 
+#timeline-vertical-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
 #timeline-vertical {
   border-right: $timeline-horizontal-half-border-width solid $timeline-color;
   border-left: $timeline-horizontal-half-border-width solid $timeline-color;
   z-index: 0;
+
+  width: 0 !important;
+  position: absolute;
+  left: calc(50% - $timeline-horizontal-half-border-width);
 }
 
 

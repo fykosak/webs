@@ -1,17 +1,17 @@
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
-{varType string $lang}
+{varType App\Models\Downloader\EventModel $event}
+{varType App\Modules\Core\Language $lang}
 {block content}
     <div class="upper-home-countdown countdown-panel subheader justify-content-center">
         <div class="info-text">
-            {switch $lang}
-                {case "cs"} Registraci otevíráme {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'j. n.'}
-                {default} Registration opens on {$gamePhaseCalculator->getFKSDBEvent()->registrationBegin |date:'F j'}.
+            {switch $lang->value}
+                {case 'cs'} Registraci otevíráme {$event->registrationBegin|date:'j. n.'}
+                {default} Registration opens on {$event->registrationBegin|date:'F j'}.
             {/switch}
         </div>
         {control countdown}
         <p class="mt-4" style="text-align: left">
-            {switch $lang}
-                {case "cs"} Sledujte <a href="https://www.instagram.com/fykosak" target="_blank">@fykosak</a> na Instagramu, nebo <a
+            {switch $lang->value}
+                {case 'cs'} Sledujte <a href="https://www.instagram.com/fykosak" target="_blank">@fykosak</a> na Instagramu, nebo <a
                     href="https://www.facebook.com/FYKOS" target="_blank">FYKOS</a> na&nbsp;Facebooku, aby vám neunikly žádné novinky včetně otevření registrace na soutěž!
                 {default} Follow <a href="https://www.instagram.com/fykosak" target="_blank">@fykosak</a> on Instagram or <a
                     href="https://www.facebook.com/FYKOS" target="_blank">FYKOS</a> on Facebook to not miss any news about the registration and competitions!

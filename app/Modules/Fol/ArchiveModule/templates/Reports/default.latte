@@ -1,8 +1,8 @@
 {varType App\Modules\Fol\ArchiveModule\ReportsPresenter $presenter}
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case cs}
         Reporty týmů
         {case en}
@@ -14,7 +14,7 @@
     <div class="panel color-light">
         <section class="inner-container">
             <h1>
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                     Reporty týmů
                 {case en}
@@ -34,7 +34,7 @@
             <div n:class="panel, $counter ? color-light : color-dark">
                 <section class="inner-container row">
                     <div class="col-md-4" id="{$reportId}-container" n:if="count($report->images)">
-                        <img id="{$reportId}" src="{$basePath . '/photos/' . $report->images[0]->filename}" class="img-fluid">
+                        <img id="{$reportId}" src="{$basePath . '/media/photos/' . $report->images[0]->filename}" class="img-fluid">
                         <div class="row gallery-thumbnails" id="{$reportId}-row">
                             {varType bool $solo} {* true when there's only one picture *}
                             {do $solo = true}
@@ -46,20 +46,20 @@
                                 {/if}
                                 {do $noImage = false}
                                 {varType string $source}
-                                {do $source = $basePath . '/photos/' . $reportImage->filename}
+                                {do $source = $basePath . '/media/photos/' . $reportImage->filename}
                                 <div class="col-4">
-                                    <img src="{$basePath}/photos/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$reportId});" class="img-fluid">
+                                    <img src="{$basePath}/media/photos/{$reportImage->filename}" alt="{$reportImage->caption}" onclick="gallery({$source}, {$reportId});" class="img-fluid">
                                 </div>
                             {/foreach}
                             <script n:if="$solo">
-                                document.getElementById({$reportId} + "-row").style.display="none";
-                                document.getElementById({$reportId} + "-box").style.height="auto";
+                                document.getElementById({$reportId} + '-row').style.display="none";
+                                document.getElementById({$reportId} + '-box').style.height="auto";
                             </script>
                         </div>
                     </div>
                     <div class="col">
                         <div class="subheader">
-                            {switch $lang}
+                            {switch $language->value}
                                 {case cs}
                                     Report týmu
                                 {case en}

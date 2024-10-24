@@ -1,30 +1,30 @@
 {layout '../@layout.latte'}
-{varType string $lang}
+{varType App\Modules\Core\Language $lang}
 
 {block content}
     <div class="panel color-light">
         <section class="inner-container">
-            <h1>{switch $lang}{case 'cs'}Přihlášené týmy{default}Registered Teams{/switch}</h1>
+            <h1>{switch $lang->value}{case 'cs'}Přihlášené týmy{default}Registered Teams{/switch}</h1>
 
             {do ksort($teams)}
             {foreach $teams AS $category => $teamsForCategory}
                 {if $category == 'F'}
                     <a class="btn btn-primary my-2" href="#{$category}">
-                        {switch $lang}
+                        {switch $lang->value}
                             {case 'cs'}Zahraniční SŠ
                             {default}Foreign High School
                         {/switch}
                     </a>
                 {elseif $category == 'O'}
                     <a class="btn btn-primary my-2" href="#{$category}">
-                        {switch $lang}
+                        {switch $lang->value}
                             {case 'cs'}Kategorie Open
                             {default}Open Category
                         {/switch}
                     </a>
                 {else}
                     <a class="btn btn-primary my-2" href="#{$category}">
-                        {switch $lang}
+                        {switch $lang->value}
                             {case 'cs'}Kategorie {$category}
                             {default}Category {$category}
                         {/switch}
@@ -39,10 +39,10 @@
         {do $parityCounter = !$parityCounter}
         <div n:class="panel, $parityCounter ? color-light : color-dark">
             <section class="inner-container" id="{$category}">
-                <div class="subheader">{switch $lang}{case 'cs'}Kategorie{default}Category{/switch}</div>
+                <div class="subheader">{switch $lang->value}{case 'cs'}Kategorie{default}Category{/switch}</div>
                 <h1>
                     {if $category == 'F'}
-                        {switch $lang}
+                        {switch $lang->value}
                             {case 'cs'}Zahraniční SŠ
                             {default}Foreign High School
                         {/switch}
@@ -55,36 +55,36 @@
 
                 <ol class="team-list">
                     {foreach $teamsForCategory AS $team}
-                        {varType App\Models\NetteDownloader\ORM\Models\ModelTeam $team}
-                        {if $team->status == 'disqualified' || $team->status == 'missed' || $team->status == 'participated' || $team->status == 'applied' || $team->status == 'approved' || $team->status == 'pending'}
-                            <li id="{$team->teamId}" class="team-status-{$team->status}">
+                        {varType App\Models\Downloader\EventModel $team}
+                        {if $team->state == 'disqualified' || $team->state == 'missed' || $team->state == 'participated' || $team->state == 'applied' || $team->state == 'approved' || $team->state == 'pending'}
+                            <li id="{$team->teamId}" class="team-state-{$team->state}">
                                 <strong>{$team->name}</strong>:
                                 {var $inSchool = 0}
                             {if $team->members && count($team->members)}
-                                    {do
+                                    {php
                                         $members = $team->members;
-                                        usort($members, fn(App\Models\NetteDownloader\ORM\Models\ModelMember $a,App\Models\NetteDownloader\ORM\Models\ModelMember $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))
+                                        usort($members, fn(App\Models\Downloader\TeamMemberModel $a,App\Models\Downloader\TeamMemberModel $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))
                                     }
                                     {foreach $members as $key => $member}
-                                        {varType App\Models\NetteDownloader\ORM\Models\ModelMember $member}
+                                        {varType App\Models\Downloader\TeamMemberModel $member}
                                         {$member->name}
                                         {do $inSchool++}
                                         {if $iterator->isLast() || (!is_null($members[$key + 1]) && isset($member->school) && isset($members[$key + 1]->school) && $member->school['schoolId'] != $members[$key + 1]->school['schoolId'])}
-                                            <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$member->school['name']??''}{if isset($member->school) && $member->school['countryISO'] !== "ZZ"} <span
+                                            <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$member->school['nameAbbrev']??''}{if isset($member->school) && $member->school['countryISO'] !== 'ZZ'} <span
                                                     class="flag-icon flag-icon-{$member->school['countryISO']??'zz'|lower}"></span>{/if})</span>
                                             {do $inSchool = 0}
                                         {/if}
                                         {if !$iterator->isLast()}, {/if}
                                     {/foreach}
                                 {else}
-                                    {switch $lang}
+                                    {switch $lang->value}
                                         {case cs}informace o členech týmu nejsou dostupné
                                         {default}no info available
                                     {/switch}
                                 {/if}
 
                                 {if count($team->teachers)}
-                                    {switch $lang}
+                                    {switch $lang->value}
                                         {case cs}, doprovod
                                         {default}, teacher
                                     {/switch}

@@ -1,0 +1,76 @@
+{block title}Zadání{/block}
+
+{block main}
+<div class="panel color-auto">
+    <div class="inner-container">
+        <div>
+            <h1>
+                Zadání {$series->series}. série {$series->year}. ročníku
+            </h1>
+            <div>
+                Termín odevzdání: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>
+            </div>
+            <a class="btn btn-secondary my-2" n:href="Section:howToEngage">
+                <i class="fas fa-circle-info me-2"></i>Jak se zapojit
+            </a>
+            <a class="btn btn-secondary my-2" n:href="Problems:Bingo">
+                <i class="fas fa-gift me-2"></i>Bingo
+            </a>
+
+            <div class="float-end">
+                <div class="dropdown series-selector">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {$series->year}. ročník
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end p-0">
+                        {foreach $yearsAndSeries as $yearOption => $seriesList}
+                        <ul class="list-group list-group-horizontal-sm">
+                            <li class="list-group-item list-group-item-secondary text-nowrap">
+                                {$yearOption}. ročník
+                            </li>
+                            {foreach $seriesList as $seriesOption}
+                            <a n:class="'list-group-item list-group-item-action', $series->year == $yearOption && $series->series == $seriesOption ? list-group-item-primary"
+                                href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+                            {/foreach}
+                        </ul>
+                        {/foreach}
+                    </div>
+                </div>
+                {if sizeof($yearsAndSeries[$series->year]) > 1}
+                <ul class="list-group list-group-horizontal-sm mt-2">
+                    {foreach $yearsAndSeries[$series->year] as $seriesOption}
+                    <a n:class="'list-group-item list-group-item-action', $series->series == $seriesOption ? list-group-item-primary"
+                        href="{plink 'this' 'year'=>$series->year, 'series'=>$seriesOption}">{$seriesOption}</a>
+                    {/foreach}
+                </ul>
+                {/if}
+            </div>
+        </div>
+
+        <div class="mt-5">
+            {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
+            {php $batchPath = $problemService->getBatch('vyfuk', $series, $lang)}
+            {if $serialPath}
+            <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
+                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text seriálu {$series->series}.
+                série
+            </a>
+            {/if}
+            {if new Datetime() > $series->getDeadline() && $batchPath}
+            <a class="btn btn-primary my-2 mr-4" href="{$batchPath}">
+                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka s řešeními
+            </a>
+            {/if}
+            <div class="row mt-4">
+                {foreach $problems as $problem}
+                    {control problem $problem}
+                {/foreach}
+            </div>
+        </div>
+    </div>
+</div>
+
+{control imagePreviewModal}
+
+{/block}

@@ -4,32 +4,26 @@ declare(strict_types=1);
 
 namespace App\Components\Map;
 
-use App\Models\GamePhaseCalculator;
-use App\Models\NetteDownloader\ORM\Models\ModelEvent;
-use App\Models\NetteDownloader\ORM\Models\ModelTeam;
-use App\Models\NetteDownloader\ORM\Services\DummyService;
+use App\Models\Downloader\DummyService;
+use App\Models\Downloader\EventModel;
+use App\Models\Downloader\TeamModel;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
-class MapComponent extends BaseComponent
+class MapComponent extends DIComponent
 {
     private static int $uniqueId = 0;
 
-    private DummyService $dummyService;
-    protected int $forEventId;
+    private readonly DummyService $dummyService;
 
     protected int $teamCount;
     /** @var string[] */
     protected array $teamCountries;
 
-    protected GamePhaseCalculator $gamePhaseCalculator;
-
-    public function __construct(Container $container, GamePhaseCalculator $calculator, ModelEvent $event)
+    public function __construct(Container $container, private readonly EventModel $event)
     {
         parent::__construct($container);
-        $this->forEventId = $event->eventId;
-        $this->gamePhaseCalculator = $calculator;
     }
 
     public function injectServiceTeam(DummyService $dummyService): void
@@ -44,8 +38,8 @@ class MapComponent extends BaseComponent
     {
         $this->teamCount = 0;
         $this->teamCountries = [];
-        foreach ($this->dummyService->get(new TeamsRequest($this->forEventId), ModelTeam::class) as $team) {
-            if (!in_array($team->status, ['participated', 'disqualified', 'applied', 'pending', 'approved'])) {
+        foreach ($this->dummyService->get(new TeamsRequest($this->event->eventId), TeamModel::class) as $team) {
+            if (!in_array($team->state, ['participated', 'disqualified', 'applied', 'pending', 'approved'])) {
                 continue;
             }
             $this->teamCount++;
@@ -77,7 +71,7 @@ class MapComponent extends BaseComponent
         $this->template->inverseColors = $inverseColors;
 
         $this->template->lang = $this->translator->lang;
-        $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
+        $this->template->event = $this->event;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'map.latte');
     }
 }

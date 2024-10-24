@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace App\Components\PdfGallery;
 
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\DI\Container;
 use Nette\Utils\Finder;
 use Nette\Utils\UnknownImageFileException;
 
-class PdfGalleryControl extends BaseComponent
+class PdfGalleryControl extends DIComponent
 {
-    private string $wwwDir;
-    private Cache $cache;
+    private readonly string $wwwDir;
+    private readonly Cache $cache;
 
     public function __construct(Container $container)
     {
@@ -52,6 +52,7 @@ class PdfGalleryControl extends BaseComponent
         foreach ($pdfs as $index => &$pdffile) {
             $pdffile['index'] = $index;
         }
+
         return $pdfs;
     }
 
@@ -65,7 +66,18 @@ class PdfGalleryControl extends BaseComponent
             [$path, $this->wwwDir],
             fn() => self::getPdfs($path, $this->wwwDir)
         );
-        $this->template->lang = $this->translator->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery.latte');
+    }
+
+    /**
+     * @throws UnknownImageFileException
+     * @throws \Throwable
+     */
+    public function hasFiles(string $path): bool
+    {
+        return count($this->cache->load(
+            [$path, $this->wwwDir],
+            fn() => self::getPdfs($path, $this->wwwDir)
+        )) > 0;
     }
 }

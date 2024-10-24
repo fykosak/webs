@@ -1,11 +1,19 @@
-{block title}O FYKOSu{/block}
-{block main}
+{varType string $lang}
+{varType App\Modules\Core\Language $language}
 
+{block title}
+    {switch $language->value}
+        {case 'cs'}Bývalí organizátoři
+        {default}Past Organizers
+    {/switch}
+{/block}
+
+{block main}
 
 
 <div class="panel color-auto">
     <section class="inner-container">
-        <h1>{switch $lang}
+        <h1>{switch $language->value}
             {case 'cs'}Seznam všech bývalých organizátorů
             {default}List of All Past Organizers
             {/switch}
@@ -17,9 +25,9 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
 
-                        <img src="{$basePath}/images/people/person{$organizer['personId']}.jpg" 
+                        <img src="{$basePath}/media/images/people/person{$organizer['personId']}.jpg"
                             class="card-img-top"
-                            onerror="this.src = '/images/people/personUnknown.jpg'"
+                            onerror="this.src = '/media/images/people/personUnknown.jpg'"
                             alt="{$organizer['name']}">
                         <h4 class="card-header">{$organizer['name']}</h4>
                         <div class="card-body">
@@ -29,31 +37,31 @@
                                     </td>
                                     <td class="right-cell">
                                         {if $organizer['until'] and $organizer['until'] != $organizer['since']}
-                                            {switch $lang}
+                                            {switch $language->value}
                                                 {case 'cs'} ročníky
                                                 {default} years
                                             {/switch}
-                                            {$organizer['since']} - {$organizer['until']}
+                                            {$organizer['since']}–⁠⁠⁠⁠⁠⁠{$organizer['until']}
                                         {elseif $organizer['until']}
-                                            {switch $lang}
+                                            {switch $language->value}
                                                 {case 'cs'} ročník
                                                 {default} year
                                             {/switch}
                                             {$organizer['since']}
                                         {else}
-                                            {switch $lang}
+                                            {switch $language->value}
                                                 {case 'cs'} ročník
                                                 {default} year
                                             {/switch}
-                                            {$organizer['since']} - 
-                                            {switch $lang}
+                                            {$organizer['since']} -
+                                            {switch $language->value}
                                                 {case 'cs'} současnost
                                                 {default} present
                                             {/switch}
                                         {/if}
                                     </td>
                                 </tr>
-                                {if $organizer['contribution']}
+                                {if $organizer['contribution'] and $lang == 'cs'}
                                 <tr>
                                     <td class="left-cell"><span class="icon"><i class="fas fa-trophy"></i></span>
                                     </td>

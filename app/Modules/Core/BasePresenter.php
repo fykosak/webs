@@ -8,8 +8,10 @@ use App\Components\ImageGallery\ImageGalleryControl;
 use App\Components\Navigation\Navigation;
 use App\Components\PdfGallery\PdfGalleryControl;
 use App\Models\Exceptions\UnderConstructionException;
+use App\Models\SettingsService;
 use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
+use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Template;
@@ -18,12 +20,15 @@ abstract class BasePresenter extends Presenter
 {
     /** @persistent */
     public ?string $lang = null; // = 'cs';
+    public Language $language;
 
     public GettextTranslator $translator;
+    public SettingsService $settings;
 
-    public function injectServices(GettextTranslator $translator): void
+    public function injectServices(GettextTranslator $translator, SettingsService $settings): void
     {
         $this->translator = $translator;
+        $this->settings = $settings;
     }
 
     /**
@@ -45,6 +50,9 @@ abstract class BasePresenter extends Presenter
         return $navigation;
     }
 
+    /**
+     * @return NavItem[]
+     */
     abstract protected function getNavItems(): array;
 
     final public function setPageTitle(PageTitle $pageTitle): void
@@ -56,6 +64,7 @@ abstract class BasePresenter extends Presenter
     {
         $template = parent::createTemplate();
         $template->lang = $this->lang;
+        $template->language = $this->language;
         /** @var \Nette\Bridges\ApplicationLatte\Template $template */
         $template->setTranslator($this->translator);
 
@@ -63,7 +72,7 @@ abstract class BasePresenter extends Presenter
     }
 
 
-// -------------- i18n ------------------
+    // -------------- i18n ------------------
 
     /**
      * @throws UnsupportedLanguageException
@@ -71,18 +80,29 @@ abstract class BasePresenter extends Presenter
     protected function localize(): void
     {
         // Lang is null in error presenter because no rote rule was applied
-        if (!isset($this->lang) || $this->lang == null) {
-            $this->lang = 'en'; // todo guess language by domain
+        if (!isset($this->lang) || !$this->lang) {
+            // guess language by domain
+            $hostname = $this->getHttpRequest()->getUrl()->getHost();
+            if (isset($this->settings->domains[$hostname])) {
+                $this->lang = $this->settings->domains[$hostname];
+            } else {
+                // default to en
+                $this->lang = 'en';
+            }
         }
+        $this->language = Language::from($this->lang);
 
-        $this->translator->setLang($this->lang);
+        $this->translator->setLang($this->language);
     }
 
+    /**
+     * @return string[]
+     */
     public function formatTemplateFiles(): array
     {
         [$file,] = parent::formatTemplateFiles();
         return [
-            str_replace('.latte', '.' . $this->lang . '.latte', $file),
+            str_replace('.latte', '.' . $this->language->value . '.latte', $file),
             $file,
         ];
     }
@@ -92,7 +112,7 @@ abstract class BasePresenter extends Presenter
      */
     protected function csen(string $cs, string $en): string
     {
-        if ($this->lang === 'cs') {
+        if ($this->translator->lang === Language::cs) {
             return $cs;
         } else {
             return $en;
@@ -115,11 +135,11 @@ abstract class BasePresenter extends Presenter
      */
     protected function createComponentGallery(): ImageGalleryControl
     {
-        return new ImageGalleryControl($this->context);
+        return new ImageGalleryControl($this->getContext());
     }
 
     protected function createComponentPdfGallery(): PdfGalleryControl
     {
-        return new PdfGalleryControl($this->context);
+        return new PdfGalleryControl($this->getContext());
     }
 }

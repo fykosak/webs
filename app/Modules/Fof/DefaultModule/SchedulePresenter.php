@@ -6,14 +6,32 @@ namespace App\Modules\Fof\DefaultModule;
 
 use App\Models\Downloader\FKSDBDownloader;
 use App\Models\Downloader\ScheduleRequest;
+use App\Modules\Core\Language;
 
 final class SchedulePresenter extends BasePresenter
 {
-    private FKSDBDownloader $downloader;
+    private readonly FKSDBDownloader $downloader;
 
     public function inject(FKSDBDownloader $downloader): void
     {
         $this->downloader = $downloader;
+    }
+
+    public function translateDay(string $day): string
+    {
+        if ($this->language !== Language::cs) {
+            return $day;
+        }
+        return match ($day) {
+            'Monday' => 'Pondělí',
+            'Tuesday' => 'Úterý',
+            'Wednesday' => 'Středa',
+            'Thursday' => 'Čtvrtek',
+            'Friday' => 'Pátek',
+            'Saturday' => 'Sobota',
+            'Sunday' => 'Neděle',
+            default => '',
+        };
     }
 
     /**
@@ -21,7 +39,12 @@ final class SchedulePresenter extends BasePresenter
      */
     public function renderDetail(): void
     {
-        $groups = $this->downloader->download(new ScheduleRequest(180, ['weekend', 'weekend_info']));
+        $groups = $this->downloader->download(
+            new ScheduleRequest(
+                $this->getNewestEvent()->eventId,
+                ['weekend', 'info', 'teacher_present']
+            )
+        );
         usort($groups, fn(array $aGroup, array $bGroup): int => $aGroup['start'] <=> $bGroup['start']);
         $this->template->groups = $groups;
     }

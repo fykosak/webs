@@ -1,8 +1,8 @@
-{varType string $lang}
-{varType App\Models\GamePhaseCalculator $gamePhaseCalculator}
+{varType App\Modules\Core\Language $language}
+{varType App\Models\Downloader\EventModel $newestEvent}
 
 {*{block title}*}
-{*    {switch $lang}*}
+{*    {switch $language->value}*}
 {*        {case 'cs'} O soutěži*}
 {*        {default} About*}
 {*    {/switch}*}
@@ -11,7 +11,7 @@
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">O soutěži</div>*}
                 <h1>O čem je Fyziklání?</h1>
@@ -26,44 +26,44 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Organizátoři</div>*}
                 <h1>Kdo za tím stojí?</h1>
                 <p>Soutěž Fyziklání vyhlašuje <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulta Univerzity Karlovy</a> (MFF UK) a spoluvyhlašuje ji <a href="https://www.msmt.cz/">Ministerstvo školství, mládeže a tělovýchovy ČR</a> (MŠMT). Organizátoři soutěže jsou převážně studenti MFF UK, kteří jsou sdruženi ve studentské skupině <a href="https://fykos.cz/">FYKOS</a> (Fyzikální korespondenční seminář) a mají s organizací podobných akcí bohaté zkušenosti. FYKOS pořádá během školního roku i online podobu této soutěže, <a href="https://online.fyziklani.cz/">Fyziklaní Online</a>; kromě toho také organizuje soustředění pro nejlepší řešitele Fyzikálního korespondenčního semináře, <a href="https://dsef.cz">Den s experimentální fyzikou</a> a další akce.</p>
-                <p>
+                {* <p>
                     Rozvoji Fyziklání do podoby letošního ročníku také významně pomohla nezisková organizace <a href="https://www.fabric.camp/">FABRIC</a>, která organizuje kempy pro vysoce nadané mladé lidi (cca 16-20 let), kteří chtějí porozumět sami sobě i světu okolo. Díky jejich podpoře můžeme poskytnout <a n:href="Scholarship:">stipendia</a> pro soutěž několika týmům z různých zemí, které by se jinak nemohly zúčastnit, a také vylepšit doprovodný program pro všechny.
                 </p>
                 <p>
-                    Naším dalším významným partnerem je <a href="https://www.nfneuron.cz/">Nadační fond Neuron na podporu vědy</a>. Hlavním posláním NF Neuron je podpora excelentních vědců. <br> Neuron se stal partnerem Fyziklání díky Lence Zdeborové, špičkové české vědkyni působící ve Švýcarsku, která se v roce 2021 stala laureátkou Ceny Neuron v oboru fyzika. Dar spojený s touto cenou se rozhodla věnovat FYKOSu, který dříve sama řešila i organizovala.
-                </p>
+                    Naším dalším významným partnerem je <a href="https://www.nfneuron.cz/">Nadace Neuron</a> na podporu vědy. Hlavním posláním NF Neuron je podpora excelentních vědců. <br> Neuron se stal partnerem Fyziklání díky Lence Zdeborové, špičkové české vědkyni působící ve Švýcarsku, která se v roce 2021 stala laureátkou Ceny Neuron v oboru fyzika. Dar spojený s touto cenou se rozhodla věnovat FYKOSu, který dříve sama řešila i organizovala.
+                </p> *}
                 <a class="btn btn-primary my-2" href="https://fykos.cz/akce/start">Další FYKOSí akce</a>
                 <a class="btn btn-primary my-2" n:href="AboutTheCompetition:organizers">Organizátoři</a>
-                <a class="btn btn-primary my-2" href="https://www.fabric.camp/">FABRIC</a>
-                <a class="btn btn-primary my-2" href="https://www.nfneuron.cz/">NF Neuron</a>
+                {* <a class="btn btn-primary my-2" href="https://www.fabric.camp/">FABRIC</a>
+                <a class="btn btn-primary my-2" href="https://www.nfneuron.cz/">Nadace Neuron</a> *}
 
                 {default}
 {*                <div class="subheader">Organizers</div>*}
                 <h1>Who Is Behind the Competition?</h1>
                 <p>Fyziklani is held on behalf of the Faculty of Mathematics and Physics at Charles University (CUNI MFF) and Ministry of Education, Youth and Sports of the Czech Republic (MEYS). Organizers are mostly students of CUNI MFF, assembled in FYKOS. FYKOS also holds the online version of the competition &#8211; Physics Brawl Online, camps for best participants of the internet physics competition, excursions and other similar events. </p>
-                <p>
+                {* <p>
                     The development of Fyziklani into this year's form was also significantly helped by the nonprofit <a href="https://www.fabric.camp/">FABRIC</a>, which organizes camps for highly talented youth with the desire of undestanding themselves and the world. Thanks to their support,  we are able to provide <a n:href="Scholarship:">scholarships</a> for the competition for several teams from various countries that would not be able to participate otherwise, and also to improve the accompanying program for everyone.
                 </p>
                 <p>
-                    Another major partner is the <a href="https://www.nfneuron.cz/en">Neuron Endowment Fund</a>. The main mission of the Neuron Foundation is to support excellent scientists.<br> Neuron became a partner of Fyziklani thanks to Lenka Zdeborová, a top Czech scientist based in Switzerland, who won the Neuron Prize in Physics in 2021. She decided to donate the gift associated with this prize to FYKOS, which she had previously participated in and organized herself.
-                </p>
+                    Another major partner is the <a href="https://www.nfneuron.cz/en">Neuron Foundation</a>. The main mission of the Neuron Foundation is to support excellent scientists.<br> Neuron became a partner of Fyziklani thanks to Lenka Zdeborová, a top Czech scientist based in Switzerland, who won the Neuron Prize in Physics in 2021. She decided to donate the gift associated with this prize to FYKOS, which she had previously participated in and organized herself.
+                </p> *}
                 <a class="btn btn-primary my-2" href="https://fykos.org/events/start">Other events</a>
                 <a class="btn btn-primary my-2" n:href="AboutTheCompetition:organizers">Organizers</a>
-                <a class="btn btn-primary my-2" href="https://www.fabric.camp/">FABRIC</a>
-                <a class="btn btn-primary my-2" href="https://www.nfneuron.cz/en">Neuron EF</a>
-                <a class="btn btn-primary my-2" n:href=":Default:Scholarship:">Scholarship</a>
+                {* <a class="btn btn-primary my-2" href="https://www.fabric.camp/">FABRIC</a>
+                <a class="btn btn-primary my-2" href="https://www.nfneuron.cz/en">Neuron Foundation</a>
+                <a class="btn btn-primary my-2" n:href=":Default:Scholarship:">Scholarship</a> *}
             {/switch}
         </section>
     </div>
 {if false}
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Organizátoři</div>*}
                 <h1>Záštita</h1>
@@ -85,15 +85,15 @@
 {/if}
     <div class="panel color-auto">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Datum a místo konání</div>*}
                 <h1>Kdy a kde to bude?</h1>
-                <p>Soutěž se bude konat {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'d. m. Y'}. Stejně jako minulé roky se sejdeme na výstavišti PVA Letňany v Praze. Výstaviště se nachází v dochozí vzdálenosti (1 zastávka) od konečné metra C Letňany. Na soutěži letos rádi přivítáme přes 250 týmů.</p>
+                <p>Soutěž se bude konat {$newestEvent->begin |date:'d. m. Y'}. Stejně jako minulé roky se sejdeme na výstavišti PVA Letňany v Praze. Výstaviště se nachází v dochozí vzdálenosti (1 zastávka) od konečné metra C Letňany. Na soutěži letos rádi přivítáme přes 250 týmů.</p>
                 {default}
 {*                <div class="subheader">Date and Place</div>*}
                 <h1>When and Where Will It Take Place?</h1>
-                <p>Fyziklani will take place {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'d. m. Y'}. Just like last years, we will meet at PVA Letňany Exbihition Grounds in Prague, Czech Republic. The hall is located near (0.5 km) the final station of metro C line „Letňany“. We would happily invite over 250 teams to this year's competition.</p>
+                <p>Fyziklani will take place {$newestEvent->begin |date:'d. m. Y'}. Just like last years, we will meet at PVA Letňany Exbihition Grounds in Prague, Czech Republic. The hall is located near (0.5 km) the final station of metro C line „Letňany“. We would happily invite over 250 teams to this year's competition.</p>
             {/switch}
 
             <div class="ratio" style="--bs-aspect-ratio: 30%; min-height: 12rem">
@@ -107,7 +107,7 @@
 {if false}
     <div class="panel color-auto" id="covid-measures">
         <section class="inner-container">
-            {switch $lang}
+            {switch $language->value}
                 {case 'cs'}
 {*                <div class="subheader">Hygienická opatření</div>*}
                 <h1>Jaká jsou aktuální epidemická opatření?</h1>

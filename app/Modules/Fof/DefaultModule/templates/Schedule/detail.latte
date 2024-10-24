@@ -1,0 +1,1231 @@
+{varType array $groups}
+{varType App\Modules\Core\Language $language}
+{varType array $groups}
+{varType App\Modules\Fof\DefaultModule\SchedulePresenter $presenter}
+{block main}
+    <div class="panel color-auto">
+        <section class="inner-container">
+          	<h1>
+                {switch $language->value}
+                    {case 'cs'}Detaily programu
+                    {default}Program details
+                {/switch}
+            </h1>
+            <p>
+                {switch $language->value}
+                    {case 'cs'}Na této stránce naleznete detailní popis doprovodného programu. Informace se můžou mírně změnit a měly by být aktuální.
+                    {default}On this page you can find detailed description of the accompanying program. Information may change slightly and should be up to date.
+                {/switch}
+            </p>
+            {switch $language->value}
+                {case 'cs'}
+                    <h3>Legenda k lokacím</h3>
+          			<div class="rules">
+                      <div class="title">PVA EXPO PRAHA</div>
+                      <div class="description">Beranových 667, 199 00 Praha 9</div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Hotel Duo</div>
+                      <div class="description">Teplická 492, 190 00 Praha 9</div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Areál Troja</div>
+                      <div class="description">V Holešovičkách 2/747, 180 00 Praha 8
+                      	<ul style="margin-bottom: 0">
+                            <li><strong>N1, N2, N3</strong> - Pavilon Impakt</li>
+                            <li><strong>T1, T2</strong> - Objekt poslucháren</li>
+                        </ul>
+                      </div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Areál Karlov</div>
+                      <div class="description"><ul style="margin-bottom: 0">
+                            <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Praha 2</li>
+                            <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Praha 2</li>
+                        </ul>
+                      </div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Futurum Music Bar</div>
+                      <div class="description">Zborovská 7, 150 00 Praha 5</div>
+          			</div>
+
+
+
+                    {*<ul>
+                        <li><strong>PVA EXPO PRAHA</strong> - Beranových 667, 199 00 Praha 9</li>
+                        <li><strong>Areál Troja</strong> - V Holešovičkách 2/747, 180 00 Praha 8</li>
+                        <ul>
+                            <li><strong>N1, N2, N3</strong> - Pavilon Impakt</li>
+                            <li><strong>T1, T2</strong> - Objekt poslucháren</li>
+                        </ul>
+                        <li><strong>Areál Karlov</strong></li>
+                        <ul>
+                            <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Praha 2</li>
+                            <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Praha 2</li>
+                        </ul>
+                        <li><strong>Futurum Music Bar</strong> - Zborovská 7, 150 00 Praha 5</li>
+                    </ul>*}
+                {default}
+                    <h3>Legend for locations</h3>
+          			<div class="rules">
+                      <div class="title">PVA EXPO PRAGUE</div>
+                      <div class="description">Beranových 667, 199 00 Prague 9</div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Hotel Duo</div>
+                      <div class="description">Teplická 492, 190 00 Prague 9</div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Troja Campus</div>
+                      <div class="description">V Holešovičkách 2/747, 180 00 Prague 8
+                      	<ul style="margin-bottom: 0">
+                            <li><strong>N1, N2, N3</strong> - Impakt Pavilion</li>
+                            <li><strong>T1, T2</strong> - Lecture Hall Building</li>
+                        </ul>
+                      </div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Karlov Campus</div>
+                      <div class="description"><ul style="margin-bottom: 0">
+                            <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Prague 2</li>
+                            <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Prague 2</li>
+                        </ul>
+                      </div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Futurum Music Bar</div>
+                      <div class="description">Zborovská 7, 150 00 Prague 5</div>
+          			</div>
+
+                    {*<ul>
+                        <li><strong>PVA EXPO PRAGUE</strong> - Beranových 667, 199 00 Prague 9</li>
+                        <li><strong>Troja Campus</strong> - V Holešovičkách 2/747, 180 00 Prague 8</li>
+                        <ul>
+                            <li><strong>N1, N2, N3</strong> - Impakt Pavilion</li>
+                            <li><strong>T1, T2</strong> - Lecture Hall Building</li>
+                        </ul>
+                        <li><strong>Karlov Campus</strong></li>
+                        <ul>
+                            <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Prague 2</li>
+                            <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Prague 2</li>
+                        </ul>
+                        <li><strong>Futurum Music Bar</strong> - Zborovská 7, 150 00 Prague 5</li>
+                    </ul>*}
+            {/switch}
+            {var $key = null}
+            {* {dump $groups} *}
+            {foreach $groups as $group}
+            {var $start = new \DateTime($group['start'])}
+            {var $end = new \DateTime($group['end'])}
+            {var $newKey = $start->format('Y-m-d')}
+            {if $newKey !== $key}
+        </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="subheader">
+                {switch $language->value}
+                    {case 'cs'}{$start->format('j. n. Y')}
+                    {default}{$start->format('F j, Y')}
+                {/switch}
+            </div>
+            <h1>{$presenter->translateDay($start->format('l'))}</h1>
+            {/if}
+
+            <div class="subheader">{$start->format('H:i')} - {$end->format('H:i')}</div>
+            <h2>{$group['name'][$lang]}</h2>
+
+            {var $itemsToSkip = [486,496,498,497,499,518,552,553,554,555,556,557,558,559,560,561,562,563]}
+
+            {foreach $group['items'] as $item}
+                {if !in_array($item['itemId'], $itemsToSkip)}
+                    <div id="{$item['itemId']}" class="rules">
+                        {if !($group['name'][$lang] == $item['name'][$lang])}
+                            <div class="title">
+                                {$item['name'][$lang]}
+                            </div>
+                        {/if}
+                        <div class="description">
+                            {$item['longDescription'][$lang]??$item['description'][$lang]|noescape}
+                        </div>
+                    </div>
+                {/if}
+            {/foreach}
+            {php $key = $newKey}
+            {/foreach}
+        </section>
+    </div>
+    {*<div class="panel color-auto">
+        <section class="inner-container">
+            <h1>Detaily programu</h1>
+            <p>Na této stránce budou později zveřejněny detaily k doprovodnému programu.</p>
+
+
+            <div>
+                <h3>Legenda k lokacím</h3>
+                <ul>
+                    <li><strong>PVA EXPO PRAHA</strong> - Beranových 667, 199 00 Praha 9</li>
+                    <li><strong>Areál Troja</strong> - V Holešovičkách 2/747, 180 00 Praha 8</li>
+                    <ul>
+                        <li><strong>N1, N2, N3</strong> - Pavilon Impakt</li>
+                        <li><strong>T1, T2</strong> - Objekt poslucháren</li>
+                    </ul>
+                    <li><strong>Areál Karlov</strong></li>
+                    <ul>
+                        <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Praha 2</li>
+                        <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Praha 2</li>
+                    </ul>
+                    <li><strong>Přírodovědecká fakulta</strong> - Albertov 2038, 128 00 Nové Město</li>
+                    <ul>
+                        <li>Velká geologická posluchárna</li>
+                        <li>Mineralogická posluchárna</li>
+                        <li>Levá rýsovna</li>
+                    </ul>
+                    <li><strong>P. M. Club</strong> - Trojická 8, 120 00 Nové Město</li>
+                </ul>
+                <h3>Níže najdete:</h3>
+                <ul>
+                    <li><a href="#opening">Zahájení doprovodného programu</a></li>
+                    <li><a href="#walk">Procházka po Praze</a></li>
+                    <li><a href="#evening">Večer národů</a></li>
+                    <li><a href="#trip">Výlet na Karlštejn</a></li>
+                    <li><a href="#presentations">Prezentace vědy</a></li>
+                    <li><a href="#jdf">Jeden den s fyzikou</a></li>
+                    <li><a href="#paneldiscussion">Panelová diskuse</a></li>
+                    <li><a href="#teachers">Program pro učitele během soutěže</a></li>
+                    <li><a href="#rozbor">Rozbor úloh</a></li>
+                    <li><a href="#party">Party</a></li>
+                    <li><a href="#lectures">Rozvrh a anotace přednášek na sobotu</a></li>
+                    <li><a href="#excursions">Rozvrh a anotace exkurzí na sobotu</a></li>
+                    <li><a href="#buffet">Raut</a></li>
+                    <li><a href="#cityralley">Městská hra</a></li>
+                </ul>
+                <p>Informace na této stránce se můžou měnit a měly by být aktuální.</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="opening">
+        <section class="inner-container">
+            <div class="subheader">Úterý</div>
+            <h1>Zahájení a seznamovací hry</h1>
+            <h4>09:00-11:30, Troja N1</h4>
+            <p>
+                Během pondělí dorazí 12 týmů ze zemí z celého světa. Aby se mezi sebou účastníci poznali a kromě zážitků
+                z pobytu a soutěže samotné si odvezli i nová přátelství, je úterní dopoledne věnované seznamovacím
+                aktivitám.
+            </p>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="walk">
+        <section class="inner-container">
+            <div class="subheader">Úterý</div>
+            <h1>Výlet po Praze</h1>
+            <h4>13:30-17:30</h4>
+            <p>
+                Zahraniční účastníci dostanou příležitost poznat Prahu, a to rovnou z fyzikálněji orientovaného pohledu.
+                Na všech trasách se účastníci zastaví na zajímavých nebo významných místech a vyslechnou si o
+                zajímavostech s nimi se pojícími.
+            </p>
+            <table class="inline table" style="text-align: center;">
+                <thead style="border-bottom: 1px solid;">
+                <tr>
+                    <th></th>
+                    <th><strong>Procházky</strong></th>
+                </tr>
+
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Trasa A</th>
+                    <td>Křižovnické náměstí - Mariánské náměstí - Staroměstské náměstí - Ovocný trh - Karlovo náměstí -
+                        Ke Karlovu
+                    </td>
+                </tr>
+                <tr>
+                    <th>Trasa B</th>
+                    <td>Karlův most - Malostranské náměstí - Petřín - Strahovský klášter - Pražský hrad -
+                        Schwarzenberský palác - Nový svět - Muzeum - Královský letohrádek
+                    </td>
+                </tr>
+                <tr>
+                    <th>Trasa C</th>
+                    <td>Radnice - Vysočanské nádraží - Park Přátelství - Střížkov - Vinice Máchalka - Broscheův pivovar
+                        - Kolčavka
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="evening">
+        <section class="inner-container">
+            <div class="subheader">Úterý</div>
+            <h1>Večer národů</h1>
+            <h4>18:30-22:30, Hotel Duo</h4>
+            <p>
+                Večer národů bude příležitostí pro všechny zahraniční (ale i přihlášené české nebo slovenské) účastníky
+                poznat navzájem svoje kultury a dozvědět se o nich spoustu zajímavostí. Každý tým si připraví malé
+                představení své země, které může zahrnovat jídlo, oblečení, písně, tance nebo jiné kulturní obohacení.
+            </p>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="trip">
+        <section class="inner-container">
+            <div class="subheader">Středa</div>
+            <h1>Výlet na Karlštejn</h1>
+            <h4>08:00-16:00</h4>
+            <p>
+                Ve středu se účastníci podívají i mimo Prahu po českých památkách, konkrétně za jednou z ikon české
+                kultury, hradem Karlštejn. Cestovat budeme tam i zpátky vlakem. V blízkosti hradu si také dáme oběd a
+                malý rozchod.
+            </p>
+            <p>
+                Samotná prohlídka hradu bude probíhat od 11:00 do 12:00.
+            </p>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="presentations">
+        <section class="inner-container">
+            <div class="subheader">Středa</div>
+            <h1>Prezentace vědy</h1>
+            <h4>19:00-21:30, Troja N1</h4>
+            <p>
+                Představení vědy a slavných vědců ze zahraničních zemí tamními účastníky.
+                Prezentace se budou konat v areálu Troji MFF UK v přednáškových místnos-
+                tech T1 a N1.
+            </p>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="jdf">
+        <section class="inner-container">
+            <div class="subheader">Čtvrtek</div>
+            <h1>Jeden den s fyzikou</h1>
+            <p>
+                Jeden den s fyzikou je každoroční akce plná přednášek a exkurzí
+                do vědeckých laboratoří pořádáná přímo MFF UK. Více informací
+                naleznete na jejich <a
+                        href="https://www.mff.cuni.cz/cs/verejnost/informacni-dny/jeden-den-s-fyzikou/2023">webu</a>.
+            </p>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="paneldiscussion">
+        <section class="inner-container">
+            <div class="subheader">Čtvrtek</div>
+            <h1>Panelová diskuse</h1>
+            <h4>19:00-20:30, Troja, N1</h4>
+            <p>
+            <p>Během panelové diskuse se několik vědců podělí o své osobní zkušenosti, aby vám přiblížili život a práci
+                ve vědě.</p>
+            <h2>Moderátor:</h2>
+            <h2>doc. Mgr. Tomáš Mančal, Ph.D.</h2>
+            <p>Zabývá se mimo jiné otevřenými kvantovými systémy. Na svůj výzkum nových materiálů obrdžel Neuron Impuls
+                v roce 2014. Působí na Fyzikálním ústavu UK.</p>
+            <h2>Účinkující:</h2>
+            <h2>Mgr. Anna Fučíková, Ph.D.</h2>
+            <p>Zabývá se biofyzikou a polovodičovými nanočásticemi. Za svůj výzkum získala v roce 2015 cenu Neuron.
+                Působí na Fyzikálním ústavu AV ČR, MFF UK a VŠCHT.</p>
+            <h2>RNDr. Antonín Fejfar, CSc.</h2>
+            <p>Zabývá se fyzikou tenkých vrstev nanostrukturních polovodičů. Působí ve Vědecké radě AV ČR a od roku je
+                2017 zástupcem ředitele Fyzikálního ústavu AV ČR.</p>
+            <h2>RNDr. Martin Kozák, Ph.D.</h2>
+            <p>Zabývá se elektronovou mikroskopií a na svůj výzkum získal prestižní ERC grant. Působí na Katedře
+                chemické fyziky a optiky MFF UK.</p>
+            <h2>Mgr. Aleš Podolník, Ph.D.</h2>
+            <p>Zabývá se studiem okrajového plazmatu v tokamacích. Působí na Ústavu fyziky plazmatu AV ČR. Byl hlavním
+                organizátorem FYKOSu a 2.-4. ročníku Fyziklání.</p>
+            <h2>
+                <del>doc. Ing. Vladimíra Petráková, Ph.D.</del>
+                - nemoc
+            </h2>
+            <p>Zabývá se nanotechnologiemi a jejich aplikací v biofyzice. Působí jako vedoucí skupiny na Ústavu
+                fyzikální chemie J. Heyrovského AV ČR. Je spoluzakladatelkou neziskové organizace Czexpats in
+                Science.</p>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="teachers">
+        <section class="inner-container">
+            <div class="subheader">Pátek</div>
+            <h1>Program pro učitele během soutěže</h1>
+            <h4>10:30-12:30, PVA EXPO Praha</h4>
+            <table class="inline table" style="text-align: center;">
+                <thead style="border-bottom: 1px solid;">
+                <tr>
+                    <th></th>
+                    <th><strong>PVA Letňany</strong></th>
+                </tr>
+
+                </thead>
+                <tbody>
+                <tr>
+                    <th>10:30</th>
+                    <td>Ing. Petr Dvořák, Ph.D.: Elektronová mikroskopie: vstupenka do nanosvěta? [CZ]</td>
+                </tr>
+                <tr>
+                    <th>11:20</th>
+                    <td colspan="3">Přestávka</td>
+                </tr>
+                <tr>
+                    <th>11:35</th>
+                    <td>Ing. Petr Dvořák, Ph.D.: Optické metapovrchy: optické komponenty budoucnosti? [CZ]</td>
+                </tr>
+                <tr>
+                    <th>12:30</th>
+                    <td colspan="3">Konec</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>Anotace programu pro učitele</h1>
+            <h2><strong>Ing. Petr Dvořák, Ph.D.:</strong> Elektronová mikroskopie: vstupenka do nanosvěta? [CZ]</h2>
+            <p>
+                V&nbsp;první samostatné části přednášky se zaměříme na elektronovou mikroskopii a její využití v&nbsp;nanotechnologiích.
+                Vysvětlíme si základní principy elektronové a iontové mikroskopie a představíme si pokročilé
+                technologie,
+                které najdeme v&nbsp;nejnovějších elektronových mikroskopech. Budeme si prezentovat i moderní technické
+                a
+                vědecké aplikace, kde elektronová mikroskopie nachází své uplatnění.
+            </p>
+            <h2><strong>Ing. Petr Dvořák, Ph.D.:</strong> Optické metapovrchy: optické komponenty budoucnosti? [CZ]</h2>
+            <p>
+                V&nbsp;druhé části přednášky si představíme jednu z&nbsp;moderních aplikací nanotechnologií, kde se
+                využívá
+                elektronová mikroskopie, a to optické metapovrchy. O nich se hovoří jako o nové generaci optických
+                komponent. Vysvětlíme si fyzikální principy jak takové optické metapovrchy fungují a ukážeme si širokou
+                škálu jejich aplikací.
+            </p>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="rozbor">
+        <section class="inner-container">
+            <div class="subheader">Pátek</div>
+            <h1>Rozbor úloh</h1>
+            <h4>17:30-19:00, Ke Karlovu, M1, F1, F2</h4>
+            <table class="inline table" style="text-align: center;">
+                <thead style="border-bottom: 1px solid;">
+                <tr>
+                    <th></th>
+                    <th>EN</th>
+                    <th>CS</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>17:30-19:00</th>
+                    <td>F1, F2</td>
+                    <td>M1</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="party">
+        <section class="inner-container">
+            <div class="subheader">Pátek</div>
+            <h1>Party</h1>
+            <h4>19:00-23:59, P. M. Club</h4>
+            <p>
+                Přijďtě se po Fyziklání setkat s ostatními soutěžícími a organizátory.
+                Párty se bude konat na adrese Trojická 10, Praha 2 v P. M. Clubu a
+                můžete se těšit na od DJ Stayera. To vše v přátelské náladě a bez alkoholu.
+            </p>
+            <table class="inline table" style="text-align: center;">
+                <thead style="border-bottom: 1px solid;">
+                <tr>
+                    <th></th>
+                    <th><strong>P. M. Club</strong></th>
+                </tr>
+
+                </thead>
+                <tbody>
+                <tr>
+                    <th>19:30-23:00</th>
+                    <td>DJ Stayer</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="lectures">
+        <section class="inner-container">
+            <div class="subheader">Sobota</div>
+            <h1>Rozvrh přednášek</h1>
+            <h4>9:30-12:00, Přírodovědecká fakulta</h4>
+            <p>
+                <a href="https://db.fykos.cz/my-applications">Přihlašování</a> na jednotlivé přednášky je spuštěno.
+            </p>
+            <table class="table schedule-table" style="text-align: center;">
+                <thead style="border-bottom: 1px solid;">
+                <tr>
+                    <th></th>
+                    <th><strong>Velká geologická posluchárna</strong></th>
+                    <th><strong>Mineralogická posluchárna</strong></th>
+                    <th><strong>Levá rýsovna</strong></th>
+                </tr>
+
+                </thead>
+                <tbody>
+
+                <tr>
+                    <th>9:30</th>
+                    <td>prof. Dr. Christian Bressler: Introduction to Femtosecond X-ray science [EN]</td>
+                    <td>prof. RNDr. Jiří Spousta Ph.D.: Fyzikální kabaret [CZ]</td>
+                    <td>Mgr. Miroslav Kloz Ph.D.: Historie světla [CZ]</td>
+                </tr>
+                <tr>
+                    <th>10:30</th>
+                    <td colspan="3">Přestávka</td>
+                </tr>
+                <tr>
+                    <th>10:45</th>
+                    <td>Zdeněk Jakub, Dr. Techn.: Seeing atoms as they move: a surface science approach to catalysis
+                        [EN]
+                    </td>
+                    <td>prof. RNDr. Jiří Podolský , CSc., DSc.: Génius Einstein a jeho teorie gravitace [CZ]</td>
+                    <td>Ing. Jan Kaufman: Špatná fyzika ve filmu [CZ]</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>Anotace přednášek</h1>
+            <h2><strong>prof. Dr. Christian Bressler:</strong> Introduction to Femtosecond X-ray science [EN]</h2>
+            <p>
+                Can we possibly ever image with atomic-scale spatial resolution the detailed structural changes during
+                an
+                ongoing chemical reaction? Femtosecond X-Rays have the required temporal resolution and offer
+                atomic-scale
+                structural resolution, and this presentation will introduce the current instrumental and scientific
+                efforts
+                to resolve with razor-sharp precision such ultrafast processes.
+            </p>
+            <h2><strong>prof. RNDr. Jiří Spousta Ph.D.:</strong> Fyzikální kabaret [CZ]</h2>
+            <p>
+                Zkusme se společně bavit (nezávazně, ale pokud možno zábavně) o fyzice. A jak to dopadne, záleží hodně
+                na vás ...
+            </p>
+            <h2><strong>Mgr. Miroslav Kloz Ph.D.:</strong> Historie světla [CZ]</h2>
+            <p>Fascinace světlem spojuje všechny veliké civilizace. Od časů Egyptského boha Re, je sluce často hlavním
+                božstvem, které přináší životodárnou energii světla. Studium vlastností světla stálo na počátku téměř
+                všech průlomů v našem chápání materiálního světa. Přes dlouhou pouť postupným rozklíčováním vlastností
+                světla jsme dospěli až do bodu, kdy jsme schopni světlo používat k tak nečekaným aplikacím jako
+                chirurgie, řízení chemických reakcí, či zpracování informací. Cílem přednášky je přiblížit klíčové
+                okamžiky této zajímavé pouti.
+            </p>
+            <h2><strong>Zdeněk Jakub, Dr. Techn.:</strong> Seeing atoms as they move: a surface science approach to
+                catalysis [EN]</h2>
+            <p>
+                Modern society fully depends on catalytic processes, as the vast majority of chemicals, fertilizers,
+                fuels
+                of pharmaceuticals require catalytic steps during production. Unfortunately, the best catalysts are
+                often
+                the rarest of metals such as Pt, Rh or Ir, and the demand is increasing due to the ongoing shift to
+                carbon-neutral economy. In this talk I will show how surface physics helps in development of new
+                catalysts,
+                and how we use atomically-defined model systems to unravel the reaction mechanisms on novel single-atom
+                catalysts.
+            </p>
+            <h2><strong>prof. RNDr. Jiří Podolský , CSc., DSc.:</strong> Génius Einstein a jeho teorie gravitace [CZ]
+            </h2>
+            <p>
+                Albert Einstein radikálně změnil náš pohled na podstatu času, prostoru, gravitace, hmoty a jejich
+                vzájemné vztahy. Jeho speciální a obecná teorie relativity se staly základem moderní fyziky s řadou
+                aplikací v astronomii, kosmologii, fyzice částic, či v navigačních satelitních systémech. Po více než
+                sto letech jsou předpovědi teorie relativity s nebývalou přesností nadále pozorovány, i díky nejnovějším
+                pozorováním černých děr a gravitačních vln.
+            </p>
+            <h2><strong>Ing. Jan Kaufman:</strong> Špatná fyzika ve filmu [CZ]</h2>
+            <p>
+                Přednáška Špatná fyzika ve filmu rozebírá případy špatného nebo nereálného použití fyziky v akčních
+                filmech, kdy fyzikální realita často padne za oběť příběhové dramatizace. Přednáška se skládá z několika
+                filmových ukázek, kde se vyskytuje nějaký častý filmový fyzikální nešvar. Po shlédnutí ukázky je divákům
+                problém odhalen a následuje krátký výklad, proč je to špatně a kde se s podobnou reálnou situací můžeme
+                setkat v běžném životě. Cílem je publikum odlehčenou formou upozornit na zajímavé přírodní jevy a jak
+                realita často stojí v cestě představám filmaře.
+            </p>
+        </section>
+    </div>
+
+    <div id="excursions" class="panel color-auto">
+
+        <section class="inner-container">
+            <div class="subheader">Sobota</div>
+            <h1>Sobotní exkurze</h1>
+            <h4>14:00-17:00</h4>
+            <p><a href="https://db.fykos.cz/my-applications">Přihlašování</a> na jednotlivé exkurze je spuštěno.</p>
+            <div style="overflow-x:auto; padding: .1rem">
+                <table class="inline table" style="text-align: center;">
+                    <thead style="border-bottom: 1px solid">
+                    <tr>
+                        <th>Zkratka</th>
+                        <th>Institut</th>
+                        <th>Kapacita</th>
+                        <th>Jazyk</th>
+                        <th>Kdy a kde</th>
+                        <th>Start exkurze(pro organizátory)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>ELI</th>
+                        <td>ELI Beamlines</td>
+                        <td>20</td>
+                        <td>EN</td>
+                        <td>Metro C Kačerov - za výstupem z metra - 13:25</td>
+                        <td>14:10</td>
+                    </tr>
+                    <tr>
+                        <th>GOL</th>
+                        <td>Tokamak GOLEM</td>
+                        <td>10</td>
+                        <td>EN</td>
+                        <td>Před přednáškovou halou - Albertov 6 - 13:35</td>
+                        <td>14:05</td>
+                    </tr>
+                    <tr>
+                        <th>MACH</th>
+                        <td>Department of Physical and Macromolecular Chemistry UK</td>
+                        <td>15</td>
+                        <td>EN</td>
+                        <td>Před přednáškovou halou - Albertov 6 - 13:50</td>
+                        <td>14:00</td>
+                    </tr>
+                    <tr>
+                        <th>PALS</th>
+                        <td>Prague Asterix Laser System</td>
+                        <td>15</td>
+                        <td>CZ</td>
+                        <td>Metro C Ládví - za výstupem z metra - 14:00</td>
+                        <td>14:15</td>
+                    </tr>
+                    <tr>
+                        <th>MU</th>
+                        <td>Matematický ústav (přednáška)</td>
+                        <td>60</td>
+                        <td>CZ</td>
+                        <td>Metro B Karlovo náměstí - na platformě - 13:45</td>
+                        <td>14:10</td>
+                    </tr>
+                    <tr>
+                        <th>UCHP + UEB</th>
+                        <td>Ústav chemických procesů + Ústav experimentální botaniky</td>
+                        <td>30 + 30</td>
+                        <td>CZ</td>
+                        <td>Metro C Nádraží Holešovice - vedle McDonalds - 13:30</td>
+                        <td>14:10</td>
+                    </tr>
+                    <tr>
+                        <th>UT</th>
+                        <td>Institute of thermomechanics</td>
+                        <td>15 CZ + 30 EN</td>
+                        <td>CZ + EN</td>
+                        <td>Metro C Ládví - za výstupem z metra - 13:40</td>
+                        <td>13:55</td>
+                    </tr>
+                    <tr>
+                        <th>USMH</th>
+                        <td>Ústav struktury a mechaniky hornin</td>
+                        <td>60</td>
+                        <td>CZ</td>
+                        <td>Před MFF UK budova T - 13:45</td>
+                        <td>14:00</td>
+                    </tr>
+                    <tr>
+                        <th>BIO</th>
+                        <td>BIOCEV</td>
+                        <td>20</td>
+                        <td>EN</td>
+                        <td>Metro C Kačerov - za výstupem z metra - 14:00</td>
+                        <td>14:45</td>
+                    </tr>
+                    <tr>
+                        <th>COM</th>
+                        <td>Tokamak Compass</td>
+                        <td>25</td>
+                        <td>CZ</td>
+                        <td>Metro C I. P. Pavlova - na platformě - 13:30</td>
+                        <td>14:00</td>
+                    </tr>
+                    <tr>
+                        <th>CUK</th>
+                        <td>Fyzikální ústav</td>
+                        <td>10</td>
+                        <td>EN</td>
+                        <td>Metro A Hradčanská - za výstupem z metra - 13:45</td>
+                        <td>14:00</td>
+                    </tr>
+                    <tr>
+                        <th>17:00</th>
+                        <td colspan="9">Závěr</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    {*
+                <div class="panel color-auto">
+                    <section class="inner-container">
+                        <h1>Anotace exkurzí</h1>
+
+                         {foreach $data as $datum}
+                            {if $datum->scheduleGroupId === 122}
+                                {foreach $datum->scheduleItems as $item}
+                                    {continueIf $item->scheduleItemId === 331}
+                                    <h2>{$item->name['cs']}</h2>
+                                    <div class="{$item->totalCapacity > $item->usedCapacity?'badge bg-success mb-3':'badge bg-danger mb-3'}">
+                                        {$item->totalCapacity-$item->usedCapacity} volných míst z {$item->totalCapacity}
+                                    </div>
+                                    {switch $item->scheduleItemId}
+                                        {case 388}
+                                        <p>
+                                            Tokamak COMPASS je tokamak (magnetická nádoba pro uchovávání vysokoteplotního plazmatu), který od
+                                            roku
+                                            2008 provozuje Ústav fyziky plazmatu Akademie věd České republiky. Tokamak COMPASS byl největším
+                                            zařízením toho druhu v České republice. Jedná se o experimentální zařízení pro výzkum termonukleární
+                                            fúze, které je referenčním zařízením pro aktuálně budovaný tokamak ITER. Rozměrově Tokamak COMPASS
+                                            pracuje s jednou desetinou velikosti plazmatu, než zmíněný ITER.
+                                        </p>
+                                    {case 389}
+                                        <p>
+                                            Badatelské centrum PALS (Prague Asterix Laser System), založené v listopadu 1998 jako společné
+                                            pracoviště Fyzikálního ústavu AV ČR a Ústavu fyziky plazmatu AV ČR, je koncipováno jako uživatelská
+                                            laboratoř poskytující základnu pro experimentální výzkum v oboru výkonových laserů a fyziky laserem
+                                            vytvářeného plazmatu. Centrum bylo zpřístupněno externím uživatelům v září roku 2000.
+                                        </p>
+                                          <p>
+                                            Základním experimentálním zařízením Centra PALS je výkonový pulsní laserový systém Asterix IV. Tento
+                                            laser byl vyvinut v německém Ústavu Maxe Plancka pro kvantovou optiku (MPQ) v Garchingu u Mnichova.
+                                            Od
+                                            poslední modernizace v roce 1991 byl schopen generovat laserové paprsky s výstupní energií v
+                                            jednotlivém
+                                            pulzu až 1 kJ. Až do dubna 1997 byl laser v MPQ využíván širokou mezinárodní badatelskou komunitou v
+                                            rámci evropského programu European Large Scale Facilities.
+                                        </p>
+                                    {case 390}
+                                        <p>
+                                            Tomáš Málek, O gravitačních vlnách a detektorech
+                                        </p>
+                                        <p>
+                                            Jan Papež, Kde se vezme vědecký (matematický) článek a jak vlastně vypadá?
+                                        </p>
+                                    {case 391}
+                                        <p>
+                                            Na tomto ústavu navštívíte dvě výzkumné skupiny: Výzkumná skupina řasové a mikrobiální
+                                            biotechnologie,
+                                            která je zaměřená na využití mikroorganismů v různých technologiích (např. v potravinářství) a
+                                            Výzkumná
+                                            skupina bioorganické chemie a biomateriálů, kde se seznámíte s analytickou chemií.
+                                        </p>
+                                    {case 392}
+                                        <p>
+                                            V laboratoři biologie pylu se seznámíte s pylovými zrny a prohlédnete si je pod mikroskopem. Na
+                                            druhém
+                                            stanovišti v Laboratoři biologicky aktivních látek si vyzkoušíte přípravu trvalých preparátů a
+                                            prohlédnete si živé vzorky pod konfokálním mikroskopem.
+                                        </p>
+                                      {case 393}
+                                          <p>
+                                            Ústav struktury a mechaniky hornin AV ČR, v. v. i. je vědecké pracoviště zaměřené na studium
+                                            struktury a
+                                            vlastností hornin a horninového prostředí. Dále se zabývá výzkumem skel, technické keramiky,
+                                            kompozitů a
+                                            biomateriálů, jejich vlastnostmi i aplikačním potenciálem a technologickými otázkami zpracování
+                                            anorganických i organických odpadů.
+                                        </p>
+                                      {case 394}
+                                          <p>
+                                            Laboratory of Rotational Laser Vibrometry (M. L. Mekhalfia) – non-contact measurement of vibrations
+                                            of
+                                            rotating blades in turbomachinery
+                                        </p>
+                                        <p>
+                                            Opto-Acoustic Laboratory (K. Zoubková) – laser-ultrasound techniques for evaluation of mechanical
+                                            properties of materials
+                                        </p>
+                                        <p>
+                                            Laboratory of Hydrogen Technologies (M. S. Garapati) – nanostructured catalytic layers for hydrogen
+                                            fuel
+                                            cells
+                                        </p>
+                                    {/switch}
+                                {/foreach}
+                            {/if}
+                        {/foreach}
+
+
+                          <h2>ELI Beamlines</h2>
+                        <p>
+                            ELI Beamlines je výzkumné laserové centrum, které je součástí evropské vědecko-výzkumné organizace
+                            The
+                            Extreme Light Infrastructure ERIC.
+                        </p>
+                        <p>
+                            V ELI Beamlines mezinárodní tým vědců a vědkyň provozuje jedny z nejintenzivnějších laserových
+                            systémů
+                            na světě. Díky nim máme k dispozici unikátní nástroje umožňující průkopnický výzkum nejen v oblasti
+                            fyziky a materiálových věd, ale také v biomedicíně a laboratorní astrofyzice. ELI je centrum
+                            zaměřené na
+                            základní fyzikální výzkum a je otevřeno vědeckým a akademickým týmům z celého světa. V současné době
+                            zaměstnáváme přes 350 zaměstnanců z více než 38 zemí světa. Centrum se nachází v obci Dolní Břežany,
+                            nedaleko Prahy.
+                        </p>
+                        <h2>Tokamak GOLEM</h2>
+                        <p>
+                            Tokamak GOLEM bylo první funkční experimentální zařízení určené pro základní výzkum mikrovlnného
+                            ohřevu
+                            plazmatu v nádobách typu Tokamak. Podle velikosti se TM-1 MH zařazuje mezi malé tokamaky. Do května
+                            1976
+                            se zařízení nacházelo v Ústavu atomové energie I. V. Kurčatova v Moskvě. Pak bylo předáno Ústavu
+                            fyziky
+                            plazmatu Akademie věd České republiky na základě smlouvy o spolupráci a dělbě práce v oblasti
+                            vysokofrekvenčního ohřevu plazmatu, uzavřené mezi ústavy v roce 1974. Zařízení bylo instalováno v
+                            hale
+                            Tokamak Ústavu fyziky plazmatu v areálu akademie na Mazance v Praze 8. Do provozu zde bylo uvedeno v
+                            září 1977 a následně bylo pojmenováno CASTOR Cílem prací na tomto zařízení bylo zjištění podmínek
+                            účinné
+                            absorpce vysokofrekvenčních vln v oblasti mezi dolní hybridní a elektronovou cyklotronovou frekvencí
+                            a
+                            výzkum možnosti vybuzení toroidálního proudu pomocí vysokofrekvenčních vln. Nově je tokamak umístěn
+                            v
+                            budově ČVUT, Fakulta jaderná a fyzikálně inženýrská pod názvem GOLEM a slouží pro studijní účely.
+                        </p>
+                        <h2>Department of Physical and Macromolecular Chemistry UK</h2>
+                        <p>
+                            Katedra fyzikální chemie PřF UK byla založena v roce 1921 jako první katedra tohoto zaměření u nás.
+                            Katedru založil Prof. Jaroslav Heyrovský, pozdější nositel Nobelovy ceny za chemii (1959), který
+                            objevil
+                            polarografii (1926) a rozvinul její praktické aplikace, a vedl ji až do roku 1952, kdy se stal
+                            ředitelem
+                            Polarografického ústavu ČSAV.
+                        </p>
+                        <p>
+                            Přibližně do roku 1960 byla vědecká práce katedry zaměřena na elektrochemii. Pak byla na katedře
+                            postupně otevírána nová odvětví fyzikální chemie, takže dnes se na katedře studují témata z
+                            experimentální i teoretické fyzikální chemie a chemické fyziky, biofyzikální chemie a také
+                            makromolekulární chemie. Změny byly natolik významné (několik výzkumných skupin studuje polymery,
+                            biopolymery a koloidy), že v roce 1992 byla katedra transformována na Katedru fyzikální a
+                            makromolekulární chemie.
+                        </p>
+                        <h2>Prague Asterix Laser Systém</h2>
+                        <p>
+                            Badatelské centrum PALS (Prague Asterix Laser System), založené v listopadu 1998 jako společné
+                            pracoviště Fyzikálního ústavu AV ČR a Ústavu fyziky plazmatu AV ČR, je koncipováno jako uživatelská
+                            laboratoř poskytující základnu pro experimentální výzkum v oboru výkonových laserů a fyziky laserem
+                            vytvářeného plazmatu. Centrum bylo zpřístupněno externím uživatelům v září roku 2000.
+                        </p>
+                        <p>
+                            Základním experimentálním zařízením Centra PALS je výkonový pulsní laserový systém Asterix IV. Tento
+                            laser byl vyvinut v německém Ústavu Maxe Plancka pro kvantovou optiku (MPQ) v Garchingu u Mnichova.
+                            Od
+                            poslední modernizace v roce 1991 byl schopen generovat laserové paprsky s výstupní energií v
+                            jednotlivém
+                            pulzu až 1 kJ. Až do dubna 1997 byl laser v MPQ využíván širokou mezinárodní badatelskou komunitou v
+                            rámci evropského programu European Large Scale Facilities.
+                        </p>
+                        <h2>Matematický ústav (přednáška)</h2>
+                        <p>
+                            Tomáš Málek, O gravitačních vlnách a detektorech
+                        </p>
+                        <p>
+                            Jan Papež, Kde se vezme vědecký (matematický) článek a jak vlastně vypadá?
+                        </p>
+                        <h2>Ústav chemických procesů</h2>
+                        <p>
+                            Na tomto ústavu navštívíte dvě výzkumné skupiny: Výzkumná skupina řasové a mikrobiální
+                            biotechnologie,
+                            která je zaměřená na využití mikroorganismů v různých technologiích (např. v potravinářství) a
+                            Výzkumná
+                            skupina bioorganické chemie a biomateriálů, kde se seznámíte s analytickou chemií.
+                        </p>
+                        <h2>Ústav experimentální botaniky</h2>
+                        <p>
+                            V laboratoři biologie pylu se seznámíte s pylovými zrny a prohlédnete si je pod mikroskopem. Na
+                            druhém
+                            stanovišti v Laboratoři biologicky aktivních látek si vyzkoušíte přípravu trvalých preparátů a
+                            prohlédnete si živé vzorky pod konfokálním mikroskopem.
+                        </p>
+                        <h2>Ústav struktury a mechaniky hornin</h2>
+                        <p>
+                            Ústav struktury a mechaniky hornin AV ČR, v. v. i. je vědecké pracoviště zaměřené na studium
+                            struktury a
+                            vlastností hornin a horninového prostředí. Dále se zabývá výzkumem skel, technické keramiky,
+                            kompozitů a
+                            biomateriálů, jejich vlastnostmi i aplikačním potenciálem a technologickými otázkami zpracování
+                            anorganických i organických odpadů.
+                        </p>
+                        <h2>BIOCEV</h2>
+                        <p>
+                            V kontextu české (i evropské) vědy představuje BIOCEV špičkovou komplexní platformu pro rozvoj
+                            moderních
+                            biotechnologií a biomedicíny. Díky vzniku tohoto centra se podařilo propojit tradiční silné obory z
+                            oblasti technických a přírodních věd, jako jsou virologie nebo chemie. O kvalitně nastaveném
+                            vědeckém
+                            modelu vypovídá i nejvyšší dosažené hodnocení z pěti předložených velkých projektů OP Výzkum a vývoj
+                            pro
+                            inovace.
+                        </p>
+                        <p>
+                            Výzkumné skupiny BIOCEV se zaměřují na detailní poznání organismů na molekulární úrovni. Jejich
+                            výsledky
+                            směřují do aplikovaného výzkumu a vývoje nových léčebných postupů proti závažným zdravotním
+                            problémům.
+                            Mezi koncové výsledky výzkumné práce v centru BIOCEV patří například léky cílené do přesného místa
+                            poškozeného metabolismu nebo proteinové a tkáňové inženýrství. V současné době pracuje v centru více
+                            než
+                            440 vědeckých a technických pracovníků. Téměř třetina z nich pochází ze zahraničí, např. z
+                            Austrálie,
+                            Kanady, Číny, Francie, Ukrajiny, Polska nebo Německa. Výzkumné týmy BIOCEV již publikovaly více než
+                            590
+                            vědeckých výstupů včetně článků v prestižních zahraničních časopisech (např. Cell, Molecular Cell,
+                            Nature Communication a Gastroenterology a dalších).
+                        </p>
+                        <h2>Tokamak Compass</h2>
+                        <p>
+                            Tokamak COMPASS je tokamak (magnetická nádoba pro uchovávání vysokoteplotního plazmatu), který od
+                            roku
+                            2008 provozuje Ústav fyziky plazmatu Akademie věd České republiky. Tokamak COMPASS byl největším
+                            zařízením toho druhu v České republice. Jedná se o experimentální zařízení pro výzkum termonukleární
+                            fúze, které je referenčním zařízením pro aktuálně budovaný tokamak ITER. Rozměrově Tokamak COMPASS
+                            pracuje s jednou desetinou velikosti plazmatu, než zmíněný ITER.
+                        </p>
+                        <h2>Institute of thermomechanics</h2>
+                        <p>
+                            Laboratory of Rotational Laser Vibrometry (M. L. Mekhalfia) – non-contact measurement of vibrations
+                            of
+                            rotating blades in turbomachinery
+                        </p>
+                        <p>
+                            Opto-Acoustic Laboratory (K. Zoubková) – laser-ultrasound techniques for evaluation of mechanical
+                            properties of materials
+                        </p>
+                        <p>
+                            Laboratory of Hydrogen Technologies (M. S. Garapati) – nanostructured catalytic layers for hydrogen
+                            fuel
+                            cells
+                        </p>
+                    </section>
+                </div>
+                <div class="panel color-auto" id="cityralley">
+                    <section class="inner-container">
+                        <div class="subheader">Neděle</div>
+                        <h1>Městská hra - 10:00-volné</h1>
+                        <p>Městská hra vás provede napříč Prahou. Utvoříte si malé týmy a společně budete řešit nejrůznější úkoly spojené s ulicemi hlavního města. Nejedná se jen o obyčejnou procházku, budete muset zapojit i svou mysl. Konec hry není pevný, záleží na vás, nejpozději však končí v 17:00.
+                    </section>
+                </div>
+
+                </div>
+
+                <div class="panel color-auto" id="buffet">
+                    <section class="inner-container">
+                        <div class="subheader">Sobota</div>
+                        <h1>Raut</h1>
+                        <h4>19:00-22:00, Troja, Impakt</h4>
+                        <p>
+                            Po sobotním náročném dni si soutěžíci budou mít prostor oddychnout a popovídat na slavnostní večeři se všemi účastníky, kteří budou zůstávat v Praze až do neděle. Raut se bude konat od 19:00 v trojském Impaktu.
+                        </p>
+                    </section>
+                </div>
+
+                <div class="panel color-auto" id="cityralley">
+                    <section class="inner-container">
+                        <div class="subheader">Neděle</div>
+                        <h1>Městská hra</h1>
+                        <h4>10:00-volné, Ke Karlovu</h4>
+                        <p>Městská hra vás provede napříč Prahou, začátek je v 10:00 v kampusu Ke Karlovu. Utvoříte si malé týmy a společně budete řešit nejrůznější úkoly spojené s ulicemi hlavního města. Nejedná se jen o obyčejnou procházku, budete muset zapojit i svou mysl. Konec hry není pevný, záleží na vás, nejpozději však končí v 17:00.</p>
+                    </section>
+                </div>
+
+
+
+
+                {*Pro inspiraci viz níže    *}
+    {if false}
+        <div class="panel color-auto">
+            <section class="inner-container">
+                <h1>Časový plán soutěže a doprovodného programu</h1>
+                {include "../schedule.latte"}
+            </section>
+        </div>
+
+        <div class="panel color-auto" id="rozvrh-prednasek">
+            <section class="inner-container">
+                <h1>Rozvrh přednášek</h1>
+                <p>
+                    Na jednotlivé přednášky se můžete zapsat ve své <a href="https://db.fykos.cz/my-applications">přihlášce</a>.
+                    Budou probíhat vždy dvě paralelně, jedna česky a jedna anglicky. I čeští účastníci se samozřejmě
+                    mohou přihlásit na anglickou přednášku.
+                </p>
+                <table class="table schedule-table" style="text-align: center;">
+                    <thead>
+                    <tr>
+                        <th>místnost</th>
+                        <th><strong>F1</strong> (v budově Ke Karlovu 5)</th>
+                        <th><strong>M1</strong> (v budově Ke Karlovu 3)</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                        <th>9:30</th>
+                        <td>doc. RNDr. Jiří Dolejší, CSc.: O částicové fyzice v různých souvislostech [CZ]</td>
+                        <td>prof. Lenka Zdeborová: Physics of Computation [EN]</td>
+                    </tr>
+                    <tr>
+                        <th>10:30</th>
+                        <td colspan="2">Přestávka</td>
+                    </tr>
+                    <tr>
+                        <th>10:45</th>
+                        <td>prof. RNDr. Ondřej Santolík, Dr.: Hudba sfér [CZ]</td>
+                        <td>MScR. Branislav Viliam Hakala: Crash Course of Material Chemistry [EN]</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <div class="panel color-auto">
+            <section class="inner-container">
+                <h1>Anotace přednášek</h1>
+                <h2><strong>doc. RNDr. Jiří Dolejší, CSc.:</strong> O částicové fyzice v různých souvislostech [CZ]</h2>
+                <p>This lecture is only available in Czech.
+                </p>
+                <h2><strong>prof. Lenka Zdeborová:</strong> Physics of Computation [EN]</h2>
+                <p>Algorithms are an indispensable tool behind many modern technologies. Many widely used algorithms,
+                    e.g. those used in machine learning when training artificial neural networks, are surrounded by
+                    mysteries and open questions. Our understanding of which practical problems are solvable with
+                    computers is still in its infancy. Physics gives us tools to unveil some of those mysteries and
+                    discover better algorithms. Phase transitions such as water freezing or evaporating play a key role
+                    in this adventure. If you want to know how physics is used in the domain of computer science and
+                    machine learning, come to listen.</p>
+
+                <h2><strong>prof. RNDr. Ondřej Santolík, Dr.:</strong> Hudba sfér [CZ]</h2>
+                <p>This lecture is only available in Czech. </p>
+                <h2><strong>MScR. B. Viliam Hakala:</strong> Crash Course of Material Chemistry [EN]</h2>
+                <p>
+                    More than hundred years ago, basics of structural analysis were laid when x-rays were discovered.
+                    During 20<sup>th</sup> century, several Nobel Prizes were awarded for solutions of crystal
+                    structures of important compounds. These days, there is an increasing need for new magnetic,
+                    electronic, or electrochemical materials that can solve problems in modern science and technology.
+                    It was found that even the most basic materials can have interesting physical properties under
+                    extreme conditions, such as low temperatures or high pressures. In this talk we will have a look on
+                    how different materials behave under these conditions, describe experimental methods used to achieve
+                    them and discuss how the conditions influence the structures and properties of the materials.
+                </p>
+            </section>
+        </div>
+        <div id="rozvrh-exkurzi" class="panel color-auto">
+            <section class="inner-container">
+                <h1>Rozvrh exkurzí</h1>
+                <p>Pro velký zájem jsme přidali dva bloky exkurzí. Anotace jednotlivých exkurzí najdete na této
+                    stránce níže, chybějící budou postupně doplněny.</p>
+                <div style="overflow-x:auto; padding: .1rem">
+                    <table class="table schedule-table" style="text-align: center;">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>1.</th>
+                            <th>2.</th>
+                            <th>3.</th>
+                            <th>4.</th>
+                            <th>5.<br></th>
+                            <th>6.</th>
+                            <th>7.</th>
+                            <th>8.</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>9:00</th>
+                            <td rowspan="2">Vrabec</td>
+                            <td>Kosmická fyzika</td>
+                            <td>Povrchy<br></td>
+                            <td>Plazma<br></td>
+                            <td>Baterie</td>
+                            <td>Detektory</td>
+                            <td>NAP</td>
+                            <td>Astro</td>
+                        </tr>
+                        <tr>
+                            <th>9:40</th>
+                            <td>Detektory</td>
+                            <td>Plazma</td>
+                            <td>Geofyzika</td>
+                            <td>Povrchy</td>
+                            <td>Kosmická fyzika</td>
+                            <td>Baterie</td>
+                            <td>NAP</td>
+                        </tr>
+                        <tr>
+                            <th>10:20</th>
+                            <td>Plazma</td>
+                            <td>Rf. spektroskopie</td>
+                            <td>Astro</td>
+                            <td rowspan="2">Vrabec</td>
+                            <td>Kosmická fyzika</td>
+                            <td>Povrchy</td>
+                            <td>Atmosféra</td>
+                            <td>Baterie</td>
+                        </tr>
+                        <tr>
+                            <th>11:00</th>
+                            <td>Kosmická fyzika</td>
+                            <td>Povrchy</td>
+                            <td>Rf. spektroskopie</td>
+                            <td>Geofyzika</td>
+                            <td>Baterie</td>
+                            <td>Plazma</td>
+                            <td>Atmosféra</td>
+                        </tr>
+                        <tr>
+                            <th>11:40</th>
+                            <td colspan="8">Závěr</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+
+        <div id="anotace-exkurzi" class="panel color-auto">
+            <section class="inner-container">
+                <h1>Anotace exkurzí</h1>
+                <h2>Školní reaktor VR-1 Vrabec</h2>
+                <p><em>[Účastníkům této exkurze musí být 16 let a více.]</em></p>
+                <p>Školní reaktor VR-1 je lehkovodní jaderný reaktor nulového výkonu s obohaceným uranem. Jedná se o
+                    jedinečnou výukovou podmínku v celé České republice, kde studenti mohou vyzkoušet práci s
+                    opravdovým
+                    reaktorem. Reaktor je provozován ve spolupráci s FJFI ČVUT.</p>
+
+                <h2>Skupina fyziky plazmatu</h2>
+                <p>
+                    Plazma je důležité v mnoha oblastech vesmíru i pro použití na Zemi. Experimenty v našich
+                    laboratořích využívají plazma pro pochopení dějů v mezihvězdných oblacích plynu, k úpravě
+                    povrchů či
+                    přípravě nanočástic.
+                </p>
+
+                <h2>Skupina kosmické fyziky</h2>
+                <p>
+                    V rámci bloku se seznámíme se satelity, jejichž dvojčata byla v kosmu, a se spoustou dalších
+                    věcí
+                    týkajících se kosmické fyziky.
+                </p>
+
+                <h2>Proč a jak se dozvědět o povrchu co nejvíce (Skupina fyziky povrchů)</h2>
+                <p>
+                    Povrchy nebo obecněji rozhraní pevných látek určují do značné míry jak
+                    naši každodenní zkušenost, tak vlastnosti řady technologických aplikací.
+                    Říká se, že je obtížné nahlížet pod povrch věcí a jevů. Ještě otížnější
+                    se ale v praxi ukazuje zjišťování informací o povrchu samotném. Jistá
+                    neuchopitelnost povrchů a jejich vlastností dala vzniknout samostatné
+                    vědní disciplíně - fyzice povrchů. V rámci exkurze se seznámíme s
+                    fyzikálními principy a triky, které nám umožňují zjistit uspořádání,
+                    chemické složení a chemické vlastnosti povrchů až s atomárním rozlišením
+                    a naučit se povrchy konfigurovat tak, aby v aplikacích fungovaly co nejlépe.
+                </p>
+
+                <h2>Cesta do středu Země (Katedra geofyziky)</h2>
+                <p>
+                    Blok bude věnovaný geofyzikálním jevům: měření zemětřesení a funkci
+                    seismografu; vyzkoušíte si otřesový stůl a seznámíte se se způsoby
+                    stabilizace budov proti účinkům zemětřesení. Podíváte se na deformační
+                    módy zemského nitra v různých časových škálách, změříte si magnetické
+                    pole Země. Stranou nezůstanou ani elektromagnetické jevy – jako
+                    například elektromagnetická indukce v geofyzice.
+                </p>
+
+                <h2>Oddělení radiofrekvenční spektroskopie</h2>
+                <p>
+                    Laboratoře jaderné magnetické rezonance disponují několika moderními spektrometry se zaměřením
+                    na
+                    vysoké
+                    rozlišení v kapalinách, v pevných látkách a na širokopásmovou spektroskopii ve velkém teplotním
+                    rozsahu.
+                    Spektroskopie jaderné magnetické rezonance (NMR) je poměrně univerzální neradioaktivní metoda,
+                    která
+                    využívá magneticky aktivní atomová jádra vhodných izotopů jako lokální sondy v měřené látce.
+                    Uplatňuje
+                    se při studiu atomové, elektronové a magnetické struktury různorodých látek a materiálů.
+                </p>
+
+                <h2>Křemíkové detektory částic</h2>
+                <p>
+                    Zaměřujeme se především na experimentální částicovou fyziku, vývoj detektorů a jejich simulace a
+                    vyhodnocení, programování v oblasti testování a simulací křemíkových stripových a pixelových
+                    detektorů.
+                </p>
+                <h2>Nanomateriály pro vodíkové technologie (Baterie)</h2>
+                <p>
+                    Vodík má najvyššiu špecifickú energetickú hustotu spomedzi všetkých palív. Aj preto sa s ním v
+                    blízkej
+                    budúcnosti počíta nielen v doprave v spojení s palivovými článkami, ale aj v kontexte ukladania
+                    energie
+                    z obnoviteľných zdrojov prostredníctvom elektrolýzy vody.
+                    Súčasný aplikovaný výskum na poli moderných palivových článkov a elektrolyzérov vody sa
+                    zameriava
+                    predovšetkým na vývoj efektívnych nanoštrukturovaných katalyzátorov, ktoré sú ich neoddeliteľnou
+                    súčasťou. Znižovaniu obsahu drahých kovov, zvyšovaniu účinnosti a zlepšovaniu elektrochemickej
+                    stability
+                    nových katalyticky aktívnych systémov sa venujeme aj u nás na katedre.
+                    Príďte sa pozrieť, ako sa pripravujú, skúmajú a testujú nové materiály pre vodíkové technológie
+                    a
+                    bezemisnú spoločnosť.
+
+                </p>
+                <h2>Near ambient pressure x-ray (NAP)</h2>
+                <p>
+                    Na Katedře fyziky povrchů a plazmatu MFF UK se nachází unikátní laboratoř, jediná svého druhu v
+                    ČR,
+                    pro
+                    operando studie, které umožňují analýzu strukturních a chemických změn povrchů pevných látek za
+                    reálných
+                    provozních podmínek, tj. během reakcí, při kontaktu s různými plyny. Experimentální zařízení v
+                    naší
+                    laboratoři se skládá z rentgenového fotoelektronového spektrometru pro chemickou analýzu povrchu
+                    pevných
+                    látek při vyšších tlacích (<em>Near-Ambient Pressure X-ray Photoelectron Spectroscopy,
+                        NAP-XPS</em>)
+                    a
+                    vysokotlakého řádkovacího tunelového mikroskopu (<em>Near-Ambient Pressure Scanning Tunneling
+                        Microcopy,
+                        NAP-STM</em>), který umožňuje zobrazení povrchů v atomárním měřítku. Kombinace těchto vysoce
+                    citlivých experimentálních technik umožňuje studovat chemické procesy probíhající na površích
+                    modelových, ale také reálných katalyzátorů, plynových senzorů, palivových článků atd.
+                </p>
+                <h2>Katedra fyziky atmosféry</h2>
+                <p>
+                    V rámci exkurze na katedře fyziky atmosféry budou představena hlavní vědecká témata, jimiž se
+                    pracovníci
+                    KFA zabývají. Protože se KFA nevěnuje experimentálnímu výzkumu, budou představeny hlavní
+                    principy
+                    modelování atmosférických dějů, jakožto hlavní metody používané na katedře.
+                </p>
+
+                {*            <h2>Oddělení Mössbauerovy spektroskopie</h2>*}
+                    {*            <p>*}
+                    {*                Metody Mössbauerovy spektroskopie nalezly široké uplatnění v nejrůznějších oborech výzkumu, zejména ve fyzice, chemii, geologii, biologii a lékařství.*}
+                    {*                Používají stabilní atomová jádra chemických prvků, nejčastěji stabilního izotopu <sup>57</sup>Fe, jako lokální sondy ve struktuře studovaných látek. Velikost hyperjemných interakcí atomových jader sondy je citlivá na okolí ve kterém se sonda nachází, a proto také může podat informaci zejména o valenčním stavu iontů, lokální krystalové symetrii a defektech krystalové mříže, magnetickém uspořádání a fázovém složení vzorků.*}
+                    {*            </p>*}
+            </section>
+        </div>
+    {/if}
+{/block}

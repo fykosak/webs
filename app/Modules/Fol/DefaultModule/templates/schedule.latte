@@ -1,8 +1,9 @@
+{varType App\Modules\Core\Language $language}
 <div class="timeline">
     <div>
         <span class="timeline-element-icon"></span>
         <div class="timeline-element-content">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="timeline-title">Začátek soutěže</div>
                 <p>
@@ -22,7 +23,7 @@
     <div>
         <span class="timeline-element-icon"></span>
         <div class="timeline-element-content">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="timeline-title">
                     Hurry-up
@@ -47,7 +48,7 @@
     <div>
         <span class="timeline-element-icon"></span>
         <div class="timeline-element-content">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="timeline-title">
                     Konec zvýhodněné části Hurry-up
@@ -70,7 +71,7 @@
     <div>
         <span class="timeline-element-icon"></span>
         <div class="timeline-element-content">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="timeline-title">
                     Konec soutěže
@@ -93,7 +94,7 @@
     <div>
         <span class="timeline-element-icon"></span>
         <div class="timeline-element-content">
-            {switch $lang}
+            {switch $language->value}
                 {case cs}
                 <div class="timeline-title">
                     Konec přijímání stížností
@@ -109,7 +110,7 @@
                     We close the possibility to complain and prepare to publish the official winners during the upcoming days.
                 </p>
             {/switch}
-            <time datetime="20:30" class="timeline-element-date">20:30</time>
+            <time datetime="21:00" class="timeline-element-date">21:00</time>
         </div>
     </div>
 </div>

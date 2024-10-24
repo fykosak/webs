@@ -10,7 +10,7 @@ use Tracy\ILogger;
 
 class ErrorPresenter extends BasePresenter
 {
-    private ILogger $logger;
+    private readonly ILogger $logger;
 
     public function injectLogger(ILogger $logger): void
     {
@@ -24,8 +24,16 @@ class ErrorPresenter extends BasePresenter
     {
         if ($exception instanceof BadRequestException) {
             $code = $exception->getCode();
+
+            // specifically return 410 instead of 404 for these paths
+            if (in_array($this->getHttpRequest()->getUrl()->getPath(), ['/prezentace'])) {
+                $code = 410;
+                $this->getHttpResponse()->setCode(410);
+            }
+
             // load template 403.latte or 404.latte or ... 4xx.latte
             $this->setView(in_array($code, [403, 404, 405, 410, 500, 503]) ? (string)$code : '4xx');
+
             // log to access.log
             $this->logger->log(
                 "HTTP code $code: {$exception->getMessage()} in {$exception->getFile()}:{$exception->getLine()}",

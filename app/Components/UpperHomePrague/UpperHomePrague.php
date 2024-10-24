@@ -5,16 +5,18 @@ declare(strict_types=1);
 namespace App\Components\UpperHomePrague;
 
 use App\Components\Countdown\CountdownComponent;
-use App\Models\GamePhaseCalculator;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use App\Models\Downloader\EventModel;
+use Fykosak\Utils\Components\DIComponent;
+use Fykosak\Utils\DateTime\Phase;
+use Nette\DI\Container;
 
-final class UpperHomePrague extends BaseComponent
+final class UpperHomePrague extends DIComponent
 {
-    private GamePhaseCalculator $gamePhaseCalculator;
-
-    public function injectGamePhaseCalculator(GamePhaseCalculator $gamePhaseCalculator): void
-    {
-        $this->gamePhaseCalculator = $gamePhaseCalculator;
+    public function __construct(
+        Container $container,
+        private readonly EventModel $event
+    ) {
+        parent::__construct($container);
     }
 
     /**
@@ -23,7 +25,7 @@ final class UpperHomePrague extends BaseComponent
     public function render(): void
     {
         $this->template->lang = $this->translator->lang;
-        $this->template->gamePhaseCalculator = $this->gamePhaseCalculator;
+        $this->template->event = $this->event;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomePrague.latte');
     }
 
@@ -32,12 +34,12 @@ final class UpperHomePrague extends BaseComponent
      */
     protected function createComponentCountdown(): CountdownComponent
     {
-        if ($this->gamePhaseCalculator->isRegistration($this->gamePhaseCalculator::BEFORE)) {
+        if ($this->event->getRegistrationPeriod()->is(Phase::before)) {
             return new CountdownComponent(
                 $this->container,
-                $this->gamePhaseCalculator->getFKSDBEvent()->registrationBegin
+                $this->event->registrationBegin
             );
         }
-        return new CountdownComponent($this->container, $this->gamePhaseCalculator->getGameBegin());
+        return new CountdownComponent($this->container, $this->event->game->begin);
     }
 }

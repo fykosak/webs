@@ -13,7 +13,6 @@ $container = require '../../../Bootstrap.php';
 // phpcs:enable
 class DefaultModule extends AbstractPageDisplayTestCase
 {
-
     public function getPages(): array
     {
         return self::getPageLangVariants([

@@ -5,24 +5,22 @@ declare(strict_types=1);
 namespace App\Components\TeamList;
 
 use App\Components\Flags\FlagsComponent;
-use App\Models\NetteDownloader\ORM\Models\ModelTeam;
-use App\Models\NetteDownloader\ORM\Services\DummyService;
+use App\Models\Downloader\DummyService;
+use App\Models\Downloader\TeamModel;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
-use Fykosak\Utils\BaseComponent\BaseComponent;
+use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
-class TeamListComponent extends BaseComponent
+class TeamListComponent extends DIComponent
 {
-    protected DummyService $serviceTeam;
-    protected int $eventId;
+    protected readonly DummyService $serviceTeam;
 
     protected string $category;
     protected array $teams;
 
-    public function __construct(Container $container, int $eventId)
+    public function __construct(Container $container, protected readonly int $eventId)
     {
         parent::__construct($container);
-        $this->eventId = $eventId;
     }
 
     public function injectServiceTeam(DummyService $serviceTeam): void
@@ -41,7 +39,7 @@ class TeamListComponent extends BaseComponent
     public function loadTeams(): void
     {
         $teams = [];
-        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), ModelTeam::class) as $team) {
+        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), TeamModel::class) as $team) {
             $category = $team->category;
             if (strlen($category) === 0) {
                 continue;

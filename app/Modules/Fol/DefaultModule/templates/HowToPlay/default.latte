@@ -1,14 +1,14 @@
-{varType string $lang}
+{varType App\Modules\Core\Language $language}
 
 {block subtitle}
-    {switch $lang}
+    {switch $language->value}
         {case cs}Jak hrát
         {default}How to play
     {/switch}
 {/block}
 
 {block title}
-    {switch $lang}
+    {switch $language->value}
         {case cs}Orientace v herním systému
         {default}Orientation in the game system
     {/switch}
@@ -19,7 +19,7 @@
         <iframe
                 width="560"
                 height="315"
-                src="{switch $lang}{case cs}https://www.youtube.com/embed/m2SDsce_iIs{default}https://www.youtube.com/embed/LzabOcqQNYc{/switch}"
+                src="{switch $language->value}{case cs}https://www.youtube.com/embed/m2SDsce_iIs{default}https://www.youtube.com/embed/LzabOcqQNYc{/switch}"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

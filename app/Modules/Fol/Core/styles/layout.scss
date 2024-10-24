@@ -252,9 +252,13 @@ a:hover {
   }
 }
 
-.team-list .team-status-pending {
+/**
+ * Neschvalene tymy jsou sedive
+
+.team-list .team-state-pending {
   opacity: .5;
 }
+*/
 
 .btn-panel-action {
   font-weight: bold;
