@@ -65,6 +65,8 @@ class OrgSneakPeakComponent extends DIComponent
 
     public function render($personId = null, $title = null)
     {
+        $this->template->lang = $this->translator->lang;
+
         $this->template->organizer = $this->get_org($this->organizers, $personId);
         if ($title == null) {
             $this->template->title = $this->template->organizer['name'];
