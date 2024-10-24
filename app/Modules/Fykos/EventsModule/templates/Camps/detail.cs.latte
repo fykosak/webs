@@ -20,16 +20,16 @@
 </div>
 <div class="panel color-auto">
     <section class="inner-container">
-        <h1>Účastníci</h1>
-        {foreach $participants as $participant}
-        {$participant['name']}{if !$iterator->isLast()},{else}.{/if}
-        {/foreach}
+        <h1>Fotogalerie</h1>
+        {control gallery:randomLine $photoPath}
     </section>
 </div>
 <div class="panel color-auto">
     <section class="inner-container">
-        <h1>Fotogalerie</h1>
-        {control gallery:randomLine $photoPath}
+        <h1>Účastníci</h1>
+        {foreach $participants as $participant}
+        {$participant['name']}{if !$iterator->isLast()},{else}.{/if}
+        {/foreach}
     </section>
 </div>
 {/block}
