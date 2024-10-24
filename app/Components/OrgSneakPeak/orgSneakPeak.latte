@@ -1,6 +1,6 @@
 {layout '../@layout.latte'}
 {varType string $id}
-{varType string $lang}
+{varType App\Modules\Core\Language $lang}
 {varType array $organizer}
 {varType string $title}
 
@@ -19,14 +19,14 @@
             <table>
                 {* If org is still active *}
                 {if !$organizer['until']} 
-                    {if $organizer['role'] and $lang == 'cs'}
+                    {if $organizer['role'] and $lang->value == 'cs'}
                     <tr>
                         <td class="left-cell"><span class="icon"><i class="fas fa-briefcase"></i></span>
                         </td>
                         <td class="right-cell">{$organizer['role']}</td>
                     </tr>
                     {/if}
-                    {if $organizer['career'] and $lang == 'cs'}
+                    {if $organizer['career'] and $lang->value == 'cs'}
                     <tr>
                         <td class="left-cell"><span class="icon"><i class="fas fa-school"></i></span></td>
                         <td class="right-cell">{$organizer['career']}</td>
@@ -35,7 +35,7 @@
                     <tr>
                         <td class="left-cell"><span class="icon"><i class="fas fa-envelope"></i></span></td>
                         <td class="right-cell">
-                            {switch $lang}  
+                            {switch $lang->value}  
                                 {case 'cs'} <a href="mailto:{$organizer['domainAlias']}@fykos.cz">{$organizer['domainAlias']}@fykos.cz</a>
                                 {default} <a href="mailto:{$organizer['domainAlias']}@fykos.org">{$organizer['domainAlias']}@fykos.org</a>
                             {/switch}
@@ -47,24 +47,24 @@
                         </td>
                         <td class="right-cell">
                             {if $organizer['until'] and $organizer['until'] != $organizer['since']}
-                                {switch $lang}
+                                {switch $lang->value}
                                     {case 'cs'} ročníky
                                     {default} years
                                 {/switch}
                                 {$organizer['since']} - {$organizer['until']}
                             {elseif $organizer['until']}
-                                {switch $lang}
+                                {switch $lang->value}
                                     {case 'cs'} ročník
                                     {default} year
                                 {/switch}
                                 {$organizer['since']}
                             {else}
-                                {switch $lang}
+                                {switch $lang->value}
                                     {case 'cs'} ročník
                                     {default} year
                                 {/switch}
                                 {$organizer['since']} - 
-                                {switch $lang}
+                                {switch $lang->value}
                                     {case 'cs'} současnost
                                     {default} present
                                 {/switch}
