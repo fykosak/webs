@@ -5,7 +5,7 @@
     {foreach $previewImages as $image}
         <div class="col-lg-2 col-md-12 mb-2 mb-lg-0">
             <a href="#" data-index="{$image['index']}">
-                <img src="{$image['src']}" alt="" class="w-100 shadow-1-strong rounded mb-4"/>
+                <img src="{$image['src']}" alt="" class="w-100 shadow-1-strong rounded mb-4" style="aspect-ratio: 16/9; object-fit: cover;"/>
             </a>
         </div>
     {/foreach}
