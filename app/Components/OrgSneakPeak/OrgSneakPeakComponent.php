@@ -7,7 +7,6 @@ namespace App\Components\OrgSneakPeak;
 use Fykosak\Utils\Components\DIComponent;
 use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
-
 use Nette\DI\Container;
 
 class OrgSneakPeakComponent extends DIComponent
@@ -53,7 +52,7 @@ class OrgSneakPeakComponent extends DIComponent
         return $parsedOrganizers;
     }
 
-    public function get_org(array $organizers, $personId): array
+    public function getOrg(array $organizers, $personId): array
     {
         foreach ($organizers as $organizer) {
             if ($organizer['personId'] == $personId) {
@@ -67,13 +66,13 @@ class OrgSneakPeakComponent extends DIComponent
     {
         $this->template->lang = $this->translator->lang;
 
-        $this->template->organizer = $this->get_org($this->organizers, $personId);
+        $this->template->organizer = $this->getOrg($this->organizers, $personId);
         if ($title == null) {
             $this->template->title = $this->template->organizer['name'];
         } else {
             $this->template->title = $title;
         }
-        $this->template->lang = $this->translator->lang;    
+        $this->template->lang = $this->translator->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'orgSneakPeak.latte');
     }
 }
