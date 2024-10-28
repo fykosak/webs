@@ -10,8 +10,6 @@ use Nette\Caching\Storage;
 use Nette\DI\Container;
 use Nette\Utils\Finder;
 use Nette\Utils\UnknownImageFileException;
-use Smalot\PdfParser\Config;
-use Smalot\PdfParser\Parser;
 
 class PdfGalleryControl extends DIComponent
 {
@@ -39,14 +37,9 @@ class PdfGalleryControl extends DIComponent
             return [];
         }
 
-        $parser = new Config();
-        $parser->setRetainImageContent(false);
-        $parser = new Parser(config: $parser);
-
-
         foreach ($iterator as $file) {
             try {
-                $info = $parser->parseFile($file->getRealPath())->getDetails();
+                $info = static::get_pdf_prop($file->getRealPath());
                 $name = $info["Title"] ?? ($info["title"] ?? '');
             } catch (\Exception $e) {
                 $name = '';
@@ -115,5 +108,53 @@ class PdfGalleryControl extends DIComponent
             [$path, $this->wwwDir],
             fn() => self::getPdfs($path, $this->wwwDir)
         )) > 0;
+    }
+
+    /**
+     * magic from http://www.fpdf.org/en/script/script59.php
+     * @param string $file filename
+     * @return array whose keys are the names of the properties found in the file
+     */
+    function get_pdf_prop($file): array
+    {
+        $f = fopen($file, 'rb');
+        if (!$f)
+            return [];
+
+        //Read the last 16KB
+        fseek($f, -16384, SEEK_END);
+        $s = fread($f, 16384);
+
+        //Extract cross-reference table and trailer
+        if (!preg_match("/xref[\r\n]+(.*)trailer(.*)startxref/s", $s, $a))
+            return [];
+        $xref = $a[1];
+        $trailer = $a[2];
+
+        //Extract Info object number
+        if (!preg_match('/Info ([0-9]+) /', $trailer, $a))
+            return [];
+        $object_no = $a[1];
+
+        //Extract Info object offset
+        $lines = preg_split("/[\r\n]+/", $xref);
+        $line = $lines[1 + $object_no];
+        $offset = (int) $line;
+        if ($offset == 0)
+            return [];
+
+        //Read Info object
+        fseek($f, $offset, SEEK_SET);
+        $s = fread($f, 1024);
+        fclose($f);
+
+        //Extract properties
+        if (!preg_match('/<<(.*)>>/Us', $s, $a))
+            return [];
+        $n = preg_match_all('|/([a-z]+) ?\((.*)\)|Ui', $a[1], $a);
+        $prop = array();
+        for ($i = 0; $i < $n; $i++)
+            $prop[$a[1][$i]] = $a[2][$i];
+        return $prop;
     }
 }
