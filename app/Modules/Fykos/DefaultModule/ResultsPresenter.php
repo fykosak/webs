@@ -20,14 +20,7 @@ class ResultsPresenter extends BasePresenter
     {
         // $year = $this->year ?? $this->getCurrentYear()->year;
         // hack before body-ready is implemented
-        $year = $this->year ?? 37;
-        if ($year === 38) {
-            throw new BadRequestException(
-                $this->csen('Stránka nenalezena', 'Page not found'),
-                IResponse::S404_NOT_FOUND
-            );
-        }
-
+        $year = $this->year ?? 38;
 
         $this->template->year = $year;
         $this->template->contest = $this->getContest();
