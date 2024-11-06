@@ -211,16 +211,10 @@
                     <div class="price-box propagacni-box small">
                         FYKOSí lahve,<br/>trička a mikiny
                     </div>
-                    <a class="price-box factorio-box small" href="https://www.factorio.com/">
-                        Factorio licence
-                    </a>
                     <a class="price-box large mathematica-box" href="https://www.wolfram.com/mathematica/">
                         Wolfram<br/>Mathematica<br/>software
                     </a>
                     {default}
-                    <a class="price-box factorio-box small" href="https://www.factorio.com/">
-                        Factorio licenses
-                    </a>
                     <a class="price-box propagacni-box small">
                         FYKOS's bottles,<br/>T-shirts and other prices
                     </a>
@@ -232,27 +226,35 @@
                 <div class="col-md-4">
                     {switch $language->value}
                         {case cs}
-                            <div class="price-box large knihy-box">
+                            <div class="price-box triplet-top knihy-box">
                                 Knihy<br/>podle<br/>výběru
                             </div>
                         {default}
-                            <div class="price-box large knihy-box">
+                            <div class="price-box triplet-top knihy-box">
                                 Books<br/>by your<br/>choice
                             </div>
                             {*<a class="price-box propagacni-box small">
                                 FYKOS's bottles,<br/>T-shirts and other prices
                             </a>*}
                     {/switch}
-
-                      <a class="price-box small chess-box" href="https://www.chess.com/">
-                          {switch $language->value}
-                              {case cs}Diamantové členství na<br/>
-                              <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad" style="max-height: 3rem">
-                              {default}Diamond membership on<br/>
-                              <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad" style="max-height: 3rem">
-                          {/switch}
-                      </a>
-
+                    {switch $language->value}
+                        {case cs}
+                    <a class="price-box factorio-box triplet-mid" href="https://www.factorio.com/">
+                        Factorio licence
+                    </a>
+                        {default}
+                    <a class="price-box factorio-box triplet-mid" href="https://www.factorio.com/">
+                        Factorio licenses
+                    </a>
+                    {/switch}
+                    <a class="price-box triplet-bot chess-box" href="https://www.chess.com/">
+                        {switch $language->value}
+                            {case cs}Diamantové členství na<br/>
+                            <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad" style="max-height: 3rem">
+                            {default}Diamond membership on<br/>
+                            <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad" style="max-height: 3rem">
+                        {/switch}
+                    </a>
                     {switch $language->value}
   {*                      {case cs}*}
   {*                      <div class="price-box large"  style="background-color: #666666">*}
@@ -271,10 +273,10 @@
                                 Deskovky<br>a karetní<br>hry
                             </div>
                         {default}
-                              <div class="price-box small deskovky-box">
+                            <div class="price-box small deskovky-box">
                                 Board <br>and card<br>games
                             </div>
-                           {* <a class="price-box small kerbal-box" href="http://www.kerbalspaceprogram.com/games-kerbal-space-program/">
+                            {*<a class="price-box small kerbal-box" href="http://www.kerbalspaceprogram.com/games-kerbal-space-program/">
                                 Kerbal Space Program game license
                             </a>*}
                     {/switch}

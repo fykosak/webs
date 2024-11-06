@@ -27,6 +27,7 @@
 
   .topic-panel {
     margin-top: 2rem;
+
     @include media-breakpoint-up(md) {
       margin-top: 0;
     }
@@ -56,6 +57,18 @@
 
     &.small {
       height: 16rem;
+    }
+
+    &.triplet-top {
+      height: 13rem;
+    }
+
+    &.triplet-mid {
+      height: 12rem;
+    }
+
+    &.triplet-bot {
+      height: 11rem;
     }
 
     &.large {
@@ -107,10 +120,10 @@
   background-image: url("./chess-removebg-preview (1).png");
   background-repeat: no-repeat;
   background-position: bottom right;
-  background-size: 50%;
+  background-size: 40%;
 
   &:hover {
-    background-size: 50%*1.1;
+    background-size: 47%;
   }
 }
 
@@ -168,15 +181,15 @@
   background-color: #5a83c5;
   background-image: url("./blue_book.png");
   background-repeat: no-repeat;
-  background-position: 120% 4.7rem;
-  background-size: 60%;
+  background-position: 110% 0.5rem;
+  background-size: 50%;
 
   display: flex;
   align-items: center;
 
   &:hover {
-    background-size: 65%;
-    background-position: 120% 2.9rem;
+    background-size: 57%;
+    background-position: 110% 0rem;
   }
 }
 
@@ -234,15 +247,18 @@
 .begin-countdown {
   text-align: center;
   font-size: 1.5rem;
+
   .countdown-value {
     font-weight: bold;
   }
-  .countdown-value, .countdown-text {
+
+  .countdown-value,
+  .countdown-text {
     font-size: 1rem;
   }
 }
 
-.social-sites{
+.social-sites {
   margin-right: 1.5rem
 }
 
