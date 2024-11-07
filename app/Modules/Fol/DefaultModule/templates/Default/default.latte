@@ -224,30 +224,25 @@
                     {/switch}
                 </div>
                 <div class="col-md-4">
+                    {*
+                    <div class="price-box triplet-top knihy-box">
                     {switch $language->value}
                         {case cs}
-                            <div class="price-box triplet-top knihy-box">
-                                Knihy<br/>podle<br/>výběru
-                            </div>
+                        Knihy<br/>podle<br/>výběru
                         {default}
-                            <div class="price-box triplet-top knihy-box">
-                                Books<br/>by your<br/>choice
-                            </div>
-                            {*<a class="price-box propagacni-box small">
-                                FYKOS's bottles,<br/>T-shirts and other prices
-                            </a>*}
+                        Books<br/>by your<br/>choice
                     {/switch}
+                    </div>
+                    *}
+                    <a class="price-box large factorio-box" href="https://www.factorio.com/">
                     {switch $language->value}
                         {case cs}
-                    <a class="price-box factorio-box triplet-mid" href="https://www.factorio.com/">
                         Factorio licence
-                    </a>
                         {default}
-                    <a class="price-box factorio-box triplet-mid" href="https://www.factorio.com/">
                         Factorio licenses
-                    </a>
                     {/switch}
-                    <a class="price-box triplet-bot chess-box" href="https://www.chess.com/">
+                    </a>
+                    <a class="price-box small chess-box" href="https://www.chess.com/">
                         {switch $language->value}
                             {case cs}Diamantové členství na<br/>
                             <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad" style="max-height: 3rem">
