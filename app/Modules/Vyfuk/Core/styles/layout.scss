@@ -279,26 +279,6 @@ a:hover {
   }
 }
 
-/**
- * By using #team-id in URL, the team will blink
- */
-.team-list {
-  li:target {
-    background-color: $complementary-color;
-    animation: blink-target .8s 5;
-  }
-
-  @keyframes blink-target {
-    100% {
-      background-color: rgba($complementary-color, 0);
-    }
-  }
-}
-
-.team-list .team-state-pending {
-  opacity: .5;
-}
-
 .btn-panel-action {
   font-weight: bold;
   font-size: .75rem;
@@ -310,5 +290,43 @@ a:hover {
   &::after {
     content: "❯";
     margin-left: .2rem;
+  }
+}
+
+.series-selector {
+  .dropdown-toggle {
+    min-width: 16rem;
+  }
+
+  .dropdown-menu {
+    max-height: 14rem;
+    overflow-y: auto;
+  }
+
+  .list-group>.list-group-item {
+    border-radius: 0;
+    text-align: center;
+  }
+
+  @include media-breakpoint-up(sm) {
+    .list-group:first-child {
+      .list-group-item:first-child {
+        border-top-left-radius: inherit;
+      }
+
+      .list-group-item:last-child {
+        border-top-right-radius: inherit;
+      }
+    }
+
+    .list-group:last-child {
+      .list-group-item:first-child {
+        border-bottom-left-radius: inherit;
+      }
+
+      .list-group-item:last-child {
+        border-bottom-right-radius: inherit;
+      }
+    }
   }
 }

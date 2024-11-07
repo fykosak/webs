@@ -143,18 +143,43 @@
                     </div>
                 </div>
                 <div class="category">
+                    <div class="category-title">{switch $language->value}{case cs}Generální partner{default}General Partner{/switch}</div>
+                    <div class="category-sponsors">
+                        <a href="https://www.cez.cz/" style="text-align: center">
+                            {switch $language->value}{case cs}<img src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo" style="max-width: 10rem">
+                          	{default}<img src="{$basePath}/images/logos/CEZ_Group_Logo_EN.png" alt="CEZ group logo" style="max-width: 10rem">{/switch}
+                        </a>
+                    </div>
+                </div>
+                <div class="category">
                     <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.chess.com/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Chess logo" style="max-height: 5rem; max-width: 12rem"></a>
-                        {*<a href="https://www.factorio.com/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/factorio.png" alt="Factorio logo" style="max-height: 5rem; max-width: 12rem"></a>*}
+                            <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Chess logo" style="max-height: 5rem; max-width: 12rem">
+                        </a>
                         <a href="https://www.wolfram.com/mathematica/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/wolfram.png" alt="Wolfram logo" style="max-height: 5rem; max-width: 12rem"></a>
-                        {*<a href="https://www.kerbalspaceprogram.com/games-kerbal-space-program" style="text-align: center">
-                            <img src="{$basePath}/images/logos/Kerbal.png" alt="Kerbal logo" style="max-height: 5rem; max-width: 12rem"></a>*}
-                        {*<a {switch $language->value}{case 'cs'}href="https://www.avast.com/"{default}href="https://www.avast.com/en-us/index"{/switch} style="text-align: center">
-                            <img src="{$basePath}/images/logos/avast.png" alt="Avast logo" style="max-height: 5rem; max-width: 12rem"></a>*}
+                            <img src="{$basePath}/images/logos/wolfram.png" alt="Wolfram logo" style="max-height: 5rem; max-width: 12rem">
+                        </a>
+                        <a {switch $language->value}{case 'cs'}href="https://www.avast.com/"{default}href="https://www.avast.com/en-us/index"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/avast.png" alt="Avast logo" style="max-height: 5rem; max-width: 12rem">
+                        </a>
+                        <a href="https://artofproblemsolving.com/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/aops.svg" alt="AoPS logo" style="max-height: 5rem; max-width: 12rem">
+                        </a>
+                        <a href="https://physolymp.com/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/physolymp.jfif" alt="aops logo " style="max-height: 5rem; max-width: 12rem">
+                        </a>
+                        <a href="https://www.factorio.com/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/wube.png" alt="Wube logo" style="max-height: 5rem; max-width: 12rem">
+                        </a>
+                        {*
+                        <a href="https://www.factorio.com/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/factorio.png" alt="Factorio logo" style="max-height: 5rem; max-width: 12rem">
+                        </a>
+                        <a href="https://www.kerbalspaceprogram.com/games-kerbal-space-program" style="text-align: center">
+                            <img src="{$basePath}/images/logos/Kerbal.png" alt="Kerbal logo" style="max-height: 5rem; max-width: 12rem">
+                        </a>
+                        *}
                     </div>
                 </div>
             </div>

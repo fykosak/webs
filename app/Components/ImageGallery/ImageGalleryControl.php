@@ -36,7 +36,7 @@ class ImageGalleryControl extends DIComponent
         $images = [];
 
         try {
-            $iterator = Finder::findFiles('*.jpg')->in($wwwDir . $path)->getIterator();
+            $iterator = Finder::findFiles('*.jpg', '*.jpeg', '*.JPG', '*.png', '*.gif', '*.bmp', '*.webp')->in($wwwDir . $path)->getIterator();
         } catch (\Exception $e) {
             return [];
         }

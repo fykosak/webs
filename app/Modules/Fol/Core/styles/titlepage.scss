@@ -27,6 +27,7 @@
 
   .topic-panel {
     margin-top: 2rem;
+
     @include media-breakpoint-up(md) {
       margin-top: 0;
     }
@@ -234,15 +235,18 @@
 .begin-countdown {
   text-align: center;
   font-size: 1.5rem;
+
   .countdown-value {
     font-weight: bold;
   }
-  .countdown-value, .countdown-text {
+
+  .countdown-value,
+  .countdown-text {
     font-size: 1rem;
   }
 }
 
-.social-sites{
+.social-sites {
   margin-right: 1.5rem
 }
 

@@ -65,6 +65,11 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 // @import '../../../../Components/UpperHomePrague/styles';
 // @import '../../../../Components/TeamResults/styles';
 @import '../../../../Components/Navigation/styles';
+@import '../../../../Components/Problem/problem';
+@import '../../../../Components/Problem/fykos';
+@import '../../../../Components/ImagePreviewModal/styles';
+
+@import "../../../../Components/OrgSneakPeak/styles";
 
 @import "./layout";
 @import "./titlepage";

@@ -1,0 +1,586 @@
+{varType App\Models\Downloader\EventModel $event}
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="subheader">Archivní stránka akce z {$event->begin|date: 'j. n. Y'}</div>
+        <h1>DSEF {$event->begin|date: 'Y'}</h1>
+
+        <p>Den s experimentální fyzikou {$event->begin|date: 'Y'} se konal dne {$newestEvent->begin|date: 'j. n. Y'}, tentokrát na Troji.
+            Rozvržení jednotlivých exkurzí a doplňující informace k programu naleznete níže na stránce.
+            <!-- <a href="#prihlasovani">Přihlašování</a> -->
+            Pokud máte nějaký dotaz nebo problém, neváhejte nám napsat na e-mail <a
+                href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.
+        </p>
+        <!--
+        <p>
+            Partnerem tohoto ročníku DSEFu je asociace <a href="https://www.iaps.info" class="urlextern"
+                title="https://www.iaps.info">IAPS</a> (International Association of Physics Students), která nás podpořila grantem IAPS Outreach Grant. Díky tomu jsme mohli akci snadněji zorganizovat a rozložit prostředky na
+            zajištění levnějšího ubytování pro účastníky.
+        </p>
+        -->
+    </section>
+</div>
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Harmonogram dne</h1>
+
+        <h4 id="zacatek-dsefu">Začátek DSEFu</h4>
+        <ul>
+            <li>Příjezd pro ubytované v hostelu byl v neděli od 16:00 až do půlnoci. Pondělní snídaně (pouze pro ubytované) byla plánovaná na 7:00.
+            </li>
+            <li>Prezence účastníků probíhala v čase <strong>8:00–8:30 na
+                    Matematicko-fyzikální fakultě ve vestibulu budovy T v Troji na adrese V Holešovičkách 2/747</strong>. Po registraci následovalo zahájení DSEFu a ranní přednáška.
+            </li>
+        </ul>
+		<h4 id="ranni-prednaska">Slavnostní zahájení DSEFu (8:50–9:05)</h4>
+        <h4 id="ranni-prednaska">Ranní přednáška (9:05–10:00)</h4>
+        <p>
+            <b>  Kvantové technologie a měření s extrémní přesností   </b> <br>
+            Mgr. Pavel Stránský, Ph.D. <br>
+
+            Kvantová měření tvoří významnou oblast kvantových technologií, kde se principy kvantové mechaniky stávají základem pro naše vnímání a měření světa kolem nás. V přednášce se dozvíte, jak kvantové senzory – zařízení využívající unikátních vlastností mikrosvěta – posouvají hranice přesnosti a citlivosti daleko za možnosti klasických technologií. Tyto senzory nacházejí praktické uplatnění v mnoha oblastech od medicínské diagnostiky přes vysoce přesné navigační systémy až po detekci gravitačních vln. Kvantová fyzika tak poskytuje nové možnosti pro hlubší porozumění světu a budoucí inovace.
+
+        </p>
+
+        <h4 id="exkurze">Exkurze</h4>
+        <p>
+            Při přihlášení se volila jedna dopolední a odpolední skupina; níže naleznete informace o exkurzích.
+            Dopolední program probíhal na pracovištích MFF a odpolední na různých vědeckých institucích v
+            Praze a okolí.
+        </p>
+     </section>
+</div>
+
+<!--
+<div class="panel color-auto">
+    <section class="inner-container" id="prihlasovani">
+        <h1>Přihlašování</h1>
+        <p>
+            Přihlašování na letošní ročník Dne s experimentální fyzikou se spustí {$newestEvent->registrationBegin|date:
+            'j. n. Y'}.
+
+            Exkurze mají dopolední a odpolední část, v každé z nich jsou účastníci rozdělení do několika skupin,
+            jejichž program se liší. Výjimku tvoří exkurze do ELI Beamliens a Astronomického ústavu AV ČR, které budou celodenní. Svou skupinu si
+            zvolíte už v přihlášce a pokud bude volná kapacita, je možné
+            si ji do konce registrace měnit podle vašich preferencí.
+
+        </p>
+        <p>
+            <a href="{plink :Default:Registration:Default}" type="button"
+                   class="btn btn-primary btn-block" style="border-radius: 0">Registrovat se</a>
+
+        </p>
+    </section>
+</div>
+-->
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Ubytování</h1>
+
+        <h5 id="kde-je-ubytovani-a-jake">Kde je ubytování a jaké?</h5>
+        <div class="level5">
+            <ul>
+                <li class="level1">
+                    <div class="li"> Ubytování bylo v <a href="https://plushostels.com/cs/praha" class="urlextern"
+                            title="https://plushostels.com/cs/praha">Hostelu PLUS</a> v Holešovicích. </div>
+                </li>
+                <li class="level1">
+                    <div class="li">Ubytování bylo pohromadě na velkých pokojích (7–8lůžkových).</div>
+                </li>
+                <li class="level1">
+                    <div class="li"> V ceně ubytování byly malé ručníky.</div>
+                </li>
+
+            </ul>
+        </div>
+
+        <h5 id="placeni-za-ubytovani">Placení za ubytování</h5>
+        <div class="level5">
+            <ul>
+                <li class="level1">
+                    <div class="li"> Poplatek za ubytování činil <strong>300 Kč</strong></div>
+                </li>
+                <li class="level1">
+                    <div class="li"> Ubytování se platilo předem <a href="https://db.fykos.cz/shop/">zde</a></div>
+                </li>
+            </ul>
+
+        </div>
+        <h5 id="prijezd-na-ubytovani">Příjezd na ubytování</h5>
+        <div class="level5">
+            <ul>
+                <li class="level1">
+                    <div class="li"> Přijet na ubytování jste mohli od <strong>16:00</strong>.</div>
+                </li>
+                <li class="level1">
+                    <div class="li"> Recepce na hotelu je otevřená nonstop, během večera jste mohli dorazit kdykoliv.</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Exkurze</h1>
+        <div class="table sectionedit3">
+            <table class="inline table">
+                <thead>
+                    <tr class="row0">
+                        <th class="col0 header" colspan="2"></th>
+                        <th class="col2 header" colspan="2"> Dopolední exkurze</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row1">
+                        <td class="col0"></td>
+                        <td class="col1"> 10:15–10:40</td>
+                        <td class="col2"> 10:55–11:20</td>
+                        <td class="col3"> 11:35–12:00</td>
+                    </tr>
+                    <tr class="row2">
+                        <th class="col0">Alfa</th>
+                        <td class="col1"><a href="#ATM">ATM</a></td>
+                        <td class="col2"><a href="#SEM">MOS</a></td>
+                        <td class="col3"><a href="#PLA">PLA</a></td>
+                    </tr>
+                    <tr class="row3">
+                        <th class="col0">Bravo</th>
+                        <td class="col1"><a href="#MOD">MOD</a></td>
+                        <td class="col2"><a href="#DET">DET</a></td>
+                        <td class="col3"><a href="#VOD">VOD</a></td>
+                    </tr>
+                    <tr class="row4">
+                        <th class="col0">Charlie</th>
+                        <td class="col1"><a href="#MOS">MOS</a></td>
+                        <td class="col2"><a href="#SPA">SPA</a></td>
+                        <td class="col3"><a href="#MIK">MIK</a></td>
+                    </tr>
+                    <tr class="row5">
+                        <th class="col0">Delta</th>
+                        <td class="col1"><a href="#DET">DET</a></td>
+                        <td class="col2"><a href="#VOD">VOD</a></td>
+                        <td class="col3"><a href="#MOS">MOS</a></td>
+                    </tr>
+                    <tr class="row6">
+                        <th class="col0">Echo</th>
+                        <td class="col1"><a href="#PLA">PLA</a></td>
+                        <td class="col2"><a href="#LOW">LOW</a></td>
+                        <td class="col3"><a href="#MOD">MOD</a></td>
+                    </tr>
+                    <tr class="row7">
+                        <th class="col0">Foxtrot</th>
+                        <td class="col1"><a href="#RES">RES</a></td>
+                        <td class="col2"><a href="#MAK">MAK</a></td>
+                        <td class="col3"><a href="#DET">DET</a></td>
+                    </tr>
+                    <tr class="row8">
+                        <th class="col0">Golf</th>
+                        <td class="col1"><a href="#POH">POH</a></td>
+                        <td class="col2"><a href="#MIK">MIK</a></td>
+                        <td class="col3"><a href="#RES">RES</a></td>
+                    </tr>
+                    <tr class="row9">
+                        <th class="col0">Hotel</th>
+                        <td class="col1"><a href="#VOD">VOD</a></td>
+                        <td class="col2"><a href="#ATM">ATM</a></td>
+                        <td class="col3"><a href="#POH">POH</a></td>
+                    </tr>
+                    <tr class="row10">
+                        <th class="col0">India</th>
+                        <td class="col1"><a href="#MAK">MAK</a></td>
+                        <td class="col2"><a href="#MOD">MOD</a></td>
+                        <td class="col3"><a href="#SPA">SPA</a></td>
+                    </tr>
+                    <tr class="row11">
+                        <th class="col0">Juliet</th>
+                        <td class="col1"><a href="#MIK">MIK</a></td>
+                        <td class="col2"><a href="#PLA">PLA</a></td>
+                        <td class="col3"><a href="#LOW">LOW</a></td>
+                    </tr>
+                    <tr class="row12">
+                        <th class="col0">Kilo</th>
+                        <td class="col1"><a href="#SPA">SPA</a></td>
+                        <td class="col2"><a href="#RES">RES</a></td>
+                        <td class="col3"><a href="#ATM">ATM</a></td>
+                    </tr>
+                    <tr class="row13">
+                        <th class="col0">Lima</th>
+                        <td class="col1"><a href="#LOW">LOW</a></td>
+                        <td class="col2"><a href="#POH">POH</a></td>
+                        <td class="col3"><a href="#MAK">MAK</a></td>
+                    </tr>
+                    <!--
+                    <tr class="row14">
+                        <th class="col0">Mike</th>
+                        <td class="col1"><a href="#Ramanova-spektroskopie">RAM</a></td>
+                        <td class="col2"><a href="#Biofyzika-zivych-bunek">BFYZ</a></td>
+                        <td class="col3"><a href="#Rust-monokrystalu">RKRYS</a></td>
+                    </tr>
+                    <tr class="row15">
+                        <th class="col0">November</th>
+                        <td class="col1"><a href="#Rust-monokrystalu">RKRYS</a></td>
+                        <td class="col2"><a href="#Laborator-ts">OPT2</a></td>
+                        <td class="col3"><a href="#Meteorologicka-laborator">METEO</a></td>
+                    </tr>
+-->
+                </tbody>
+            </table>
+        </div>
+        <div class="table sectionedit4">
+            <table class="inline table">
+                <thead>
+                    <tr class="row16">
+                        <th class="col0 header" colspan="2"></th>
+                        <th class="col2 header" colspan="2"> Odpolední exkurze</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row17">
+                        <td class="col0" colspan="2"></td>
+                        <td class="col2" colspan="2"> 13:30–16:00</td>
+<!--                        <td class="col3"> 14:30 – cca 16:00</td> -->
+                    </tr>
+                    </tr>
+                    <tr class="row18">
+                        <th class="col0" colspan="2">Mike</th>
+                        <td class="col2" colspan="2"><a href="#FEL">FEL ČVUT</a></td>
+                    </tr>
+                    <tr class="row19">
+                        <th class="col0" colspan="2">November</th>
+                        <td class="col2" colspan="2"><a href="#MKRT">Mikrotron - oddělení urychlovačů ÚJF AV ČR</a>
+                        </td>
+                    </tr>
+                    <tr class="row20">
+                        <th class="col0" colspan="2">Oscar</th>
+                        <td class="col2" colspan="2"><a href="#PALS">PALS</a> + <a href="#THZ">THz spektroskopie</a></td>
+                    </tr>
+                    <tr class="row21">
+                        <th class="col0" colspan="2">Papa</th>
+                        <td class="col2" colspan="2"><a href="#UEXB">Ústav experimentální botaniky</a></td>
+                    </tr>
+                    <tr class="row22">
+                        <th class="col0" colspan="2">Quebec</th>
+                        <td class="col2" colspan="2"><a href="#JH-INST">Oddělení magnetik a supravodičů FZÚ </a></td>
+                    </tr>
+                    <tr class="row23">
+                        <th class="col0" colspan="2">Romeo</th>
+                        <td class="col2" colspan="2"><a href="#PRTN">Proton Therapy center</a></td>
+                    </tr>
+                    <tr class="row24">
+                        <th class="col0" colspan="2">Sierra</th>
+                        <td class="col2" colspan="2"><a href="#UJFAV">ÚJF AV ČR, pracoviště Řež u Prahy</a></td>
+                    </tr>
+
+                    <tr class="row25">
+                        <th class="col0" colspan="2">Tango</th>
+                        <td class="col2" colspan="2"><a
+                                href="#UJV"
+                                 >ÚJV a. s., pracoviště Řež u Prahy</a></td>
+                    </tr>
+
+                    <tr class="row26">
+                        <th class="col0" colspan="2">Uniform</th>
+                        <td class="col2" colspan="2"><a
+                                href="#VDG"
+                                 > Van de Graaffův urychlovač </a></td>
+                    </tr>
+                    <!--
+
+                  	<tr class="row27">
+                        <th class="col0" colspan="2">Yankee</th>
+                        <td class="col2" colspan="2"><a
+                                href="#FEL"
+                                 >Fakulta elektrotechnická ČVUT </a></td>
+                    </tr>
+
+
+
+
+                  	<tr class="row29">
+                        <th class="col0" colspan="2">Unanone</th>
+                        <td class="col2" colspan="2"><a
+                                href="#GOLEM"
+                                 >GOLEM</a></td>
+                    </tr>
+                  	<tr class="row28">
+                        <th class="col0" colspan="2">Nadazero</th>
+                        <td class="col2" colspan="2"><a
+                                href="#Ond"
+                                 >Astronomický ústav Ondřejov</a></td>
+                    </tr>
+                  	<tr class="row29">
+                        <th class="col0" colspan="2">Bissoto</th>
+                        <td class="col2" colspan="2"><a
+                                href="#MOGE"
+                                 >Ústav molekulární genetiky </a></td>
+                    </tr>
+                    <tr class="row30">
+                        <th class="col0" colspan="2">Frank</th>
+                        <td class="col2" colspan="2"><a
+                                href="#UTER"
+                                 >Ústav Termomechaniky</a></td>
+                    </tr>
+                    <tr class="row4">
+                        <th class="col0">Pí</th>
+                        <td class="col1" colspan="2"><a href="#Prague-Asterix-Laser-System"
+                                 >PALS</a></td>
+                        <td class="col3"><a href="#THz-spektroskopie"
+                                >THz</a></td>
+                    </tr>
+
+                    <tr class="row6">
+                        <th class="col0" colspan="2">Omega</th>
+                        <td class="col2" colspan="2"><a href="#ELI-Beamlines"
+                                 >ELI</a></td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+-->
+                    <div class="table sectionedit5">
+                        <table class="inline table">
+                            <thead>
+                                <tr class="row27">
+                                    <th class="col0 header" colspan="2"></th>
+                                    <th class="col2 header" colspan="2"> Celodenní exkurze</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="row28">
+                                    <td class="col0" colspan="2"></td>
+                                    <td class="col2" colspan="2"> 11:00–16:00</td>
+                                </tr>
+                                <tr class="row29">
+                                    <th class="col0" colspan="2">Victor</th>
+                                    <td class="col2" colspan="2"><a href="#ELI-Beamlines">ELI Beamlines Dolní
+                                            Břežany</a></td>
+                                </tr>
+                                <tr class="row29">
+                                    <th class="col0" colspan="2">Whiskey</th>
+                                    <td class="col2" colspan="2"><a href="#Ondrejov">Astronomický ústav AV ČR
+                                            Ondřejov</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+    </section>
+</div>
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Anotace exkurzí</h1>
+
+        <h4 id="MOD">Planetologie: vesmírné mise a počítačové modelování (MOD)</h4>
+        <p>
+                                      Na katedře geofyziky se vedle studia Země věnujeme také studiu ostatních
+terestrických planet a ledových měsíců. Do nitra planet sice přímo
+nahlédnout nemůžeme, geofyzika nám však nabízí celou škálu metod, kterými
+lze vnitřní strukturu cizích světů alespoň částečně poodhalit. V rámci
+této exkurze se podíváme, jaký typ dat sbírají vesmírné sondy na oběžných
+drahách jiných planet a co nám v kombinaci s matematickým modelováním,
+tedy s výrobou "planety" v počítači, říkají o rozmanitosti světů ve
+sluneční soustavě (i mimo ni).
+                                            </p>
+
+
+        <h4 id="ATM">Průlet atmosférou: modely a měření (ATM)</h4>
+
+        <p>
+            Začneme krátkou ukázkou simulátoru tornáda.
+            Dále budeme pokračovat s dvojkyvadlem, na kterém předvedeme důležitost
+            počátečních podmínek v chaotickém systému. Exkurzi zakončíme ukázkou modelových
+            a naměřených dat s následnou návštěvou našich meteorologických přístrojů.
+        </p>
+
+        <h4 id="MIK">Mikroskopie STM a AFM (MIK)</h4>
+        <p>Laboratoř kryogenní mikroskopie STM-AFM.
+            Zaměřujeme se na zobrazení atomární a elektronové struktury povrchů
+            pomocí rastrovací tunelové mikroskopie a mikroskopie atomárních sil.
+            Pomocí atomárně ostrého hrotu dokážeme zobrazit povrchy protřednictvím
+            kvantového tunelování elektronů nebo měření síly v jednotlivých
+            chemických vazbách. Výzkum je zaměřený materiály využitelné v elektronice,
+            katalýze nebo oragnické chemii.
+        </p>
+
+        <h4 id="PLA">Plazma ve vesmíru a laboratoři (PLA)</h4>
+        <p>
+            Laboratoř Elementárních procesů v plazmatu se zabývá studiem interakcí iontů
+            s molekulami a elektrony v mezihvězdném plazmatu. K dispozici máme několik
+            experimentálních zařízení, které nám umožňují provádět měření při teplotách
+            až -260 °C, které jsou typické pro mezihvězdná oblaka plynu.
+            Využíváme iontové pasti a metody vysoce citlivé laserové absorpční spektroskopie.
+        </p>
+
+        <h4 id="POH">Fyzikální pohled na povrchové chemické reakce (POH)</h4>
+        <p>
+            Chemické reakce na rozhraní pevná látka/plyn nebo pevná látka/kapalina definují
+            účinnost mnoha přístrojů. Pro ilustraci můžeme uvést například
+            palivové články, baterií a obecně katalyzátory.
+            Získávání informací o reaktantech, meziproduktech reakce a stavu reaktoru
+            je však nečekaně obtížný úkol. V rámci této exkurze,
+            se seznámíme s elementárními fyzikálně-chemickými technikami
+            umožňujícími určit chemický stav, krystalografickou strukturu,
+            a morfologii chemicky aktivních technologických rozhraní.
+        </p>
+
+        <h4 id="SPA">Vesmír ve skříni (SPA)</h4>
+        <p>Historie Laboratoře kosmické fyziky sahá do začátku sedmdesátých let minulého
+            století, i když skupina oficiálně vznikla až v roce 1990. Problematika má dva
+            úzce spojené směry – vývoj (v minulosti i výroba) přístrojů pro měření plazmatu
+            a nabitých částic v kosmickém prostředí a vlastní výzkum procesů, které v
+            meziplanetárním prostoru probíhají. V poslední době je tento výzkum zaměřen
+            hlavně na problematiku vzniku a vývoje slunečního větru a na jeho interakci
+            se Zemí nebo dalšími planetami sluneční soustavy a procesy spojenými s touto
+            interakcí (např. vlny v plazmatu). Druhý výzkumný směr je se zabývá prachovými
+            částicemi v kosmickém prostoru. Protože jedním z důležitých parametrů je
+            elektrický náboj, který prachové zrno nese, jsou v laboratoři jsou studovány
+            procesy vedoucí k nabíjení prachu jeho interakcí s okolním plazmatem a UV zářením. Tento laboratorní výzkum
+            je doplněn studiem prachu registrovaného kosmickými sondami, například při průchodu Saturnovými prstenci.
+        </p>
+
+
+        <h4 id="VOD">Vodík jako zdroj energie (VOD)</h4>
+        <p>
+        Vodík jakožto palivo s nejvyšší měrnou energií je perspektivní pro ukládání energie z obnovitelných zdrojů a pohon bezemisních vozidel. Na KFPP se náš výzkum v oblasti elektrochemie zaměřuje na vývoj pokročilých palivových článků a elektrolyzérů vody s nanostrukturovanými katalyzátory, což jsou zásadní technologie pro vodíkové hospodářství. Pokrok v této oblasti by mohl být klíčovým faktorem pro řešení globálních energetických výzev, ochranu životního prostředí a zajištění udržitelné budoucnosti.
+
+
+        </p>
+
+        <h4 id="MOS">Mössbaeurova spektroskopie (MOS)</h4>
+        <p>
+
+        </p>
+
+        <h4 id="RES">Jaderná magnetická rezonance (RES)</h4>
+        <p>
+            Nukleární magnetická rezonance (NMR) je nedestruktivní metoda pro
+            studium struktury a dynamiky hmoty s uplatněním ve fyzice, chemii,
+            biologii, medicíně a materiálových vědách. NMR využívá statické a
+            radiofrekvenční magnetické pole k vyvolání rezonance v atomových
+            jádrech, což umožňuje nahlédnout s vysokým rozlišením do chemického
+            složení, lokální atomové struktury a symetrie a důležitých fyzikálních
+            interakcí. V laboratoři NMR na Univerzitě Karlově studujeme širokou
+            škálu systémů od roztoků a kapalin až po magneticky tvrdé látky.
+
+        </p>
+        <h4 id="DET">Křemíkové detektory (DET)</h4>
+        <p>
+            Experiment ATLAS na urychlovači LHC ve švýcarském CERNu bude
+            v nadcházejících letech vylepšen výměnou opotřebovaných částí a
+            zvýšením detekčních schopností. Za tímto účelem na našem
+            pracovišti testujeme vlastnosti a připravujeme výrobu
+            páskových detektorů s křemíkovým senzorem.
+            Podobné úkoly jsme řešili pro pixelový detektor
+            DEPFET pro experiment Belle II v japonském KEK.
+
+        </p>
+        <h4 id="MAK">Makromolekulární fyzika, nanomateriály (MAK)</h4>
+        <p>
+            Díky svým malým rozměrům a unikátním fyzikálně-chemickým vlastnostem nalézají nejrůznější typy nanomateriálů
+            uplatnění ve stále se zvyšujícím počtu moderních aplikací. Není proto divu,
+            že možnost kontrolované přípravy nanomateriálů získává rostoucí pozornost, a to jak z hlediska základního,
+            tak i aplikačně orientovaného výzkumu. Na našem pracovišti vyvíjíme a studujeme unikátní vakuovou
+            a plně fyzikální metodu přípravy nanočástic, která je založena na takzvaných plynových agregačních zdrojích.
+            V rámci exkurze budou představena tato depoziční zařízení i různé metody umožňující studium připravovaných nanočástic.
+
+        </p>
+        <h4 id="LOW"> Nízké teploty (LOW)</h4>
+        <p>
+
+        </p>
+        <h4 id="ELI-Beamlines">ELI Beamlines Dolní Břežany</h4>
+        <p>
+            ELI Beamlines je výzkumné laserové centrum, které je součástí evropské vědecko-výzkumné organizace The
+            Extreme Light Infrastructure ERIC.
+            V ELI Beamlines mezinárodní tým vědců a vědkyň provozuje jedny z nejintenzivnějších laserových systémů na
+            světě. Díky nim máme k dispozici unikátní nástroje umožňující průkopnický výzkum nejen v oblasti fyziky a
+            materiálových věd, ale také v biomedicíně a laboratorní astrofyzice. ELI je centrum zaměřené na základní
+            fyzikální výzkum. Jedná se o největší vědecký projekt v historii ČR. V současné době zaměstnáváme 350
+            zaměstnanců z více než 28 zemí světa. Centrum se nachází v obci Dolní Břežany, nedaleko Prahy.
+        </p>
+
+
+        <h4 id="PALS">Prague asteerix laser system </h4>
+        <p>
+            APALSX Badatelské centrum PALS (Prague Asterix Laser System), založené v listopadu 1998 jako společné pracoviště Fyzikálního ústavu AV ČR a Ústavu fyziky plazmatu AV ČR,
+            je koncipováno jako uživatelská laboratoř poskytující základnu pro experimentální výzkum v oboru výkonových laserů a fyziky laserem vytvářeného plazmatu.
+            Centrum bylo zpřístupněno externím uživatelům v září roku 2000.
+        </p>
+                                            <h4 id="THZ"> THz spektroskopie</h4>
+        <p>
+            THz spektroskopie
+        THz spektroskopie je relativně mladá spektroskopická metoda, zaměřující se na oblast elektromagnetického spektra ležící na rozhraní mikrovlnného a infračerveného záření. Využívá se například ke zkoumání fotonických krystalů nebo meta materiálů.
+        </p>
+
+        <h4 id="JH-INST">Oddělení magnetik a supravodičů FZU</h4>
+        <p>
+            Oddělení se zabývá studiem materiálů a jejich vlastností, které zkoumá pomocí magnetických struktur. Zabývá se studiem materiálů za extrémních podmínek, ale zkoumá také přípravu nových materiálů. Jedním z nových cílů pracoviště je výzkum molekulárních magnetických systémů.
+        </p>
+
+        <h4 id="MKRT">Mikrotron - oddělení urychlovačů ÚJF AV</h4>
+        <p>
+            Mikrotron je cyklický urychlovač relativistických elektronů s
+            možností konverze primárního elektronového svazku na sekundární fotonový svazek
+            nebo neutrony.
+            Umístěn je na detašovaném pracovišti v Karlínském tunelu v Praze, mimo řežský areál.
+        </p>
+
+        <h4 id="VDG">Urychlovač Van de Graaff</h4>
+        <p>
+            V areálu těžkých laboratoří v Troji provozuje ÚTEF elektrostatický urychlovač iontů Van de Graaff HV2500 (dále VdG)
+             s maximální energií protonů 2,5 MeV.
+            Na urychlovači lze provádět fyzikální experimenty základního výzkumu
+             – v současné době se měří interakce polarizovaných neutronů na polarizovaných terčích, dále jaderné reakce pro astrofyzikální výzkum.
+        </p>
+
+              <h4 id="FEL">Fakulta elektrotechnická ČVUT</h4>
+        <p>
+
+        </p>
+              <h4 id="PRTN">Proton Therapy center</h4>
+        <p>
+            Proton Therapy Center Czech s.r.o. se věnuje léčbě onkologických pacientů pomocí scanovaného protonového svazku, tj. technikou IMPT.
+        </p>
+
+              <h4 id="UJFAV">ÚJF AV ČR, pracoviště Řež u Prahy </h4>
+        <p>
+            Ukážeme Vám několik urychlovačů nabitých iontů a představíme jejich široké využití. S ohledem na situaci daných laboratoří nahlédneme pod pokličku výroby radioizotopů, materiálový výzkum nebo třeba ultracitlivé měření některých radionuklidů ve vzorcích kolem nás.
+        </p>
+              <h4 id="UJV">Ústav jaderného výzkumu </h4>
+        <p>
+
+        </p>
+              <h4 id="UEXB">Ústav experimentální botaniky</h4>
+        <p>
+            Ústav experimentální botaniky Akademie věd České republiky (ÚEB) byl založen 1. ledna 1962. V současnosti má 14 laboratoří, které se nacházejí v Praze a Olomouci, a šlechtitelskou stanici ve Střížovicích u Turnova.
+
+
+
+ÚEB se věnuje hlavně základnímu výzkumu v rostlinné biologii – konkrétně v rostlinné genetice, fyziologii, fytopatologii a biotechnologiích. Je však aktivní také v aplikovaném výzkumu.
+
+
+
+V rostlinné genetice jsou naše projekty zaměřeny na molekulární genetiku pylu a funkční genomiku rostlin.
+
+Fyziologická témata zahrnují hormonální a ekologickou kontrolu růstu a vývoje rostlin, mechanismy transportu a účinku růstových regulátorů, fyziologii rostlinných virů a rostlinnou patofyziologii.
+
+V oboru biotechnologií se ústav zabývá například navrhováním a přípravou poživatelných vakcín z rostlin a mechanismy fytoremediace.
+
+
+
+Některé projekty směřují k praktickým aplikacím. Studium rostlinných hormonů například vedlo k syntéze látek, které zpomalují stárnutí kůže nebo vykazují slibné cytostatické efekty.
+
+ÚEB je rovněž velmi úspěšný ve šlechtění jabloní odolných vůči houbovým chorobám.
+        </p>
+
+
+   <!--
+
+-->
+    </section>
+</div>
