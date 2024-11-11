@@ -6,7 +6,6 @@ chooser := "sk --preview-window right:65% --preview 'just --show {} | (bat --lan
 uid := `id -u`
 gid := `id -g`
 user := uid + ":" + gid
-runner := "podman"
 tag := "webs"
 name := "webs"
 
@@ -19,13 +18,13 @@ choose:
 
 # Build OCI image for webs
 build:
-    {{ runner }} build \
+    podman build \
         --file docker/Dockerfile \
         --tag "{{ tag }}"
 
 # Start container, optionally passing flags
 start *FLAGS:
-    {{ runner }} run \
+    podman run \
         --volume .:/var/www/html \
         --volume ./docker/config/apache.conf:/etc/apache2/sites-available/000-default.conf \
         --volume ./docker/config/php.ini:/usr/local/etc/php/php-local.ini \
@@ -54,22 +53,22 @@ start *FLAGS:
 
 # Stop container
 stop:
-    -{{ runner }} kill "{{ name }}" &> /dev/null
-    -{{ runner }} rm "{{ name }}" &> /dev/null
+    -podman kill "{{ name }}" &> /dev/null
+    -podman rm "{{ name }}" &> /dev/null
 
 # Restart container
 restart: stop (start "--detach")
 
 # Ensure that container is running in the background
 ensure:
-    @{{ runner }} ps \
+    @podman ps \
         --filter "name={{ name }}" \
         --filter "status=running" \
         --noheading | grep "{{ name }}" &> /dev/null || just start --detach
 
 # Execute provided commands in container
 exec +CMD='bash': ensure
-    {{ runner }} exec \
+    podman exec \
         --interactive \
         --tty \
         "{{ name }}" \
@@ -115,7 +114,7 @@ login:
     done
     echo "config files appeared in $target"
 
-# Delete containers an OCI images
-[confirm("you sure you want to delete dev containers [y/N]")]
-clean: stop
-    -{{ runner }} rmi {{ tag }}
+## Delete containers an OCI images
+#[confirm("you sure you want to delete dev containers [y/N]")]
+#clean: stop
+#    -podman rmi {{ tag }}
