@@ -5,15 +5,9 @@
         {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
         {ifset title}<h1>{include title}</h1>{/ifset}
     </section>
-    <section class="inner-container">
-        <p>
-            odstavec
-        </p>
-        <p>
-            odstavec
-        </p>
-    </section>
-    <section n:foreach="$events as $key => $event" class="inner-container my-5">
+    {foreach $events as $key => $event}
+    {if $event->begin->getTimestamp() >= time()}
+    <section class="inner-container my-5">
         <h2>{$event->nameNew[$lang]}</h2>
         <p>
             {$event->description[$lang]|noescape}
@@ -25,5 +19,45 @@
         </p>
         {control gallery:randomLine "/media/photos/event/" . $event->eventId}
     </section>
+    {/if}
+    {/foreach}
+    <section class="inner-container">
+        <p>
+            Chceš zažít fyziku tak jako nikdy předtím? Máš zájem se nejen něco naučit, ale i poznat podobně naladěné
+            kamarády a užít si při tom i klasické táborové aktivity? Potom jeď na letní tábor Výfuku!
+        </p>
+        <p>
+            Letní tábor Výfuku je čtrnáct dní s perfektně vyladěným programem, během kterých se rozhodně nebudeš nudit.
+            Kromě přednášek a experimentů si dosyta užiješ také klasické táborové aktivity. Můžeš se těšit zejména na
+            spoustu denních i nočních her a výletů. To všechno můžeš zažít společně s dalšími účastníky a organizátory,
+            kteří tam budou po celou dobu pro tebe.
+        </p>
+        <p>
+            Letní tábor se typicky koná v polovině letních prázdnin v nějakém malebném koutu České republiky, kde nám
+            dokážou poskytnout adekvátní zázemí. Spaní je vždy zajištěno na postelích ve zděné budově. Zveme na něj
+            podle výsledků prvních sérií podle jistých <a n:href=":Default:Section:rules">pravidel</a>. Obecně ale
+            platí, že dostatečně motivovaní účastníci se na něj téměř vždy dostanou. Cena tábora se pro řešitele Výfuku
+            pohybuje kolem 6 000 Kč, zbytek nákladů hradí MFF UK.
+        </p>
+        <p>
+            Pokud nad účastí na letním táboře Výfuku uvažuješ, určitě se podívej na fotky zde na webu nebo na našich
+            sociálních sítích.
+        </p>
+    </section>
+
+    {foreach $events as $key => $event}
+    {if $event->begin->getTimestamp() < time()} <section class="inner-container my-5">
+        <h2>{$event->nameNew[$lang]}</h2>
+        <p>
+            {$event->description[$lang]|noescape}
+        </p>
+        <p>
+            <a class="btn btn-primary mx-1" n:href="Events:detail $event->eventId">
+                <i class="bi bi-info-circle"></i> Informace o akci
+            </a>
+        </p>
+        {control gallery:randomLine "/media/photos/event/" . $event->eventId}
+        </section> {/if}
+        {/foreach}
 </div>
 {/block}

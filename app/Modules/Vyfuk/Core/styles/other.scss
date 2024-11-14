@@ -1,3 +1,9 @@
-.event-img{
-    width: 100%;
+.event-img-box {
+    text-align: center;
+}
+
+.event-img {
+    max-width: 100%;
+    max-height: 300px;
+    padding: 10px;
 }
