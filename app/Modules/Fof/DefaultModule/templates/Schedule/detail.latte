@@ -105,35 +105,29 @@
             <div class="subheader">{$start->format('H:i')} - {$end->format('H:i')}</div>
             <h2>{$group['name'][$lang]}</h2>
 
-            {var $itemsToSkip = [1]}
+{*
+    Do promennych nize je treba dat ID polozek, ktere se nemaji zobrazovat na webu a ID polozky predstavujici prubeh soutezniho dne.
+*}
+            {var $itemsToSkip = []}
             {var $competitionDetail = 661}
 
             {foreach $group['items'] as $item}
-                {if !in_array($item['itemId'], $itemsToSkip)}{if $item['itemId'] != $competitionDetail}
+                {if !in_array($item['itemId'], $itemsToSkip)}
                     <div id="{$item['itemId']}" class="rules">
                         {if !($group['name'][$lang] == $item['name'][$lang])}
                             <div class="title">
                                 {$item['name'][$lang]}
                             </div>
                         {/if}
-                        <div class="description">
+                        <div class="description">{if $item['itemId'] != $competitionDetail}
                             {$item['longDescription'][$lang]??$item['description'][$lang]|noescape}
-                        </div>
-                    </div>
-                {else}
-                    <div id="{$item['itemId']}" class="rules">
-                        {if !($group['name'][$lang] == $item['name'][$lang])}
-                            <div class="title">
-                                {$item['name'][$lang]}
-                            </div>
-                        {/if}
-                        <div class="description">
+                        {else}
                         <div class="timeline timeline-wider"><div>
                             {include '../competition_schedule.latte'}
                         </div></div>
+                        {/if}
                         </div>
-                    </div>
-                {/if}{/if}
+                    </div>{/if}
             {/foreach}
             {php $key = $newKey}
             {/foreach}
