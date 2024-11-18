@@ -115,7 +115,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 begin-countdown">
-                        {if $newestEvent->is(Fykosak\Utils\DateTime\Phase::before)}
+                        {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
                             Začínáme za
                             {control countdown}
                         {else}
