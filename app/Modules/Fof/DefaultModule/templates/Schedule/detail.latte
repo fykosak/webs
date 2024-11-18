@@ -13,8 +13,8 @@
             </h1>
             <p>
                 {switch $language->value}
-                    {case 'cs'}Na této stránce naleznete detailní popis doprovodného programu. Informace se můžou mírně změnit a měly by být aktuální.
-                    {default}On this page you can find detailed description of the accompanying program. Information may change slightly and should be up to date.
+                    {case 'cs'}Na této stránce naleznete detailní popis doprovodného programu. Informace uvedené na této stránce jsou aktuální, nicméně se časem ještě můžou mírně změnit.
+                    {default}On this page you can find detailed description of the accompanying program. Information on this page should be up to date; however, they may slightly change over time.
                 {/switch}
             </p>
             {switch $language->value}
@@ -45,10 +45,10 @@
                         </ul>
                       </div>
           			</div>
-          			<div class="rules">
+          			{*<div class="rules">
                       <div class="title">Futurum Music Bar</div>
                       <div class="description">Zborovská 7, 150 00 Praha 5</div>
-          			</div>
+          			</div>*}
 
 
 
@@ -136,7 +136,7 @@
             <div class="subheader">{$start->format('H:i')} - {$end->format('H:i')}</div>
             <h2>{$group['name'][$lang]}</h2>
 
-            {var $itemsToSkip = [486,496,498,497,499,518,552,553,554,555,556,557,558,559,560,561,562,563]}
+            {var $itemsToSkip = [1]}
 
             {foreach $group['items'] as $item}
                 {if !in_array($item['itemId'], $itemsToSkip)}
