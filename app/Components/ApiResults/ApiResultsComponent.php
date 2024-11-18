@@ -40,7 +40,7 @@ class ApiResultsComponent extends DIComponent
     {
         $teams = [];
         foreach ($this->downloader->download(new TeamsRequest($this->eventId)) as $team) {
-            if ($team['state'] === 'cancelled') {
+            if ($team['state'] === 'canceled') {
                 continue;
             }
 
