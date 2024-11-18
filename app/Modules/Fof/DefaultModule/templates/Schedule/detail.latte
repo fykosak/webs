@@ -106,9 +106,10 @@
             <h2>{$group['name'][$lang]}</h2>
 
             {var $itemsToSkip = [1]}
+            {var $competitionDetail = 661}
 
             {foreach $group['items'] as $item}
-                {if !in_array($item['itemId'], $itemsToSkip)}
+                {if !in_array($item['itemId'], $itemsToSkip)}{if $item['itemId'] != $competitionDetail}
                     <div id="{$item['itemId']}" class="rules">
                         {if !($group['name'][$lang] == $item['name'][$lang])}
                             <div class="title">
@@ -119,7 +120,20 @@
                             {$item['longDescription'][$lang]??$item['description'][$lang]|noescape}
                         </div>
                     </div>
-                {/if}
+                {else}
+                    <div id="{$item['itemId']}" class="rules">
+                        {if !($group['name'][$lang] == $item['name'][$lang])}
+                            <div class="title">
+                                {$item['name'][$lang]}
+                            </div>
+                        {/if}
+                        <div class="description">
+                        <div class="timeline timeline-wider">
+                            {include '../competition_schedule.latte'}
+                        </div>
+                        </div>
+                    </div>
+                {/if}{/if}
             {/foreach}
             {php $key = $newKey}
             {/foreach}
