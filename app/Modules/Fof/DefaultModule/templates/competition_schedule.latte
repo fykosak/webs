@@ -30,28 +30,6 @@
 
 <div>
     <span class="timeline-element-icon"></span>
-    {switch $language->value}
-    {case cs}
-    <div class="timeline-element-content">
-        <div class="timeline-title">FYKOS a jeho akce</div>
-        <time class="timeline-element-date">13:45 - 14:00</time>
-        <p>
-            Seznámení se s FYKOSem během čekání na výsledky
-        </p>
-    </div>
-    {default}
-    <div class="timeline-element-content">
-        <div class="timeline-title">FYKOS and its Events</div>
-        <time class="timeline-element-date">13:45 - 14:00</time>
-        <p>
-            Presentation about FYKOS during the break before announcement of results
-        </p>
-    </div>
-    {/switch}
-</div>
-
-<div>
-    <span class="timeline-element-icon"></span>
     <div class="timeline-element-content">
         <div class="timeline-title">{switch $language->value}{case cs}Závěrečný ceremoniál, vyhlášení
             výsledků{default}Announcement of Results{/switch}</div>
