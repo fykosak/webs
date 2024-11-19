@@ -16,10 +16,12 @@
 {*                <div class="subheader">O soutěži</div>*}
                 <h1>O čem je Fyziklání?</h1>
                 <p>Fyziklání je týmová fyzikální soutěž pro studenty středních škol se zájmem o fyziku a řešení zajímavých úloh. Maximálně pětičlenné týmy mohou být složeny ze studentů až dvou škol. Jejich úlohou je vyřešit co nejvíce z připravených úloh v časovém limitu tří hodin. Každý tým začíná se stejnými sedmi úlohami, za vyřešenou úlohu dostává nový, často obtížnější příklad. Soutěže se může zúčastnit prakticky každý středoškolák nebo zvídavý základoškolák. Od roku 2018 je možné soutěžit také v anglickém jazyce a Fyziklání je tak otevřeno i týmům mimo Českou republiku a Slovensko.</p>
+                <p>Na soutěži letos rádi přivítáme přes 250 týmů.</p>
                 {default}
 {*                <div class="subheader">About the Competition</div>*}
                 <h1>What Is Fyziklani About?</h1>
                 <p>Fyziklani is a physics team competition for high school students (or equivalent) interested in physics and solving interesting problems. Teams consist of up to five students (from the maximum of two schools). Their task is to solve as many problems as possible in the given time limit of three hours. Each team begins with the same seven problems. For each solved problem, they get a new, usually more difficult one. Any high school student or motivated primary school student can take part. Since 2018, it is possible to compete also in the English language and foreign teams can participate as well.</p>
+                <p>We would happily invite over 250 teams to this year's competition.</p>
             {/switch}
         </section>
     </div>
@@ -76,7 +78,7 @@
 {*                <div class="subheader">Organizers</div>*}
                 <h1>Patronage</h1>
                 <p>Besides the main organizers and the sponsors, some important public figures and the capital city Prague significantly contributed and offered their patronage to the competition. We would like to thank them here.</p>
-                <p><b>Capital city Prague</b> (Prague) is a historical city in the heart of Europe. It is the capital city of the Czech Republic, formerly Czechoslovakia, and it was the residential city of kings Rudolf II and Charles IV. Prague is the main tourist destination in the Czech Republic and home to one of the most famous ZOOs in the world. Thanks to the patronage of Prague, you will be able to enjoy a banquet in the mayor’s residence.</p>
+                <p><b>Capital city Prague</b> (Prague) is a historical city in the heart of Europe. It is the capital city of the Czech Republic, formerly Czechoslovakia, and it was the residential city of kings Rudolf II and Charles IV. Prague is the main tourist destination in the Czech Republic and home to one of the most famous ZOOs in the world. Thanks to the patronage of Prague, you will be able to enjoy a banquet in the mayor's residence.</p>
                 <p>The patronage was taken over by the mayor of Prague <b>MUDr. Zdeněk Hřib</b> who studied general medicine at the Third Faculty of Medicine at Charles University. During his studies, he completed an internship in Taiwan. He is the director of a public service company Institution for applied research, education and management in health care. He is the author of many articles in the professional and lay press. Furthermore, he is also active on the political scene as a member of the Czech Pirate Party.</p>
                 <p>The patronage of the competition has also been accepted by <b>prof. Lenka Zdeborová</b>, a successful scientist studying statistical physics and its interdisciplinary use. One of the focuses of her work is, for example, the study of the influence of phase transitions in computational problems on their time complexity. She has received many prominent scientific awards for her work. Last but not least, she won the Neuron 2021 Prize for promising young scientists in physics. Prof. Zdeborová decided to donate her prize money to developing talented students through the Neuron Foundation. In this way, she supported our seminar, which she had participated in and also organized in the past. We would like to thank prof. Zdeborová very much for supporting the competition through her patronage and also for her generous financial support, thanks to which Fyziklani can continue to grow.</p>
             {/switch}
@@ -87,13 +89,27 @@
         <section class="inner-container">
             {switch $language->value}
                 {case 'cs'}
-{*                <div class="subheader">Datum a místo konání</div>*}
-                <h1>Kdy a kde to bude?</h1>
-                <p>Soutěž se bude konat {$newestEvent->begin |date:'d. m. Y'}. Stejně jako minulé roky se sejdeme na výstavišti PVA Letňany v Praze. Výstaviště se nachází v dochozí vzdálenosti (1 zastávka) od konečné metra C Letňany. Na soutěži letos rádi přivítáme přes 250 týmů.</p>
+                <h1>Kdy to bude?</h1>
+                <p>Soutěž se bude konat {$newestEvent->begin |date:'d. m. Y'}. Program soutěže je následující.</p>
                 {default}
-{*                <div class="subheader">Date and Place</div>*}
-                <h1>When and Where Will It Take Place?</h1>
-                <p>Fyziklani will take place {$newestEvent->begin |date:'d. m. Y'}. Just like last years, we will meet at PVA Letňany Exbihition Grounds in Prague, Czech Republic. The hall is located near (0.5 km) the final station of metro C line „Letňany“. We would happily invite over 250 teams to this year's competition.</p>
+                <h1>When Will It Take Place?</h1>
+                <p>Fyziklani will take place {$newestEvent->begin |date:'d. m. Y'}. Competition's schedule is as follows.</p>
+            {/switch}
+            <div class="timeline timeline-wider"><div>
+                {include '../competition_schedule.latte'}
+            </div></div>
+            
+        </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            {switch $language->value}
+                {case 'cs'}
+                <h1>Kde to bude?</h1>
+                <p>Stejně jako v minulých letech se sejdeme na výstavišti PVA Letňany v Praze. Výstaviště se nachází v dochozí vzdálenosti (1 zastávka) od konečné metra C Letňany.</p>
+                {default}
+                <h1>Where Will It Take Place?</h1>
+                <p>Just like last years, we will meet at PVA Letňany Exbihition Grounds in Prague, Czech Republic. The hall is located near (0.5 km) the final station of metro C line „Letňany“.</p>
             {/switch}
 
             <div class="ratio" style="--bs-aspect-ratio: 30%; min-height: 12rem">
@@ -104,24 +120,16 @@
             </div>
         </section>
     </div>
-{if false}
-    <div class="panel color-auto" id="covid-measures">
+    <div class="panel color-auto">
         <section class="inner-container">
             {switch $language->value}
                 {case 'cs'}
-{*                <div class="subheader">Hygienická opatření</div>*}
-                <h1>Jaká jsou aktuální epidemická opatření?</h1>
-                <p>
-                    V současnosti doufáme, že nebudeme v době soutěže ovlivněni žádnými opatřeními. Dojde-li ovšem ke změně, všechny důležité informace časem upřesníme.
-                </p>
+                <h1>Co když chci v Praze zůstat déle?</h1>
+                <p>Kromě soutěže se můžete těšit i na bohatý doprovodný program plný přednášek, exkurzí a mnoha dalšího. Podrobnosti naleznete <a href="https://fyziklani.cz/program">zde</a>.</p>
                 {default}
-{*                <div class="subheader">Hygiene Measures</div>*}
-                <h1>What Are the Current Covid-19 Measures?</h1>
-                <p>
-                    As of now, we believe we will not be affected by any measures in the time of competition. However, we will specify all the relevant information in due time if things change.
-                </p>
+                <h1>What if I Want to Stay Longer in Prague?</h1>
+                <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more. Details can be found <a href="https://fyziklani.org/schedule">here</a>.</p>
             {/switch}
         </section>
     </div>
-{/if}
 {/block}
