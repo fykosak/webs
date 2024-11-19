@@ -89,11 +89,24 @@
         <section class="inner-container">
             {switch $language->value}
                 {case 'cs'}
-                <h1>Kdy to bude?</h1>
-                <p>Soutěž se bude konat {$newestEvent->begin |date:'d. m. Y'}. Program soutěže je následující.</p>
+                <h1>Kde to bude?</h1>
+                <p>Soutěž se bude konat {$newestEvent->begin |date:'d. m. Y'}. Stejně jako v minulých letech se sejdeme na výstavišti PVA Letňany v Praze. Výstaviště se nachází v dochozí vzdálenosti (0,5 km) od konečné metra C Letňany.</p>
                 {default}
-                <h1>When Will It Take Place?</h1>
-                <p>Fyziklani will take place {$newestEvent->begin |date:'d. m. Y'}. Competition's schedule is as follows.</p>
+                <h1>Where Will It Take Place?</h1>
+                <p>Fyziklani will take place {$newestEvent->begin |date:'d. m. Y'}. Just like last years, we will meet at PVA Letňany Exbihition Grounds in Prague, Czech Republic. The hall is located near (0.5 km) the final station of metro C line „Letňany“.</p>
+            {/switch}
+
+            <div class="ratio" style="--bs-aspect-ratio: 30%; min-height: 12rem">
+                <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7888.821501675355!2d14.516469091737001!3d50.13057345709028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470beced033fece5%3A0xcf20ebedc9664978!2sPVA%20EXPO%20PRAHA!5e0!3m2!1scs!2scz!4v1640038922272!5m2!1scs!2scz"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                ></iframe>
+            </div>
+            {switch $language->value}
+                {case 'cs'}
+                <p>Program soutěže je následující.</p>
+                {default}
+                <p>Competition's schedule is as follows.</p>
             {/switch}
             <div class="timeline timeline-wider"><div>
                 {include '../competition_schedule.latte'}
@@ -105,30 +118,13 @@
         <section class="inner-container">
             {switch $language->value}
                 {case 'cs'}
-                <h1>Kde to bude?</h1>
-                <p>Stejně jako v minulých letech se sejdeme na výstavišti PVA Letňany v Praze. Výstaviště se nachází v dochozí vzdálenosti (1 zastávka) od konečné metra C Letňany.</p>
-                {default}
-                <h1>Where Will It Take Place?</h1>
-                <p>Just like last years, we will meet at PVA Letňany Exbihition Grounds in Prague, Czech Republic. The hall is located near (0.5 km) the final station of metro C line „Letňany“.</p>
-            {/switch}
-
-            <div class="ratio" style="--bs-aspect-ratio: 30%; min-height: 12rem">
-                <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7888.821501675355!2d14.516469091737001!3d50.13057345709028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470beced033fece5%3A0xcf20ebedc9664978!2sPVA%20EXPO%20PRAHA!5e0!3m2!1scs!2scz!4v1640038922272!5m2!1scs!2scz"
-                        style="border:0;" allowfullscreen="" loading="lazy"
-                ></iframe>
-            </div>
-        </section>
-    </div>
-    <div class="panel color-auto">
-        <section class="inner-container">
-            {switch $language->value}
-                {case 'cs'}
                 <h1>Co když chci v Praze zůstat déle?</h1>
-                <p>Kromě soutěže se můžete těšit i na bohatý doprovodný program plný přednášek, exkurzí a mnoha dalšího. Podrobnosti naleznete <a href="https://fyziklani.cz/program">zde</a>.</p>
+                <p>Kromě soutěže se můžete těšit i na bohatý doprovodný program plný přednášek, exkurzí a mnoha dalšího. Podrobnosti naleznete na stránce věnované doprovodnému programu.</p>
+                <a class="btn btn-primary my-2" href="https://fyziklani.cz/program">Doprovodný program</a>
                 {default}
                 <h1>What if I Want to Stay Longer in Prague?</h1>
-                <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more. Details can be found <a href="https://fyziklani.org/schedule">here</a>.</p>
+                <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more. Details can be found on the dedicated page.</p>
+                <a class="btn btn-primary my-2" href="https://fyziklani.cz/program">Accompanying Program</a>
             {/switch}
         </section>
     </div>
