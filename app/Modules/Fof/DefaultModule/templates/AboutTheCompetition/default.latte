@@ -102,16 +102,19 @@
                         style="border:0;" allowfullscreen="" loading="lazy"
                 ></iframe>
             </div>
-            {switch $language->value}
-                {case 'cs'}
-                <p>Program soutěže je následující.</p>
-                {default}
-                <p>Competition's schedule is as follows.</p>
-            {/switch}
-            <div class="timeline timeline-wider"><div>
-                {include '../competition_schedule.latte'}
-            </div></div>
-            
+            <div class="rules" style="margin-top: 2rem">
+                <div class="title">
+                    {switch $language->value}
+                        {case cs}Program soutěže
+                        {default}Schedule of the Competition
+                    {/switch}
+                </div>
+                <div class="description">
+                    <div class="timeline timeline-wider"><div>
+                        {include '../competition_schedule.latte'}
+                    </div></div>
+                </div>
+            </div>
         </section>
     </div>
     <div class="panel color-auto">
