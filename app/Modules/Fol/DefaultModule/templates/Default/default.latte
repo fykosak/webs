@@ -55,7 +55,7 @@
                 <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O
                     soutěži{default}About{/switch}</a>
                 {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
-                <a href="{$basePath}/download/{$eventKey}/{switch $language->value}{case 'cs'}reseni{default}solutions{/switch}.pdf"
+                <a href="https://cdn.static.fykos.cz/physics-brawl-online-{$eventKey}/{switch $language->value}{case 'cs'}reseni{default}solutions{/switch}.pdf"
                     class="btn btn-secondary">{switch $language->value}{case 'cs'}Řešení
                     úloh{default}Solutions{/switch}</a>
                 {/if}
