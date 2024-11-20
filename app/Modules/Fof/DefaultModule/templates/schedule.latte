@@ -3,29 +3,6 @@
     <div>
         <div class="timeline-group">{switch $language->value}{case cs}Středa 12. 2.{default}Wednesday, Feb 12{/switch}
         </div>
-
-        <div>
-            <span class="timeline-element-icon"></span>
-            {switch $language->value}
-            {case cs}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Příjezd na ubytování</div>
-                <p>
-                    Ve středu odpoledne se otevře Hotel Duo pro ubytované.
-                </p>
-                <time class="timeline-element-date">odpoledne</time>
-            </div>
-            {default}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Arrival</div>
-                <p>
-                    Since Wednesday afternoon, participants with accommodation can come to the Hotel Duo.
-                </p>
-                <time class="timeline-element-date">afternoon</time>
-            </div>
-            {/switch}
-        </div>
-
         <div>
             <span class="timeline-element-icon"></span>
             {switch $language->value}
@@ -33,11 +10,17 @@
             <div class="timeline-element-content">
                 <time class="timeline-element-date">18:00 - 20:00</time>
                 <div class="timeline-title">Prohlídka Štefánikovy hvězdárny</div>
+                <p>
+                    V rámci prohlídky také proběhne zahájení doprovodného programu.
+                </p>
             </div>
             {default}
             <div class="timeline-element-content">
                 <time class="timeline-element-date">18:00 - 20:00</time>
-                <div class="timeline-title">Tour of Stefanik Observatory</div>
+                <div class="timeline-title">Tour of Stefanik Observatory and Opening of the Accompanying Program</div>
+                <p>
+                    The tour will also include the opening of the accompanying program.
+                </p>
             </div>
             {/switch}
         </div>
