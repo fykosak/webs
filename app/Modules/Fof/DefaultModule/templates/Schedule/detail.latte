@@ -31,7 +31,7 @@
           			<div class="rules">
                       <div class="title">Areál Troja</div>
                       <div class="description">V Holešovičkách 2/747, 180 00 Praha 8
-                      	<ul style="margin-bottom: 0">
+                        <ul style="margin-bottom: 0">
                             <li><strong>N1, N2, N3</strong> - Pavilon Impakt</li>
                             <li><strong>T1, T2</strong> - Objekt poslucháren</li>
                         </ul>
@@ -49,7 +49,6 @@
                       <div class="title">Futurum Music Bar</div>
                       <div class="description">Zborovská 7, 150 00 Praha 5</div>
           			</div>*}
-
                 {default}
                     <h3>Legend for locations</h3>
           			<div class="rules">
@@ -81,6 +80,36 @@
                       <div class="title">Futurum Music Bar</div>
                       <div class="description">Zborovská 7, 150 00 Prague 5</div>
           			</div>*}
+            {/switch}
+        </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            {switch $language->value}
+            {case 'cs'}
+            <div class="subheader">
+                15. 2. 2025 - 12. 2. 2025
+            </div>
+            <h1>Městská hra</h1>
+            <p>Městská hra probíhá průběžně celý týden.</p>
+            <button
+                class="my-2 btn btn-primary"
+                onclick="alert('Městská hra skutečně probíhá průběžně celý týden.')"
+            >
+                Detail
+            </button>
+            {default}
+            <div class="subheader">
+                February 12, 2025 - February 16, 2025
+            </div>
+            <h1>City rally</h1>
+            <p>The city rally runs continuously throughout the week.</p>
+            <button
+                class="my-2 btn btn-primary"
+                onclick="alert('The city rally does indeed run continuously throughout the week.')"
+            >
+                Detail
+            </button>
             {/switch}
             {var $key = null}
             {* {dump $groups} *}
