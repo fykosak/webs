@@ -11,13 +11,6 @@
         "do novinek se dají dávat i html elementy"
     ],
     "cs" : [
-              {
-            "title": "Registrace na Fyziklání Online",
-            "text": "Do Fyziklání Online zbývá jen necelý týden. Tak svolejte kamarády, do středy 20. 11. se do 15:00 zaregistrujte a od 17:00 soutěžte o věčnou slávu!",
-            "link": "https://online.fyziklani.cz/",
-            "link-text": "Web Fyziklání Online",
-            "color": "fol"
-        },
 {
             "title": "Problémové úlohy",
             "text": "Baví vás řešit problémové úlohy? Nově budeme ve vzorových řešení zveřejňovat i vaše nejlepší zpracování problémových úloh. A autory nejlepších řešení samozřejmě nemine ani odměna!",
@@ -34,13 +27,6 @@
         }
     ],
     "en" : [
-        {
-            "title": "Registration for Physics Brawl Online",
-            "text": "Physics Brawl Online is almost here. So gather your friends, register by November 20, 3 p.m., CET, and from 5 p.m. compete for eternal glory!",
-            "link": "https://physicsbrawl.org/",
-            "link-text": "Physics Brawl Online",
-            "color": "fol"
-        },
          {
             "title": "Open Problems",
             "text": "Do you like to ponder over open-ended questions? This year we will include some of your best solutions to the open problems in our official solution. Oh, and the authors of the chosen solutions will get a reward!",
