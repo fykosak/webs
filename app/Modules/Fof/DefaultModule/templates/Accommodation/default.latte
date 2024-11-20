@@ -13,6 +13,7 @@
 {*                <div class="subheader">Accommodation</div>*}
                 <h1>Where Can You Stay?</h1>
                 <p>If you're coming from afar and want to rest comfortably before the competition and during the accompanying program, simply select accommodation at Hotel Duo in your registration, and we'll take care of the arrangements for you.</p>
+                <p>This year, we are arranging accommodation for two nights before the competition (the nights of February 12 and 13) and for two nights after the competition (the nights of February 14 and 15).</p>
                 <p>If needed, do not forget to get your visa. For more information, contact us via an e-mail at <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>. We can arrange you an inviting list.
                 </p>
 {*          		<p><strong>Registration for accommodation has now closed.</strong></p>*}
@@ -139,8 +140,116 @@
             {/switch}
         </section>
     </div>
+    <div class="panel color-auto" id="conditions">
+        <section class="inner-container">
+            {switch $language->value}
+            {case 'cs'}
+            <h1>Podmínky ubytování</h1>
+            <h2>Podmínky rezervace</h2>
+            <ul>
+                <li>Rezervace ubytování je možná do pátku <strong>31. ledna.</strong></li>
+                <li>
+                    Po zvolení ubytování v přihlášce vzniká časová lhůta na uhrazení poplatku
+                    Tato lhůta se vypočítá automaticky dle následující tabulky a bude uvedena
+                    v detailu vaší přihlášky.
+                </li>
+                <div class="row">
+                    <div class="offset-md-2 col-md-8">
+                        <table class="table table-striped table-hover">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Ubytování přihlášeno dne</th>
+                                    <th>Ubytování je nutné zaplatit do</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dříve než 3. 1. 2025 (včetně)</td>
+                                    <td>17. 1. 2025</td>
+                                </tr>
+                                <tr>
+                                    <td>4. 1. 2025 až 22. 1. 2025</td>
+                                    <td>14 dní po přihlášení ubytování</td>
+                                </tr>
+                                <tr>
+                                    <td>později než 23. 1. 2025 (včetně)</td>
+                                    <td>7 dní před nástupem na ubytování</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <li>Ubytování, které nebylo zaplaceno do uplynutí lhůty, bude automaticky zrušeno.</li>
+                <li>Uhrazením poplatku vzniká závazná rezervace ubytování.</li>
+            </ul>
+            <h2>Storno podmínky</h2>
+            <ul>
+                <li>
+                    V případě zrušení již zaplaceného ubytování 22. 1. 2025 a dříve bude
+                    vrácena celá uhrazená částka.
+                </li>
+                <li>
+                    V případě zrušení již zaplaceného ubytování 23. 1. 2025 a později může
+                    bude účtován storno poplatek ve výši 100 % uhrazené částky. Ve výjimečných
+                    případech může být tento poplatek prominut s ohledem na způsobenou škodu
+                    v souladu s § 2330 zákona č. 89/2012 Sb.
+                </li>
+            </ul>
+            {default}
+            <h1>Accommodation policy</h1>
+            <h2>Reservation policy</h2>
+            <ul>
+                <li>Accommodation reservation is open till <strong>January 31.</strong></li>
+                <li>
+                    After selecting accommodation in the application, a time limit is set for
+                    payment of the fee. This time limit is calculated automatically according
+                    to the following table and will be displayed in the details of your application.
+                </li>
+                <div class="row">
+                    <div class="offset-md-2 col-md-8">
+                        <table class="table table-striped table-hover">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Accommodation is registered</th>
+                                    <th>Accommodation must be paid till</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>before January 3, 2025 (inclusive)</td>
+                                    <td>17. 1. 2025</td>
+                                </tr>
+                                <tr>
+                                    <td>from January 4, 2025 to January 22, 2025</td>
+                                    <td>14 days after registration</td>
+                                </tr>
+                                <tr>
+                                    <td>after 23. 1. 2025 (inclusive)</td>
+                                    <td>7 days before check-in</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <li>Accommodation unpaid in specified time limit will be automatically canceled.</li>
+                <li>Fee payment is bindig reservation of accommodation.</li>
+            </ul>
+            <h2>Storno</h2>
+            <ul>
+                <li>
+                    In the case of canceling already paid accommodation on January 22, 2025, or earlier, the full amount paid will be refunded.
+                </li>
+                <li>
+                    In the case of canceling already paid accommodation on January 23, 2025,
+                    or later, a cancellation fee of 100% of the paid amount may be charged.
+                    In exceptional cases, this fee may be waived, taking into account the
+                    damages incurred, in accordance with Section 2330 of Act No. 89/2012 Coll.
+                </li>
+            </ul>
+            {/switch}
+        </section>
+    </div>
 {if false}
-
     <div class="panel color-auto" id="how-to-pay">
         <section class="inner-container">
             {switch $language->value}
