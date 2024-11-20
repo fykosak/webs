@@ -74,6 +74,45 @@
                 {/if}
             </div>
         </div>
+        <div class="col-md-6 left-block">
+            {switch $language->value}
+            {case 'cs'}
+            <h1>
+                Omluva za chybu v překladu
+            </h1>
+            <div class="subheader">
+                Úloha 14
+            </div>
+            <p>
+                Je nám líto, ale objevila se chyba v překladu úlohy 14. Omlouváme se za způsobené komplikace.
+            </p>
+            <p>
+                Pro zachování férovosti soutěže proto rušíme veškeré bodové
+                penalizace za chybné odpovědi odevzdané před <strong>18:11 CET</strong>.
+            </p>
+            <p>
+                Děkujeme za pochopení a vaši účast v soutěži!
+            </p>
+            {default}
+            <h1>
+                Apology for Translation Error
+            </h1>
+            <div class="subheader">
+                Problem 14
+            </div>
+            <p>
+                We regret to inform you that there was a mistake in the translation of
+                Problem 14. We sincerely apologize for any inconvenience this may have caused.
+            </p>
+            <p>
+                To address this issue fairly, we will cancel any penalties for incorrect
+                answers to this problem until <strong>18:11 CET</strong>.
+            </p>
+            <p>
+                Thank you for your understanding and for competing!
+            </p>
+            {/switch}
+        </div>
         <div class="col-md-6 right-block topic-panel">
             {* {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
             {control upperHomeBeforeRegistration}
