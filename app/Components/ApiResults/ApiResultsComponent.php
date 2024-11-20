@@ -48,8 +48,8 @@ class ApiResultsComponent extends DIComponent
             foreach ($team['members'] as $member) {
                 $members[] = [
                     'name' => $member['name'],
-                    'schoolName' => $member['school']['name'] ?? '',
-                    'countryIso' => $member['school']['countryIso'] ?? '',
+                    'schoolName' => $member['school']['nameAbbrev'] ?? '',
+                    'countryIso' => $member['school']['countryISO'] ?? '',
                 ];
             }
             $teams[] = [
