@@ -1,8 +1,9 @@
 {varType App\Modules\Core\Language $language}
 <div class="timeline timeline-wider">
-    {*<div>
-        <div class="timeline-group">{switch $language->value}{case cs}Pondělí 12. 2.{default}Monday, Feb 12{/switch}
+    <div>
+        <div class="timeline-group">{switch $language->value}{case cs}Středa 12. 2.{default}Wednesday, Feb 12{/switch}
         </div>
+
         <div>
             <span class="timeline-element-icon"></span>
             {switch $language->value}
@@ -10,7 +11,7 @@
             <div class="timeline-element-content">
                 <div class="timeline-title">Příjezd na ubytování</div>
                 <p>
-                    V pondělí odpoledne se otevře Hotel Duo pro ubytované.
+                    Ve středu odpoledne se otevře Hotel Duo pro ubytované.
                 </p>
                 <time class="timeline-element-date">odpoledne</time>
             </div>
@@ -18,219 +19,32 @@
             <div class="timeline-element-content">
                 <div class="timeline-title">Arrival</div>
                 <p>
-                    Since Monday afternoon, participants with accommodation can come to the Hotel Duo.
+                    Since Wednesday afternoon, participants with accommodation can come to the Hotel Duo.
                 </p>
                 <time class="timeline-element-date">afternoon</time>
             </div>
             {/switch}
         </div>
-        <div>
-            <span class="timeline-element-icon"></span>
-            {switch $language->value}
-            {case cs}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">19:00 - 19:20</time>
-                <div class="timeline-title">Zahajovací ceremoniál</div>
-                <p>
-                    Zahájení týdenního programu pro zahraniční týmy dorazivší z daleka
-                </p>
-            </div>
-            {default}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">19:00 - 19:20</time>
-                <div class="timeline-title">Opening Ceremony and Welcome</div>
-                <p>
-                    Ceremonial opening of the accompanying program
-                </p>
-            </div>
-            {/switch}
-        </div>
 
         <div>
             <span class="timeline-element-icon"></span>
             {switch $language->value}
             {case cs}
             <div class="timeline-element-content">
-                <time class="timeline-element-date">19:30 - 21:00</time>
-                <div class="timeline-title">Ice-breakery a seznamovací hry</div>
-                <p>
-                    Seznámení s účastníky a zahraničními týmy z našeho programu <a
-                        n:href="Scholarship:default">Scholarship</a>
-                </p>
+                <time class="timeline-element-date">18:00 - 20:00</time>
+                <div class="timeline-title">Prohlídka Štefánikovy hvězdárny</div>
             </div>
             {default}
             <div class="timeline-element-content">
-                <time class="timeline-element-date">19:30 - 21:00</time>
-                <div class="timeline-title">Icebreakers and Get-to-Know-You Games</div>
+                <time class="timeline-element-date">18:00 - 20:00</time>
+                <div class="timeline-title">Tour of Stefanik Observatory</div>
             </div>
             {/switch}
         </div>
-    </div>*}
+    </div>
 
-    {*<div>
-        <div class="timeline-group">{switch $language->value}{case cs}Úterý 13. 2.{default}Tuesday, Feb 13{/switch}
-        </div>
-
-        <div>
-            <span class="timeline-element-icon"></span>
-            {switch $language->value}
-            {case cs}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">08:05 - 10:30</time>
-                <div class="timeline-title">Odjezd do iQLANDIE</div>
-                <p>
-                    Pro účastníky přihlášené na prohlídku expozice je zajištěná autobusová doprava.
-                </p>
-            </div>
-            {default}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">08:05 - 10:30</time>
-                <div class="timeline-title">Transport to iQLANDIA</div>
-                <p>
-                    Bus transportation is provided for participants registered for the exhibition tour.
-                </p>
-            </div>
-            {/switch}
-        </div>
-
-        <div>
-            <span class="timeline-element-icon"></span>
-            {switch $language->value}
-            {case cs}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">11:00 - 16:00</time>
-                <div class="timeline-title">iQLANDIA</div>
-                <p>
-                    Návštěva největšího science centra v ČR
-                </p>
-            </div>
-            {default}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">11:00 - 16:00</time>
-                <div class="timeline-title">iQLANDIA</div>
-                <p>
-                    Visit to the largest science centre in the Czech Republic
-                </p>
-            </div>
-            {/switch}
-        </div>
-
-        <div>
-            <span class="timeline-element-icon"></span>
-            {switch $language->value}
-            {case cs}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">19:00 - 21:00</time>
-                <div class="timeline-title">Večerní přednáška</div>
-                <p>
-                    Téma přednášky bude doplněno časem. Zájemci mohou po přednášce zůstat a zahrát si deskové hry s
-                    ostatními účastníky.
-                </p>
-            </div>
-            {default}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">19:00 - 21:00</time>
-                <div class="timeline-title">Evening Lecture</div>
-                <p>
-                    The lecture's topic will be specified later. Attendees are welcome to stay after the lecture and
-                    join in board game activities with others.
-                </p>
-            </div>
-            {/switch}
-        </div>
-    </div>*}
-
-    {*<div>
-        <div class="timeline-group">{switch $language->value}{case cs}Středa 14. 2.{default}Wednesday, Feb 14{/switch}
-        </div>
-
-        <div>
-            <span class="timeline-element-icon"></span>
-            {switch $language->value}
-            {case cs}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">9:00 - 13:00</time>
-                <div class="timeline-title">Kulturní / poznávací exkurze</div>
-                <p>
-                    Prohlídka Valdštejnského paláce a Pražského hradu nebo komentovaná prohlídka města
-                </p>
-            </div>
-            {default}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">9:00 - 13:00</time>
-                <div class="timeline-title">Cultural / Educational Excursions</div>
-                <p>
-                    Tour of Wallenstein Palace and Prague Castle, or Guided tour of Prague
-                </p>
-            </div>
-            {/switch}
-        </div>
-
-        <div>
-            <span class="timeline-element-icon"></span>
-            {switch $language->value}
-            {case cs}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">13:00 - 17:00</time>
-                <div class="timeline-title">Volný program</div>
-                <p>
-                    Účastníci budou mít možnost projít si Prahu.
-                </p>
-            </div>
-            {default}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">13:00 - 17:00</time>
-                <div class="timeline-title">Free Time</div>
-                <p>
-                    Participants will have the opportunity to explore Prague themselves.
-                </p>
-            </div>
-            {/switch}
-        </div>
-
-        <div>
-            <span class="timeline-element-icon"></span>
-            {switch $language->value}
-            {case cs}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">17:00 - 18:00</time>
-                <div class="timeline-title">Přípravy pro Večer národů</div>
-                <p>
-                    Sál pro Večer národů se otevře a účastníci budou mít možnost přípravy svých stánků.
-                </p>
-            </div>
-            {default}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">17:00 - 18:00</time>
-                <div class="timeline-title">Nations' Evening Preparations</div>
-                <p>
-                    The hall for the Nations' evening will open and participants will have the opportunity to prepare
-                    their stands.
-                </p>
-            </div>
-            {/switch}
-        </div>
-        <div>
-            <span class="timeline-element-icon"></span>
-            {switch $language->value}
-            {case cs}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">18:00 - 22:00</time>
-                <div class="timeline-title">Večer národů</div>
-                <p>Prezentace národních jídel, hudby a kultury účastíků z mnoha zemí</p>
-            </div>
-            {default}
-            <div class="timeline-element-content">
-                <time class="timeline-element-date">18:00 - 22:00</time>
-                <div class="timeline-title">Nations' Evening</div>
-                <p>Presentation of national foods, music, and culture</p>
-            </div>
-            {/switch}
-        </div>
-    </div>*}
-
-    {*<div>
-        <div class="timeline-group">{switch $language->value}{case cs}Čtvrtek 15. 2.{default}Thursday, Feb 15{/switch}
+    <div>
+        <div class="timeline-group">{switch $language->value}{case cs}Čtvrtek 13. 2.{default}Thursday, Feb 13{/switch}
         </div>
         {switch $language->value}
         {case cs}
@@ -240,7 +54,7 @@
                 <div class="timeline-title">Jeden den s fyzikou</div>
                 <time class="timeline-element-date">09:00 - 15:30</time>
                 <p>
-                    Den plný přednášek a exkurzí do laboratoří na MFF UK
+                    Den plný přednášek a exkurzí do laboratoří na MFF UK.
                 </p>
             </div>
         </div>
@@ -251,7 +65,7 @@
                 <div class="timeline-title">One Day with Physics</div>
                 <time class="timeline-element-date">09:00 - 15:30</time>
                 <p>
-                    Day full of excursions and lectures at CUNI MFF
+                    Day full of excursions and lectures at CUNI MFF.
                 </p>
             </div>
         </div>
@@ -267,7 +81,7 @@
                     <div class="timeline-title">Panelová diskuse s vědci</div>
                     <time class="timeline-element-date">19:00 - 21:00</time>
                     <p>
-                        Diskuze s českými vědci o fyzice a jejich práci
+                        Diskuze s českými vědci o fyzice a jejich práci.
                     </p>
                 </div>
             </div>
@@ -278,20 +92,20 @@
                     <div class="timeline-title">Panel Discussion with Scientists</div>
                     <time class="timeline-element-date">19:00 - 21:00</time>
                     <p>
-                        Discussion with Czech scientists about their work in physics
+                        Discussion with Czech scientists about their work in physics.
                     </p>
                 </div>
             </div>
             {/switch}
         </div>
-    </div>*}
+    </div>
 
     <div>
         <div class="timeline-group">{switch $language->value}{case cs}Pátek 14. 2.{default}Friday, Feb 14{/switch}</div>
 
         {include 'competition_schedule.latte'}
 
-        {*<div>
+        <div>
             <span class="timeline-element-icon"></span>
             {switch $language->value}
             {case cs}
@@ -299,7 +113,7 @@
                 <div class="timeline-title">Rozbor řešení úloh</div>
                 <time class="timeline-element-date">17:30 - 19:00</time>
                 <p>
-                    Představení a rozbor autorských řešení úloh z letošního Fyziklání
+                    Představení a rozbor autorských řešení úloh z letošního Fyziklání.
                 </p>
             </div>
             {default}
@@ -307,12 +121,12 @@
                 <div class="timeline-title">Problem Analysis</div>
                 <time class="timeline-element-date">17:30 - 19:00</time>
                 <p>
-                    Presentation and analysis of the solutions to this year's problems from Fyziklani
+                    Presentation and analysis of the solutions to this year's problems from Fyziklani.
                 </p>
             </div>
             {/switch}
-        </div>*}
-        {*<div>
+        </div>
+        <div>
             <span class="timeline-element-icon"></span>
             {switch $language->value}
             {case cs}
@@ -332,11 +146,11 @@
                 </p>
             </div>
             {/switch}
-        </div>*}
+        </div>
     </div>
 
-    {*<div>
-        <div class="timeline-group">{switch $language->value}{case cs}Sobota 17. 2.{default}Saturday, Feb 17{/switch}
+    <div>
+        <div class="timeline-group">{switch $language->value}{case cs}Sobota 15. 2.{default}Saturday, Feb 15{/switch}
         </div>
 
         <div>
@@ -377,7 +191,7 @@
                 <div class="timeline-title">Optional Program</div>
                 <time class="timeline-element-date">12:00 - 19:00</time>
                 <p>
-                    You may try the City Rally or visit some interesting places in Prague.
+                    You may expect a lecture or the option to try the City Rally. {*visit some interesting places in Prague.*}
                 </p>
             </div>
             {/switch}
@@ -391,7 +205,7 @@
                 <div class="timeline-title">Raut</div>
                 <time class="timeline-element-date">19:00 - 22:00</time>
                 <p>
-                    Slavnostní večeře s dalšími soutěžícími a oficiální zakončení doprovodného programu
+                    Slavnostní večeře s dalšími soutěžícími a oficiální zakončení doprovodného programu.
                 </p>
             </div>
             {default}
@@ -399,12 +213,12 @@
                 <div class="timeline-title">Buffet</div>
                 <time class="timeline-element-date">19:00 - 22:00</time>
                 <p>
-                    Ceremonial dinner with other contestants and the official closing of the accompanying program
+                    Ceremonial dinner with other contestants and the official closing of the accompanying program.
                 </p>
             </div>
             {/switch}
         </div>
-    </div>*}
+    </div>
 
     {*<div>
         <div class="timeline-group">
