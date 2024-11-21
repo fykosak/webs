@@ -64,7 +64,7 @@
                                 }
                                 {foreach $members as $key => $member}
                                     {varType App\Models\Downloader\TeamMemberModel $member}
-                                    {$member->name}{if !$iterator->isLast()}, {/if}
+                                    {$member->name|trim}{if !$iterator->isLast()},{/if}
                                     {do $inSchool++}
                                     {if $iterator->isLast() || (!is_null($members[$key + 1]) && isset($member->school) && isset($members[$key + 1]->school) && $member->school['schoolId'] != $members[$key + 1]->school['schoolId'])}
                                         <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$member->school['nameAbbrev']??''}{if isset($member->school) && $member->school['countryISO'] !== 'ZZ'} <span
