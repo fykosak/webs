@@ -91,7 +91,7 @@ class TeamResultsComponent extends DIComponent
         $ISOsForTeam = [];
 
         foreach ($team->members as $member) {
-            $iso = $member->school['countryISO'] ?? 'zz';
+            $iso = $member->school['countryISO'] ?? 'Uknown';
             if (!in_array($iso, $ISOsForTeam)) {
                 $ISOsForTeam[] = $iso;
             }
@@ -161,11 +161,12 @@ class TeamResultsComponent extends DIComponent
         //         ->setOption('count', $count);
         // }
         foreach ($countryISOs as $countryISO => $count) {
+            $countryISO = $countryISO !== '' ? $countryISO : 'Uknown'; // set default value to unknown countries
             $countryISOContainer->addCheckbox(
                 $countryISO,
                 sprintf(
-                    $this->translator->lang === Language::cs ? '%s:%s účastníků' : '%s:%s participants',
-                    $countryISO,
+                    $this->translator->lang === Language::cs ? ' %s: %s účastníků' : ' %s: %s participants',
+                    $countryISO !== 'Uknown' ? $countryISO : $this->presenter->csen('Nestudent', 'Not a student'),
                     $count
                 )
             );
@@ -176,7 +177,7 @@ class TeamResultsComponent extends DIComponent
 
         $form->addSubmit('applyFilters', 'Apply')->setHtmlAttribute('class', 'btn btn-primary');
 
-        $form->onSuccess[] = fn (Form $form) => $this->filterData = $form->getValues('array');
+        $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
         // $form->onSuccess[] = function(Form $form) {
         //     $this->filterData = $form->getValues('array');
         //     $this->redirect('this', ['filterData' => $this->filterData]);

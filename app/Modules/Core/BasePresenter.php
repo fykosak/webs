@@ -110,7 +110,7 @@ abstract class BasePresenter extends Presenter
     /**
      * Helper function to return correct translation based on the current language
      */
-    protected function csen(string $cs, string $en): string
+    public function csen(string $cs, string $en): string
     {
         if ($this->translator->lang === Language::cs) {
             return $cs;
