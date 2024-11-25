@@ -8,5 +8,12 @@
 {/block}
 
 {block content}
+    <div class="alert alert-warning fade show" role="alert">
+        {switch $language->value}
+        {case cs}
+        Kvůli odhalování podvádějících týmů a jejich následné diskvalifikaci jsme nuceni posunout rozesílání certifikátů za soutěž na <strong>pátek 29. listopadu</strong>. Pilně na tom pracujeme, děkujeme za vaši trpělivost.
+        {default}
+        Due to the investigation of cheating teams and their subsequent disqualification, we have to <strong>postpone the distribution of certificates</strong> for the competition to <strong>Friday, November 29</strong>. We are working hard on it, thank you for your patience.
+    </div>
     {control teamResults}
 {/block}
