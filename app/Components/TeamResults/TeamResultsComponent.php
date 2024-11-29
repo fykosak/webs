@@ -51,7 +51,7 @@ class TeamResultsComponent extends DIComponent
 
         $teams = [];
         foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), TeamModel::class) as $team) {
-            if ($team->state != 'participated' && $team->state != 'disqualified') {
+            if ($team->state !== 'participated' && $team->state !== 'disqualified') {
                 continue;
             }
             if (is_null($this->filterData) || $this->passesFilters($team)) {
@@ -67,7 +67,7 @@ class TeamResultsComponent extends DIComponent
 
         // remove categories that are empty after the filtering
         foreach ($teams as $category => $teamsForCategory) {
-            if ($teamsForCategory == []) {
+            if (!count($teamsForCategory)) {
                 unset($teams[$category]);
             }
         }
@@ -83,7 +83,7 @@ class TeamResultsComponent extends DIComponent
 
     protected function passesOneMemberFilter(TeamModel $team): bool
     {
-        return !$this->filterData['OneMemberTeams'] || count($team->members) == 1;
+        return !$this->filterData['OneMemberTeams'] || count($team->members) === 1;
     }
 
     protected function passesCountryFilter(TeamModel $team): bool
@@ -166,6 +166,7 @@ class TeamResultsComponent extends DIComponent
                 $countryISO,
                 sprintf(
                     $this->translator->lang === Language::cs ? ' %s: %s účastníků' : ' %s: %s participants',
+                    /** @phpstan-ignore-next-line */
                     $countryISO !== 'Uknown' ? $countryISO : $this->presenter->csen('Nestudent', 'Not a student'),
                     $count
                 )
