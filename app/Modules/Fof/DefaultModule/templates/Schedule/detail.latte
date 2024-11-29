@@ -83,7 +83,7 @@
             {/switch}
         </section>
     </div>
-    <div class="panel color-auto">
+    <div class="panel color-auto" id="vojta-david-secret-panel">
         <section class="inner-container">
             {switch $language->value}
             {case 'cs'}
@@ -99,6 +99,105 @@
             <h1>City rally</h1>
             <p>The city rally runs continuously throughout the week.</p>
             {/switch}
+            <!-- begin vojta -->
+            <button
+                id="vojta-david-secret-button"
+                class="my-2 btn btn-primary"
+                hidden
+                onclick="alert(
+                    {switch $language->value}
+                    {case 'cs'}
+                    'Městská hra skutečně probíhá průběžně celý týden.'
+                    {default}
+                    'The city rally does indeed run continuously throughout the week.'
+                    {/switch}
+                )"
+            >
+                Detail
+            </button>
+            <div id="vojta-david-secret-snackbar">
+            </div>
+            <script>
+                let count = 0;
+                const btn = document.getElementById("vojta-david-secret-button");
+                const div = document.getElementById("vojta-david-secret-snackbar");
+                function handler() {
+                    count += 1;
+                    diff = 7 - count;
+                    if (diff < 4 && diff > 0) {
+                        bar = document.createElement("div");
+                        bar.textContent = "Just " + diff + " click" + (diff != 1 ? "s" : "") + " to get a secret button";
+                        bar.setAttribute("style", "z-index: " + count + ";");
+                        const handle = div.appendChild(bar);
+                        setTimeout(_ => div.removeChild(handle), 2000);
+                    } else if (diff <= 0) {
+                        btn.removeAttribute("hidden");
+                    }
+                }
+                document
+                    .getElementById("vojta-david-secret-panel")
+                    .addEventListener("click", handler);
+            </script>
+            <style>
+                #vojta-david-secret-button {
+                    transition: hidden ease-in-out 1s;
+                }
+                #vojta-david-secret-snackbar > * {
+                    min-width: 250px;
+                    margin-left: -125px;
+                    background-color: #333;
+                    color: #fff;
+                    text-align: center;
+                    border-radius: 4px;
+                    padding: 16px;
+                    position: fixed;
+                    left: 50%;
+                    bottom: 30px;
+                    -webkit-animation: fadein 0.5s, fadeout 0.5s 1.5s;
+                    animation: fadein 0.5s, fadeout 0.5s 1.5s;
+                }
+                @-webkit-keyframes fadein {
+                    from {
+                        bottom: 0;
+                        opacity: 0;
+                    }
+                    to {
+                        bottom: 30px;
+                        opacity: 1;
+                    }
+                }
+                @keyframes fadein {
+                    from {
+                        bottom: 0;
+                        opacity: 0;
+                    }
+                    to {
+                        bottom: 30px;
+                        opacity: 1;
+                    }
+                }
+                @-webkit-keyframes fadeout {
+                    from {
+                        bottom: 30px;
+                        opacity: 1;
+                    }
+                    to {
+                        bottom: 0;
+                        opacity: 0;
+                    }
+                }
+                @keyframes fadeout {
+                    from {
+                        bottom: 30px;
+                        opacity: 1;
+                    }
+                    to {
+                        bottom: 0;
+                        opacity: 0;
+                    }
+                }
+            </style>
+            <!-- end vojta -->
             {var $key = null}
             {* {dump $groups} *}
             {foreach $groups as $group}
