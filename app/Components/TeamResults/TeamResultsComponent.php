@@ -67,6 +67,7 @@ class TeamResultsComponent extends DIComponent
 
         // remove categories that are empty after the filtering
         foreach ($teams as $category => $teamsForCategory) {
+            /** @phpstan-ignore-next-line*/
             if (!count($teamsForCategory)) {
                 unset($teams[$category]);
             }
