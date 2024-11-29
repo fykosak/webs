@@ -121,16 +121,21 @@
                 let count = 0;
                 const btn = document.getElementById("vojta-david-secret-button");
                 const div = document.getElementById("vojta-david-secret-snackbar");
+                function eatSnack(message) {
+                    bar = document.createElement("div");
+                    bar.textContent = message;
+                    bar.setAttribute("style", "z-index: " + count + ";");
+                    const handle = div.appendChild(bar);
+                    setTimeout(_ => div.removeChild(handle), 2000);
+                }
                 function handler() {
                     count += 1;
                     diff = 7 - count;
                     if (diff < 4 && diff > 0) {
-                        bar = document.createElement("div");
-                        bar.textContent = "Just " + diff + " click" + (diff != 1 ? "s" : "") + " to get a secret button";
-                        bar.setAttribute("style", "z-index: " + count + ";");
-                        const handle = div.appendChild(bar);
-                        setTimeout(_ => div.removeChild(handle), 2000);
+                        msg = "Just " + diff + " click" + (diff != 1 ? "s" : "") + " to get a secret button";
+                        eatSnack(msg);
                     } else if (diff <= 0) {
+                        eatSnack("Enjoy your secret button");
                         btn.removeAttribute("hidden");
                     }
                 }
@@ -143,8 +148,8 @@
                     transition: hidden ease-in-out 1s;
                 }
                 #vojta-david-secret-snackbar > * {
-                    min-width: 250px;
-                    margin-left: -125px;
+                    min-width: 300px;
+                    margin-left: -150px;
                     background-color: #333;
                     color: #fff;
                     text-align: center;
