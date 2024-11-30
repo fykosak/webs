@@ -19,3 +19,4 @@ www/fykos/images/events
 .cache
 .config
 .local
+.idea/
