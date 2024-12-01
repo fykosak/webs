@@ -172,8 +172,8 @@ const CategoryColumn: React.FC<{
                     <td>
                         <div className="team-name">{mappedTeams[p.team.teamId]?.name ?? p.team.name}</div>
                         <div className="flags">
-                            {[...new Set(mappedTeams[p.team.teamId]?.participants.map(p => p.countryIso))].filter(iso => iso !== 'ZZ').map(iso =>
-                                <span className={`fi fi-${iso?.toLowerCase()}`} />,
+                            {[...new Set(mappedTeams[p.team.teamId]?.participants.map(p => p.countryIso))].filter(iso => iso !== '').map(iso =>
+                                <span className={`flag-icon flag-icon-${iso?.toLowerCase()}`} />,
                             )}
                         </div>
                     </td>

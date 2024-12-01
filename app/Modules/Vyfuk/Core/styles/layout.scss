@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   // font-size: $base-font-size;
 }
@@ -37,16 +38,18 @@ nav.navbar {
 
 ul.stylized {
   list-style: none;
-    li::before {
-      content: " ";
-      background-color: #000;
-      display: block;
-      width: .5rem;
-      height: .5rem;
-      margin-left: -1.5rem;
-      position: absolute;
-      margin-top: 0.5rem;
-    }
+
+  li::before {
+    content: " ";
+    background-color: #000;
+    display: block;
+    width: .5rem;
+    height: .5rem;
+    margin-left: -1.5rem;
+    position: absolute;
+    margin-top: 0.5rem;
+  }
+
   &.correction {
     @media screen and (max-width: 1280px) {
       padding-left: 3rem;
@@ -67,11 +70,18 @@ a:hover {
   padding: 4rem 0;
   /*margin-bottom: 2rem;*/
   color: #4a4a4a;
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: black;
   }
 
-  &.color-dark, &.color-auto:nth-of-type(2n) {
+  &.color-dark,
+  &.color-auto:nth-of-type(2n) {
     background-color: $panel-color-dark;
 
     .inverse-background {
@@ -79,12 +89,19 @@ a:hover {
     }
   }
 
-  &.color-light, &.sponsors, &.color-auto:nth-of-type(2n+1) {
+  &.color-light,
+  &.sponsors,
+  &.color-auto:nth-of-type(2n+1) {
     background-color: $panel-color-light;
 
     .inverse-background {
       background-color: $panel-color-dark;
     }
+  }
+
+  &.sponsors {
+    padding-bottom: 5rem;
+    padding-top: 3rem;
   }
 
   &.sponsors .inner-container .sponsors-row {
@@ -97,9 +114,11 @@ a:hover {
     a {
       display: block;
       text-decoration: none;
+
       img {
         @extend .img-fluid;
       }
+
       .text {
         text-align: center;
         color: black;
@@ -110,6 +129,19 @@ a:hover {
   }
 
   &.footer {
+    padding-top: 0rem;
+
+    &::before {
+      height: 40px;
+      content: " ";
+      width: 100%;
+      background: url(edge.svg) repeat-x center top;
+      display: block;
+      top: -40px;
+      /*height of edge.svg*/
+      position: relative;
+    }
+
     background-color: #000000;
     color: white;
 
@@ -130,8 +162,17 @@ a:hover {
     }
 
     .logo {
-      max-height: 3rem;
+      max-height: 4rem;
+      margin-bottom: 1rem;
+      margin-right: 1rem;
+      @extend .img-fluid;
+    }
+
+    .image {
+      max-height: 10rem;
       margin-bottom: 2rem;
+      margin-right: 1rem;
+      margin-top: 2rem;
       @extend .img-fluid;
     }
 
@@ -139,9 +180,11 @@ a:hover {
       margin-top: 1rem;
       padding-top: 1rem;
       border-top: 1px solid #FFFFFF80;
+
       .other-logo {
         @extend .img-fluid;
         opacity: .5;
+
         &:hover {
           opacity: 1;
         }
@@ -150,7 +193,7 @@ a:hover {
   }
 
   // Inner container
-  & > .inner-container {
+  &>.inner-container {
     margin: 0 auto;
     padding: 0 1rem;
     max-width: $page-width;
@@ -159,7 +202,7 @@ a:hover {
   &.registration {
     padding: 2.5rem 0;
 
-    & > .inner-container {
+    &>.inner-container {
       display: flex;
       align-items: center;
 
@@ -174,12 +217,14 @@ a:hover {
   .subheader {
     font-weight: bold;
     color: $primary-color;
+
     &.complementary {
       color: $complementary-color;
     }
   }
 
-  &.color-primary, &.registration {
+  &.color-primary,
+  &.registration {
     background-color: $primary-color;
     color: white;
 
@@ -206,17 +251,17 @@ a:hover {
 
 
 .panel.footer nav {
-  & > ul > li {
-    font-weight: bold;
+  &>ul>li {
+    margin: 1rem 0;
 
-    & li {
-      margin: 1rem 0;
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: normal;
+    }
 
-      a {
-        text-decoration: none;
-        color: white;
-        font-weight: normal;
-      }
+    div {
+      margin-bottom: 1rem;
     }
   }
 
@@ -227,24 +272,6 @@ a:hover {
   li {
     list-style-type: none;
   }
-}
-
-/**
- * By using #team-id in URL, the team will blink
- */
-.team-list {
-  li:target {
-    background-color: $complementary-color;
-    animation: blink-target .8s 5;
-  }
-
-  @keyframes blink-target {
-    100% { background-color: rgba($complementary-color, 0); }
-  }
-}
-
-.team-list .team-state-pending {
-  opacity: .5;
 }
 
 .btn-panel-action {
@@ -258,5 +285,43 @@ a:hover {
   &::after {
     content: "❯";
     margin-left: .2rem;
+  }
+}
+
+.series-selector {
+  .dropdown-toggle {
+    min-width: 16rem;
+  }
+
+  .dropdown-menu {
+    max-height: 14rem;
+    overflow-y: auto;
+  }
+
+  .list-group>.list-group-item {
+    border-radius: 0;
+    text-align: center;
+  }
+
+  @include media-breakpoint-up(sm) {
+    .list-group:first-child {
+      .list-group-item:first-child {
+        border-top-left-radius: inherit;
+      }
+
+      .list-group-item:last-child {
+        border-top-right-radius: inherit;
+      }
+    }
+
+    .list-group:last-child {
+      .list-group-item:first-child {
+        border-bottom-left-radius: inherit;
+      }
+
+      .list-group-item:last-child {
+        border-bottom-right-radius: inherit;
+      }
+    }
   }
 }

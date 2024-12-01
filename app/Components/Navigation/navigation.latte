@@ -21,7 +21,7 @@
                 <ul class="nav navbar-nav">
                     {foreach $items as $item}
                         {var $isDropdown = count($item->children)}
-                        <div
+                        <li
                             {if $isDropdown}
                                 class="nav-item dropdown"
                                 aria-expanded="false"
@@ -41,14 +41,15 @@
                                     class="nav-link"
                                 {/if}
                                 title="{$item->title->title}">
-                                <span class="hidden-sm">{$item->title->title}</span>
                                 {if $item->title->icon}
                                     <i class="{$item->title->icon}" title="{$item->title->title}"></i>
                                 {/if}
+                                <span class="hidden-sm">{$item->title->title}</span>
                             </a>
                             {if $isDropdown}
-                                <div class="dropdown-menu">
+                                <ul class="dropdown-menu">
                                     {foreach $item->children as $subItem}
+                                    <li>
                                         <a class="dropdown-item"
                                             {if preg_match('#https?://#', $subItem->destination)}
                                                 href="{$subItem->destination}"
@@ -57,10 +58,11 @@
                                             {/if}>
                                             {$subItem->title->toHtml()}
                                         </a>
+                                    </li>
                                     {/foreach}
-                                </div>
+                                </ul>
                             {/if}
-                        </div>
+                        </li>
                     {/foreach}
                 </ul>
                 {if $hasI18n}

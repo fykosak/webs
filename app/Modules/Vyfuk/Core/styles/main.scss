@@ -1,7 +1,7 @@
 // Our theme
 $primary-color: #ff4800; // Do not forget to modify meta theme-color in ../templates/@layout.latte as well
 $primary-color-dimmed: darken($primary-color, 20%);
-$complementary-color: #ffdd31;
+$complementary-color: #495057;
 
 $panel-color-dark: #f5f5f5;
 $panel-color-light: white;
@@ -22,11 +22,13 @@ $font-weight-bold: 800;
 // Override bootstrap variables
 $primary: $primary-color;
 $secondary: $complementary-color;
-$border-radius: 0;
+$enable-rounded: true;
+$border-radius: 6px;
+//$card-border-width: 0;
 
 // Navbar
 $navbar-dark-color: $text-on-primary;
-$navbar-dark-hover-color: $text-on-primary;
+$navbar-dark-hover-color: $text-dimmed;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 @import 'bootstrap-icons/font/bootstrap-icons.scss';
@@ -37,6 +39,7 @@ $flag-icons-path: '/node_modules/flag-icons/flags';
 @import "./layout";
 @import "./titlepage";
 @import "./navigation";
+@import "./organizers";
 @import "./other.scss"
 
 // @import "./../../../Fol/Core/styles/layout";
@@ -53,3 +56,7 @@ $flag-icons-path: '/node_modules/flag-icons/flags';
 // @import '../../../../Components/TeamResults/styles';
 
 // @import '../../../../Models/OldFykos/css/cssAll';
+
+@import '../../../../Components/Problem/problem';
+@import '../../../../Components/Problem/vyfuk';
+@import '../../../../Components/ImagePreviewModal/styles';

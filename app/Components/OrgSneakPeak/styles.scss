@@ -1,0 +1,16 @@
+
+.person-title {
+    color: $primary-color;
+    text-decoration: underline;
+    display: inline;
+}
+.person-title:hover + .person-dropcard {
+    display: block;
+    position: absolute;
+    width: 350px;
+    z-index: 100;
+}
+.person-dropcard {
+    display: none;
+    position: absolute;
+}

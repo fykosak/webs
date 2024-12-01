@@ -82,7 +82,7 @@ a:hover {
  * Panel is a rectangle with .inner-container.
  */
 .panel {
-  padding: 4.3rem 0;
+  padding: 2rem 0;
 
   &.color-dark, &.color-auto:nth-of-type(2n) {
     background-color: $panel-color-dark;

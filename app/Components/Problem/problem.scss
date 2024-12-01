@@ -1,0 +1,38 @@
+.problem-card {
+  display: flex;
+  justify-content: space-between;
+
+  .card-header h4 {
+    color: white;
+  }
+
+  .card-footer i {
+    color: $primary-color;
+  }
+
+  .figure {
+    img {
+      max-height: 200px;
+      object-fit: contain;
+    }
+  }
+
+  .card-header {
+    h4 {
+      margin: 0;
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    .solution-and-origin {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

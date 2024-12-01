@@ -20,16 +20,23 @@
 </div>
 <div class="panel color-auto">
     <section class="inner-container">
-        <h1>Účastníci</h1>
-        {foreach $participants as $participant}
-        {$participant['name']}{if !$iterator->isLast()},{else}.{/if}
-        {/foreach}
+        <h1>Fotogalerie</h1>
+        {if $control->getComponent('gallery')->hasPhotos($photoPath)}
+            {control gallery:randomLine $photoPath}
+        {else}
+            {switch $lang}
+                {case 'cs'}Fotografie momentálně nejsou k dispozici.
+                {default}Photos are currently not available.
+            {/switch}
+        {/if}
     </section>
 </div>
 <div class="panel color-auto">
     <section class="inner-container">
-        <h1>Fotogalerie</h1>
-        {control gallery:randomLine $photoPath}
+        <h1>Účastníci</h1>
+        {foreach $participants as $participant}
+        {$participant['name']}{if !$iterator->isLast()},{else}.{/if}
+        {/foreach}
     </section>
 </div>
 {/block}

@@ -17,14 +17,27 @@
 
             {*<div style="color:black;background:#ffd700;max-width: 50rem; margin: 1rem auto; padding: 1rem;">We apologize for duration with sending certificates for participation. Due to teams, which cheated, the ranking will change slightly. Because of this, all is a little bit late.</div>*}
         {/switch}
+        {if $event->eventId == 189}
+        <p>
+        <strong>
+        {switch $lang->value}
+        {case 'cs'}
+            Výsledky ještě nejsou finální.
+        {default}
+            Results are not final yet.
+        {/switch}
+        </strong>
+        </p>
+        {/if}
         <div
-                id="results-panel"
-                data-url="{link apiResults:results!}"
-                data-lang="{$lang->value}"
-                class="results-panel"
-                data-teams="{control apiResults:teamsData}"
-                data-results="{control apiResults:resultsData}"
-        ></div>
+             id="results-panel"
+             data-url="{link apiResults:results!}"
+             data-lang="{$lang->value}"
+             class="results-panel"
+             data-teams="{control apiResults:teamsData}"
+             data-results="{control apiResults:resultsData}"
+        >
+        </div>
         <script src="{asset 'assets/results.js'}"></script>
     </section>
 </div>

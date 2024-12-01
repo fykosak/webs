@@ -71,7 +71,7 @@ const dsefConfiguration = {
 const fykosConfiguration = {
     ...commonConfiguration,
     entry: {
-        main: path.resolve(__dirname, './app/main-fykos.js'),
+        main: path.resolve(__dirname, './app/main-fykos.js')
     },
     output: {
         path: path.resolve(__dirname, './www/fykos/assets'),
