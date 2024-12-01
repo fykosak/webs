@@ -25,6 +25,27 @@
                 Want to support FYKOS? Get your favorite merch! Check out our mugs, beanies, sweatshirts, and t-shirts. We will soon publish the form to order them.
                 {/switch}
             </p>
+            <p>
+                {switch $language->value}
+                    {case 'cs'}
+                    <strong>Jak nákup probíhá?</strong>
+                    <ul>
+                        <li>Vyplníte formulář s objednávkou (zveřejníme ho brzy), kde zadáte, o které položky máte zájem i svou adresu.</li>
+                        <li>Na e-mail vám během pár dní od nás přijde potvrzení objednávky spolu s informacemi, kdy nejdříve stihneme objednávku odeslat a kolik to celkem bude stát včetně poštovného. Také vám pošleme číslo účtu a detaily k platbě.</li>
+                        <li>Zaplatíte objednávku.</li>
+                        <li>Po zaplacení vám odešleme merch v avizovaném termínu.</li>
+                    </ul>
+                    {default}
+                    <strong>How does the purchase work?</strong>
+                    <ul>
+                        <li>Fill out the order form (we will publish it soon) where you will enter which items you want to buy and your address.</li>
+                        <li>Within a few days, you will receive an order confirmation email from us with information on when we can send the order and how much it will cost including postage. We will also send you the account number and payment details.</li>
+                        <li>Pay for the order.</li>
+                        <li>After payment, we will send you the merch on the agreed date.</li>
+                    </ul>
+                {/switch}
+            </p>
+
             {* <a href="link_to_order_form" class="btn btn-primary my-3">
                 {switch $language->value}
                 {case 'cs'}
@@ -38,200 +59,212 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
-            <div class="category-section mb-5 row align-items-center">
-                <div class="col-md-5">
-                    <h3>
+            <div class="category-section row align-items-center">
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="{$basePath}/images/merch/mug-01.jpg" data-lightbox="gallery" data-title="Mug"><img src="{$basePath}/images/merch/mug-01.jpg" class="img-fluid" alt="Mugs"></a>
+                        </div>
+                        <div class="col-6">
+                            <a href="{$basePath}/images/merch/mug-04.jpg" data-lightbox="gallery" data-title="Mug"><img src="{$basePath}/images/merch/mug-04.jpg" class="img-fluid" alt="Mugs"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h1>
                         {switch $language->value}
-                        {case 'cs'} Hrnky
-                        {default}
-                        Mugs
+                            {case 'cs'} Hrnky
+                            {default}
+                            Mugs
                         {/switch}
-                    </h3>
+                    </h1>
                     <p><ul>
                         <li>
                             {switch $language->value}
-                            {case 'cs'}Modrý hrnek s nápisem FYKOS
-                            {default}Blue mug with FYKOS label
+                                {case 'cs'}Modrý hrnek s nápisem FYKOS
+                                {default}Blue mug with FYKOS label
                             {/switch}
                         </li>
                         <li>
                             {switch $language->value}
-                            {case 'cs'}Červený hrnek s nápisem Fyziklání
-                            {default}Red mug with Fyziklani label
+                                {case 'cs'}Červený hrnek s nápisem Fyziklání
+                                {default}Red mug with Fyziklani label
                             {/switch}
                         </li>
                     </ul>
                     <p>
                         {switch $language->value}
-                        {case 'cs'}Cena: <strong>249 Kč</strong> nebo <strong>11 €</strong>
+                            {case 'cs'}Cena: <strong>249 Kč</strong> nebo <strong>11 €</strong>
                         {default}Price: <strong>11 €</strong>
                         {/switch}
                     </p>
                 </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="category-section row align-items-center">
                 <div class="col-md-7">
                     <div class="row justify-content-end">
-                        <div class="col-6 mb-3">
-                            <a href="{$basePath}/images/merch/mug-01.jpg" target="_blank"><img src="{$basePath}/images/merch/mug-01.jpg" class="img-fluid" alt="Mugs"></a>
+                        <div class="col-6">
+                            <a href="{$basePath}/images/merch/beanie-02.jpg" target="_blank"><img src="{$basePath}/images/merch/beanie-02.jpg" class="img-fluid" alt="Beanie"></a>
                         </div>
-                        <div class="col-6 mb-3">
-                            <a href="{$basePath}/images/merch/mug-04.jpg" target="_blank"><img src="{$basePath}/images/merch/mug-04.jpg" class="img-fluid" alt="Mugs"></a>
+                        <div class="col-6">
+                            <a href="{$basePath}/images/merch/beanie-01.jpg" target="_blank"><img src="{$basePath}/images/merch/beanie-01.jpg" class="img-fluid" alt="Beanie"></a>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="category-section mb-5 row align-items-center">
                 <div class="col-md-5">
-                    <h3>
+                    <h1>
                         {switch $language->value}
-                        {case 'cs'}Čepice
-                        {default}Beanie
+                            {case 'cs'}Čepice
+                            {default}Beanie
                         {/switch}
-                    </h3>
+                    </h1>
                     <ul>
                         <li>
                             {switch $language->value}
-                            {case 'cs'}Čepice typu beanie s vyšívaným logem FYKOSu
-                            {default}Black beanie with embroidered FYKOS logo
+                                {case 'cs'}Čepice typu beanie s vyšívaným logem FYKOSu
+                                {default}Black beanie with embroidered FYKOS logo
                             {/switch}
                         </li>
                         <li>
                             {switch $language->value}
-                            {case 'cs'}Univerzální velikost
-                            {default}One size
+                                {case 'cs'}Univerzální velikost
+                                {default}One size
                             {/switch}
                         </li>
                     </ul>
                     <p>
                         {switch $language->value}
-                        {case 'cs'}Cena: <strong>199 Kč</strong> nebo <strong>9 €</strong>
+                            {case 'cs'}Cena: <strong>199 Kč</strong> nebo <strong>9 €</strong>
                         {default}Price: <strong>9 €</strong>
                         {/switch}
                     </p>
                 </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="category-section row align-items-center">
                 <div class="col-md-7">
                     <div class="row justify-content-end">
-                        <div class="col-6 mb-3">
-                            <a href="{$basePath}/images/merch/beanie-02.jpg" target="_blank"><img src="{$basePath}/images/merch/beanie-02.jpg" class="img-fluid" alt="Beanie"></a>
+                        <div class="col-6">
+                            <a href="{$basePath}/images/merch/tshirt-01.jpg" target="_blank"><img src="{$basePath}/images/merch/tshirt-01.jpg" class="img-fluid" alt="Tshirt"></a>
                         </div>
-                        <div class="col-6 mb-3">
-                            <a href="{$basePath}/images/merch/beanie-01.jpg" target="_blank"><img src="{$basePath}/images/merch/beanie-01.jpg" class="img-fluid" alt="Beanie"></a>
+                        <div class="col-6">
+                            <a href="{$basePath}/images/merch/tshirt-02.jpg" target="_blank"><img src="{$basePath}/images/merch/tshirt-02.jpg" class="img-fluid" alt="Tshirt"></a>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="category-section mb-5 row align-items-center">
                 <div class="col-md-5">
-                    <h3>
+                    <h1>
                         {switch $language->value}
-                        {case 'cs'}Tričko
-                        {default}T-Shirt
+                            {case 'cs'}Tričko
+                            {default}T-Shirt
                         {/switch}
-                    </h3>
+                    </h1>
                     <ul>
                         <li>
                             {switch $language->value}
-                            {case 'cs'}Černé tričko s logy našich akcí
-                            {default}Black t-shirt with logos of our events
+                                {case 'cs'}Černé tričko s logy našich akcí
+                                {default}Black t-shirt with logos of our events
                             {/switch}
                         </li>
                         <li>
                             {switch $language->value}
-                            {case 'cs'}100% bavlna
-                            {default}100% cotton
+                                {case 'cs'}100% bavlna
+                                {default}100% cotton
                             {/switch}
                         </li>
                         <li>
                             {switch $language->value}
-                            {case 'cs'}Dostupné ve velikostech
-                            {default}Available in the following european sizes
+                                {case 'cs'}Dostupné ve velikostech
+                                {default}Available in the following european sizes
                             {/switch}
                         </li>
                         <ul>
                             <li>
                                 {switch $language->value}
-                                {case 'cs'}Dámské: S, M, L
-                                {default}Female: S, M, L
+                                    {case 'cs'}Dámské: S, M, L
+                                    {default}Female: S, M, L
                                 {/switch}
                             </li>
                             <li>
                                 {switch $language->value}
-                                {case 'cs'}Pánské: S, M, L, XL
-                                {default}Male: S, M, L, XL
+                                    {case 'cs'}Pánské: S, M, L, XL
+                                    {default}Male: S, M, L, XL
                                 {/switch}
                             </li>
                         </ul>
                     </ul>
                     <p>
                         {switch $language->value}
-                        {case 'cs'}Cena: <strong>299 Kč</strong> nebo <strong>13 €</strong>
+                            {case 'cs'}Cena: <strong>299 Kč</strong> nebo <strong>13 €</strong>
                         {default}Price: <strong>13 €</strong>
                         {/switch}
                     </p>
                 </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="category-section row align-items-center">
                 <div class="col-md-7">
                     <div class="row justify-content-end">
-                        <div class="col-6 mb-3">
-                            <a href="{$basePath}/images/merch/tshirt-01.jpg" target="_blank"><img src="{$basePath}/images/merch/tshirt-01.jpg" class="img-fluid" alt="Tshirt"></a>
+                        <div class="col-6">
+                            <a href="{$basePath}/images/merch/hoodie-01.jpg" target="_blank"><img src="{$basePath}/images/merch/hoodie-01.jpg" class="img-fluid" alt="Hoodie"></a>
                         </div>
-                        <div class="col-6 mb-3">
-                            <a href="{$basePath}/images/merch/tshirt-02.jpg" target="_blank"><img src="{$basePath}/images/merch/tshirt-02.jpg" class="img-fluid" alt="Tshirt"></a>
+                        <div class="col-6">
+                            <a href="{$basePath}/images/merch/hoodie-02.jpg" target="_blank"><img src="{$basePath}/images/merch/hoodie-02.jpg" class="img-fluid" alt="Hoodie"></a>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="category-section mb-5 row align-items-center">
                 <div class="col-md-5">
-                    <h3>
+                    <h1>
                         {switch $language->value}
-                        {case 'cs'}Mikiny
-                        {default}Hoodies
+                            {case 'cs'}Mikiny
+                            {default}Hoodies
                         {/switch}
-                    </h3>
+                    </h1>
                     <ul>
                         <li>
                             {switch $language->value}
-                            {case 'cs'}Černá mikina s logem FYKOSu
-                            {default}Black hoodie with FYKOS logo
+                                {case 'cs'}Černá mikina s logem FYKOSu
+                                {default}Black hoodie with FYKOS logo
                             {/switch}
                         </li>
                         <li>
                             {switch $language->value}
-                            {case 'cs'}Červená mikina s logem Fyziklání
-                            {default}Red hoodie with Fyziklani logo
+                                {case 'cs'}Červená mikina s logem Fyziklání
+                                {default}Red hoodie with Fyziklani logo
                             {/switch}
                         </li>
                         <li>
                             {switch $language->value}
-                            {case 'cs'}100% bavlna
-                            {default}100% cotton
+                                {case 'cs'}100% bavlna
+                                {default}100% cotton
                             {/switch}
                         </li>
                         <li>
                             {switch $language->value}
-                            {case 'cs'}Dostupné v unisex velikostech S, M, L, XL
-                            {default}Available in the following european unisex sizes: S, M, L, XL
+                                {case 'cs'}Dostupné v unisex velikostech S, M, L, XL
+                                {default}Available in the following european unisex sizes: S, M, L, XL
                             {/switch}
                         </li>
                     </ul>
                     <p>
                         {switch $language->value}
-                        {case 'cs'}Cena: <strong>799 Kč</strong> nebo <strong>34 €</strong>
+                            {case 'cs'}Cena: <strong>799 Kč</strong> nebo <strong>34 €</strong>
                         {default}Price: <strong>34 €</strong>
                         {/switch}
                     </p>
-                </div>
-                <div class="col-md-7">
-                    <div class="row justify-content-end">
-                        <div class="col-6 mb-3">
-                            <a href="{$basePath}/images/merch/hoodie-01.jpg" target="_blank"><img src="{$basePath}/images/merch/hoodie-01.jpg" class="img-fluid" alt="Hoodie"></a>
-                        </div>
-                        <div class="col-6 mb-3">
-                            <a href="{$basePath}/images/merch/hoodie-02.jpg" target="_blank"><img src="{$basePath}/images/merch/hoodie-02.jpg" class="img-fluid" alt="Hoodie"></a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
