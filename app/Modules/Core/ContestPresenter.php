@@ -8,11 +8,20 @@ use App\Models\Downloader\ContestModel;
 use App\Models\Downloader\ContestRequest;
 use App\Models\Downloader\ContestYearModel;
 use App\Models\Downloader\DummyService;
+use App\Models\Downloader\FKSDBDownloader;
+use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 use Nette\Utils\DateTime;
 
 abstract class ContestPresenter extends BasePresenter
 {
     private readonly DummyService $dummyService;
+    protected readonly FKSDBDownloader $downloader;
+
+    final public function inject(FKSDBDownloader $downloader): void
+    {
+        $this->downloader = $downloader;
+    }
+
 
     public function injectDummyService(DummyService $dummyService): void
     {
@@ -36,6 +45,26 @@ abstract class ContestPresenter extends BasePresenter
         foreach ($contest->years as $year) {
             if ($year->begin < new DateTime() && $year->end > new DateTime()) {
                 return $year;
+            }
+        }
+        return null;
+    }
+
+    public function getBodyYear(): ?ContestYearModel
+    {
+        foreach (array_reverse($this->getContest()->years) as $year) {
+            try {
+                $results = $this->downloader->download(new SeriesResultsRequest($this->getContestId(), $year->year));
+                foreach ($results["submits"] as $y) {
+                    foreach ($y as $c) {
+                        foreach ($c["submits"] as $s) {
+                            if ($s !== null) {
+                                return $year;
+                            }
+                        }
+                    }
+                }
+            } finally {
             }
         }
         return null;

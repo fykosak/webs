@@ -1,7 +1,10 @@
+{varType int $year}
+{varType App\Models\Downloader\ContestModel $contest}
+{varType array $results}
 {block title}Výsledky{/block}
-
 {block main}
 <div class="panel color-auto">
     <h1 class="inner-container" style="color:red">TODO výsledky Výfuku</h1>
 </div>
+{do print_r($results)}
 {/block}
