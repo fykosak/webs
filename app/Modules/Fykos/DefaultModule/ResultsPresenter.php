@@ -18,12 +18,21 @@ class ResultsPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        // $year = $this->year ?? $this->getCurrentYear()->year;
-        // hack before body-ready is implemented
         $year = $this->year ?? 38;
-
         $this->template->year = $year;
         $this->template->contest = $this->getContest();
         $this->template->results = $this->downloader->download(new SeriesResultsRequest(1, $year));
+        // HACK BEFORE BODY-READY IS IMPLEMENTED
+        $this->template->results = $this->removeSeriesFromResults(2, $this->template->results);
+    }
+
+    public function removeSeriesFromResults(int $seriesId, array $results): array
+    {
+        foreach (['FYKOS_1', 'FYKOS_2', 'FYKOS_3', 'FYKOS_4'] as $key) {
+            if (isset($results['tasks'][$key][$seriesId])) {
+                unset($results['tasks'][$key][$seriesId]);
+            }
+        }
+        return $results;
     }
 }
