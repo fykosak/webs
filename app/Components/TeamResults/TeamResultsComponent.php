@@ -51,7 +51,7 @@ class TeamResultsComponent extends DIComponent
 
         $teams = [];
         foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), TeamModel::class) as $team) {
-            if ($team->state != 'participated' && $team->state != 'disqualified') {
+            if ($team->state !== 'participated' && $team->state !== 'disqualified') {
                 continue;
             }
             if (is_null($this->filterData) || $this->passesFilters($team)) {
@@ -67,7 +67,8 @@ class TeamResultsComponent extends DIComponent
 
         // remove categories that are empty after the filtering
         foreach ($teams as $category => $teamsForCategory) {
-            if ($teamsForCategory == []) {
+            /** @phpstan-ignore-next-line*/
+            if (!count($teamsForCategory)) {
                 unset($teams[$category]);
             }
         }
@@ -83,7 +84,7 @@ class TeamResultsComponent extends DIComponent
 
     protected function passesOneMemberFilter(TeamModel $team): bool
     {
-        return !$this->filterData['OneMemberTeams'] || count($team->members) == 1;
+        return !$this->filterData['OneMemberTeams'] || count($team->members) === 1;
     }
 
     protected function passesCountryFilter(TeamModel $team): bool
@@ -91,7 +92,7 @@ class TeamResultsComponent extends DIComponent
         $ISOsForTeam = [];
 
         foreach ($team->members as $member) {
-            $iso = $member->school['countryISO'] ?? 'zz';
+            $iso = $member->school['countryISO'] ?? 'Uknown';
             if (!in_array($iso, $ISOsForTeam)) {
                 $ISOsForTeam[] = $iso;
             }
@@ -161,11 +162,13 @@ class TeamResultsComponent extends DIComponent
         //         ->setOption('count', $count);
         // }
         foreach ($countryISOs as $countryISO => $count) {
+            $countryISO = $countryISO !== '' ? $countryISO : 'Uknown'; // set default value to unknown countries
             $countryISOContainer->addCheckbox(
                 $countryISO,
                 sprintf(
-                    $this->translator->lang === Language::cs ? '%s:%s účastníků' : '%s:%s participants',
-                    $countryISO,
+                    $this->translator->lang === Language::cs ? ' %s: %s účastníků' : ' %s: %s participants',
+                    /** @phpstan-ignore-next-line */
+                    $countryISO !== 'Uknown' ? $countryISO : $this->presenter->csen('Nestudent', 'Not a student'),
                     $count
                 )
             );
@@ -176,7 +179,7 @@ class TeamResultsComponent extends DIComponent
 
         $form->addSubmit('applyFilters', 'Apply')->setHtmlAttribute('class', 'btn btn-primary');
 
-        $form->onSuccess[] = fn (Form $form) => $this->filterData = $form->getValues('array');
+        $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
         // $form->onSuccess[] = function(Form $form) {
         //     $this->filterData = $form->getValues('array');
         //     $this->redirect('this', ['filterData' => $this->filterData]);

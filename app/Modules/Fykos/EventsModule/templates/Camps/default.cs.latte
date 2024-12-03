@@ -57,19 +57,17 @@
                         {/if}
                     </p>
                     <div>
-                        {* TODO link for the camp page *}
-                        {* <a class="btn btn-primary" n:href=":Events:Fykos:">
-                            Více o semináři
-                        </a> *}
+                        {var $calendarYear = $presenter->eventYearToCalendarYear($event['year'], $event['eventTypeId'])}
+                        <a class="btn btn-primary" n:href=":Events:Camps:detail year:$calendarYear, season:$event['eventTypeId']">
+                            Stránka soustředění
+                        </a>
                     </div>
                 </div>
-                {* {dump $event} *}
                 <div class="col-md-4 event-img-box">
-                    {* TODO: link for the camp page and correct picture *}
-                    {* <a n:href=":Events:Fykos:"> *}
+                    <a n:href=":Events:Camps:detail year:$calendarYear, season:$event['eventTypeId']">
                         <img src="{$basePath}{$event['photo']}" alt="{$event['heading'][$language->value]}"
                         class="event-img">
-                    {* </a> *}
+                    </a>
                 </div>
             </div>
         </section>

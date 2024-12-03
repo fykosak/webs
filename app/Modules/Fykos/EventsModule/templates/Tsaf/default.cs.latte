@@ -18,6 +18,33 @@
     </section>
 </div>
 
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="row event-box">
+                <div class="col-md-8 event-text-box">
+                    <div class="subheader">1. 1. 2024 - 1. 1. 2024</div>
+                    <h1>Týden s aplikovanou fyzikou 2025</h1>
+                    <p>
+                        Informace o akci přidáme brzy.
+                    </p>
+                    <div>
+                        <a class="btn btn-primary" n:href=":Events:Tsaf:current">
+                            Více o akci
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 event-img-box">
+                    {* TODO: correct picture *}
+                    <a n:href=":Events:Tsaf:current">
+                        <img src="{$basePath}/images/event-missing-photo.png" alt="TSAF 2025"
+                             class="event-img">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
 {foreach $events as $event}
     <div class="panel color-auto">
         <section class="inner-container">
@@ -47,9 +74,9 @@
                         </a>
                     </div>
                 </div>
-                {* {dump $event} *}
+
                 <div class="col-md-4 event-img-box">
-                    {* TODO: link for the camp page and correct picture *}
+                    {* TODO: correct picture *}
                     <a n:href=":Events:Tsaf:detail year:$year, month:$month">
                         <img src="{$basePath}{$event['photo']}" alt="{$event['nameNew'][$language->value]}"
                         class="event-img">
