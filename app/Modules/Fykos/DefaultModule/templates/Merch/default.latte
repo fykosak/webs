@@ -20,9 +20,9 @@
             <p>
                 {switch $language->value}
                 {case 'cs'}
-                    Chcete podpořit FYKOS? Pořiďte si náš merch! Nabízíme hrnky, čepice, mikiny a trička. Brzy otevřeme formulář na objednávky.
+                    Chcete podpořit FYKOS? Pořiďte si náš merch! Nabízíme hrnky, čepice, mikiny a trička. Brzy otevřeme formulář na objednávky. Až do Vánoc máme navíc slevu na trička a mikiny!
                 {default}
-                Want to support FYKOS? Get your favorite merch! Check out our mugs, beanies, sweatshirts, and t-shirts. We will soon publish the form to order them.
+                Want to support FYKOS? Get your favorite merch! Check out our mugs, beanies, sweatshirts, and t-shirts. We will soon publish the form to order them. Until Christmas, we have a discount on t-shirts and sweatshirts!
                 {/switch}
             </p>
             <p>
@@ -60,7 +60,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <div class="category-section row align-items-center">
-                <div class="col-md-7 right-bar">
+                <div class="col-md-7">
                     <div class="row">
                         <div class="col-6 mb-3 mb-md-0">
                             <a href="{$basePath}/images/merch/mug-04.jpg" data-lightbox="gallery" data-title="Mug"><img src="{$basePath}/images/merch/mug-04.jpg" class="img-fluid" alt="Mugs"></a>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5 left-bar">
                     <h1>
                         {switch $language->value}
                             {case 'cs'} Hrnky
@@ -106,7 +106,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <div class="category-section row align-items-center">
-                <div class="col-md-7 right-bar">
+                <div class="col-md-7">
                     <div class="row justify-content-end">
                         <div class="col-6 mb-3 mb-md-0">
                             <a href="{$basePath}/images/merch/beanie-02.jpg" target="_blank"><img src="{$basePath}/images/merch/beanie-02.jpg" class="img-fluid" alt="Beanie"></a>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 left-bar">
                     <h1>
                         {switch $language->value}
                             {case 'cs'}Čepice
@@ -140,7 +140,7 @@
                     <p>
                         {switch $language->value}
                             {case 'cs'}Cena: <strong>199 Kč</strong> nebo <strong>9 €</strong>
-                        {default}Price: <strong>9 €</strong>
+                            {default}Price: <strong>9 €</strong>
                         {/switch}
                     </p>
                 </div>
@@ -151,7 +151,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <div class="category-section row align-items-center">
-                <div class="col-md-7 right-bar">
+                <div class="col-md-7">
                     <div class="row justify-content-end">
                         <div class="col-6 mb-3 mb-md-0">
                             <a href="{$basePath}/images/merch/tshirt-01.jpg" target="_blank"><img src="{$basePath}/images/merch/tshirt-01.jpg" class="img-fluid" alt="Tshirt"></a>
@@ -161,7 +161,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 left-bar">
                     <h1>
                         {switch $language->value}
                             {case 'cs'}Tričko
@@ -204,8 +204,8 @@
                     </ul>
                     <p>
                         {switch $language->value}
-                            {case 'cs'}Cena: <strong>299 Kč</strong> nebo <strong>13 €</strong>
-                        {default}Price: <strong>13 €</strong>
+                            {case 'cs'}Cena: <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>299 Kč</strong></span> <span style="color: green;"><strong>249 Kč</strong></span> nebo <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>13 €</strong></span> <span style="color: green;"><strong>11 €</strong></span>
+                            {default}Price: <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>13 €</strong></span> <span style="color: green;"><strong>11 €</strong></span>
                         {/switch}
                     </p>
                 </div>
@@ -216,7 +216,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <div class="category-section row align-items-center">
-                <div class="col-md-7 right-bar">
+                <div class="col-md-7">
                     <div class="row justify-content-end">
                         <div class="col-6 mb-3 mb-md-0">
                             <a href="{$basePath}/images/merch/hoodie-01.jpg" target="_blank"><img src="{$basePath}/images/merch/hoodie-01.jpg" class="img-fluid" alt="Hoodie"></a>
@@ -226,7 +226,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 left-bar">
                     <h1>
                         {switch $language->value}
                             {case 'cs'}Mikiny
@@ -261,8 +261,8 @@
                     </ul>
                     <p>
                         {switch $language->value}
-                            {case 'cs'}Cena: <strong>799 Kč</strong> nebo <strong>34 €</strong>
-                        {default}Price: <strong>34 €</strong>
+                            {case 'cs'}Cena: <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>799 Kč</strong></span> <span style="color: green;"><strong>749 Kč</strong></span> nebo <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>34 €</strong></span> <span style="color: green;"><strong>32 €</strong></span>
+                        {default}Price: <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>34 €</strong></span> <span style="color: green;"><strong>32 €</strong></span>
                         {/switch}
                     </p>
                 </div>
