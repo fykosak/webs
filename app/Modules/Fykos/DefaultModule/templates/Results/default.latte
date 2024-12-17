@@ -14,6 +14,7 @@
         <div class="row">
             <div class="col-md-8">
                 {dump $results}
+
                 <h1>
                     {switch $language->value}
                         {case 'cs'}Výsledky {$year}. ročníku FYKOSu
@@ -70,7 +71,7 @@
                     {default}By default, the sum of points for each series is displayed. By clicking on the title of the series, you can see the specific number of points for each task of the given series.
                 {/switch}
             </p>
-        
+
         </div>
         <div id="contest-results" data-data="{json_encode($results)}"></div>
     </section>
