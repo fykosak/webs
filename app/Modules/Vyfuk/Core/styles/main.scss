@@ -10,7 +10,7 @@ $text-on-primary: white;
 $text-dimmed: #CCCCCC;
 
 $page-width: 77rem;
-
+$min-contrast-ratio: 3;
 $base-font-size: 18px;
 
 // Use the following font weights.
@@ -32,17 +32,30 @@ $navbar-dark-hover-color: $text-dimmed;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 @import 'bootstrap-icons/font/bootstrap-icons.scss';
-$flag-icon-css-path: '/node_modules/flag-icon-css/flags';
-@import '../../../../../node_modules/flag-icon-css/sass/flag-icon';
+$flag-icons-path: '/node_modules/flag-icons/flags';
+@import "../../../../../node_modules/flag-icons/sass/flag-icons";
 @import "./../../../Fof/Core/styles/sponsors";
 
 @import "./layout";
 @import "./titlepage";
 @import "./navigation";
 @import "./organizers";
+@import "./other.scss";
 
-// @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
-// @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
+// @import "./../../../Fol/Core/styles/layout";
+// @import "./../../../Fol/Core/styles/titlepage";
+// @import "./../../../Fol/Core/styles/navigation";
+
+// @import "./../../../Fof/DefaultModule/styles/organisers";
+// @import "./../../../Fof/DefaultModule/styles/rules";
+// @import "./../../../Fof/DefaultModule/styles/timeline";
+
+
+// @import '../../../../Components/ResultsPanel/styles';
+// @import '../../../../Components/UpperHomePrague/styles';
+// @import '../../../../Components/TeamResults/styles';
+
+// @import '../../../../Models/OldFykos/css/cssAll';
 
 @import '../../../../Components/Problem/problem';
 @import '../../../../Components/Problem/vyfuk';
