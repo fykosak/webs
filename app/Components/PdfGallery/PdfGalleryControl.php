@@ -73,7 +73,7 @@ class PdfGalleryControl extends DIComponent
         $style ??= $path == null ? "Buttons" : "List";
         $renderFile = __DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery' . $style . '.latte';
 
-        $path ??= $this->wwwDir . '/media/download' . strtolower(str_replace(':', '/', $this->getPresenter()->getAction(true)));
+        $path ??= '/media/download' . strtolower(str_replace(':', '/', $this->getPresenter()->getAction(true)));
 
         $this->template->pdfs = $this->cache->load(
             [$path, $this->wwwDir],
