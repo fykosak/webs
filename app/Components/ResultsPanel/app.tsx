@@ -77,9 +77,9 @@ function generateSQL(points: ReturnType<typeof useTeamPoints> | null) {
 
     for (let i = 0; i < sorted_participated.length; i++) {
         const team = sorted_participated[i];
-        const rankTotal = i + 1;
-        const rankCategory = sorted_participated.slice(0, i).filter(t => t.team.category === team.team.category).length + 1;
         const state = disqualified.includes(team.team.teamId) ? 'disqualified' : participated.includes(team.team.teamId) ? 'participated' : 'missed';
+        const rankTotal = sorted_participated.slice(0, i).filter(t => !disqualified.includes(t.team.teamId)).length + 1;
+        const rankCategory = sorted_participated.slice(0, i).filter(t => t.team.category === team.team.category && !disqualified.includes(t.team.teamId)).length + 1;
         addTeam(team.team.teamId, state, state == 'participated' ? team.points : null, state == 'participated' ? rankCategory : null, state == 'participated' ? rankTotal : null);
     }
 
