@@ -22,8 +22,11 @@ $font-weight-bold: 800;
 // Override bootstrap variables
 $primary: $primary-color;
 $secondary: $complementary-color;
+$min-contrast-ratio: 7;
+$focus-ring-box-shadow: none;
 $enable-rounded: true;
 $border-radius: 6px;
+//$card-border-width: 6px;
 //$card-border-width: 0;
 
 // Navbar

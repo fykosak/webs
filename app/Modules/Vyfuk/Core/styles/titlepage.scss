@@ -14,6 +14,22 @@
   }
 }
 
+.header-container {
+  color: $text-on-primary;
+
+  .header-text-container {
+
+    h1.header-text {
+      font-size: 4rem;
+      margin-bottom: 0;
+      padding-bottom: 1rem;
+      color: $text-on-primary;
+    }
+
+  }
+
+}
+
 .heading-container {
   //justify-content: space-between;
   //align-items: center;
@@ -27,4 +43,9 @@
   height: 0;
   overflow: hidden;
   clear: both;
+}
+
+.news-card {
+  height: 100%;
+  color: black;
 }
