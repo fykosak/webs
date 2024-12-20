@@ -1,0 +1,28 @@
+{
+    "cs" : [
+        {
+            "title": "Nové výfučí bingo je na světě!",
+            "text": "Připravili jsme si pro vás nové tabulky výfučího binga – nyní v nich najdete spoustu nových úkolů a výzev a samozřejmě i množství drobných odměn, které vám za každou vyškrtanou tabulkou zašleme. Vyškrtané tabulky nám posílejte na naši obvyklou kontaktní adresu <a href=\"mailto:vyfuk@vyfuk.org\">vyfuk@vyfuk.org</a>. Staré tabulky už dále nebudeme akceptovat.",
+            "link": ":Default:Problems:bingo",
+            "link-text": "Bingo"
+        },
+        {
+            "title": "Termín letního tábora",
+            "text": "Zveřejnili jsme termín příštího letního tábora – bude se konat od 27. července do 9. srpna 2025 v Mařenicích. Na fotky z minulých táborů se můžete podívat na našich sociálních sítích nebo na stránce letního tábora, kde také najdete bližší informace o průběhu tábora.",
+            "link": ":Default:Events:default",
+            "link-text": "Stránka letního tábora"
+        },
+        {
+            "title": "Přihlaš se na Fyziklání 2025",
+            "text": "Je otevřená registrace na Fyziklání 2025, které se bude konat 14. 2. v Praze.  Můžeš se těšit na týmovou soutěž v počítání zajímavých fyzikálních úloh, ale i na bohatý doprovodný program! Tak neváhej a přihlaš svůj tým!",
+            "link": "https://vyfuk.org/zadani",
+            "link-text": "Zadání"
+        },
+        {
+            "title": "Přihlaš se na Fyziklání 2025",
+            "text": "Je otevřená registrace na Fyziklání 2025, které se bude konat 14. 2. v Praze.  Můžeš se těšit na týmovou soutěž v počítání zajímavých fyzikálních úloh, ale i na bohatý doprovodný program! Tak neváhej a přihlaš svůj tým!",
+            "link": "https://vyfuk.org/zadani",
+            "link-text": "Zadání"
+        }
+    ]
+}
