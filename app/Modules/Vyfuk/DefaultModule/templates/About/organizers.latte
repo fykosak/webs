@@ -14,19 +14,19 @@
                     <table>
                         {if $organizer['role']}
                         <tr>
-                            <td class="left-cell"><span class="icon"><i class="bi bi-people"></i></span></td>
+                            <td class="left-cell"><span class="icon"><i class="fas fa-user-group"></i></span></td>
                             <td class="right-cell">{$organizer['role']}</td>
                         </tr>
                         {/if}
                         {if $organizer['career']}
                         <tr>
-                            <td class="left-cell"><span class="icon"><i class="bi bi-bank2"></i></span></td>
+                            <td class="left-cell"><span class="icon"><i class="fas fa-building-columns"></i></span></td>
                             <td class="right-cell">{$organizer['career']}</td>
                         </tr>
                         {/if}
                         {if $organizer['domainAlias']}
                         <tr>
-                            <td class="left-cell"><span class="icon"><i class="bi bi-envelope"></i></span></td>
+                            <td class="left-cell"><span class="icon"><i class="fas fa-envelope"></i></span></td>
                             <td class="right-cell"><a
                                     href="mailto:{$organizer['domainAlias']}@vyfuk.org">{$organizer['domainAlias']}@vyfuk.org</a>
                             </td>
