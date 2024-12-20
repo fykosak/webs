@@ -8,12 +8,12 @@
                 <div class="col-md header-text-container">
                     <h1 class="header-text">Fyzikální soutěž pro 2.&nbsp;stupeň&nbsp;ZŠ</h1>
                     <p class="header-text">
-                        Pokud by se pro stejný účel použil smysluplný text, bylo by těžké hodnotit pouze vzhled, aniž by se pozorovatelby při posuzování vzhledu bylo vyrušováno pravidelnou strukturou textu, 
+                        Výfuk, jméno našeho korespondenčního semináře, je vlastně zkratka jeho dlouhého názvu – Výpočty fyzikálních úkolů. Touto soutěží se snažíme ukázat, že fyzika je vlastně velmi zábavné a fascinující téma. {*TODO představení Výfuku*}
                     </p>
                     <a class="btn btn-secondary mt-2" n:href=":Default:Section:howToEngage">
                         Jak se zapojit
                     </a>
-                    <a class="btn btn-secondary mt-2" href=""> {* TODO link*}
+                    <a class="btn btn-secondary mt-2" n:href=":Default:Section:howToSolve">
                         Jak psát řešení
                     </a>
                     <a class="btn btn-secondary mt-2" n:href=":Default:About:default">
@@ -31,34 +31,73 @@
 <div class="panel color-light title-panel">
     <section class="inner-container">
         <div class="header-container">
+            <h2>Aktuality</h2>
             <div class="row">
-                <div class="col-md header-text-container">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-md my-2">
+                    <div class="card news-card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title">Zadání {$series->series}. série</h5>
+                            {if new Datetime() < $series->getDeadline()}
+                                <p class="card-text">Zadání {$series->series}. série zvěřejníme v blízké době.</p><p class="card-text">Zatím se můžete podívat na řešení {$series->series-1}. série</p>
+                            {/if}
+                            <p class="card-text"> Na vyřešení a odevzdání {$series->series}. série máte čas do <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>.</p>
+                            <a n:href=":Default:Problems:default" class="btn btn-primary">Zadání</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md header-text-container">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-md my-2">
+                    <div class="card news-card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title">Řešení {$previousSeries->series}. série</h5>
+                            {php $previousDeadline = $previousSeries->getDeadline()}
+                            {php $dateTime = new Datetime()}
+                            {if $dateTime > $previousDeadline && $dateTime < $previousDeadline->modify('+1d') && $checkAllSolutions}
+                                <p class="card-text">Řešení {$previousSeries->series}. série zveřejníme během příštích 24 hodin.</p>
+                            {elseif $dateTime > $previousDeadline}
+                                <p class="card-text">Řešení {$previousSeries->series}. série zveřejníme v blízké době.</p>
+                            {/if}
+                            {*TODO nějaký delší text když je řešení zveřejněné, texty v <p></p>*}
+                            {if $dateTime > $previousDeadline->modify('+1d') && $checkAllSolutions}
+                                <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}" class="btn btn-primary">Řešení</a>
+                            {/if}
                         </div>
                     </div>
                 </div>
-                <div class="col-md header-text-container">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-md my-2">
+                    <div class="card news-card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title">Výsledkové listiny po {$previousSeries->series}. sérii</h5>
+                            <p class="card-text">Pořadí {$previousSeries->series}. série zveřejníme v blízké době.</p>
+                            <a n:href=":Default:Results:default" class="btn btn-primary">Pořadí</a>
                         </div>
                     </div>
-                </div>     
+                </div>
+                <div class="col-md my-2">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Nejbližší akce</h5>
+                            <p class="card-text">Přihlašování na nejbližší akce bude spuštěno TODO.</p>
+                            <a n:href=":Default:Problems:default" class="btn btn-primary">Stránka nejblžší akce</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {foreach $newsList['cs'] as $news}
+                <div class="col-md my-2">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <h5 class="card-title">{$news['title']}</h5>
+                            <p class="card-text">{$news['text']|noescape}</p>
+                            {if strpos($news['link'], 'http') === 0}
+                                <a href="{$news['link']}" class="btn btn-primary">{$news['link-text']}</a>
+                            {else}
+                                <a n:href="$news['link']" class="btn btn-primary">{$news['link-text']}</a>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+                {/foreach}
             </div>
         </div>
     </section>
