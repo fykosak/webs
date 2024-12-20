@@ -4,30 +4,124 @@
     <section class="inner-container">
         {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
         {ifset title}<h1>{include title}</h1>{/ifset}
+        <p>
+            Výfuk pro své řešitele organizuje každoročně několik akcí – letní tábor, jarní a podzimní setkání, zimní
+            víkendovku a Náboj Junior.
+        </p>
     </section>
     <section class="inner-container">
-        <p>
-            <a class="btn btn-outline-primary mx-1" n:href="Events:Calendar">kalendář</a>
-            {foreach $eventTypes as $key => $val}
-            {if $selected==$key}
-            <a class="btn btn-primary mx-1" n:href="Events:Default $key">{$val}</a>
-            {else}
-            <a class="btn btn-outline-primary mx-1" n:href="Events:Default $key">{$val}</a>
-            {/if}
-            {/foreach}
-        </p>
+        <div class="row event-box">
+            <div class="col-md-7 event-text-box">
+                <h2>Tábor</h2>
+                <p>
+                    Letní tábor Výfuku organizujeme vždy přibližně v polovině letních prázdnin pro asi 30 řešitelů. Na
+                    tábor zveme podle výsledků prvních sérií podle jistých <a
+                        n:href=":Default:Section:rules">pravidel</a>. Na výfučím táboře účastníky čekají nejen klasické
+                    táborové aktivity, tedy především různé hry, ale i spousta zajímavých fyzikálních přednášek a
+                    experimentů.
+                </p>
+                <a class="btn btn-primary" n:href="Events:tabor">
+                    Naše tábory
+                </a>
+            </div>
+            <div class="col-md-5 event-img-box">
+                <a n:href="Events:tabor">
+                    <img src="/images/tabor.jpg" alt="" class="event-img">
+                </a>
+            </div>
+        </div>
     </section>
-    <section n:foreach="$events as $key => $event" class="inner-container my-5">
-        <h2>{$event->nameNew[$lang]}</h2>
-        <p>
-            {$event->description[$lang]|noescape}
-        </p>
-        <p>
-            <a class="btn btn-primary mx-1" n:href="Events:detail $event->eventId">
-                <i class="bi bi-info-circle"></i> Informace o akci
-            </a>
-        </p>
-        {control gallery:randomLine "/media/photos/event/" . $event->eventId}
+</div>
+<div class="panel color-light">
+    <section class="inner-container">
+        <div class="row event-box">
+            <div class="col-md-7 event-text-box">
+                <h2>Setkání</h2>
+                <p>
+                    Kromě letního tábora organizujeme pro naše řešitele v průběhu roku na jaře a na podzim dvě víkendová
+                    setkání. O účasti na setkání nerozhoduje umístění ve Výfuku, pouze čas přihlášení. Účastní se
+                    zpravidla kolem 50 řešitelů. Náplní setkání jsou přednášky od organizátorů i vědeckých pracovníků,
+                    exkurze na zajímavá vědecká pracoviště a samozřejmě i množství her.
+                </p>
+                <a class="btn btn-primary" n:href="Events:setkani">
+                    Naše setkání
+                </a>
+            </div>
+            <div class="col-md-5 event-img-box">
+                <a n:href="Events:setkani">
+                    <img src="/images/setkani.jpg" alt="" class="event-img">
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="panel color-light">
+    <section class="inner-container">
+        <div class="row event-box">
+            <div class="col-md-7 event-text-box">
+                <h2>Zimní víkendovka</h2>
+                <p>
+                    Zimní víkendovka je nová výfučí akce plánovaná poprvé na začátek roku 2025. Svým formátem bude
+                    připomínat setkání, ovšem s omezenější kapacitou a volnějším programem. Určitě nebudou chybět
+                    přednášky doplněné spoustou prostoru pro hraní her a deskovek. Podrobnosti zveřejníme ke konci roku.
+                </p>
+                {*<a class="btn btn-primary" n:href="Events:setkani">
+                    Naše setkání
+                </a>*}
+            </div>
+            <div class="col-md-5 event-img-box">
+                {*<a n:href="Events:tabor">*}
+                    <img src="/images/setkani.jpg" alt="" class="event-img">
+                    {*</a>*}
+            </div>
+        </div>
+    </section>
+</div>
+<div class="panel color-light">
+    <section class="inner-container">
+        <div class="row event-box">
+            <div class="col-md-7 event-text-box">
+                <h2>Náboj Junior</h2>
+                <p>
+                    Náboj Junior je soutěž pro čtyřčlenné týmy žáků druhého stupně základních škol a odpovídajících
+                    ročníků víceletých gymnázií. Probíhá asi na dvaceti soutěžních místech po celé České republice a na
+                    desítkách dalších v zahraničí. Jedná se o skvělou příležitost, jak si otestovat dovednosti osvojené
+                    řešením Výfuku a vyzkoušet si řešení fyzikálních příkladů s dalšími kamarády. Pro účast v soutěži
+                    není nutné být řešitelem Výfuku.
+                </p>
+                <a class="btn btn-primary" href="https://junior.naboj.org/cz/cs/">
+                    Stránky Náboje Junior
+                </a>
+            </div>
+            <div class="col-md-5 event-img-box">
+                <a href="https://junior.naboj.org/cz/cs/">
+                    <img src="/images/setkani.jpg" alt="" class="event-img">
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="panel color-light">
+    <section class="inner-container">
+        <div class="row event-box">
+            <div class="col-md-7 event-text-box">
+                <h2>Další aktivity a soutěže</h2>
+                <p>
+                    Kromě výše zmíněných akcí, které Výfuk pořádá, existuje množství dalších aktivit, které by naše
+                    řešitele nebo jiné návštěvníky webu mohly zaujmout. Určitě neuděláš chybu, když jim dáš také šanci.
+                    Se všemi níže uvedenými aktivitami mají naši organizátoři bohaté zkušenosti ze svých řešitelských
+                    let a mohou je jednoznačně doporučit.
+                </p>
+                <a class="btn btn-primary" n:href="Events:dalsi">
+                    Více informací
+                </a>
+            </div>
+            <div class="col-md-5 event-img-box">
+                <a n:href="Events:dalsi">
+                    <img src="/images/setkani.jpg" alt="" class="event-img">
+                </a>
+            </div>
+        </div>
     </section>
 </div>
 {/block}
