@@ -116,6 +116,5 @@ login:
     echo "config files appeared in $target"
 
 # Delete containers an OCI images
-[confirm("you sure you want to delete dev containers [y/N]")]
 clean: stop
     -{{ runner }} rmi {{ tag }}
