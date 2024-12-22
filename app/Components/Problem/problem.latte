@@ -30,20 +30,33 @@
                 {/if}
                 {$problem->task[$language->value]|noescape}
 
-                {if $problem->contest == 'fykos' && $problem->number == 7}
-                    <a class="btn btn-primary mr-2 mb-3" href={plink :Events:Fykos:experiments}>
-                        {switch $language->value}
-                        {case 'cs'}Návod pro řešení experimentálních úloh
-                        {default}Instructions for Experimental Tasks
-                        {/switch}
-                    </a>
+                {if $problem->contest == 'fykos'}
+                    {if $problem->number == 7}
+                        <a class="btn btn-primary mr-2 mb-3" href={plink :Events:Fykos:experiments}>
+                            {switch $language->value}
+                            {case 'cs'}Návod pro řešení experimentálních úloh
+                            {default}Instructions for Experimental Tasks
+                            {/switch}
+                        </a>
+                    {/if}
+                    {if $problem->number == 8}
+                        {php $serialPath = $problemService->getSerial($problem->contest, $series, $language->value)}
+                        {if $serialPath}
+                            <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
+                                <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
+                                {switch $language->value}
+                                    {case 'cs'}Text seriálu {$series->series}. série
+                                    {default}Text of Serial Number {$series->series}
+                                {/switch}
+                            </a>
+                        {/if}
+                    {/if}
                 {elseif $problem->contest == 'vyfuk'}
                     {if $problem->number == 6}
                         <a class="btn btn-secondary mr-2 mb-3" href={plink :Default:Section:howToExperiment}>
                             <i class="fas fa-rocket"></i>
                             Jak psát experimenty
                         </a>
-                    {elseif $problem->number == 7}
                     {/if}
                 {/if}
             </div>
@@ -56,24 +69,15 @@
                         <i class="far fa-file-pdf"></i>
                         <span class="skip-3px"></span>
                         {switch $language->value}
-                        {case 'cs'}Řešení
-                        {default}Solution
+                            {case 'cs'}Řešení
+                            {default}Solution
                         {/switch}
                     </a>
                     {else}
-                    {switch $language->value}
-                    {case 'cs'}Řešení této úlohy zveřejníme brzy.
-                    {default}We will publish the solution to this problem soon.
-                    {/switch}
-                    {/if}
-                    {if $problem->number == 8 && $serialPath}
-                    <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
-                        <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
                         {switch $language->value}
-                        {case 'cs'}Text seriálu {$series->series}. série
-                        {default}Text of Serial Number {$series->series}
+                            {case 'cs'}Řešení této úlohy zveřejníme brzy.
+                            {default}We will publish the solution to this problem soon.
                         {/switch}
-                    </a>
                     {/if}
                 </div>
                 {if array_key_exists($language->value, $problem->origin) && $problem->origin[$language->value]}

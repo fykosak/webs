@@ -82,7 +82,7 @@
         <div class="panel registration">
             <div class="inner-container">
                 <div class="text">
-                    {switch $language->value}{case cs}Chcete vědět více?{default}Want to Know More?{/switch}
+                    {switch $language->value}{case cs}Chcete vědět více?{default}Want to know more?{/switch}
                 </div>
                 <div class="btn-container">
                     <a class="btn btn-outline m-2" n:href=":Default:About:default">
@@ -214,7 +214,7 @@
                                     <ul>
                                         <li><a n:href=":Default:SupportUs:">Jak podpořit FYKOS</a></li>
                                         <li><a n:href=":Default:About:contact">Kontakt</a></li>
-                                        {* <li><a n:href=":Default:Merch:">Merch</a></li> *}
+                                        <li><a n:href=":Default:Merch:">Merch</a></li>
                                     </ul>
                                 </li>
                                 {default}
@@ -222,13 +222,12 @@
                                     <ul>
                                         <li><a n:href=":Default:SupportUs:">Support us</a></li>
                                         <li><a n:href=":Default:About:contact">Contact</a></li>
-                                        {* <li><a href="">Logos and materials</a></li>
-                                        <li><a href="">Contact</a></li> *}
+                                        <li><a n:href=":Default:Merch:">Merch</a></li>
                                     </ul>
                                 </li>
                             {/switch}
                         </ul>
-                    </nav> 
+                    </nav>
 
                 </div>
                 <div class="col-md-3">
@@ -277,7 +276,7 @@
             </div>
         </div>
     </footer>
-    
+
     <div id="old-website-notice">
         <span>
             {switch $language->value}
