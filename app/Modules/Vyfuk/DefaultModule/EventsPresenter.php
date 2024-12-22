@@ -11,16 +11,13 @@ use Nette\Application\AbortException;
 use Nette\Application\BadRequestException;
 use Nette\Application\Responses\CallbackResponse;
 use Nette\Caching\Cache;
-use Nette\Caching\Storage;
 
 class EventsPresenter extends BasePresenter
 {
-    protected Cache $cache;
     protected EventService $eventService;
 
-    public function injectEventServicesAndCache(Storage $storage, EventService $eventService): void
+    public function injectEventServicesAndCache(EventService $eventService): void
     {
-        $this->cache = new Cache($storage);
         $this->eventService = $eventService;
     }
 

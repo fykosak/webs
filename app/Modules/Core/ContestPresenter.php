@@ -10,12 +10,15 @@ use App\Models\Downloader\ContestYearModel;
 use App\Models\Downloader\DummyService;
 use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
+use Nette\Caching\Cache;
+use Nette\Caching\Storage;
 use Nette\Utils\DateTime;
 
 abstract class ContestPresenter extends BasePresenter
 {
     private readonly DummyService $dummyService;
     protected readonly FKSDBDownloader $downloader;
+    protected readonly Cache $cache;
 
     final public function inject(FKSDBDownloader $downloader): void
     {
@@ -26,6 +29,10 @@ abstract class ContestPresenter extends BasePresenter
     public function injectDummyService(DummyService $dummyService): void
     {
         $this->dummyService = $dummyService;
+    }
+    public function injectCache(Storage $storage): void
+    {
+        $this->cache = new Cache($storage);
     }
 
     protected function beforeRender(): void
@@ -52,22 +59,26 @@ abstract class ContestPresenter extends BasePresenter
 
     public function getBodyYear(): ?ContestYearModel
     {
-        foreach (array_reverse($this->getContest()->years) as $year) {
-            try {
-                $results = $this->downloader->download(new SeriesResultsRequest($this->getContestId(), $year->year));
-                foreach ($results["submits"] as $y) {
-                    foreach ($y as $c) {
-                        foreach ($c["submits"] as $s) {
-                            if ($s !== null) {
-                                return $year;
+        return $this->cache->load("bodyYear", function () {
+            foreach (array_reverse($this->getContest()->years) as $year) {
+                try {
+                    $results = $this->downloader->download(new SeriesResultsRequest($this->getContestId(), $year->year));
+                    foreach ($results["submits"] as $y) {
+                        foreach ($y as $c) {
+                            foreach ($c["submits"] as $s) {
+                                if ($s !== null) {
+                                    return $year;
+                                }
                             }
                         }
                     }
+                } finally {
                 }
-            } finally {
             }
-        }
-        return null;
+            return null;
+        }, [
+            Cache::Expire => '1 day',
+        ]);
     }
 
     abstract public function getContestId(): int;

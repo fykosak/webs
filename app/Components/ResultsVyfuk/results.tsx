@@ -56,9 +56,6 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
         }
     };
 
-    // bool if s4-6 should be shown
-    const showS4To6 = Object.values(tasks).some((tasksInSeries, index) => index >= 3 && tasksInSeries.length > 0);
-
     // calculate the sumOneToThree and sumFourToSix for each contestant
     for (const contestant of submits) {
         let sumOneToThree = 0;
@@ -270,42 +267,6 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                         );
                     })}
                     <th
-                        className={`centered-cell clickable-header ${hoveredColumn === 's1-3' ? 'hovered' : ''}`}
-                        onClick={() => toggleSort('s1-3')}
-                        onMouseEnter={() => handleMouseEnter('s1-3')}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        s&#8288;1&#8288;-&#8288;3<br />
-                        {sortColumn === 's1-3' ? (
-                            <span style={{ color: 'black' }}>
-                                {sortDirection === 'asc' ? '↓' : '↑'}
-                            </span>
-                        ) : (
-                            <span className="inactive-arrow">
-                                ↓
-                            </span>
-                        )}
-                    </th>
-                    {showS4To6 && (
-                        <th
-                            className={`centered-cell clickable-header ${hoveredColumn === 's4-6' ? 'hovered' : ''}`}
-                            onClick={() => toggleSort('s4-6')}
-                            onMouseEnter={() => handleMouseEnter('s4-6')}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            s&#8288;4&#8288;-&#8288;6<br />
-                            {sortColumn === 's4-6' ? (
-                                <span style={{ color: 'black' }}>
-                                    {sortDirection === 'asc' ? '↓' : '↑'}
-                                </span>
-                            ) : (
-                                <span className="inactive-arrow">
-                                    ↓
-                                </span>
-                            )}
-                        </th>
-                    )}
-                    <th
                         className={`centered-cell clickable-header ${hoveredColumn === 'Category Rank' || hoveredColumn === 'Total Points' ? 'hovered' : ''}`}
                         onClick={() => toggleSort('Category Rank')}
                         onMouseEnter={() => handleMouseEnter('Category Rank')}
@@ -346,18 +307,6 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                         );
                     })}
                     <th className="centered-cell">
-                        {Object.values(tasks).filter((tasksInSeries, index) => index < 3).reduce((totalSum, tasksInSeries) =>
-                            totalSum + tasksInSeries.reduce((seriesSum, task) => seriesSum + (typeof task.points === 'number' ? task.points : 0), 0), 0
-                        )}
-                    </th>
-                    {showS4To6 && (
-                        <th className="centered-cell">
-                            {Object.values(tasks).filter((tasksInSeries, index) => index >= 3).reduce((totalSum, tasksInSeries) =>
-                                totalSum + tasksInSeries.reduce((seriesSum, task) => seriesSum + (typeof task.points === 'number' ? task.points : 0), 0), 0
-                            )}
-                        </th>
-                    )}
-                    <th className="centered-cell">
                         {Object.values(tasks).reduce((totalSum, tasksInSeries) =>
                             totalSum + tasksInSeries.reduce((seriesSum, task) => seriesSum + (typeof task.points === 'number' ? task.points : 0), 0), 0
                         )}
@@ -386,14 +335,6 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                             <td>{contestant.contestant.name}</td>
                             <td>{contestant.contestant.school}</td>
                             {seriesContainers}
-                            <td className="centered-cell">
-                                <strong>{contestant.sunOneToThree}</strong>
-                            </td>
-                            {showS4To6 && (
-                                <td className="centered-cell">
-                                    <strong>{contestant.sumFourToSix}</strong>
-                                </td>
-                            )}
                             <td className="centered-cell">
                                 <strong>{contestant.sum}</strong>
                             </td>
