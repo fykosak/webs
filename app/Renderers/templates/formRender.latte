@@ -23,7 +23,7 @@
                                 {default}Unknown
                             {/switch}
                         {else}
-                            <span class="flag-icon flag-icon-{strtolower($item['control']->getName())}"></span>
+                            <span class="fi fi-{strtolower($item['control']->getName())}"></span>
                             {$item['control']->getCaption()}
                         {/if}<br>
                         {$item['control']->getOption('count')}

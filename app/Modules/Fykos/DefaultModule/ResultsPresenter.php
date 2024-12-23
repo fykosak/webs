@@ -23,6 +23,4 @@ class ResultsPresenter extends BasePresenter
         $this->template->contest = $this->getContest();
         $this->template->results = $this->downloader->download(new SeriesResultsRequest(1, $year));
     }
-
-
 }
