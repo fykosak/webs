@@ -12,8 +12,6 @@ interface Contestant {
         [key: number]: number;
     };
     totalRank: [number, number];
-    sunOneToThree: number;
-    sumFourToSix: number;
     sum: number;
     category: number;
 }
@@ -38,10 +36,11 @@ interface Props<Category extends string = string> {
         tasks: {
             [key in Category]: Tasks;
         }
-    };
+    },
+    series: number[]
 }
 
-function CategoryResults({ submits, tasks, isAllCategories = false }: { submits: Submits, tasks: Tasks, isAllCategories?: boolean }) {
+function CategoryResults({ submits, tasks, isAllCategories = false, serie = 0 }: { submits: Submits, tasks: Tasks, isAllCategories?: boolean, serie?: number }) {
     const { translate } = useTranslator();
     const [activeSeries, setActiveSeries] = useState<{ [key: string]: boolean }>({});
     const [sortColumn, setSortColumn] = useState<string | null>('Category Rank');
@@ -56,37 +55,24 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
         }
     };
 
-    // calculate the sumOneToThree and sumFourToSix for each contestant
+    // calculate the sumSum for each contestant
     for (const contestant of submits) {
-        let sumOneToThree = 0;
-        let sumFourToSix = 0;
+        let sumAll = 0;
         for (const series in tasks) {
+            if (serie > 0 && serie != parseInt(series))
+                continue
             const tasksInSeries = tasks[series];
             let sum = 0;
             for (const task of tasksInSeries) {
                 if (contestant.submits.hasOwnProperty(task.taskId)) {
-                    if (contestant.submits[task.taskId] === null) {
-                        // sum = null;
-                        // break;
-                        sum += 0;
-                    } else {
+                    if (contestant.submits[task.taskId] !== null) {
                         sum += contestant.submits[task.taskId];
                     }
                 }
             }
-            if (sum === null) {
-                sumOneToThree = null;
-                sumFourToSix = null;
-                break;
-            } else if (parseInt(series) <= 3) {
-                sumOneToThree += sum;
-            } else {
-                sumFourToSix += sum;
-            }
+            sumAll += sum;
         }
-        contestant.sunOneToThree = sumOneToThree;
-        contestant.sumFourToSix = sumFourToSix;
-        contestant.sum = sumOneToThree === null || sumFourToSix === null ? null : sumOneToThree + sumFourToSix;
+        contestant.sum = sumAll;
     }
 
 
@@ -141,10 +127,6 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                         return sortDirection === 'asc' ? a.totalRank[0] - b.totalRank[0] : b.totalRank[0] - a.totalRank[0];
                     }
                     return sortDirection === 'asc' ? a.rank[0] - b.rank[0] : b.rank[0] - a.rank[0];
-                } else if (sortColumn === 's1-3') {
-                    return sortDirection === 'asc' ? b.sunOneToThree - a.sunOneToThree : a.sunOneToThree - b.sunOneToThree;
-                } else if (sortColumn === 's4-6') {
-                    return sortDirection === 'asc' ? b.sumFourToSix - a.sumFourToSix : a.sumFourToSix - b.sumFourToSix;
                 } else if (sortColumn === 'Category') {
                     return sortDirection === 'asc' ? a.category - b.category : b.category - a.category;
                 }
@@ -153,7 +135,7 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
             return sorted;
         }
         return submits;
-    }, [submits, sortColumn, sortDirection]);
+    }, [submits, sortColumn, sortDirection, serie]);
 
     const [hoveredColumn, setHoveredColumn] = useState(null);
 
@@ -238,9 +220,11 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                         )}
                     </th>
                     {Object.entries(tasks).map(([series, tasksInSeries]) => {
+                        if (serie > 0 && serie != parseInt(series))
+                            return (null);
                         return (
                             <React.Fragment key={`series-header-${series}`}>
-                                {activeSeries[series] && tasksInSeries.map((task, index) => (
+                                {(activeSeries[series] || serie > 0) && tasksInSeries.map((task, index) => (
                                     <th
                                         key={`task-header-${series}-${index}`}
                                         className={`centered-cell align-middle ${index === 0 ? 'border-left' : ''} ${index === tasksInSeries.length - 1 ? 'border-right' : ''}`}
@@ -261,7 +245,7 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                                     className="centered-cell clickable-header"
                                 >
                                     s{series} <br />
-                                    {activeSeries[series] ? <span className="inactive-arrow">→</span> : <span className="inactive-arrow">←</span>}
+                                    {serie > 0 ? null : (activeSeries[series] ? <span className="inactive-arrow">→</span> : <span className="inactive-arrow">←</span>)}
                                 </th>
                             </React.Fragment>
                         );
@@ -289,10 +273,12 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                     {isAllCategories ? <th></th> : null}
                     <th colSpan={2}>{translate('maxNumPointsHeader')}</th>
                     {Object.entries(tasks).map(([series, tasksInSeries]) => {
+                        if (serie > 0 && serie != parseInt(series))
+                            return (null);
                         const seriesMaxPoints = tasksInSeries.reduce((sum, task) => sum + (typeof task.points === 'number' ? task.points : 0), 0);
                         return (
                             <React.Fragment key={`max-points-${series}`}>
-                                {activeSeries[series] && tasksInSeries.map((task, index) => (
+                                {(activeSeries[series] || serie > 0) && tasksInSeries.map((task, index) => (
                                     <th
                                         key={`max-points-${series}-${index}`}
                                         className={`centered-cell ${index === 0 ? 'border-left' : ''} ${index === tasksInSeries.length - 1 ? 'border-right' : ''}`}
@@ -317,6 +303,8 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                 {sortedSubmits.map((contestant, index) => {
                     const seriesContainers = [];
                     for (const series in tasks) {
+                        if (serie > 0 && serie != parseInt(series))
+                            continue
                         const tasksInSeries = tasks[series];
                         seriesContainers.push(
                             <SeriesResults
@@ -324,7 +312,7 @@ function CategoryResults({ submits, tasks, isAllCategories = false }: { submits:
                                 key={series}
                                 tasks={tasksInSeries}
                                 contestant={contestant}
-                                show={activeSeries[series] || false}
+                                show={activeSeries[series] || serie > 0}
                             />
                         );
                     }
@@ -391,17 +379,10 @@ function SeriesResults({
     );
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const element = document.getElementById('contest-results');
-    if (element) {
-        const data = JSON.parse(element.getAttribute('data-data'));
-        ReactDOM.render(<Results resultsData={data} />, element);
-    }
-});
-
-function Results({ resultsData }: Props) {
+function Results({ resultsData, series }: Props) {
     const { translate } = useTranslator();
     const [activeCategories, setActiveCategories] = useState<{ [key: string]: boolean }>({});
+    const [selectedSerie, setSelectedSerie] = useState(0);
 
     const toggleCategory = (category: string) => {
         setActiveCategories((prevActiveCategories) => ({
@@ -424,7 +405,7 @@ function Results({ resultsData }: Props) {
         }
     }
 
-    const categoryContainers = sortedCategories.map((category) => {
+    let categoryContainers = sortedCategories.map((category) => {
         const categoryNumber = category.slice(-1);
         return (
             <div>
@@ -443,11 +424,46 @@ function Results({ resultsData }: Props) {
                     className={`collapse toggle-content scrollable-container ${activeCategories[category] ? 'show' : ''}`}
                     id={`collapse-category-${category}`}
                 >
-                    <CategoryResults submits={resultsData.submits[category]} tasks={resultsData.tasks[category]} />
+                    <CategoryResults submits={resultsData.submits[category]} tasks={resultsData.tasks[category]} serie={selectedSerie} />
                 </div>
             </div>
         );
     });
+    let serieSelection = series.map((number) => {
+        if (number < 7)
+            return (
+                <button
+                    className={`btn ${selectedSerie == number ? 'btn-primary' : ''}`}
+                    onClick={() => setSelectedSerie(number)}
+                >
+                    {number}. série
+                </button>
+            )
+        else
+            return (
+                <button
+                    onClick={() => setSelectedSerie(number)}
+                    className={`btn ${selectedSerie == number ? 'btn-primary' : ''}`}
+                >
+                    {number - 7}. prázdninová série
+                </button>
+            )
+    })
+    serieSelection.push(
+        <button
+            onClick={() => setSelectedSerie(0)}
+            className={`btn ${selectedSerie == 0 ? 'btn-primary' : ''}`}
+        >
+            Celkové výsledky
+        </button>
+    )
+    categoryContainers = [
+        <div
+            className='series-select'
+        >
+            {serieSelection}
+        </div>,
+        ...categoryContainers]
 
     // append total results, i.e. results for all categories
     const allCategories = Object.values(resultsData.submits).reduce((allCategories, categorySubmits) => {
@@ -487,9 +503,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const element = document.getElementById('contest-results');
     if (element) {
         const data = JSON.parse(element.getAttribute('data-data'));
+        const series = JSON.parse(element.getAttribute('data-series'));
         ReactDOM.render(
             <TranslatorProvider>
-                <Results resultsData={data} />
+                <Results resultsData={data} series={series} />
             </TranslatorProvider>,
             element
         );

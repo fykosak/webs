@@ -28,5 +28,5 @@
 {if $year < 7}
 <p>Rozdělení do kategorií není dostupné pro starší ročníky.</p> {* TODO dříve (v xml) bylo, nutno opravit v DB *}
 {/if}
-<div id="contest-results" data-data="{json_encode($results)}"></div>
+<div id="contest-results" data-data="{json_encode($results)}" data-series="{json_encode($series)}"></div>
 {/block}
