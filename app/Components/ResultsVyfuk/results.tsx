@@ -28,7 +28,19 @@ type Tasks = {
 };
 
 function Results({ data, series }: { data: { submits: { [key: string]: Submits; }, tasks: { [key: string]: Tasks; } }, series: number[] }) {
-    const [selectedSerie, setSelectedSerie] = useState(0);
+    const [selectedSerie, baseSetSelectedSerie] = useState(0);
+    let tableManager: any = {};
+    [tableManager.sortColum, tableManager.setSortColum] = useState(selectedSerie < 1 ? "sum" : "s" + selectedSerie);
+    [tableManager.sortAsc, tableManager.setSortAsc] = useState(false);
+    [tableManager.hideColum, tableManager.setHideColum] = useState({});
+    const setSelectedSerie = (value: number) => {
+        tableManager.setSortColum(value < 1 ? "sum" : "s" + value);
+        baseSetSelectedSerie(value);
+    }
+
+
+    selectedSerie < 1 ? "sum" : "s" + selectedSerie
+
     const sortedCategories = Object.keys(data.submits).sort((a, b) => {
         return parseInt(b.slice(-1)) - parseInt(a.slice(-1));
     });
@@ -117,21 +129,16 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
             }
             return { columns: columns, data: outData };
         }, [data, series]);
-        let tableManager: any = {};
-        [tableManager.sortColum, tableManager.setSortColum] = useState("sum");
-        [tableManager.sortAsc, tableManager.setSortAsc] = useState(false);
-        [tableManager.hideColum, tableManager.setHideColum] = useState({});
-
         let hidden: string[] = []
         let keys: string[] = tableDef.columns.map((col: ColumnDef) => { return col.colKey });
         if (selectedSerie < 1) {
             hidden = keys.filter((v) => {
-                if (v == "name" || v == "school" || v == "sum" || v =="rank") return false;
+                if (v == "name" || v == "school" || v == "sum" || v == "rank") return false;
                 return !/^s[0-9]$/.test(v);
             })
         } else {
             hidden = keys.filter((v) => {
-                if (v == "name" || v == "school" || v == "sum" || v =="rank") return false;
+                if (v == "name" || v == "school" || v == "sum") return false;
                 return !(new RegExp("s" + selectedSerie)).test(v);
             })
         }
@@ -142,8 +149,11 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
 
         tableDef.tableManager = tableManager;
         categoryContainers.push(
+            <h2>Kategorie {parseInt(category.slice(-1))}. ročníků</h2>
+        );
+        categoryContainers.push(
             <SortTable tableDef={tableDef} />
-        )
+        );
     }
 
 
@@ -264,45 +274,6 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
             {onlySome ? 'Zobrazit všechny' : 'Zobrazit méně'}
         </button>
     </>);
-    /*    return (
-            <table className="table table-hover contest-results table-sm">
-                <tbody>
-                    {sortedSubmits.map((contestant, index) => {
-                        const seriesContainers = [];
-                        let showContestant = false;
-                        for (const series in tasks) {
-                            if (serie > 0 && serie != parseInt(series))
-                                continue
-                            const tasksInSeries = tasks[series];
-                            let [showPerSeriesContestant, element]: any = SeriesResults(
-                                {
-                                    series: series,
-                                    tasks: tasksInSeries,
-                                    contestant: contestant,
-                                    show: activeSeries[series] || serie > 0
-                                });
-                            showContestant ||= showPerSeriesContestant;
-                            seriesContainers.push(element);
-                        }
-                        return showContestant ? (
-                            <tr key={`contestant-${contestant.contestant.contestantId}-${index}`}>
-                                <td className="centered-cell">{isAllCategories ? (contestant.totalRank[0] === contestant.totalRank[1] ? contestant.totalRank[0] : `${contestant.totalRank[0]}-${contestant.totalRank[1]}`) : (contestant.rank[0] === contestant.rank[1] ? contestant.rank[0] : `${contestant.rank[0]}-${contestant.rank[1]}`)}</td>
-                                {isAllCategories ? <td className="centered-cell">{contestant.category}</td> : null}
-                                <td>{contestant.contestant.name}</td>
-                                <td>{contestant.contestant.school}</td>
-                                {seriesContainers}
-                                {
-                                    serie == 0 ?
-                                        <td className="centered-cell">
-                                            <strong>{contestant.sum}</strong>
-                                        </td> : null
-                                }
-                            </tr>
-                        ) : null;
-                    })}
-                </tbody>
-            </table>
-        );*/
 }
 
 document.addEventListener('DOMContentLoaded', () => {

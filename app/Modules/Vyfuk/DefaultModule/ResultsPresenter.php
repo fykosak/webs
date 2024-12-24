@@ -57,7 +57,7 @@ class ResultsPresenter extends BasePresenter
         }
         $series = [];
         foreach ($results["tasks"] as $s) {
-            $series=array_merge($series, array_keys($s));
+            $series = array_merge($series, array_keys($s));
         }
         $series = array_unique($series);
         $this->template->results = $results;
