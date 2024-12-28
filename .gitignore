@@ -16,3 +16,7 @@ www/fykos/videos
 www/fykos/images/people
 www/fykos/images/events
 .vscode
+.cache
+.config
+.local
+.idea/

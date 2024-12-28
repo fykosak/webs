@@ -31,8 +31,8 @@
                         {/switch}
                     {elseif $newestEvent->getRegistrationPeriod()->isOnGoing()}
                         {switch $language->value}
-                            {case 'cs'}<p>Registace pro rok 2024 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 20 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>
-                            {default}<p>Registration for the year 2024 is open!<br>Last year, almost 1200 of us gathered from more than 20 countries around the world. Come and enjoy this physics feast with us again this year!</p>
+                            {case 'cs'}<p>Registace pro rok 2025 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 20 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>
+                            {default}<p>Registration for the year 2025 is open!<br>Last year, almost 1200 of us gathered from more than 20 countries around the world. Come and enjoy this physics feast with us again this year!</p>
                         {/switch}
                     {elseif $newestEvent->getRegistrationPeriod()->isBefore()}
                         {switch $language->value}
@@ -262,12 +262,14 @@
                 {*<h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}.</h1>*}
                 <h1>V Praze se můžete zdržet i déle</h1>
           		<p>Kromě soutěže se můžete těšit i na bohatý doprovodný program plný přednášek, exkurzí a mnoha dalšího. Podrobnosti naleznete <a href="https://fyziklani.cz/program">zde</a>.</p>
+          		<p>Od středy do neděle bude též probíhat městská hra, kterou si budete moci projít kdykoliv budete chít.</p>
                 {*<p>Doprovodný program Fyziklání je volitelný, lze se zúčastnit i pouze samotné soutěže.</p>*}
             {default}
                 <div class="subheader">Fyziklani Schedule</div>
                 {*<h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}.</h1>*}
                 <h1>You Can Stay in Prague a Little Longer</h1>
                 <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more. Details can be found <a href="https://fyziklani.org/schedule">here</a>.</p>
+                <p>From Wednesday to Sunday, a city rally will take place, which you can go though whenever you want.</p>
                 {*<p>The accompanying program is optional, it is possible to take part only in the competition itself.</p>*}
             {/switch}
 
