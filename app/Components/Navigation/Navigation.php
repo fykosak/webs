@@ -30,8 +30,8 @@ class Navigation extends DIComponent
     public static function mapLangToIcon(Language $lang): string
     {
         return match ($lang) {
-            Language::en => 'flag-icon flag-icon-us',
-            Language::cs => 'flag-icon flag-icon-cz',
+            Language::en => 'fi fi-us',
+            Language::cs => 'fi fi-cz',
         };
     }
 }

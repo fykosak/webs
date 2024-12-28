@@ -6,10 +6,6 @@ namespace App\Modules\Vyfuk\DefaultModule;
 
 use App\Models\Downloader\EventService;
 use DateTime;
-use Exception;
-use Nette\Application\AbortException;
-use Nette\Application\BadRequestException;
-use Nette\Application\Responses\CallbackResponse;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 
@@ -49,59 +45,13 @@ class EventsPresenter extends BasePresenter
         $this->template->participants = implode(', ', $array);
     }
 
-    public function renderDefault(?int $typeID = null): void
+    public function renderTabor(): void
     {
-        $eventTypes = [
-            10 => 'tábor',
-            12 => 'Podzimní setkání',
-            11 => 'Jarní setkání',
-            15 => 'Kyberkoncil'
-        ];
-        $ids = array_keys($eventTypes);
-        $selectedId = in_array($typeID, $ids) ? $typeID : null;
-
-        $events = $this->eventService->getEvents($selectedId ? [$selectedId] : $ids);
-        $this->template->eventTypes = $eventTypes;
-        $this->template->selected = $selectedId;
-        $this->template->events = array_reverse($events);
+        $this->template->events = array_reverse($this->eventService->getEvents([10]));
     }
 
-    /**
-     * @throws AbortException
-     * @throws BadRequestException
-     * @throws \Throwable
-     */
-    public function actionGetRawCalendar(): void
+    public function renderSetkani(): void
     {
-        $calendar = $this->loadCalendar();
-        if (!$calendar) {
-            $this->error('', 503);
-        } else {
-            $this->sendResponse(new CallbackResponse(function ($request, $response) use ($calendar) {
-                $response->setHeader('Content-Type', 'text/calendar');
-                echo ($calendar);
-            }));
-        }
-    }
-
-    /**
-     * @throws \Throwable
-     */
-    private function loadCalendar(): string
-    {
-        return $this->cache->load(
-            'vyfuk.calender',
-            function (&$dependencies): string {
-                $dependencies[Cache::Expire] = time() + 24 * 60 * 60;
-                $curl = curl_init('https://drive.vyfuk.org/remote.php/dav/public-calendars/tLnfCNLzypBHHeEb?export');
-                curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-                $res = curl_exec($curl);
-                curl_close($curl);
-                if (curl_getinfo($curl)['http_code'] != 200) {
-                    throw new Exception('Vyfuk calendar failed to be downloaded');
-                }
-                return $res;
-            }
-        );
+        $this->template->events = array_reverse($this->eventService->getEvents([11, 12]));
     }
 }

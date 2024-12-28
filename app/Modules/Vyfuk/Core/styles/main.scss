@@ -10,7 +10,7 @@ $text-on-primary: white;
 $text-dimmed: #CCCCCC;
 
 $page-width: 77rem;
-
+$min-contrast-ratio: 3;
 $base-font-size: 18px;
 
 // Use the following font weights.
@@ -32,17 +32,15 @@ $navbar-dark-hover-color: $text-dimmed;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 @import 'bootstrap-icons/font/bootstrap-icons.scss';
-$flag-icon-css-path: '/node_modules/flag-icon-css/flags';
-@import '../../../../../node_modules/flag-icon-css/sass/flag-icon';
+$flag-icons-path: '/node_modules/flag-icons/flags';
+@import "../../../../../node_modules/flag-icons/sass/flag-icons";
 @import "./../../../Fof/Core/styles/sponsors";
 
 @import "./layout";
 @import "./titlepage";
 @import "./navigation";
 @import "./organizers";
-
-// @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
-// @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "./other.scss";
 
 @import '../../../../Components/Problem/problem';
 @import '../../../../Components/Problem/vyfuk';
