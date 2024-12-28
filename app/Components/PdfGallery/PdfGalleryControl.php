@@ -15,7 +15,6 @@ class PdfGalleryControl extends DIComponent
 {
     private readonly string $wwwDir;
     private readonly Cache $cache;
-    private bool|string $notRenderToStr = true;
 
     public function __construct(Container $container)
     {
@@ -28,7 +27,7 @@ class PdfGalleryControl extends DIComponent
         $this->cache = new Cache($storage, __NAMESPACE__);
     }
 
-    public static function getPdfs(string $path, string $wwwDir): array
+    public static function getPdfs(string $path, string $wwwDir, bool $fromMetadata = false): array
     {
         $pdfs = [];
         try {
@@ -38,11 +37,15 @@ class PdfGalleryControl extends DIComponent
         }
 
         foreach ($iterator as $file) {
-            try {
-                $info = static::getPdfProp($file->getRealPath());
-                $name = $info["Title"] ?? ($info["title"] ?? '');
-            } catch (\Exception $e) {
-                $name = '';
+            if ($fromMetadata) {
+                try {
+                    $info = static::getPdfProp($file->getRealPath());
+                    $name = $info["Title"] ?? ($info["title"] ?? '');
+                } catch (\Exception $e) {
+                    $name = '';
+                }
+            } else {
+                $name = null;
             }
 
             $wwwPath = substr($file->getPathname(), strlen($wwwDir));
@@ -57,8 +60,8 @@ class PdfGalleryControl extends DIComponent
             return $a['name'] <=> $b['name'];
         });
 
-        foreach ($pdfs as $index => &$pdffile) {
-            $pdffile['index'] = $index;
+        foreach ($pdfs as $index => &$pdfFile) {
+            $pdfFile['index'] = $index;
         }
 
         return $pdfs;
@@ -68,42 +71,35 @@ class PdfGalleryControl extends DIComponent
      * @throws UnknownImageFileException
      * @throws \Throwable
      */
-    public function render(?string $path = null, ?string $style = null): void
+    public function render(string $path, ?string $style = null): void
     {
-        $style ??= $path == null ? "Buttons" : "List";
+        $style ??= "List";
         $renderFile = __DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery' . $style . '.latte';
-
-        $path ??= '/media/download' . strtolower(str_replace(':', '/', $this->getPresenter()->getAction(true)));
 
         $this->template->pdfs = $this->cache->load(
             [$path, $this->wwwDir],
             fn() => self::getPdfs($path, $this->wwwDir)
         );
-        if ($this->notRenderToStr == true) {
-            $this->template->render($renderFile);
-            return;
-        }
-        $this->notRenderToStr = $this->template->renderToString($renderFile);
+        $this->template->render($renderFile);
     }
-
-    public function renderToString(?string $path = null, string $style = "default"): string
+    public function renderFromMetadata(string $path, ?string $style = null): void
     {
-        $this->notRenderToStr = false;
-        $this->render($path, $style);
-        if (is_bool($this->notRenderToStr)) {
-            throw new \Exception('Component ' . __CLASS__ . ' did not render properly!');
-        }
-        return $this->notRenderToStr;
+        $style ??= "List";
+        $renderFile = __DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery' . $style . '.latte';
+
+        $this->template->pdfs = $this->cache->load(
+            [$path, $this->wwwDir],
+            fn() => self::getPdfs($path, $this->wwwDir, true)
+        );
+        $this->template->render($renderFile);
     }
 
     /**
      * @throws UnknownImageFileException
      * @throws \Throwable
      */
-    public function hasFiles(?string $path = null): bool
+    public function hasFiles(string $path): bool
     {
-        $path ??= $this->wwwDir . strtolower(str_replace(':', '/', $this->getPresenter()->getAction(true)));
-
         return count($this->cache->load(
             [$path, $this->wwwDir],
             fn() => self::getPdfs($path, $this->wwwDir)
@@ -136,7 +132,7 @@ class PdfGalleryControl extends DIComponent
         if (!preg_match('/Info ([0-9]+) /', $trailer, $a)) {
             return [];
         }
-        $object_no = (int)$a[1];
+        $object_no = (int) $a[1];
 
         //Extract Info object offset
         $lines = preg_split("/[\r\n]+/", $xref);
