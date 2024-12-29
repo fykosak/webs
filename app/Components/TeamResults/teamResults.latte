@@ -69,7 +69,7 @@
                                     {if $iterator->isLast() || (!is_null($members[$key + 1]) && isset($member->school) && isset($members[$key + 1]->school) && $member->school['schoolId'] != $members[$key + 1]->school['schoolId'])}
                                         {$member->name|trim}
                                         <span class="text-muted"> ({if $inSchool > 1}{$inSchool}&nbsp;&times;&nbsp;{/if}{$member->school['nameAbbrev']??$notAStudentText}{if isset($member->school) && $member->school['countryISO'] !== null}
-                                            <span class="flag-icon flag-icon-{$member->school['countryISO']??'zz'|lower}"></span>{/if})</span>{if !$iterator->isLast()},{/if}
+                                            <span class="fi fi-{$member->school['countryISO']??'zz'|lower}"></span>{/if})</span>{if !$iterator->isLast()},{/if}
                                         {do $inSchool = 0}
                                     {else}
                                         {$member->name|trim}{if !$iterator->isLast()},{/if}
