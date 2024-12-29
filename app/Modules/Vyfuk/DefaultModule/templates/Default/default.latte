@@ -1,15 +1,110 @@
 {block title}Hlavní stránka{/block}
 
 {block main}
-    <div class="panel color-auto title-panel">
-        <div class="inner-container row align-items-center">
-            <div class="col-md-6 left-block">
-                <h1>Výfuk</h1>
-                <div class="subheader">fyzikální korespondenční seminář</div>
-            </div>
-            <div class="col-md-6 right-block">
-                cool animace
+<div class="panel color-primary title-panel">
+    <section class="inner-container">
+        <div class="header-container">
+            <div class="row">
+                <div class="col-md header-text-container">
+                    <h1 class="header-text">Fyzikální soutěž pro 2.&nbsp;stupeň&nbsp;ZŠ</h1>
+                    <p class="header-text">
+                        Výfuk, jméno našeho korespondenčního semináře, je vlastně zkratka jeho dlouhého názvu – Výpočty fyzikálních úkolů. Touto soutěží se snažíme ukázat, že fyzika je vlastně velmi zábavné a fascinující téma. {*TODO představení Výfuku*}
+                    </p>
+                    <a class="btn btn-secondary mt-2" n:href=":Default:Section:howToEngage">
+                        Jak se zapojit
+                    </a>
+                    <a class="btn btn-secondary mt-2" n:href=":Default:Section:howToSolve">
+                        Jak psát řešení
+                    </a>
+                    <a class="btn btn-secondary mt-2" n:href=":Default:About:default">
+                        O&nbsp;nás
+                    </a>
+                </div>
+                <div class="col-md-5 text-center d-none d-lg-block">
+                    <img style="height: 300px"
+                            src="{$basePath}/images/supervyfuk.svg" alt="Výfuček superhrdina" />{* TODO cool animace *}
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+</div>
+<div class="panel color-light title-panel">
+    <section class="inner-container">
+        <div class="header-container">
+            <h2>Aktuality</h2>
+            <div class="row">
+                {* problems news card *}
+                <div class="col-md my-2">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Zadání {$series->series}. série</h5>
+                            {if new Datetime() < $series->getDeadline()}
+                                <p class="card-text">Zveřejnili jsme zadání {$series->series}. série.</p>
+                                <p class="card-text"> Na vyřešení a odevzdání úloh {$series->series}. série máte čas do <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>.</p>
+                                <a n:href=":Default:Problems:default" class="btn btn-primary">Zadání</a>
+                            {else}
+                                <p>{$series->series}. série již proběhla. Zadání další série zveřejníme brzy.</p>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+                {* solutions news card *}
+                <div class="col-md my-2">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Řešení {$previousSeries->series}. série</h5>
+                            {php $previousDeadline = $previousSeries->getDeadline()}
+                            {php $dateTime = new Datetime()}
+                            {if $dateTime > $previousDeadline && !$checkAllSolutions}
+                                <p class="card-text">{$previousSeries->series}. série již proběhla. Vzorová řešení zveřejníme brzy.</p>
+                            {elseif $dateTime > $previousDeadline && $checkAllSolutions}
+                                <p class="card-text">Zveřejnili jsme vzorová řešení úloh {$previousSeries->series}. série.</p>
+                                <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}" class="btn btn-primary">Řešení</a>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+                {* TODO results news card *}
+                <div class="col-md my-2">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Výsledkové listiny po {$previousSeries->series}. sérii</h5>
+                            <p class="card-text">Pořadí {$previousSeries->series}. série zveřejníme v blízké době.</p>
+                            <p>Zveřejnili jsme pořadí po {$previousSeries->series}. sérii {$previousSeries->year}. ročníku. Můžete se tedy podívat, jak jste dopadli a kolik bodů za jednotlivé úlohy jste získali. Výhercům všech kategorií gratulujeme!</p>
+                            <a href="plink ':Default:Results:default' 'year'=>$previousSeries->year" class="btn btn-primary">Pořadí</a>
+                        </div>
+                    </div>
+                </div>
+                {* nearest event news card *}
+                <div class="col-md my-2">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Nejbližší akce</h5>
+                            <p class="card-text">Přihlašování na nejbližší akce bude spuštěno TODO.</p>
+                            <a n:href=":Default:Problems:default" class="btn btn-primary">Stránka nejblžší akce</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {* dynamic news cards from news.json *}
+            <div class="row">
+                {foreach $newsList['cs'] as $news}
+                <div class="col-md my-2">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <h5 class="card-title">{$news['title']}</h5>
+                            <p class="card-text">{$news['text']|noescape}</p>
+                            {if strpos($news['link'], 'http') === 0}
+                                <a href="{$news['link']}" class="btn btn-primary">{$news['link-text']}</a>
+                            {else}
+                                <a n:href="$news['link']" class="btn btn-primary">{$news['link-text']}</a>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+        </div>
+    </section>
+</div>
 {/block}
