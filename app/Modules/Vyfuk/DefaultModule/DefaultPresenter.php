@@ -66,20 +66,7 @@ class DefaultPresenter extends BasePresenter
         $results = $this->downloader->download(new SeriesResultsRequest($this->getContestId(), $year));
 
         if (isset($results['tasks']['VYFUK_6'][$series->series])) {
-            $resultsProblems = [];
-            foreach ($results['tasks']['VYFUK_6'][$series->series] as $problem) {
-                $resultsProblems[] = $problem['label'];
-            }
-
-            $seriesProblems = [];
-            foreach ($series->problems as $probNum) {
-                $problem = $this->problemService->getProblem('vyfuk', $series->year, $series->series, $probNum);
-                $seriesProblems[] = $problem->getLabel();
-            }
-
-            return array_reduce($seriesProblems, function ($carry, $problem) use ($resultsProblems) {
-                return $carry && in_array($problem, $resultsProblems);
-            }, true);
+            return true;
         } else {
             return false;
         }
