@@ -1,0 +1,53 @@
+{block title}Zimní víkendovka{/block}
+{block main}
+<div class="panel color-light">
+    <section class="inner-container">
+        {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+        {ifset title}<h1>{include title}</h1>{/ifset}
+    </section>
+    {foreach $events as $key => $event}
+    {if $event->begin->getTimestamp() >= time()}
+    <section class="inner-container my-5">
+        <h2>{$event->nameNew[$lang]}</h2>
+        <p>
+            {$event->description[$lang]|noescape}
+        </p>
+        <p>
+            <a class="btn btn-primary mx-1" n:href="Events:detail $event->eventId">
+                <i class="bi bi-info-circle"></i> Informace o akci
+            </a>
+        </p>
+        {control gallery:randomLine "/media/photos/event/" . $event->eventId}
+    </section>
+    {/if}
+    {/foreach}
+    <section class="inner-container">
+        <p>
+            V průběhu roku 2024 jsme se shodli na tom, že bychom pro vás zkusili poprvé uspořádat akci nového typu,
+            kterou jsme nazvali zimní víkendovka. Jak už název napovídá, je v plánu vyrazit v zimě na víkend do nějakého
+            malebného koutu České republiky a užívat si tam v komornějším počtu fyziku a zimní radovánky.
+        </p>
+        <p>
+            Program bude podobný jako na setkání, ale plánujeme zařadit větší množství volného času a her.
+            O přednášky ovšem rozhodně nepřijdete. Máte-li o akci zájem, určitě sledujte web a
+            <a href="https://www.instagram.com/ksvyfuk/" target="_blank">sociální sítě</a>,
+            aby vám neuniklo spuštění přihlašování a podobnější informace.
+        </p>
+    </section>
+
+    {foreach $events as $key => $event}
+    {if $event->begin->getTimestamp() < time()} <section class="inner-container my-5">
+        <h2>{$event->nameNew[$lang]}</h2>
+        <p>
+            {$event->description[$lang]|noescape}
+        </p>
+        <p>
+            <a class="btn btn-primary mx-1" n:href="Events:detail $event->eventId">
+                <i class="bi bi-info-circle"></i> Informace o akci
+            </a>
+        </p>
+        {control gallery:randomLine "/media/photos/event/" . $event->eventId}
+        </section> {/if}
+        {/foreach}
+</div>
+{/block}

@@ -3,7 +3,7 @@
         {
             "title": "Zimní víkendovka",
             "text": "Dvě setkání a tábor nestačí? Od 31. ledna do 2. února nás příští rok čeká zcela nová výfučí akce – zimní víkendovka v Rožmberku nad Vltavou! Zapište si datum do kalendáře a čekejte na další podrobnosti.",
-            "link": ":Default:Events:default",
+            "link": ":Default:Events:vikendovka",
             "link-text": "Stránka zimní víkendovky"
         },
         {
@@ -15,7 +15,7 @@
         {
             "title": "Termín letního tábora",
             "text": "Zveřejnili jsme termín příštího letního tábora – bude se konat od 27. července do 9. srpna 2025 v Mařenicích. Na fotky z minulých táborů se můžete podívat na našich sociálních sítích nebo na stránce letního tábora, kde také najdete bližší informace o průběhu tábora.",
-            "link": ":Default:Events:default",
+            "link": ":Default:Events:tabor",
             "link-text": "Stránka letního tábora"
         }
     ]
