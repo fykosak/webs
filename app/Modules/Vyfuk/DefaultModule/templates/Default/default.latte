@@ -64,14 +64,17 @@
                         </div>
                     </div>
                 </div>
-                {* TODO results news card *}
+                {* results news card *}
                 <div class="col-md my-2">
                     <div class="card news-card">
                         <div class="card-body">
                             <h5 class="card-title">Výsledkové listiny po {$previousSeries->series}. sérii</h5>
-                            <p class="card-text">Pořadí {$previousSeries->series}. série zveřejníme v blízké době.</p>
-                            <p>Zveřejnili jsme pořadí po {$previousSeries->series}. sérii {$previousSeries->year}. ročníku. Můžete se tedy podívat, jak jste dopadli a kolik bodů za jednotlivé úlohy jste získali. Výhercům všech kategorií gratulujeme!</p>
-                            <a href="{plink ':Default:Results:default' 'year'=>$previousSeries->year}" class="btn btn-primary">Pořadí</a>
+                            {if $resultsReady && new Datetime() > $previousSeries->getDeadline()}
+                                <p>Zveřejnili jsme pořadí po {$previousSeries->series}. sérii {$previousSeries->year}. ročníku. Můžete se tedy podívat, jak jste dopadli a kolik bodů za jednotlivé úlohy jste získali. Výhercům všech kategorií gratulujeme!</p>
+                                <a href="{plink ':Default:Results:default' 'year'=>$previousSeries->year}" class="btn btn-primary">Pořadí</a>
+                            {else}
+                                <p class="card-text">Pořadí po {$previousSeries->series}. sérii zveřejníme v blízké době.</p>
+                            {/if}
                         </div>
                     </div>
                 </div>
