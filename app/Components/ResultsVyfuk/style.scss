@@ -1,0 +1,135 @@
+.contest-results {
+
+  [data-label="1"],
+  [data-label="2"] {
+    --task-color: var(--task-color-1);
+  }
+
+  [data-label="3"],
+  [data-label="4"],
+  [data-label="5"] {
+    --task-color: var(--task-color-3);
+  }
+
+  [data-label="P"] {
+    --task-color: var(--task-color-P);
+  }
+
+  [data-label="E"] {
+    --task-color: var(--task-color-E);
+  }
+
+  [data-label="S"] {
+    --task-color: var(--task-color-S);
+  }
+
+  .points {
+    border-radius: .25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+
+    display: inline-block;
+  }
+
+  .points-ok {
+    background-color: var(--task-color);
+    color: white;
+  }
+
+  .points-no {
+    color: var(--task-color);
+    font-size: 1.5rem;
+  }
+
+  .points-na {
+    border: solid 1px var(--task-color);
+    color: var(--task-color);
+  }
+
+  td[data-series] {
+    background-color: var(--series-color);
+  }
+
+  [data-series="1"] {
+    --series-color: hsl(0, 100%, 95%);
+  }
+
+  [data-series="2"] {
+    --series-color: hsl(60, 100%, 95%);
+  }
+
+  [data-series="3"] {
+    --series-color: hsl(120, 100%, 95%);
+  }
+
+  [data-series="4"] {
+    --series-color: hsl(180, 100%, 95%);
+  }
+
+  [data-series="5"] {
+    --series-color: hsl(240, 100%, 95%);
+  }
+
+  [data-series="6"] {
+    --series-color: hsl(300, 100%, 95%);
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  .task-label-header {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .points-header {
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+
+  .inactive-arrow {
+    color: grey;
+    font-size: .8rem;
+  }
+}
+
+
+.button-collapse-header {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.centered-cell {
+  text-align: center;
+}
+
+.clickable-header {
+  cursor: pointer;
+  background-color: var(--panel-color-light);
+}
+
+.clickable-header:hover, .hovered {
+  background-color: var(--panel-color-dark);
+
+  .inactive-arrow {
+    font-size: 1rem;
+    color: black;
+  }
+}
+
+.dark-bg {
+  background-color: #f5f5f5;
+
+}
+
+.border-left {
+  border-left: 1px solid black;
+}
+
+.border-right {
+  border-right: 1px solid black;
+}

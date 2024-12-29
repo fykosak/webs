@@ -11,11 +11,6 @@ use App\Components\OrgSneakPeak\OrgSneakPeakComponent;
 
 abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
 {
-    protected readonly FKSDBDownloader $downloader;
-    final public function inject(FKSDBDownloader $downloader): void
-    {
-        $this->downloader = $downloader;
-    }
     /**
      * @return NavItem[]
      */

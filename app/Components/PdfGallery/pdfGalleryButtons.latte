@@ -1,0 +1,10 @@
+{varType array[] $pdfs}
+<div>
+    {foreach $pdfs as $pdfFile}
+    <a class="btn btn-primary" target="_blank" href="{$pdfFile['src']}">
+        <i class="far fa-file-pdf"></i>
+        <span class="skip-3px"></span>
+        {$pdfFile['name']}
+    </a>
+    {/foreach}
+</div>
