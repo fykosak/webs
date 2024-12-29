@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Vyfuk\DefaultModule;
 
 use App\Models\Downloader\ProblemService;
+use App\Models\Downloader\EventService;
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 
 class DefaultPresenter extends BasePresenter
@@ -19,6 +20,13 @@ class DefaultPresenter extends BasePresenter
     public function injectServiceProblem(ProblemService $problemService): void
     {
         $this->problemService = $problemService;
+    }
+
+    protected EventService $eventService;
+
+    public function injectEventServicesAndCache(EventService $eventService): void
+    {
+        $this->eventService = $eventService;
     }
 
     public function renderDefault(): void
@@ -36,6 +44,8 @@ class DefaultPresenter extends BasePresenter
         $this->template->checkAllSolutions = $this->checkAllSolutions($previousSeries, $this->lang);
 
         $this->template->resultsReady = $this->resultsReady($year, $previousSeries);
+
+        $this->template->nearestEvent = $this->eventService->getNewest([10, 11, 12, 18]);
     }
 
     public function checkAllSolutions($series, $lang): bool
