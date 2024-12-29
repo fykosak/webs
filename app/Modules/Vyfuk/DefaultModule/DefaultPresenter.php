@@ -30,7 +30,7 @@ class DefaultPresenter extends BasePresenter
         $series = $this->problemService->getSeries('vyfuk', $year, $series);
         $this->template->series = $series;
 
-        $previousSeries = $this->problemService->getSeries('vyfuk', $year, $this->problemService->getLatestSeries('vyfuk', $year)-1);
+        $previousSeries = $this->problemService->getSeries('vyfuk', $year, $this->problemService->getLatestSeries('vyfuk', $year) - 1);
         $this->template->previousSeries = $previousSeries;
 
         $this->template->checkAllSolutions = $this->checkAllSolutions($previousSeries, $this->lang);
@@ -65,7 +65,6 @@ class DefaultPresenter extends BasePresenter
             foreach ($series->problems as $probNum) {
                 $problem = $this->problemService->getProblem('vyfuk', $series->year, $series->series, $probNum);
                 $seriesProblems[] = $problem->getLabel();
-
             }
 
             return array_reduce($seriesProblems, function ($carry, $problem) use ($resultsProblems) {
