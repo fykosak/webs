@@ -51,7 +51,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
         if (number < 7)
             return (
                 <button
-                    className={`btn ${selectedSerie == number ? 'btn-primary' : ''}`}
+                    className={`btn me-2 ${selectedSerie == number ? 'btn-primary' : 'btn-outline-primary'}`}
                     onClick={() => setSelectedSerie(number)}
                 >
                     {number}. série
@@ -61,7 +61,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
             return (
                 <button
                     onClick={() => setSelectedSerie(number)}
-                    className={`btn ${selectedSerie == number ? 'btn-primary' : ''}`}
+                    className={`btn me-2 ${selectedSerie == number ? 'btn-primary' : 'btn-outline-primary'}`}
                 >
                     {number - 7}. prázdninová série
                 </button>
@@ -70,7 +70,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
     serieSelection.push(
         <button
             onClick={() => setSelectedSerie(0)}
-            className={`btn ${selectedSerie == 0 ? 'btn-primary' : ''}`}
+            className={`btn me-2 ${selectedSerie == 0 ? 'btn-primary' : 'btn-outline-primary'}`}
         >
             Celkové výsledky
         </button>
