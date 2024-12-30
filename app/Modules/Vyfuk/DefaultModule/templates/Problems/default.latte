@@ -40,7 +40,7 @@
                 {if sizeof($yearsAndSeries[$series->year]) > 1}
                 <ul class="list-group list-group-horizontal-sm mt-2">
                     {foreach $yearsAndSeries[$series->year] as $seriesOption}
-                    <a n:class="'list-group-item list-group-item-action', $series->series == $seriesOption ? list-group-item-primary"
+                    <a n:class="'list-group-item list-group-item-action text-center', $series->series == $seriesOption ? list-group-item-primary"
                         href="{plink 'this' 'year'=>$series->year, 'series'=>$seriesOption}">{$seriesOption}</a>
                     {/foreach}
                 </ul>
