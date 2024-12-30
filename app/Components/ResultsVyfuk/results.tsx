@@ -112,16 +112,18 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                     let tasks = data.tasks[category][serie].sort((a, b) => {
                         return a.label.localeCompare(b.label);
                     });
+                    let seriesHasPoints = false;
                     let serieSum = 0;
                     for (let [key, t] of tasks.entries()) {
                         if (contestant.submits.hasOwnProperty(t.taskId) && typeof contestant.submits[t.taskId] == 'number') {
                             row["s" + serie + "." + t.label] = contestant.submits[t.taskId];
                             serieSum += contestant.submits[t.taskId];
+                            seriesHasPoints = true;
                         } else {
                             row["s" + serie + "." + t.label] = '–';
                         }
                     }
-                    row["s" + serie] = serieSum;
+                    row["s" + serie] = seriesHasPoints ? serieSum : "–";
                     totalSum += serieSum;
                 }
                 row["sum"] = totalSum;
@@ -138,7 +140,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
             })
         } else {
             hidden = keys.filter((v) => {
-                if (v == "name" || v == "school" || v == "sum") return false;
+                if (v == "name" || v == "school") return false;
                 return !(new RegExp("s" + selectedSerie)).test(v);
             })
         }
@@ -253,7 +255,9 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
                 dataRow.push(<td>{dat[c.colKey]}</td>)
             }
         }
-        tableBody.push(<tr>{dataRow}</tr>)
+        if (show) {
+            tableBody.push(<tr>{dataRow}</tr>)
+        };
     }
 
 
