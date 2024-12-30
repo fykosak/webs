@@ -28,18 +28,18 @@ type Tasks = {
 };
 
 function Results({ data, series }: { data: { submits: { [key: string]: Submits; }, tasks: { [key: string]: Tasks; } }, series: number[] }) {
-    const [selectedSerie, baseSetSelectedSerie] = useState(0);
+    const [selectedSeries, baseSetSelectedSeries] = useState(0);
     let tableManager: any = {};
-    [tableManager.sortColum, tableManager.setSortColum] = useState(selectedSerie < 1 ? "sum" : "s" + selectedSerie);
+    [tableManager.sortColum, tableManager.setSortColum] = useState(selectedSeries < 1 ? "sum" : "s" + selectedSeries);
     [tableManager.sortAsc, tableManager.setSortAsc] = useState(false);
     [tableManager.hideColum, tableManager.setHideColum] = useState({});
-    const setSelectedSerie = (value: number) => {
+    const setSelectedSeries = (value: number) => {
         tableManager.setSortColum(value < 1 ? "sum" : "s" + value);
-        baseSetSelectedSerie(value);
+        baseSetSelectedSeries(value);
     }
 
 
-    selectedSerie < 1 ? "sum" : "s" + selectedSerie
+    selectedSeries < 1 ? "sum" : "s" + selectedSeries
 
     const sortedCategories = Object.keys(data.submits).sort((a, b) => {
         return parseInt(b.slice(-1)) - parseInt(a.slice(-1));
@@ -47,12 +47,12 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
     const sortedSeries = series.sort((a, b) => a - b);
 
     // category selection
-    let serieSelection = sortedSeries.map((number) => {
+    let seriesSelection = sortedSeries.map((number) => {
         if (number < 7)
             return (
                 <button
-                    className={`btn ${selectedSerie == number ? 'btn-primary' : ''}`}
-                    onClick={() => setSelectedSerie(number)}
+                    className={`btn me-2 ${selectedSeries == number ? 'btn-primary' : 'btn-outline-primary'}`}
+                    onClick={() => setSelectedSeries(number)}
                 >
                     {number}. série
                 </button>
@@ -60,26 +60,26 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
         else
             return (
                 <button
-                    onClick={() => setSelectedSerie(number)}
-                    className={`btn ${selectedSerie == number ? 'btn-primary' : ''}`}
+                    onClick={() => setSelectedSeries(number)}
+                    className={`btn me-2 ${selectedSeries == number ? 'btn-primary' : 'btn-outline-primary'}`}
                 >
                     {number - 7}. prázdninová série
                 </button>
             )
     })
-    serieSelection.push(
+    seriesSelection.push(
         <button
-            onClick={() => setSelectedSerie(0)}
-            className={`btn ${selectedSerie == 0 ? 'btn-primary' : ''}`}
+            onClick={() => setSelectedSeries(0)}
+            className={`btn me-2 ${selectedSeries == 0 ? 'btn-primary' : 'btn-outline-primary'}`}
         >
             Celkové výsledky
         </button>
     )
     let categoryContainers = [
         <div
-            className='series-select'
+            className='series-select my-2'
         >
-            {serieSelection}
+            {seriesSelection}
         </div>]
     for (const category of sortedCategories) {
         let tableDef: any = React.useMemo(() => {
@@ -88,15 +88,15 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
             columns.push({ colKey: "rank", label: "#", sortable: false, numerical: false });
             columns.push({ colKey: "name", label: "Jméno", sortable: false, numerical: false });
             columns.push({ colKey: "school", label: "Škola", sortable: false, numerical: false });
-            for (let serie in data.tasks[category]) {
-                let tasks = data.tasks[category][serie].sort((a, b) => {
+            for (let series in data.tasks[category]) {
+                let tasks = data.tasks[category][series].sort((a, b) => {
                     return a.label.localeCompare(b.label);
                 });
                 for (let [key, t] of tasks.entries()) {
                     taskLockup[t.taskId] = columns.length;
-                    columns.push({ colKey: "s" + serie + "." + t.label, label: t.label + "(" + t.points + "b.)", sortable: true, numerical: true });
+                    columns.push({ colKey: "s" + series + "." + t.label, label: t.label + " (" + t.points + " b)", sortable: true, numerical: true });
                 }
-                columns.push({ colKey: "s" + serie, label: (parseInt(serie) > 6 ? String(parseInt(serie) - 7) + ".p" : serie) + ".s.", sortable: true, numerical: true });
+                columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? String(parseInt(series) - 7) + ". p" : series) + ". s.", sortable: true, numerical: true });
             }
             columns.push({ colKey: "sum", label: "Celkem\nbodů", sortable: true, numerical: true });
 
@@ -105,24 +105,26 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                 let row: any = {};
                 row["name"] = contestant.contestant.name;
                 row["school"] = contestant.contestant.school;
-                row["rank"] = contestant.rank[0] == contestant.rank[1] ? String(contestant.rank[0]) + "." : String(contestant.rank[0]) + ".-" + String(contestant.rank[1]) + ".";
+                row["rank"] = contestant.rank[0] == contestant.rank[1] ? String(contestant.rank[0]) + "." : String(contestant.rank[0]) + ".–" + String(contestant.rank[1]) + ".";
 
                 let totalSum = 0;
-                for (let serie in data.tasks[category]) {
-                    let tasks = data.tasks[category][serie].sort((a, b) => {
+                for (let series in data.tasks[category]) {
+                    let tasks = data.tasks[category][series].sort((a, b) => {
                         return a.label.localeCompare(b.label);
                     });
-                    let serieSum = 0;
+                    let seriesHasPoints = false;
+                    let seriesSum = 0;
                     for (let [key, t] of tasks.entries()) {
                         if (contestant.submits.hasOwnProperty(t.taskId) && typeof contestant.submits[t.taskId] == 'number') {
-                            row["s" + serie + "." + t.label] = contestant.submits[t.taskId];
-                            serieSum += contestant.submits[t.taskId];
+                            row["s" + series + "." + t.label] = contestant.submits[t.taskId];
+                            seriesSum += contestant.submits[t.taskId];
+                            seriesHasPoints = true;
                         } else {
-                            row["s" + serie + "." + t.label] = '-';
+                            row["s" + series + "." + t.label] = '–';
                         }
                     }
-                    row["s" + serie] = serieSum;
-                    totalSum += serieSum;
+                    row["s" + series] = seriesHasPoints ? seriesSum : "–";
+                    totalSum += seriesSum;
                 }
                 row["sum"] = totalSum;
                 outData.push(row);
@@ -131,15 +133,15 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
         }, [data, series]);
         let hidden: string[] = []
         let keys: string[] = tableDef.columns.map((col: ColumnDef) => { return col.colKey });
-        if (selectedSerie < 1) {
+        if (selectedSeries < 1) {
             hidden = keys.filter((v) => {
                 if (v == "name" || v == "school" || v == "sum" || v == "rank") return false;
                 return !/^s[0-9]$/.test(v);
             })
         } else {
             hidden = keys.filter((v) => {
-                if (v == "name" || v == "school" || v == "sum") return false;
-                return !(new RegExp("s" + selectedSerie)).test(v);
+                if (v == "name" || v == "school") return false;
+                return !(new RegExp("s" + selectedSeries)).test(v);
             })
         }
         tableManager.hideColum = hidden.reduce((prev: any, c) => {
@@ -149,10 +151,10 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
 
         tableDef.tableManager = tableManager;
         categoryContainers.push(
-            <h2>Kategorie {parseInt(category.slice(-1))}. ročníků</h2>
-        );
-        categoryContainers.push(
-            <SortTable tableDef={tableDef} />
+            <div className='mt-4'>
+                <h2 className='mb-1'>Kategorie {parseInt(category.slice(-1))}. ročníků</h2>
+                <SortTable tableDef={tableDef} />
+            </div>
         );
     }
 
@@ -177,16 +179,16 @@ function SortColumn({ colKey, label = null, tableManager }: { colKey: string, la
         return null;
     let element = tableManager.sortColum == colKey ? (
         <span style={{ color: 'black' }}>
-            {tableManager.sortAsc ? '↓' : '↑'}
+            {tableManager.sortAsc ? <i className="fas fa-arrow-down-long"></i> : <i className="fas fa-arrow-up-long"></i>}
         </span>
     ) : (
         <span className="inactive-arrow">
-            ↕
+            <i className="fas fa-arrows-up-down"></i>
         </span>
     );
     return (
         <th
-            className={`centered-cell clickable-header`}
+            className={`clickable-header`}
             onClick={() => {
                 if (colKey == tableManager.sortColum) {
                     tableManager.setSortAsc(!tableManager.sortAsc);
@@ -206,9 +208,7 @@ function Column({ colKey, label = null, tableManager }: { colKey: string, label?
     if (tableManager.hideColum.hasOwnProperty(colKey) && tableManager.hideColum[colKey] == true)
         return null;
     return (
-        <th
-            className={`centered-cell`}
-        >
+        <th>
             {label == null ? colKey : label}
         </th>
     )
@@ -243,7 +243,7 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
         return result;
     })
     if (onlySome) {
-        data = data.slice(0, 10);
+        data = data.slice(0, 5);
     }
     let tableBody: JSX.Element[] = [];
     for (let dat of data) {
@@ -255,19 +255,21 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
                 dataRow.push(<td>{dat[c.colKey]}</td>)
             }
         }
-        tableBody.push(<tr>{dataRow}</tr>)
+        if (show) {
+            tableBody.push(<tr>{dataRow}</tr>)
+        };
     }
 
 
     return (<>
-        <table className='table table-hover contest-results table-sm'>
+        <table className='table table-hover contest-results table-sm mb-0'>
             <thead><tr>
                 {tableHeader}
             </tr></thead>
             <tbody>{tableBody}</tbody>
         </table>
         <button
-            className="btn btn-primary button-collapse-header"
+            className="btn btn-primary button-collapse-header my-2"
             type="button"
             onClick={() => setOnlySome(!onlySome)}
         >

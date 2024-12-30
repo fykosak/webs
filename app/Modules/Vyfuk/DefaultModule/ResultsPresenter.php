@@ -16,7 +16,7 @@ class ResultsPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $year = $this->getBodyYear();
+        $year = $this->getPointsYear();
         $year = $this->year ?? ($year ? $year->year : 1);
         $this->template->year = $year;
         $this->template->contest = $this->getContest();
