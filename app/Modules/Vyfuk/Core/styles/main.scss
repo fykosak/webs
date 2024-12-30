@@ -22,8 +22,12 @@ $font-weight-bold: 800;
 // Override bootstrap variables
 $primary: $primary-color;
 $secondary: $complementary-color;
+$min-contrast-ratio: 7;
+$focus-ring-box-shadow: none;
 $enable-rounded: true;
 $border-radius: 6px;
+$btn-focus-width: 0;
+//$card-border-width: 6px;
 //$card-border-width: 0;
 
 // Navbar
@@ -40,7 +44,8 @@ $flag-icons-path: '/node_modules/flag-icons/flags';
 @import "./titlepage";
 @import "./navigation";
 @import "./organizers";
-@import "./other.scss";
+@import "./other";
+@import "./results";
 
 @import '../../../../Components/Problem/problem';
 @import '../../../../Components/Problem/vyfuk';

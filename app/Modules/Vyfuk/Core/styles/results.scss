@@ -1,0 +1,12 @@
+.year-selector {
+    .dropdown-toggle {
+        min-width: 16rem;
+    }
+
+    .dropdown-menu {
+        max-height: 14rem;
+        overflow-y: auto;
+        min-width: 16rem;
+        text-align: center;
+    }
+}
