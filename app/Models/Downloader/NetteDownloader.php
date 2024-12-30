@@ -50,7 +50,7 @@ abstract class NetteDownloader
                 $newData = null;
             }
 
-            if ($newData) {
+            if ($newData !== null) {
                 // if new data is successfully downloaded
                 $this->cache->save($request->getCacheKey() . '-json', [
                     'expire' => DateTime::from($explicitExpiration ?? $this->expiration)->format('U'),

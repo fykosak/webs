@@ -328,6 +328,10 @@ def getContest(id):
         "contest":("vyfuk" if id==2 else "fykos"),
         "name":("VYFUK" if id==2 else "FYKOS"),
         "years":[
+            {"year":0,
+            "active":False,
+            "begin":str(datetime.now().year-2)+"-09-01T00:00:00+02:00",
+            "end":str(datetime.now().year-1)+"-08-31T23:59:59+02:00"},
             {"year":1,
             "active":False,
             "begin":str(datetime.now().year-2)+"-09-01T00:00:00+02:00",
@@ -354,3 +358,21 @@ def orgs(id):
         "texSignature":"podpis",
         "domainAlias":"jmeno"
         }}
+
+
+@app.route("/contests/<cid>/years/<y>/results")
+def getResults(cid,y):
+    return {
+        'tasks':{
+            'VYFUK_6':{1:{0:{'taskId':1,'points':5,'label':1}}},
+            'VYFUK_7':{1:{0:{'taskId':1,'points':5,'label':1}}},
+            'VYFUK_8':{1:{0:{'taskId':1,'points':5,'label':1}}},
+            'VYFUK_9':{1:{0:{'taskId':1,'points':5,'label':1}}},
+            },
+        'submits':{
+            'VYFUK_6':[{"contestant":{"contestantId":1,"name":"jméno prijmeni","school":"škola"},"sum":5.0,"submits":{"1":5.0},"rank":[1,1]}],
+            'VYFUK_7':[{"contestant":{"contestantId":2,"name":"jméno prijmeni","school":"škola"},"sum":5.0,"submits":{"1":5.0},"rank":[1,1]}],
+            'VYFUK_8':[{"contestant":{"contestantId":3,"name":"jméno prijmeni","school":"škola"},"sum":5.0,"submits":{"1":5.0},"rank":[1,1]}],
+            'VYFUK_9':[{"contestant":{"contestantId":4,"name":"jméno prijmeni","school":"škola"},"sum":5.0,"submits":{"1":5.0},"rank":[1,1]}],
+        }
+        }
