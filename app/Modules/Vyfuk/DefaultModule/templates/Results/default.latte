@@ -2,31 +2,31 @@
 {varType App\Models\Downloader\ContestModel $contest}
 {varType array $results}
 {block title}Výsledky {$year}. ročníku{/block}
-{block content}
-<div class="dropdown year-and-series-select">
-    <button class="btn btn-primary dropdown-toggle year-select-button" type="button" id="dropdownMenuButton"
-        data-bs-toggle="dropdown" aria-expanded="false">Vybrat ročník</button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <div class="scrollable-menu">
-            <div class="series-container">
+
+{block main}
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Výsledky {$year}. ročníku Výfuku</h1>
+        <div class="dropdown year-selector mb-3">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                {$year}. ročník ({$contest->years[$year]->begin->format('Y')}/{$contest->years[$year]->end->format('y')})
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 {foreach array_reverse($contest->years) as $contestYear}
                 {varType App\Models\Downloader\ContestYearModel $contestYear}
-                {if $contestYear->year > 0} {* Hide years for which data is not available *}
-                <a class="series-box full-width btn" href="{plink 'this' 'year'=>$contestYear->year}">
-                    {switch $language->value}
-                    {case 'cs'}{$contestYear->year}. ročník
-                    ({$contestYear->begin->format('Y')}/{$contestYear->end->format('y')})
-                    {default}Year {$contestYear->year}
-                    {/switch}
-                </a>
-                {/if}
+                    {if $contestYear->year > 0}
+                        <li><a class="dropdown-item py-2" href="{plink 'this' 'year'=>$contestYear->year}">
+                            {$contestYear->year}. ročník ({$contestYear->begin->format('Y')}/{$contestYear->end->format('y')})
+                        </a></li>
+                    {/if}
                 {/foreach}
-            </div>
+            </ul>
         </div>
-    </div>
+        {if $year < 7}
+            <p class="my-2"><small><i>Rozdělení do kategorií není dostupné pro starší ročníky.</i></small></p> {* TODO dříve (v xml) bylo, nutno opravit v DB *}
+        {/if}
+        <div id="contest-results" data-data="{json_encode($results)}" data-series="{json_encode($series)}"></div>
+    </section>
 </div>
-{if $year < 7}
-<p>Rozdělení do kategorií není dostupné pro starší ročníky.</p> {* TODO dříve (v xml) bylo, nutno opravit v DB *}
-{/if}
-<div id="contest-results" data-data="{json_encode($results)}" data-series="{json_encode($series)}"></div>
 {/block}
