@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Modules\Vyfuk\DefaultModule;
 
 use App\Models\Downloader\ProblemService;
+use App\Models\Downloader\EventService;
+use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 
 class DefaultPresenter extends BasePresenter
 {
@@ -20,6 +22,13 @@ class DefaultPresenter extends BasePresenter
         $this->problemService = $problemService;
     }
 
+    protected EventService $eventService;
+
+    public function injectEventServicesAndCache(EventService $eventService): void
+    {
+        $this->eventService = $eventService;
+    }
+
     public function renderDefault(): void
     {
         $this->template->newsList = $this->loadNews();
@@ -29,10 +38,14 @@ class DefaultPresenter extends BasePresenter
         $series = $this->problemService->getSeries('vyfuk', $year, $series);
         $this->template->series = $series;
 
-        $previousSeries = $this->problemService->getSeries('vyfuk', $year-1, $this->problemService->getLatestSeries('vyfuk', $year-1)-1);
+        $previousSeries = $this->problemService->getSeries('vyfuk', $year, $this->problemService->getLatestSeries('vyfuk', $year) - 1);
         $this->template->previousSeries = $previousSeries;
 
         $this->template->checkAllSolutions = $this->checkAllSolutions($previousSeries, $this->lang);
+
+        $this->template->resultsReady = $this->resultsReady($year, $previousSeries);
+
+        $this->template->nearestEvent = $this->eventService->getNewest([10, 11, 12, 18]);
     }
 
     public function checkAllSolutions($series, $lang): bool
@@ -46,6 +59,17 @@ class DefaultPresenter extends BasePresenter
         return array_reduce($problems, function ($carry, $problem) use ($lang) {
             return $carry && $this->problemService->getSolution($problem, $lang) !== null;
         }, true);
+    }
+
+    public function resultsReady($year, $series): bool
+    {
+        $results = $this->downloader->download(new SeriesResultsRequest($this->getContestId(), $year));
+
+        if (isset($results['tasks']['VYFUK_6'][$series->series])) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function loadNews(): array

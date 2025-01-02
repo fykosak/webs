@@ -57,9 +57,9 @@ abstract class ContestPresenter extends BasePresenter
         return null;
     }
 
-    public function getBodyYear(): ?ContestYearModel
+    public function getPointsYear(): ?ContestYearModel
     {
-        return $this->cache->load("bodyYear", function () {
+        return $this->cache->load("pointsYear", function () {
             foreach (array_reverse($this->getContest()->years) as $year) {
                 try {
                     $results = $this->downloader->download(new SeriesResultsRequest($this->getContestId(), $year->year));

@@ -51,4 +51,9 @@ class EventsPresenter extends BasePresenter
     {
         $this->template->events = array_reverse($this->eventService->getEvents([11, 12]));
     }
+
+    public function renderVikendovka(): void
+    {
+        $this->template->events = array_reverse($this->eventService->getEvents([18]));
+    }
 }
