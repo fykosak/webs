@@ -5,7 +5,7 @@
     <div class="inner-container">
         <div>
             <h1>
-                Zadání {$series->series}. série {$series->year}. ročníku
+                Zadání {$series->series>6?$series->series-7 . ". prázdninové" : $series->series . "."} série {$series->year}. ročníku
             </h1>
             <div>
                 Termín odevzdání: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>
@@ -31,7 +31,7 @@
                             </li>
                             {foreach $seriesList as $seriesOption}
                             <a n:class="'list-group-item list-group-item-action', $series->year == $yearOption && $series->series == $seriesOption ? list-group-item-primary"
-                                href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+                                href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption>6?$seriesOption-7 . "p." : $seriesOption}</a>
                             {/foreach}
                         </ul>
                         {/foreach}
