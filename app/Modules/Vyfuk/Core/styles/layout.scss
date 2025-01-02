@@ -1,6 +1,7 @@
 html,
 body {
   height: 100%;
+  text-align: justify;
   // font-size: $base-font-size;
 }
 
@@ -291,6 +292,7 @@ a:hover {
 .series-selector {
   .dropdown-toggle {
     min-width: 16rem;
+    width: 100%;
   }
 
   .dropdown-menu {
