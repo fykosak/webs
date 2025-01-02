@@ -243,7 +243,7 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
         return result;
     })
     if (onlySome) {
-        data = data.slice(0, 5);
+        data = data.slice(0, 25);
     }
     let tableBody: JSX.Element[] = [];
     for (let dat of data) {
