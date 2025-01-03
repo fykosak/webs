@@ -42,12 +42,12 @@ class ImageGalleryControl extends DIComponent
         }
 
         foreach ($iterator as $file) {
-            $image = Image::fromFile($file->getPathname());
+            $imageInfo = getimagesize($file->getPathname());
             $wwwPath = substr($file->getPathname(), strlen($wwwDir));
             $images[] = [
                 'src' => $wwwPath,
-                'width' => $image->getWidth(),
-                'height' => $image->getHeight(),
+                'width' => $imageInfo[0],
+                'height' => $imageInfo[1],
             ];
         }
 
