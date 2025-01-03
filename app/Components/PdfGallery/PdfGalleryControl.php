@@ -71,27 +71,21 @@ class PdfGalleryControl extends DIComponent
      * @throws UnknownImageFileException
      * @throws \Throwable
      */
-    public function render(string $path, ?string $style = null): void
+    public function render(string $path, bool $fromMetadata = false): void
     {
-        $style ??= "List";
-        $renderFile = __DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery' . $style . '.latte';
-
         $this->template->pdfs = $this->cache->load(
             [$path, $this->wwwDir],
-            fn() => self::getPdfs($path, $this->wwwDir)
+            fn() => self::getPdfs($path, $this->wwwDir, $fromMetadata)
         );
-        $this->template->render($renderFile);
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGalleryList.latte');
     }
-    public function renderFromMetadata(string $path, ?string $style = null): void
+    public function renderButtons(string $path, bool $fromMetadata = false): void
     {
-        $style ??= "List";
-        $renderFile = __DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery' . $style . '.latte';
-
         $this->template->pdfs = $this->cache->load(
             [$path, $this->wwwDir],
-            fn() => self::getPdfs($path, $this->wwwDir, true)
+            fn() => self::getPdfs($path, $this->wwwDir, $fromMetadata)
         );
-        $this->template->render($renderFile);
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGalleryButtons.latte');
     }
 
     /**
