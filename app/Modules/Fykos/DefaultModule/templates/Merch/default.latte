@@ -20,9 +20,9 @@
             <p>
                 {switch $language->value}
                 {case 'cs'}
-                    Chcete podpořit FYKOS? Pořiďte si náš merch! Nabízíme hrnky, čepice, mikiny a trička. Brzy otevřeme formulář na objednávky. Až do Vánoc máme navíc slevu na trička a mikiny!
+                    Chcete podpořit FYKOS? Pořiďte si náš merch! Nabízíme hrnky, čepice, mikiny a trička. Brzy otevřeme formulář na objednávky.
                 {default}
-                Want to support FYKOS? Get your favorite merch! Check out our mugs, beanies, sweatshirts, and t-shirts. We will soon publish the form to order them. Until Christmas, we have a discount on t-shirts and sweatshirts!
+                Want to support FYKOS? Get your favorite merch! Check out our mugs, beanies, sweatshirts, and t-shirts. We will soon publish the form to order them.
                 {/switch}
             </p>
             <p>
@@ -209,8 +209,12 @@
                         </ul>
                         <p>
                             {switch $language->value}
-                                {case 'cs'}Cena: <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>299 Kč</strong></span> <span style="color: green;"><strong>249 Kč</strong></span> nebo <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>13 €</strong></span> <span style="color: green;"><strong>11 €</strong></span>
-                                {default}Price: <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>13 €</strong></span> <span style="color: green;"><strong>11 €</strong></span>
+                                {case 'cs'}
+                                Cena: <strong>299 Kč</strong> nebo <strong>13 €</strong>
+                                {*<span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>299 Kč</strong></span> <span style="color: green;"><strong>249 Kč</strong></span> nebo <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>13 €</strong></span> <span style="color: green;"><strong>11 €</strong></span>*}
+                                {default}
+                                Price: <strong>13 €</strong>
+                                {*<span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>13 €</strong></span> <span style="color: green;"><strong>11 €</strong></span>*}
                             {/switch}
                         </p>
                     </div>
@@ -268,8 +272,12 @@
                         </ul>
                         <p>
                             {switch $language->value}
-                                {case 'cs'}Cena: <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>799 Kč</strong></span> <span style="color: green;"><strong>749 Kč</strong></span> nebo <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>34 €</strong></span> <span style="color: green;"><strong>32 €</strong></span>
-                            {default}Price: <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>34 €</strong></span> <span style="color: green;"><strong>32 €</strong></span>
+                                {case 'cs'}
+                                Cena: <strong>799 Kč</strong> nebo <strong>34 €</strong>
+                                {*<span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>799 Kč</strong></span> <span style="color: green;"><strong>749 Kč</strong></span> nebo <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>34 €</strong></span> <span style="color: green;"><strong>32 €</strong></span>*}
+                                {default}
+                                Price: <strong>34 €</strong>
+                                {*<span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>34 €</strong></span> <span style="color: green;"><strong>32 €</strong></span>*}
                             {/switch}
                         </p>
                     </div>
