@@ -1,13 +1,16 @@
 html,
 body {
   height: 100%;
-  text-align: justify;
   // font-size: $base-font-size;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   background-color: black;
+}
+
+p {
+  text-align: justify;
 }
 
 .btn-outline {
