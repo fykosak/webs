@@ -56,17 +56,36 @@
         </div>
     </section>
     <section class="inner-container mt-5">
-        <h2>Úlohy</h2>
-        <div class="row">
+        <div class="row mb-4">
+            <h2>Úlohy</h2>
             <p>Text k úlohám, odkaz na zadání, řešení</p>
+            <div class="d-block">
+                <a n:href=":Default:Problems:default" class="btn btn-primary">Zadání {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série</a>
+                <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}" class="btn btn-primary">Řešení {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}série</a>
+            </div>
         </div>
         <h2>Výsledky</h2>
-        <div class="row">
+        <div class="row mb-4">
             <p>Text k výsledkům, odkaz na výsledkovky</p>
+            <div class="d-block">
+                <a href="{plink ':Default:Results:default' 'year'=>$previousSeries->year}" class="btn btn-primary">Pořadí  po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii</a>
+            </div>
         </div>
         <h2>Akce</h2>
         <div class="row">
             <p>Generický text k akci + dynamický název akce, termín, odkaz na stránku, spuštění registrace</p>
+            <div class="d-block">
+                {switch $nearestEvent->eventTypeId}
+                    {case 10}
+                        <a n:href=":Default:Events:tabor" class="btn btn-primary">Stránka tábora</a>
+                    {case 11}
+                        <a n:href=":Default:Events:setkani" class="btn btn-primary">Stránka setkání</a>
+                    {case 12}
+                        <a n:href=":Default:Events:setkani" class="btn btn-primary">Stránka setkání</a>
+                    {case 18}
+                        <a n:href=":Default:Events:vikendovka" class="btn btn-primary">Stránka zimní víkendovky</a>
+                {/switch}
+            </div>
         </div>
     </section>
     {*TODO tranform news cards to sections with text
