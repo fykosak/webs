@@ -94,9 +94,9 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                 });
                 for (let [key, t] of tasks.entries()) {
                     taskLockup[t.taskId] = columns.length;
-                    columns.push({ colKey: "s" + series + "." + t.label, label: t.label + " (" + t.points + " b)", sortable: true, numerical: true });
+                    columns.push({ colKey: "s" + series + "." + t.label, label: t.label + " (" + t.points + "\u00A0b)", sortable: true, numerical: true });
                 }
-                columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? String(parseInt(series) - 7) + ". p" : series) + ". s.", sortable: true, numerical: true });
+                columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 7) : series), sortable: true, numerical: true });
             }
             columns.push({ colKey: "sum", label: "Celkem\nbodů", sortable: true, numerical: true });
 
