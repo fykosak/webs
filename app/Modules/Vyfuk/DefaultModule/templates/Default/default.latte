@@ -28,6 +28,11 @@
         </div>
     </section>
 </div>
+<div class="countdown-container py-3">
+    <section class="inner-container">
+        <h2 id="countdown" class="countdown-text"></h2>
+    </section>
+</div>
 <div class="panel color-light title-panel">
     <section class="inner-container">
         <div class="header-container">
@@ -160,4 +165,71 @@
         </div>
     </section>
 </div>
+
+<script>
+// countdown timer to series deadline
+var countDownDate = new Date({$series->deadline}).getTime();
+
+var timer = setInterval(countdownTimer, 1000);
+countdownTimer();
+
+function countdownTimer() {
+    var now = new Date().getTime();
+
+    var distance = Math.floor((countDownDate - now)/1000);
+
+    var days = Math.floor(distance / (60 * 60 * 24));
+    var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
+    var minutes = Math.floor((distance % (60 * 60)) / 60);
+    var seconds = Math.floor(distance % 60);
+
+    var daysLabel = "";
+    if (days == 1) {
+            daysLabel = " den ";
+    } else if (days < 5 && days != 0) {
+            daysLabel = " dny ";
+    } else {
+            daysLabel = " dnů ";
+    }
+
+    var hoursLabel = "";
+    if (hours == 1) {
+            hoursLabel = " hodina ";
+    } else if (hours < 5 && hours != 0) {
+            hoursLabel = " hodiny ";
+    } else {
+            hoursLabel = " hodin ";
+    }
+
+    var minutesLabel = "";
+    if (minutes == 1) {
+            minutesLabel = " minuta ";
+    } else if (minutes < 5 && minutes != 0) {
+            minutesLabel = " minuty ";
+    } else {
+            minutesLabel = " minut ";
+    }
+
+    var secondsLabel = "";
+    if (seconds == 1) {
+            secondsLabel = " sekunda";
+    } else if (seconds < 5 && seconds != 0) {
+            secondsLabel = " sekundy";
+    } else {
+            secondsLabel = " sekund";
+    }
+
+    var label = "Termín "+{$series->series}+". série: "
+    if (distance <= 0) {
+        clearInterval(timer);
+        time = {$series->series}+". série již proběhla.";
+    } else if (days == 0) {
+        time = label + hours + hoursLabel + minutes + minutesLabel + seconds + secondsLabel;
+    } else {
+        time = label + days + daysLabel + hours + hoursLabel + minutes + minutesLabel;
+    }
+
+    document.getElementById("countdown").innerHTML = time;
+}
+</script>
 {/block}
