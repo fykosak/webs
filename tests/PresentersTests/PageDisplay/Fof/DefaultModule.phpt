@@ -23,7 +23,8 @@ class DefaultModule extends AbstractPageDisplayTestCase
             ['Default:Default', 'default'],
             ['Default:Erasmus', 'default'],
             ['Default:History', 'default'],
-            ['Default:Merch', 'default'],
+            // one cannot test a page when one deletes said page!
+            //['Default:Merch', 'default'],
             ['Default:Partners', 'default'],
             //['Default:Registration', 'default'],
             ['Default:Rules', 'complete'],

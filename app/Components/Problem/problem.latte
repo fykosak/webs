@@ -9,7 +9,11 @@
         <div class="card-header problem-header problem-header-{$problem->number}">
             <div style="display: flex; justify-content: space-between;">
                 <h4><i class={$problem->getIcon()}></i><span class="skip-3px"></span>
-                    {$problem->getLabel()}...
+                    {if $problem->contest == 'vyfuk'}
+                        {$problem->getLabel()} ...
+                    {else}
+                        {$problem->getLabel()}...
+                    {/if}
                     {$problem->name[$language->value]|noescape}</h4>
                 <div>
                     {switch $language->value}

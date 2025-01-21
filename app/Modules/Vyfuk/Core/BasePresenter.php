@@ -28,7 +28,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
 
         $items[] = new NavItem(
             new PageTitle('O nás', 'fa-solid fa-users'),
-            ':default',
+            ':Default:About:default',
             [],
             [
                 new NavItem(new PageTitle('Co je Výfuk?'), ':Default:About:default'),
@@ -41,7 +41,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
 
         $items[] = new NavItem(
             new PageTitle('Jak řešit', 'fa-solid fa-book'),
-            ':default',
+            ':Default:Section:howToEngage',
             [],
             [
                 new NavItem(new PageTitle('Jak se zapojit'), ':Default:Section:howToEngage'),

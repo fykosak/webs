@@ -28,6 +28,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
                 new NavItem(new PageTitle($this->csen('Historie', 'History')), ':Default:About:history'),
                 new NavItem(new PageTitle($this->csen('Kontakt', 'Contact')), ':Default:About:contact'),
                 new NavItem(new PageTitle($this->csen('Podpořte nás', 'Support Us')), ':Default:SupportUs:'),
+                new NavItem(new PageTitle($this->csen('Merch', 'Merch')), ':Default:Merch:'),
             ],
         );
 

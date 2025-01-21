@@ -6,7 +6,7 @@
         <div class="header-container">
             <div class="row">
                 <div class="col-md header-text-container">
-                    <h1 class="header-text">Fyzikální soutěž pro 2.&nbsp;stupeň&nbsp;ZŠ</h1>
+                    <h1 class="header-text">Fyzikální soutěž<br> pro 2.&nbsp;stupeň&nbsp;ZŠ</h1>
                     <p class="header-text">
                         Výfuk, jméno našeho korespondenčního semináře, je vlastně zkratka jeho dlouhého názvu – Výpočty fyzikálních úkolů. Touto soutěží se snažíme ukázat, že fyzika je vlastně velmi zábavné a fascinující téma. {*TODO představení Výfuku*}
                     </p>
@@ -37,13 +37,13 @@
                 <div class="col-md my-2">
                     <div class="card news-card">
                         <div class="card-body">
-                            <h5 class="card-title">Zadání {$series->series}.&nbsp;série</h5>
+                            <h5 class="card-title">Zadání {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série</h5>
                             {if new Datetime() < $series->getDeadline()}
-                                <p class="card-text">Zveřejnili jsme zadání {$series->series}. série.</p>
-                                <p class="card-text"> Na vyřešení a odevzdání úloh {$series->series}. série máte čas do <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>.</p>
+                                <p class="card-text">Zveřejnili jsme zadání {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série.</p>
+                                <p class="card-text">Na vyřešení a odevzdání úloh {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série máte čas do <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>.</p>
                                 <a n:href=":Default:Problems:default" class="btn btn-primary">Zadání</a>
                             {else}
-                                <p>{$series->series}. série již proběhla. Zadání další série zveřejníme brzy.</p>
+                                <p>{$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninová " : $series->series . ".&nbsp;"|noescape}série již proběhla. Zadání další série zveřejníme brzy.</p>
                             {/if}
                         </div>
                     </div>
@@ -52,13 +52,13 @@
                 <div class="col-md my-2">
                     <div class="card news-card">
                         <div class="card-body">
-                            <h5 class="card-title">Řešení {$previousSeries->series}.&nbsp;série</h5>
+                            <h5 class="card-title">Řešení {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}série</h5>
                             {php $previousDeadline = $previousSeries->getDeadline()}
                             {php $dateTime = new Datetime()}
                             {if $dateTime > $previousDeadline && !$checkAllSolutions}
-                                <p class="card-text">{$previousSeries->series}. série již proběhla. Vzorová řešení zveřejníme brzy.</p>
+                                <p class="card-text">{$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninová " : $previousSeries->series . ".&nbsp;"|noescape}série již proběhla. Vzorová řešení zveřejníme brzy.</p>
                             {elseif $dateTime > $previousDeadline && $checkAllSolutions}
-                                <p class="card-text">Zveřejnili jsme vzorová řešení úloh {$previousSeries->series}. série.</p>
+                                <p class="card-text">Zveřejnili jsme vzorová řešení úloh {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}série.</p>
                                 <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}" class="btn btn-primary">Řešení</a>
                             {/if}
                         </div>
@@ -68,12 +68,12 @@
                 <div class="col-md my-2">
                     <div class="card news-card">
                         <div class="card-body">
-                            <h5 class="card-title">Výsledkové listiny po {$previousSeries->series}.&nbsp;sérii</h5>
+                            <h5 class="card-title">Výsledkové listiny po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii</h5>
                             {if $resultsReady && new Datetime() > $previousSeries->getDeadline()}
-                                <p>Zveřejnili jsme pořadí po {$previousSeries->series}. sérii {$previousSeries->year}. ročníku. Můžete se tedy podívat, jak jste dopadli a kolik bodů za jednotlivé úlohy jste získali. Výhercům všech kategorií gratulujeme!</p>
+                                <p>Zveřejnili jsme pořadí po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii {$previousSeries->year}.&nbsp;ročníku. Můžete se tedy podívat, jak jste dopadli a kolik bodů za jednotlivé úlohy jste získali. Výhercům všech kategorií gratulujeme!</p>
                                 <a href="{plink ':Default:Results:default' 'year'=>$previousSeries->year}" class="btn btn-primary">Pořadí</a>
                             {else}
-                                <p class="card-text">Pořadí po {$previousSeries->series}. sérii zveřejníme v blízké době.</p>
+                                <p class="card-text">Pořadí po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii zveřejníme v blízké době.</p>
                             {/if}
                         </div>
                     </div>
