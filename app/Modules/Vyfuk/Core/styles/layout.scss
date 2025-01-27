@@ -352,6 +352,6 @@ a:hover {
   color: $primary;
 }
 
-a.btn:hover {
+a.btn:hover, a.dropdown-item:hover {
   text-decoration: none;
 }
