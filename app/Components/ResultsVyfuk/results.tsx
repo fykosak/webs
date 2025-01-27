@@ -48,7 +48,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
         if (number < 7)
             return (
                 <button
-                    className={`btn me-2 ${selectedSeries == number ? 'btn-primary' : 'btn-outline-primary'}`}
+                    className={`btn me-2 mb-2 ${selectedSeries == number ? 'btn-primary' : 'btn-outline-primary'}`}
                     onClick={() => setSelectedSeries(number)}
                 >
                     {number}. série
@@ -58,7 +58,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
             return (
                 <button
                     onClick={() => setSelectedSeries(number)}
-                    className={`btn me-2 ${selectedSeries == number ? 'btn-primary' : 'btn-outline-primary'}`}
+                    className={`btn me-2 mb-2 ${selectedSeries == number ? 'btn-primary' : 'btn-outline-primary'}`}
                 >
                     {number - 7}. prázdninová série
                 </button>
@@ -67,7 +67,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
     seriesSelection.push(
         <button
             onClick={() => setSelectedSeries(0)}
-            className={`btn me-2 ${selectedSeries == 0 ? 'btn-primary' : 'btn-outline-primary'}`}
+            className={`btn me-2 mb-2 ${selectedSeries == 0 ? 'btn-primary' : 'btn-outline-primary'}`}
         >
             Celkové výsledky
         </button>
@@ -75,7 +75,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
     seriesSelection.push(
         <button
             onClick={() => setSelectedSeries(-1)}
-            className={`btn me-2 ${selectedSeries == -1 ? 'btn-primary' : 'btn-outline-primary'}`}
+            className={`btn me-2 mb-2 ${selectedSeries == -1 ? 'btn-primary' : 'btn-outline-primary'}`}
         >
             Prázdninové výsledky
         </button>
