@@ -30,16 +30,13 @@ type Tasks = {
 function Results({ data, series }: { data: { submits: { [key: string]: Submits; }, tasks: { [key: string]: Tasks; } }, series: number[] }) {
     const [selectedSeries, baseSetSelectedSeries] = useState(0);
     let tableManager: any = {};
-    [tableManager.sortColum, tableManager.setSortColum] = useState(selectedSeries < 1 ? "sum" : "s" + selectedSeries);
+    [tableManager.sortColum, tableManager.setSortColum] = useState(selectedSeries < 1 ? (selectedSeries == -1 ? "Psum" : "sum") : "s" + selectedSeries);
     [tableManager.sortAsc, tableManager.setSortAsc] = useState(false);
     [tableManager.hideColum, tableManager.setHideColum] = useState({});
     const setSelectedSeries = (value: number) => {
-        tableManager.setSortColum(value < 1 ? "sum" : "s" + value);
+        tableManager.setSortColum(value < 1 ? (value == -1 ? "Psum" : "sum") : "s" + value);
         baseSetSelectedSeries(value);
     }
-
-
-    selectedSeries < 1 ? "sum" : "s" + selectedSeries
 
     const sortedCategories = Object.keys(data.submits).sort((a, b) => {
         return parseInt(b.slice(-1)) - parseInt(a.slice(-1));
@@ -75,6 +72,14 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
             Celkové výsledky
         </button>
     )
+    seriesSelection.push(
+        <button
+            onClick={() => setSelectedSeries(-1)}
+            className={`btn me-2 ${selectedSeries == -1 ? 'btn-primary' : 'btn-outline-primary'}`}
+        >
+            Prázdninové výsledky
+        </button>
+    )
     let categoryContainers = [
         <div
             className='series-select my-2'
@@ -99,6 +104,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                 columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 7) : series), sortable: true, numerical: true });
             }
             columns.push({ colKey: "sum", label: "Celkem\nbodů", sortable: true, numerical: true });
+            columns.push({ colKey: "Psum", label: "Celkem za prázdninové série\nbodů", sortable: true, numerical: true });
 
             let outData = []
             for (let contestant of data.submits[category]) {
@@ -107,7 +113,10 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                 row["school"] = contestant.contestant.school;
                 row["rank"] = contestant.rank[0] == contestant.rank[1] ? String(contestant.rank[0]) + "." : String(contestant.rank[0]) + ".–" + String(contestant.rank[1]) + ".";
 
+                let hasTotalSum = false;
                 let totalSum = 0;
+                let prazdninySum = 0;
+                let hasPrazdninySum = false;
                 for (let series in data.tasks[category]) {
                     let tasks = data.tasks[category][series].sort((a, b) => {
                         return a.label.localeCompare(b.label);
@@ -124,9 +133,18 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                         }
                     }
                     row["s" + series] = seriesHasPoints ? seriesSum : "–";
-                    totalSum += seriesSum;
+                    if (parseInt(series) > 6) {
+                        //prazdninovky
+                        prazdninySum += seriesSum;
+                        hasPrazdninySum ||= seriesHasPoints;
+                    } else {
+                        //celkové vysledky
+                        totalSum += seriesSum;
+                        hasTotalSum ||= seriesHasPoints;
+                    }
                 }
-                row["sum"] = totalSum;
+                row["sum"] = hasTotalSum ? totalSum : '–';
+                row["Psum"] = hasPrazdninySum ? prazdninySum : '–';
                 outData.push(row);
             }
             return { columns: columns, data: outData };
@@ -135,8 +153,11 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
         let keys: string[] = tableDef.columns.map((col: ColumnDef) => { return col.colKey });
         if (selectedSeries < 1) {
             hidden = keys.filter((v) => {
-                if (v == "name" || v == "school" || v == "sum" || v == "rank") return false;
-                return !/^s[0-9]$/.test(v);
+                if (v == "Psum" && selectedSeries == -1) return false;
+                if (v == "sum" && selectedSeries == 0) return false;
+                if (v == "name" || v == "school") return false;
+                console.log(v)
+                return !((selectedSeries == 0 && /^s[0-6]$/.test(v)) || (selectedSeries == -1 && /^s[0-9]+$/.test(v) && !/^s[1-6]$/.test(v)));
             })
         } else {
             hidden = keys.filter((v) => {
