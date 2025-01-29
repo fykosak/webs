@@ -38,13 +38,13 @@ class SeriesModel
         }
 
         $defaultTopic = match ($contest) {
-            'fykos' => [
-                'cs' => "$this->series. seriál",
-                'en' => "Serial Number $this->series"
-            ],
             'vyfuk' => [
                 'cs' => "$this->series. Výfučtení",
                 'en' => ''
+            ],
+            default => [
+                'cs' => "$this->series. seriál",
+                'en' => "Serial Number $this->series"
             ]
         };
 
