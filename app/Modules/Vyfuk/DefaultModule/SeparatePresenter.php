@@ -26,8 +26,6 @@ class SeparatePresenter extends BasePresenter
         $this->template->yearsAndSeries = $this->getYearsAndSeries();
 
         $this->template->hasAtLeastOneSerial = $this->checkYearsSerials($this->getYearsAndSeries());
-
-        $this->template->serialTitles = $this->getSerialTitles($this->getYearsAndSeries());
     }
 
     private function getYearsAndSeries(): array
@@ -68,32 +66,5 @@ class SeparatePresenter extends BasePresenter
         }
 
         return $hasAtLeastOneSerial;
-    }
-
-    private function getSerialTitles($yearsAndSeries): array
-    {
-        $pdfParser = new \Smalot\PdfParser\Parser();
-
-        $serialTitles = [];
-        foreach ($yearsAndSeries as $year => $seriesList) {
-            foreach ($seriesList as $seriesNo) {
-                $series = $this->problemService->getSeries('vyfuk', $year, $seriesNo);
-                $serialPath = $this->problemService->getSerial('vyfuk', $series, $this->lang);
-                if ($serialPath) {
-                    $pdf = $pdfParser->parseFile($serialPath);
-
-                    $metadata = $pdf->getDetails();
-
-                    $title = $metadata['Title'];
-
-                    $titleModified = str_replace('Seriál ', '', str_replace('Výfučtení ', '', str_replace(', Výfuk', '', $title)));
-
-                    $displayName = str_replace(explode(' ', $titleModified)[0] . ' ', '', $titleModified);
-
-                    $serialTitles[$year][$seriesNo] = $displayName;
-                }
-            }
-        }
-        return $serialTitles;
     }
 }
