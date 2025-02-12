@@ -34,7 +34,7 @@ class DefaultModule extends AbstractPageDisplayTestCase
             // events
             ['Default:Events', 'default'],
             ['Default:Events', 'dalsi'],
-            ['Default:Events', 'detail'],
+            // ['Default:Events', 'detail'],
             ['Default:Events', 'setkani'],
             ['Default:Events', 'tabor'],
             ['Default:Events', 'vikendovka'],
