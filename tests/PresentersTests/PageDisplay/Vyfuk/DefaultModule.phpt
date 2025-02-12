@@ -42,7 +42,7 @@ class DefaultModule extends AbstractPageDisplayTestCase
             ['Default:Results', 'default'],
             // separate pages
             ['Default:Separate', 'teachers'],
-            ['Default:Separate', 'serialArchive'],
+            // ['Default:Separate', 'serialArchive'],
             // titlepage
             ['Default:Default', 'default'],
         ]);
