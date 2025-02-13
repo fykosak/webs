@@ -99,12 +99,12 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                 });
                 for (let [key, t] of tasks.entries()) {
                     taskLockup[t.taskId] = columns.length;
-                    columns.push({ colKey: "s" + series + "." + t.label, label: t.label + " (" + t.points + "\u00A0b)", sortable: true, numerical: true });
+                    columns.push({ colKey: "s" + series + "." + t.label, label: t.label + "\u00A0(" + t.points + "\u00A0b)", sortable: true, numerical: true });
                 }
                 columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 7) : series), sortable: true, numerical: true });
             }
-            columns.push({ colKey: "sum", label: "Celkem\nbodů", sortable: true, numerical: true });
-            columns.push({ colKey: "Psum", label: "Celkem za prázdninové série\nbodů", sortable: true, numerical: true });
+            columns.push({ colKey: "sum", label: "Celkem\u00A0bodů", sortable: true, numerical: true });
+            columns.push({ colKey: "Psum", label: "Celkem\u00A0bodů", sortable: true, numerical: true });
 
             let outData = []
             for (let contestant of data.submits[category]) {
@@ -283,12 +283,14 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
 
 
     return (<>
-        <table className='table table-hover contest-results table-sm mb-0'>
-            <thead><tr>
-                {tableHeader}
-            </tr></thead>
-            <tbody>{tableBody}</tbody>
-        </table>
+        <div className='table-responsive-sm'>
+            <table className='table table-hover contest-results table-sm mb-0'>
+                <thead><tr>
+                    {tableHeader}
+                </tr></thead>
+                <tbody>{tableBody}</tbody>
+            </table>
+        </div>
         <button
             className="btn btn-primary button-collapse-header my-2"
             type="button"
