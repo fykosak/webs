@@ -4,56 +4,60 @@
 
 <!DOCTYPE html>
 <html lang="{$language->value}">
+
 <head>
     <title>
         {ifset title}{include title} | {/ifset}
         {switch $language->value}
-            {case 'cs'} Fyziklání {$newestEvent->begin|date:'Y'}
-            {default} Fyziklani {$newestEvent->begin|date:'Y'}
+        {case 'cs'} Fyziklání {$newestEvent->begin|date:'Y'}
+        {default} Fyziklani {$newestEvent->begin|date:'Y'}
         {/switch}
     </title>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
     <meta name="theme-color" content="#e6060d">
 
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="{switch $language->value}{case cs}Fyziklání{default}Fyziklani{/switch}"/>
-    <meta property="og:image" content="{switch $language->value}{case cs}https://fyziklani.cz/images/fof-og-image-cs.png{default}https://fyziklani.cz/images/fof-og-image-en.png{/switch}"/>
-    <meta property="og:description" content="{switch $language->value}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}"/>
-    <meta property="og:image:type" content="image/png"/>
-    <meta property="og:locale" content="{$language->getLocale()}"/>
-    <meta property="og:url" content="{plink //this}"/>
-    <link href="{$basePath}/images/icon.png" rel="icon" type="image/png"/>
-    <link href="{asset 'assets/main.css'}" rel="stylesheet"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{switch $language->value}{case cs}Fyziklání{default}Fyziklani{/switch}" />
+    <meta property="og:image"
+        content="{switch $language->value}{case cs}https://fyziklani.cz/images/fof-og-image-cs.png{default}https://fyziklani.cz/images/fof-og-image-en.png{/switch}" />
+    <meta property="og:description"
+        content="{switch $language->value}{case cs}Týmová soutěž v řešení fyzikálních problémů{default}Team competition in solving physics problems{/switch}" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:locale" content="{$language->getLocale()}" />
+    <meta property="og:url" content="{plink //this}" />
+    <link href="{$basePath}/images/icon.png" rel="icon" type="image/png" />
+    <link href="{asset 'assets/main.css'}" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     {block head}{/block}
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+        crossorigin="anonymous"></script>
     <script src="{asset 'assets/main.js'}"></script>
     {block scripts}{/block}
 </head>
 
 <body>
 
-{block body}
+    {block body}
     {control navigation '/images/logo.svg', 'Fyziklani ' . $newestEvent->begin->format('Y')}
     <main>
         {block main}
-            <div class="panel color-light">
-                <section class="inner-container">
-                    {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
-                    {ifset title}<h1>{include title}</h1>{/ifset}
-                    {include content}
-                </section>
-            </div>
+        <div class="panel color-light">
+            <section class="inner-container">
+                {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+                {ifset title}<h1>{include title}</h1>{/ifset}
+                {include content}
+            </section>
+        </div>
         {/block}
     </main>
     <footer>
@@ -61,31 +65,32 @@
             <div class="inner-container">
                 <div class="text">
                     {switch $language->value}
-                        {case 'cs'}Zaujala vás soutěž?
-                        {default}Are you interested?
+                    {case 'cs'}Zaujala vás soutěž?
+                    {default}Are you interested?
                     {/switch}
                 </div>
                 {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
-                    <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Registrace{default}Registration{/switch}</a>
+                <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case
+                    'cs'}Registrace{default}Registration{/switch}</a>
                 {else}
-                    {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
-                        {switch $language->value}
-                            {case 'cs'}Registrace se otevře v listopadu!
-                            {default} Registration will open in November!
-                        {/switch}
-                    {else}
-                        {if $newestEvent->isLongAfterTheEvent()}
-                            {switch $language->value}
-                                {case 'cs'}Registrace na další ročník ještě není otevřena.
-                                {default} Registration for the next year is not open yet.
-                            {/switch}
-                        {else}
-                            {switch $language->value}
-                                {case 'cs'}Registrace je bohužel již na tento ročník uzavřena.
-                                {default}Unfortunately, registration is already closed for this year.
-                            {/switch}
-                        {/if}
-                    {/if}
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+                {switch $language->value}
+                {case 'cs'}Registrace se otevře v listopadu!
+                {default} Registration will open in November!
+                {/switch}
+                {else}
+                {if $newestEvent->isLongAfterTheEvent()}
+                {switch $language->value}
+                {case 'cs'}Registrace na další ročník ještě není otevřena.
+                {default} Registration for the next year is not open yet.
+                {/switch}
+                {else}
+                {switch $language->value}
+                {case 'cs'}Registrace je bohužel již na tento ročník uzavřena.
+                {default}Unfortunately, registration is already closed for this year.
+                {/switch}
+                {/if}
+                {/if}
                 {/if}
             </div>
         </div>
@@ -93,132 +98,180 @@
         <div class="panel sponsors">
             <div class="inner-container">
                 {*<div class="category category-full-line">*}
-                <div class="category">
-                    <div class="category-title">{switch $language->value}{case cs}Organizátoři{default}Organized by{/switch}</div>
-                    <div class="category-sponsors">
-                        <a {switch $language->value}{case cs}href="https://fykos.cz/"{default}href="https://fykos.org/"{/switch} style="text-align: center">
-                            <img src="{$basePath}/images/logos/fykos_logo.png" alt="logo FYKOSu" style="max-width: 9rem">
-                        </a>
-                        <a {switch $language->value}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
-                            <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
-                                style="max-width: 8rem">
-                        </a>
-                        <a href="https://www.msmt.cz/" style="text-align: center">
-                            {switch $language->value}
-                            {case cs}
+                    <div class="category">
+                        <div class="category-title">{switch $language->value}{case cs}Organizátoři{default}Organized
+                            by{/switch}</div>
+                        <div class="category-sponsors">
+                            <a {switch $language->value}{case
+                                cs}href="https://fykos.cz/"{default}href="https://fykos.org/"{/switch}
+                                style="text-align: center">
+                                <img src="{$basePath}/images/logos/fykos_logo.png" alt="logo FYKOSu"
+                                    style="max-width: 9rem">
+                            </a>
+                            <a {switch $language->value}{case
+                                cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch}
+                                style="text-align: center">
+                                <img src="{$basePath}/images/logos/mff.png" class="sponsor-logo" alt="MFF logo"
+                                    style="max-width: 8rem">
+                            </a>
+                            <a href="https://www.msmt.cz/" style="text-align: center">
+                                {switch $language->value}
+                                {case cs}
                                 <img src="{$basePath}/images/logos/msmt_cs.jpg" alt="MŠMT logo" style="max-width: 9rem">
-                            {default}
+                                {default}
                                 <img src="{$basePath}/images/logos/msmt_en.jpg" alt="MŠMT logo" style="max-width: 9rem">
-                            {/switch}
-                        </a>
+                                {/switch}
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="category">
-                    <div class="category-title">{switch $language->value}{case cs}Generální partner{default}General Partner{/switch}</div>
-                    <div class="category-sponsors">
-                        <a href="https://www.cez.cz/" style="text-align: center">
-                            {switch $language->value}{case cs}<img src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo" style="max-width: 10rem">
-                          	{default}<img src="{$basePath}/images/logos/CEZ_Group_Logo_EN.png" alt="CEZ group logo" style="max-width: 10rem">{/switch}
-                        </a>
+                    <div class="category">
+                        <div class="category-title">{switch $language->value}{case cs}Generální partner{default}General
+                            Partner{/switch}</div>
+                        <div class="category-sponsors">
+                            <a href="https://www.cez.cz/" style="text-align: center">
+                                {switch $language->value}{case cs}<img
+                                    src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo"
+                                    style="max-width: 10rem">
+                                {default}<img src="{$basePath}/images/logos/CEZ_Group_Logo_EN.png" alt="CEZ group logo"
+                                    style="max-width: 10rem">{/switch}
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="category">
-                    <div class="category-title">{switch $language->value}{case cs}Platinoví partneři{default}Platinum Partners{/switch}</div>
-                    <div class="category-sponsors">
-                        {*<a href="https://www.nadacecez.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/nadaceCEZ-logo.png" alt="Nadace CEZ logo" style="max-width: 5rem">
-                        </a>*}
-                        <a href="https://www.nfneuron.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/neuron-logo.jpg" alt="Neuron logo" style="max-width: 10rem">
-                        </a>
-                        <a href="https://qminers.com/cs/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/qminers-logo.png" alt="Qminers logo" style="max-width: 10rem">
-                        </a>
+                    <div class="category">
+                        <div class="category-title">{switch $language->value}{case cs}Platinoví
+                            partneři{default}Platinum Partners{/switch}</div>
+                        <div class="category-sponsors">
+                            {*<a href="https://www.nadacecez.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/nadaceCEZ-logo.png" alt="Nadace CEZ logo"
+                                    style="max-width: 5rem">
+                            </a>*}
+                            <a href="https://www.nfneuron.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/neuron.svg" alt="Neuron logo"
+                                    style="max-width: 10rem">
+                            </a>
+                            <a href="https://qminers.com/cs/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/qminers-logo.png" alt="Qminers logo"
+                                    style="max-width: 10rem">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="category">
-                    <div class="category-title">{switch $language->value}{case cs}Za podpory{default}Supported by{/switch}</div>
-                    <div class="category-sponsors">
-                        <a href="https://www.fabric.camp/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/fabric_title.png" alt="FABRIC logo" style="max-width: 7rem">
-                        </a>
+                    <div class="category">
+                        <div class="category-title">{switch $language->value}{case cs}Stříbrní partneři{default}Silver
+                            Partners{/switch}</div>
+                        <div class="category-sponsors">
+                            <a href="http://www.kalabria.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo"
+                                    style="max-width:7rem">
+                            </a>
+                            <a href="https://casioczech.fastcr.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo"
+                                    style="max-width:7rem">
+                            </a>
+                            <a href="https://www.wolfram.com/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/wolfram-logo.png" alt="Wolfram logo"
+                                    style="max-width:7rem">
+                            </a>
+                            {*<a href="https://brilliant.org/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo"
+                                    style="max-width:10rem">
+                            </a>*}
+                        </div>
                     </div>
-                </div>
-                <div class="category">
-                    <div class="category-title">{switch $language->value}{case cs}Stříbrní partneři{default}Silver Partners{/switch}</div>
-                    <div class="category-sponsors">
-                        {*<a href="http://www.kalabria.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo" style="max-width:7rem">
-                        </a>*}
-                        <a href="https://casioczech.fastcr.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo" style="max-width:7rem">
-                        </a>
-                        <a href="https://www.wolfram.com/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/wolfram-logo.png" alt="Wolfram logo" style="max-width:7rem">
-                        </a>
-                        {*<a href="https://brilliant.org/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo" style="max-width:10rem">
-                        </a>*}
+                    <div class="category">
+                        <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}
+                        </div>
+                        <div class="category-sponsors">
+                            <a href="https://www.humusoft.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/Mathworks-Humusoft.png"
+                                    alt="Humusoft and Mathworks logo" style="max-width: 20rem">
+                            </a>
+                            <a href="https://vida.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/vida-logo.png" alt="Vida logo"
+                                    style="max-width:7rem">
+                            </a>
+                            <a href="https://www.escapepoint.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/escape-logo.jpg" alt="Escape logo"
+                                    style="max-width: 10rem">
+                            </a>
+                            {*<a href="https://casioczech.fastcr.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo"
+                                    style="max-width:7rem">
+                            </a>*}
+                            {*<a href="https://brilliant.org/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo"
+                                    style="max-width:10rem">
+                            </a>*}
+                            <a href="https://www.hobza.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/hobza-logo.jpg" alt="Hobza logo"
+                                    style="max-width: 8rem">
+                            </a>
+                            {*<a href="https://www.quark.sk/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/Quark-logo.png" alt="Quark logo"
+                                    style="max-width: 9rem">
+                            </a>*}
+                            {*<a href="https://www.doller.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/doller-logo.png" alt="Doller logo"
+                                    style="max-width: 9rem">
+                            </a>*}
+                            {*<a href="https://mindok.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/mindok.png" alt="Mindok logo"
+                                    style="max-width: 12rem">
+                            </a>*}
+                            {*<a href="https://www.merkurtoys.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/merkur.png" alt="Merkur logo"
+                                    style="max-width: 12rem">
+                            </a>*}
+                            <a href="https://efektivni-altruismus.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/czea.png" alt="CZEA logo" style="max-width: 15rem">
+                            </a>
+                            <a href="https://prometheus-nakl.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/prometheus-logo.png" alt="Prometheus logo"
+                                    style="max-width: 4rem">
+                            </a>
+                            {*<a href="https://www.natur.cuni.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/prfuk-logo.jpeg" alt="Přírodovědecká fakulta"
+                                    style="max-width: 12rem">
+                            </a>*}
+                            <a href="https://www.bohemiagarnet.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/bohemiagarmet.png" alt="Bohemia garmet"
+                                    style="max-width: 12rem">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="category">
-                    <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}</div>
-                    <div class="category-sponsors">
-                        <a href="https://www.humusoft.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/Mathworks-Humusoft.png" alt="Humusoft and Mathworks logo" style="max-width: 20rem">
-                        </a>
-                        {*<a href="https://vida.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/vida-logo.png" alt="Vida logo" style="max-width:7rem">
-                        </a>*}
-                        <a href="https://www.escapepoint.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/escape-logo.jpg" alt="Escape logo" style="max-width: 10rem">
-                        </a>
-                        {*<a href="http://www.kalabria.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo" style="max-width:7rem">
-                        </a>*}
-                        {*<a href="https://casioczech.fastcr.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo" style="max-width:7rem">
-                        </a>*}
-                         {*<a href="https://brilliant.org/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo" style="max-width:10rem">
-                        </a>*}
-                        <a href="https://www.hobza.cz/" style="text-align: center">
-                          <img src="{$basePath}/images/logos/hobza-logo.jpg" alt="Hobza logo" style="max-width: 8rem">
-                        </a>
-                        {*<a href="https://www.quark.sk/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/Quark-logo.png" alt="Quark logo" style="max-width: 9rem">
-                        </a>*}
-                        {*<a href="https://www.doller.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/doller-logo.png" alt="Doller logo" style="max-width: 9rem">
-                        </a>*}
-                        {*<a href="https://mindok.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/mindok.png" alt="Mindok logo" style="max-width: 12rem">
-                        </a>*}
-                        {*<a href="https://www.merkurtoys.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/merkur.png" alt="Merkur logo" style="max-width: 12rem">
-                        </a>*}
-                        {*<a href="https://efektivni-altruismus.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/czea.png" alt="CZEA logo" style="max-width: 15rem">
-                        </a>*}
-                        {*<a href="https://prometheus-nakl.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/prometheus-logo.png" alt="Prometheus logo" style="max-width: 4rem">
-                        </a>*}
-                        {*<a href="https://www.natur.cuni.cz/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/prfuk-logo.jpeg" alt="Přírodovědecká fakulta" style="max-width: 12rem">
-                        </a>*}
+                    <div class="category">
+                        <div class="category-title">{switch $language->value}{case cs}Mediální partner{default}Media
+                            Partner{/switch}</div>
+                        <div class="category-sponsors">
+                            <a href="https://www.ceskatelevize.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/ct-logo.png" alt="Česká televize logo"
+                                    style="max-width: 15rem">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="category">
+                        <div class="category-title">{switch $language->value}{case cs}Za podpory{default}Supported
+                            by{/switch}</div>
+                        <div class="category-sponsors">
+                            <a href="https://www.fabric.camp/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/fabric_title.png" alt="FABRIC logo"
+                                    style="max-width: 7rem">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="panel footer">
-            <div class="inner-container row">
-                <div class="col-md-6">
-                    <img class="logo" src="{$basePath}/images/logo.svg" alt="Fyziklani" />
-                    {switch $language->value}
+            <div class="panel footer">
+                <div class="inner-container row">
+                    <div class="col-md-6">
+                        <img class="logo" src="{$basePath}/images/logo.svg" alt="Fyziklani" />
+                        {switch $language->value}
                         {case 'cs'}
                         <p>
-                            Fyziklání {$newestEvent->begin|date:'Y'} je organizováno <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající {$newestEvent->year}. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
+                            Fyziklání {$newestEvent->begin|date:'Y'} je organizováno <a
+                                href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající
+                            {$newestEvent->year}. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně
+                            studenty
                             <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                         </p>
                         <p>
@@ -226,40 +279,53 @@
                         </p>
                         {default}
                         <p>
-                            Fyziklani {$newestEvent->begin|date:'Y'} is organized by <a href="https://fykos.org/en">FYKOS</a> &#8211 a group organizing educational events with focus on physics for more than {$newestEvent->year} years. FYKOS is made up mostly of students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a>.
+                            Fyziklani {$newestEvent->begin|date:'Y'} is organized by <a
+                                href="https://fykos.org/en">FYKOS</a> &#8211 a group organizing educational events with
+                            focus on physics for more than {$newestEvent->year} years. FYKOS is made up mostly of
+                            students from the <a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics,
+                                Charles University</a>.
                         </p>
                         <p>
-                            The realization of the competition was supported by the Ministry of Education, Youth and Sports of the Czech Republic.
+                            The realization of the competition was supported by the Ministry of Education, Youth and
+                            Sports of the Czech Republic.
                         </p>
-                    {/switch}
-                    <p>
-                        <strong>#fykos</strong>
-                        {switch $language->value}
+                        {/switch}
+                        <p>
+                            <strong>#fykos</strong>
+                            {switch $language->value}
                             {case 'cs'}<strong>#fyziklani</strong>
                             {default}<strong>#fyziklani{$newestEvent->begin|date:'Y'}</strong>
-                        {/switch}
-                        <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>
-                    </p>
-                    <div class="other-logos">
-                        <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/logos/fykos_logo_white.png" alt="FYKOS" style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        <a target="_blank" href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
-                        {if $lang=='cs'}<a target="_blank" href="https://dsef.cz/"><img class="other-logo" src="{$basePath}/images/logos/dsef_logo_white.png"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>{/if}
+                            {/switch}
+                            <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>
+                        </p>
+                        <div class="other-logos">
+                            <a target="_blank" href="https://fykos.cz/"><img class="other-logo"
+                                    src="{$basePath}/images/logos/fykos_logo_white.png" alt="FYKOS"
+                                    style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
+                            <a target="_blank"
+                                href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img
+                                    class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"
+                                    style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
+                            {if $lang=='cs'}<a target="_blank" href="https://dsef.cz/"><img class="other-logo"
+                                    src="{$basePath}/images/logos/dsef_logo_white.png"
+                                    style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>{/if}
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <nav>
-                        <ul>
-                            {switch $language->value}
+                    <div class="col-md-3">
+                        <nav>
+                            <ul>
+                                {switch $language->value}
                                 {case cs}
                                 <li>Pro účastníky a učitele
                                     <ul>
                                         <li><a n:href=":Default:AboutTheCompetition:">O soutěži</a></li>
                                         <li><a n:href=":Default:Rules:">Pravidla</a></li>
-{*                                        <li><a n:href=":Default:Schedule:">Program</a></li>*}
-                                        {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
-                                            <li><a n:href=":Default:Registration:">Registrace</a></li>
+                                        {* <li><a n:href=":Default:Schedule:">Program</a></li>*}
+                                        {if
+                                        $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+                                        <li><a n:href=":Default:Registration:">Registrace</a></li>
                                         {/if}
-{*                                        <li><a n:href=":Default:Erasmus: lang: en">Program Erasmus+</a></li>*}
+                                        {* <li><a n:href=":Default:Erasmus: lang: en">Program Erasmus+</a></li>*}
                                         <li><a href="https://fykos.cz/merch">Merch</a></li>
                                     </ul>
                                 </li>
@@ -268,68 +334,72 @@
                                     <ul>
                                         <li><a n:href=":Default:AboutTheCompetition:">About</a></li>
                                         <li><a n:href=":Default:Rules:">Rules</a></li>
-{*                                        <li><a n:href=":Default:Schedule:">Schedule</a></li>*}
-                                        {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
-                                            <li><a n:href=":Default:Registration:">Registration</a></li>
+                                        {* <li><a n:href=":Default:Schedule:">Schedule</a></li>*}
+                                        {if
+                                        $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+                                        <li><a n:href=":Default:Registration:">Registration</a></li>
                                         {/if}
-{*                                        <li><a n:href=":Default:Erasmus: lang: en">Fyziklani International 2022</a></li>*}
+                                        {* <li><a n:href=":Default:Erasmus: lang: en">Fyziklani International 2022</a>
+                                        </li>*}
                                         <li><a href="https://fykos.org/merch">Merch</a></li>
                                     </ul>
                                 </li>
-                            {/switch}
-                        </ul>
-                    </nav>
-                    <nav>
-                        <ul>
-                            {switch $language->value}
+                                {/switch}
+                            </ul>
+                        </nav>
+                        <nav>
+                            <ul>
+                                {switch $language->value}
                                 {case cs}
                                 <li>Pro partnery
                                     <ul>
                                         <li><a href="https://fykos.cz/podporte-nas">Podpořte nás</a></li>
-{*                                        <li><a href="">Loga a materiály</a></li>*}
-{*                                        <li><a href="">Kontakt</a></li>*}
+                                        {* <li><a href="">Loga a materiály</a></li>*}
+                                        {* <li><a href="">Kontakt</a></li>*}
                                     </ul>
                                 </li>
                                 {default}
                                 <li>For partners
                                     <ul>
                                         <li><a href="https://fykos.org/support-us">Support us</a></li>
-{*                                        <li><a href="">Logos and materials</a></li>*}
-{*                                        <li><a href="">Contact</a></li>*}
+                                        {* <li><a href="">Logos and materials</a></li>*}
+                                        {* <li><a href="">Contact</a></li>*}
                                     </ul>
                                 </li>
-                            {/switch}
-                        </ul>
-                    </nav>
+                                {/switch}
+                            </ul>
+                        </nav>
 
-                </div>
-                <div class="col-md-3" style="position: relative;">
-                    <nav>
-                        <ul>
-                            {switch $language->value}
+                    </div>
+                    <div class="col-md-3" style="position: relative;">
+                        <nav>
+                            <ul>
+                                {switch $language->value}
                                 {case cs}
                                 <li>Sledujte nás
-                                {default}
+                                    {default}
                                 <li>Follow us on social media
-                            {/switch}
-                            <ul>
-                                <li>
-                                    <a class="social-sites" href="https://www.facebook.com/FYKOS">
-                                    <i class="fa-brands fa-square-facebook fa-2x"></i>
-                                    </a>
-                                    <a class="social-sites" href="https://www.instagram.com/fykosak/">
-                                    <i class="fa-brands fa-instagram fa-2x"></i>
-                                    </a>
+                                    {/switch}
+                                    <ul>
+                                        <li>
+                                            <a class="social-sites" href="https://www.facebook.com/FYKOS">
+                                                <i class="fa-brands fa-square-facebook fa-2x"></i>
+                                            </a>
+                                            <a class="social-sites" href="https://www.instagram.com/fykosak/">
+                                                <i class="fa-brands fa-instagram fa-2x"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                    <a href="#top" style="position: absolute; bottom: 0; right: 0;"><i class="fas fa-arrow-up"></i></a>
+                        </nav>
+                        <a href="#top" style="position: absolute; bottom: 0; right: 0;"><i
+                                class="fas fa-arrow-up"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
     </footer>
-{/block}
+    {/block}
 </body>
+
 </html>
