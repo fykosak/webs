@@ -294,8 +294,7 @@ a:hover {
 
 .series-selector {
   .dropdown-toggle {
-    min-width: 16rem;
-    width: 100%;
+    width: 16rem;
   }
 
   .dropdown-menu {
@@ -329,6 +328,10 @@ a:hover {
       }
     }
   }
+}
+
+.list-group {
+  width: 16rem;
 }
 
 .btn-primary {
