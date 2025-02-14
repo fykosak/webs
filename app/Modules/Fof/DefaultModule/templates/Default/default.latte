@@ -58,27 +58,26 @@
         </div>
     </div>
 
-    {*<div class="panel registration" style="background-color: black">*}
-        {*<div class="inner-container">*}
-            {*<div class="text">*}
-                {*{switch $language->value}*}
-                    {*{case 'cs'}Doufáme, že jste si soutěž užili!*}
-                    {*{default}We hope you have enjoyed the competition!*}
-                {*{/switch}*}
-            {*</div>*}
-            {*<div class="buttons">*}
-                {*{switch $language->value}*}
-                    {*{case cs}*}
-                    {*<a class="btn btn-primary m-1" href="/2024/vysledky/">Výsledky soutěže</a>*}
-                    {*<a class="btn btn-primary m-1" href="/download/2024/reseni.pdf">Úlohy a řešení</a>*}
-                {*{default}*}
-                    {*<a class="btn btn-primary m-1" href="/2024/results/">Competition results</a>*}
-                    {*<a class="btn btn-primary m-1" href="/download/2024/solutions.pdf">Problem assignment and solutions</a>*}
-                {*{/switch}*}
-{**}
-            {*</div>*}
-        {*</div>*}
-    {*</div>*}
+    <div class="panel registration" style="background-color: black">
+        <div class="inner-container">
+            <div class="text">
+                {switch $language->value}
+                    {case 'cs'}Doufáme, že jste si soutěž užili!
+                    {default}We hope you have enjoyed the competition!
+                {/switch}
+            </div>
+            <div class="buttons">
+                {switch $language->value}
+                    {case cs}
+                    <a class="btn btn-primary m-1" href="/2025/vysledky/">Výsledky soutěže</a>
+                    <a class="btn btn-primary m-1" href="/download/2025/reseni.pdf">Úlohy a řešení</a>
+                {default}
+                    <a class="btn btn-primary m-1" href="/2025/results/">Competition results</a>
+                    <a class="btn btn-primary m-1" href="/download/2025/solutions.pdf">Problem assignment and solutions</a>
+                {/switch}
+            </div>
+        </div>
+    </div>
 
     {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
         {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
