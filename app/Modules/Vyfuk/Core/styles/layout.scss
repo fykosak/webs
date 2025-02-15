@@ -292,9 +292,26 @@ a:hover {
   }
 }
 
+.selector-container {
+  width: fit-content;
+
+  @media (min-width: 781px) {
+    float: right;
+  }
+}
+
+.tasks-container {
+  margin-top: 1.5rem;
+
+  @media (min-width: 781px) {
+    margin-top: 3rem;
+  }
+}
+
 .series-selector {
   .dropdown-toggle {
-    width: 16rem;
+    min-width: 16rem;
+    width: 100%;
   }
 
   .dropdown-menu {
@@ -328,10 +345,6 @@ a:hover {
       }
     }
   }
-}
-
-.list-group {
-  width: 16rem;
 }
 
 .btn-primary {

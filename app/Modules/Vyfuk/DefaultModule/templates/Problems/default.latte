@@ -17,7 +17,7 @@
                 <i class="fas fa-gift me-2"></i>Výfučí bingo
             </a>
 
-            <div class="float-md-end mt-2">
+            <div class="selector-container mt-2">
                 <div class="dropdown series-selector">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <div class="mt-md-5 mt-4">
+        <div class="tasks-container">
             {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
             {php $batchPath = $problemService->getBatch('vyfuk', $series, $lang)}
             {if $serialPath}
