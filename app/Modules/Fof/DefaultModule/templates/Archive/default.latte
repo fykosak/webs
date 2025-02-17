@@ -99,6 +99,17 @@
                         </a></div>
                 {/if}
 
+                {if $eventKey['key'] === '2025'}
+                    <div class="alert alert-info" role="alert">
+                        <p class="mb-0">
+                        {if $language->value === 'cs'}
+                            Zveřejnili jsme první sadu fotek, na další se můžete těšit v blízké době.
+                        {else}
+                            We have published the first batch of photos, you can look forward for more in the near future.
+                        {/if}
+                        </p>
+                    </div>
+                {/if}
                 {if is_dir(__DIR__.'/../../../../media/fof/photos/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey['event']))}
                     <div class="mt-5">
                         <h2>{switch $language->value}{case 'cs'}Soutěž{default}Competition{/switch}</h2>
