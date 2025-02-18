@@ -93,18 +93,27 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
             columns.push({ colKey: "rank", label: "#", sortable: false, numerical: false });
             columns.push({ colKey: "name", label: "Jméno", sortable: false, numerical: false });
             columns.push({ colKey: "school", label: "Škola", sortable: false, numerical: false });
+            let yearSum: number = 0;
+            let yearPrazdninySum: number = 0;
             for (let series in data.tasks[category]) {
                 let tasks = data.tasks[category][series].sort((a, b) => {
                     return a.label.localeCompare(b.label);
                 });
+                let seriesSum: number = 0;
                 for (let [key, t] of tasks.entries()) {
                     taskLockup[t.taskId] = columns.length;
                     columns.push({ colKey: "s" + series + "." + t.label, label: t.label + "\u00A0(" + t.points + "\u00A0b)", sortable: true, numerical: true });
+                    seriesSum += t.points;
                 }
-                columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 7) : series), sortable: true, numerical: true });
+                columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 7) + "\u00A0(" + seriesSum + "\u00A0b)" : series + "\u00A0(" + seriesSum + "\u00A0b)"), sortable: true, numerical: true });
+                if (parseInt(series) > 6) {
+                    yearPrazdninySum += seriesSum;
+                } else {
+                    yearSum += seriesSum;
+                }
             }
-            columns.push({ colKey: "sum", label: "Celkem\u00A0bodů", sortable: true, numerical: true });
-            columns.push({ colKey: "Psum", label: "Celkem\u00A0bodů", sortable: true, numerical: true });
+            columns.push({ colKey: "sum", label: "Celkem\u00A0bodů" + "\u00A0(" + yearSum + "\u00A0b)", sortable: true, numerical: true });
+            columns.push({ colKey: "Psum", label: "Celkem\u00A0bodů" + "\u00A0(" + yearPrazdninySum + "\u00A0b)", sortable: true, numerical: true });
 
             let outData = []
             for (let contestant of data.submits[category]) {
