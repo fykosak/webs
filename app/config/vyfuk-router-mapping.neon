@@ -4,7 +4,6 @@ parameters:
             cs:
                 ONas: About
                 Zadani: Problems
-                Poradi: Results
                 Akce: Events
             actions:
                 cs:
