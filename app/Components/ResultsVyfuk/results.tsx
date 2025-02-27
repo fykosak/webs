@@ -274,8 +274,12 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
         }
         return result;
     })
+
+    let dataLength: number = data.length;
+
+    const onlySomeLimit = 25;
     if (onlySome) {
-        data = data.slice(0, 25);
+        data = data.slice(0, onlySomeLimit);
     }
     let tableBody: JSX.Element[] = [];
     for (let dat of data) {
@@ -292,6 +296,18 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
         };
     }
 
+    let onlySomeButton = [];
+    if (dataLength > onlySomeLimit) {
+        onlySomeButton.push(
+            <button
+                className="btn btn-primary button-collapse-header my-2"
+                type="button"
+                onClick={() => setOnlySome(!onlySome)}
+            >
+                {onlySome ? 'Zobrazit všechny' : 'Zobrazit méně'}
+            </button>
+        )
+    }
 
     return (<>
         <div className='table-responsive-sm'>
@@ -302,13 +318,7 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
                 <tbody>{tableBody}</tbody>
             </table>
         </div>
-        <button
-            className="btn btn-primary button-collapse-header my-2"
-            type="button"
-            onClick={() => setOnlySome(!onlySome)}
-        >
-            {onlySome ? 'Zobrazit všechny' : 'Zobrazit méně'}
-        </button>
+        {onlySomeButton}
     </>);
 }
 
