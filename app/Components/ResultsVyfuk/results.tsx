@@ -72,14 +72,16 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
             Celkové výsledky
         </button>
     )
-    seriesSelection.push(
-        <button
-            onClick={() => setSelectedSeries(-1)}
-            className={`btn me-2 mb-2 ${selectedSeries == -1 ? 'btn-primary' : 'btn-outline-primary'}`}
-        >
-            Prázdninové výsledky
-        </button>
-    )
+    if (series.length > 6) {
+        seriesSelection.push(
+            <button
+                onClick={() => setSelectedSeries(-1)}
+                className={`btn me-2 mb-2 ${selectedSeries == -1 ? 'btn-primary' : 'btn-outline-primary'}`}
+            >
+                Prázdninové výsledky
+            </button>
+        )
+    }
     let categoryContainers = [
         <div
             className='series-select my-2'
