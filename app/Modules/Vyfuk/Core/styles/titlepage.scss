@@ -16,6 +16,7 @@
 
 .header-container {
   color: $text-on-primary;
+  position: relative;
 
   .header-text-container {
 
@@ -58,4 +59,18 @@
 .countdown-text {
   color: white !important;
   margin: 0;
+}
+
+.titlepage-logo {
+  position: absolute;
+  background-color: $primary-color;
+  left: 0;
+  top: -125px;
+  width: 180px;
+}
+
+@include media-breakpoint-up(xl) {
+  .titlepage-logo {
+    top: -110px;
+  }
 }
