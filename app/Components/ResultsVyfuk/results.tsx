@@ -274,7 +274,6 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
         return result;
     })
 
-    let dataLength: number = data.length;
 
     let tableBody: JSX.Element[] = [];
     for (let dat of data) {
@@ -297,7 +296,7 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
     }
 
     let onlySomeButton = [];
-    if (dataLength > onlySomeLimit) {
+    if (tableBody.length > onlySomeLimit) {
         onlySomeButton.push(
             <button
                 className="btn btn-primary button-collapse-header my-2"
