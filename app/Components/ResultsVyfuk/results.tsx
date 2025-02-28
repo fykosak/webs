@@ -167,7 +167,6 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                 if (v == "Psum" && selectedSeries == -1) return false;
                 if (v == "sum" && selectedSeries == 0) return false;
                 if (v == "name" || v == "school") return false;
-                console.log(v)
                 return !((selectedSeries == 0 && /^s[0-6]$/.test(v)) || (selectedSeries == -1 && /^s[0-9]+$/.test(v) && !/^s[1-6]$/.test(v)));
             })
         } else {
@@ -277,10 +276,6 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
 
     let dataLength: number = data.length;
 
-    const onlySomeLimit = 25;
-    if (onlySome) {
-        data = data.slice(0, onlySomeLimit);
-    }
     let tableBody: JSX.Element[] = [];
     for (let dat of data) {
         let dataRow: JSX.Element[] = [];
@@ -294,6 +289,11 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
         if (show) {
             tableBody.push(<tr>{dataRow}</tr>)
         };
+    }
+
+    const onlySomeLimit = 25;
+    if (onlySome) {
+        tableBody = tableBody.slice(0, onlySomeLimit);
     }
 
     let onlySomeButton = [];
