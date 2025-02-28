@@ -176,7 +176,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                     return !(new RegExp("s" + selectedSeries)).test(v);
                 })
             }
-            tableManager.hideColumn = hidden.reduce((prev: any, c) => {
+            tableManager.hideColumnn = hidden.reduce((prev: any, c) => {
                 prev[c] = true;
                 return prev;
             }, {});
