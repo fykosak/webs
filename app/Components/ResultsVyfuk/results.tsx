@@ -290,16 +290,18 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
         };
     }
 
+    let tableBodyLength: number = tableBody.length
+
     const onlySomeLimit = 25;
     if (onlySome) {
         tableBody = tableBody.slice(0, onlySomeLimit);
     }
 
     let onlySomeButton = [];
-    if (tableBody.length > onlySomeLimit) {
+    if (tableBodyLength > onlySomeLimit) {
         onlySomeButton.push(
             <button
-                className="btn btn-primary button-collapse-header my-2"
+                className="btn btn-primary button-collapse-header mt-0 mb-2"
                 type="button"
                 onClick={() => setOnlySome(!onlySome)}
             >
@@ -309,7 +311,7 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
     }
 
     return (<>
-        <div className='table-responsive-sm'>
+        <div className='table-responsive-sm mb-2'>
             <table className='table table-hover contest-results table-sm mb-0'>
                 <thead><tr>
                     {tableHeader}
