@@ -30,11 +30,11 @@ type Tasks = {
 function Results({ data, series }: { data: { submits: { [key: string]: Submits; }, tasks: { [key: string]: Tasks; } }, series: number[] }) {
     const [selectedSeries, baseSetSelectedSeries] = useState(0);
     let tableManager: any = {};
-    [tableManager.sortColum, tableManager.setSortColum] = useState(selectedSeries < 1 ? (selectedSeries == -1 ? "Psum" : "sum") : "s" + selectedSeries);
+    [tableManager.sortColumn, tableManager.setSortColumn] = useState(selectedSeries < 1 ? (selectedSeries == -1 ? "Psum" : "sum") : "s" + selectedSeries);
     [tableManager.sortAsc, tableManager.setSortAsc] = useState(false);
-    [tableManager.hideColum, tableManager.setHideColum] = useState({});
+    [tableManager.hideColumn, tableManager.setHideColumn] = useState({});
     const setSelectedSeries = (value: number) => {
-        tableManager.setSortColum(value < 1 ? (value == -1 ? "Psum" : "sum") : "s" + value);
+        tableManager.setSortColumn(value < 1 ? (value == -1 ? "Psum" : "sum") : "s" + value);
         baseSetSelectedSeries(value);
     }
 
@@ -175,7 +175,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                 return !(new RegExp("s" + selectedSeries)).test(v);
             })
         }
-        tableManager.hideColum = hidden.reduce((prev: any, c) => {
+        tableManager.hideColumn = hidden.reduce((prev: any, c) => {
             prev[c] = true;
             return prev;
         }, {});
@@ -194,21 +194,21 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
 }
 
 type TableManager = {
-    sortColum: string,
-    setSortColum: React.Dispatch<React.SetStateAction<string>>,
+    sortColumn: string,
+    setSortColumn: React.Dispatch<React.SetStateAction<string>>,
     sortAsc: boolean,
     setSortAsc: React.Dispatch<React.SetStateAction<boolean>>,
-    hideColum: { [key: string]: boolean }
-    setHideColum: React.Dispatch<React.SetStateAction<any>>
+    hideColumn: { [key: string]: boolean }
+    setHideColumn: React.Dispatch<React.SetStateAction<any>>
 };
 type ColumnDef = { colKey: string, label: string | null, sortable: boolean, numerical: boolean };
 
 type TableDef = { columns: Array<ColumnDef>, data: { [key: string]: any }[], tableManager: TableManager };
 
 function SortColumn({ colKey, label = null, tableManager }: { colKey: string, label?: string | null, tableManager: TableManager }) {
-    if (tableManager.hideColum.hasOwnProperty(colKey) && tableManager.hideColum[colKey] == true)
+    if (tableManager.hideColumn.hasOwnProperty(colKey) && tableManager.hideColumn[colKey] == true)
         return null;
-    let element = tableManager.sortColum == colKey ? (
+    let element = tableManager.sortColumn == colKey ? (
         <span style={{ color: 'black' }}>
             {tableManager.sortAsc ? <i className="fas fa-arrow-down-long"></i> : <i className="fas fa-arrow-up-long"></i>}
         </span>
@@ -221,10 +221,10 @@ function SortColumn({ colKey, label = null, tableManager }: { colKey: string, la
         <th
             className={`clickable-header`}
             onClick={() => {
-                if (colKey == tableManager.sortColum) {
+                if (colKey == tableManager.sortColumn) {
                     tableManager.setSortAsc(!tableManager.sortAsc);
                 } else {
-                    tableManager.setSortColum(colKey);
+                    tableManager.setSortColumn(colKey);
                     tableManager.setSortAsc(false);
                 }
             }}
@@ -236,7 +236,7 @@ function SortColumn({ colKey, label = null, tableManager }: { colKey: string, la
 }
 
 function Column({ colKey, label = null, tableManager }: { colKey: string, label?: string | null, tableManager: TableManager }) {
-    if (tableManager.hideColum.hasOwnProperty(colKey) && tableManager.hideColum[colKey] == true)
+    if (tableManager.hideColumn.hasOwnProperty(colKey) && tableManager.hideColumn[colKey] == true)
         return null;
     return (
         <th>
@@ -248,7 +248,7 @@ function Column({ colKey, label = null, tableManager }: { colKey: string, label?
 function SortTable({ tableDef }: { tableDef: TableDef }) {
     let [onlySome, setOnlySome] = useState(true);
     let tableHeader = tableDef.columns.map((columnDef) => {
-        if (tableDef.tableManager.hideColum[columnDef.colKey])
+        if (tableDef.tableManager.hideColumn[columnDef.colKey])
             return null;
         return (columnDef.sortable ?
             <SortColumn colKey={columnDef.colKey} label={columnDef.label} tableManager={tableDef.tableManager}></SortColumn> :
@@ -260,13 +260,13 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
         let result: any = 0;
         if (
             tableDef.columns.reduce((returning, col) => {
-                return returning || (col.colKey == tableDef.tableManager.sortColum && col.numerical)
+                return returning || (col.colKey == tableDef.tableManager.sortColumn && col.numerical)
             }, false)
         ) {
-            result = ((typeof a[tableDef.tableManager.sortColum] == "number" ? a[tableDef.tableManager.sortColum] : 0)
-                - (typeof b[tableDef.tableManager.sortColum] == "number" ? b[tableDef.tableManager.sortColum] : 0));
+            result = ((typeof a[tableDef.tableManager.sortColumn] == "number" ? a[tableDef.tableManager.sortColumn] : 0)
+                - (typeof b[tableDef.tableManager.sortColumn] == "number" ? b[tableDef.tableManager.sortColumn] : 0));
         } else {
-            result = String(a[tableDef.tableManager.sortColum]).localeCompare(b[tableDef.tableManager.sortColum]);
+            result = String(a[tableDef.tableManager.sortColumn]).localeCompare(b[tableDef.tableManager.sortColumn]);
         }
         if (!tableDef.tableManager.sortAsc) {
             result = -result;
@@ -280,7 +280,7 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
         let dataRow: JSX.Element[] = [];
         let show = false;
         for (let c of tableDef.columns) {
-            if (!tableDef.tableManager.hideColum.hasOwnProperty(c.colKey) || !tableDef.tableManager.hideColum[c.colKey]) {
+            if (!tableDef.tableManager.hideColumn.hasOwnProperty(c.colKey) || !tableDef.tableManager.hideColumn[c.colKey]) {
                 show ||= typeof dat[c.colKey] == 'number'
                 dataRow.push(<td>{dat[c.colKey]}</td>)
             }
