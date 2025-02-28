@@ -383,3 +383,11 @@ a.btn:hover, a.dropdown-item:hover {
   border-radius: 0 0 5px 5px;
   padding-bottom: 0.35rem;
 }
+
+.accordion-button:not(.collapsed){
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}

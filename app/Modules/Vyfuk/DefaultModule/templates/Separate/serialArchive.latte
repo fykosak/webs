@@ -22,39 +22,29 @@
                     </button>
                     </h2>
                     <div id="collapse{$year}" class="accordion-collapse collapse" data-bs-parent="#yearsAccordion">
-                    <div class="accordion-body table-responsive">
-                        <table class="table table-borderless mb-0 text-center align-middle">
-                        <thead>
-                            <tr>
-                                {foreach $seriesList as $seriesNo}
-                                    {if $seriesNo <= 6}
-                                        {php $series = $problemService->getSeries('vyfuk', $year, $seriesNo)}
-                                        {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
-                                        {if $serialPath}
-                                            <th scope="col">{$seriesNo}. série</th>
-                                        {/if}
+                    <div class="accordion-body p-0">
+                        <div class="d-flex flex-row flex-wrap justify-content-evenly mb-0">
+                            {foreach $seriesList as $seriesNo}
+                                {if $seriesNo <= 6}
+                                    {php $series = $problemService->getSeries('vyfuk', $year, $seriesNo)}
+                                    {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
+                                    {if $serialPath}
+                                        <div class="m-3">
+                                            <div>
+                                                <p class="text-center m-0" scope="col"><strong>{$seriesNo}. série</strong></p>
+                                            </div>
+                                            <div>
+                                                <p class="m-0">
+                                                    <a class="btn btn-primary my-2 mr-4" href={$serialPath}>
+                                                        <i class="far fa-file-pdf"></i><span class="skip-3px"></span> {$series->getSerialTopic('vyfuk', $lang)}
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
                                     {/if}
-                                {/foreach}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                {foreach $seriesList as $seriesNo}
-                                    {if $seriesNo <= 6}
-                                        {php $series = $problemService->getSeries('vyfuk', $year, $seriesNo)}
-                                        {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
-                                        {if $serialPath}
-                                            <td>
-                                                <a class="btn btn-primary my-2 mr-4" href={$serialPath}>
-                                                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> {$series->getSerialTopic('vyfuk', $lang)}
-                                                </a>
-                                            </td>
-                                        {/if}
-                                    {/if}
-                                {/foreach}
-                            </tr>
-                        </tbody>
-                        </table>
+                                {/if}
+                            {/foreach}
+                        </div>
                         {* TODO design tabulky *}
                     </div>
                     </div>
