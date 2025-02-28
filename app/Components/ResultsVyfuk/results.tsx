@@ -27,7 +27,7 @@ type Tasks = {
     [series: number]: Array<Task>;
 };
 
-function Results({ data, series }: { data: { submits: { [key: string]: Submits; }, tasks: { [key: string]: Tasks; } }, series: number[] }) {
+function Results({ data, series, year }: { data: { submits: { [key: string]: Submits; }, tasks: { [key: string]: Tasks; } }, series: number[] , year: number}) {
     const [selectedSeries, baseSetSelectedSeries] = useState(0);
     let tableManager: any = {};
     [tableManager.sortColumn, tableManager.setSortColumn] = useState(selectedSeries < 1 ? (selectedSeries == -1 ? "Psum" : "sum") : "s" + selectedSeries);
@@ -45,7 +45,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
 
     // category selection
     let seriesSelection = sortedSeries.map((number) => {
-        if (number < 7)
+        if (number < 7) {
             return (
                 <button
                     className={`btn me-2 mb-2 ${selectedSeries == number ? 'btn-primary' : 'btn-outline-primary'}`}
@@ -54,7 +54,25 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                     {number}. série
                 </button>
             )
-        else
+        } else if (year = 4) { // ! temporary year if, fix when data is fixed !
+            return (
+                <button
+                    onClick={() => setSelectedSeries(number)}
+                    className={`btn me-2 mb-2 ${selectedSeries == number ? 'btn-primary' : 'btn-outline-primary'}`}
+                >
+                    {number - 6}. prázdninová série
+                </button>
+            )
+        } else if (year = 5) {
+            return (
+                <button
+                    onClick={() => setSelectedSeries(number)}
+                    className={`btn me-2 mb-2 ${selectedSeries == number ? 'btn-primary' : 'btn-outline-primary'}`}
+                >
+                    {number - 6}. prázdninová série
+                </button>
+            ) // ! end of temporary year if !
+        } else {
             return (
                 <button
                     onClick={() => setSelectedSeries(number)}
@@ -63,6 +81,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                     {number - 7}. prázdninová série
                 </button>
             )
+        }
     })
     seriesSelection.push(
         <button
@@ -108,8 +127,14 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                         columns.push({ colKey: "s" + series + "." + t.label, label: t.label + "\u00A0(" + t.points + "\u00A0b)", sortable: true, numerical: true });
                         seriesSum += t.points;
                     }
-                    columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 7) + "\u00A0(" + seriesSum + "\u00A0b)" : series + "\u00A0(" + seriesSum + "\u00A0b)"), sortable: true, numerical: true });
-                    if (parseInt(series) > 6) {
+                    if (year = 4) { // ! temporary year if, fix when data is fixed !
+                        columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 6) + "\u00A0(" + seriesSum + "\u00A0b)" : series + "\u00A0(" + seriesSum + "\u00A0b)"), sortable: true, numerical: true });
+                    } else if (year = 5) {
+                        columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 6) + "\u00A0(" + seriesSum + "\u00A0b)" : series + "\u00A0(" + seriesSum + "\u00A0b)"), sortable: true, numerical: true });
+                    } else { // ! end of temporary year if !
+                        columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 7) + "\u00A0(" + seriesSum + "\u00A0b)" : series + "\u00A0(" + seriesSum + "\u00A0b)"), sortable: true, numerical: true });
+                    }
+                        if (parseInt(series) > 6) {
                         yearPrazdninySum += seriesSum;
                     } else {
                         yearSum += seriesSum;
@@ -176,7 +201,7 @@ function Results({ data, series }: { data: { submits: { [key: string]: Submits; 
                     return !(new RegExp("s" + selectedSeries)).test(v);
                 })
             }
-            tableManager.hideColumnn = hidden.reduce((prev: any, c) => {
+            tableManager.hideColumn = hidden.reduce((prev: any, c) => {
                 prev[c] = true;
                 return prev;
             }, {});
@@ -330,8 +355,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (element) {
         const data = JSON.parse(element.getAttribute('data-data'));
         const series = JSON.parse(element.getAttribute('data-series'));
+        const year = parseInt(element.getAttribute('data-year'));
         ReactDOM.render(
-            <Results data={data} series={series} />,
+            <Results data={data} series={series} year={year}/>,
             element
         );
     }
