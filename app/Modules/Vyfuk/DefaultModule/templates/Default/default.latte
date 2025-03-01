@@ -31,7 +31,7 @@
 </div>
 <div class="countdown-container py-3">
     <section class="inner-container">
-        <h2 id="countdown" class="countdown-text"></h2>
+        <h2 class="m-0 countdown"><span id="countdown-label" class="countdown-text mx-3 mx-sm-4 mx-md-5"></span><span id="countdown-time" class="countdown-text mx-3 mx-sm-4 mx-md-5"></h2>
     </section>
 </div>
 <div class="panel color-light title-panel">
@@ -135,68 +135,71 @@
 
 <script>
 // countdown timer to series deadline
-var countDownDate = new Date({$series->deadline}).getTime();
+let countDownDate = new Date({$series->deadline}).getTime();
 
-var timer = setInterval(countdownTimer, 1000);
+let timer = setInterval(countdownTimer, 1000);
 countdownTimer();
 
 function countdownTimer() {
-    var now = new Date().getTime();
+    let now = new Date().getTime();
 
-    var distance = Math.floor((countDownDate - now)/1000);
+    let distance = Math.floor((countDownDate - now)/1000);
 
-    var days = Math.floor(distance / (60 * 60 * 24));
-    var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
-    var minutes = Math.floor((distance % (60 * 60)) / 60);
-    var seconds = Math.floor(distance % 60);
+    let days = Math.floor(distance / (60 * 60 * 24));
+    let hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
+    let minutes = Math.floor((distance % (60 * 60)) / 60);
+    let seconds = Math.floor(distance % 60);
 
-    var daysLabel = "";
+    let daysLabel = "";
     if (days == 1) {
-            daysLabel = " den ";
+            daysLabel = "&nbsp;den ";
     } else if (days < 5 && days != 0) {
-            daysLabel = " dny ";
+            daysLabel = "&nbsp;dny ";
     } else {
-            daysLabel = " dnů ";
+            daysLabel = "&nbsp;dnů ";
     }
 
-    var hoursLabel = "";
+    let hoursLabel = "";
     if (hours == 1) {
-            hoursLabel = " hodina ";
+            hoursLabel = "&nbsp;hodina ";
     } else if (hours < 5 && hours != 0) {
-            hoursLabel = " hodiny ";
+            hoursLabel = "&nbsp;hodiny ";
     } else {
-            hoursLabel = " hodin ";
+            hoursLabel = "&nbsp;hodin ";
     }
 
-    var minutesLabel = "";
+    let minutesLabel = "";
     if (minutes == 1) {
-            minutesLabel = " minuta ";
+            minutesLabel = "&nbsp;minuta ";
     } else if (minutes < 5 && minutes != 0) {
-            minutesLabel = " minuty ";
+            minutesLabel = "&nbsp;minuty ";
     } else {
-            minutesLabel = " minut ";
+            minutesLabel = "&nbsp;minut ";
     }
 
-    var secondsLabel = "";
+    let secondsLabel = "";
     if (seconds == 1) {
-            secondsLabel = " sekunda";
+            secondsLabel = "&nbsp;sekunda";
     } else if (seconds < 5 && seconds != 0) {
-            secondsLabel = " sekundy";
+            secondsLabel = "&nbsp;sekundy";
     } else {
-            secondsLabel = " sekund";
+            secondsLabel = "&nbsp;sekund";
     }
 
-    var label = "Termín "+{$series->series}+". série: "
+    let label = "Termín " + {$series->series} + ".&nbsp;série"
     if (distance <= 0) {
         clearInterval(timer);
-        time = {$series->series}+". série již proběhla.";
+        label = {$series->series} + ".&nbsp;série již proběhla.";
+        time = '';
+        document.getElementById("countdown-time").classList.add("d-none");
     } else if (days == 0) {
-        time = label + hours + hoursLabel + minutes + minutesLabel + seconds + secondsLabel;
+        time = hours + hoursLabel + minutes + minutesLabel + seconds + secondsLabel;
     } else {
-        time = label + days + daysLabel + hours + hoursLabel + minutes + minutesLabel;
+        time = days + daysLabel + hours + hoursLabel + minutes + minutesLabel;
     }
 
-    document.getElementById("countdown").innerHTML = time;
+    document.getElementById("countdown-time").innerHTML = time;
+    document.getElementById("countdown-label").innerHTML = label;
 }
 </script>
 {/block}

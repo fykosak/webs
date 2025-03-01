@@ -56,9 +56,22 @@
   text-align: center;
 }
 
+.countdown {
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .countdown-text {
   color: white !important;
   margin: 0;
+  @media screen and (max-width: 500px) {
+    margin-bottom: 0.5rem;
+    ~ .countdown-text {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .titlepage-logo {
