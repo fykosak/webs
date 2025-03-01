@@ -37,22 +37,39 @@
 <div class="panel color-light title-panel">
     <section class="inner-container">
         <h2>Aktuality</h2>
-        {* dynamic news cards from news.json *}
-        <div class="row">
-            {foreach $newsList['cs'] as $news}
-            <div class="col-md my-2">
-                <div class="card news-card">
-                    <div class="card-body">
-                        <h5 class="card-title">{$news['title']}</h5>
-                        <p class="card-text">{$news['text']|noescape}</p>
-                        {if strpos($news['link'], 'http') === 0}
-                            <a href="{$news['link']}" class="btn btn-primary">{$news['link-text']}</a>
-                        {else}
-                            <a n:href="$news['link']" class="btn btn-primary">{$news['link-text']}</a>
-                        {/if}
-                    </div>
-                </div>
-            </div>
+            <div class="row">
+            {foreach $newsList['cs'] as $orderNumber => $news}
+                {if $orderNumber < 4}
+                    {if $orderNumber < 2}
+                        <div class="col-md-6 mt-2 mb-4">
+                            <div class="card news-card">
+                                <div class="card-body d-flex align-items-start flex-column">
+                                    <h5 class="card-title">{$news['title']}</h5>
+                                    <p class="card-text">{$news['text']|noescape}</p>
+                                    {if strpos($news['link'], 'http') === 0}
+                                        <a href="{$news['link']}" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+                                    {else}
+                                        <a n:href="$news['link']" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+                                    {/if}
+                                </div>
+                            </div>
+                        </div>
+                    {else}
+                        <div class="col-md-6 mt-4 mb-2">
+                            <div class="card news-card">
+                                <div class="card-body d-flex align-items-start flex-column">
+                                    <h5 class="card-title">{$news['title']}</h5>
+                                    <p class="card-text">{$news['text']|noescape}</p>
+                                    {if strpos($news['link'], 'http') === 0}
+                                        <a href="{$news['link']}" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+                                    {else}
+                                        <a n:href="$news['link']" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+                                    {/if}
+                                </div>
+                            </div>
+                        </div>
+                    {/if}
+                {/if}
             {/foreach}
         </div>
     </section>
