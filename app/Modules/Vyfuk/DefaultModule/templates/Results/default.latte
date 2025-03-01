@@ -23,10 +23,7 @@
                 {/foreach}
             </ul>
         </div>
-        {if $year < 7}
-            <p class="my-2"><small><i>Rozdělení do kategorií není dostupné pro starší ročníky.</i></small></p> {* TODO dříve (v xml) bylo, nutno opravit v DB *}
-        {/if}
-        <div id="contest-results" data-data="{json_encode($results)}" data-series="{json_encode($series)}"></div>
+        <div id="contest-results" data-data="{json_encode($results)}" data-series="{json_encode($series)}" data-year="{$year}"></div>
     </section>
 </div>
 {/block}
