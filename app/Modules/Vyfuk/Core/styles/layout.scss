@@ -308,6 +308,12 @@ a:hover {
   }
 }
 
+.tasks-margin {
+  @media (min-width: 781px) {
+    margin-top: 4.5rem;
+  }
+}
+
 .series-selector {
   .dropdown-toggle {
     min-width: 16rem;
