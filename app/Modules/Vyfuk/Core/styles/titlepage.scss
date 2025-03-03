@@ -75,15 +75,20 @@
 }
 
 .titlepage-logo {
+  padding-top: 2rem;
   position: absolute;
   background-color: $primary-color;
   left: 0;
-  top: -125px;
+  top: calc(-135px - 1.5rem);
   width: 180px;
 }
 
 @include media-breakpoint-up(xl) {
   .titlepage-logo {
-    top: -110px;
+    top: calc(-120px - 1.5rem);
   }
+}
+
+.mt-4-5 {
+  margin-top: 2rem;
 }
