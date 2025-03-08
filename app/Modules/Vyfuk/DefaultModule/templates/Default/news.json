@@ -1,10 +1,16 @@
 {
     "cs" : [
         {
-            "title": "Zimní víkendovka",
-            "text": "Dvě setkání a tábor nestačí? Od 31. ledna do 2. února nás příští rok čeká zcela nová výfučí akce – zimní víkendovka v Rožmberku nad Vltavou! Zapište si datum do kalendáře a čekejte na další podrobnosti.",
-            "link": ":Default:Events:vikendovka",
-            "link-text": "Stránka zimní víkendovky"
+            "title": "Přihlašování na tábor 2025",
+            "text": "Již v pondělí 17. února se otevře přihlašování na tábor pro 7 nejlepších v každé kategorie. Pokud mezi ně patříte, budete mít 14 dní na přihlášení. V této době budete mít své místo jisté. Pokud jste skončili hůře než 7., ale jste mezi 50 nejlepšími, nemusíte zoufat, protože po uplynutí 14 dní, tedy 3. března, pro vás uvolníme přihlašování na zbylá místa. Více informací naleznete na stránkách tábora.",
+            "link": ":Default:Events:tabor",
+            "link-text": "Stránka tábora"
+        },
+        {
+            "title": "Jarní setkání 2025",
+            "text": "Již za týden, tedy 12. února ve 20:00, bude spuštěno přihlašování na Jarní setkání 2025, které letos proběhne v Ostravě od 14. do 16. března. Můžeš se těšit na setkání s dalšími řešiteli a organizátory, přednášky a samozřejmě i spoustu her! Podrobnější informace nalezneš na stránkách akce.",
+            "link": ":Default:Events:setkani",
+            "link-text": "Stránka setkání"
         },
         {
             "title": "Nové výfučí bingo je na světě!",
