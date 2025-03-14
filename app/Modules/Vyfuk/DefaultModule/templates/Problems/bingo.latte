@@ -23,8 +23,8 @@
         <p>
             Splněním úkolů můžeš získat následující odměny. Některé z nich si můžeš blíže prohlédnout v <a n:href=":Default:Separate:prizes">galerii cen</a>.
         </p>
-        <div class="row">
-            <div class="col-md-5">
+        <div class="row mb-2">
+            <div class="col-md-4">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item bingo-item mb-2 pb-3 ps-2"><i class="fa-solid fa-note-sticky me-2"></i>Výfučí samolepku</li>
                     <li class="list-group-item bingo-item mb-2 pb-3 ps-2"><i class="fa-solid fa-circle-user me-2"></i>Výfučí placku</li>
@@ -37,11 +37,12 @@
                     <li class="list-group-item bingo-item mb-2 pb-3 ps-2"><i class="fa-solid fa-shirt me-2"></i>Výfučí tričko</li>
                 </ul>
             </div>
-            <div class="col-md-7 py-2">
-                <img src="{$basePath}/images/prizes/3.jpg" alt="" class="w-98 shadow-1-strong rounded mb-4 h-100"/> {* TODO obrázek cen k bingu *}
+            <div class="d-none d-md-block col-md-8 py-2 my-auto">
+                <img src="{$basePath}/images/prizes/bingo.jpg" alt="" class="w-100 shadow-1-strong rounded"/>
             </div>
         </div>
+        <h2>Dokumenty ke stažení</h2>
+        {control pdfGallery:buttons "/media/download/bingo"}
     </section>
-    {* TODO pdf verze binga k vytiknutí a tabulky *}
 </div>
 {/block}
