@@ -54,7 +54,7 @@ function Results({ data, series, year }: { data: { submits: { [key: string]: Sub
                     {number}. série
                 </button>
             )
-        } else if (year = 4) { // ! temporary year if, fix when data is fixed !
+        } else if (year == 4) { // ! temporary year if, fix when data is fixed !
             return (
                 <button
                     onClick={() => setSelectedSeries(number)}
@@ -63,7 +63,7 @@ function Results({ data, series, year }: { data: { submits: { [key: string]: Sub
                     {number - 6}. prázdninová série
                 </button>
             )
-        } else if (year = 5) {
+        } else if (year == 5) {
             return (
                 <button
                     onClick={() => setSelectedSeries(number)}
