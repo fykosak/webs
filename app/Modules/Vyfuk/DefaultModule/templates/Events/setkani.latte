@@ -4,24 +4,6 @@
     <section class="inner-container">
         {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
         {ifset title}<h1>{include title}</h1>{/ifset}
-    </section>
-    {foreach $events as $key => $event}
-    {if $event->begin->getTimestamp() >= time()}
-    <section class="inner-container my-5">
-        <h2>{$event->nameNew[$lang]}</h2>
-        <p>
-            {$event->description[$lang]|noescape}
-        </p>
-        <p>
-            <a class="btn btn-primary mx-1" n:href="Events:detail $event->eventId">
-                <i class="fa-solid fa-circle-info"></i> Informace o akci
-            </a>
-        </p>
-        {control gallery:randomLine "/media/photos/event/" . $event->eventId}
-    </section>
-    {/if}
-    {/foreach}
-    <section class="inner-container">
         <p>
             Nestačí ti tábor? Nebo si chceš vyzkoušet, jak výfučí akce probíhají a co tě tam čeká? Tak s námi určitě jeď
             na víkendové setkání řešitelů!
@@ -44,18 +26,18 @@
     </section>
 
     {foreach $events as $key => $event}
-    {if $event->begin->getTimestamp() < time()} <section class="inner-container my-5">
-        <h2>{$event->nameNew[$lang]}</h2>
-        <p>
-            {$event->description[$lang]|noescape}
-        </p>
-        <p>
-            <a class="btn btn-primary mx-1" n:href="Events:detail $event->eventId">
-                <i class="fa-solid fa-circle-info"></i> Informace o akci
-            </a>
-        </p>
-        {control gallery:randomLine "/media/photos/event/" . $event->eventId}
-        </section> {/if}
-        {/foreach}
+        <section class="inner-container my-5">
+            <h2>{$event->nameNew[$lang]}</h2>
+            <p>
+                {$event->description[$lang]|noescape}
+            </p>
+            <p>
+                <a class="btn btn-primary mx-1" n:href="Events:detail $event->eventId">
+                    <i class="fa-solid fa-circle-info"></i> Informace o akci
+                </a>
+            </p>
+            {control gallery:randomLine "/media/photos/event/" . $event->eventId}
+        </section>
+    {/foreach}
 </div>
 {/block}
