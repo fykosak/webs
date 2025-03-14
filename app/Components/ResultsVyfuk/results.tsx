@@ -111,85 +111,84 @@ function Results({ data, series, year }: { data: { submits: { [key: string]: Sub
         if (category == '') {
             continue;
         }
-        let tableDef: any = React.useMemo(() => {
-            let columns: ColumnDef[] = [];
-            let taskLockup: { [key: number]: number } = {};
-            columns.push({ colKey: "rank", label: "#", sortable: false, numerical: false });
-            columns.push({ colKey: "name", label: "Jméno", sortable: false, numerical: false });
-            columns.push({ colKey: "school", label: "Škola", sortable: false, numerical: false });
-            let yearSum: number = 0;
-            let yearPrazdninySum: number = 0;
+
+        let columns: ColumnDef[] = [];
+        let taskLockup: { [key: number]: number } = {};
+        columns.push({ colKey: "rank", label: "#", sortable: false, numerical: false });
+        columns.push({ colKey: "name", label: "Jméno", sortable: false, numerical: false });
+        columns.push({ colKey: "school", label: "Škola", sortable: false, numerical: false });
+        let yearSum: number = 0;
+        let yearPrazdninySum: number = 0;
+        for (let series in data.tasks[category]) {
+            let tasks = data.tasks[category][series].sort((a, b) => {
+                return a.label.localeCompare(b.label);
+            });
+            let seriesSum: number = 0;
+            for (let [key, t] of tasks.entries()) {
+                taskLockup[t.taskId] = columns.length;
+                columns.push({ colKey: "s" + series + "." + t.label, label: t.label + "\u00A0(" + t.points + "\u00A0b)", sortable: true, numerical: true });
+                seriesSum += t.points;
+            }
+            if (year = 4) { // ! temporary year if, fix when data is fixed !
+                columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 6) + "\u00A0(" + seriesSum + "\u00A0b)" : series + "\u00A0(" + seriesSum + "\u00A0b)"), sortable: true, numerical: true });
+            } else if (year = 5) {
+                columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 6) + "\u00A0(" + seriesSum + "\u00A0b)" : series + "\u00A0(" + seriesSum + "\u00A0b)"), sortable: true, numerical: true });
+            } else { // ! end of temporary year if !
+                columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 7) + "\u00A0(" + seriesSum + "\u00A0b)" : series + "\u00A0(" + seriesSum + "\u00A0b)"), sortable: true, numerical: true });
+            }
+                if (parseInt(series) > 6) {
+                yearPrazdninySum += seriesSum;
+            } else {
+                yearSum += seriesSum;
+            }
+        }
+        columns.push({ colKey: "sum", label: "Celkem\u00A0bodů" + "\u00A0(" + yearSum + "\u00A0b)", sortable: true, numerical: true });
+        columns.push({ colKey: "Psum", label: "Celkem\u00A0bodů" + "\u00A0(" + yearPrazdninySum + "\u00A0b)", sortable: true, numerical: true });
+
+        let outData = []
+        for (let contestant of data.submits[category]) {
+            let row: any = {};
+            row["name"] = contestant.contestant.name;
+            row["school"] = contestant.contestant.school;
+            row["rank"] = contestant.rank[0] == contestant.rank[1] ? String(contestant.rank[0]) + "." : String(contestant.rank[0]) + ".–" + String(contestant.rank[1]) + ".";
+
+            let hasTotalSum = false;
+            let totalSum = 0;
+            let prazdninySum = 0;
+            let hasPrazdninySum = false;
             for (let series in data.tasks[category]) {
                 let tasks = data.tasks[category][series].sort((a, b) => {
                     return a.label.localeCompare(b.label);
                 });
-                let seriesSum: number = 0;
+                let seriesHasPoints = false;
+                let seriesSum = 0;
                 for (let [key, t] of tasks.entries()) {
-                    taskLockup[t.taskId] = columns.length;
-                    columns.push({ colKey: "s" + series + "." + t.label, label: t.label + "\u00A0(" + t.points + "\u00A0b)", sortable: true, numerical: true });
-                    seriesSum += t.points;
-                }
-                if (year = 4) { // ! temporary year if, fix when data is fixed !
-                    columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 6) + "\u00A0(" + seriesSum + "\u00A0b)" : series + "\u00A0(" + seriesSum + "\u00A0b)"), sortable: true, numerical: true });
-                } else if (year = 5) {
-                    columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 6) + "\u00A0(" + seriesSum + "\u00A0b)" : series + "\u00A0(" + seriesSum + "\u00A0b)"), sortable: true, numerical: true });
-                } else { // ! end of temporary year if !
-                    columns.push({ colKey: "s" + series, label: (parseInt(series) > 6 ? "P" + String(parseInt(series) - 7) + "\u00A0(" + seriesSum + "\u00A0b)" : series + "\u00A0(" + seriesSum + "\u00A0b)"), sortable: true, numerical: true });
-                }
-                    if (parseInt(series) > 6) {
-                    yearPrazdninySum += seriesSum;
-                } else {
-                    yearSum += seriesSum;
-                }
-            }
-            columns.push({ colKey: "sum", label: "Celkem\u00A0bodů" + "\u00A0(" + yearSum + "\u00A0b)", sortable: true, numerical: true });
-            columns.push({ colKey: "Psum", label: "Celkem\u00A0bodů" + "\u00A0(" + yearPrazdninySum + "\u00A0b)", sortable: true, numerical: true });
-
-            let outData = []
-            for (let contestant of data.submits[category]) {
-                let row: any = {};
-                row["name"] = contestant.contestant.name;
-                row["school"] = contestant.contestant.school;
-                row["rank"] = contestant.rank[0] == contestant.rank[1] ? String(contestant.rank[0]) + "." : String(contestant.rank[0]) + ".–" + String(contestant.rank[1]) + ".";
-
-                let hasTotalSum = false;
-                let totalSum = 0;
-                let prazdninySum = 0;
-                let hasPrazdninySum = false;
-                for (let series in data.tasks[category]) {
-                    let tasks = data.tasks[category][series].sort((a, b) => {
-                        return a.label.localeCompare(b.label);
-                    });
-                    let seriesHasPoints = false;
-                    let seriesSum = 0;
-                    for (let [key, t] of tasks.entries()) {
-                        if (contestant.submits.hasOwnProperty(t.taskId) && typeof contestant.submits[t.taskId] == 'number') {
-                            row["s" + series + "." + t.label] = contestant.submits[t.taskId];
-                            seriesSum += contestant.submits[t.taskId];
-                            seriesHasPoints = true;
-                        } else {
-                            row["s" + series + "." + t.label] = '–';
-                        }
-                    }
-                    row["s" + series] = seriesHasPoints ? seriesSum : "–";
-                    if (parseInt(series) > 6) {
-                        //prazdninovky
-                        prazdninySum += seriesSum;
-                        hasPrazdninySum ||= seriesHasPoints;
+                    if (contestant.submits.hasOwnProperty(t.taskId) && typeof contestant.submits[t.taskId] == 'number') {
+                        row["s" + series + "." + t.label] = contestant.submits[t.taskId];
+                        seriesSum += contestant.submits[t.taskId];
+                        seriesHasPoints = true;
                     } else {
-                        //celkové vysledky
-                        totalSum += seriesSum;
-                        hasTotalSum ||= seriesHasPoints;
+                        row["s" + series + "." + t.label] = '–';
                     }
                 }
-                row["sum"] = hasTotalSum ? totalSum : '–';
-                row["Psum"] = hasPrazdninySum ? prazdninySum : '–';
-                outData.push(row);
+                row["s" + series] = seriesHasPoints ? seriesSum : "–";
+                if (parseInt(series) > 6) {
+                    //prazdninovky
+                    prazdninySum += seriesSum;
+                    hasPrazdninySum ||= seriesHasPoints;
+                } else {
+                    //celkové vysledky
+                    totalSum += seriesSum;
+                    hasTotalSum ||= seriesHasPoints;
+                }
             }
-            return { columns: columns, data: outData };
-        }, [data, series]);
+            row["sum"] = hasTotalSum ? totalSum : '–';
+            row["Psum"] = hasPrazdninySum ? prazdninySum : '–';
+            outData.push(row);
+        }
+
         let hidden: string[] = []
-        let keys: string[] = tableDef.columns.map((col: ColumnDef) => { return col.colKey });
+        let keys: string[] = columns.map((col: ColumnDef) => { return col.colKey });
         if (selectedSeries < 1) {
             hidden = keys.filter((v) => {
                 if (v == "Psum" && selectedSeries == -1) return false;
@@ -208,7 +207,11 @@ function Results({ data, series, year }: { data: { submits: { [key: string]: Sub
             return prev;
         }, {});
 
-        tableDef.tableManager = tableManager;
+        const tableDef = {
+            columns: columns,
+            data: outData,
+            tableManager: tableManager
+        };
         categoryContainers.push(
             <div className='mt-4'>
                 <h2 className='mb-1'>Kategorie {parseInt(category.slice(-1))}. ročníků</h2>
