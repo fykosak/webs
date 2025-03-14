@@ -84,12 +84,20 @@
                     <p>
                         Tak se podívej na aktuální <a n:href=":Default:Problems:default">zadání</a> úloh. Pokud jsi tady poprvé, tak doporučujeme si nejprve přečíst, <a n:href=":Default:Section:howToEngage">jak se zapojit</a>.
                     </p>
-                    <p class="mb-2">
-                        Také se můžeš podívat na <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}">vzorová řešení</a> úloh předchozí série.
-                    </p>
+                    {if $checkAllSolutions}
+                        <p class="mb-2">
+                            Také se můžeš podívat na <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}">vzorová řešení</a> úloh předchozí série.
+                        </p>
+                    {else}
+                        <p class="mb-2">
+                            Vzorová řešení úloh předchozí série zveřejníme brzy.
+                        </p>
+                    {/if}
                     <div class="d-block">
                         <a n:href=":Default:Problems:default" class="btn btn-primary mt-2">Zadání {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série</a>
-                        <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}" class="btn btn-primary mt-2">Řešení {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}série</a>
+                        {if $checkAllSolutions}
+                            <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}" class="btn btn-primary mt-2">Řešení {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}série</a>
+                        {/if}
                     </div>
                 </div>
             </div>
@@ -102,7 +110,13 @@
                     <p>
                         Mrkni se na <a n:href=":Default:Results:default">pořadí</a> po poslední sérii a zkontroluj si, jak si průběžně stojíš. Nejlepší řešitele čekají hodnotné <a n:href=":Default:Separate:prizes">ceny</a> a především pak účast na našich akcích.
                     </p>
+                    {if $resultsReady}
                         <a href="{plink ':Default:Results:default' 'year'=>$previousSeries->year}" class="btn btn-primary">Pořadí  po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii</a>
+                    {else}
+                        <p class="mb-2">
+                            Výsledky po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii zveřejníme brzy.
+                        </p>
+                    {/if}
                 </div>
             </div>
             <div class="col d-flex align-items-start">
