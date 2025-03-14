@@ -286,7 +286,7 @@
                                 Charles University</a>.
                         </p>
                         <p>
-                            The realization of the competition was supported by the Ministry of Education, Youth and
+                            The competition was supported by the Ministry of Education, Youth and
                             Sports of the Czech Republic.
                         </p>
                         {/switch}
@@ -297,6 +297,12 @@
                             {default}<strong>#fyziklani{$newestEvent->begin|date:'Y'}</strong>
                             {/switch}
                             <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>
+                        </p>
+                        <p>
+                            {switch $language->value}
+                                {case cs}Tato stránka nesbírá cookies.
+                                {default}This website does not collect cookies.
+                            {/switch}
                         </p>
                         <div class="other-logos">
                             <a target="_blank" href="https://fykos.cz/"><img class="other-logo"

@@ -24,9 +24,9 @@
 
     <div class="panel color-auto" id="Overleaf">
         <section class="inner-container">
-            <h2>Overleaf</h2>
+            <h1>Overleaf</h1>
             <p>
-            Overleaf je online prostředí pro tvorbu a správu dokumentů v LaTeXu, schopné překládat. Výhodou je, že není potřeba nic instalovat, šablonu jsme pro vás připravili, stačí se jen přihlásit, zkopírovat projekt a můžete TeXat.
+            Overleaf je online prostředí pro tvorbu a správu dokumentů v LaTeXu. Výhodou je, že není potřeba nic instalovat, šablonu jsme pro vás připravili, stačí se jen přihlásit, zkopírovat projekt a můžete TeXat.
             Další výhodou je přítomnost online úložiště a otevírání v prohlížeči, takže se dá TeXat z libovolného zařízení s prohlížečem.
             </p>
             <p>Nevýhodou pak je, že online se předpokládá s kompilací TeXu, ale součástí TeXání někdy může být generování zdrojového souboru pomocí skriptu, což by na Overleafu nemuselo být spustitelné.</p>
@@ -41,10 +41,44 @@
             </ol>
         </section>
     </div>
+
+    <div class="panel color-auto" id="sazba">
+        <section class="inner-container">
+            <h1>Sazba matematiky</h1>
+            <p>Kvůli sazbě matematiky jsme si zvolili TeX. Řekněme si tedy, jak na to. Krátké vzorečky, vztahy a proměnné se sází v řádkovém režimu mezi dolary</p>
+            <code>Pro čísla na kostce platí {='$0 < n < 7$'}.</code>
+            <p>Větší a složitější vzorce sázíme v blokovém režimu mezi dvojice dolarů.</p>
+            <code>Síla je dána jako<br>
+                {='$$'}<br>
+                {='    F = mg \sin(\alpha)\,.'}<br>
+                {='$$'}
+            </code>
+            <p>Argumenty maker se uzavírají mezi složené závorky (je-li argument jeden znak, je možné je vynechat). Nejčastěji používanými příkazy jsou</p>
+            <ul>
+                <li>mocnění  <code>{='$2^5 = 32$'}</code></li>
+                <li>odmocňování <code>{='$\sqrt{1-\sin^2(x)} = |\cos(x)|$'}</code></li>
+                <li>zlomky <code>{='$\frac{p}{q}$'}</code></li>
+                <li>dolní index <code>{='$a_1$'}</code></li>
+            </ul>
+            <p>Pokud nechcete instalovat celou TeXovou mašinérii, lze použít podobnou syntaxi v editoru rovnic v OO Writeru i v MS Wordu.</p>
+            
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="Odkazy">
+        <section class="inner-container">
+            <h1>Odkazy</h1>
+            <ul>
+                <li><a href="https://tex.stackexchange.com/">TeX – Stack Exchange</a> – obsáhlé forum, anglicky</li>
+                <li><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">OEIS list matematických symbolů</a></li>
+            </ul>
+        </section>
+    </div>
+
     <div class="panel color-auto" id="Local-compiler">
         <section class="inner-container">
-            <h2>Instalace lokálního kompilátoru</h2>
-            <p>Lokální instalace poskytuje více možností, větší kontrolu a funkčnost i offline.</p>
+            <h1>Pokročilé – instalace lokálního kompilátoru</h1>
+            <p>Lokální instalace poskytuje více možností, větší kontrolu a funkčnost i offline. Pro začátek ovšem není nutná a v klidu si vystačíte s Overleafem.</p>
             <p>
                 Výše jsme uvedli, kolik programů je potřeba pro překlad TeXových dokumentů. 
                 Nemusíte se obávat, že byste je museli všechny shánět a konfigurovat. 
@@ -103,39 +137,6 @@
                 <a class="btn btn-primary my-2" href="https://code.visualstudio.com/">Visual Studio Code</a>
                 <a class="btn btn-primary my-2" href="https://www.vim.org/">Vim</a>
                 *}
-        </section>
-    </div>
-
-    <div class="panel color-auto" id="sazba">
-        <section class="inner-container">
-            <h1>Sazba matematiky</h1>
-            <p>Kvůli sazbě matematiky jsme si zvolili TeX. Řekněme si tedy, jak na to. Krátké vzorečky, vztahy a proměnné se sází v řádkovém režimu mezi dolary</p>
-            <code>Pro čísla na kostce platí {='$0 < n < 7$'}.</code>
-            <p>Větší a složitější vzorce sázíme v blokovém režimu mezi dvojice dolarů.</p>
-            <code>Síla je dána jako<br>
-                {='$$'}<br>
-                {='    F = mg \sin(\alpha)\,.'}<br>
-                {='$$'}
-            </code>
-            <p>Argumenty maker se uzavírají mezi složené závorky (je-li argument jeden znak, je možné je vynechat). Nejčastěji používanými příkazy jsou</p>
-            <ul>
-                <li>mocnění  <code>{='$2^5 = 32$'}</code></li>
-                <li>odmocňování <code>{='$\sqrt{1-\sin^2(x)} = |\cos(x)|$'}</code></li>
-                <li>zlomky <code>{='$\frac{p}{q}$'}</code></li>
-                <li>dolní index <code>{='$a_1$'}</code></li>
-            </ul>
-            <p>Pokud nechcete instalovat celou TeXovou mašinérii, lze použít podobnou syntaxi v editoru rovnic v OO Writeru i v MS Wordu.</p>
-            
-        </section>
-    </div>
-
-    <div class="panel color-auto" id="Odkazy">
-        <section class="inner-container">
-            <h1>Odkazy</h1>
-            <ul>
-                <li><a href="https://tex.stackexchange.com/">TeX – Stack Exchange</a> – obsáhlé forum, anglicky</li>
-                <li><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">OEIS list matematických symbolů</a></li>
-            </ul>
         </section>
     </div>
 

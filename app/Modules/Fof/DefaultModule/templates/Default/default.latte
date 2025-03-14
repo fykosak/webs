@@ -14,7 +14,7 @@
                 <time class="competition-date" datetime="{$newestEvent->begin |date:'Y-m-d'}">
                     {switch $language->value}
                         {case 'cs'} {$newestEvent->begin |date:'j. n. Y'} Praha, Česká republika
-                        {default} {$newestEvent->begin |date:'F j, Y'} Prague, Czech Republic
+                        {default} {$newestEvent->begin |date:'F j, Y'}, Prague, Czech Republic
                     {/switch}
                 </time>
                 <h1>
@@ -27,7 +27,7 @@
                     {if $newestEvent->getGamePeriod()->isAfter()}
                         {switch $language->value}
                             {case 'cs'}<p>Děkujeme za úžasnou soutěž!</p>
-                            {default}<p>Thanks for the amazing competition!</p>
+                            {default}<p>Thanks for making this competition amazing!</p>
                         {/switch}
                     {elseif $newestEvent->getRegistrationPeriod()->isOnGoing()}
                         {switch $language->value}
@@ -58,27 +58,26 @@
         </div>
     </div>
 
-    {*<div class="panel registration" style="background-color: black">*}
-        {*<div class="inner-container">*}
-            {*<div class="text">*}
-                {*{switch $language->value}*}
-                    {*{case 'cs'}Doufáme, že jste si soutěž užili!*}
-                    {*{default}We hope you have enjoyed the competition!*}
-                {*{/switch}*}
-            {*</div>*}
-            {*<div class="buttons">*}
-                {*{switch $language->value}*}
-                    {*{case cs}*}
-                    {*<a class="btn btn-primary m-1" href="/2024/vysledky/">Výsledky soutěže</a>*}
-                    {*<a class="btn btn-primary m-1" href="/download/2024/reseni.pdf">Úlohy a řešení</a>*}
-                {*{default}*}
-                    {*<a class="btn btn-primary m-1" href="/2024/results/">Competition results</a>*}
-                    {*<a class="btn btn-primary m-1" href="/download/2024/solutions.pdf">Problem assignment and solutions</a>*}
-                {*{/switch}*}
-{**}
-            {*</div>*}
-        {*</div>*}
-    {*</div>*}
+    <div class="panel registration" style="background-color: black">
+        <div class="inner-container">
+            <div class="text">
+                {switch $language->value}
+                    {case 'cs'}Doufáme, že jste si soutěž užili!
+                    {default}We hope you have enjoyed the competition!
+                {/switch}
+            </div>
+            <div class="buttons">
+                {switch $language->value}
+                    {case cs}
+                    <a class="btn btn-primary m-1" href="/2025/vysledky/">Výsledky soutěže</a>
+                    <a class="btn btn-primary m-1" href="/download/2025/reseni.pdf">Úlohy a řešení</a>
+                {default}
+                    <a class="btn btn-primary m-1" href="/2025/results/">Competition results</a>
+                    <a class="btn btn-primary m-1" href="/download/2025/solutions.pdf">Problem statements and solutions</a>
+                {/switch}
+            </div>
+        </div>
+    </div>
 
     {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
         {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
@@ -102,20 +101,20 @@
                 </div>
                 <a n:href="Rules:" class="btn btn-panel-action">Jak to funguje</a>
             {default}
-                <div class="subheader">Rules Briefly</div>
+                <div class="subheader">Summary of the rules</div>
                 <h1>What Is Fyziklani {$newestEvent->begin |date:'Y'}?</h1>
                 <div class="row strips">
                     <div class="col-md-4">
-                        Up to five high school students compete in Prague in a three-hour-long contest in solving physics
+                        Up to 5 high school students compete in Prague in a 3-hour long contest by solving physics
                         problems.
                     </div>
                     <div class="col-md-4">
-                        There are 7 problems available for you. As soon as you solve one, you get another problem
-                        immediately. For each solved problem the team is awarded with points.
+                        There are 7 problems always available. As soon as a team solves one correctly, they recieve another problem.
+                        For each solved problem the team is awarded points.
                     </div>
                     <div class="col-md-4">
                         The best teams win prizes and undying glory in our competition, which has been held
-                        annually for {$newestEvent->eventYear} year now.
+                        annually for {$newestEvent->eventYear} years now.
                     </div>
                 </div>
                 <a n:href="Rules:" class="btn btn-panel-action">How does it work</a>
@@ -222,17 +221,17 @@
                 </div>
             {default}
                 <div class="subheader">Problem Examples</div>
-                <h1>Everyone Finds a Suitable Difficulty.</h1>
+                <h1>Everyone Finds Their Level of Difficulty</h1>
                 <div>
                     <div class="title-page-problem">
                         A coniferous tree could be (from a mechanical point of view) approximated by a homogeneous
-                        right circular cone with height h = 40 m and radius at the base r = 1.0 m. Find the maximal
+                        right circular cone of height h = 40 m and radius r = 1.0 m. Find the maximum
                         angle by which its axis may be displaced from the vertical axis before it starts to fall due to its
                         weight.
                     </div>
 
                     <div class="title-page-problem">
-                        A h = 30 m high waterfall has flow rate Q = 1,2 m<sup>3</sup>·s<sup>-1</sup>. Find the total force with which water
+                        A waterfall of height h = 30 m has flow rate Q = 1.2 m<sup>3</sup>·s<sup>-1</sup>. Find the total force with which water
                         impacts the ground under the waterfall. Assume that the water quickly flows away from the
                         point of impact and the depth of water under the waterfall is negligible.
                     </div>
@@ -241,11 +240,11 @@
                         Each edge of the cube has a resistance R = 1 000 Ω.
                     </div>
                     <div class="title-page-problem">
-                        Vítek would like to get some water from his well, but he does not want to keep pulling the
-                        bucket up. Therefore, he gradually stirred the water around faster and faster until, at an angular
-                        velocity ω = 11 rad·s<sup>-1</sup>, the water started flowing out of the well all by itself. Vítek knows the
-                        depth of the well (from the top edge to the ground at the bottom) h = 47 m. The well has
-                        a circular cross-section with a radius r<sub>0</sub> = 1,6 m. What was the height of the water column
+                        Vítek would like to draw water from his well, but he does not want to haul the bucket up. 
+                        Therefore, he gradually spun the water around until, at an angular
+                        velocity ω = 11 rad·s<sup>-1</sup>, the water started to flow out of the well all by itself. Vítek knows the
+                        depth of the well (from the top edge to the bottom) is h = 47 m. The well has
+                        a circular cross-section of a radius r<sub>0</sub> = 1.6 m. What was the height of the water column
                         (from the bottom of the well to the water surface) before Vítek started spinning the water
                         around?
                     </div>
@@ -262,14 +261,15 @@
                 {*<h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}.</h1>*}
                 <h1>V Praze se můžete zdržet i déle</h1>
           		<p>Kromě soutěže se můžete těšit i na bohatý doprovodný program plný přednášek, exkurzí a mnoha dalšího. Podrobnosti naleznete <a href="https://fyziklani.cz/program">zde</a>.</p>
-          		<p>Od středy do neděle bude též probíhat městská hra, kterou si budete moci projít kdykoliv budete chít.</p>
+          		<p><strong>Od středy do neděle bude též probíhat městská hra, kterou si budete moci projít kdykoliv budete chít.</strong></p>
                 {*<p>Doprovodný program Fyziklání je volitelný, lze se zúčastnit i pouze samotné soutěže.</p>*}
             {default}
                 <div class="subheader">Fyziklani Schedule</div>
                 {*<h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}.</h1>*}
                 <h1>You Can Stay in Prague a Little Longer</h1>
-                <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more. Details can be found <a href="https://fyziklani.org/schedule">here</a>.</p>
-                <p>From Wednesday to Sunday, a city rally will take place, which you can go though whenever you want.</p>
+                <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more. 
+                Details can be found <a href="https://fyziklani.org/schedule">here</a>.</p> 
+                <p><strong>There is a City rally that you can go through your own, available from Wednesday to Sunday, whenever you want.</strong></p>
                 {*<p>The accompanying program is optional, it is possible to take part only in the competition itself.</p>*}
             {/switch}
 

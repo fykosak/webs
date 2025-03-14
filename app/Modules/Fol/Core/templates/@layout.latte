@@ -215,6 +215,12 @@
                             <a href="mailto:online@physicsbrawl.org">online@physicsbrawl.org</a>
                         {/switch}
                     </p>
+                    <p>
+                        {switch $language->value}
+                            {case cs}Tato stránka nesbírá cookies.
+                            {default}This website does not collect cookies.
+                        {/switch}
+                    </p>
                     <div class="other-logos">
                         <a target="_blank" href="{switch $language->value}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/en{/switch}"><img class="other-logo" src="{$basePath}/images/fyziklani_white_logo.svg" alt="Fyziklani" style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                         <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/fykos_logo_white.png" alt="FYKOS" style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>

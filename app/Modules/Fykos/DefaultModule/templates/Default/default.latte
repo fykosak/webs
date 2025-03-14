@@ -143,6 +143,13 @@
                 {default}Page of All Events
             {/switch}
         </a>
+        
+        <a class="btn btn-primary" n:href=":Events:Default:default#events-calendar">
+            {switch $language->value}
+                {case 'cs'}Kalendář
+                {default}Calendar
+            {/switch}
+        </a>
 
         <div class="fade-in-section mt-5 mt-md-0">
             <div class="row mt-5">
