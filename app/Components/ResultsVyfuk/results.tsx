@@ -113,7 +113,7 @@ function Results({ data, series, year }: { data: { submits: { [key: string]: Sub
         }
 
         let columns: ColumnDef[] = [];
-        let taskLockup: { [key: number]: number } = {};
+        let taskLookup: { [key: number]: number } = {};
         columns.push({ colKey: "rank", label: "#", sortable: false, numerical: false });
         columns.push({ colKey: "name", label: "Jméno", sortable: false, numerical: false });
         columns.push({ colKey: "school", label: "Škola", sortable: false, numerical: false });
@@ -125,7 +125,7 @@ function Results({ data, series, year }: { data: { submits: { [key: string]: Sub
             });
             let seriesSum: number = 0;
             for (let [key, t] of tasks.entries()) {
-                taskLockup[t.taskId] = columns.length;
+                taskLookup[t.taskId] = columns.length;
                 columns.push({ colKey: "s" + series + "." + t.label, label: t.label + "\u00A0(" + t.points + "\u00A0b)", sortable: true, numerical: true });
                 seriesSum += t.points;
             }
