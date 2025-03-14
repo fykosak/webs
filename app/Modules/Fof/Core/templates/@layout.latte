@@ -298,6 +298,12 @@
                             {/switch}
                             <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>
                         </p>
+                        <p>
+                            {switch $language->value}
+                                {case cs}Tato stránka nesbírá cookies.
+                                {default}This website does not collect cookies.
+                            {/switch}
+                        </p>
                         <div class="other-logos">
                             <a target="_blank" href="https://fykos.cz/"><img class="other-logo"
                                     src="{$basePath}/images/logos/fykos_logo_white.png" alt="FYKOS"
@@ -390,16 +396,6 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                        <nav>
-                            <ul>
-                                <li>
-                                    {switch $language->value}
-                                        {case cs}Tato stránka nesbírá cookies.
-                                        {default}This website does not collect cookies.
-                                    {/switch}
                                 </li>
                             </ul>
                         </nav>

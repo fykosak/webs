@@ -178,6 +178,12 @@
                             {default}<strong>#fykos</strong> <a href="mailto:fykos@fykos.org">fykos@fykos.org</a>
                         {/switch}
                     </p>
+                    <p>
+                        {switch $language->value}
+                            {case cs}Tato stránka nesbírá cookies.
+                            {default}This website does not collect cookies.
+                        {/switch}
+                    </p>
                     <div class="other-logos">
                         <a target="_blank"
                             href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img
@@ -262,17 +268,6 @@
                             </li>
                         </ul>
                     </nav>
-                    <nav>
-                        <ul>
-                            <li>
-                                {switch $language->value}
-                                    {case cs}Tato stránka nesbírá cookies.
-                                    {default}This website does not collect cookies.
-                                {/switch}
-                            </li>
-                        </ul>
-                    </nav>
-                        
                     {* <nav>
                         <ul>
                             <li>
