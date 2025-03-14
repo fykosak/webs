@@ -4,7 +4,8 @@
 <div class="panel color-primary title-panel">
     <section class="inner-container">
         <div class="header-container">
-            <div class="row">
+            <img class="titlepage-logo d-none d-lg-block" src="{$basePath}/images/logo.svg" />
+            <div class="row mt-4">
                 <div class="col-md header-text-container">
                     <h1 class="header-text">Fyzikální soutěž<br> pro 2.&nbsp;stupeň&nbsp;ZŠ</h1>
                     <p class="header-text">
@@ -28,136 +29,208 @@
         </div>
     </section>
 </div>
+<div class="countdown-container py-3">
+    <section class="inner-container">
+        <h2 class="m-0 countdown"><span id="countdown-label" class="countdown-text mx-3 mx-sm-4 mx-md-5"></span><span id="countdown-time" class="countdown-text mx-3 mx-sm-4 mx-md-5"></h2>
+    </section>
+</div>
 <div class="panel color-light title-panel">
     <section class="inner-container">
-        <div class="header-container">
-            <h2>Aktuality</h2>
+        <h2>Aktuality</h2>
             <div class="row">
-                {* problems news card *}
-                <div class="col-md my-2">
-                    <div class="card news-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Zadání {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série</h5>
-                            {if new Datetime() < $series->getDeadline()}
-                                <p class="card-text">Zveřejnili jsme zadání {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série.</p>
-                                <p class="card-text">Na vyřešení a odevzdání úloh {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série máte čas do <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>.</p>
-                                <a n:href=":Default:Problems:default" class="btn btn-primary">Zadání</a>
-                            {else}
-                                <p>{$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninová " : $series->series . ".&nbsp;"|noescape}série již proběhla. Zadání další série zveřejníme brzy.</p>
-                            {/if}
+            {foreach $newsList['cs'] as $orderNumber => $news}
+                {if $orderNumber < 4}
+                    {if $orderNumber < 2}
+                        <div class="col-md-6 mt-2 mb-4">
+                            <div class="card news-card">
+                                <div class="card-body d-flex align-items-start flex-column">
+                                    <h5 class="card-title">{$news['title']}</h5>
+                                    <p class="card-text">{$news['text']|noescape}</p>
+                                    {if strpos($news['link'], 'http') === 0}
+                                        <a href="{$news['link']}" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+                                    {else}
+                                        <a n:href="$news['link']" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+                                    {/if}
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    {else}
+                        <div class="col-md-6 mt-4 mb-2">
+                            <div class="card news-card">
+                                <div class="card-body d-flex align-items-start flex-column">
+                                    <h5 class="card-title">{$news['title']}</h5>
+                                    <p class="card-text">{$news['text']|noescape}</p>
+                                    {if strpos($news['link'], 'http') === 0}
+                                        <a href="{$news['link']}" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+                                    {else}
+                                        <a n:href="$news['link']" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+                                    {/if}
+                                </div>
+                            </div>
+                        </div>
+                    {/if}
+                {/if}
+            {/foreach}
+        </div>
+    </section>
+    <section class="inner-container mt-5">
+        <div class="row g-5 py-5 row-cols-1 row-cols-lg-3">
+            <div class="col d-flex align-items-start">
+                <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-2 flex-shrink-0 me-3">
+                    <i class="mt-1 fas fa-pen-ruler"></i>
                 </div>
-                {* solutions news card *}
-                <div class="col-md my-2">
-                    <div class="card news-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Řešení {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}série</h5>
-                            {php $previousDeadline = $previousSeries->getDeadline()}
-                            {php $dateTime = new Datetime()}
-                            {if $dateTime > $previousDeadline && !$checkAllSolutions}
-                                <p class="card-text">{$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninová " : $previousSeries->series . ".&nbsp;"|noescape}série již proběhla. Vzorová řešení zveřejníme brzy.</p>
-                            {elseif $dateTime > $previousDeadline && $checkAllSolutions}
-                                <p class="card-text">Zveřejnili jsme vzorová řešení úloh {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}série.</p>
-                                <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}" class="btn btn-primary">Řešení</a>
-                            {/if}
-                        </div>
-                    </div>
-                </div>
-                {* results news card *}
-                <div class="col-md my-2">
-                    <div class="card news-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Výsledkové listiny po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii</h5>
-                            {if $resultsReady && new Datetime() > $previousSeries->getDeadline()}
-                                <p>Zveřejnili jsme pořadí po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii {$previousSeries->year}.&nbsp;ročníku. Můžete se tedy podívat, jak jste dopadli a kolik bodů za jednotlivé úlohy jste získali. Výhercům všech kategorií gratulujeme!</p>
-                                <a href="{plink ':Default:Results:default' 'year'=>$previousSeries->year}" class="btn btn-primary">Pořadí</a>
-                            {else}
-                                <p class="card-text">Pořadí po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii zveřejníme v blízké době.</p>
-                            {/if}
-                        </div>
-                    </div>
-                </div>
-                {* nearest event news card *}
-                <div class="col-md my-2">
-                    <div class="card news-card">
-                        <div class="card-body">
-                            <h5 class="card-title">{$nearestEvent->name}</h5>
-                            {if new Datetime() < $nearestEvent->begin}
-                                <p class="card-text">
-                                    Právě pro vás připravujeme
-                                    {switch $nearestEvent->eventTypeId}
-                                        {case 10}
-                                            letní tábor, který
-                                        {case 11}
-                                            jarní setkání, které
-                                        {case 12}
-                                            podzimní setkání, které
-                                        {case 18}
-                                            zimní víkendovku, která
-                                    {/switch}
-                                    proběhne mezi <strong>{$nearestEvent->begin|date:'j. n. Y'}</strong> a <strong>{$nearestEvent->end|date:'j. n. Y'}</strong>.
-                                </p>
-                                <p class="card-text">Registrace bude spuštěna <strong>{$nearestEvent->registrationBegin|date:'d. m. Y, H:i'}</strong></p>
-                            {elseif new Datetime() < $nearestEvent->end}
-                                <p class="card-text">Právě probíhá
-                                    {switch $nearestEvent->eventTypeId}
-                                        {case 10}
-                                            letní tábor.
-                                        {case 11}
-                                            jarní setkání.
-                                        {case 12}
-                                            podzimní setkání.
-                                        {case 18}
-                                            zimní víkendovku.
-                                    {/switch}
-                                </p>
-                            {else}
-                                {switch $nearestEvent->eventTypeId}
-                                    {case 10}
-                                        <p class="card-text">Letní tábor již proběhl.</p>
-                                    {case 11}
-                                        <p class="card-text">Jarní setkání již proběhlo.</p>
-                                    {case 12}
-                                        <p class="card-text">Podzimní setkání již proběhlo.</p>
-                                    {case 18}
-                                        <p class="card-text">Zimní víkendovka již proběhla.</p>
-                                {/switch}
-                                <p class="card-text">Těšíme se na vás na další akci!</p>
-                            {/if}
-                            {switch $nearestEvent->eventTypeId}
-                                {case 10}
-                                    <a n:href=":Default:Events:tabor" class="btn btn-primary">Stránka tábora</a>
-                                {case 11}
-                                    <a n:href=":Default:Events:setkani" class="btn btn-primary">Stránka setkání</a>
-                                {case 12}
-                                    <a n:href=":Default:Events:setkani" class="btn btn-primary">Stránka setkání</a>
-                                {case 18}
-                                    <a n:href=":Default:Events:vikendovka" class="btn btn-primary">Stránka zimní víkendovky</a>
-                            {/switch}
-                        </div>
+                <div>
+                    <h3 class="fs-2 text-body-emphasis">Chceš začít řešit?</h3>
+                    <p>
+                        Tak se podívej na aktuální <a n:href=":Default:Problems:default">zadání</a> úloh. Pokud jsi tady poprvé, tak doporučujeme si nejprve přečíst, <a n:href=":Default:Section:howToEngage">jak se zapojit</a>.
+                    </p>
+                    {if $checkAllSolutions}
+                        <p class="mb-2">
+                            Také se můžeš podívat na <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}">vzorová řešení</a> úloh předchozí série.
+                        </p>
+                    {else}
+                        <p class="mb-2">
+                            Vzorová řešení úloh předchozí série zveřejníme brzy.
+                        </p>
+                    {/if}
+                    <div class="d-block">
+                        <a n:href=":Default:Problems:default" class="btn btn-primary mt-2">Zadání {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série</a>
+                        {if $checkAllSolutions}
+                            <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}" class="btn btn-primary mt-2">Řešení {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}série</a>
+                        {/if}
                     </div>
                 </div>
             </div>
-            {* dynamic news cards from news.json *}
-            <div class="row">
-                {foreach $newsList['cs'] as $news}
-                <div class="col-md my-2">
-                    <div class="card news-card">
-                        <div class="card-body">
-                            <h5 class="card-title">{$news['title']}</h5>
-                            <p class="card-text">{$news['text']|noescape}</p>
-                            {if strpos($news['link'], 'http') === 0}
-                                <a href="{$news['link']}" class="btn btn-primary">{$news['link-text']}</a>
-                            {else}
-                                <a n:href="$news['link']" class="btn btn-primary">{$news['link-text']}</a>
-                            {/if}
-                        </div>
-                    </div>
+            <div class="col d-flex align-items-start">
+                <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-2 flex-shrink-0 me-3">
+                    <i class="mt-1 fas fa-ranking-star"></i>
                 </div>
-                {/foreach}
+                <div>
+                    <h3 class="fs-2 text-body-emphasis">Zajímá tě pořadí?</h3>
+                    <p>
+                        Mrkni se na <a n:href=":Default:Results:default">pořadí</a> po poslední sérii a zkontroluj si, jak si průběžně stojíš. Nejlepší řešitele čekají hodnotné <a n:href=":Default:Separate:prizes">ceny</a> a především pak účast na našich akcích.
+                    </p>
+                    {if $resultsReady}
+                        <a href="{plink ':Default:Results:default' 'year'=>$previousSeries->year}" class="btn btn-primary">Pořadí  po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii</a>
+                    {else}
+                        <p class="mb-2">
+                            Výsledky po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii zveřejníme brzy.
+                        </p>
+                    {/if}
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-2 flex-shrink-0 me-3">
+                    <i class="mt-1 fas fa-calendar-days"></i>
+                </div>
+                <div>
+                    <h3 class="fs-2 text-body-emphasis">Chceš jet na akci?</h3>
+                    <p>
+                        Rád by ses podíval na <a n:href=":Default:Events:tabor">tábor</a>, nebo tě spíš láká <a n:href=":Default:Events:setkani">setkání</a>? Mrkni se, co všechno ti může Výfuk <a n:href=":Default:Events:default">nabídnout</a> a sleduj naše
+                        <a href="https://www.instagram.com/ksvyfuk">sociální sítě</a>, aby ti neuniklo spuštění přihlašování!
+                    </p>
+                    <p>
+                        Nejbližší akcí je
+                        {switch $nearestEvent->eventTypeId}
+                            {case 10}
+                                <a n:href="Events:detail $nearestEvent->eventId">letní tábor</a>, který
+                            {case 11}
+                                <a n:href="Events:detail $nearestEvent->eventId">jarní setkání</a>, které
+                            {case 12}
+                                <a n:href="Events:detail $nearestEvent->eventId">podzimní setkání</a>, které
+                            {case 18}
+                                <a n:href="Events:detail $nearestEvent->eventId">zimní víkendovka</a>, která
+                        {/switch}
+                        proběhne v termínu
+                        {if $nearestEvent->begin->format('Y') == $nearestEvent->end->format('Y')}
+                            <strong>{$nearestEvent->begin|date:'j. n.'} – {$nearestEvent->end|date:'j. n. Y'}</strong>.
+                        {else}
+                            <strong>{$nearestEvent->begin|date:'j. n. Y'} – {$nearestEvent->end|date:'j. n. Y'}</strong>.
+                        {/if}
+                    </p>
+                    {switch $nearestEvent->eventTypeId}
+                        {case 10}
+                            <a n:href=":Default:Events:tabor" class="btn btn-primary">Stránka letního tábora</a>
+                        {case 11}
+                            <a n:href=":Default:Events:setkani" class="btn btn-primary">Stránka jarního setkání</a>
+                        {case 12}
+                            <a n:href=":Default:Events:setkani" class="btn btn-primary">Stránka podzimního setkání</a>
+                        {case 18}
+                            <a n:href=":Default:Events:vikendovka" class="btn btn-primary">Stránka zimní víkendovky</a>
+                    {/switch}
+                </div>
             </div>
         </div>
     </section>
 </div>
+
+<script>
+// countdown timer to series deadline
+let countDownDate = new Date({$series->deadline}).getTime();
+
+let timer = setInterval(countdownTimer, 1000);
+countdownTimer();
+
+function countdownTimer() {
+    let now = new Date().getTime();
+
+    let distance = Math.floor((countDownDate - now)/1000);
+
+    let days = Math.floor(distance / (60 * 60 * 24));
+    let hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
+    let minutes = Math.floor((distance % (60 * 60)) / 60);
+    let seconds = Math.floor(distance % 60);
+
+    let daysLabel = "";
+    if (days == 1) {
+            daysLabel = "&nbsp;den ";
+    } else if (days < 5 && days != 0) {
+            daysLabel = "&nbsp;dny ";
+    } else {
+            daysLabel = "&nbsp;dnů ";
+    }
+
+    let hoursLabel = "";
+    if (hours == 1) {
+            hoursLabel = "&nbsp;hodina ";
+    } else if (hours < 5 && hours != 0) {
+            hoursLabel = "&nbsp;hodiny ";
+    } else {
+            hoursLabel = "&nbsp;hodin ";
+    }
+
+    let minutesLabel = "";
+    if (minutes == 1) {
+            minutesLabel = "&nbsp;minuta ";
+    } else if (minutes < 5 && minutes != 0) {
+            minutesLabel = "&nbsp;minuty ";
+    } else {
+            minutesLabel = "&nbsp;minut ";
+    }
+
+    let secondsLabel = "";
+    if (seconds == 1) {
+            secondsLabel = "&nbsp;sekunda";
+    } else if (seconds < 5 && seconds != 0) {
+            secondsLabel = "&nbsp;sekundy";
+    } else {
+            secondsLabel = "&nbsp;sekund";
+    }
+
+    let label = "Termín " + {$series->series} + ".&nbsp;série"
+    if (distance <= 0) {
+        clearInterval(timer);
+        label = {$series->series} + ".&nbsp;série již proběhla.";
+        time = '';
+        document.getElementById("countdown-time").classList.add("d-none");
+    } else if (days == 0) {
+        time = hours + hoursLabel + minutes + minutesLabel + seconds + secondsLabel;
+    } else {
+        time = days + daysLabel + hours + hoursLabel + minutes + minutesLabel;
+    }
+
+    document.getElementById("countdown-time").innerHTML = time;
+    document.getElementById("countdown-label").innerHTML = label;
+}
+</script>
 {/block}

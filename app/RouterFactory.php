@@ -285,6 +285,18 @@ class RouterFactory
             ]);
 
         $router->withModule('Default')
+            ->addRoute('pro-ucitele', 'Separate:teachers');
+
+        $router->withModule('Default')
+            ->addRoute('ceny', 'Separate:prizes');
+
+        $router->withModule('Default')
+            ->addRoute('archiv-vyfucteni', 'Separate:serialArchive');
+
+        $router->withModule('Default')
+            ->addRoute('poradi/[<year ([0-9]{1,2})>]', 'Results:default');
+
+        $router->withModule('Default')
             ->addRoute('//<domain>/<presenter>[/<action>]', [
                 'presenter' => 'Default',
                 'action' => 'default',

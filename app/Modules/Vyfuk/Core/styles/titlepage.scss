@@ -16,6 +16,7 @@
 
 .header-container {
   color: $text-on-primary;
+  position: relative;
 
   .header-text-container {
 
@@ -47,6 +48,47 @@
 
 .news-card {
   height: 100%;
-  color: black;
   border-color: $primary-color;
+}
+
+.countdown-container {
+  background-color: $complementary-color;
+  text-align: center;
+}
+
+.countdown {
+  @media screen and (max-width: 535px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.countdown-text {
+  color: white !important;
+  margin: 0;
+  @media screen and (max-width: 535px) {
+    margin-bottom: 0.5rem;
+    ~ .countdown-text {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.titlepage-logo {
+  padding-top: 2rem;
+  position: absolute;
+  background-color: $primary-color;
+  left: 0;
+  top: calc(-135px - 1.5rem);
+  width: 180px;
+}
+
+@include media-breakpoint-up(xl) {
+  .titlepage-logo {
+    top: calc(-120px - 1.5rem);
+  }
+}
+
+.mt-4-5 {
+  margin-top: 2rem;
 }
