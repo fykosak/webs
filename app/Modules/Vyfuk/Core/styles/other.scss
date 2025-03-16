@@ -1,5 +1,7 @@
-.event-img-box {
-    text-align: center;
+@include media-breakpoint-up(md) {
+    .event-img-box {
+        text-align: center;
+    }
 }
 
 .other-event-img {
