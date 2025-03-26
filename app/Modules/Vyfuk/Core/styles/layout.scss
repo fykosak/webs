@@ -353,15 +353,6 @@ a:hover {
   }
 }
 
-@include media-breakpoint-up(md) {
-  .sponsors {
-    .inner-container {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
-}
-
 .btn-primary {
   color: $text-on-primary;
 }
