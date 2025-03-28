@@ -26,18 +26,30 @@
     </section>
 
     {foreach $events as $key => $event}
-        <section class="inner-container my-5">
-            <h2>{$event->nameNew[$lang]}</h2>
-            <p>
-                {$event->description[$lang]|noescape}
-            </p>
-            <p>
+        {if $event->begin > new DateTime()}
+            <section class="inner-container my-5 py-3 border border-primary rounded upcoming-event">
+                <div class="subheader">Nadcházející akce</div>
+                <h2>{$event->nameNew[$lang]}</h2>
+                <p>
+                    {$event->description[$lang]|noescape}
+                </p>
                 <a class="btn btn-primary" n:href="Events:detail $event->eventId">
                     <i class="fa-solid fa-circle-info"></i> Informace o akci
                 </a>
-            </p>
-            {control gallery:randomLine "/media/photos/event/" . $event->eventId}
-        </section>
+                {control gallery:randomLine "/media/photos/event/" . $event->eventId}
+            </section>
+        {else}
+            <section class="inner-container my-5">
+                <h2>{$event->nameNew[$lang]}</h2>
+                <p>
+                    {$event->description[$lang]|noescape}
+                </p>
+                <a class="btn btn-primary" n:href="Events:detail $event->eventId">
+                    <i class="fa-solid fa-circle-info"></i> Informace o akci
+                </a>
+                {control gallery:randomLine "/media/photos/event/" . $event->eventId}
+            </section>
+        {/if}
     {/foreach}
 </div>
 {/block}
