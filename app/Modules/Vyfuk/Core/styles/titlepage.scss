@@ -12,6 +12,11 @@
   &>.row {
     --bs-gutter-x: 0;
   }
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 0;
+    padding-bottom: 2rem;
+  }
 }
 
 .header-container {
