@@ -122,6 +122,21 @@ class ImageGalleryControl extends DIComponent
     /**
      * @throws \Throwable
      */
+    public function renderRandomLineVyfuk(string $path): void
+    {
+        if (!$this->hasPhotos($path)) {
+            return;
+        }
+
+        $images = $this->getCachedImages($path);
+        $this->template->images = $images;
+        $this->template->previewImages = $this->getPreviewImages($images, (int)(count($images) / 6));
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLineVyfuk.latte');
+    }
+
+    /**
+     * @throws \Throwable
+     */
     public function renderOrderedLine(string $path): void
     {
         if (!$this->hasPhotos($path)) {
@@ -132,5 +147,20 @@ class ImageGalleryControl extends DIComponent
         $this->template->images = $images;
         $this->template->previewImages = $this->getPreviewImages($images, 1);
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
+    }
+
+    /**
+     * @throws \Throwable
+     */
+    public function renderOrderedLineVyfuk(string $path): void
+    {
+        if (!$this->hasPhotos($path)) {
+            return;
+        }
+
+        $images = $this->getCachedImages($path);
+        $this->template->images = $images;
+        $this->template->previewImages = $this->getPreviewImages($images, 1);
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLineVyfuk.latte');
     }
 }
