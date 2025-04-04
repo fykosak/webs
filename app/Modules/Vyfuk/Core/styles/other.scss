@@ -1,40 +1,49 @@
-.event-img-box {
-    text-align: center;
+.btn-primary {
+    color: $text-on-primary;
 }
 
-.other-event-img {
-    max-width: 100%;
-    max-height: 330px;
-    padding: 10px;
+// Custom links
+a {
+    text-decoration: none;
 }
 
-.event-img-big {
-    max-width: 100%;
-    max-height: 230px;
-    padding: 10px;
+a:hover {
+    text-decoration: underline;
+    color: $primary;
 }
 
-.event-img-small {
-    max-width: 100%;
-    min-height: 110px;
-    padding: 10px;
+// Remove default button highlight on hover
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: $text-on-primary;
 }
 
-.event-img-box-different {
-    text-align: center;
-    padding-bottom: 150px;
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
+    color: $text-on-primary;
 }
 
-.event-img-box-big {
-    text-align: center;
-    padding-bottom: 100px;
+a.btn:hover, a.dropdown-item:hover {
+    text-decoration: none;
 }
 
-.event-img-box-mid {
-    text-align: center;
-    padding-bottom: 60px;
+// Fix padding and hover background in navbar dropdowns
+.nav .dropdown-menu {
+    padding: 0 !important;
 }
 
-.bingo-item {
-    max-width: 16rem;
+.nav li ul li:first-child a {
+    border-radius: 5px 5px 0 0;
+    padding-top: 0.35rem;
+}
+.nav li ul li:last-child a {
+    border-radius: 0 0 5px 5px;
+    padding-bottom: 0.35rem;
+}
+
+// Remove boostrap accordion box shadow
+.accordion-button:not(.collapsed){
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
 }

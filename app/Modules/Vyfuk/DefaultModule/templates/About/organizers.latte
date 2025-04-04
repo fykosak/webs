@@ -6,7 +6,7 @@
         <div class="col-md-6 col-xl-4 mb-4">
             <div class="card organizer-card h-100">
                 <img src="/media/photos/people/{$organizer['personId']}.jpg" class="card-img-top"
-                    onerror="this.src = '{$basePath}/images/organizer_default.svg'" alt="{$organizer['name']}">
+                    onerror="this.src = '{$basePath|noescape}/images/organizer_default.svg'" alt="{$organizer['name']}">
                 <h4 class="card-header">{if
                     $organizer['academicDegreePrefix']}{$organizer['academicDegreePrefix']}&#160;{/if}{$organizer['name']}{if
                     $organizer['academicDegreeSuffix']}&#160;{$organizer['academicDegreeSuffix']}{/if}</h4>
@@ -30,24 +30,6 @@
                             <td class="right-cell"><a
                                     href="mailto:{$organizer['domainAlias']}@vyfuk.org">{$organizer['domainAlias']}@vyfuk.org</a>
                             </td>
-                        </tr>
-                        {/if}
-                        {*<tr>
-                            <td class="left-cell"><span class="icon"><i class="bi bi-clock"></i></span></td>
-                            <td class="right-cell">
-                                {if $organizer['until'] and $organizer['until'] != $organizer['since']}
-                                ročníky {$organizer['since']} - {$organizer['until']}
-                                {elseif $organizer['until']}
-                                ročník {$organizer['since']}
-                                {else}
-                                od ročníku {$organizer['since']}
-                                {/if}
-                            </td>
-                        </tr>
-                        *}{if $organizer['contribution']}
-                        <tr>
-                            <td class="left-cell"><span class="icon"><i class="bi bi-trophy"></i></span></td>
-                            <td class="right-cell">{$organizer['contribution']}</td>
                         </tr>
                         {/if}
                     </table>
