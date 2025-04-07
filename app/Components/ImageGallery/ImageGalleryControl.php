@@ -98,15 +98,12 @@ class ImageGalleryControl extends DIComponent
     /**
      * @throws UnknownImageFileException|\Throwable
      */
-    public function render(string $path, string $layout = 'default', bool $trimmed = false): void
+    public function render(string $path, ?string $layout = null, bool $trimmed = false): void
     {
         $images = $this->getCachedImages($path);
         $this->template->images = $images;
 
         switch ($layout) {
-            case 'default':
-                $template = 'default.latte';
-                break;
             case 'randomLine':
                 if (!$this->hasPhotos($path)) {
                     return;
@@ -121,6 +118,8 @@ class ImageGalleryControl extends DIComponent
                 $this->template->previewImages = $this->getPreviewImages($images, 1);
                 $template = 'oneLine.latte';
                 break;
+            default:
+                $template = 'default.latte';
         }
 
         if ($trimmed) {
