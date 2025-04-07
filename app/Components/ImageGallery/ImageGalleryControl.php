@@ -98,69 +98,35 @@ class ImageGalleryControl extends DIComponent
     /**
      * @throws UnknownImageFileException|\Throwable
      */
-    public function render(string $path): void
+    public function render(string $path, string $layout = 'default', bool $trimmed = false): void
     {
-        $this->template->images = $this->getCachedImages($path);
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'default.latte');
-    }
-
-    /**
-     * @throws \Throwable
-     */
-    public function renderRandomLine(string $path): void
-    {
-        if (!$this->hasPhotos($path)) {
-            return;
-        }
-
         $images = $this->getCachedImages($path);
         $this->template->images = $images;
-        $this->template->previewImages = $this->getPreviewImages($images, (int)(count($images) / 6));
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
-    }
 
-    /**
-     * @throws \Throwable
-     */
-    public function renderRandomLineVyfuk(string $path): void
-    {
-        if (!$this->hasPhotos($path)) {
-            return;
+        switch ($layout) {
+            case 'default':
+                $template = 'default.latte';
+                break;
+            case 'randomLine':
+                if (!$this->hasPhotos($path)) {
+                    return;
+                }
+                $this->template->previewImages = $this->getPreviewImages($images, (int)(count($images) / 6));
+                $template = 'oneLine.latte';
+                break;
+            case 'orderedLine':
+                if (!$this->hasPhotos($path)) {
+                    return;
+                }
+                $this->template->previewImages = $this->getPreviewImages($images, 1);
+                $template = 'oneLine.latte';
+                break;
         }
 
-        $images = $this->getCachedImages($path);
-        $this->template->images = $images;
-        $this->template->previewImages = $this->getPreviewImages($images, (int)(count($images) / 6));
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLineVyfuk.latte');
-    }
-
-    /**
-     * @throws \Throwable
-     */
-    public function renderOrderedLine(string $path): void
-    {
-        if (!$this->hasPhotos($path)) {
-            return;
+        if ($trimmed) {
+            $template = 'trimmedLine.latte';
         }
 
-        $images = $this->getCachedImages($path);
-        $this->template->images = $images;
-        $this->template->previewImages = $this->getPreviewImages($images, 1);
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
-    }
-
-    /**
-     * @throws \Throwable
-     */
-    public function renderOrderedLineVyfuk(string $path): void
-    {
-        if (!$this->hasPhotos($path)) {
-            return;
-        }
-
-        $images = $this->getCachedImages($path);
-        $this->template->images = $images;
-        $this->template->previewImages = $this->getPreviewImages($images, 1);
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLineVyfuk.latte');
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . $template);
     }
 }

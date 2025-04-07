@@ -113,7 +113,7 @@
                 {if is_dir(__DIR__.'/../../../../media/fof/photos/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey['event']))}
                     <div class="mt-5">
                         <h2>{switch $language->value}{case 'cs'}Soutěž{default}Competition{/switch}</h2>
-                        {control gallery:orderedLine '/media/photos/' . $eventKey['key'] . '/'}
+                        {control gallery '/media/photos/' . $eventKey['key'] . '/', 'orderedLine'}
                     </div>
                 {/if}
 
@@ -121,9 +121,9 @@
                     <div class="mt-5">
                         <h2>{switch $language->value}{case 'cs'}Fotostěna{default}Fyziklani Backdrop{/switch}</h2>
                         {if in_array($eventKey['key'], ['2023', '2024'])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
-                            {control gallery:orderedLine '/media/photos/' . $eventKey['key'] . '/teams/'}
+                            {control gallery '/media/photos/' . $eventKey['key'] . '/teams/', 'orderedLine'}
                         {else}
-                            {control gallery:randomLine '/media/photos/' . $eventKey['key'] . '/teams/'}
+                            {control gallery '/media/photos/' . $eventKey['key'] . '/teams/', 'randomLine'}
                         {/if}
                     </div>
                 {/if}
@@ -132,9 +132,9 @@
                     <div class="mt-5">
                         <h2>{switch $language->value}{case 'cs'}Vítězové{default}Winners{/switch}</h2>
                         {if in_array($eventKey['key'], ['2023', '2024'])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
-                            {control gallery:orderedLine '/media/photos/' . $eventKey['key'] . '/winners/'}
+                            {control gallery '/media/photos/' . $eventKey['key'] . '/winners/', 'orderedLine'}
                         {else}
-                            {control gallery:randomLine '/media/photos/' . $eventKey['key'] . '/winners/'}
+                            {control gallery '/media/photos/' . $eventKey['key'] . '/winners/', 'randomLine'}
                         {/if}
                     </div>
                 {/if}
@@ -143,9 +143,9 @@
                     <div class="mt-5">
                         <h2>{switch $language->value}{case 'cs'}Doprovodný program Fyziklání{default}Accompanying Program of Fyziklani{/switch}</h2>
                         {if in_array($eventKey['key'], ['2023', '2024'])} {*Vojta chtěl pro 2023 v náhledu přesně prvních 6 fotek*}
-                            {control gallery:orderedLine '/media/photos/' . $eventKey['key'] . '/weekend/'}
+                            {control gallery '/media/photos/' . $eventKey['key'] . '/weekend/', 'orderedLine'}
                         {else}
-                            {control gallery:randomLine '/media/photos/' . $eventKey['key'] . '/weekend/'}
+                            {control gallery '/media/photos/' . $eventKey['key'] . '/weekend/', 'randomLine'}
                         {/if}
                     </div>
                 {/if}

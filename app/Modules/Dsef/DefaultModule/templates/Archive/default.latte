@@ -35,7 +35,7 @@
 
                 {if $control->getComponent('gallery')->hasPhotos('/media/photos/' . $eventKey['contestYear'] . '/')}
                     <div class="mt-5">
-                        {control gallery:randomLine '/media/photos/' . $eventKey['contestYear'] . '/'}
+                        {control gallery '/media/photos/' . $eventKey['contestYear'] . '/', 'randomLine'}
                     </div>
                 {elseif $eventKey['contestYear'] == 34}
                     <div class="mt-5">

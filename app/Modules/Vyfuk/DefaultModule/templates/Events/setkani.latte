@@ -36,7 +36,7 @@
                 <a class="btn btn-primary" n:href="Events:detail $event->eventId">
                     <i class="fa-solid fa-circle-info"></i> Informace o akci
                 </a>
-                {control gallery:randomLineVyfuk "/media/photos/event/" . $event->eventId}
+                {control gallery "/media/photos/event/" . $event->eventId, 'randomLine', true}
             </section>
         {else}
             <section class="inner-container my-5">
@@ -47,7 +47,7 @@
                 <a class="btn btn-primary" n:href="Events:detail $event->eventId">
                     <i class="fa-solid fa-circle-info"></i> Informace o akci
                 </a>
-                {control gallery:randomLineVyfuk "/media/photos/event/" . $event->eventId}
+                {control gallery "/media/photos/event/" . $event->eventId, 'randomLine', true}
             </section>
         {/if}
     {/foreach}
