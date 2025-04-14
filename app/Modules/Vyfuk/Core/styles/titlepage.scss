@@ -1,94 +1,83 @@
 .panel.title-panel {
-  h1 {
-    font-size: 5rem;
-  }
+    h1 {
+        font-size: 5rem;
+    }
 
-  .subheader {
-    font-weight: normal;
-    color: inherit;
-    font-size: 1.3rem;
-  }
+    .subheader {
+        font-weight: normal;
+        color: inherit;
+        font-size: 1.3rem;
+    }
 
-  &>.row {
-    --bs-gutter-x: 0;
-  }
+    &>.row {
+        --bs-gutter-x: 0;
+    }
+
+    @include media-breakpoint-down(lg) {
+        padding-top: 0;
+        padding-bottom: 2rem;
+    }
 }
 
 .header-container {
-  color: $text-on-primary;
-  position: relative;
+    color: $text-on-primary;
+    position: relative;
 
-  .header-text-container {
-
-    h1.header-text {
-      font-size: 4rem;
-      margin-bottom: 0;
-      padding-bottom: 1rem;
-      color: $text-on-primary;
+    .header-text-container {
+        h1.header-text {
+        font-size: 4rem;
+        margin-bottom: 0;
+        padding-bottom: 1rem;
+        color: $text-on-primary;
+        }
     }
-
-  }
-
-}
-
-.heading-container {
-  //justify-content: space-between;
-  //align-items: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.clear {
-  flex-basis: 100%;
-  height: 0;
-  overflow: hidden;
-  clear: both;
 }
 
 .news-card {
-  height: 100%;
-  border-color: $primary-color;
+    height: 100%;
+    border-color: $primary-color;
 }
 
+// Deadline countdown
 .countdown-container {
-  background-color: $complementary-color;
-  text-align: center;
+    background-color: $complementary-color;
+    text-align: center;
 }
 
 .countdown {
-  @media screen and (max-width: 535px) {
-    display: flex;
-    flex-direction: column;
-  }
+    @media screen and (max-width: 535px) {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .countdown-text {
-  color: white !important;
-  margin: 0;
-  @media screen and (max-width: 535px) {
-    margin-bottom: 0.5rem;
-    ~ .countdown-text {
-      margin-bottom: 0;
+    color: white !important;
+    margin: 0;
+    @media screen and (max-width: 535px) {
+        margin-bottom: 0.5rem;
+        ~ .countdown-text {
+        margin-bottom: 0;
+        }
     }
-  }
 }
 
+// Biger logo on titlepage
 .titlepage-logo {
-  padding-top: 2rem;
-  position: absolute;
-  background-color: $primary-color;
-  left: 0;
-  top: calc(-135px - 1.5rem);
-  width: 180px;
+    padding-top: 2rem;
+    position: absolute;
+    background-color: $primary-color;
+    left: 0;
+    top: calc(-135px - 1.5rem);
+    width: 180px;
 }
 
 @include media-breakpoint-up(xl) {
-  .titlepage-logo {
-    top: calc(-120px - 1.5rem);
-  }
+    .titlepage-logo {
+        top: calc(-120px - 1.5rem);
+    }
 }
 
 .mt-4-5 {
-  margin-top: 2rem;
+    margin-top: 2rem;
 }
