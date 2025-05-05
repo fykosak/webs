@@ -98,39 +98,34 @@ class ImageGalleryControl extends DIComponent
     /**
      * @throws UnknownImageFileException|\Throwable
      */
-    public function render(string $path): void
+    public function render(string $path, ?string $layout = null, bool $trimmed = false): void
     {
-        $this->template->images = $this->getCachedImages($path);
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'default.latte');
-    }
-
-    /**
-     * @throws \Throwable
-     */
-    public function renderRandomLine(string $path): void
-    {
-        if (!$this->hasPhotos($path)) {
-            return;
-        }
-
         $images = $this->getCachedImages($path);
         $this->template->images = $images;
-        $this->template->previewImages = $this->getPreviewImages($images, (int)(count($images) / 6));
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
-    }
 
-    /**
-     * @throws \Throwable
-     */
-    public function renderOrderedLine(string $path): void
-    {
-        if (!$this->hasPhotos($path)) {
-            return;
+        switch ($layout) {
+            case 'randomLine':
+                if (!$this->hasPhotos($path)) {
+                    return;
+                }
+                $this->template->previewImages = $this->getPreviewImages($images, (int)(count($images) / 6));
+                $template = 'oneLine.latte';
+                break;
+            case 'orderedLine':
+                if (!$this->hasPhotos($path)) {
+                    return;
+                }
+                $this->template->previewImages = $this->getPreviewImages($images, 1);
+                $template = 'oneLine.latte';
+                break;
+            default:
+                $template = 'default.latte';
         }
 
-        $images = $this->getCachedImages($path);
-        $this->template->images = $images;
-        $this->template->previewImages = $this->getPreviewImages($images, 1);
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'oneLine.latte');
+        if ($trimmed) {
+            $template = 'trimmedLine.latte';
+        }
+
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . $template);
     }
 }

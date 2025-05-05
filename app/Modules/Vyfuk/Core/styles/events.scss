@@ -4,3 +4,30 @@
     object-fit: cover;
     object-position: top;
 }
+
+.upcoming-event {
+    @media (max-width: 77rem) {
+        margin-left: 0.5rem !important;
+        margin-right: 0.5rem !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+      }
+}
+
+// Other events
+.other-event-img {
+    width: 70%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.other-event-container {
+    aspect-ratio: 16/9;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    @include media-breakpoint-up(md) {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}

@@ -5,11 +5,11 @@
     <section class="inner-container">
         <div class="header-container">
             <img class="titlepage-logo d-none d-lg-block" src="{$basePath}/images/logo.svg" />
-            <div class="row mt-4">
+            <div class="row mt-lg-4">
                 <div class="col-md header-text-container">
                     <h1 class="header-text">Fyzikální soutěž<br> pro 2.&nbsp;stupeň&nbsp;ZŠ</h1>
                     <p class="header-text">
-                        Výfuk, jméno našeho korespondenčního semináře, je vlastně zkratka jeho dlouhého názvu – Výpočty fyzikálních úkolů. Touto soutěží se snažíme ukázat, že fyzika je vlastně velmi zábavné a fascinující téma. {*TODO představení Výfuku*}
+                        Výfuk, jméno našeho korespondenčního semináře, je vlastně zkratka jeho dlouhého názvu – Výpočty fyzikálních úkolů. Touto soutěží se snažíme ukázat, že fyzika je ve skutečnosti velmi zábavné a fascinující téma.
                     </p>
                     <a class="btn btn-secondary mt-2" n:href=":Default:Section:howToEngage">
                         Jak se zapojit
@@ -34,14 +34,14 @@
         <h2 class="m-0 countdown"><span id="countdown-label" class="countdown-text mx-3 mx-sm-4 mx-md-5"></span><span id="countdown-time" class="countdown-text mx-3 mx-sm-4 mx-md-5"></h2>
     </section>
 </div>
-<div class="panel color-light title-panel">
+<div class="panel color-light">
     <section class="inner-container">
         <h2>Aktuality</h2>
             <div class="row">
             {foreach $newsList['cs'] as $orderNumber => $news}
                 {if $orderNumber < 4}
                     {if $orderNumber < 2}
-                        <div class="col-md-6 mt-2 mb-4">
+                        <div class="col-md-6 mt-2 mb-2 mb-md-4">
                             <div class="card news-card">
                                 <div class="card-body d-flex align-items-start flex-column">
                                     <h5 class="card-title">{$news['title']}</h5>
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     {else}
-                        <div class="col-md-6 mt-4 mb-2">
+                        <div class="col-md-6 mt-2 mt-md-4 mb-2">
                             <div class="card news-card">
                                 <div class="card-body d-flex align-items-start flex-column">
                                     <h5 class="card-title">{$news['title']}</h5>
@@ -74,15 +74,15 @@
         </div>
     </section>
     <section class="inner-container mt-5">
-        <div class="row g-5 py-5 row-cols-1 row-cols-lg-3">
-            <div class="col d-flex align-items-start">
+        <div class="row py-5 row-cols-1 row-cols-lg-3">
+            <div class="col d-flex align-items-start mb-3 mb-lg-0">
                 <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-2 flex-shrink-0 me-3">
                     <i class="mt-1 fas fa-pen-ruler"></i>
                 </div>
                 <div>
                     <h3 class="fs-2 text-body-emphasis">Chceš začít řešit?</h3>
                     <p>
-                        Tak se podívej na aktuální <a n:href=":Default:Problems:default">zadání</a> úloh. Pokud jsi tady poprvé, tak doporučujeme si nejprve přečíst, <a n:href=":Default:Section:howToEngage">jak se zapojit</a>.
+                        Tak se podívej na aktuální <a n:href=":Default:Problems:default">zadání</a> úloh. Pokud jsi tady poprvé, doporučujeme si nejprve přečíst, <a n:href=":Default:Section:howToEngage">jak se zapojit</a>.
                     </p>
                     {if $checkAllSolutions}
                         <p class="mb-2">
@@ -101,7 +101,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col d-flex align-items-start">
+            <div class="col d-flex align-items-start my-3 my-lg-0">
                 <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-2 flex-shrink-0 me-3">
                     <i class="mt-1 fas fa-ranking-star"></i>
                 </div>
@@ -119,14 +119,14 @@
                     {/if}
                 </div>
             </div>
-            <div class="col d-flex align-items-start">
+            <div class="col d-flex align-items-start mt-3 mt-lg-0">
                 <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-2 flex-shrink-0 me-3">
                     <i class="mt-1 fas fa-calendar-days"></i>
                 </div>
                 <div>
                     <h3 class="fs-2 text-body-emphasis">Chceš jet na akci?</h3>
                     <p>
-                        Rád by ses podíval na <a n:href=":Default:Events:tabor">tábor</a>, nebo tě spíš láká <a n:href=":Default:Events:setkani">setkání</a>? Mrkni se, co všechno ti může Výfuk <a n:href=":Default:Events:default">nabídnout</a> a sleduj naše
+                        Rád by ses podíval na <a n:href=":Default:Events:tabor">tábor</a> nebo tě spíš láká <a n:href=":Default:Events:setkani">setkání</a>? Mrkni se, co všechno ti může Výfuk <a n:href=":Default:Events:default">nabídnout</a>, a sleduj naše
                         <a href="https://www.instagram.com/ksvyfuk">sociální sítě</a>, aby ti neuniklo spuštění přihlašování!
                     </p>
                     <p>
@@ -223,6 +223,7 @@ function countdownTimer() {
         label = {$series->series} + ".&nbsp;série již proběhla.";
         time = '';
         document.getElementById("countdown-time").classList.add("d-none");
+        document.getElementById("countdown-label").classList.add("mb-0");
     } else if (days == 0) {
         time = hours + hoursLabel + minutes + minutesLabel + seconds + secondsLabel;
     } else {

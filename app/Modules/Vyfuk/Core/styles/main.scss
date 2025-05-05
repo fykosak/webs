@@ -39,7 +39,6 @@ $navbar-dark-hover-color: $text-dimmed;
 @import 'bootstrap-icons/font/bootstrap-icons.scss';
 $flag-icons-path: '/node_modules/flag-icons/flags';
 @import "../../../../../node_modules/flag-icons/sass/flag-icons";
-@import "./../../../Fof/Core/styles/sponsors";
 
 @import "./layout";
 @import "./titlepage";
@@ -49,6 +48,8 @@ $flag-icons-path: '/node_modules/flag-icons/flags';
 @import "./results";
 @import "./about";
 @import "./events";
+@import "./problems";
+@import "./sponsors";
 
 @import '../../../../Components/Problem/problem';
 @import '../../../../Components/Problem/vyfuk';
