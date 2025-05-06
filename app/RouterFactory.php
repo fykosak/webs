@@ -294,6 +294,18 @@ class RouterFactory
             ->addRoute('archiv-vyfucteni', 'Separate:serialArchive');
 
         $router->withModule('Default')
+            ->addRoute('jak-se-zapojit', 'Section:howToEngage');
+
+        $router->withModule('Default')
+            ->addRoute('pravidla', 'Section:rules');
+
+        $router->withModule('Default')
+            ->addRoute('jak-psat-reseni', 'Section:howToSolve');
+
+        $router->withModule('Default')
+            ->addRoute('jak-psat-experimenty', 'Section:howToExperiment');
+
+        $router->withModule('Default')
             ->addRoute('poradi/[<year ([0-9]{1,2})>]', 'Results:default');
 
         $router->withModule('Default')
