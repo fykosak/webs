@@ -306,6 +306,9 @@ class RouterFactory
             ->addRoute('jak-psat-experimenty', 'Section:howToExperiment');
 
         $router->withModule('Default')
+            ->addRoute('bingo', 'Problems:bingo');
+
+        $router->withModule('Default')
             ->addRoute('poradi/[<year ([0-9]{1,2})>]', 'Results:default');
 
         $router->withModule('Default')
