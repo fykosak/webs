@@ -175,22 +175,8 @@ function Results({
                 });
                 seriesSum += t.points;
             }
-            if ((year = 4)) {
+            if (year == 4 || year == 5) {
                 // ! temporary year if, fix when data is fixed !
-                columns.push({
-                    colKey: "s" + series,
-                    label:
-                        parseInt(series) > 6
-                            ? "P" +
-                              String(parseInt(series) - 6) +
-                              "\u00A0(" +
-                              seriesSum +
-                              "\u00A0b)"
-                            : series + "\u00A0(" + seriesSum + "\u00A0b)",
-                    sortable: true,
-                    numerical: true,
-                });
-            } else if ((year = 5)) {
                 columns.push({
                     colKey: "s" + series,
                     label:
