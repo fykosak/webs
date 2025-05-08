@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './style.scss';
 import { TranslatorProvider, useTranslator } from './resultsTranslator';
-import { co } from '@fullcalendar/core/internal-common';
 
 interface Contestant {
     contestant: {

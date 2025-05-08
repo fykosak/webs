@@ -1,0 +1,55 @@
+{block title}Setkání{/block}
+{block main}
+<div class="panel color-light">
+    <section class="inner-container">
+        {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+        {ifset title}<h1>{include title}</h1>{/ifset}
+        <p>
+            Nestačí ti tábor? Nebo si chceš vyzkoušet, jak výfučí akce probíhají a co tě tam čeká? Tak s námi určitě jeď
+            na víkendové setkání řešitelů!
+        </p>
+        <p>
+            Víkendová setkání jsou akce, během kterých se snažíme našim řešitelům v omezeném čase předat to
+            nejlepší, co může Výfuk nabídnout. Můžeš se těšit na přednášky, exkurze na vědecká pracoviště a různé další
+            aktivity včetně her. Setkání je v neposlední řadě i skvělá příležitost, jak se seznámit s ostatními řešiteli
+            a poznat naživo organizátory.
+        </p>
+        <p>
+            Setkání probíhají na jaře a na podzim. Setkání obyčejně začíná v páteční podvečer a končí v neděli brzy
+            odpoledne. O účasti na setkání nerozhoduje tvoje umístění ve Výfuku, pouze čas přihlášení. V posledních
+            letech na jedno setkání přijede zpravidla kolem 50 řešitelů.
+        </p>
+        <p>
+            Jestliže tě setkání zaujalo a zatím jsi na žádném nebyl, určitě se mrkni na fotky na našich sociálních
+            sítích, případně se na nás <a n:href=":Default:About:contact">obrať</a> s libovolným doplňujícím dotazem.
+        </p>
+    </section>
+
+    {foreach $events as $key => $event}
+        {if $event->begin > new DateTime()}
+            <section class="inner-container my-5 py-3 border border-primary rounded upcoming-event">
+                <div class="subheader">Nadcházející akce</div>
+                <h2>{$event->nameNew[$lang]}</h2>
+                <p>
+                    {$event->description[$lang]|noescape}
+                </p>
+                <a class="btn btn-primary" n:href="Events:detail $event->eventId">
+                    <i class="fa-solid fa-circle-info"></i> Informace o akci
+                </a>
+                {control gallery "/media/photos/event/" . $event->eventId, 'randomLine', true}
+            </section>
+        {else}
+            <section class="inner-container my-5">
+                <h2>{$event->nameNew[$lang]}</h2>
+                <p>
+                    {$event->description[$lang]|noescape}
+                </p>
+                <a class="btn btn-primary" n:href="Events:detail $event->eventId">
+                    <i class="fa-solid fa-circle-info"></i> Informace o akci
+                </a>
+                {control gallery "/media/photos/event/" . $event->eventId, 'randomLine', true}
+            </section>
+        {/if}
+    {/foreach}
+</div>
+{/block}

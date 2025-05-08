@@ -1,4 +1,3 @@
-
 {
     "komentář k používání" : [
         "všechny novinky jsou v tomto souboru",
@@ -12,6 +11,20 @@
         "do novinek se dají dávat i html elementy"
     ],
     "cs" : [
+            {
+            "title": "Ocenění za organizaci Fyziklání",
+            "text": "U příležitosti oslav 677 let od založení Univerzity Karlovy přebral FYKOS za organizaci mezinárodní soutěže Fyziklání cenu Miloslava Petruska za reprezentaci a propagaci. ",
+            "link": "https://cuni.cz/UK-14607.html",
+            "link-text": "Článek",
+            "color": "fof"
+        },
+      {
+            "title": "Opravené úlohy na webu",
+            "text": "Nově naleznete svoje opravená řešení i online! Můžete si je prohlédnout po přihlášení v záložce Nahraná řešení.",
+            "link": "https://db.fykos.cz/",
+            "link-text": "Přihlášení",
+            "color": "fykos"
+        },
 {
             "title": "Problémové úlohy",
             "text": "Baví vás řešit problémové úlohy? Nově budeme ve vzorových řešení zveřejňovat i vaše nejlepší zpracování problémových úloh. A autory nejlepších řešení samozřejmě nemine ani odměna!",
@@ -25,29 +38,15 @@
             "link": "https://fykos.cz/akce/fykos/experimenty",
             "link-text": "Návod",
             "color": "fykos"
-        },
-        {
-            "title": "Otevření registrace na Fyziklání Online",
-            "text": "Všichni milovníci fyziky pozor! Spouští se přihlášky na letošní Fyziklání Online. Tak dejte dohromady partu až pěti kamarádů a 20.11. si zasoutěžte s tisíci fyzikálních nadšenců z celého světa!",
-            "link": "https://online.fyziklani.cz/",
-            "link-text": "Web Fyziklání Online",
-            "color": "fol"
         }
     ],
     "en" : [
-        {
+         {
             "title": "Open Problems",
             "text": "Do you like to ponder over open-ended questions? This year we will include some of your best solutions to the open problems in our official solution. Oh, and the authors of the chosen solutions will get a reward!",
             "link": "https://fykos.org/problems",
             "link-text": "Problems",
             "color": "fykos"
-        },
-        {
-            "title": "Registration for Physics Brawl Online",
-            "text": "Registration for this year's Physics Brawl Online is open. So get together up to five friends and dive into solving all kinds of physics problems on November 20!",
-            "link": "https://physicsbrawl.org/",
-            "link-text": "Physics Brawl Online",
-            "color": "fol"
         }
     ]
 }

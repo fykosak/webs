@@ -1,27 +1,42 @@
 {varType array $event}
 {varType array $participants}
 {varType App\Modules\Core\Language $language}
+{varType string $photoPath}
 
 {block title}{$event['nameNew'][$lang]|firstUpper}{/block}
 {block subtitle}
-    {$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}
+{$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}
 {/block}
 {block main}
 {dump $event}
-    <div class="panel color-auto">
-        <section class="inner-container">
-            {ifset subtitle}
-                <div class="subheader">{include subtitle}</div>{/ifset}
-                {ifset title}<h1>{include title}</h1>{/ifset}
-            <p>{$event['reportNew'][$lang]}</p>
-        </section>
-    </div>
-    <div class="panel color-auto">
-        <section class="inner-container">
-            <h1>Účastníci</h1>
-            {foreach $participants as $participant}
-                {$participant['name']}{if !$iterator->isLast()},{else}.{/if}
-            {/foreach}
-        </section>
-    </div>
+{dump $photoPath}
+<div class="panel color-auto">
+    <section class="inner-container">
+        {ifset subtitle}
+        <div class="subheader">{include subtitle}</div>{/ifset}
+        {ifset title}<h1>{include title}</h1>{/ifset}
+        <p>{$event['reportNew'][$lang]}</p>
+    </section>
+</div>
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Fotogalerie</h1>
+        {if $control->getComponent('gallery')->hasPhotos($photoPath)}
+            {control gallery $photoPath, 'randomLine'}
+        {else}
+            {switch $lang}
+                {case 'cs'}Fotografie momentálně nejsou k dispozici.
+                {default}Photos are currently not available.
+            {/switch}
+        {/if}
+    </section>
+</div>
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Účastníci</h1>
+        {foreach $participants as $participant}
+        {$participant['name']}{if !$iterator->isLast()},{else}.{/if}
+        {/foreach}
+    </section>
+</div>
 {/block}

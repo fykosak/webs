@@ -16,7 +16,7 @@ class RouterFactory
     private static function havingDomainLanguage(array $languages, ?array $domainList): array
     {
         return [
-            // todo fix code duplication
+                // todo fix code duplication
             Route::FILTER_IN => function (array $params) use ($languages, $domainList) {
                 // From where to extract the language
                 if (isset($domainList) && count($domainList)) {
@@ -48,7 +48,7 @@ class RouterFactory
     private static function useTranslateFilter(?array $domainList, array $routerMapping): array
     {
         return [
-            // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
+                // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
             Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList): array {
 
                 // From where to extract the language
@@ -103,7 +103,7 @@ class RouterFactory
                 return $params;
             },
 
-            // From params to URL
+                // From params to URL
             Route::FILTER_OUT => function (array $params) use ($routerMapping, $domainList): array {
                 // Always translate presenter based on language
 
@@ -242,14 +242,20 @@ class RouterFactory
                 'presenter' => 'Camps',
                 'action' => 'detail',
                 'season' => [
-                    Route::FILTER_IN => function($season) {
+                    Route::FILTER_IN => function ($season) {
                         return $season === 'jaro' ? 4 : 5;
                     },
-                    Route::FILTER_OUT => function($id) {
+                    Route::FILTER_OUT => function ($id) {
                         return $id == 4 ? 'jaro' : 'podzim';
                     }
                 ]
             ]);
+
+        $router->withModule('Events')
+        ->addRoute('//<domain>/akce/tsaf/<year>-<month>', [
+            'presenter' => 'Tsaf',
+            'action' => 'detail'
+        ]);
 
         $router->addRoute('//<domain>/<module events|akce>/[<presenter>[/<action>]]', [
             'presenter' => 'Default',
@@ -270,6 +276,25 @@ class RouterFactory
     public static function createVyfukRouter(?array $domainList, array $routerMapping): Router
     {
         $router = new RouteList();
+
+        $router->withModule('Default')
+            ->addRoute('//<domain>/<presenter zadani>/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
+                'presenter' => 'Problems',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
+        $router->withModule('Default')
+            ->addRoute('pro-ucitele', 'Separate:teachers');
+
+        $router->withModule('Default')
+            ->addRoute('ceny', 'Separate:prizes');
+
+        $router->withModule('Default')
+            ->addRoute('archiv-vyfucteni', 'Separate:serialArchive');
+
+        $router->withModule('Default')
+            ->addRoute('poradi/[<year ([0-9]{1,2})>]', 'Results:default');
 
         $router->withModule('Default')
             ->addRoute('//<domain>/<presenter>[/<action>]', [

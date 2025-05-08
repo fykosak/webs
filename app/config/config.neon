@@ -18,7 +18,6 @@ services:
     - App\Models\Downloader\EventService('10 minutes')
     - App\Models\Downloader\DummyService('10 minutes')
 
-
 extensions:
     asset: SixtyEightPublishers\Asset\Bridge\Nette\DI\AssetExtension
 

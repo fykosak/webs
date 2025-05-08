@@ -1,7 +1,29 @@
-{block title}Výsledky{/block}
+{varType int $year}
+{varType App\Models\Downloader\ContestModel $contest}
+{varType array $results}
+{block title}Výsledky {$year}. ročníku{/block}
 
 {block main}
 <div class="panel color-auto">
-    <h1 class="inner-container" style="color:red">TODO výsledky Výfuku</h1>
+    <section class="inner-container">
+        <h1>Výsledky {$year}. ročníku Výfuku</h1>
+        <div class="dropdown year-selector mb-3">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                {$year}. ročník ({$contest->years[$year]->begin->format('Y')}/{$contest->years[$year]->end->format('y')})
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {foreach array_reverse($contest->years) as $contestYear}
+                {varType App\Models\Downloader\ContestYearModel $contestYear}
+                    {if $contestYear->year > 0}
+                        <li><a class="dropdown-item py-2" href="{plink 'this' 'year'=>$contestYear->year}">
+                            {$contestYear->year}. ročník ({$contestYear->begin->format('Y')}/{$contestYear->end->format('y')})
+                        </a></li>
+                    {/if}
+                {/foreach}
+            </ul>
+        </div>
+        <div id="contest-results" data-data="{json_encode($results)}" data-series="{json_encode($series)}" data-year="{$year}"></div>
+    </section>
 </div>
 {/block}

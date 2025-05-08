@@ -1,0 +1,120 @@
+{varType App\Models\Downloader\ProblemModel $problem}
+{varType App\Models\Downloader\SeriesModel $series}
+{varType App\Models\Downloader\ProblemService $problemService}
+{varType App\Modules\Core\Language $language}
+
+{block content}
+<div class="col-md-12">
+    <div class="card mb-3 problem-card">
+        <div class="card-header problem-header problem-header-{$problem->number}">
+            <div style="display: flex; justify-content: space-between;">
+                <h4><i class={$problem->getIcon()}></i><span class="skip-3px"></span>
+                    {if $problem->contest == 'vyfuk'}
+                        {$problem->getLabel()} ...
+                    {else}
+                        {$problem->getLabel()}...
+                    {/if}
+                    {$problem->name[$language->value]|noescape}</h4>
+                <div>
+                    {switch $language->value}
+                    {case 'cs'}
+                    <h4>{$problem->points} bod{if $problem->points == 1}{elseif
+                        $problem->points > 1
+                        && $problem->points < 5}y{else}ů{/if}</h4>
+                            {default}
+                            <h4>{$problem->points} point{if $problem->points == 1}{else}s{/if}</h4>
+                            {/switch}
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="card-title">
+                {if $problem->contest == 'vyfuk' && $problem->number == 1 && $problem->series < 7}
+                    <p><small><i>Tato úloha je určena pouze pro žáky šestých a sedmých ročníků.</i></small></p>
+                {/if}
+                {if $problem->contest == 'vyfuk' && $problem->number == 7 && $problem->series < 7}
+                    <p><small><i>S řešením této úlohy vám může pomoci krátký naučný text – tzv. Výfučtení. To můžeš nalézt pod odkazem níže.</i></small></p>
+                {/if}
+                {$problem->task[$language->value]|noescape}
+
+                {if $problem->contest == 'fykos'}
+                    {if $problem->number == 7}
+                        <a class="btn btn-primary mr-2 mb-3" href={plink :Events:Fykos:experiments}>
+                            {switch $language->value}
+                            {case 'cs'}Návod pro řešení experimentálních úloh
+                            {default}Instructions for Experimental Tasks
+                            {/switch}
+                        </a>
+                    {/if}
+                    {if $problem->number == 8}
+                        {php $serialPath = $problemService->getSerial($problem->contest, $series, $language->value)}
+                        {if $serialPath}
+                            <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
+                                <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
+                                {switch $language->value}
+                                    {case 'cs'}Text seriálu {$series->series}. série
+                                    {default}Text of Serial Number {$series->series}
+                                {/switch}
+                            </a>
+                        {/if}
+                    {/if}
+                {elseif $problem->contest == 'vyfuk'}
+                    {if $problem->number == 6}
+                        <a class="btn btn-secondary mr-2 mb-3" href={plink :Default:Section:howToExperiment}>
+                            <i class="fas fa-rocket"></i>
+                            Jak psát experimenty
+                        </a>
+                    {/if}
+                    {if $problem->number == 7}
+                        {php $serialPath = $problemService->getSerial($problem->contest, $series, $language->value)}
+                        {if $serialPath}
+                            <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
+                                <i class="far fa-file-pdf"></i><span class="skip-3px"></span>Text Výfučtení {$series->series}. série
+                            </a>
+                        {/if}
+                        <a class="btn btn-secondary my-2 mr-4" href={plink :Default:Separate:serialArchive}>
+                            <i class="fas fa-box-archive"></i><span class="skip-3px"></span> Archiv Výfučtení
+                        </a>
+                    {/if}
+                {/if}
+            </div>
+            {if new Datetime() > $series->getDeadline()}
+            <div class="solution-and-origin">
+                <div>
+                    {php $solutionPath = $problemService->getSolution($problem, $language->value)}
+                    {if $solutionPath}
+                    <a class="btn btn-primary" target="_blank" href="{$solutionPath}">
+                        <i class="far fa-file-pdf"></i>
+                        <span class="skip-3px"></span>
+                        {switch $language->value}
+                            {case 'cs'}Řešení
+                            {default}Solution
+                        {/switch}
+                    </a>
+                    {else}
+                        {switch $language->value}
+                            {case 'cs'}Řešení této úlohy zveřejníme brzy.
+                            {default}We will publish the solution to this problem soon.
+                        {/switch}
+                    {/if}
+                </div>
+                {if array_key_exists($language->value, $problem->origin) && $problem->origin[$language->value]}
+                <div><i>~ {$problem->origin[$language->value]|noescape}</i></div>
+                {/if}
+            </div>
+            {/if}
+        </div>
+
+        {if count($problem->topics)}
+        <div class="card-footer">
+            {foreach $problem->topics as $topic}
+            <span style="margin-right: 1rem;">
+                <i class="fas fa-tag mr-1"></i>
+                {App\Models\Downloader\ProblemModel::getTopicLabel($topic, $language->value)}
+            </span>
+            {/foreach}
+        </div>
+        {/if}
+    </div>
+</div>
+{/block}

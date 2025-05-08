@@ -62,7 +62,7 @@
             <div class="subheader">Z minulých let</div>
             <h1>Stále váháte?</h1>
             <div class="row strips">
-                {control gallery:randomLine "/media/photos/front-page/"}
+                {control gallery "/media/photos/front-page/", "randomLine"}
             </div>
             <div>
                 <a href="https://www.matfyz.cz/clanky/den-s-experimentalni-fyzikou-ukazal-jak-se-dela-veda" class="btn btn-panel-action text-start">Den s experimentální fyzikou ukázal, jak se dělá věda</a>
@@ -74,8 +74,8 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <div class="subheader">DSEF 2024</div>
-            <h1>K nadcházejícímu ročníku</h1>
-            <p>DSEF 2024 se bude konat {$newestEvent->begin|date: 'j. n. Y'} na Karlově, a již ho pro vás pilně připravujeme. Registrace se otevře {$newestEvent->registrationBegin|date: 'j. n.'}. Aktuální informace k blížící se registraci můžete sledovat na stránce <a n:href="Current:default">stránce letošního ročníku</a>. Pokud máte nějaký dotaz, neváhejte se nám ozvat na <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</p>
+            <h1>K uplynulému ročníku</h1>
+            <p>DSEF 2024 úspěšně proběhl {$newestEvent->begin|date: 'j. n. Y'} na Karlově. V <a n:href="Archive:default">archivu</a> se brzy objeví fotky z akce. Pokud by vám chyběly FYKOSí akce, rádi se s vámi uvidíme například v únoru na <a href="https://fyziklani.cz">Fyziklání v Praze</a>. Pokud máte nějaký dotaz, neváhejte se nám ozvat na <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.</p>
         </section>
     </div>
 

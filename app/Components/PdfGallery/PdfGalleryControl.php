@@ -37,10 +37,15 @@ class PdfGalleryControl extends DIComponent
         }
 
         foreach ($iterator as $file) {
+            $name = $file->getBasename('.pdf');
+            // if the name is urlencoded decode it
+            if (1 !== preg_match('/[^a-zA-Z0-9+%-_.]/', $name)) {
+                $name = urldecode($name);
+            }
             $wwwPath = substr($file->getPathname(), strlen($wwwDir));
             $pdfs[] = [
                 'src' => $wwwPath,
-                'name' => $file->getBasename('.pdf'),
+                'name' => $name,
             ];
         }
 
@@ -49,9 +54,10 @@ class PdfGalleryControl extends DIComponent
             return $a['name'] <=> $b['name'];
         });
 
-        foreach ($pdfs as $index => &$pdffile) {
-            $pdffile['index'] = $index;
+        foreach ($pdfs as $index => &$pdfFile) {
+            $pdfFile['index'] = $index;
         }
+
         return $pdfs;
     }
 
@@ -65,6 +71,26 @@ class PdfGalleryControl extends DIComponent
             [$path, $this->wwwDir],
             fn() => self::getPdfs($path, $this->wwwDir)
         );
-        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGallery.latte');
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGalleryList.latte');
+    }
+    public function renderButtons(string $path): void
+    {
+        $this->template->pdfs = $this->cache->load(
+            [$path, $this->wwwDir],
+            fn() => self::getPdfs($path, $this->wwwDir)
+        );
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGalleryButtons.latte');
+    }
+
+    /**
+     * @throws UnknownImageFileException
+     * @throws \Throwable
+     */
+    public function hasFiles(string $path): bool
+    {
+        return count($this->cache->load(
+            [$path, $this->wwwDir],
+            fn() => self::getPdfs($path, $this->wwwDir)
+        )) > 0;
     }
 }

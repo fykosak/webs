@@ -4,7 +4,6 @@ on:
   push:
     branchers:
       - master
-      - dev-docker
     paths:
       - 'docker/**'
       - '.github/workflows/deploy-image.yml'
@@ -15,7 +14,7 @@ env:
 
 jobs:
   build-and-push-image:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       packages: write
@@ -38,7 +37,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: docker
+          context: .
+          file: ./docker/Dockerfile.prod
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

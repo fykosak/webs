@@ -1,0 +1,28 @@
+{
+    "cs" : [
+        {
+            "title": "Druhá fáze přihlášek na tábor",
+            "text": "Již zítra, 3. 3. ve 20:00, se otevře přihlašování na letošní tábor 50 nejlepším řešitelům v každé kategorii. Jako vždy bude přihlašování probíhat přes databázi FKSDB, také vám přijde e-mail s odkazem – ten ale může být o několik minut opožděn. Volná místa se již obsazují pouze podle času přihlášení. Doporučujeme proto s přihlašováním neotálet, kapacita je omezená a v loňském roce byla zaplněna v řádu hodin. Pokud byste měli jakékoliv dotazy nebo potíže s přihlášením, neváhejte se na nás obrátit.",
+            "link": ":Default:Events:tabor",
+            "link-text": "Stránka tábora"
+        },
+        {
+            "title": "Přihlašování na tábor 2025",
+            "text": "Již v pondělí 17. února se otevře přihlašování na tábor pro 7 nejlepších v každé kategorie. Pokud mezi ně patříte, budete mít 14 dní na přihlášení. V této době budete mít své místo jisté. Pokud jste skončili hůře než 7., ale jste mezi 50 nejlepšími, nemusíte zoufat, protože po uplynutí 14 dní, tedy 3. března, pro vás uvolníme přihlašování na zbylá místa. Více informací naleznete na stránkách tábora.",
+            "link": ":Default:Events:tabor",
+            "link-text": "Stránka tábora"
+        },
+        {
+            "title": "Nové výfučí bingo je na světě!",
+            "text": "Připravili jsme si pro vás nové tabulky výfučího binga – nyní v nich najdete spoustu nových úkolů a výzev a samozřejmě i množství drobných odměn, které vám za každou vyškrtanou tabulkou zašleme. Vyškrtané tabulky nám posílejte na naši obvyklou kontaktní adresu <a href=\"mailto:vyfuk@vyfuk.org\">vyfuk@vyfuk.org</a>. Staré tabulky už dále nebudeme akceptovat.",
+            "link": ":Default:Problems:bingo",
+            "link-text": "Bingo"
+        },
+        {
+            "title": "Termín letního tábora",
+            "text": "Zveřejnili jsme termín příštího letního tábora – bude se konat od 27. července do 9. srpna 2025 v Mařenicích. Na fotky z minulých táborů se můžete podívat na našich sociálních sítích nebo na stránce letního tábora, kde také najdete bližší informace o průběhu tábora.",
+            "link": ":Default:Events:tabor",
+            "link-text": "Stránka letního tábora"
+        }
+    ]
+}

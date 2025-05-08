@@ -24,6 +24,14 @@ $naboj-color: #C22D86;
   --panel-color-light: white;
 }
 
+.right-bar {
+  border-right: 5px solid #1175da;
+}
+
+.left-bar {
+  border-left: 5px solid #1175da;
+}
+
 $page-width: 77rem;
 
 // $base-font-size: 18px;
@@ -44,8 +52,8 @@ $navbar-dark-color: $text-on-primary;
 $navbar-dark-hover-color: $text-on-primary;
 
 @import "node_modules/bootstrap/scss/bootstrap";
-$flag-icon-css-path: '/node_modules/flag-icon-css/flags';
-@import '../../../../../node_modules/flag-icon-css/sass/flag-icon';
+$flag-icons-path: '/node_modules/flag-icons/flags';
+@import "../../../../../node_modules/flag-icons/sass/flag-icons";
 
 // @import '../../../../Models/OldFykos/css/cssAll';
 
@@ -65,6 +73,11 @@ $flag-icon-css-path: '/node_modules/flag-icon-css/flags';
 // @import '../../../../Components/UpperHomePrague/styles';
 // @import '../../../../Components/TeamResults/styles';
 @import '../../../../Components/Navigation/styles';
+@import '../../../../Components/Problem/problem';
+@import '../../../../Components/Problem/fykos';
+@import '../../../../Components/ImagePreviewModal/styles';
+
+@import "../../../../Components/OrgSneakPeak/styles";
 
 @import "./layout";
 @import "./titlepage";

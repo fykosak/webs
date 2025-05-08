@@ -99,6 +99,15 @@
                                         <td class="right-cell">Vědecký pracovník na Ústavu teoretické fyziky MFF UK.</td>
                                     </tr>
                                 {/if}
+                                <tr>
+                                    <td class="left-cell"><span class="icon"><i class="fas fa-phone"></i></span></td>
+                                    <td class="right-cell">
+                                        {switch $language->value}
+                                            {case 'cs'}Prosíme, nevolejte. Využijte kontakty na ostatní organizátory.
+                                            {default}Please, do not call. Use the contact details of other organizers.
+                                        {/switch}
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </div>
@@ -128,12 +137,12 @@
                         <div class="card h-100">
                             <img src="{$basePath}/media/images/people/person{$organizer['personId']}.jpg"
                                 class="card-img-top"
-                                onerror="this.src = '/media/images/people/personUnknown.jpg'"
+                                onerror="this.src = '/media/images/people/personUnknown.jpg';this.onerror=null;"
                                 alt="{$organizer['name']}">
                             <h4 class="card-header">{$organizer['name']}</h4>
                             <div class="card-body">
                                 <table>
-                                    {if $organizer['role']}
+                                    {if $organizer['role'] and $lang == 'cs'}
                                     <tr>
                                         <td class="left-cell"><span class="icon"><i class="fas fa-briefcase"></i></span>
                                         </td>
@@ -153,6 +162,19 @@
                                             {default}<td class="right-cell"><a href="mailto:{$organizer['domainAlias']}@fykos.org">{$organizer['domainAlias']}@fykos.org</a></td>
                                         {/switch}
                                     </tr>
+                                    {php
+                                    $phoneNumbers = [
+                                        22358 => '+420 725 301 980',
+                                        15214 => '+420 775 504 193',
+                                        2762 => '+420 730 974 923'
+                                    ];
+                                    }
+                                    {if isset($phoneNumbers[$organizer['personId']])}
+                                    <tr>
+                                        <td class="left-cell"><span class="icon"><i class="fas fa-phone"></i></span></td>
+                                        <td class="right-cell">{$phoneNumbers[$organizer['personId']]}</td>
+                                    </tr>
+                                    {/if}
                                 </table>
                             </div>
                         </div>

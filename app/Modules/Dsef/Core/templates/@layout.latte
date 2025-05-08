@@ -85,7 +85,7 @@
                 <div class="category">
                     <div class="category-title">{switch $language->value}{case cs}Organizátoři{default}Organized by{/switch}</div>
                     <div class="category-sponsors">
-                        <a {switch $language->value}{case cs}href="https://www.fykos.cz/"{default}href="https://www.fykos.org/"{/switch} style="text-align: center">
+                        <a {switch $language->value}{case cs}href="https://fykos.cz/"{default}href="https://fykos.org/"{/switch} style="text-align: center">
                             <img src="{$basePath}/images/logos/fykos_logo.png" alt="logo FYKOSu" style="max-width: 9rem">
                         </a>
                         <a {switch $language->value}{case cs}href="https://www.mff.cuni.cz/"{default}href="https://www.mff.cuni.cz/en"{/switch} style="text-align: center">
@@ -103,13 +103,22 @@
                     </div>
                 </div>
                 <div class="category">
+                    <div class="category-title">{switch $language->value}{case cs}Generální partner{default}General Partner{/switch}</div>
+                    <div class="category-sponsors">
+                        <a href="https://www.cez.cz/" style="text-align: center">
+                            {switch $language->value}{case cs}<img src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo" style="max-width: 10rem">
+                          	{default}<img src="{$basePath}/images/logos/CEZ_Group_Logo_EN.png" alt="CEZ group logo" style="max-width: 10rem">{/switch}
+                        </a>
+                    </div>
+                </div>
+                {* <div class="category">
                     <div class="category-title">{switch $language->value}{case cs}Partner{default}Partner{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.iaps.info/" style="text-align: center">
                             <img src="{$basePath}/images/logos/iaps_logo.png" alt="IAPS logo" style="max-height: 10rem; max-width: 13rem">
                         </a>
                     </div>
-                </div>
+                </div> *}
             </div>
         </div>
 
@@ -127,9 +136,15 @@
                     <p>
                         <strong>#fykos</strong> <strong>#dsef</strong> <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>
                     </p>
+                    <p>
+                        {switch $language->value}
+                            {case cs}Tato stránka nesbírá cookies.
+                            {default}This website does not collect cookies.
+                        {/switch}
+                    </p>
                     <div class="other-logos">
                         <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/logos/fykos_logo_white.png" alt="FYKOS" style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        <a target="_blank" href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://online.fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
+                        <a target="_blank" href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                         <a target="_blank" href="{switch $language->value}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_white_logo.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                     </div>
                 </div>

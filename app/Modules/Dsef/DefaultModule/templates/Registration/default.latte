@@ -11,7 +11,7 @@
         <li>Jedná se o jednodenní prezenční akci v Praze.</li>
         <li>V přihlášce se budete rovnou hlásit na danou skupinu. Rozdělení programu jednotlivých skupin naleznete na <a n:href="Current:default">stránce aktuálního ročníku</a>.</li>
         <li>Uzávěrka přihlášek bude {$newestEvent->registrationEnd |date:'j. n. Y'} o půlnoci či v okamžiku zaplnění akce. Kapacita akce je zhruba 100 účastníků.</li>
-        <li>Předpokládáme účast na celé akci. Pokud byste se chtěli zúčastnit jen části, můžete se přihlásit na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a> jako náhradníci.</li>
+        <li>Předpokládáme účast na celé akci. Pokud byste se chtěli zúčastnit jen části, můžete se přihlásit na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a> jako náhradník.</li>
         <li>Účast na akci je <strong>zdarma</strong>.</li>
         <li>Před odesláním formuláře zkontrolujte správnost zadaných údajů, zejména e-mail. Údaje můžete sice po přihlášení (v případě potřeby) upravit, byli bychom ale rádi, aby byly definitivní hned po přihlášení.</li>
         <li>Pokud by měl zájem se účastnit váš učitel, tak se nejprve ozvěte na e-mail <a href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>, ale neměl by být problém, aby se účastnil jako běžný účastník.</li>
@@ -23,7 +23,7 @@
 
 
     <div class="d-grid gap-2">
-        <a href="https://db.fykos.cz/event{$newestEvent->eventId}/application/create" type="button"
+        <a href="https://db.fykos.cz/event/{$newestEvent->eventId}/application/create" type="button"
            class="btn btn-primary btn-lg btn-block" style="border-radius: 0">Registrovat se</a>
     </div>
 {/block}

@@ -10,7 +10,7 @@
             {ifset title}<h1>{include title}</h1>{/ifset}
         </section>
     </div>
-
+    {dump $eventKeys}
     {foreach $eventKeys AS $eventKey}
         <div class="panel color-auto">
             <section class="inner-container">
@@ -35,13 +35,15 @@
 
                 {if $control->getComponent('gallery')->hasPhotos('/media/photos/' . $eventKey['contestYear'] . '/')}
                     <div class="mt-5">
-                        {control gallery:randomLine '/media/photos/' . $eventKey['contestYear'] . '/'}
+                        {control gallery '/media/photos/' . $eventKey['contestYear'] . '/', 'randomLine'}
                     </div>
-                {/if}
-                {* Hack for missing photos *}
-                {if $eventKey['year'] == 34}
+                {elseif $eventKey['contestYear'] == 34}
                     <div class="mt-5">
                         Tento ročník proběhl kvůli pandemii COVID-19 online.
+                    </div>
+                {else}
+                    <div class="mt-5">
+                        Fotografie momentálně nejsou k dispozici.
                     </div>
                 {/if}
             </section>

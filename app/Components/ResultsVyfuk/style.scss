@@ -1,0 +1,31 @@
+.contest-results {
+  td {
+    vertical-align: middle;
+  }
+
+  .inactive-arrow {
+    color: grey;
+    font-size: .8rem;
+  }
+}
+
+.button-collapse-header {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.clickable-header {
+  cursor: pointer;
+  background-color: var(--panel-color-light);
+}
+
+.clickable-header:hover,
+.hovered {
+  background-color: var(--panel-color-dark);
+
+  .inactive-arrow {
+    font-size: 1rem;
+    color: black;
+  }
+}

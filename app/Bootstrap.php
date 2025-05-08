@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace App;
 
+// phpcs:disable
+require __DIR__ . '/../vendor/autoload.php';
+// phpcs:enable
+
 use Nette\Configurator;
 
 class Bootstrap
@@ -16,7 +20,7 @@ class Bootstrap
             $configurator->setDebugMode(true);
         }
         $configurator->enableTracy(__DIR__ . '/../log');
-        error_reporting(~E_USER_DEPRECATED);
+        error_reporting(~E_USER_DEPRECATED & ~E_DEPRECATED);
         $configurator->setTimeZone('Europe/Prague');
         $configurator->setTempDirectory(__DIR__ . '/../temp/' . $site);
 

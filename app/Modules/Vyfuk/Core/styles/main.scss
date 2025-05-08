@@ -1,7 +1,7 @@
 // Our theme
 $primary-color: #ff4800; // Do not forget to modify meta theme-color in ../templates/@layout.latte as well
 $primary-color-dimmed: darken($primary-color, 20%);
-$complementary-color: #ffdd31;
+$complementary-color: #495057;
 
 $panel-color-dark: #f5f5f5;
 $panel-color-light: white;
@@ -10,7 +10,7 @@ $text-on-primary: white;
 $text-dimmed: #CCCCCC;
 
 $page-width: 77rem;
-
+$min-contrast-ratio: 3;
 $base-font-size: 18px;
 
 // Use the following font weights.
@@ -22,33 +22,35 @@ $font-weight-bold: 800;
 // Override bootstrap variables
 $primary: $primary-color;
 $secondary: $complementary-color;
-$border-radius: 0;
+$min-contrast-ratio: 7;
+$focus-ring-box-shadow: none;
+$enable-rounded: true;
+$border-radius: 6px;
+$btn-focus-width: 0;
+//$card-border-width: 6px;
+//$card-border-width: 0;
+$accordion-border-color: $primary-color;
 
 // Navbar
 $navbar-dark-color: $text-on-primary;
-$navbar-dark-hover-color: $text-on-primary;
+$navbar-dark-hover-color: $text-dimmed;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 @import 'bootstrap-icons/font/bootstrap-icons.scss';
-$flag-icon-css-path: '/node_modules/flag-icon-css/flags';
-@import '../../../../../node_modules/flag-icon-css/sass/flag-icon';
-@import "./../../../Fof/Core/styles/sponsors";
+$flag-icons-path: '/node_modules/flag-icons/flags';
+@import "../../../../../node_modules/flag-icons/sass/flag-icons";
 
 @import "./layout";
 @import "./titlepage";
 @import "./navigation";
+@import "./organizers";
+@import "./other";
+@import "./results";
+@import "./about";
+@import "./events";
+@import "./problems";
+@import "./sponsors";
 
-// @import "./../../../Fol/Core/styles/layout";
-// @import "./../../../Fol/Core/styles/titlepage";
-// @import "./../../../Fol/Core/styles/navigation";
-
-// @import "./../../../Fof/DefaultModule/styles/organisers";
-// @import "./../../../Fof/DefaultModule/styles/rules";
-// @import "./../../../Fof/DefaultModule/styles/timeline";
-
-
-// @import '../../../../Components/ResultsPanel/styles';
-// @import '../../../../Components/UpperHomePrague/styles';
-// @import '../../../../Components/TeamResults/styles';
-
-// @import '../../../../Models/OldFykos/css/cssAll';
+@import '../../../../Components/Problem/problem';
+@import '../../../../Components/Problem/vyfuk';
+@import '../../../../Components/ImagePreviewModal/styles';

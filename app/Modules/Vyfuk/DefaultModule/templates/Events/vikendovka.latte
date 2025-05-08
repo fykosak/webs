@@ -1,0 +1,46 @@
+{block title}Zimní víkendovka{/block}
+{block main}
+<div class="panel color-light">
+    <section class="inner-container">
+        {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+        {ifset title}<h1>{include title}</h1>{/ifset}
+        <p>
+            V průběhu roku 2024 jsme se shodli na tom, že bychom pro vás zkusili poprvé uspořádat akci nového typu,
+            kterou jsme nazvali zimní víkendovka. Jak už název napovídá, cílem bylo vyrazit v zimě na víkend do nějaké
+            malebné části České republiky a užívat si tam v komornějším počtu fyziku a zimní radovánky.
+            První ročník se vydařil a do budoucna je v plánu zimní víkendovku v podobném termínu každoročně opakovat.
+        </p>
+        <p>
+            Program na zimní víkendovce je podobný jako na setkání, ale je v něm zařazeno větší množství volného času a her.
+            O přednášky ovšem rozhodně nepřijdete.
+        </p>
+    </section>
+
+    {foreach $events as $key => $event}
+        {if $event->begin > new DateTime()}
+            <section class="inner-container my-5 py-3 border border-primary rounded upcoming-event">
+                <div class="subheader">Nadcházející akce</div>
+                <h2>{$event->nameNew[$lang]}</h2>
+                <p>
+                    {$event->description[$lang]|noescape}
+                </p>
+                <a class="btn btn-primary" n:href="Events:detail $event->eventId">
+                    <i class="fa-solid fa-circle-info"></i> Informace o akci
+                </a>
+                {control gallery "/media/photos/event/" . $event->eventId, 'randomLine', true}
+            </section>
+        {else}
+            <section class="inner-container my-5">
+                <h2>{$event->nameNew[$lang]}</h2>
+                <p>
+                    {$event->description[$lang]|noescape}
+                </p>
+                <a class="btn btn-primary" n:href="Events:detail $event->eventId">
+                    <i class="fa-solid fa-circle-info"></i> Informace o akci
+                </a>
+                {control gallery "/media/photos/event/" . $event->eventId, 'randomLine', true}
+            </section>
+        {/if}
+    {/foreach}
+</div>
+{/block}

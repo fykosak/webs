@@ -1,0 +1,12 @@
+{varType array[] $pdfs}
+<div>
+     <ul>
+    {foreach $pdfs as $pdfFile}
+        <li>
+        <a href="{$pdfFile['src']}">
+            {$pdfFile['name']}
+        </a>
+        </li>
+    {/foreach}
+     </ul>
+</div>

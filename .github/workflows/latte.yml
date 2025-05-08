@@ -5,7 +5,7 @@ on: [ push, pull_request ]
 jobs:
   test:
     name: Latte with PHP ${{ matrix.php }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -26,9 +26,3 @@ jobs:
         run: composer install --no-progress --prefer-dist
       - run: composer run-script latteLint
         name: Test
-      - if: failure()
-        name: Failure output
-        uses: actions/upload-artifact@v2
-        with:
-          name: output
-          path: tests/**/*.actual

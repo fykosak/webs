@@ -37,6 +37,7 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     {block head}{/block}
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
         integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
         crossorigin="anonymous"></script>
@@ -81,7 +82,7 @@
         <div class="panel registration">
             <div class="inner-container">
                 <div class="text">
-                    {switch $language->value}{case cs}Chcete vědět více?{default}Want to Know More?{/switch}
+                    {switch $language->value}{case cs}Chcete vědět více?{default}Want to know more?{/switch}
                 </div>
                 <div class="btn-container">
                     <a class="btn btn-outline m-2" n:href=":Default:About:default">
@@ -127,11 +128,22 @@
                         </a>
                     </div>
                 </div>
-                <div class="category">
+                {*<div class="category">
                     <div class="category-title">{switch $language->value}{case cs}Hlavní partner{default}Main Partner{/switch}</div>
-                    <div class="category-sponsors">
-                        <a href="https://www.kellnerfoundation.cz" style="text-align: center">
+                    <div class="category-sponsors">*}
+                        {*<a href="https://www.kellnerfoundation.cz" style="text-align: center">
                             <img src="/images/logos/tkff.svg" class="sponsor-logo" alt="TKFF logo" style="width: 8rem;">
+                        </a>*}
+                    {*</div>
+                </div>*}
+                <div class="category">
+                    <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}</div>
+                    <div class="category-sponsors">
+                        <a href="https://qminers.com/cs/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/qminers-logo.png" alt="Qminers logo" style="max-width: 10rem">
+                        </a>
+                        <a href="https://www.nfneuron.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/neuron.svg" alt="Neuron logo" style="max-width: 10rem">
                         </a>
                     </div>
                 </div>
@@ -164,6 +176,12 @@
                         {switch $language->value}
                             {case cs}<strong>#fykos</strong> <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
                             {default}<strong>#fykos</strong> <a href="mailto:fykos@fykos.org">fykos@fykos.org</a>
+                        {/switch}
+                    </p>
+                    <p>
+                        {switch $language->value}
+                            {case cs}Tato stránka nesbírá cookies.
+                            {default}This website does not collect cookies.
                         {/switch}
                     </p>
                     <div class="other-logos">
@@ -213,7 +231,7 @@
                                     <ul>
                                         <li><a n:href=":Default:SupportUs:">Jak podpořit FYKOS</a></li>
                                         <li><a n:href=":Default:About:contact">Kontakt</a></li>
-                                        {* <li><a n:href=":Default:Merch:">Merch</a></li> *}
+                                        <li><a n:href=":Default:Merch:">Merch</a></li>
                                     </ul>
                                 </li>
                                 {default}
@@ -221,13 +239,12 @@
                                     <ul>
                                         <li><a n:href=":Default:SupportUs:">Support us</a></li>
                                         <li><a n:href=":Default:About:contact">Contact</a></li>
-                                        {* <li><a href="">Logos and materials</a></li>
-                                        <li><a href="">Contact</a></li> *}
+                                        <li><a n:href=":Default:Merch:">Merch</a></li>
                                     </ul>
                                 </li>
                             {/switch}
                         </ul>
-                    </nav> 
+                    </nav>
 
                 </div>
                 <div class="col-md-3">
@@ -276,8 +293,8 @@
             </div>
         </div>
     </footer>
-    
-    <div id="old-website-notice">
+
+    {* <div id="old-website-notice">
         <span>
             {switch $language->value}
                 {case cs}Pokud hledáte starou webovou stránku, najdete ji na <a href="https://old.fykos.cz">https://old.fykos.cz</a>
@@ -307,7 +324,7 @@
                 localStorage.setItem('hideOldWebsiteNotice', 'true');
             });
         });
-    </script>
+    </script> *}
     {/block}
 </body>
 

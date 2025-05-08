@@ -1,0 +1,8 @@
+{layout '../@layout.latte'}
+{varType App\Modules\Core\Language $lang}
+{block content}
+    {switch $lang->value}
+        {case cs}Výsledky nejsou finální a jsou prozatím skryty.
+        {default}The results are not final and are hidden for now.
+    {/switch}
+{/block}
