@@ -15,10 +15,7 @@ class SeriesModel
      * @var int[]
      */
     public array $problems;
-    /**
-     * @var string[]
-     */
-    public ?array $serialTopic = null;
+    public ?string $serialTopic = null;
 
     /**
      * @throws \Exception
