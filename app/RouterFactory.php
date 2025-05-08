@@ -285,27 +285,13 @@ class RouterFactory
             ]);
 
         $router->withModule('Default')
-            ->addRoute('pro-ucitele', 'Separate:teachers');
-
-        $router->withModule('Default')
-            ->addRoute('ceny', 'Separate:prizes');
-
-        $router->withModule('Default')
-            ->addRoute('archiv-vyfucteni', 'Separate:serialArchive');
-
-        $router->withModule('Default')
-            ->addRoute('jak-se-zapojit', 'Section:howToEngage');
-
-        $router->withModule('Default')
-            ->addRoute('pravidla', 'Section:rules');
-
-        $router->withModule('Default')
-            ->addRoute('jak-psat-reseni', 'Section:howToSolve');
-
-        $router->withModule('Default')
-            ->addRoute('jak-psat-experimenty', 'Section:howToExperiment');
-
-        $router->withModule('Default')
+            ->addRoute('pro-ucitele', 'Separate:teachers')
+            ->addRoute('ceny', 'Separate:prizes')
+            ->addRoute('archiv-vyfucteni', 'Separate:serialArchive')
+            ->addRoute('jak-se-zapojit', 'Section:howToEngage')
+            ->addRoute('pravidla', 'Section:rules')
+            ->addRoute('jak-psat-reseni', 'Section:howToSolve')
+            ->addRoute('jak-psat-experimenty', 'Section:howToExperiment')
             ->addRoute('bingo', 'Problems:bingo');
 
         $router->withModule('Default')

@@ -32,12 +32,12 @@ Require all granted
 
 	RewriteRule ^jak_se_zapojit /jak-se-zapojit [R=301,L]
 	RewriteRule ^jak_psat_reseni /jak-psat-reseni [R=301,L]
-	RewriteRule ^rady_a_tipy /jak-psat-reseni [R=301,L]
 	RewriteRule ^rady_a_tipy/hokus_pokus /jak-psat-experimenty [R=301,L]
+	RewriteRule ^rady_a_tipy /jak-psat-reseni [R=301,L]
 
-	RewriteRule ^o_vyfuku /o-nas [R=301,L]
 	RewriteRule ^o_vyfuku/kdo_jsme /o-nas [R=301,L]
 	RewriteRule ^o_vyfuku/sponzori /o-nas/pro-sponzory [R=301,L]
+	RewriteRule ^o_vyfuku /o-nas [R=301,L]
 
 	RewriteRule ^pro_ucitele /pro-ucitele [R=301,L]
 	RewriteRule ^akce/zimni-vikendovka /akce/vikendovka [R=301,L]
