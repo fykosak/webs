@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Components\TeamResults;
 
 use App\Models\Downloader\DummyService;
+use App\Models\Downloader\EventModel;
 use App\Models\Downloader\TeamModel;
 use App\Modules\Core\Language;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
@@ -19,7 +20,7 @@ class TeamResultsComponent extends DIComponent
 
     public function __construct(
         Container $container,
-        protected readonly int $eventId
+        protected readonly EventModel $event
     ) {
         parent::__construct($container);
     }
@@ -35,10 +36,14 @@ class TeamResultsComponent extends DIComponent
      */
     public function render(): void
     {
+        $this->template->lang = $this->translator->lang;
+        if (!$this->event->game->hardVisible) {
+            $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamResultsHidden.latte');
+            return;
+        }
         // $this->filterData = $this->getParameter('filterData');
         // $this->template->filterData = $this->filterData;
         $this->template->teams = $this->loadTeams();
-        $this->template->lang = $this->translator->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamResults.latte');
     }
 
@@ -50,7 +55,7 @@ class TeamResultsComponent extends DIComponent
     {
 
         $teams = [];
-        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), TeamModel::class) as $team) {
+        foreach ($this->serviceTeam->get(new TeamsRequest($this->event->eventId), TeamModel::class) as $team) {
             if ($team->state !== 'participated' && $team->state !== 'disqualified') {
                 continue;
             }
@@ -129,7 +134,7 @@ class TeamResultsComponent extends DIComponent
 
         $countryISOs = [];
         $categories = [];
-        foreach ($this->serviceTeam->get(new TeamsRequest($this->eventId), TeamModel::class) as $team) {
+        foreach ($this->serviceTeam->get(new TeamsRequest($this->event->eventId), TeamModel::class) as $team) {
             if ($team->state !== 'participated' && $team->state !== 'disqualified') {
                 continue;
             }
@@ -179,7 +184,7 @@ class TeamResultsComponent extends DIComponent
 
         $form->addSubmit('applyFilters', 'Apply')->setHtmlAttribute('class', 'btn btn-primary');
 
-        $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
+        $form->onSuccess[] = fn (Form $form) => $this->filterData = $form->getValues('array');
         // $form->onSuccess[] = function(Form $form) {
         //     $this->filterData = $form->getValues('array');
         //     $this->redirect('this', ['filterData' => $this->filterData]);

@@ -22,7 +22,7 @@
     <section class="inner-container">
         <h1>Fotogalerie</h1>
         {if $control->getComponent('gallery')->hasPhotos($photoPath)}
-            {control gallery:randomLine $photoPath}
+            {control gallery $photoPath, 'randomLine'}
         {else}
             {switch $lang}
                 {case 'cs'}Fotografie momentálně nejsou k dispozici.

@@ -94,7 +94,7 @@
             <h1>{switch $language->value}{case cs}Hlavní organizátoři{default}Main organizers{/switch}</h1>
             <div class="row justify-content-center">
 
-                <div class="col-md-5 organiser">
+                {*<div class="col-md-5 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/media/images/people/person13978.jpg')"></div>
                     <div class="name">Juraj Pavolko</div>
                     <div class="role">
@@ -105,14 +105,14 @@
                         {switch $language->value}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
                             {default}Studies second year of Bc. Physics at CUNI MFF.{/switch}
                     </div>
-                </div>
+                </div>*}
 
                 <div class="col-md-5 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/media/images/people/person15214.jpg')"></div>
                     <div class="name">David Škrob</div>
                     <div class="role">
-                        {switch $language->value}{case cs}Hlavní organizátor FYKOSu
-                            {default}Head organizer of FYKOS{/switch}
+                        {switch $language->value}{case cs}Hlavní organizátor FYKOSu, dočasně pověřen rolí Hlavního organizátora Fyziklání Online
+                            {default}Head Organizer of FYKOS, temporarily in charge of the role of Head Organizer of Physics Brawl Online{/switch}
                     </div>
                     <div class="about">
                         {switch $language->value}{case cs}Studuje 2. ročník Bc. oboru Fyzika na MFF UK.
@@ -120,29 +120,28 @@
                     </div>
                 </div>
 
+                <div class="col-md-5 organiser">
+                    <div class="image-cropper" style="background-image: url('https://fykos.cz/media/images/people/person2762.jpg')"></div>
+                    <div class="name">Vojtěch David</div>
+                    <div class="role">
+                        {switch $language->value}{case cs}Hlavní organizátor Fyziklání, konzultant
+                            {default}Head Organizer of Fyziklani, consultant{/switch}
+                    </div>
+                    <div class="about">
+                        {switch $language->value}{case cs}Studuje 1. ročník NMgr. Matematických struktur na MFF UK a 1. ročník NMgr. Učitelství chemie pro SŠ na PřF UK.
+                            {default}Studies 1st year of MSc. Mathematical Structures at CUNI MFF and 1st year of MSc. Teacher Education of Chemistry for Upper Secondary Schools.{/switch}
+                    </div>
+                </div>
                 <div class="col-md-4 organiser">
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/media/images/people/person4792.jpg')"></div>
                     <div class="name">Kateřina Charvátová</div>
                     <div class="role">
                         {switch $language->value}{case cs}Komunikace s účastníky, konzultant
-                            {default}Communication with sponzors, consultant{/switch}
+                            {default}Communication with partners, consultant{/switch}
                     </div>
                     <div class="about">
                         {switch $language->value}{case cs}Studuje 1. ročník doktorského oboru Biofyzika, chemická makromolekulární fyzika na MFF UK.
                             {default}Studies 1st year of PhD Biophysics, Chemical an Macromolecular Physics at CUNI MFF.{/switch}
-                    </div>
-                </div>
-
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://fykos.cz/media/images/people/person2762.jpg')"></div>
-                    <div class="name">Vojtěch David</div>
-                    <div class="role">
-                        {switch $language->value}{case cs}Hlavní organizátor Fyziklání, konzultant
-                            {default}Head organizer of Fyziklani, consultant{/switch}
-                    </div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 1. ročník NMgr. Matematických struktur na MFF UK a 1. ročník NMgr. Učitelství chemie pro SŠ na PřF UK.
-                            {default}Studies 1st year of MSc. Mathematical Structures at CUNI MFF and 1st year of MSc. Teacher Education of Chemistry for Upper Secondary Schools.{/switch}
                     </div>
                 </div>
 
@@ -180,8 +179,8 @@
                     <div class="image-cropper" style="background-image: url('https://fykos.cz/media/images/people/person11295.jpg')"></div>
                     <div class="name">Martin Vaněk</div>
                     <div class="role">
-                        {switch $language->value}{case cs}Zástupce hlavního organizátora FYKOSu
-                            {default}Deputy Head Organizer of FYKOS{/switch}
+                        {switch $language->value}{case cs}Konzultant, Hlavní organizátor FYKOSu do r. 2024
+                            {default}Consultant, Head Organizer of FYKOS until 2024{/switch}
                     </div>
                     <div class="about">
                         {switch $language->value}{case cs}Studuje 2. ročník NMgr. Teoretické fyziky na MFF UK.
@@ -417,7 +416,7 @@
                      <div class="name"><small>Bc. </small>Vojtěch David</div>
                      <div class="role">
                         {switch $language->value}{case cs}předseda
-                            {default}Prezident{/switch}
+                            {default}President{/switch}
                      </div>
                      <div class="about">
                         {switch $language->value}{case cs}Student MFF UK a PřF UK, hlavní organizátor Fyziklání. Působí také jako organizátor Fyzikálního korespondenčního semináře a aktivně se tak podílí na chodu Fyziklání Online a dalších akcí FYKOSu. Též pracuje jako učitel matematiky na gymnáziu Altis, přispívá k fungování dalších předmětových soutěží v ČR a působí jako přednášející na několika odborných soustředěních a táborech pro žáky ZŠ a SŠ.

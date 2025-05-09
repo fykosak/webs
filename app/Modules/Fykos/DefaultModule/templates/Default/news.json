@@ -11,12 +11,19 @@
         "do novinek se dají dávat i html elementy"
     ],
     "cs" : [
-      {
-            "title": "Přihlaš se na Fyziklání 2025",
-            "text": "Je otevřená registrace na Fyziklání 2025, které se bude konat 14. 2. v Praze.  Můžeš se těšit na týmovou soutěž v počítání zajímavých fyzikálních úloh, ale i na bohatý doprovodný program! Tak neváhej a přihlaš svůj tým!",
-            "link": "https://fyziklani.cz/",
-            "link-text": "Fyziklání 2025",
+            {
+            "title": "Ocenění za organizaci Fyziklání",
+            "text": "U příležitosti oslav 677 let od založení Univerzity Karlovy přebral FYKOS za organizaci mezinárodní soutěže Fyziklání cenu Miloslava Petruska za reprezentaci a propagaci. ",
+            "link": "https://cuni.cz/UK-14607.html",
+            "link-text": "Článek",
             "color": "fof"
+        },
+      {
+            "title": "Opravené úlohy na webu",
+            "text": "Nově naleznete svoje opravená řešení i online! Můžete si je prohlédnout po přihlášení v záložce Nahraná řešení.",
+            "link": "https://db.fykos.cz/",
+            "link-text": "Přihlášení",
+            "color": "fykos"
         },
 {
             "title": "Problémové úlohy",

@@ -21,10 +21,6 @@ class ResultsPresenter extends BasePresenter
         $this->template->year = $year;
         $this->template->contest = $this->getContest();
         $results = $this->downloader->download(new SeriesResultsRequest($this->getContestId(), $year));
-        /* TODO dříve (v xml) byly i pro starší ročníky kategorie, nutno opravit v DB */
-        if (count($results["submits"]) == 1 && array_keys($results["submits"])[0] == "") {
-            $results["submits"] = ["VYFUK_9" => $results["submits"][""]];
-        }
         $tasksHasResult = [];
         foreach ($results['submits'] as $category => $contestants) {
             foreach ($contestants as $key => $contestant) {

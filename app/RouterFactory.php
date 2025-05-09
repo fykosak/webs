@@ -106,7 +106,7 @@ class RouterFactory
                 // From params to URL
             Route::FILTER_OUT => function (array $params) use ($routerMapping, $domainList): array {
                 // Always translate presenter based on language
-
+    
                 // Translate module
                 if (isset($params['module']) && isset($routerMapping['modules'][$params['lang']])) {
                     $key = array_search($params['module'], $routerMapping['modules'][$params['lang']]);
@@ -302,7 +302,21 @@ class RouterFactory
             ->addRoute('//<domain>/media/preview/<path .+>', [
                 'presenter' => 'Default',
                 'action' => 'imageGaleryComponentImagePreview',
-            ])
+            ]);
+
+        $router->withModule('Default')
+            ->addRoute('pro-ucitele', 'Separate:teachers');
+
+        $router->withModule('Default')
+            ->addRoute('ceny', 'Separate:prizes');
+
+        $router->withModule('Default')
+            ->addRoute('archiv-vyfucteni', 'Separate:serialArchive');
+
+        $router->withModule('Default')
+            ->addRoute('poradi/[<year ([0-9]{1,2})>]', 'Results:default');
+
+        $router->withModule('Default')
             ->addRoute('//<domain>/<presenter>[/<action>]', [
                 'presenter' => 'Default',
                 'action' => 'default',

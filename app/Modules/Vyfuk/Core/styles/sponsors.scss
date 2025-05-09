@@ -1,0 +1,77 @@
+// Modified sponsor footer styles from Fof
+.sponsors {
+    .category-title {
+        border-bottom: 2px solid black;
+        text-align: center;
+        padding-bottom: 1em;
+        margin: 0 auto;
+        width: 10em;
+        font-weight: bold;
+    }
+
+    .category-sponsors {
+        a {
+            display: block;
+            margin: 2em 0;
+        }
+    }
+
+    .category-full-line {
+        flex-basis: 100%;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .sponsors {
+        .category {
+            display: flex;
+            flex-grow: 1;
+            margin: 1em;
+
+            .category-title {
+                border-right: 2px solid black;
+                border-bottom: none;
+                width: 7em;
+                text-align: right;
+                padding-right: 1em;
+                padding-bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                flex-shrink: 0;
+                min-height: 3cm;
+                height: inherit;
+                margin: 0;
+            }
+
+            .category-sponsors {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1cm 0;
+                justify-content: left;
+
+                a {
+                    text-decoration: none;
+                    margin: 0 1em;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+// Sponsors footer styles
+@include media-breakpoint-up(md) {
+    .sponsors {
+        .inner-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+.sponsor-logo-footer {
+    max-width: 10rem;
+    max-height: 5rem;
+}

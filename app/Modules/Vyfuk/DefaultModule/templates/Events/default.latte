@@ -5,28 +5,28 @@
         {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
         {ifset title}<h1>{include title}</h1>{/ifset}
         <p>
-            Výfuk pro své řešitele organizuje každoročně několik akcí – letní tábor, jarní a podzimní setkání, zimní
-            víkendovku a Náboj Junior.
+            Výfuk pro své řešitele organizuje každoročně několik akcí – letní tábor, jarní a podzimní setkání, zimní víkendovku a Náboj Junior. Pod jednotlivými odkazy najdeš stránky věnované jednotlivým akcím, včetně informací k akci, která se zrovna chystá. 
+            Na setkání je možné jet v podstatě ihned po odeslání prvních příkladů a je to skvělá příležitost, jak se seznámit s dalšími účastníky a organizátory. Účast na letním táboře je potřeba si zasloužit, neboť zájem dlouhodobě převyšuje dostupnou kapacitu. 
+            Pokud ti Výfuk nestačí, nebo jsi už na jeho řešení příliš starý, můžeš se podívat na konci stránky na další podobné aktivity a soutěže, které organizátoři Výfuku doporučují.  
         </p>
     </section>
     <section class="inner-container">
-        <div class="row event-box">
-            <div class="col-md-7 event-text-box">
-                <h2>Tábor</h2>
+        <div class="row">
+            <div class="col-md-7">
+                <h2>Letní tábor</h2>
                 <p>
                     Letní tábor Výfuku organizujeme vždy přibližně v polovině letních prázdnin pro asi 30 řešitelů. Na
-                    tábor zveme podle výsledků prvních sérií podle jistých <a
-                        n:href=":Default:Section:rules">pravidel</a>. Na výfučím táboře účastníky čekají nejen klasické
-                    táborové aktivity, tedy především různé hry, ale i spousta zajímavých fyzikálních přednášek a
-                    experimentů.
+                    tábor zveme podle výsledků prvních sérií podle <a n:href=":Default:Section:rules#pravidla_akce">pravidel výběru</a>.
+                    Na výfučím táboře účastníky čekají nejen klasické táborové aktivity, tedy především různé hry,
+                    ale i spousta zajímavých fyzikálních přednášek a experimentů.
                 </p>
                 <a class="btn btn-primary" n:href="Events:tabor">
                     Naše tábory
                 </a>
             </div>
-            <div class="col-md-5 event-img-box">
+            <div class="col-md-5 mt-3 my-md-auto text-center">
                 <a n:href="Events:tabor">
-                    <img src="/images/tabor.jpg" alt="" class="event-img">
+                    <img src="{$basePath}/images/events/tabor.jpg" alt="" class="event-img rounded">
                 </a>
             </div>
         </div>
@@ -34,8 +34,8 @@
 </div>
 <div class="panel color-light">
     <section class="inner-container">
-        <div class="row event-box">
-            <div class="col-md-7 event-text-box">
+        <div class="row">
+            <div class="col-md-7">
                 <h2>Setkání</h2>
                 <p>
                     Kromě letního tábora organizujeme pro naše řešitele v průběhu roku na jaře a na podzim dvě víkendová
@@ -47,9 +47,9 @@
                     Naše setkání
                 </a>
             </div>
-            <div class="col-md-5 event-img-box">
+            <div class="col-md-5 mt-3 my-md-auto text-center">
                 <a n:href="Events:setkani">
-                    <img src="/images/setkani.jpg" alt="" class="event-img">
+                    <img src="{$basePath}/images/events/setkani.jpg" alt="" class="event-img rounded">
                 </a>
             </div>
         </div>
@@ -57,21 +57,21 @@
 </div>
 <div class="panel color-light">
     <section class="inner-container">
-        <div class="row event-box">
-            <div class="col-md-7 event-text-box">
+        <div class="row">
+            <div class="col-md-7">
                 <h2>Zimní víkendovka</h2>
                 <p>
-                    Zimní víkendovka je nová výfučí akce plánovaná poprvé na začátek roku 2025. Svým formátem bude
-                    připomínat setkání, ovšem s omezenější kapacitou a volnějším programem. Určitě nebudou chybět
-                    přednášky doplněné spoustou prostoru pro hraní her a deskovek. Podrobnosti zveřejníme ke konci roku.
+                    Zimní víkendovka je nejmladší výfučí akce, která se poprvé konala na začátku roku 2025.
+                    Svým formátem připomíná setkání, ovšem s omezenější kapacitou a volnějším programem.
+                    Na zimní víkendovce samozřejmě nechybí přednášky doplněné spoustou prostoru pro hraní her a deskovek.
                 </p>
                 <a class="btn btn-primary" n:href="Events:vikendovka">
                     Naše zimní víkendovka
                 </a>
             </div>
-            <div class="col-md-5 event-img-box">
+            <div class="col-md-5 mt-3 my-md-auto text-center">
                 <a n:href="Events:vikendovka">
-                    <img src="/images/setkani.jpg" alt="" class="event-img">
+                    <img src="{$basePath}/images/events/vikendovka.jpg" alt="" class="event-img rounded">
                 </a>
             </div>
         </div>
@@ -79,8 +79,8 @@
 </div>
 <div class="panel color-light">
     <section class="inner-container">
-        <div class="row event-box">
-            <div class="col-md-7 event-text-box">
+        <div class="row">
+            <div class="col-md-7">
                 <h2>Náboj Junior</h2>
                 <p>
                     Náboj Junior je soutěž pro čtyřčlenné týmy žáků druhého stupně základních škol a odpovídajících
@@ -93,9 +93,9 @@
                     Stránky Náboje Junior
                 </a>
             </div>
-            <div class="col-md-5 event-img-box">
+            <div class="col-md-5 mt-3 my-md-auto text-center">
                 <a href="https://junior.naboj.org/cz/cs/">
-                    <img src="/images/setkani.jpg" alt="" class="event-img">
+                    <img src="{$basePath}/images/events/naboj.jpg" alt="" class="event-img rounded">
                 </a>
             </div>
         </div>
@@ -103,8 +103,8 @@
 </div>
 <div class="panel color-light">
     <section class="inner-container">
-        <div class="row event-box">
-            <div class="col-md-7 event-text-box">
+        <div class="row">
+            <div class="col-md-7">
                 <h2>Další aktivity a soutěže</h2>
                 <p>
                     Kromě výše zmíněných akcí, které Výfuk pořádá, existuje množství dalších aktivit, které by naše
@@ -116,9 +116,9 @@
                     Více informací
                 </a>
             </div>
-            <div class="col-md-5 event-img-box">
+            <div class="col-md-5 mt-3 my-md-auto text-center">
                 <a n:href="Events:dalsi">
-                    <img src="/images/setkani.jpg" alt="" class="event-img">
+                    <img src="{$basePath}/images/events/dalsi.png" alt="" class="event-img rounded">
                 </a>
             </div>
         </div>

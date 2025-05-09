@@ -6,10 +6,10 @@
         <div class="col-md-6 col-xl-4 mb-4">
             <div class="card organizer-card h-100">
                 <img src="/media/photos/people/{$organizer['personId']}.jpg" class="card-img-top"
-                    onerror="this.src = '/images/organizer_default.svg'" alt="{$organizer['name']}">
+                    onerror="this.src = '{$basePath|noescape}/images/organizer_default.svg'" alt="{$organizer['name']}">
                 <h4 class="card-header">{if
-                    $organizer['academicDegreePrefix']}{$organizer['academicDegreePrefix']}&#160{/if}{$organizer['name']}{if
-                    $organizer['academicDegreeSuffix']}&#160{$organizer['academicDegreeSuffix']}{/if}</h4>
+                    $organizer['academicDegreePrefix']}{$organizer['academicDegreePrefix']}&#160;{/if}{$organizer['name']}{if
+                    $organizer['academicDegreeSuffix']}&#160;{$organizer['academicDegreeSuffix']}{/if}</h4>
                 <div class="card-body">
                     <table>
                         {if $organizer['role']}
@@ -32,29 +32,12 @@
                             </td>
                         </tr>
                         {/if}
-                        {*<tr>
-                            <td class="left-cell"><span class="icon"><i class="bi bi-clock"></i></span></td>
-                            <td class="right-cell">
-                                {if $organizer['until'] and $organizer['until'] != $organizer['since']}
-                                ročníky {$organizer['since']} - {$organizer['until']}
-                                {elseif $organizer['until']}
-                                ročník {$organizer['since']}
-                                {else}
-                                od ročníku {$organizer['since']}
-                                {/if}
-                            </td>
-                        </tr>
-                        *}{if $organizer['contribution']}
-                        <tr>
-                            <td class="left-cell"><span class="icon"><i class="bi bi-trophy"></i></span></td>
-                            <td class="right-cell">{$organizer['contribution']}</td>
-                        </tr>
-                        {/if}
                     </table>
                 </div>
             </div>
         </div>
         {/foreach}
+        <p>Garantem semináře je <a href="https://www.mff.cuni.cz/cs/fakulta/organizacni-struktura/lide?hdl=477">doc. RNDr. Zdeněk Drozd, Ph.D.</a> z Katedry didaktiky fyziky MFF UK, která jej zastřešuje.</p>
     </div>
 </div>
 {/block}

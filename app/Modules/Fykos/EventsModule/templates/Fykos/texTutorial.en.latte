@@ -18,7 +18,7 @@
 
     <div class="panel color-auto" id="Overleaf">
         <section class="inner-container">
-            <h2>Overleaf</h2>
+            <h1>Overleaf</h1>
             <p>
             Overleaf is an online environment for creating and managing LaTeX documents, capable of compiling. The advantage is that you don't need to install anything, we have prepared a template for you, just sign in, copy the project, and you can start TeXing.
             Another advantage is the presence of an online storage and opening in a browser, so you can TeX from any device with a browser.
@@ -35,10 +35,44 @@
             </ol>
         </section>
     </div>
+
+    <div class="panel color-auto" id="sazba">
+        <section class="inner-container">
+            <h1>Math typesetting</h1>
+            <p>For typesetting of math we choesed TeX. So let say how to do it. Short equations and variables in line we write in between dollar signs.</p>
+            <code>For numbers on dice {='$0 < n < 7$'}.</code>
+            <p>Larger and more complicated equations we write in block mode by writing it in between pair of dollar signs.</p>
+            <code>Resulting force is<br>
+                {='$$'}<br>
+                {='    F = mg \sin(\alpha)\,.'}<br>
+                {='$$'}
+            </code>
+            <p>Macro arguments are enclosed between compound brackets (if the argument is a single character, they can be omitted). The most commonly used commands are</p>
+            <ul>
+                <li>superscripts <code>{='$2^5 = 32$'}</code></li>
+                <li>squere root <code>{='$\sqrt{1-\sin^2(x)} = |\cos(x)|$'}</code></li>
+                <li>fractions <code>{='$\frac{p}{q}$'}</code></li>
+                <li>subscripts <code>{='$a_1$'}</code></li>
+            </ul>
+            <p>If you don't want to install the whole TeX machine, you can use similar syntax in the equation editor in OO Writer and in MS Word.</p>
+            
+        </section>
+    </div>
+
+    <div class="panel color-auto" id="Odkazy">
+        <section class="inner-container">
+            <h1>Links</h1>
+            <ul>
+                <li><a href="https://tex.stackexchange.com/">TeX – Stack Exchange</a> – comprehensive forum</li>
+                <li><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">OEIS list mathematics symbols</a></li>
+            </ul>
+        </section>
+    </div>
+
     <div class="panel color-auto" id="Local-compiler">
         <section class="inner-container">
-            <h2>Installation of a local compiler</h2>
-            <p>Local installation provides more options, greater control, and functionality even offline.</p>
+            <h1>Advanced – Installation of a local compiler</h1>
+            <p>Local installation provides more options, greater control, and functionality even offline. For beginners, this is not neccessary, and we recommend using Overleaf instead.</p>
             <p>
                 We mentioned earlier how many programs are needed to compile TeX documents. 
                 You don't have to worry about finding and configuring all of them. 
@@ -96,39 +130,6 @@
                 <a class="btn btn-primary my-2" href="https://code.visualstudio.com/">Visual Studio Code</a>
                 <a class="btn btn-primary my-2" href="https://www.vim.org/">Vim</a>
                 *}
-        </section>
-    </div>
-
-    <div class="panel color-auto" id="sazba">
-        <section class="inner-container">
-            <h1>Math typesetting</h1>
-            <p>For typesetting of math we choesed TeX. So let say how to do it. Short equations and variables in line we write in between dollar signs.</p>
-            <code>For numbers on dice {='$0 < n < 7$'}.</code>
-            <p>Larger and more complicated equations we write in block mode by writing it in between pair of dollar signs.</p>
-            <code>Resulting force is<br>
-                {='$$'}<br>
-                {='    F = mg \sin(\alpha)\,.'}<br>
-                {='$$'}
-            </code>
-            <p>Macro arguments are enclosed between compound brackets (if the argument is a single character, they can be omitted). The most commonly used commands are</p>
-            <ul>
-                <li>superscripts <code>{='$2^5 = 32$'}</code></li>
-                <li>squere root <code>{='$\sqrt{1-\sin^2(x)} = |\cos(x)|$'}</code></li>
-                <li>fractions <code>{='$\frac{p}{q}$'}</code></li>
-                <li>subscripts <code>{='$a_1$'}</code></li>
-            </ul>
-            <p>If you don't want to install the whole TeX machine, you can use similar syntax in the equation editor in OO Writer and in MS Word.</p>
-            
-        </section>
-    </div>
-
-    <div class="panel color-auto" id="Odkazy">
-        <section class="inner-container">
-            <h1>Links</h1>
-            <ul>
-                <li><a href="https://tex.stackexchange.com/">TeX – Stack Exchange</a> – comprehensive forum</li>
-                <li><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">OEIS list mathematics symbols</a></li>
-            </ul>
         </section>
     </div>
 
