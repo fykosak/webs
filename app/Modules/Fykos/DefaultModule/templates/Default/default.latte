@@ -133,8 +133,8 @@
         </h1>
         <p>
             {switch $language->value}
-                {case 'cs'}FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní{if $year_stage == 'during'}.{elseif $year_stage == 'before'} akce nadcházejícího ročníku.{elseif $year_stage == 'after'} akce minulého ročníku.{/if}
-                {default}FYKOS organizes about ten educational events for high school students every year. Here you can find the main ones{if $year_stage == 'during'}.{elseif $year_stage == 'before'} of the upcoming school year.{elseif $year_stage == 'after'} of the past school year.{/if}
+                {case 'cs'}FYKOS organizuje každý rok asi desítku vzdělávacích akcí pro středoškoláky. Zde najdete ty hlavní{if $year_stage == 'during'}.{elseif $year_stage == 'before'} akce nadcházejícího ročníku.{elseif $year_stage == 'after'} akce nedávno zakončeného ročníku.{/if}
+                {default}FYKOS organizes about ten educational events for high school students every year. Here you can find the main ones{if $year_stage == 'during'}.{elseif $year_stage == 'before'} of the upcoming (school) year.{elseif $year_stage == 'after'} of the recently concluded (school) year.{/if}
             {/switch}
         </p>
         <a class="btn btn-primary" n:href=":Events:Default:default">
