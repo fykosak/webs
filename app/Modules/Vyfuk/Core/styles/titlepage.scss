@@ -25,10 +25,24 @@
 
     .header-text-container {
         h1.header-text {
-        font-size: 4rem;
-        margin-bottom: 0;
-        padding-bottom: 1rem;
-        color: $text-on-primary;
+            font-size: 4rem;
+            margin-bottom: 0;
+            padding-bottom: 1rem;
+            color: $text-on-primary;
+            @include media-breakpoint-down(sm) {
+                font-size: 3.25rem;
+            }
+            br:first-of-type {
+                display: none;
+            }
+            @media (max-width: 475px) {
+                br:first-of-type {
+                    display: block;
+                }
+                br {
+                    display: none;
+                }
+            }
         }
     }
 }
