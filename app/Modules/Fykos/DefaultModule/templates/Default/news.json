@@ -11,6 +11,20 @@
         "do novinek se dají dávat i html elementy"
     ],
     "cs" : [
+            {
+            "title": "Ocenění za organizaci Fyziklání",
+            "text": "U příležitosti oslav 677 let od založení Univerzity Karlovy přebral FYKOS za organizaci mezinárodní soutěže Fyziklání cenu Miloslava Petruska za reprezentaci a propagaci. ",
+            "link": "https://cuni.cz/UK-14607.html",
+            "link-text": "Článek",
+            "color": "fof"
+        },
+      {
+            "title": "Opravené úlohy na webu",
+            "text": "Nově naleznete svoje opravená řešení i online! Můžete si je prohlédnout po přihlášení v záložce Nahraná řešení.",
+            "link": "https://db.fykos.cz/",
+            "link-text": "Přihlášení",
+            "color": "fykos"
+        },
 {
             "title": "Problémové úlohy",
             "text": "Baví vás řešit problémové úlohy? Nově budeme ve vzorových řešení zveřejňovat i vaše nejlepší zpracování problémových úloh. A autory nejlepších řešení samozřejmě nemine ani odměna!",
@@ -21,8 +35,8 @@
         {
             "title": "Letní stáže",
             "text": "Fyzika se neobejde bez vědecké práce, která se neodmyslitelně pojí s experimenty! Letos se nejlepší řešitelé experimentálních úloh budou moct zúčastnit dvoutýdenní letní stáže na vědeckých pracovištích v Praze a zkusit si tak, co všechno práce v laboratoři obnáší! Neváhejte a pusťte se do měření. Jestli si ale ještě nejste jistí, jak na zpracování experimentů, může vám pomoct náš návod.",
-            "link": "https://fykos.cz/akce/fykos/experimenty",
-            "link-text": "Návod",
+            "link": "https://fykos.cz/akce/staze",
+            "link-text": "Více informací",
             "color": "fykos"
         }
     ],

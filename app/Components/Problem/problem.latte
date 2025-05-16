@@ -99,7 +99,7 @@
                     {/if}
                 </div>
                 {if array_key_exists($language->value, $problem->origin) && $problem->origin[$language->value]}
-                <div><i>~ {$problem->origin[$language->value]|noescape}</i></div>
+                <div><i>{$problem->origin[$language->value]|noescape}</i></div>
                 {/if}
             </div>
             {/if}

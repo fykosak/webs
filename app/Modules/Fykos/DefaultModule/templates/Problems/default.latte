@@ -124,6 +124,7 @@
             <div class="mt-5">
                 {php $serialPath = $problemService->getSerial('fykos', $series, $lang)}
                 {php $batchPath = $problemService->getBatch('fykos', $series, $lang)}
+                {php $yearbookPath = $problemService->getYearbook('fykos', $series->year, $lang)}
                 {if $serialPath}
                     <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
                         <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
@@ -139,6 +140,15 @@
                         {switch $language->value}
                             {case 'cs'}Brožurka s řešeními
                             {default}Brochure with solutions (cs)
+                        {/switch}
+                    </a>
+                {/if}
+                {if $yearbookPath}
+                    <a class="btn btn-primary my-2 mr-4" href="{$yearbookPath}">
+                        <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
+                        {switch $language->value}
+                            {case 'cs'}Ročenka {$series->year}. ročníku
+                            {default}Year book (cs)
                         {/switch}
                     </a>
                 {/if}

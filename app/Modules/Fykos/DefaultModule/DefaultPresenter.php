@@ -13,24 +13,25 @@ class DefaultPresenter extends BasePresenter
         $this->loadEventData();
 
         $currentDate = strtotime(date('Y-m-d'));
+
+        // Sort events by date
+        usort($this->template->events, function ($a, $b) {
+            $dateA = strtotime($a['date']);
+            $dateB = strtotime($b['date']);
+            return $dateA - $dateB;
+        });
+
         // year_stage is enum of values: 'before', 'during', 'after'
         $this->template->year_stage = null;
-        if ($currentDate < strtotime($this->template->timelineBegin)) {
+        if ($currentDate < strtotime($this->template->events[0]['date'])) {
             $this->template->year_stage = 'before';
-        } elseif ($currentDate > strtotime($this->template->timelineEnd)) {
+        } elseif ($currentDate > strtotime($this->template->events[count($this->template->events) - 1]['date'])) {
             $this->template->year_stage = 'after';
         } else {
             $this->template->year_stage = 'during';
         }
 
         if ($this->template->year_stage === 'during') {
-            // Sort events by date
-            usort($this->template->events, function ($a, $b) {
-                $dateA = strtotime($a['date']);
-                $dateB = strtotime($b['date']);
-                return $dateA - $dateB;
-            });
-
             // Find the closest event
             $this->template->countdownEventsIndices = $this->findCountdownEventIndices($this->template->events);
 
