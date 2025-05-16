@@ -44,7 +44,7 @@
                 <p>
                     {$event->description[$lang]|noescape}
                 </p>
-                <a class="btn btn-primary" n:href="Events:detail $event->eventId">
+                <a class="btn btn-primary mb-3" n:href="Events:detail $event->eventId">
                     <i class="fa-solid fa-circle-info"></i> Informace o akci
                 </a>
                 {control gallery "/media/photos/event/" . $event->eventId, 'randomLine', true}
