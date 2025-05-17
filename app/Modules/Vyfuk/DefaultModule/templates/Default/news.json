@@ -5,16 +5,10 @@
       "text": "Právě jsme pro vás spustili nový web! Je v novém designu a s množstvím aktualizovaných informací. Pokud byste našli nějakou chybu, neváhejte nás kontaktovat na <a href='mailto:vyfuk@vyfuk.org'>vyfuk@vyfuk.org</a>"
     },
     {
-      "title": "Nové výfučí bingo je na světě!",
-      "text": "Připravili jsme si pro vás nové tabulky výfučího binga – nyní v nich najdete spoustu nových úkolů a výzev a samozřejmě i množství drobných odměn, které vám za každou vyškrtanou tabulkou zašleme. Vyškrtané tabulky nám posílejte na naši obvyklou kontaktní adresu <a href=\"mailto:vyfuk@vyfuk.org\">vyfuk@vyfuk.org</a>. Staré tabulky už dále nebudeme akceptovat.",
-      "link": ":Default:Problems:bingo",
-      "link-text": "Bingo"
-    },
-    {
-      "title": "Termín letního tábora",
-      "text": "Zveřejnili jsme termín příštího letního tábora – bude se konat od 27. července do 9. srpna 2025 v Mařenicích. Na fotky z minulých táborů se můžete podívat na našich sociálních sítích nebo na stránce letního tábora, kde také najdete bližší informace o průběhu tábora.",
-      "link": ":Default:Events:tabor",
-      "link-text": "Stránka letního tábora"
+      "title": "Každý ještě může vyhrát",
+      "text": "Abychom podpořili vaši motivaci zapojit se do 6. série, rozhodli jsme se ze všech řešitelů, kteří v této sérii získají alespoň 1 bod, jednoho náhodně vylosovat. Vylosovaný řešitel pak bude mít možnost si přednostně vybrat libovolnou cenu, kterou Výfuk momentálně nabízí za skvělé umístění. Výherce zveřejníme na našich sociálních sítích a budeme jej kontaktovat ohledně zaslání výhry.",
+      "link": ":Default:Separate:prizes",
+      "link-text": "Ceny"
     }
   ]
 }
