@@ -45,7 +45,7 @@ Require all granted
 	RewriteRule ^akce/kalendar /akce [R=301,L]
 	RewriteRule ^galerie /akce [R=301,L]
 
-	RewriteRule !\.(pdf|js|mjs|ico|gif|jpg|jpeg|png|webp|svg|css|rar|zip|7z|tar\.gz|map|eot|ttf|otf|woff|woff2)$ index.php [L]
+	RewriteRule !\.(pdf|js|mjs|ico|gif|jpg|jpeg|png|webp|svg|css|rar|zip|7z|tar\.gz|map|eot|ttf|otf|woff|woff2|mp4)$ index.php [L]
 </IfModule>
 
 # enable gzip compression
