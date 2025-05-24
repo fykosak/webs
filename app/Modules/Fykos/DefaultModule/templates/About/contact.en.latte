@@ -3,10 +3,9 @@
 <div class="panel color-auto">
     <section class="inner-container">
         <h1>Contacts</h1>
-        <h2>Primary Communication Channels</h2>
         <div class="row">
             <div class="col-md-6">
-                <h3>E-mails</h3>
+                <h2>E-mails</h2>
                 <p>E-mails for individual organizers can be found on the <a n:href=":Default:About:organizers">organizers page</a>.
                 Primarily use the e-mail addresses listed below.</p>
                 <table class="table table-striped">
@@ -44,7 +43,7 @@
 
 
             <div class="col-md-6 mt-md-0 mt-sm-4">
-                <h3>Phone</h3>
+                <h2>Phone</h2>
                 <p><strong>We strongly prefer e-mail communication. Use the phone only for urgent and
                 important matters; do so <it>only</it> between 10:00 and 18:00 UTC+1. Note that the current time is
                 <span id="time"></span>.</strong></p>
@@ -122,14 +121,8 @@
 <script>
     function updateTime() {
     const time = new Date();
-    const hour = (time.getUTCHours() + 1) % 24; // Ensure hour wraps at 24
-    const minute = time.getUTCMinutes();
-    const second = time.getUTCSeconds();
-
-    const pad = (num) => String(num).padStart(2, '0');
-
-    const formattedTime = `${pad(hour)}:${pad(minute)}:${pad(second)} UTC+1`;
-    document.getElementById('time').textContent = formattedTime;
+    
+    document.getElementById('time').innerHTML = time.toLocaleTimeString("en-US", {timeZone: "CET", hour12: false });
 }
 
 
