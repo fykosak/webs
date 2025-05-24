@@ -120,11 +120,18 @@
 
 <script>
     function updateTime() {
-    const time = new Date();
-    
-    document.getElementById('time').innerHTML = time.toLocaleTimeString("en-US", {timeZone: "CET", hour12: false });
-}
+      const time = new Date();
 
+      const options = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false, 
+        timeZone: 'CET' 
+      };
+
+      document.getElementbyId('time').innerHTML = time.toLocaleTimeString('en-US', options); 
+}
 
     setInterval(updateTime, 1000);
 </script>
