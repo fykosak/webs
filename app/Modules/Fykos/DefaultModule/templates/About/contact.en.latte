@@ -2,51 +2,23 @@
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
-        <h1>Contact</h1>
-        <h2>Physical Correspondence Address</h2>
-        <p>You can use this address for sending packages and letters.</p>
-        <div>
-            FYKOS, ÚTF<br>
-            Faculty of Mathematics and Physics, Charles University<br>
-            V Holešovičkách 747/2<br>
-            180 00 Prague 8<br>
-        </div>
-    </section>
-</div>
-
-<div class="panel color-auto">
-    <section class="inner-container">
-        <h2>Organizational Structure</h2>
-        <p>
-            FYKOS is officially under the aegis of the Institute of Theoretical Physics and the Department of Promotion and Media Communication of the Faculty of Mathematics and Physics, Charles University. However, it also functions as a non-profit organization.
-        </p>
-        <div>
-            FYKOS, z. s.<br>
-            V Holešovičkách 747/2<br>
-            180 00 Prague 8<br>
-            Company ID: 17846773
-            {* Registered at the Regional Court in Hradec Králové, section L, insert 14279<br> *}
-        </div>
-    </section>
-</div>
-
-<div class="panel color-auto">
-    <section class="inner-container">
+        <h1>Contacts</h1>
         <h2>Primary Communication Channels</h2>
         <div class="row">
             <div class="col-md-6">
-                <h3>Emails</h3>
-                <p>Emails for individual organizers can be found on the <a n:href=":Default:About:organizers">organizers page</a>. However, primarily use the email addresses listed below.</p>
+                <h3>E-mails</h3>
+                <p>E-mails for individual organizers can be found on the <a n:href=":Default:About:organizers">organizers page</a>.
+                Primarily use the e-mail addresses listed below.</p>
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">Category</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">E-mail</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Questions regarding solution submission</td>
+                            <td>Solution submission questions</td>
                             <td><a href="mailto:fykos-solutions@fykos.org">fykos-solutions@fykos.org</a></td>
                         </tr>
                         <tr>
@@ -58,11 +30,11 @@
                             <td><a href="mailto:online@physicsbrawl.org">online@physicsbrawl.org</a></td>
                         </tr>
                         <tr>
-                            <td>IT problems</td>
+                            <td>IT-related issues</td>
                             <td><a href="mailto:webmaster@fykos.org">webmaster@fykos.org</a></td>
                         </tr>
                         <tr>
-                            <td>General email for other inquiries</td>
+                            <td>General e-mail for other inquiries</td>
                             <td><a href="mailto:fykos@fykos.org">fykos@fykos.org</a></td>
                         </tr>
                     </tbody>
@@ -73,8 +45,8 @@
 
             <div class="col-md-6 mt-md-0 mt-sm-4">
                 <h3>Phone</h3>
-                <p><strong>We strongly prefer email communication. Use the phone only in urgent and
-                important cases. And only between 10 a.m. and 6 p.m. (i.e. 18:00) CET. Note now is
+                <p><strong>We strongly prefer e-mail communication. Use the phone only for urgent and
+                important matters; do so <it>only</it> between 10:00 and 18:00 UTC+1. Note that the current time is
                 <span id="time"></span>.</strong></p>
 
                 <table class="table table-striped">
@@ -108,15 +80,33 @@
     </section>
 </div>
 
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h2>Physical Correspondence Address</h2>
+        <p>You can use this address for sending packages and letters.
+            FYKOS is officialy operating under the umbrella of the Institute of Theoretical Physics,
+            as well as the Media Communications and PR Office of the Faculty of Mathematics and Physics, Charles University.
+            It is also registered as a non-profit organization.</p>
+        <div>
+            FYKOS, z. s., ÚTF<br>
+            Faculty of Mathematics and Physics, Charles University<br>
+            V Holešovičkách 747/2<br>
+            180 00 Praha 8<br>
+            Czech Republic<br>
+            IČO: 17846773<br>
+            {* Registered at the Regional Court in Hradec Králové, section L, insert 14279<br> *}
+        </div>
+    </section>
+</div>
 
 <div class="panel color-auto">
     <section class="inner-container">
         <div class="row">
             <h2 class="mb-4">Banking Information</h2>
-            <p>This account belong to the non-profit organization FYKOS, z.s.</p>
+            <p>This account belongs to the non-profit organization FYKOS, z.&nbsp;s.</p>
 
             <div class="col-md-6">
-                <h4>Account in Euros</h4>
+                <h4>Account in euros</h4>
                 <div>
                     Account Number: 2202414681 / 2010<br>
                     IBAN: CZ05 2010 0000 0022 0241 4681<br>
@@ -131,12 +121,17 @@
 
 <script>
     function updateTime() {
-        const time = new Date();
-        const hour = time.getUTCHours() + 1; // Add 1 hour to convert to CET
-        const minute = time.getUTCMinutes();
-        const second = time.getUTCSeconds();
-        document.getElementById('time').innerHTML = hour + ':' + minute + ':' + second + ' CET';
-    }
+    const time = new Date();
+    const hour = (time.getUTCHours() + 1) % 24; // Ensure hour wraps at 24
+    const minute = time.getUTCMinutes();
+    const second = time.getUTCSeconds();
+
+    const pad = (num) => String(num).padStart(2, '0');
+
+    const formattedTime = `${pad(hour)}:${pad(minute)}:${pad(second)} UTC+1`;
+    document.getElementById('time').textContent = formattedTime;
+}
+
 
     setInterval(updateTime, 1000);
 </script>
