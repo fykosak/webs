@@ -43,10 +43,11 @@
 
 
             <div class="col-md-6 mt-md-0 mt-sm-4">
+                {var $timezone=sprintf('UTC+%d', date('Z')/3600)}
                 <h3>Phone</h3>
                 <p><strong>We strongly prefer e-mail communication. Use the phone only for urgent and
-                important matters; do so <it>only</it> between 10:00 and 18:00 UTC+1. Note that the current time is
-                <span id="time"></span> UTC+1.</strong></p>
+                        important matters; do so <it>only</it> between 10:00 and 18:00 {$timezone}. Note that the current time is
+                <span id="time"></span> {$timezone}.</strong></p>
 
                 <table class="table table-striped">
                     <thead>
@@ -126,8 +127,8 @@
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
-        hour12: false, 
-        timeZone: '+01' 
+        hour12: false,
+        timeZone: 'Europe/Prague'
       };
 
       document.getElementById('time').innerHTML = time.toLocaleTimeString('en-US', options); 
