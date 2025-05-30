@@ -17,7 +17,6 @@ class DefaultModule extends AbstractPageDisplayTestCase
         return self::getPageLangVariants([
             // tasks
             // ['Default:Problems', 'default'],
-            ['Default:Problems', 'bingo'],
             // results
             ['Default:Results', 'default'],
             // about us
@@ -26,11 +25,11 @@ class DefaultModule extends AbstractPageDisplayTestCase
             ['Default:About', 'history'],
             ['Default:About', 'sponsors'],
             ['Default:About', 'contact'],
-            // how to engage
-            ['Default:Section', 'howToEngage'],
-            ['Default:Section', 'rules'],
-            ['Default:Section', 'howToSolve'],
-            ['Default:Section', 'howToExperiment'],
+            // how to solve
+            ['Default:HowToSolve', 'default'],
+            ['Default:HowToSolve', 'rules'],
+            ['Default:HowToSolve', 'solutions'],
+            ['Default:HowToSolve', 'experiments'],
             // events
             ['Default:Events', 'default'],
             ['Default:Events', 'dalsi'],
@@ -40,8 +39,11 @@ class DefaultModule extends AbstractPageDisplayTestCase
             ['Default:Events', 'vikendovka'],
             // results
             ['Default:Results', 'default'],
+            // teachers
+            ['Default:Teachers', 'default'],
+            // bingo
+            ['Default:Bingo', 'default'],
             // separate pages
-            ['Default:Separate', 'teachers'],
             // ['Default:Separate', 'serialArchive'],
             // titlepage
             // ['Default:Default', 'default'],

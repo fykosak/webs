@@ -31,6 +31,7 @@ Require all granted
 	RewriteRule ^ulohy/vyfucteni /archiv-vyfucteni [R=301,L]
 
 	RewriteRule ^jak_se_zapojit /jak-se-zapojit [R=301,L]
+	RewriteRule ^jak_resit/jak_se_zapojit /jak-se-zapojit [R=301,L]
 	RewriteRule ^jak_psat_reseni /jak-psat-reseni [R=301,L]
 	RewriteRule ^rady_a_tipy/hokus_pokus /jak-psat-experimenty [R=301,L]
 	RewriteRule ^rady_a_tipy /jak-psat-reseni [R=301,L]
