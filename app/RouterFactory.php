@@ -16,7 +16,7 @@ class RouterFactory
     private static function havingDomainLanguage(array $languages, ?array $domainList): array
     {
         return [
-                // todo fix code duplication
+            // todo fix code duplication
             Route::FILTER_IN => function (array $params) use ($languages, $domainList) {
                 // From where to extract the language
                 if (isset($domainList) && count($domainList)) {
@@ -48,7 +48,7 @@ class RouterFactory
     private static function useTranslateFilter(?array $domainList, array $routerMapping): array
     {
         return [
-                // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
+            // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
             Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList): array {
 
                 // From where to extract the language
@@ -103,7 +103,7 @@ class RouterFactory
                 return $params;
             },
 
-                // From params to URL
+            // From params to URL
             Route::FILTER_OUT => function (array $params) use ($routerMapping, $domainList): array {
                 // Always translate presenter based on language
 
@@ -252,10 +252,10 @@ class RouterFactory
             ]);
 
         $router->withModule('Events')
-        ->addRoute('//<domain>/akce/tsaf/<year>-<month>', [
-            'presenter' => 'Tsaf',
-            'action' => 'detail'
-        ]);
+            ->addRoute('//<domain>/akce/tsaf/<year>-<month>', [
+                'presenter' => 'Tsaf',
+                'action' => 'detail'
+            ]);
 
         $router->addRoute('//<domain>/<module events|akce>/[<presenter>[/<action>]]', [
             'presenter' => 'Default',
@@ -285,17 +285,11 @@ class RouterFactory
             ]);
 
         $router->withModule('Default')
-            ->addRoute('pro-ucitele', 'Separate:teachers')
-            ->addRoute('ceny', 'Separate:prizes')
-            ->addRoute('archiv-vyfucteni', 'Separate:serialArchive')
-            ->addRoute('jak-se-zapojit', 'Section:howToEngage')
-            ->addRoute('pravidla', 'Section:rules')
-            ->addRoute('jak-psat-reseni', 'Section:howToSolve')
-            ->addRoute('jak-psat-experimenty', 'Section:howToExperiment')
-            ->addRoute('bingo', 'Problems:bingo');
-
-        $router->withModule('Default')
-            ->addRoute('poradi/[<year ([0-9]{1,2})>]', 'Results:default');
+            ->addRoute('//<domain>/<presenter poradi>/<year ([0-9]{1,2})>', [
+                'presenter' => 'Results',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
 
         $router->withModule('Default')
             ->addRoute('//<domain>/<presenter>[/<action>]', [

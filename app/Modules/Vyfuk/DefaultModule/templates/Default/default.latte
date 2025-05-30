@@ -11,10 +11,10 @@
                     <p class="header-text">
                         Výfuk, jméno našeho korespondenčního semináře, je vlastně zkratka jeho dlouhého názvu&nbsp;– Výpočty fyzikálních úkolů. Touto soutěží se snažíme ukázat, že fyzika je ve skutečnosti velmi zábavné a fascinující téma.
                     </p>
-                    <a class="btn btn-secondary mt-2" n:href=":Default:Section:howToEngage">
+                    <a class="btn btn-secondary mt-2" n:href=":Default:HowToSolve:default">
                         Jak se zapojit
                     </a>
-                    <a class="btn btn-secondary mt-2" n:href=":Default:Section:howToSolve">
+                    <a class="btn btn-secondary mt-2" n:href=":Default:HowToSolve:solutions">
                         Jak psát řešení
                     </a>
                     <a class="btn btn-secondary mt-2" n:href=":Default:About:default">
@@ -84,7 +84,7 @@
                 <div>
                     <h3 class="fs-2 text-body-emphasis">Chceš začít řešit?</h3>
                     <p>
-                        Tak se podívej na aktuální <a n:href=":Default:Problems:default">zadání</a> úloh. Pokud jsi tady poprvé, doporučujeme si nejprve přečíst, <a n:href=":Default:Section:howToEngage">jak se zapojit</a>.
+                        Tak se podívej na aktuální <a n:href=":Default:Problems:default">zadání</a> úloh. Pokud jsi tady poprvé, doporučujeme si nejprve přečíst, <a n:href=":Default:HowToSolve:default">jak se zapojit</a>.
                     </p>
                     {if $checkAllSolutions}
                         <p class="mb-2">
@@ -110,7 +110,7 @@
                 <div>
                     <h3 class="fs-2 text-body-emphasis">Zajímá tě pořadí?</h3>
                     <p>
-                        Mrkni se na <a n:href=":Default:Results:default">pořadí</a> po poslední sérii a zkontroluj si, jak si průběžně stojíš. Nejlepší řešitele čekají hodnotné <a n:href=":Default:Separate:prizes">ceny</a> a především pak účast na našich akcích.
+                        Mrkni se na <a n:href=":Default:Results:default">pořadí</a> po poslední sérii a zkontroluj si, jak si průběžně stojíš. Nejlepší řešitele čekají hodnotné <a n:href=":Default:Prizes:default">ceny</a> a především pak účast na našich akcích.
                     </p>
                     {if $resultsReady}
                         <a href="{plink ':Default:Results:default' 'year'=>$previousSeries->year}" class="btn btn-primary">Pořadí  po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii</a>

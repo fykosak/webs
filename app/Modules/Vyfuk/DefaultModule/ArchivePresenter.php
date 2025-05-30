@@ -7,7 +7,7 @@ namespace App\Modules\Vyfuk\DefaultModule;
 use App\Models\Downloader\ProblemService;
 use Throwable;
 
-class SeparatePresenter extends BasePresenter
+class ArchivePresenter extends BasePresenter
 {
     private readonly ProblemService $problemService;
 
@@ -19,18 +19,15 @@ class SeparatePresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    public function renderSerialArchive(): void
+    public function renderSerial(): void
     {
         $this->template->problemService = $this->problemService;
-
         $this->template->yearsAndSeries = $this->getYearsAndSeries();
-
         $this->template->hasAtLeastOneSerial = $this->checkYearsSerials($this->getYearsAndSeries());
     }
 
     private function getYearsAndSeries(): array
     {
-
         error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 
         $yearsAndSeries = [];

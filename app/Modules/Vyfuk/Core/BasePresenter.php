@@ -41,13 +41,13 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
 
         $items[] = new NavItem(
             new PageTitle('Jak řešit', 'fa-solid fa-book'),
-            ':Default:Section:howToEngage',
+            ':Default:HowToSolve:default',
             [],
             [
-                new NavItem(new PageTitle('Jak se zapojit'), ':Default:Section:howToEngage'),
-                new NavItem(new PageTitle('Pravidla'), ':Default:Section:rules'),
-                new NavItem(new PageTitle('Jak psát řešení'), ':Default:Section:howToSolve'),
-                new NavItem(new PageTitle('Jak psát experimenty'), ':Default:Section:howToExperiment'),
+                new NavItem(new PageTitle('Jak se zapojit'), ':Default:HowToSolve:default'),
+                new NavItem(new PageTitle('Pravidla'), ':Default:HowToSolve:rules'),
+                new NavItem(new PageTitle('Jak psát řešení'), ':Default:HowToSolve:solutions'),
+                new NavItem(new PageTitle('Jak psát experimenty'), ':Default:HowToSolve:experiments'),
             ],
         );
 
@@ -58,7 +58,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
 
         $items[] = new NavItem(
             new PageTitle('Pro učitele', 'fa-solid fa-user-graduate'),
-            ':Default:Separate:teachers',
+            ':Default:Teachers:default',
         );
 
         $items[] = new NavItem(
