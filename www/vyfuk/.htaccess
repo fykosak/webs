@@ -21,7 +21,31 @@ Require all granted
 	# front controller
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule !\.(pdf|js|mjs|ico|gif|jpg|jpeg|png|webp|svg|css|rar|zip|7z|tar\.gz|map|eot|ttf|otf|woff|woff2)$ index.php [L]
+
+	RewriteRule ^(.*)/start$ /$1/ [R=301,L]
+
+	RewriteRule ^ulohy/zadani /zadani [R=301,L]
+	RewriteRule ^ulohy/r([0-9]+)/s([0-9]+) /zadani/$1/$2 [R=301,L]
+	RewriteRule ^ulohy/archiv /zadani [R=301,L]
+	RewriteRule ^ulohy/bingo /bingo [R=301,L]
+	RewriteRule ^ulohy/vyfucteni /archiv-vyfucteni [R=301,L]
+
+	RewriteRule ^jak_se_zapojit /jak-se-zapojit [R=301,L]
+	RewriteRule ^jak_psat_reseni /jak-psat-reseni [R=301,L]
+	RewriteRule ^rady_a_tipy/hokus_pokus /jak-psat-experimenty [R=301,L]
+	RewriteRule ^rady_a_tipy /jak-psat-reseni [R=301,L]
+
+	RewriteRule ^o_vyfuku/kdo_jsme /o-nas [R=301,L]
+	RewriteRule ^o_vyfuku/sponzori /o-nas/pro-sponzory [R=301,L]
+	RewriteRule ^o_vyfuku /o-nas [R=301,L]
+
+	RewriteRule ^pro_ucitele /pro-ucitele [R=301,L]
+	RewriteRule ^akce/zimni-vikendovka /akce/vikendovka [R=301,L]
+	RewriteRule ^akce/ostatni /akce/dalsi [R=301,L]
+	RewriteRule ^akce/kalendar /akce [R=301,L]
+	RewriteRule ^galerie /akce [R=301,L]
+
+	RewriteRule !\.(pdf|js|mjs|ico|gif|jpg|jpeg|png|webp|svg|css|rar|zip|7z|tar\.gz|map|eot|ttf|otf|woff|woff2|mp4)$ index.php [L]
 </IfModule>
 
 # enable gzip compression

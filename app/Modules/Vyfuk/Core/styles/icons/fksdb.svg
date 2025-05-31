@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="-175 0 150 100"
+   viewBox="-175 0 308.2251 100"
    height="100"
-   width="150"
+   width="308.2251"
    version="1.1"
    id="svg2"
+   sodipodi:docname="fksdb.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.0579876"
+     inkscape:cx="139.97086"
+     inkscape:cy="-22.671336"
+     inkscape:window-width="2560"
+     inkscape:window-height="1440"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
   <style
      id="style1">
         @font-face {
@@ -44,16 +66,27 @@
     </mask>
   </defs>
   <g
-     transform="translate(-175,-20)"
+     transform="translate(-16.774902,-20)"
      id="g2"
-     style="fill:#ffffff">
+     style="fill:#ffffff;fill-opacity:1">
     <rect
        width="150"
        height="150"
-       style="opacity:1;fill:#ffffff;stroke:none"
+       style="opacity:1;fill:#ffffff;stroke:none;fill-opacity:1"
        mask="url(#mask)"
        id="rect2"
        x="0"
        y="0" />
   </g>
+  <text
+     fill="#ffffff"
+     font-weight="bold"
+     font-family="sans-serif"
+     font-size="75px"
+     x="-106.7749"
+     y="55"
+     dominant-baseline="middle"
+     text-anchor="middle"
+     id="text2"
+     style="fill:#ffffff;fill-opacity:1">FKS</text>
 </svg>

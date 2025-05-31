@@ -1,5 +1,8 @@
 .event-img {
-    width: 95%;
+    @include media-breakpoint-up(md) {
+        width: 95%;
+    }
+    width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
     object-position: top;
