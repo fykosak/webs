@@ -92,8 +92,7 @@
                         {/switch}
                     </a>
                     {else}
-                    {*If now is more than 6 months after the deadline, say something different*}
-                        {if new Datetime() > $series->getDeadline()->modify('+6 months')}
+                        {if new Datetime() > (clone $series->getDeadline())->modify('+6 months')}
                             {switch $language->value}
                                 {case 'cs'}Řešení této úlohy momentálně není dostupné.
                                 {default}The solution to this problem is currently not available.
