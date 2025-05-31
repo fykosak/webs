@@ -92,17 +92,17 @@
                                 {/switch}
                             </a>
                         {else}
-                            {* {if new Datetime() > (clone $series->getDeadline())->modify('+6 months')}
+                            {if $series->getDeadline() == null || new Datetime() > (clone $series->getDeadline())->modify('+6 months')}
                                 {switch $language->value}
                                     {case 'cs'}Řešení této úlohy momentálně není dostupné.
                                     {default}The solution to this problem is currently not available.
                                 {/switch}
-                            {else} *}
+                            {else}
                                 {switch $language->value}
                                     {case 'cs'}Řešení této úlohy zveřejníme brzy.
                                     {default}We will publish the solution to this problem soon.
                                 {/switch}
-                            {* {/if} *}
+                            {/if}
                         {/if}
                     </div>
                     {if array_key_exists($language->value, $problem->origin) && $problem->origin[$language->value]}
