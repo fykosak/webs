@@ -31,7 +31,11 @@
 </div>
 <div class="countdown-container py-3">
     <section class="inner-container">
-        <h2 class="m-0 countdown"><span id="countdown-label" class="countdown-text mx-3 mx-sm-4 mx-md-5"></span><span id="countdown-time" class="countdown-text mx-3 mx-sm-4 mx-md-5"></h2>
+        <h2 class="m-0 countdown">
+            <a n:href=":Default:Problems:default" style="text-decoration: none;">
+                <span id="countdown-label" class="countdown-text mx-3 mx-sm-4 mx-md-5"></span><span id="countdown-time" class="countdown-text mx-3 mx-sm-4 mx-md-5">
+            </a>
+        </h2>
     </section>
 </div>
 <div class="panel color-light">
@@ -174,14 +178,15 @@ let timer = setInterval(countdownTimer, 1000);
 countdownTimer();
 
 function countdownTimer() {
-    let now = new Date().getTime();
+    const seriesNumber = {$series->series};
+    const now = new Date().getTime();
 
-    let distance = Math.floor((countDownDate - now)/1000);
+    const distance = Math.floor((countDownDate - now)/1000);
 
-    let days = Math.floor(distance / (60 * 60 * 24));
-    let hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
-    let minutes = Math.floor((distance % (60 * 60)) / 60);
-    let seconds = Math.floor(distance % 60);
+    const days = Math.floor(distance / (60 * 60 * 24));
+    const hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
+    const minutes = Math.floor((distance % (60 * 60)) / 60);
+    const seconds = Math.floor(distance % 60);
 
     let daysLabel = "";
     if (days == 1) {
@@ -219,10 +224,17 @@ function countdownTimer() {
             secondsLabel = "&nbsp;sekund";
     }
 
-    let label = "Termín " + {$series->series} + ".&nbsp;série"
+    let label = "Termín " + seriesNumber + ".&nbsp;série"
+    if (seriesNumber > 6) {
+        label = "Termín " + (seriesNumber-7) + ".&nbsp;prázdninové série"
+    }
     if (distance <= 0) {
         clearInterval(timer);
-        label = {$series->series} + ".&nbsp;série již proběhla.";
+        if (seriesNumber > 6) {
+            label = (seriesNumber-7) + ".&nbsp;prázdninová série již proběhla.";
+        } else {
+            label = (seriesNumber-7) + ".&nbsp;série již proběhla.";
+        }
         time = '';
         document.getElementById("countdown-time").classList.add("d-none");
         document.getElementById("countdown-label").classList.add("mb-0");

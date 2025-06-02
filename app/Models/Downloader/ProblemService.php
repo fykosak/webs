@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader;
 
+use DateTime;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 
@@ -60,6 +61,15 @@ final class ProblemService extends AbstractJSONService
     }
 
     /**
+     * Get the lastest upcoming series.
+     *
+     * Gets all series for contest year and filters the ones that are not after
+     * deadline. If there is at least one, it returns the first one (with the
+     * correct ordering in config this will be the series with the closest
+     * upcoming deadline).
+     *
+     * If the is no active series, it returns the last series defined.
+     *
      * @throws \Throwable
      */
     public function getLatestSeries(string $contest, int $year): int
@@ -67,8 +77,17 @@ final class ProblemService extends AbstractJSONService
         return $this->cache->load(
             sprintf("lastSeries_%s", $contest),
             function (&$dependencies) use ($contest, $year) {
-                $dependencies[Cache::EXPIRE] = $this->expiration;
+                $dependencies[Cache::Expire] = $this->expiration;
                 $json = $this->downloader->download(new SeriesRequest($contest, $year));
+
+                $futureSeries = array_filter($json, function ($value, $key) {
+                    return $value['deadline'] && (new DateTime($value['deadline']) > new DateTime());
+                }, ARRAY_FILTER_USE_BOTH);
+
+                if ($futureSeries) {
+                    $series = reset($futureSeries);
+                    return $series['series'];
+                }
 
                 $series = end($json);
                 return $series['series'];
@@ -84,7 +103,7 @@ final class ProblemService extends AbstractJSONService
         return $this->cache->load(
             sprintf("yearJson_%s_%d", $contest, $year),
             function (&$dependencies) use ($contest, $year) {
-                $dependencies[Cache::EXPIRE] = $this->expiration;
+                $dependencies[Cache::Expire] = $this->expiration;
                 return $this->downloader->download(new SeriesRequest($contest, $year));
             }
         );
