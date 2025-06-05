@@ -66,11 +66,13 @@
                                 <div class="card-body d-flex align-items-start flex-column">
                                     <h5 class="card-title">{$news['title']}</h5>
                                     <p class="card-text">{$news['text']|noescape}</p>
-                                    {if strpos($news['link'], 'http') === 0}
-                                        <a href="{$news['link']}" class="btn btn-primary mt-auto">{$news['link-text']}</a>
-                                    {else}
-                                        <a n:href="$news['link']" class="btn btn-primary mt-auto">{$news['link-text']}</a>
-                                    {/if}
+																		{if array_key_exists('link', $news) && $news['link'] && array_key_exists('link-text', $news) && $news['link-text']}
+		                                    {if strpos($news['link'], 'http') === 0}
+		                                        <a href="{$news['link']}" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+		                                    {else}
+		                                        <a n:href="$news['link']" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+		                                    {/if}
+																		{/if}
                                 </div>
                             </div>
                         </div>
