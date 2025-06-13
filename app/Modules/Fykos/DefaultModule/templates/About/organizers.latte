@@ -85,10 +85,10 @@
                                             {default}Head of FYKOS
                                         {/switch}
                                         {* Add font awesome questionmark which, when moused-over, will uncover text desription *}
-                                        <span class="info-icon" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="top" 
-                                            data-bs-html="true" 
+                                        <span class="info-icon"
+                                            data-bs-toggle="tooltip"
+                                            data-bs-placement="top"
+                                            data-bs-html="true"
                                             title="{switch $language->value}
                                                 {case 'cs'}Vedoucí FYKOSu je formální pozice zaštiťující seminář vůči MFF UK v souladu s interními pravidly fakulty. O samotné exekutivní vedení organizace se stará Hlavní organizátor FYKOSu.{default}The head of FYKOS is a formal position that represents the group with respect to the Faculty of Mathematics and Physics of Charles University in accordance with the faculty's internal rules. The person responsible for the actual executive management of the organization is the Head Organizer of FYKOS.{/switch}">
                                             <i class="fas fa-question-circle"></i>
@@ -148,7 +148,7 @@
                                     <tr>
                                         <td class="left-cell"><span class="icon"><i class="fas fa-briefcase"></i></span>
                                         </td>
-                                        <td class="right-cell">{$organizer['role']}</td>
+                                        <td class="right-cell">{$organizer['role']['cs']}</td>
                                     </tr>
                                     {/if}
                                     {if $organizer['career'] and $lang == 'cs'}
