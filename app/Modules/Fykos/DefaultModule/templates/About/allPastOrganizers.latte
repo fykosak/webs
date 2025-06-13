@@ -61,11 +61,11 @@
                                         {/if}
                                     </td>
                                 </tr>
-                                {if $organizer['contribution'] and $lang == 'cs'}
+                                {if $organizer['contribution'] and $organizer['contribution'][$lang]}
                                 <tr>
                                     <td class="left-cell"><span class="icon"><i class="fas fa-trophy"></i></span>
                                     </td>
-                                    <td class="right-cell">{$organizer['contribution']}</td>
+                                    <td class="right-cell">{$organizer['contribution'][$lang]}</td>
                                 </tr>
                                 {/if}
                             </table>
