@@ -44,37 +44,30 @@
             <div class="row">
             {foreach $newsList['cs'] as $orderNumber => $news}
                 {if $orderNumber < 4}
+                    {php $marginClass = "mt-md-4"}
                     {if $orderNumber < 2}
-                        <div class="col-md-6 mt-2 mb-2 mb-md-4">
-                            <div class="card news-card">
-                                <div class="card-body d-flex align-items-start flex-column">
-                                    <h5 class="card-title">{$news['title']}</h5>
-                                    <p class="card-text">{$news['text']|noescape}</p>
+                        {php $marginClass = "mb-md-4"}
+                    {/if}
+                    <div class="col-md-6 mt-2 mb-2 {$marginClass}">
+                        <div class="card news-card">
+                            <div class="card-body d-flex align-items-start flex-column">
+                                <h5 class="card-title">{$news['title']}</h5>
+                                <p class="card-text">{$news['text']|noescape}</p>
+                                <div class="d-flex flex-row-reverse w-100 justify-content-between mt-auto">
                                     {if array_key_exists('link', $news) && $news['link'] && array_key_exists('link-text', $news) && $news['link-text']}
                                         {if strpos($news['link'], 'http') === 0}
-                                            <a href="{$news['link']}" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+                                            <a href="{$news['link']}" class="btn btn-primary order-2">{$news['link-text']}</a>
                                         {else}
-                                            <a n:href="$news['link']" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+                                            <a n:href="$news['link']" class="btn btn-primary order-2">{$news['link-text']}</a>
                                         {/if}
                                     {/if}
+                                    <p class="my-auto order-1">
+                                        {$news['date']}
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    {else}
-                        <div class="col-md-6 mt-2 mt-md-4 mb-2">
-                            <div class="card news-card">
-                                <div class="card-body d-flex align-items-start flex-column">
-                                    <h5 class="card-title">{$news['title']}</h5>
-                                    <p class="card-text">{$news['text']|noescape}</p>
-                                    {if strpos($news['link'], 'http') === 0}
-                                        <a href="{$news['link']}" class="btn btn-primary mt-auto">{$news['link-text']}</a>
-                                    {else}
-                                        <a n:href="$news['link']" class="btn btn-primary mt-auto">{$news['link-text']}</a>
-                                    {/if}
-                                </div>
-                            </div>
-                        </div>
-                    {/if}
+                    </div>
                 {/if}
             {/foreach}
         </div>
@@ -96,7 +89,7 @@
                         </p>
                     {else}
                         <p class="mb-2">
-                            Vzorová řešení úloh předchozí série zveřejníme brzy.
+                            Vzorová řešení typicky zveřejňujeme do tří dnů od termínu odevzdání dané série.
                         </p>
                     {/if}
                     <div class="d-block">
