@@ -144,11 +144,11 @@
                             <h4 class="card-header">{$organizer['name']}</h4>
                             <div class="card-body">
                                 <table>
-                                    {if $organizer['role'] and $lang == 'cs'}
+                                    {if $organizer['role'] and $organizer['role'][$lang]}
                                     <tr>
                                         <td class="left-cell"><span class="icon"><i class="fas fa-briefcase"></i></span>
                                         </td>
-                                        <td class="right-cell">{$organizer['role']['cs']}</td>
+                                        <td class="right-cell">{$organizer['role'][$lang]}</td>
                                     </tr>
                                     {/if}
                                     {if $organizer['career'] and $lang == 'cs'}
