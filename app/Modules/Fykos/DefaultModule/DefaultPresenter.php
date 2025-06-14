@@ -96,178 +96,156 @@ class DefaultPresenter extends BasePresenter
 
     public function loadEventData(): void
     {
-        $this->template->events = [
+        $this->template->events = [];
+        $events = [
             'DSEF' => [
-                'key' => 'dsef',
+                'date' => '2025-11-10 09:00:00',
+                'english' => false,
+                'url' => 'https://dsef.cz',
                 'heading' => [
                     'cs' => 'Den s&nbsp;experimentální fyzikou',
                     'en' => 'Day with experimental physics'
                 ],
-                'date' => date('Y-m-d H:i:s', strtotime('2024-10-21 09:00:00')),
-                'show-in-en' => false,
-                'is_series' => false,
-                'url' => 'https://dsef.cz',
-                'description' => [
+                'desc' => [
                     'cs' => 'Den s&nbsp;experimentální fyzikou na Matfyzu',
                     'en' => 'Day with experimental physics at Matfyz'
                 ],
-                'show-on-timeline' => true,
-                'logo_eventbox' => [
+                'logo' => [
                     'cs' => '/images/logos/dsef_logo.svg'
                 ]
             ],
             'Naboj' => [
-                'key' => 'naboj',
+                'date' => '2025-11-07 09:00:00',
+                'english' => false,
+                'url' => 'https://physics.naboj.org',
                 'heading' => [
                     'cs' => 'Fyzikální Náboj',
                     'en' => 'Physics Náboj'
                 ],
-                'date' => date('Y-m-d H:i:s', strtotime('2024-11-15 09:00:00')),
-                'show-in-en' => false,
-                'is_series' => false,
-                'url' => 'https://physics.naboj.org',
-                'description' => [
+                'desc' => [
                     'cs' => 'Týmová soutěž v&nbsp;Praze, Ostravě a&nbsp;jinde ve&nbsp;světě',
                     'en' => 'Team competition in Prague, Ostrava, and elsewhere in the world'
                 ],
-                'show-on-timeline' => true,
-                'logo_eventbox' => [
+                'logo' => [
                     'cs' => '/images/logos/naboj_logo.svg'
                 ]
             ],
             'FOL' => [
-                'key' => 'fol',
+                'date' => '2025-11-26 17:00:00',
+                'english' => true,
+                'url' => 'https://online.fyziklani.cz',
                 'heading' => [
                     'cs' => 'Fyziklání Online',
                     'en' => 'Physics Brawl Online'
                 ],
-                'date' => date('Y-m-d H:i:s', strtotime('2024-11-20 17:00:00')),
-                'show-in-en' => true,
-                'is_series' => false,
-                'url' => 'https://online.fyziklani.cz',
-                'description' => [
+                'desc' => [
                     'cs' => 'Celosvětová soutěž, které se může účastnit každý',
                     'en' => 'Worldwide competition open to everyone'
                 ],
-                'show-on-timeline' => true,
-                'logo_eventbox' => [
+                'logo' => [
                     'cs' =>  '/images/logos/fyziklani_online_logo.svg',
                     'en' => '/images/logos/physics_brawl_online_logo.svg'
                 ]
             ],
             'FOF' => [
-                'key' => 'fof',
+                'date' => '2026-02-13 10:30:00',
+                'english' => true,
+                'url' => 'https://fyziklani.cz',
                 'heading' => [
                     'cs' => 'Fyziklání',
                     'en' => 'Fyziklani'
                 ],
-                'date' => date('Y-m-d H:i:s', strtotime('2025-02-14 10:30:00')),
-                'show-in-en' => true,
-                'is_series' => false,
-                'url' => 'https://fyziklani.cz',
-                'description' => [
+                'desc' => [
                     'cs' => 'Největší týmová fyzikální soutěž v&nbsp;Evropě',
                     'en' => 'The largest team physics competition in Europe'
                 ],
-                'show-on-timeline' => true,
-                'logo_eventbox' => [
+                'logo' => [
                     'cs' =>  '/images/logos/fyziklani_logo.svg',
                     'en' =>  '/images/logos/fyziklani_logo.svg'
                 ]
             ],
-            'serie-1' => [
-                'key' => 'serie-1',
-                'heading' => [
-                    'cs' => 'Deadline 1.&nbsp;série',
-                    'en' => 'Deadline Series&nbsp;1'
-                ],
-                'date' => date('Y-m-d H:i:s', strtotime('2024-10-06 23:59:59')),
-                'show-in-en' => true,
-                'is_series' => true,
-                'description' => [
-                    'cs' => 'Rýže, kondenzátor a&nbsp;filodendron na cestě',
-                    'en' => 'Rice, capacitor, and philodendron on the road'
-                ],
-                'show-on-timeline' => true
-            ],
-            'serie-2' => [
-                'key' => 'serie-2',
-                'heading' => [
-                    'cs' => 'Deadline 2.&nbsp;série',
-                    'en' => 'Deadline Series&nbsp;2'
-                ],
-                'date' => date('Y-m-d H:i:s', strtotime('2024-11-24 23:59:59')),
-                'show-in-en' => true,
-                'is_series' => true,
-                'description' => [
-                    'cs' => 'Bitcoin, stromy a&nbsp;otužování',
-                    'en' => 'Bitcoin, trees, and cold exposure'
-                ],
-                'show-on-timeline' => true
-            ],
-            'serie-3' => [
-                'key' => 'serie-3',
-                'heading' => [
-                    'cs' => 'Deadline 3.&nbsp;série',
-                    'en' => 'Deadline Series&nbsp;3'
-                ],
-                'date' => date('Y-m-d H:i:s', strtotime('2025-01-12 23:59:59')),
-                'show-in-en' => true,
-                'is_series' => true,
-                'description' => [
-                    'cs' => 'Chleba, starý zářič a&nbsp;aquapark',
-                    'en' => 'Bread, radiation emitter, and water park'
-                ],
-                'show-on-timeline' => true
-            ],
-            'serie-4' => [
-                'key' => 'serie-4',
-                'heading' => [
-                    'cs' => 'Deadline 4.&nbsp;série',
-                    'en' => 'Deadline Series&nbsp;4'
-                ],
-                'date' => date('Y-m-d H:i:s', strtotime('2025-02-23 23:59:59')),
-                'show-in-en' => true,
-                'is_series' => true,
-                'description' => [
-                    'cs' => 'Kouř, stín a&nbsp;raketou na zkoušku',
-                    'en' => 'Smoke, shadow, and rocketing to an&nbsp;exam'
-                ],
-                'show-on-timeline' => true
-            ],
-            'serie-5' => [
-                'key' => 'serie-5',
-                'heading' => [
-                    'cs' => 'Deadline 5.&nbsp;série',
-                    'en' => 'Deadline Series&nbsp;5'
-                ],
-                'date' => date('Y-m-d H:i:s', strtotime('2025-03-30 23:59:59')),
-                'show-in-en' => true,
-                'is_series' => true,
-                'description' => [
-                    'cs' => 'Čtverec, minigolf a vagon ve vesmíru',
-                    'en' => 'Square, minigolf, and a wagon in space'
-                ],
-                'show-on-timeline' => true
-            ],
-            'serie-6' => [
-                'key' => 'serie-6',
-                'heading' => [
-                    'cs' => 'Deadline 6.&nbsp;série',
-                    'en' => 'Deadline Series&nbsp;6'
-                ],
-                'date' => date('Y-m-d H:i:s', strtotime('2025-05-11 23:59:59')),
-                'show-in-en' => true,
-                'is_series' => true,
-                'description' => [
-                    'cs' => 'Akční film, ponorka a&nbsp;ořezávání tužky',
-                    'en' => 'Action movie, submarine, and pencil sharpening'
-                ],
-                'show-on-timeline' => true
-            ]
         ];
-        $this->template->timelineBegin = date('Y-m-d', strtotime('2024-09-01'));
-        $this->template->timelineEnd = date('Y-m-d', strtotime('2025-05-31'));
+        $series = [
+            /*
+            '1' => [
+                'deadline' => '2025-10-05',
+                'description' => [
+                    'cs' => 'Bude oznámeno',
+                    'en' => 'To be announced'
+                ],
+            ],
+            '2' => [
+                'deadline' => '2000-01-01',
+                'description' => [
+                    'cs' => 'Bude oznámeno',
+                    'en' => 'To be announced'
+                ],
+            ],
+            '3' => [
+                'deadline' => '2000-01-01',
+                'description' => [
+                    'cs' => 'Bude oznámeno',
+                    'en' => 'To be announced'
+                ],
+            ],
+            '4' => [
+                'deadline' => '2000-01-01',
+                'description' => [
+                    'cs' => 'Bude oznámeno',
+                    'en' => 'To be announced'
+                ],
+            ],
+            '5' => [
+                'deadline' => '2000-01-01',
+                'description' => [
+                    'cs' => 'Bude oznámeno',
+                    'en' => 'To be announced'
+                ],
+            ],
+            '6' => [
+                'deadline' => '2000-01-01',
+                'description' => [
+                    'cs' => 'Bude oznámeno',
+                    'en' => 'To be announced'
+                ],
+            ],
+            */
+        ];
+        function fmtDate(string $date): string
+        {
+            return date('Y-m-d H:i:s', strtotime($date));
+        }
+        foreach ($events as $id => $data) {
+            $key = strtolower($id);
+            $this->template->events[$key] = [
+                'key' => $key,
+                'heading' => $data['heading'],
+                'date' => fmtDate($data['date']),
+                'show-in-en' => $data['english'],
+                'is_series' => false,
+                'url' => $data['url'],
+                'description' => $data['desc'],
+                'show-on-timeline' => true,
+                'logo_eventbox' => $data['logo'],
+            ];
+        }
+        foreach ($series as $id => $data) {
+            $key = 'serie-' . $id;
+            $this->template->events[$key] = [
+                'key' => $key,
+                'heading' => [
+                    'cs' => 'Deadline ' . $id . '.&nbsp;série',
+                    'en' => 'Deadline Series&nbsp;' . $id
+                ],
+                'date' => fmtDate($data['deadline'] . ' 23:59:59'),
+                'show-in-en' => true,
+                'is_series' => true,
+                'description' => $data['description'],
+                'show-on-timeline' => true
+            ];
+        }
+        $this->template->timelineBegin = date('Y-m-d', strtotime('2025-09-01'));
+        $this->template->timelineEnd = date('Y-m-d', strtotime('2026-05-31'));
 
         // sort chronologically
         usort($this->template->events, function ($a, $b) {
