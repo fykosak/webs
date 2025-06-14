@@ -169,6 +169,8 @@ class DefaultPresenter extends BasePresenter
                 ]
             ],
         ];
+        // IMORTANT!!!
+        // uncomment the loop below when enabling series
         $series = [
             /*
             '1' => [
@@ -229,7 +231,7 @@ class DefaultPresenter extends BasePresenter
                 'logo_eventbox' => $data['logo'],
             ];
         }
-        /** @phpstan-ignore */
+        /*
         foreach ($series as $id => $data) {
             $key = 'serie-' . $id;
             $this->template->events[$key] = [
@@ -245,6 +247,7 @@ class DefaultPresenter extends BasePresenter
                 'show-on-timeline' => true
             ];
         }
+        */
         $this->template->timelineBegin = date('Y-m-d', strtotime('2025-09-01'));
         $this->template->timelineEnd = date('Y-m-d', strtotime('2026-05-31'));
 
