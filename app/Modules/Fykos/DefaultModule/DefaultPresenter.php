@@ -94,6 +94,10 @@ class DefaultPresenter extends BasePresenter
         return $newsList;
     }
 
+    private function fmtDate(string $date): string {
+        return date('Y-m-d H:i:s', strtotime($date));
+    }
+
     public function loadEventData(): void
     {
         $this->template->events = [];
@@ -211,16 +215,12 @@ class DefaultPresenter extends BasePresenter
             ],
             */
         ];
-        function fmtDate(string $date): string
-        {
-            return date('Y-m-d H:i:s', strtotime($date));
-        }
         foreach ($events as $id => $data) {
             $key = strtolower($id);
             $this->template->events[$key] = [
                 'key' => $key,
                 'heading' => $data['heading'],
-                'date' => fmtDate($data['date']),
+                'date' => $this->fmtDate($data['date']),
                 'show-in-en' => $data['english'],
                 'is_series' => false,
                 'url' => $data['url'],
@@ -229,6 +229,7 @@ class DefaultPresenter extends BasePresenter
                 'logo_eventbox' => $data['logo'],
             ];
         }
+        /** @phpstan-ignore */
         foreach ($series as $id => $data) {
             $key = 'serie-' . $id;
             $this->template->events[$key] = [
@@ -237,7 +238,7 @@ class DefaultPresenter extends BasePresenter
                     'cs' => 'Deadline ' . $id . '.&nbsp;série',
                     'en' => 'Deadline Series&nbsp;' . $id
                 ],
-                'date' => fmtDate($data['deadline'] . ' 23:59:59'),
+                'date' => $this->fmtDate($data['deadline'] . ' 23:59:59'),
                 'show-in-en' => true,
                 'is_series' => true,
                 'description' => $data['description'],
