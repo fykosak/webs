@@ -94,7 +94,8 @@ class DefaultPresenter extends BasePresenter
         return $newsList;
     }
 
-    private function fmtDate(string $date): string {
+    private function fmtDate(string $date): string
+    {
         return date('Y-m-d H:i:s', strtotime($date));
     }
 
