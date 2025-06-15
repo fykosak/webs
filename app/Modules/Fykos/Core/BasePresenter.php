@@ -16,10 +16,12 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
      */
     protected function getNavItems(): array
     {
+        $icon='visible-sm-inline glyphicon glyphicon-info-sign';
+
         $items = [];
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('O nás', 'About Us'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle($this->csen('O nás', 'About Us'), $icon), // TODO
             ':Default:About:',
             [],
             [
@@ -33,15 +35,12 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
         );
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('Akce', 'Events'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle($this->csen('Akce', 'Events'), $icon), // TODO
             ':Events:Default:',
         );
 
         $items[] = new NavItem(
-            new PageTitle(
-                $this->csen('Seminář', 'FYKOS Competition'),
-                'visible-sm-inline glyphicon glyphicon-info-sign'
-            ),
+            new PageTitle($this->csen('Seminář', 'FYKOS Competition'), $icon),
             ':Events:Fykos:',
             [],
             [
@@ -59,7 +58,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
         );
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('Zadání', 'Problems'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
+            new PageTitle($this->csen('Zadání', 'Problems'), $icon),
             ':Default:Problems:default',
             // @phpstan-ignore-next-line
             [
@@ -69,7 +68,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
         );
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('Pořadí', 'Results'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
+            new PageTitle($this->csen('Pořadí', 'Results'), $icon),
             ':Default:Results:default',
             // @phpstan-ignore-next-line
             [
@@ -77,13 +76,13 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
             ]
         );
 
-        // $items[] = new NavItem(
-        // new PageTitle( $this->csen('Archiv úloh', 'Problem Archive'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
-        //     ':Default:ProblemsArchive:',
-        // );
+        $items[] = new NavItem(
+            new PageTitle($this->csen('Archiv seriálů', 'Serial Archive'), $icon),
+            ':Default:SerialArchive:',
+        );
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('Přihlásit se', 'Sign In'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
+            new PageTitle($this->csen('Přihlásit se', 'Sign In'), $icon),
             'https://db.fykos.cz',
         );
         return $items;
