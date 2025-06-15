@@ -25,7 +25,7 @@
             {/switch}
             </a>
         {/foreach}
-        <a class="btn btn-primary my-2" n:href=": year: null">
+        <a class="btn btn-primary my-2" n:href=":serial year: null">
             {switch $lang}
                 {case 'cs'}Seznam všech seriálů
                 {case 'en'}All serials
@@ -57,7 +57,7 @@
         <section class="inner-container">
         {foreach $yearsAndSeries as $year => $seriesList}
             <div>
-            <a n:href=": year: $year">
+            <a n:href=":serial year: $year">
             {switch $lang}
                 {case 'cs'}Seriál {$year}. ročníku
                 {default}Series for year {$year}

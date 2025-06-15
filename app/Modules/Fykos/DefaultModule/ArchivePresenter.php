@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace App\Modules\Fykos\DefaultModule;
 
 use App\Models\Downloader\ProblemService;
-use Nette\Application\Attributes\Persistent;
 use Nette\Caching\Cache;
 
-class SerialArchivePresenter extends BasePresenter
+class ArchivePresenter extends BasePresenter
 {
-    #[Persistent]
+    /** @persistent */
     public ?int $year = null;
 
     private readonly ProblemService $problemService;
+    private string $expire = '30 minutes';
 
     public function injectServiceProblem(ProblemService $problemService): void
     {
@@ -21,33 +21,22 @@ class SerialArchivePresenter extends BasePresenter
     }
 
     /**
-     * @throws BadRequestException
+     * @throws \Throwable
      */
-    public function renderDefault(): void
+    public function renderSerial(): void
     {
-        $expire = '30 minutes';
         $this->template->selectedYear = $this->year;
         $this->template->yearsAndSeries = $this->cache->load(
-            "SerialArchive:yearsAndSeries",
-            function (&$dependencies) use ($expire) {
+            $this->name ?? 'ArchivePresenter' . ':getYearPartSerialLinks',
+            function (&$dependencies) {
                 // TODO: maybe get global default? How?
-                $dependencies[Cache::Expire] = $expire;
-                return $this->getYearsAndSeries();
+                $dependencies[Cache::Expire] = $this->expire;
+                return $this->getYearPartSerialLinks();
             }
         );
     }
 
-    private function getSerialPart(string $contest, int $year, int $part): ?string
-    {
-        $series = $this->problemService->getSeries(
-            $contest,
-            $year,
-            $part
-        );
-        return $this->problemService->getSerial($contest, $series, $this->lang);
-    }
-
-    private function getYearsAndSeries(): array
+    private function getYearPartSerialLinks(): array
     {
         error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
         $contest = $this->getContest();
@@ -57,7 +46,17 @@ class SerialArchivePresenter extends BasePresenter
                 $info = $this->problemService->getYearJson($contest->contest, $year->year);
                 $links = [];
                 foreach (array_keys($info) as $part) {
-                    $link = $this->getSerialPart($contest->contest, $year->year, $part);
+                    /// TODO: `ProblemService` needs a refactor, this is bad!!!
+                    $series = $this->problemService->getSeries(
+                        $contest->contest,
+                        $year->year,
+                        $part
+                    );
+                    $link = $this->problemService->getSerial(
+                        $contest->contest,
+                        $series,
+                        $this->lang
+                    );
                     if ($link !== null) {
                         $links[$part] = $link;
                     }

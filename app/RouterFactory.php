@@ -55,7 +55,8 @@ class RouterFactory
                 if (isset($domainList) && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
                     // In case of accessing from unknown domain (which should not happen), dsef is an exception
-                    if ($domainLang === null
+                    if (
+                        $domainLang === null
                         and $params['domain'] !== 'dsef.cz'
                         and $params['domain'] !== 'dsef.fykos.cz'
                     ) {
@@ -75,7 +76,8 @@ class RouterFactory
                 }
 
                 // Translate module
-                if (isset($params['module'])
+                if (
+                    isset($params['module'])
                     && isset($routerMapping['modules'][$params['lang']])
                     && isset($routerMapping['modules'][$params['lang']][$params['module']])
                 ) {
@@ -83,14 +85,16 @@ class RouterFactory
                 }
 
                 // Translate presenter
-                if (isset($routerMapping[$params['lang']])
+                if (
+                    isset($routerMapping[$params['lang']])
                     && isset($routerMapping[$params['lang']][$params['presenter']])
                 ) {
                     $params['presenter'] = $routerMapping[$params['lang']][$params['presenter']];
                 }
 
                 // Translate action
-                if (isset($routerMapping['actions'][$params['lang']])
+                if (
+                    isset($routerMapping['actions'][$params['lang']])
                     && isset($routerMapping['actions'][$params['lang']][$params['action']])
                 ) {
                     $params['action'] = $routerMapping['actions'][$params['lang']][$params['action']];
@@ -152,19 +156,21 @@ class RouterFactory
 
         $router->withModule('Archive')
             ->addRoute(
-                '//<domain>/<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]', [
-                'presenter' => 'Default',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['archive']),
+                '//<domain>/<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]',
+                [
+                    'presenter' => 'Default',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['archive']),
                 ]
             );
 
         $router->withModule('Default')
             ->addRoute(
-                '//<domain>/<presenter>[/<action>]', [
-                'presenter' => 'Default',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                '//<domain>/<presenter>[/<action>]',
+                [
+                    'presenter' => 'Default',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
@@ -177,26 +183,30 @@ class RouterFactory
 
         $router->withModule('Archive')
             ->addRoute(
-                '//<domain>/<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]', [
-                'presenter' => 'Default',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['archive']),
+                '//<domain>/<eventYear ([0-9]{4})(-.*)?>/[<presenter>/[<action>]]',
+                [
+                    'presenter' => 'Default',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['archive']),
                 ]
             );
 
         $router->withModule('Default')
             ->addRoute(
-                '//<domain>/(international|erasmus)', [
-                'presenter' => 'Erasmus',
-                'lang' => 'en',
-                null => self::havingDomainLanguage(['cs'], $domainList),
-                ], $router::ONE_WAY
+                '//<domain>/(international|erasmus)',
+                [
+                    'presenter' => 'Erasmus',
+                    'lang' => 'en',
+                    null => self::havingDomainLanguage(['cs'], $domainList),
+                ],
+                $router::ONE_WAY
             )
             ->addRoute(
-                '//<domain>/<presenter>[/<action>]', [
-                'presenter' => 'Default',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                '//<domain>/<presenter>[/<action>]',
+                [
+                    'presenter' => 'Default',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
@@ -209,19 +219,21 @@ class RouterFactory
 
         $router->withModule('Default')
             ->addRoute(
-                '//<domain>/<presenter>[/<action>]', [
-                'presenter' => 'Default',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                '//<domain>/<presenter>[/<action>]',
+                [
+                    'presenter' => 'Default',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
         $router->withModule('Archive')
             ->addRoute(
-                '//<domain>/<eventYear ([0-9]{4})(-.*)?>/<eventMonth>/[<presenter>/[<action>]]', [
-                'presenter' => 'Default',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['archive']),
+                '//<domain>/<eventYear ([0-9]{4})(-.*)?>/<eventMonth>/[<presenter>/[<action>]]',
+                [
+                    'presenter' => 'Default',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['archive']),
                 ]
             );
 
@@ -235,69 +247,82 @@ class RouterFactory
         $router
             ->withModule('Default')
             ->addRoute(
-                '//<domain>/<presenter results|poradi>/<year ([0-9]{1,2})>', [
-                'presenter' => 'Results',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default'])
+                '//<domain>/<presenter results|poradi>/<year ([0-9]{1,2})>',
+                [
+                    'presenter' => 'Results',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['default'])
                 ]
             );
 
-        $router->withModule('Default')
+        $router
+            ->withModule('Default')
             ->addRoute(
-                '//<domain>/<presenter problems|zadani>/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
-                'presenter' => 'Problems',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                '//<domain>/<presenter problems|zadani>/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>',
+                [
+                    'presenter' => 'Problems',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
-        $router->withModule('Default')
+        $router
+            ->withModule('Default')
             ->addRoute(
-                '//<domain>/<presenter serial-archive>/<year ([0-9]{1,2})(-.*)?>', [
-                'presenter' => 'SerialArchive',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                '//<domain>/<presenter archive>[/<action>]/<year ([0-9]{1,2})(-.*)?>',
+                [
+                    'presenter' => 'Archive',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
-        $router->withModule('Events')
+        $router
+            ->withModule('Events')
             ->addRoute(
-                '//<domain>/akce/soustredeni/<year>-<season>', [
-                'presenter' => 'Camps',
-                'action' => 'detail',
-                'season' => [
-                    Route::FILTER_IN => function ($season) {
-                        return $season === 'jaro' ? 4 : 5;
-                    },
-                    Route::FILTER_OUT => function ($id) {
-                        return $id == 4 ? 'jaro' : 'podzim';
-                    }
-                ]
-                ]
-            );
-
-        $router->withModule('Events')
-            ->addRoute(
-                '//<domain>/akce/tsaf/<year>-<month>', [
-                'presenter' => 'Tsaf',
-                'action' => 'detail'
+                '//<domain>/akce/soustredeni/<year>-<season>',
+                [
+                    'presenter' => 'Camps',
+                    'action' => 'detail',
+                    'season' => [
+                        Route::FILTER_IN => function ($season) {
+                            return $season === 'jaro' ? 4 : 5;
+                        },
+                        Route::FILTER_OUT => function ($id) {
+                            return $id == 4 ? 'jaro' : 'podzim';
+                        }
+                    ]
                 ]
             );
 
-        $router->addRoute(
-            '//<domain>/<module events|akce>/[<presenter>[/<action>]]', [
-            'presenter' => 'Default',
-            'action' => 'default',
-            null => self::useTranslateFilter($domainList, $routerMapping['events']),
-            ]
-        );
-
-        $router->withModule('Default')
+        $router
+            ->withModule('Events')
             ->addRoute(
-                '//<domain>/<presenter>[/<action>]', [
+                '//<domain>/akce/tsaf/<year>-<month>',
+                [
+                    'presenter' => 'Tsaf',
+                    'action' => 'detail'
+                ]
+            );
+
+        $router
+            ->addRoute(
+                '//<domain>/<module events|akce>/[<presenter>[/<action>]]',
+                [
                 'presenter' => 'Default',
                 'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                null => self::useTranslateFilter($domainList, $routerMapping['events']),
+                ]
+            );
+
+        $router
+            ->withModule('Default')
+            ->addRoute(
+                '//<domain>/<presenter>[/<action>]',
+                [
+                    'presenter' => 'Default',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
@@ -308,16 +333,19 @@ class RouterFactory
     {
         $router = new RouteList();
 
-        $router->withModule('Default')
+        $router
+            ->withModule('Default')
             ->addRoute(
-                '//<domain>/<presenter zadani>/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>', [
-                'presenter' => 'Problems',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                '//<domain>/<presenter zadani>/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>',
+                [
+                    'presenter' => 'Problems',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
-        $router->withModule('Default')
+        $router
+            ->withModule('Default')
             ->addRoute('pro-ucitele', 'Separate:teachers')
             ->addRoute('ceny', 'Separate:prizes')
             ->addRoute('archiv-vyfucteni', 'Separate:serialArchive')
@@ -327,15 +355,18 @@ class RouterFactory
             ->addRoute('jak-psat-experimenty', 'Section:howToExperiment')
             ->addRoute('bingo', 'Problems:bingo');
 
-        $router->withModule('Default')
+        $router
+            ->withModule('Default')
             ->addRoute('poradi/[<year ([0-9]{1,2})>]', 'Results:default');
 
-        $router->withModule('Default')
+        $router
+            ->withModule('Default')
             ->addRoute(
-                '//<domain>/<presenter>[/<action>]', [
-                'presenter' => 'Default',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                '//<domain>/<presenter>[/<action>]',
+                [
+                    'presenter' => 'Default',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 

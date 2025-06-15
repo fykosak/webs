@@ -80,9 +80,13 @@ final class ProblemService extends AbstractJSONService
                 $dependencies[Cache::Expire] = $this->expiration;
                 $json = $this->downloader->download(new SeriesRequest($contest, $year));
 
-                $futureSeries = array_filter($json, function ($value, $key) {
-                    return $value['deadline'] && (new DateTime($value['deadline']) > new DateTime());
-                }, ARRAY_FILTER_USE_BOTH);
+                $futureSeries = array_filter(
+                    $json,
+                    function ($value, $key) {
+                        return $value['deadline'] && (new DateTime($value['deadline']) > new DateTime());
+                    },
+                    ARRAY_FILTER_USE_BOTH
+                );
 
                 if ($futureSeries) {
                     $series = reset($futureSeries);

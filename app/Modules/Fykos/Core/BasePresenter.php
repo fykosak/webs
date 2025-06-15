@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\Core;
 
-use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use App\Components\OrgSneakPeak\OrgSneakPeakComponent;
@@ -16,7 +15,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
      */
     protected function getNavItems(): array
     {
-        $icon='visible-sm-inline glyphicon glyphicon-info-sign';
+        $icon = 'visible-sm-inline glyphicon glyphicon-info-sign';
 
         $items = [];
 
@@ -64,7 +63,21 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
             [
                 'year' => null,
                 'series' => null
+            ],
+            [
             ]
+        );
+
+        $items[] = new NavItem(
+            new PageTitle($this->csen('Archiv', 'Archive'), $icon),
+            ':Default:Archive:default',
+            [],
+            [
+                new NavItem(
+                    new PageTitle($this->csen('Archiv seriálů', 'Serial Archive')),
+                    ':Default:Archive:serial',
+                ),
+            ],
         );
 
         $items[] = new NavItem(
@@ -74,11 +87,6 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
             [
                 'year' => null
             ]
-        );
-
-        $items[] = new NavItem(
-            new PageTitle($this->csen('Archiv seriálů', 'Serial Archive'), $icon),
-            ':Default:SerialArchive:',
         );
 
         $items[] = new NavItem(
