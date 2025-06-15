@@ -27,11 +27,11 @@ class ArchivePresenter extends BasePresenter
     {
         $this->template->selectedYear = $this->year;
         $this->template->yearsAndSeries = $this->cache->load(
-            $this->name ?? 'ArchivePresenter' . ':getYearPartSerialLinks',
+            $this->name ?? 'ArchivePresenter' . ':getYearPartSerialLinks:'.$this->lang,
             function (&$dependencies) {
                 // TODO: maybe get global default? How?
                 $dependencies[Cache::Expire] = $this->expire;
-                return $this->getYearPartSerialLinks();
+                return $this->getYearPartSerialLinks($this->lang);
             }
         );
     }

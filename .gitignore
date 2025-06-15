@@ -20,3 +20,4 @@ www/fykos/images/events
 .config
 .local
 .idea/
+.phpactor.json
