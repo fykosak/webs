@@ -17,11 +17,10 @@ final class EventModel
     public readonly \DateTimeImmutable $end;
     public readonly \DateTimeImmutable $registrationBegin;
     public readonly \DateTimeImmutable $registrationEnd;
-    public readonly ?string $report;
     /**
-     * @var string[] $reportNew
+     * @var string[] $report
      */
-    public readonly array $reportNew;
+    public readonly array $report;
     /**
      * @var string[] $description
      */

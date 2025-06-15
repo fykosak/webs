@@ -57,8 +57,7 @@ events = {
             "begin":"2015-08-02T00:00:00+02:00",
             "end":"2015-08-14T00:00:00+02:00"
             },
-        "report":"<p>Report</p>",
-        "reportNew":{
+        "report":{
             "cs":"<p>reportcz</p>",
             "en":None
             },
@@ -87,8 +86,7 @@ events = {
             "begin":"2015-08-02T00:00:00+02:00",
             "end":"2015-08-14T00:00:00+02:00"
             },
-        "report":"<p>Report</p>",
-        "reportNew":{
+        "report":{
             "cs":"<p>reportcz</p>",
             "en":None
             },
@@ -117,8 +115,7 @@ events = {
             "begin":"2015-08-02T00:00:00+02:00",
             "end":"2015-08-14T00:00:00+02:00"
             },
-        "report":"<p>Report</p>",
-        "reportNew":{
+        "report":{
             "cs":"<p>reportcz</p>",
             "en":None
             },
@@ -147,8 +144,7 @@ events = {
             "begin":"2015-08-02T00:00:00+02:00",
             "end":"2015-08-14T00:00:00+02:00"
             },
-        "report":"<p>Report</p>",
-        "reportNew":{
+        "report":{
             "cs":"<p>reportcz</p>",
             "en":None
             },
