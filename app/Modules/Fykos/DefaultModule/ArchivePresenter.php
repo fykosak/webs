@@ -27,7 +27,7 @@ class ArchivePresenter extends BasePresenter
     {
         $this->template->selectedYear = $this->year;
         $this->template->yearsAndSeries = $this->cache->load(
-            $this->name ?? 'ArchivePresenter' . ':getYearPartSerialLinks:'.$this->lang,
+            $this->name ?? 'ArchivePresenter' . ':getYearPartSerialLinks:' . $this->lang,
             function (&$dependencies) {
                 // TODO: maybe get global default? How?
                 $dependencies[Cache::Expire] = $this->expire;
@@ -36,7 +36,7 @@ class ArchivePresenter extends BasePresenter
         );
     }
 
-    private function getYearPartSerialLinks(): array
+    private function getYearPartSerialLinks(string $lang): array
     {
         error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
         $contest = $this->getContest();
@@ -55,7 +55,7 @@ class ArchivePresenter extends BasePresenter
                     $link = $this->problemService->getSerial(
                         $contest->contest,
                         $series,
-                        $this->lang
+                        $lang
                     );
                     if ($link !== null) {
                         $links[$part] = $link;
