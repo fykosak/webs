@@ -68,6 +68,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
             ]
         );
 
+        /*
         $items[] = new NavItem(
             new PageTitle($this->csen('Archiv', 'Archive'), $icon),
             ':Default:Archive:default',
@@ -75,10 +76,11 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
             [
                 new NavItem(
                     new PageTitle($this->csen('Archiv seriálů', 'Serial Archive')),
-                    ':Default:Archive:serial',
+                    ':Default:Archive:serial'
                 ),
             ],
         );
+        */
 
         $items[] = new NavItem(
             new PageTitle($this->csen('Pořadí', 'Results'), $icon),
