@@ -80,9 +80,13 @@ final class ProblemService extends AbstractJSONService
                 $dependencies[Cache::Expire] = $this->expiration;
                 $json = $this->downloader->download(new SeriesRequest($contest, $year));
 
-                $futureSeries = array_filter($json, function ($value, $key) {
-                    return $value['deadline'] && (new DateTime($value['deadline']) > new DateTime());
-                }, ARRAY_FILTER_USE_BOTH);
+                $futureSeries = array_filter(
+                    $json,
+                    function ($value, $key) {
+                        return $value['deadline'] && (new DateTime($value['deadline']) > new DateTime());
+                    },
+                    ARRAY_FILTER_USE_BOTH
+                );
 
                 if ($futureSeries) {
                     $series = reset($futureSeries);
@@ -112,11 +116,17 @@ final class ProblemService extends AbstractJSONService
     private function getMedia(string $contest, int $year, string $path): ?string
     {
         $path = sprintf('%s%s/%d/media/%s', $this->problemManagerURL, $contest, $year, $path);
-        $result = @file_get_contents($path);
-        if ($result === false) {
-            return null;
-        }
-        return $path;
+        return $this->cache->load(
+            $path,
+            function (&$dependencies) use ($path) {
+                $dependencies[Cache::Expire] = $this->expiration;
+                $req = curl_init($path);
+                curl_setopt($req, CURLOPT_NOBODY, true);
+                $exists = curl_exec($req) && curl_getinfo($req, CURLINFO_HTTP_CODE) === 200;
+                curl_close($req);
+                return $exists ? $path : null;
+            }
+        );
     }
 
     public function getSolution(ProblemModel $problem, string $lang): ?string

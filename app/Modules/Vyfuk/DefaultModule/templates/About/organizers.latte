@@ -1,5 +1,6 @@
 {block title}Organizátoři{/block}
 {block content}
+{varType string $lang}
 <div class="container mt-5">
     <div class="row organizers">
         {foreach $organizers as $organizer}
@@ -12,10 +13,10 @@
                     $organizer['academicDegreeSuffix']}&#160;{$organizer['academicDegreeSuffix']}{/if}</h4>
                 <div class="card-body">
                     <table>
-                        {if $organizer['role']}
+                        {if $organizer['role'] and $organizer['role'][$lang]}
                         <tr>
                             <td class="left-cell"><span class="icon"><i class="fas fa-user-group"></i></span></td>
-                            <td class="right-cell">{$organizer['role']}</td>
+                            <td class="right-cell">{$organizer['role'][$lang]}</td>
                         </tr>
                         {/if}
                         {if $organizer['career']}
