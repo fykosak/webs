@@ -5,16 +5,16 @@
     {foreach $previewImages as $rank => $image}
         {switch $rank}
             {case 1}
-                {php $overlayClass = "d-md-none"}
-                {php $overlayCondition = count($images) > 2}
+                {var $overlayClass = "d-md-none"}
+                {var $overlayCondition = count($images) > 2}
             {case 2}
-                {php $imageClass = "d-none d-md-block"}
-                {php $overlayClass = "d-lg-none"}
-                {php $overlayCondition = count($images) > 3}
+                {var $imageClass = "d-none d-md-block"}
+                {var $overlayClass = "d-lg-none"}
+                {var $overlayCondition = count($images) > 3}
             {default}
-                {php $imageClass = ""}
-                {php $overlayClass = ""}
-                {php $overlayCondition = ($iterator->isLast() && count($images) > count($previewImages))}
+                {var $imageClass = ""}
+                {var $overlayClass = ""}
+                {var $overlayCondition = ($iterator->isLast() && count($images) > count($previewImages))}
         {/switch}
         {if $rank > 2}
             {php $imageClass = "d-none d-lg-block"}

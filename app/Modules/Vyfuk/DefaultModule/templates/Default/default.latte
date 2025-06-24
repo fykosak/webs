@@ -44,7 +44,7 @@
             <div class="row">
             {foreach $newsList['cs'] as $orderNumber => $news}
                 {if $orderNumber < 4}
-                    {php $marginClass = "mt-md-4"}
+                    {var $marginClass = "mt-md-4"}
                     {if $orderNumber < 2}
                         {php $marginClass = "mb-md-4"}
                     {/if}
