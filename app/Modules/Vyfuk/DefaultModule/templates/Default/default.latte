@@ -83,18 +83,18 @@
                     <p>
                         Tak se podívej na aktuální <a n:href=":Default:Problems:default">zadání</a> úloh. Pokud jsi tady poprvé, doporučujeme si nejprve přečíst, <a n:href=":Default:Section:howToEngage">jak se zapojit</a>.
                     </p>
-                    {if $checkAllSolutions}
+                    {if $solutionsReady}
                         <p class="mb-2">
                             Také se můžeš podívat na <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}">vzorová řešení</a> úloh předchozí série.
                         </p>
                     {else}
                         <p class="mb-2">
-                            Vzorová řešení typicky zveřejňujeme do tří dnů od termínu odevzdání dané série.
+                            Vzorová řešení úloh předchozí série budou zveřejněna brzy.
                         </p>
                     {/if}
                     <div class="d-block">
                         <a n:href=":Default:Problems:default" class="btn btn-primary mt-2">Zadání {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série</a>
-                        {if $checkAllSolutions}
+                        {if $solutionsReady}
                             <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}" class="btn btn-primary mt-2">Řešení {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}série</a>
                         {/if}
                     </div>
