@@ -39,24 +39,24 @@ class DefaultPresenter extends BasePresenter
         );
         $this->template->previousSeries = $previousSeries;
 
-        $this->template->checkAllSolutions = $this->checkAllSolutions($previousSeries, $this->lang);
+        $this->template->solutionsReady = $this->solutionsReady($previousSeries, $this->lang);
 
         $this->template->resultsReady = $this->resultsReady($year, $previousSeries);
 
         $this->template->nearestEvent = $this->getNearestEvent();
     }
 
-    public function checkAllSolutions($series, $lang): bool
+    public function solutionsReady($series, $lang): bool
     {
-        $problems = [];
         foreach ($series->problems as $probNum) {
             $problem = $this->problemService->getProblem('vyfuk', $series->year, $series->series, $probNum);
-            $problems[] = $problem;
+
+            if ($this->problemService->getSolution($problem, $lang) !== null) {
+                return true;
+            }
         }
 
-        return array_reduce($problems, function ($carry, $problem) use ($lang) {
-            return $carry && $this->problemService->getSolution($problem, $lang) !== null;
-        }, true);
+        return false;
     }
 
     public function resultsReady($year, $series): bool
