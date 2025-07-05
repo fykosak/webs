@@ -14,7 +14,10 @@ events = {
         "end":"1970-01-04T00:00:00+01:00",
         "registrationBegin":"1970-09-30T20:00:00+02:00",
         "registrationEnd":"1970-12-03T12:00:00+01:00",
-        "report": None,
+        "report": {
+            'cs': None,
+            'en': None
+        },
         "name":"Fyziklání online",
         "eventTypeId":9,
         "game": {'availablePoints': 150,'tasksOnBoard' : 6,'hardVisible' : False,"begin":"1970-01-04T20:00:00+01:00","end":"1970-01-04T22:00:00+01:00",'resultsVisible': True}
@@ -27,7 +30,10 @@ events = {
         "end":"2999-12-31T00:00:00+01:00",
         "registrationBegin":"2099-12-30T00:00:00+01:00",
         "registrationEnd":"2099-12-31T00:00:00+01:00",
-        "report": None,
+        "report": {
+            'cs': None,
+            'en': None
+        },
         "name":"Fyziklání online",
         "eventTypeId":9,
         "game": {'availablePoints': 150,'tasksOnBoard' : 6,'hardVisible' : False,"begin":"2999-12-30T20:00:00+01:00","end":"2999-12-31T22:00:00+01:00",'resultsVisible': True}
@@ -40,7 +46,10 @@ events = {
         "end":"1970-01-04T00:00:00+01:00",
         "registrationBegin":"1970-09-30T20:00:00+02:00",
         "registrationEnd":"1970-12-03T12:00:00+01:00",
-        "report": None,
+        "report": {
+            'cs': None,
+            'en': None
+        },
         "name":"Fyziklání online",
         "eventTypeId":1,
         "game": {'availablePoints': 150,'tasksOnBoard' : 6,'hardVisible' : False,"begin":"1970-01-04T20:00:00+01:00","end":"1970-01-04T22:00:00+01:00",'resultsVisible': True}
@@ -190,7 +199,10 @@ def getDsefEvents():
             "end":f"{year}-{month}-04T00:01:00+00:00",
             "registrationBegin":"1970-01-01T00:00:00+00:00",
             "registrationEnd":"1970-01-01T00:00:00+00:00",
-            "report": None,
+            "report": {
+                'cs': None,
+                'en': None
+            },
             "name":"Dsef",
             "eventTypeId":2
         }
@@ -204,7 +216,10 @@ def getDsefEvents():
         "end":"2099-12-04T00:01:00+00:00",
         "registrationBegin":"2099-12-04T00:01:00+00:00",
         "registrationEnd":"2099-12-04T00:01:00+00:00",
-        "report": None,
+        "report": {
+            'cs': None,
+            'en': None
+        },
         "name":"Dsef",
         "eventTypeId":2
     }
