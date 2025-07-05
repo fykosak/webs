@@ -37,7 +37,7 @@
                     {elseif $newestEvent->getRegistrationPeriod()->isBefore()}
                         {switch $language->value}
                             {case 'cs'}<p>Přihlas se společně až s pětičlenným týmem a&nbsp;přijeďte si do Prahy zasoutěžit.</p>
-                            {default}<p>Sign up with a team of up to five and come to Prague, Czech Republic to compete with others.</p>
+                            {default}<p>Sign up with a team of up to five members and come to Prague, Czech Republic, to compete with others.</p>
                         {/switch}
                     {/if}
                 </div>
@@ -105,19 +105,19 @@
                 <h1>What Is Fyziklani {$newestEvent->begin |date:'Y'}?</h1>
                 <div class="row strips">
                     <div class="col-md-4">
-                        Up to 5 high school students compete in Prague in a 3-hour long contest by solving physics
+                        Up to five high school students compete in Prague in a three-hour-long contest by solving physics
                         problems.
                     </div>
                     <div class="col-md-4">
-                        There are 7 problems always available. As soon as a team solves one correctly, they recieve another problem.
-                        For each solved problem the team is awarded points.
+                        There are seven problems always available. As soon as a team solves one correctly, they recieve another problem.
+                        For each solved problem, the team is awarded points.
                     </div>
                     <div class="col-md-4">
                         The best teams win prizes and undying glory in our competition, which has been held
                         annually for {$newestEvent->eventYear} years now.
                     </div>
                 </div>
-                <a n:href="Rules:" class="btn btn-panel-action">How does it work</a>
+                <a n:href="Rules:" class="btn btn-panel-action">How Does It work?</a>
             {/switch}
         </section>
     </div>
@@ -198,24 +198,24 @@
                 <div>
                     <div class="title-page-problem">
                         Jehličnatý strom může být z mechanického hlediska aproximován kolmým (nikoli komolým)
-                        homogenním kuželem s výškou h = 40 m a poloměrem podstavy r = 1,0 m. O jaký úhel můžeme
+                        homogenním kuželem s výškou <i>h</i> = 40 m a poloměrem podstavy <i>r</i> = 1,0 m. O jaký úhel můžeme
                         vychýlit osu kužele od svislice, než strom vlastní vahou začne padat k zemi?
                     </div>
                     <div class="title-page-problem">
-                        Vodopád o výšce h = 30 m má průtok Q = 1,2 m<sup>3</sup>·s<sup>-1</sup>. Jakou celkovou silou působí
+                        Vodopád o výšce <i>h</i> = 30 m má průtok <i>Q</i> = 1,2 m<sup>3</sup>·s<sup>-1</sup>. Jakou celkovou silou působí
                         voda na dno
                         pod vodopádem? Voda po dopadu rychle odtéká a hloubka pod vodopádem je zanedbatelná.
                     </div>
                     <div class="title-page-problem">
                         Určete odpor mezi dvěma sousedními vrcholy čtyřdimenzionální drátěné krychle. Každá hrana
-                        této krychle má odpor R = 1 000 Ω.
+                        této krychle má odpor <i>R</i> = 1 000 Ω.
                     </div>
                     <div class="title-page-problem">
                         Vítek by si rád ze své studny nabral vodu, ale nechce se mu tahat vědro nahoru. Proto vodu
-                        postupně roztáčel, až při úhlové rychlosti ω = 11 rad·s<sup>-1</sup>
+                        postupně roztáčel, až při úhlové rychlosti <i>ω</i> = 11 rad·s<sup>-1</sup>
                         začala sama téct ze studny. Vítek
-                        ví, že hloubka studny (od horního okraje ke dnu) je h = 47 m. Studna má kruhový průřez
-                        s poloměrem r<sub>0</sub> = 1,6 m. V jaké výšce (měřeno od dna) byla voda předtím, než ji Vítek
+                        ví, že hloubka studny (od horního okraje ke dnu) je <i>h</i> = 47 m. Studna má kruhový průřez
+                        s poloměrem <i>r</i><sub>0</sub> = 1,6 m. V jaké výšce (měřeno od dna) byla voda předtím, než ji Vítek
                         roztočil?
                     </div>
                 </div>
@@ -225,26 +225,27 @@
                 <div>
                     <div class="title-page-problem">
                         A coniferous tree could be (from a mechanical point of view) approximated by a homogeneous
-                        right circular cone of height h = 40 m and radius r = 1.0 m. Find the maximum
+                        right circular cone of height <i>h</i> = 40 m and radius <i>r</i> = 1.0 m. Find the maximum
                         angle by which its axis may be displaced from the vertical axis before it starts to fall due to its
                         weight.
                     </div>
 
                     <div class="title-page-problem">
-                        A waterfall of height h = 30 m has flow rate Q = 1.2 m<sup>3</sup>·s<sup>-1</sup>. Find the total force with which water
+                        A waterfall of height <i>h</i> = 30 m has flow rate <i>Q</i> = 1.2 m<sup>3</sup>·s<sup>-1</sup>.
+                        Find the total force with which the water
                         impacts the ground under the waterfall. Assume that the water quickly flows away from the
                         point of impact and the depth of water under the waterfall is negligible.
                     </div>
                     <div class="title-page-problem">
                         Find the resistance between two neighbouring vertices of a four-dimensional cube made of wire.
-                        Each edge of the cube has a resistance R = 1 000 Ω.
+                        Each edge of the cube has a resistance <i>R</i> = 1 000 Ω.
                     </div>
                     <div class="title-page-problem">
                         Vítek would like to draw water from his well, but he does not want to haul the bucket up. 
                         Therefore, he gradually spun the water around until, at an angular
-                        velocity ω = 11 rad·s<sup>-1</sup>, the water started to flow out of the well all by itself. Vítek knows the
-                        depth of the well (from the top edge to the bottom) is h = 47 m. The well has
-                        a circular cross-section of a radius r<sub>0</sub> = 1.6 m. What was the height of the water column
+                        velocity <i>ω</i> = 11 rad·s<sup>-1</sup>, the water started to flow out of the well all by itself. Vítek knows the
+                        depth of the well (from the top edge to the bottom) is <i>h</i> = 47 m. The well has
+                        a circular cross-section of a radius <i>r</i><sub>0</sub> = 1.6 m. What was the height of the water column
                         (from the bottom of the well to the water surface) before Vítek started spinning the water
                         around?
                     </div>

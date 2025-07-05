@@ -47,8 +47,8 @@
                     <h1>{$event['heading'][$language->value]}</h1>
                     <p>
                         {if new \DateTime($event['end']) < new \DateTime()}
-                            {if $event['reportNew'][$language->value]}
-                                {$event['reportNew'][$language->value]}
+                            {if $event['report'][$language->value]}
+                                {$event['report'][$language->value]}
                             {else}
                                 Report z akce momentálně není dostupný.
                             {/if}

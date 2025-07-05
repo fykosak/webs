@@ -12,11 +12,6 @@ class DefaultPresenter extends BasePresenter
 {
     private readonly ProblemService $problemService;
 
-    /** @persistent */
-    public ?int $year = null;
-    /** @persistent */
-    public ?int $series = null;
-
     public function injectServiceProblem(ProblemService $problemService): void
     {
         $this->problemService = $problemService;
@@ -33,32 +28,35 @@ class DefaultPresenter extends BasePresenter
     {
         $this->template->newsList = $this->loadNews();
 
-        $year = $this->year ?? $this->getCurrentYear()->year;
-        $series = $this->series ?? $this->problemService->getLatestSeries('vyfuk', $year);
-        $series = $this->problemService->getSeries('vyfuk', $year, $series);
-        $this->template->series = $series;
-
-        $previousSeries = $this->problemService->getSeries('vyfuk', $year, $this->problemService->getLatestSeries('vyfuk', $year) - 1);
+        $year = $this->getCurrentYear()->year;
+        $series = $this->problemService->getLatestSeries('vyfuk', $year);
+        $seriesModel = $this->problemService->getSeries('vyfuk', $year, $series);
+        $this->template->series = $seriesModel;
+        $previousSeries = $this->problemService->getSeries(
+            'vyfuk',
+            $year,
+            $seriesModel->series == 8 ? 6 : $seriesModel->series - 1 // check due to summer series
+        );
         $this->template->previousSeries = $previousSeries;
 
-        $this->template->checkAllSolutions = $this->checkAllSolutions($previousSeries, $this->lang);
+        $this->template->solutionsReady = $this->solutionsReady($previousSeries, $this->lang);
 
         $this->template->resultsReady = $this->resultsReady($year, $previousSeries);
 
         $this->template->nearestEvent = $this->getNearestEvent();
     }
 
-    public function checkAllSolutions($series, $lang): bool
+    public function solutionsReady($series, $lang): bool
     {
-        $problems = [];
         foreach ($series->problems as $probNum) {
             $problem = $this->problemService->getProblem('vyfuk', $series->year, $series->series, $probNum);
-            $problems[] = $problem;
+
+            if ($this->problemService->getSolution($problem, $lang) !== null) {
+                return true;
+            }
         }
 
-        return array_reduce($problems, function ($carry, $problem) use ($lang) {
-            return $carry && $this->problemService->getSolution($problem, $lang) !== null;
-        }, true);
+        return false;
     }
 
     public function resultsReady($year, $series): bool

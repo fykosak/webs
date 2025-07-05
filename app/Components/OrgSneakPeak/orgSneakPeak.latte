@@ -10,7 +10,7 @@
 
 <div class="person-dropcard organizers">
     <div class="card h-100">
-        <img src="{$basePath}/media/images/people/person{$organizer['personId']}.jpg" 
+        <img src="{$basePath}/media/images/people/person{$organizer['personId']}.jpg"
             class="card-img-top"
             onerror="this.src = '/images/personUnknown.jpg'"
             alt="{$organizer['name']}">
@@ -18,12 +18,12 @@
         <div class="card-body">
             <table>
                 {* If org is still active *}
-                {if !$organizer['until']} 
-                    {if $organizer['role'] and $lang->value == 'cs'}
+                {if !$organizer['until']}
+                    {if $organizer['role'] and $organizer['role'][$lang->value]}
                     <tr>
                         <td class="left-cell"><span class="icon"><i class="fas fa-briefcase"></i></span>
                         </td>
-                        <td class="right-cell">{$organizer['role']}</td>
+                        <td class="right-cell">{$organizer['role'][$lang->value]}</td>
                     </tr>
                     {/if}
                     {if $organizer['career'] and $lang->value == 'cs'}
@@ -35,7 +35,7 @@
                     <tr>
                         <td class="left-cell"><span class="icon"><i class="fas fa-envelope"></i></span></td>
                         <td class="right-cell">
-                            {switch $lang->value}  
+                            {switch $lang->value}
                                 {case 'cs'} <a href="mailto:{$organizer['domainAlias']}@fykos.cz">{$organizer['domainAlias']}@fykos.cz</a>
                                 {default} <a href="mailto:{$organizer['domainAlias']}@fykos.org">{$organizer['domainAlias']}@fykos.org</a>
                             {/switch}
@@ -63,7 +63,7 @@
                                     {case 'cs'} ročník
                                     {default} year
                                 {/switch}
-                                {$organizer['since']} - 
+                                {$organizer['since']} -
                                 {switch $lang->value}
                                     {case 'cs'} současnost
                                     {default} present
@@ -84,4 +84,4 @@
     </div>
 </div>
 {/block}
-    
+

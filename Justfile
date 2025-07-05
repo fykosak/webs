@@ -112,7 +112,7 @@ login:
         i "    problemManagerDownloader:"
         i "        login: ''"
         i "        password: ''"
-        i "        url: ''"
+        i "        url: 'https://static.fykos.cz/problems/'"
         echo "configured $service"
     done
     echo "config files appeared in $target"

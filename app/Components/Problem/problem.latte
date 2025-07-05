@@ -33,7 +33,7 @@
                     <p><small><i>Tato úloha je určena pouze pro žáky šestých a sedmých ročníků.</i></small></p>
                 {/if}
                 {if $problem->contest == 'vyfuk' && $problem->number == 7 && $problem->series < 7}
-                    <p><small><i>S řešením této úlohy vám může pomoci krátký naučný text – tzv. Výfučtení. To můžeš nalézt pod odkazem níže.</i></small></p>
+                    <p><small><i>S řešením této úlohy ti může pomoct krátký naučný text – tzv. Výfučtení. To můžeš nalézt pod odkazem níže.</i></small></p>
                 {/if}
                 {$problem->task[$language->value]|noescape}
 
@@ -79,29 +79,36 @@
                 {/if}
             </div>
             {if new Datetime() > $series->getDeadline()}
-            <div class="solution-and-origin">
-                <div>
-                    {php $solutionPath = $problemService->getSolution($problem, $language->value)}
-                    {if $solutionPath}
-                    <a class="btn btn-primary" target="_blank" href="{$solutionPath}">
-                        <i class="far fa-file-pdf"></i>
-                        <span class="skip-3px"></span>
-                        {switch $language->value}
-                            {case 'cs'}Řešení
-                            {default}Solution
-                        {/switch}
-                    </a>
-                    {else}
-                        {switch $language->value}
-                            {case 'cs'}Řešení této úlohy zveřejníme brzy.
-                            {default}We will publish the solution to this problem soon.
-                        {/switch}
+                <div class="solution-and-origin">
+                    <div>
+                        {php $solutionPath = $problemService->getSolution($problem, $language->value)}
+                        {if $solutionPath}
+                            <a class="btn btn-primary" target="_blank" href="{$solutionPath}">
+                                <i class="far fa-file-pdf"></i>
+                                <span class="skip-3px"></span>
+                                {switch $language->value}
+                                    {case 'cs'}Řešení
+                                    {default}Solution
+                                {/switch}
+                            </a>
+                        {else}
+                            {if $series->getDeadline() == null || new Datetime() > (clone $series->getDeadline())->modify('+6 months')}
+                                {switch $language->value}
+                                    {case 'cs'}Řešení této úlohy momentálně není dostupné.
+                                    {default}The solution to this problem is currently not available.
+                                {/switch}
+                            {else}
+                                {switch $language->value}
+                                    {case 'cs'}Řešení této úlohy zveřejníme brzy.
+                                    {default}We will publish the solution to this problem soon.
+                                {/switch}
+                            {/if}
+                        {/if}
+                    </div>
+                    {if array_key_exists($language->value, $problem->origin) && $problem->origin[$language->value]}
+                        <div><i>{$problem->origin[$language->value]|noescape}</i></div>
                     {/if}
                 </div>
-                {if array_key_exists($language->value, $problem->origin) && $problem->origin[$language->value]}
-                <div><i>{$problem->origin[$language->value]|noescape}</i></div>
-                {/if}
-            </div>
             {/if}
         </div>
 

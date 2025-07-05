@@ -59,8 +59,8 @@ Na TSAF jsou zvaní účastníci FYKOSu. Systém zvaní se liší rok od roku. V
                         {if new \DateTime($event['end']) < new \DateTime()}
                             {dump new \DateTime()}
                             {dump $event['end']}
-                            {if $event['reportNew'][$language->value]}
-                                {$event['reportNew'][$language->value]}
+                            {if $event['report'][$language->value]}
+                                {$event['report'][$language->value]}
                             {else}
                                 Report z akce momentálně není dostupný.
                             {/if}

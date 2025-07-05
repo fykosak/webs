@@ -43,6 +43,9 @@ final class AboutPresenter extends BasePresenter
 
         $parsedOrganizers = [];
         foreach ($organizers as $organizer) {
+            if (!$organizer['showOnWeb']) {
+                continue;
+            }
             $parsedOrganizer = [
                 'name' => $organizer['name'],
                 'personId' => $organizer['personId'],

@@ -31,7 +31,11 @@
 </div>
 <div class="countdown-container py-3">
     <section class="inner-container">
-        <h2 class="m-0 countdown"><span id="countdown-label" class="countdown-text mx-3 mx-sm-4 mx-md-5"></span><span id="countdown-time" class="countdown-text mx-3 mx-sm-4 mx-md-5"></h2>
+        <h2 class="m-0 countdown">
+            <a n:href=":Default:Problems:default" style="text-decoration: none;">
+                <span id="countdown-label" class="countdown-text mx-3 mx-sm-4 mx-md-5"></span><span id="countdown-time" class="countdown-text mx-3 mx-sm-4 mx-md-5">
+            </a>
+        </h2>
     </section>
 </div>
 <div class="panel color-light">
@@ -40,37 +44,30 @@
             <div class="row">
             {foreach $newsList['cs'] as $orderNumber => $news}
                 {if $orderNumber < 4}
+                    {var $marginClass = "mt-md-4"}
                     {if $orderNumber < 2}
-                        <div class="col-md-6 mt-2 mb-2 mb-md-4">
-                            <div class="card news-card">
-                                <div class="card-body d-flex align-items-start flex-column">
-                                    <h5 class="card-title">{$news['title']}</h5>
-                                    <p class="card-text">{$news['text']|noescape}</p>
+                        {php $marginClass = "mb-md-4"}
+                    {/if}
+                    <div class="col-md-6 mt-2 mb-2 {$marginClass}">
+                        <div class="card news-card">
+                            <div class="card-body d-flex align-items-start flex-column">
+                                <h5 class="card-title">{$news['title']}</h5>
+                                <p class="card-text">{$news['text']|noescape}</p>
+                                <div class="d-flex flex-row-reverse w-100 justify-content-between mt-auto news-footer">
                                     {if array_key_exists('link', $news) && $news['link'] && array_key_exists('link-text', $news) && $news['link-text']}
                                         {if strpos($news['link'], 'http') === 0}
-                                            <a href="{$news['link']}" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+                                            <a href="{$news['link']}" class="btn btn-primary order-2">{$news['link-text']}</a>
                                         {else}
-                                            <a n:href="$news['link']" class="btn btn-primary mt-auto">{$news['link-text']}</a>
+                                            <a n:href="$news['link']" class="btn btn-primary order-2">{$news['link-text']}</a>
                                         {/if}
                                     {/if}
+                                    <p class="my-auto order-1">
+                                        {$news['date']}
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    {else}
-                        <div class="col-md-6 mt-2 mt-md-4 mb-2">
-                            <div class="card news-card">
-                                <div class="card-body d-flex align-items-start flex-column">
-                                    <h5 class="card-title">{$news['title']}</h5>
-                                    <p class="card-text">{$news['text']|noescape}</p>
-                                    {if strpos($news['link'], 'http') === 0}
-                                        <a href="{$news['link']}" class="btn btn-primary mt-auto">{$news['link-text']}</a>
-                                    {else}
-                                        <a n:href="$news['link']" class="btn btn-primary mt-auto">{$news['link-text']}</a>
-                                    {/if}
-                                </div>
-                            </div>
-                        </div>
-                    {/if}
+                    </div>
                 {/if}
             {/foreach}
         </div>
@@ -86,18 +83,18 @@
                     <p>
                         Tak se podívej na aktuální <a n:href=":Default:Problems:default">zadání</a> úloh. Pokud jsi tady poprvé, doporučujeme si nejprve přečíst, <a n:href=":Default:HowToSolve:default">jak se zapojit</a>.
                     </p>
-                    {if $checkAllSolutions}
+                    {if $solutionsReady}
                         <p class="mb-2">
                             Také se můžeš podívat na <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}">vzorová řešení</a> úloh předchozí série.
                         </p>
                     {else}
                         <p class="mb-2">
-                            Vzorová řešení úloh předchozí série zveřejníme brzy.
+                            Vzorová řešení úloh předchozí série budou zveřejněna brzy.
                         </p>
                     {/if}
                     <div class="d-block">
                         <a n:href=":Default:Problems:default" class="btn btn-primary mt-2">Zadání {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série</a>
-                        {if $checkAllSolutions}
+                        {if $solutionsReady}
                             <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}" class="btn btn-primary mt-2">Řešení {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}série</a>
                         {/if}
                     </div>
@@ -174,14 +171,15 @@ let timer = setInterval(countdownTimer, 1000);
 countdownTimer();
 
 function countdownTimer() {
-    let now = new Date().getTime();
+    const seriesNumber = {$series->series};
+    const now = new Date().getTime();
 
-    let distance = Math.floor((countDownDate - now)/1000);
+    const distance = Math.floor((countDownDate - now)/1000);
 
-    let days = Math.floor(distance / (60 * 60 * 24));
-    let hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
-    let minutes = Math.floor((distance % (60 * 60)) / 60);
-    let seconds = Math.floor(distance % 60);
+    const days = Math.floor(distance / (60 * 60 * 24));
+    const hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
+    const minutes = Math.floor((distance % (60 * 60)) / 60);
+    const seconds = Math.floor(distance % 60);
 
     let daysLabel = "";
     if (days == 1) {
@@ -219,10 +217,17 @@ function countdownTimer() {
             secondsLabel = "&nbsp;sekund";
     }
 
-    let label = "Termín " + {$series->series} + ".&nbsp;série"
+    let label = "Termín " + seriesNumber + ".&nbsp;série"
+    if (seriesNumber > 6) {
+        label = "Termín " + (seriesNumber-7) + ".&nbsp;prázdninové série"
+    }
     if (distance <= 0) {
         clearInterval(timer);
-        label = {$series->series} + ".&nbsp;série již proběhla.";
+        if (seriesNumber > 6) {
+            label = (seriesNumber-7) + ".&nbsp;prázdninová série již proběhla.";
+        } else {
+            label = (seriesNumber-7) + ".&nbsp;série již proběhla.";
+        }
         time = '';
         document.getElementById("countdown-time").classList.add("d-none");
         document.getElementById("countdown-label").classList.add("mb-0");
