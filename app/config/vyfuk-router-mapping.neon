@@ -5,9 +5,18 @@ parameters:
                 ONas: About
                 Zadani: Problems
                 Akce: Events
+                Poradi: Results
+                ProUcitele: Teachers
+                Ceny: Prizes
+                Archiv: Archive
+                JakResit: HowToSolve
             actions:
                 cs:
                     kontakt: contact
                     historie: history
                     organizatori: organizers
                     proSponzory: sponsors
+                    vyfucteni: serial
+                    pravidla: rules
+                    reseni: solutions
+                    experimenty: experiments
