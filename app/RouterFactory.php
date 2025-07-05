@@ -255,13 +255,6 @@ class RouterFactory
                 ]
             );
 
-<<<<<<< HEAD
-        $router->withModule('Events')
-            ->addRoute('//<domain>/akce/tsaf/<year>-<month>', [
-                'presenter' => 'Tsaf',
-                'action' => 'detail'
-            ]);
-=======
         $router
             ->withModule('Default')
             ->addRoute(
@@ -272,7 +265,6 @@ class RouterFactory
                     null => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
->>>>>>> upstream/master
 
         $router
             ->withModule('Default')
@@ -352,29 +344,12 @@ class RouterFactory
                 ]
             );
 
-<<<<<<< HEAD
         $router->withModule('Default')
             ->addRoute('//<domain>/<presenter poradi>/<year ([0-9]{1,2})>', [
                 'presenter' => 'Results',
                 'action' => 'default',
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
-=======
-        $router
-            ->withModule('Default')
-            ->addRoute('pro-ucitele', 'Separate:teachers')
-            ->addRoute('ceny', 'Separate:prizes')
-            ->addRoute('archiv-vyfucteni', 'Separate:serialArchive')
-            ->addRoute('jak-se-zapojit', 'Section:howToEngage')
-            ->addRoute('pravidla', 'Section:rules')
-            ->addRoute('jak-psat-reseni', 'Section:howToSolve')
-            ->addRoute('jak-psat-experimenty', 'Section:howToExperiment')
-            ->addRoute('bingo', 'Problems:bingo');
-
-        $router
-            ->withModule('Default')
-            ->addRoute('poradi/[<year ([0-9]{1,2})>]', 'Results:default');
->>>>>>> upstream/master
 
         $router
             ->withModule('Default')
