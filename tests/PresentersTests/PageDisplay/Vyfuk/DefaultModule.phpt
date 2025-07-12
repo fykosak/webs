@@ -44,7 +44,7 @@ class DefaultModule extends AbstractPageDisplayTestCase
             // bingo
             ['Default:Bingo', 'default'],
             // separate pages
-            // ['Default:Separate', 'serialArchive'],
+            // ['Default:Archive', 'serial'],
             // titlepage
             // ['Default:Default', 'default'],
         ]);
