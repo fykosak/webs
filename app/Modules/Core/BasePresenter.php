@@ -15,6 +15,7 @@ use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Template;
+use Nette\Utils\Image;
 
 abstract class BasePresenter extends Presenter
 {
@@ -135,11 +136,35 @@ abstract class BasePresenter extends Presenter
      */
     protected function createComponentGallery(): ImageGalleryControl
     {
-        return new ImageGalleryControl($this->getContext());
+        return new ImageGalleryControl($this->getContext(), $this->imagePreviewSizes, $this->imagePreviewDefaultSizes);
     }
 
     protected function createComponentPdfGallery(): PdfGalleryControl
     {
         return new PdfGalleryControl($this->getContext());
     }
+    protected array $imagePreviewSizes = [1024, 2048];
+    protected int $imagePreviewDefaultSizes = 0;
+    public function actionImagePreview(int $size, string $path): never
+    {
+        $strSize = (string) $size;
+        $basepath = realpath($this->context->getParameter('wwwDir') . '/media');
+        $srcPath = realpath($basepath . '/' . $path);
+        $dstPath = $basepath . '/preview/' . $strSize . '/' . substr($srcPath,strlen($basepath));
+        if (
+            $srcPath === false || !str_starts_with($srcPath, $basepath . '/')
+            || !in_array($size, $this->imagePreviewSizes, strict: true)
+        ) {
+            $this->error();
+        }
+        if (!is_file($dstPath)) {
+            $img = Image::fromFile($srcPath);
+            if (!is_dir(dirname($dstPath))) {
+                mkdir(dirname($dstPath), recursive: true);
+            }
+            $img->resize($size, null)->save($dstPath);
+        }
+        $this->sendResponse(new FileResponse($dstPath));
+    }
+
 }

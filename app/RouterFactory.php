@@ -150,9 +150,19 @@ class RouterFactory
         ];
     }
 
-    public static function createFolRouter(?array $domainList, array $routerMapping): Router
+    private static function createCommonRouter(): Router
     {
         $router = new RouteList();
+        $router->withModule('Default')
+            ->addRoute('//<domain>/media/preview/<size [0-9]+>/<path .+>', [
+                'presenter' => 'Default',
+                'action' => 'ImagePreview',
+            ]);
+        return $router;
+    }
+    public static function createFolRouter(?array $domainList, array $routerMapping): Router
+    {
+        $router = static::createCommonRouter();
 
         $router->withModule('Archive')
             ->addRoute(
@@ -179,7 +189,7 @@ class RouterFactory
 
     public static function createFofRouter(?array $domainList, array $routerMapping): Router
     {
-        $router = new RouteList();
+        $router = static::createCommonRouter();
 
         $router->withModule('Archive')
             ->addRoute(
@@ -215,7 +225,7 @@ class RouterFactory
 
     public static function createDsefRouter(?array $domainList, array $routerMapping): Router
     {
-        $router = new RouteList();
+        $router = static::createCommonRouter();
 
         $router->withModule('Default')
             ->addRoute(
@@ -242,7 +252,7 @@ class RouterFactory
 
     public static function createFykosRouter(?array $domainList, array $routerMapping): Router
     {
-        $router = new RouteList();
+        $router = static::createCommonRouter();
 
         $router
             ->withModule('Default')
@@ -331,7 +341,7 @@ class RouterFactory
 
     public static function createVyfukRouter(?array $domainList, array $routerMapping): Router
     {
-        $router = new RouteList();
+        $router = static::createCommonRouter();
 
         $router
             ->withModule('Default')

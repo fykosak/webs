@@ -9,18 +9,27 @@ use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\DI\Container;
 use Nette\Utils\Finder;
-use Nette\Utils\Image;
 use Nette\Utils\UnknownImageFileException;
 
 class ImageGalleryControl extends DIComponent
 {
     private readonly string $wwwDir;
     private readonly Cache $cache;
+    /** @var int[] */
+    protected array $sizes;
+    protected int $defaultSizes;
 
-    public function __construct(Container $container)
+    /**
+     * @param \Nette\DI\Container $container
+     * @param int[] $sizes
+     * @param int $defaultSizes
+     */
+    public function __construct(Container $container, array $sizes, int $defaultSizes)
     {
         parent::__construct($container);
         $this->wwwDir = $container->getParameters()['wwwDir'];
+        $this->defaultSizes = $defaultSizes;
+        $this->sizes = $sizes;
     }
 
     public function injectStorage(Storage $storage): void
@@ -31,7 +40,7 @@ class ImageGalleryControl extends DIComponent
     /**
      * @throws UnknownImageFileException
      */
-    public static function getImages(string $path, string $wwwDir): array
+    public function getImages(string $path, string $wwwDir): array
     {
         $images = [];
 
@@ -44,11 +53,25 @@ class ImageGalleryControl extends DIComponent
         foreach ($iterator as $file) {
             $imageInfo = getimagesize($file->getPathname());
             $wwwPath = substr($file->getPathname(), strlen($wwwDir));
-            $images[] = [
-                'src' => $wwwPath,
-                'width' => $imageInfo[0],
-                'height' => $imageInfo[1],
-            ];
+            if (str_starts_with($wwwPath, '/media/')) {
+                $srcset = [$imageInfo[0] => $wwwPath . ' ' . $imageInfo[0] . 'w'];
+                foreach ($this->sizes as $size) {
+                    $srcset[$size] = str_replace('/media/', '/media/preview/' . $size . '/', $wwwPath) . ' ' . $size . 'w';
+                }
+                $images[] = [
+                    'src' => $wwwPath,
+                    'width' => $imageInfo[0],
+                    'height' => $imageInfo[1],
+                    'srcset' => implode(',', $srcset),
+                    'previewSrc' => str_replace('/media/', '/media/preview/' . $this->sizes[$this->defaultSizes] . '/', $wwwPath),
+                ];
+            } else {
+                $images[] = [
+                    'src' => $wwwPath,
+                    'width' => $imageInfo[0],
+                    'height' => $imageInfo[1],
+                ];
+            }
         }
 
         usort($images, function ($a, $b) {
@@ -69,7 +92,7 @@ class ImageGalleryControl extends DIComponent
     {
         return $this->cache->load(
             [$path, $this->wwwDir],
-            fn() => self::getImages($path, $this->wwwDir)
+            fn() => $this->getImages($path, $this->wwwDir)
         );
     }
 
@@ -81,7 +104,7 @@ class ImageGalleryControl extends DIComponent
 
         $previewImages = [];
         for ($i = 0; $i < 6; $i++) {
-            $previewImages[] = $images[(int)($i * $step)];
+            $previewImages[] = $images[(int) ($i * $step)];
         }
 
         return $previewImages;
@@ -108,7 +131,7 @@ class ImageGalleryControl extends DIComponent
                 if (!$this->hasPhotos($path)) {
                     return;
                 }
-                $this->template->previewImages = $this->getPreviewImages($images, (int)(count($images) / 6));
+                $this->template->previewImages = $this->getPreviewImages($images, (int) (count($images) / 6));
                 $template = 'oneLine.latte';
                 break;
             case 'orderedLine':
