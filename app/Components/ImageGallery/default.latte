@@ -1,11 +1,16 @@
+{varType array[] $images}
+{varType array[] $previewImages}
+{varType str $imageData}
 <div class="row pswp-gallery pswp-gallery--single-column">
     {foreach $images as $image}
         <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
             <a href="{$image['src']}"
                data-pswp-width="{$image['width']}"
                data-pswp-height="{$image['height']}"
+               data-pswp-src="{$image['src']}"
+               {if isset($image['srcset'])}data-pswp-srcset=$image['srcset']{/if}
                target="_blank">
-                <img src="{$image['src']}" alt="" class="w-100 shadow-1-strong rounded mb-4" style="aspect-ratio: 4/3; object-fit: cover;"/>
+                <img src="{$image['previewSrc']}" alt="" class="w-100 shadow-1-strong rounded mb-4" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy"/>
             </a>
         </div>
     {/foreach}

@@ -70,6 +70,7 @@ class ImageGalleryControl extends DIComponent
                     'src' => $wwwPath,
                     'width' => $imageInfo[0],
                     'height' => $imageInfo[1],
+                    'previewSrc' => $wwwPath,
                 ];
             }
         }
@@ -125,6 +126,7 @@ class ImageGalleryControl extends DIComponent
     {
         $images = $this->getCachedImages($path);
         $this->template->images = $images;
+        $this->template->imageData = json_encode($images);
 
         switch ($layout) {
             case 'randomLine':
