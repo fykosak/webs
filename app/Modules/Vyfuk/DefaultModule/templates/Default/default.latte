@@ -128,35 +128,37 @@
                         Rád by ses podíval na <a n:href=":Default:Events:tabor">tábor</a> nebo tě spíš láká <a n:href=":Default:Events:setkani">setkání</a>? Mrkni se, co všechno ti může Výfuk <a n:href=":Default:Events:default">nabídnout</a>, a sleduj naše
                         <a href="https://www.instagram.com/ksvyfuk">sociální sítě</a>, aby ti neuniklo spuštění přihlašování!
                     </p>
-                    <p>
-                        Nejbližší akcí je
+                    {if $nearestEvent}
+                        <p>
+                            Nejbližší akcí je
+                            {switch $nearestEvent->eventTypeId}
+                                {case 10}
+                                    <a n:href="Events:detail $nearestEvent->eventId">letní tábor</a>, který
+                                {case 11}
+                                    <a n:href="Events:detail $nearestEvent->eventId">jarní setkání</a>, které
+                                {case 12}
+                                    <a n:href="Events:detail $nearestEvent->eventId">podzimní setkání</a>, které
+                                {case 18}
+                                    <a n:href="Events:detail $nearestEvent->eventId">zimní víkendovka</a>, která
+                            {/switch}
+                            proběhne v termínu
+                            {if $nearestEvent->begin->format('Y') == $nearestEvent->end->format('Y')}
+                                <strong>{$nearestEvent->begin|date:'j. n.'} – {$nearestEvent->end|date:'j. n. Y'}</strong>.
+                            {else}
+                                <strong>{$nearestEvent->begin|date:'j. n. Y'} – {$nearestEvent->end|date:'j. n. Y'}</strong>.
+                            {/if}
+                        </p>
                         {switch $nearestEvent->eventTypeId}
                             {case 10}
-                                <a n:href="Events:detail $nearestEvent->eventId">letní tábor</a>, který
+                                <a n:href=":Default:Events:tabor" class="btn btn-primary">Stránka letního tábora</a>
                             {case 11}
-                                <a n:href="Events:detail $nearestEvent->eventId">jarní setkání</a>, které
+                                <a n:href=":Default:Events:setkani" class="btn btn-primary">Stránka jarního setkání</a>
                             {case 12}
-                                <a n:href="Events:detail $nearestEvent->eventId">podzimní setkání</a>, které
+                                <a n:href=":Default:Events:setkani" class="btn btn-primary">Stránka podzimního setkání</a>
                             {case 18}
-                                <a n:href="Events:detail $nearestEvent->eventId">zimní víkendovka</a>, která
+                                <a n:href=":Default:Events:vikendovka" class="btn btn-primary">Stránka zimní víkendovky</a>
                         {/switch}
-                        proběhne v termínu
-                        {if $nearestEvent->begin->format('Y') == $nearestEvent->end->format('Y')}
-                            <strong>{$nearestEvent->begin|date:'j. n.'} – {$nearestEvent->end|date:'j. n. Y'}</strong>.
-                        {else}
-                            <strong>{$nearestEvent->begin|date:'j. n. Y'} – {$nearestEvent->end|date:'j. n. Y'}</strong>.
-                        {/if}
-                    </p>
-                    {switch $nearestEvent->eventTypeId}
-                        {case 10}
-                            <a n:href=":Default:Events:tabor" class="btn btn-primary">Stránka letního tábora</a>
-                        {case 11}
-                            <a n:href=":Default:Events:setkani" class="btn btn-primary">Stránka jarního setkání</a>
-                        {case 12}
-                            <a n:href=":Default:Events:setkani" class="btn btn-primary">Stránka podzimního setkání</a>
-                        {case 18}
-                            <a n:href=":Default:Events:vikendovka" class="btn btn-primary">Stránka zimní víkendovky</a>
-                    {/switch}
+                    {/if}
                 </div>
             </div>
         </div>
