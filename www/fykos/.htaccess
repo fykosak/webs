@@ -18,10 +18,6 @@ Require all granted
 	# prevents files starting with dot to be viewed by browser
 	RewriteRule /\.|^\.(?!well-known/) - [F]
 
-	# front controller
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-
 	RewriteRule ^(.*)/start$ /$1/ [R=301,L]
 	RewriteRule ^rocnik([0-9]+)/ulohy/serie([0-9]+) /zadani/$1/$2 [R=301,L]
 	RewriteRule ^o-nas/co-je-fykos /o-nas [R=301,L]
@@ -36,7 +32,10 @@ Require all granted
 	RewriteRule ^o-nas/sin-slavy /o-nas/byvali-organizatori [R=301,L]
 	RewriteRule ^en / [R=301,L]
 
-	RewriteRule !\.(pdf|js|mjs|ico|gif|jpg|jpeg|png|webp|svg|css|rar|zip|7z|tar\.gz|map|eot|ttf|otf|woff|woff2|mp4)$ index.php [L]
+	# front controller
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule !\.(pdf|js|mjs|ico|svg|css|rar|zip|7z|tar\.gz|map|eot|ttf|otf|woff|woff2|mp4)$ index.php [L]
 
 </IfModule>
 

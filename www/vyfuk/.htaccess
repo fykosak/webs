@@ -18,10 +18,6 @@ Require all granted
 	# prevents files starting with dot to be viewed by browser
 	RewriteRule /\.|^\.(?!well-known/) - [F]
 
-	# front controller
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-
 	RewriteRule ^(.*)/start$ /$1/ [R=301,L]
 
 	RewriteRule ^ulohy/zadani /zadani [R=301,L]
@@ -52,7 +48,10 @@ Require all granted
 	RewriteRule ^pravidla /jak-resit/pravidla [R=301,L]
 	RewriteRule ^archiv-vyfucteni /archiv/vyfucteni [R=301,L]
 
-	RewriteRule !\.(pdf|js|mjs|ico|gif|jpg|jpeg|png|webp|svg|css|rar|zip|7z|tar\.gz|map|eot|ttf|otf|woff|woff2|mp4)$ index.php [L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+	RewriteRule !\.(pdf|js|mjs|ico|svg|css|rar|zip|7z|tar\.gz|map|eot|ttf|otf|woff|woff2|mp4)$ index.php [L]
 </IfModule>
 
 # enable gzip compression

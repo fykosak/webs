@@ -13,6 +13,7 @@ use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
+use Nette\Application\Responses\FileResponse;
 use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Template;
 use Nette\Utils\Image;
@@ -150,7 +151,7 @@ abstract class BasePresenter extends Presenter
         $strSize = (string) $size;
         $basepath = realpath($this->context->getParameter('wwwDir') . '/media');
         $srcPath = realpath($basepath . '/' . $path);
-        $dstPath = $basepath . '/preview/' . $strSize . '/' . substr($srcPath,strlen($basepath));
+        $dstPath = $basepath . '/preview/' . $strSize . '/' . substr($srcPath, strlen($basepath));
         if (
             $srcPath === false || !str_starts_with($srcPath, $basepath . '/')
             || !in_array($size, $this->imagePreviewSizes, strict: true)
@@ -166,5 +167,4 @@ abstract class BasePresenter extends Presenter
         }
         $this->sendResponse(new FileResponse($dstPath));
     }
-
 }

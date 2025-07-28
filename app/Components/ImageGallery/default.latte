@@ -8,7 +8,7 @@
                data-pswp-width="{$image['width']}"
                data-pswp-height="{$image['height']}"
                data-pswp-src="{$image['src']}"
-               {if isset($image['srcset'])}data-pswp-srcset=$image['srcset']{/if}
+               {if isset($image['srcset'])}data-pswp-srcset={$image['srcset']}{/if}
                target="_blank">
                 <img src="{$image['previewSrc']}" alt="" class="w-100 shadow-1-strong rounded mb-4" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy"/>
             </a>
