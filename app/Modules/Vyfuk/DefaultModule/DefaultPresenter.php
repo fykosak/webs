@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Vyfuk\DefaultModule;
 
+use App\Models\Downloader\EventModel;
 use App\Models\Downloader\ProblemService;
 use App\Models\Downloader\EventService;
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
@@ -78,7 +79,7 @@ class DefaultPresenter extends BasePresenter
         return $newsList;
     }
 
-    public function getNearestEvent(): \App\Models\Downloader\EventModel
+    public function getNearestEvent(): ?EventModel
     {
         $eventTypeIds = [10, 11, 12, 18];
         $nearestEventDeadlines = [];
@@ -89,6 +90,10 @@ class DefaultPresenter extends BasePresenter
         }
 
         asort($nearestEventDeadlines);
+
+        if (count($nearestEventDeadlines) === 0) {
+            return null;
+        }
 
         return $this->eventService->getNewest([array_keys($nearestEventDeadlines)[0]]);
     }
