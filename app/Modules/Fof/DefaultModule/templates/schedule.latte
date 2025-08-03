@@ -1,5 +1,6 @@
 {varType App\Modules\Core\Language $language}
 <div class="timeline timeline-wider">
+    {if false}
     <div>
         <div class="timeline-group">{switch $language->value}{case cs}Středa 12. 2.{default}Wednesday, Feb 12{/switch}
         </div>
@@ -82,9 +83,9 @@
             {/switch}
         </div>
     </div>
-
+    {/if}
     <div>
-        <div class="timeline-group">{switch $language->value}{case cs}Pátek 14. 2.{default}Friday, Feb 14{/switch}</div>
+        <div class="timeline-group">{switch $language->value}{case cs}Pátek 13. 2.{default}Friday, Feb 13{/switch}</div>
 
         {include 'competition_schedule.latte'}
 
@@ -109,6 +110,7 @@
             </div>
             {/switch}
         </div>
+        {if false}
         <div>
             <span class="timeline-element-icon"></span>
             {switch $language->value}
@@ -130,8 +132,9 @@
             </div>
             {/switch}
         </div>
+        {/if}
     </div>
-
+    {if false}
     <div>
         <div class="timeline-group">{switch $language->value}{case cs}Sobota 15. 2.{default}Saturday, Feb 15{/switch}
         </div>
@@ -196,7 +199,7 @@
             {/switch}
         </div>
     </div>
-
+    {/if}
     {*<div>
         <div class="timeline-group">
             {switch $language->value}{case cs}Neděle 18. 2.{default}Sunday, Feb 18{/switch}
