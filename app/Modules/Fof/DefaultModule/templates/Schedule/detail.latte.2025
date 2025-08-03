@@ -1,0 +1,265 @@
+{varType array $groups}
+{varType App\Modules\Core\Language $language}
+{varType array $groups}
+{varType App\Modules\Fof\DefaultModule\SchedulePresenter $presenter}
+{block main}
+    <div class="panel color-auto">
+        <section class="inner-container">
+          	<h1>
+                {switch $language->value}
+                    {case 'cs'}Detaily programu
+                    {default}Program details
+                {/switch}
+            </h1>
+            <p>
+                {switch $language->value}
+                    {case 'cs'}Na této stránce naleznete detailní popis doprovodného programu. Informace uvedené na této stránce jsou aktuální, nicméně se časem ještě můžou mírně změnit.
+                    {default}On this page you can find detailed description of the accompanying program. Information on this page should be up to date; however, they may slightly change over time.
+                {/switch}
+            </p>
+            {switch $language->value}
+                {case 'cs'}
+                    <h3>Legenda k lokacím</h3>
+          			<div class="rules">
+                      <div class="title">PVA EXPO PRAHA</div>
+                      <div class="description">Beranových 667, 199 00 Praha 9</div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Hotel Duo</div>
+                      <div class="description">Teplická 492, 190 00 Praha 9</div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Areál Troja</div>
+                      <div class="description">V Holešovičkách 2/747, 180 00 Praha 8
+                        <ul style="margin-bottom: 0">
+                            <li><strong>N1, N2, N3</strong> - Pavilon Impakt</li>
+                            <li><strong>T1, T2</strong> - Objekt poslucháren</li>
+                        </ul>
+                      </div>
+          			</div>
+                    <div class="rules">
+                      <div class="title">Cross Club</div>
+                      <div class="description">Plynární 1096, 170 00 Praha 7-Holešovice</div>
+          			</div>
+          			{*<div class="rules">
+                      <div class="title">Areál Karlov</div>
+                      <div class="description"><ul style="margin-bottom: 0">
+                            <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Praha 2</li>
+                            <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Praha 2</li>
+                        </ul>
+                      </div>
+          			</div>*}
+          			{*<div class="rules">
+                      <div class="title">Futurum Music Bar</div>
+                      <div class="description">Zborovská 7, 150 00 Praha 5</div>
+          			</div>*}
+                {default}
+                    <h3>Legend for locations</h3>
+          			<div class="rules">
+                      <div class="title">PVA EXPO PRAGUE</div>
+                      <div class="description">Beranových 667, 199 00 Prague 9</div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Hotel Duo</div>
+                      <div class="description">Teplická 492, 190 00 Prague 9</div>
+          			</div>
+          			<div class="rules">
+                      <div class="title">Troja Campus</div>
+                      <div class="description">V Holešovičkách 2/747, 180 00 Prague 8
+                      	<ul style="margin-bottom: 0">
+                            <li><strong>N1, N2, N3</strong> - Impakt Pavilion</li>
+                            <li><strong>T1, T2</strong> - Lecture Hall Building</li>
+                        </ul>
+                      </div>
+          			</div>
+                    <div class="rules">
+                      <div class="title">Cross Club</div>
+                      <div class="description">Plynární 1096, 170 00 Prague 7-Holešovice</div>
+          			</div>
+          			{*<div class="rules">
+                      <div class="title">Karlov Campus</div>
+                      <div class="description"><ul style="margin-bottom: 0">
+                            <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Prague 2</li>
+                            <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Prague 2</li>
+                        </ul>
+                      </div>
+          			</div>*}
+          			{*<div class="rules">
+                      <div class="title">Futurum Music Bar</div>
+                      <div class="description">Zborovská 7, 150 00 Prague 5</div>
+          			</div>*}
+            {/switch}
+        </section>
+    </div>
+    <div class="panel color-auto" id="vojta-david-secret-panel">
+        <section class="inner-container">
+            {switch $language->value}
+            {case 'cs'}
+            <div class="subheader">
+                12. 2. 2025 - 16. 2. 2025
+            </div>
+            <h1>Městská hra</h1>
+            <p>Městská hra probíhá průběžně celý týden.</p>
+            {default}
+            <div class="subheader">
+                February 12, 2025 - February 16, 2025
+            </div>
+            <h1>City rally</h1>
+            <p>The city rally runs continuously throughout the week.</p>
+            {/switch}
+            <!-- begin vojta -->
+            <button
+                id="vojta-david-secret-button"
+                class="my-2 btn btn-primary"
+                hidden
+                onclick="alert(
+                    {switch $language->value}
+                    {case 'cs'}
+                    'Městská hra skutečně probíhá průběžně celý týden.'
+                    {default}
+                    'The city rally does indeed run continuously throughout the week.'
+                    {/switch}
+                )"
+            >
+                Detail
+            </button>
+            <div id="vojta-david-secret-snackbar">
+            </div>
+            <script>
+                let count = 0;
+                const btn = document.getElementById("vojta-david-secret-button");
+                const div = document.getElementById("vojta-david-secret-snackbar");
+                function eatSnack(message) {
+                    bar = document.createElement("div");
+                    bar.textContent = message;
+                    bar.setAttribute("style", "z-index: " + count + ";");
+                    const handle = div.appendChild(bar);
+                    setTimeout(_ => div.removeChild(handle), 2000);
+                }
+                function handler() {
+                    count += 1;
+                    diff = 7 - count;
+                    if (diff < 4 && diff > 0) {
+                        msg = "Just " + diff + " click" + (diff != 1 ? "s" : "") + " to get a secret button";
+                        eatSnack(msg);
+                    } else if (diff <= 0) {
+                        eatSnack("Enjoy your secret button");
+                        btn.removeAttribute("hidden");
+                    }
+                }
+                document
+                    .getElementById("vojta-david-secret-panel")
+                    .addEventListener("click", handler);
+            </script>
+            <style>
+                #vojta-david-secret-button {
+                    transition: hidden ease-in-out 1s;
+                }
+                #vojta-david-secret-snackbar > * {
+                    min-width: 300px;
+                    margin-left: -150px;
+                    background-color: #333;
+                    color: #fff;
+                    text-align: center;
+                    border-radius: 4px;
+                    padding: 16px;
+                    position: fixed;
+                    left: 50%;
+                    bottom: 30px;
+                    -webkit-animation: fadein 0.5s, fadeout 0.5s 1.5s;
+                    animation: fadein 0.5s, fadeout 0.5s 1.5s;
+                }
+                @-webkit-keyframes fadein {
+                    from {
+                        bottom: 0;
+                        opacity: 0;
+                    }
+                    to {
+                        bottom: 30px;
+                        opacity: 1;
+                    }
+                }
+                @keyframes fadein {
+                    from {
+                        bottom: 0;
+                        opacity: 0;
+                    }
+                    to {
+                        bottom: 30px;
+                        opacity: 1;
+                    }
+                }
+                @-webkit-keyframes fadeout {
+                    from {
+                        bottom: 30px;
+                        opacity: 1;
+                    }
+                    to {
+                        bottom: 0;
+                        opacity: 0;
+                    }
+                }
+                @keyframes fadeout {
+                    from {
+                        bottom: 30px;
+                        opacity: 1;
+                    }
+                    to {
+                        bottom: 0;
+                        opacity: 0;
+                    }
+                }
+            </style>
+            <!-- end vojta -->
+            {var $key = null}
+            {* {dump $groups} *}
+            {foreach $groups as $group}
+            {var $start = new \DateTime($group['start'])}
+            {var $end = new \DateTime($group['end'])}
+            {var $newKey = $start->format('Y-m-d')}
+            {if $newKey !== $key}
+        </section>
+    </div>
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <div class="subheader">
+                {switch $language->value}
+                    {case 'cs'}{$start->format('j. n. Y')}
+                    {default}{$start->format('F j, Y')}
+                {/switch}
+            </div>
+            <h1>{$presenter->translateDay($start->format('l'))}</h1>
+            {/if}
+
+            <div class="subheader">{$start->format('H:i')} - {$end->format('H:i')}</div>
+            <h2>{$group['name'][$lang]}</h2>
+
+{*
+    Do promennych nize je treba dat ID polozek, ktere se nemaji zobrazovat na webu a ID polozky predstavujici prubeh soutezniho dne.
+*}
+            {var $itemsToSkip = [689, 690, 691, 692, 693, 694, 695, 696, 697]}
+            {var $competitionDetail = 661}
+
+            {foreach $group['items'] as $item}
+                {if !in_array($item['itemId'], $itemsToSkip)}
+                    <div id="{$item['itemId']}" class="rules">
+                        {if !($group['name'][$lang] == $item['name'][$lang])}
+                            <div class="title">
+                                {$item['name'][$lang]}
+                            </div>
+                        {/if}
+                        <div class="description">{if $item['itemId'] != $competitionDetail}
+                            {$item['longDescription'][$lang]??$item['description'][$lang]|noescape}
+                        {else}
+                        <div class="timeline timeline-wider"><div>
+                            {include '../competition_schedule.latte'}
+                        </div></div>
+                        {/if}
+                        </div>
+                    </div>{/if}
+            {/foreach}
+            {php $key = $newKey}
+            {/foreach}
+        </section>
+    </div>
+{/block}
