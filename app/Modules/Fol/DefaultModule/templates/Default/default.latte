@@ -268,7 +268,7 @@
                 <div class="price-box propagacni-box small">
                     FYKOSí lahve,<br />trička a mikiny
                 </div>
-                <div class="price-box large" style="background-color: #666666">
+                <div class="price-box small" style="background-color: #666666">
                     FYKOSí<br />ponožky, plecháčky<br />a další propagační předměty
                     </div>              
                 {*
@@ -280,7 +280,7 @@
                 <a class="price-box propagacni-box small">
                     FYKOS's bottles,<br />T-shirts and other prices
                 </a>
-                <div class="price-box large" style="background-color: #666666">
+                <div class="price-box small" style="background-color: #666666">
                     FYKOS' socks and other promotional items
                     </div>
                 {*
@@ -291,14 +291,23 @@
                 {/switch}
             </div>
             <div class="col-md-4">
-                <div class="price-box triplet-top knihy-box">
+                <div class="price-box small knihy-box">
                     {switch $language->value}
                     {case cs}
                     Knihy<br />podle<br />výběru
                     {default}
                     Books<br />by your<br />choice
                     {/switch}
+                </div>              
+                <div class="price-box small deskovky-box">
+                {switch $language->value}
+                {case cs}
+                    Deskovky<br>a karetní<br>hry
                 </div>
+                {default}
+                <div class="price-box small deskovky-box">
+                    Board <br>and card<br>games
+                    {/switch}
                 {*
                 <a class="price-box large factorio-box" href="https://www.factorio.com/">
                     {switch $language->value}
@@ -333,10 +342,12 @@
                     </div>
                 {/switch}
                 *}
-            </div>
+            </div>            
             <div class="col-md-4">
+            
                 {switch $language->value}
-                {case cs}
+                {*
+                {case cs}                
                 <div class="price-box small deskovky-box">
                     Deskovky<br>a karetní<br>hry
                 </div>
@@ -344,6 +355,7 @@
                 <div class="price-box small deskovky-box">
                     Board <br>and card<br>games
                 </div>
+                *}
                 {*<a class="price-box small kerbal-box"
                     href="http://www.kerbalspaceprogram.com/games-kerbal-space-program/">
                     Kerbal Space Program game license
