@@ -285,7 +285,6 @@
                 {/switch}
             </div>
             <div class="col-md-4">
-                {*
                 <div class="price-box triplet-top knihy-box">
                     {switch $language->value}
                     {case cs}
@@ -294,7 +293,7 @@
                     Books<br />by your<br />choice
                     {/switch}
                 </div>
-                *}
+                {*
                 <a class="price-box large factorio-box" href="https://www.factorio.com/">
                     {switch $language->value}
                     {case cs}
@@ -303,6 +302,8 @@
                     Factorio licenses
                     {/switch}
                 </a>
+                *}
+                {*
                 <a class="price-box small chess-box" href="https://www.chess.com/">
                     {switch $language->value}
                     {case cs}Diamantové členství na<br />
@@ -313,15 +314,16 @@
                         style="max-height: 3rem">
                     {/switch}
                 </a>
+                *}
                 {switch $language->value}
-                {* {case cs}*}
-                {* <div class="price-box large" style="background-color: #666666">*}
-                    {* FYKOSí<br />ponožky, plecháčky<br />a další propagační předměty*}
-                    {* </div>*}
-                {* {default}*}
-                {* <div class="price-box large" style="background-color: #666666">*}
-                    {* FYKOS' socks and other promotional items*}
-                    {* </div>*}
+                {case cs}
+                <div class="price-box large" style="background-color: #666666">
+                    FYKOSí<br />ponožky, plecháčky<br />a další propagační předměty
+                    </div>
+                {default}
+                <div class="price-box large" style="background-color: #666666">
+                    FYKOS' socks and other promotional items
+                    </div>
                 {/switch}
             </div>
             <div class="col-md-4">
@@ -345,7 +347,7 @@
                     {* {default}Software<br />Graphmatica<br />{/switch}*}
                     {* </a>*}
 
-                {* {switch $language->value}
+                {switch $language->value}
                 {case cs}
                 <div class="price-box large" style="background-color: #f79c55; display: flex; align-items: center;">
                     Další ceny pro vás připravujeme...
@@ -354,8 +356,8 @@
                 <div class="price-box large" style="background-color: #f79c55; display: flex; align-items: center;">
                     We are preparing more prizes...
                 </div>
-                {/switch}*}
-
+                {/switch}
+                {*
                 <a class="price-box large avast-box" href="https://avast.com/">
                     {switch $language->value}
                     {case cs}Licence na<br />
@@ -364,6 +366,7 @@
                     <img src="{$basePath}/images/logos/avast.png" alt="Avast" style="max-height: 3rem">
                     {/switch}
                 </a>
+                *}
 
 
             </div>
