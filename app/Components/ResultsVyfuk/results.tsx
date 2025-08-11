@@ -140,12 +140,12 @@ function Results({
 
         let columns: ColumnDef[] = [];
         let taskLookup: { [key: number]: number } = {};
-        columns.push({
-            colKey: "rank",
-            label: "#",
-            sortable: false,
-            numerical: false,
-        });
+        //columns.push({
+        //    colKey: "rank",
+        //    label: "#",
+        //    sortable: false,
+        //    numerical: false,
+        //});
         columns.push({
             colKey: "name",
             label: "Jméno",
@@ -456,46 +456,45 @@ function SortTable({ tableDef }: { tableDef: TableDef }) {
         return -result; // sort desc by default for row numbering
     });
 
-    // calculate row number if it should be displayed
-    if (
-        tableDef.tableManager.sortColumn !== "sum" &&
-        tableDef.tableManager.sortColumn !== "Psum"
-    ) {
-        // add table header definition
-        const rowNumberCol = tableDef.columns.find(
-            (col) => col.colKey === "rowNumber"
-        );
-        if (!rowNumberCol) {
-            tableDef.columns.unshift({
-                colKey: "rowNumber",
-                label: "n",
-                sortable: false,
-                numerical: false,
-            });
-        }
+    //if (
+    //    tableDef.tableManager.sortColumn !== "sum" &&
+    //    tableDef.tableManager.sortColumn !== "Psum"
+    //) {
+    // add table header definition
+    const rowNumberCol = tableDef.columns.find(
+        (col) => col.colKey === "rowNumber"
+    );
+    if (!rowNumberCol) {
+        tableDef.columns.unshift({
+            colKey: "rowNumber",
+            label: "#",
+            sortable: false,
+            numerical: false,
+        });
+    }
 
-        // generate row number
-        let fromRank = 1;
-        let sameRank = [];
-        for (const [index, row] of data.entries()) {
-            let toRank = index + 1;
-            sameRank.push(index);
-            if (
-                !data[index + 1] ||
-                row[tableDef.tableManager.sortColumn] !==
-                    data[index + 1][tableDef.tableManager.sortColumn]
-            ) {
-                for (const indexOfSame of sameRank) {
-                    data[indexOfSame]["rowNumber"] =
-                        fromRank === toRank
-                            ? `${fromRank}.`
-                            : `${fromRank}.–${toRank}.`;
-                }
-                sameRank = [];
-                fromRank = toRank + 1;
+    // generate row number
+    let fromRank = 1;
+    let sameRank = [];
+    for (const [index, row] of data.entries()) {
+        let toRank = index + 1;
+        sameRank.push(index);
+        if (
+            !data[index + 1] ||
+            row[tableDef.tableManager.sortColumn] !==
+                data[index + 1][tableDef.tableManager.sortColumn]
+        ) {
+            for (const indexOfSame of sameRank) {
+                data[indexOfSame]["rowNumber"] =
+                    fromRank === toRank
+                        ? `${fromRank}.`
+                        : `${fromRank}.–${toRank}.`;
             }
+            sameRank = [];
+            fromRank = toRank + 1;
         }
     }
+    //}
 
     // reverse table order if selected
     if (tableDef.tableManager.sortAsc) {
