@@ -1,16 +1,18 @@
 {
   "cs": [
     {
+      "title": "Známe termín podzimního setkání",
+      "text": "Podzimní setkání letos proběhne o víkendu od 7. do 9. listopadu. Tradičně se potkáme na gymnáziu Nad Alejí, kde na vás čeká program plný zábavy a hlavně fyziky. Pro získání pozvánky na setkání není rozhodující pořadí – pozveme všechny, kdo se zapojí do 1. série, kterou zveřejníme již brzy! Zúčastnit se naposledy mohou i deváťáci, kteří řešili v této kategorii prázdninové série.",
+      "date": "25. srpna 2025",
+      "link": ":Default:Events:setkani",
+      "link-text": "Stránka podzimního setkání"
+    },
+    {
       "title": "Konečné pořadí",
       "text": "Se zveřejněním výsledků 6. série známe již celkové pořadí a vítěze 14. ročníku, jimiž jsou v jednotlivých kategoriích Matěj Dudek, Lukáš Kopecký, Richard Menšík a Kryštof Bílý. Vítězům gratulujeme a připomínáme, že mají nejpozději do 23. 6. čas si vybrat některou z <a href=\"https://vyfuk.org/ceny\">odměn</a>, které nabízíme.",
       "date": "12. června 2025",
       "link": ":Default:Results:default",
       "link-text": "Pořadí"
-    },
-    {
-      "title": "Výfuk na Veletrhu vědy",
-      "text": "Již tento týden nás můžete od čtvrtka do soboty potkat každý den na Veletrhu Vědy. Výfuk tam bude mít svůj stánek, kde se můžete pozdravit s organizátory, zeptat se na vše co vás zajímá a zkusit si vyřešit prázdninový kvíz. Pro nejlepší řešitele kvízu máme připravené čokolády. Budeme rádi, pokud k nám na stánek nasměrujete i lidi, kteří zatím Výfuk neřeší, ale mohl by je zajímat.",
-      "date": "5. června 2025"
     },
     {
       "title": "Zadání 1. a 2. prázdninové série",
