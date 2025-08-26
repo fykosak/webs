@@ -17,6 +17,7 @@ services:
     - App\Models\Downloader\ProblemService('10 minutes', %problemManagerDownloader.url%)
     - App\Models\Downloader\EventService('10 minutes')
     - App\Models\Downloader\DummyService('10 minutes')
+    - App\Models\Authentication\Authenticator(%keycloak.providerUrl%,%keycloak.clientId%,%keycloak.clientSecret%,%keycloak.requiredGroup%)
 
 extensions:
     asset: SixtyEightPublishers\Asset\Bridge\Nette\DI\AssetExtension

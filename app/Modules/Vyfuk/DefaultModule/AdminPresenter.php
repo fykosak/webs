@@ -6,9 +6,38 @@ namespace App\Modules\Vyfuk\DefaultModule;
 
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
+use App\Models\Authentication\Authenticator;
+use App\Models\Authentication\UserModel;
+use Nette\Application\ForbiddenRequestException;
 
 class AdminPresenter extends BasePresenter
 {
+    protected Authenticator $authenticator;
+
+    public function injectService(Authenticator $authenticator): void
+    {
+        $this->authenticator = $authenticator;
+    }
+
+    public function checkRequirements($element): void
+    {
+        parent::checkRequirements($element);
+
+        if (!$this->getUser()->isLoggedIn()) {
+            $user = $this->authenticator->authenticateOIDC();
+            $this->getUser()->login($user);
+        }
+
+        if (!in_array($this->authenticator->requiredGroup, $this->getLoggedUser()->groups)) {
+            throw new ForbiddenRequestException();
+        }
+    }
+
+    public function getLoggedUser(): ?UserModel
+    {
+        return $this->getUser()->getIdentity();
+    }
+
     /**
      * @return NavItem[]
      */
@@ -32,7 +61,7 @@ class AdminPresenter extends BasePresenter
         );
 
         $items[] = new NavItem(
-            new PageTitle('Adin dashboard', 'fa-solid fa-user-gear'),
+            new PageTitle(sprintf('%s (#%d)', $this->getLoggedUser()->name, $this->getLoggedUser()->id), 'fa-solid fa-user-gear'),
             ':Default:Admin:default'
         );
 
