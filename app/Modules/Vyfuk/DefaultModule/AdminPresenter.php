@@ -38,6 +38,12 @@ class AdminPresenter extends BasePresenter
         return $this->getUser()->getIdentity();
     }
 
+    public function actionLogout(): void
+	{
+		$this->getUser()->logout();
+		$this->redirect(':Default:Admin:page');
+	}
+
     /**
      * @return NavItem[]
      */
@@ -63,6 +69,11 @@ class AdminPresenter extends BasePresenter
         $items[] = new NavItem(
             new PageTitle(sprintf('%s (#%d)', $this->getLoggedUser()->name, $this->getLoggedUser()->id), 'fa-solid fa-user-gear'),
             ':Default:Admin:default'
+        );
+
+        $items[] = new NavItem(
+            new PageTitle('Odhlásit se', 'fa-solid fa-arrow-right-from-bracket'),
+            ':Default:Admin:logout'
         );
 
         return $items;
