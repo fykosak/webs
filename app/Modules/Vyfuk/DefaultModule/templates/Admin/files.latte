@@ -1,0 +1,20 @@
+{block title}Správa souborů{/block}
+
+{block main}
+<div class="panel color-auto">
+    <section class="inner-container">
+    <h1>Správa souborů</h1>
+    <h2>Vybrat akci</h2>
+        <form id="eventSelect" method="post">
+            <select name="eventSelector" id="eventSelector" class="form-select" onchange="this.form.submit()">
+            <option selected="true" disabled="true" class="d-none">Název akce (#Event ID)</option>
+            {foreach $events as $event}
+                <option value="{$event->eventId}">{$event->name} (#{$event->eventId})</option>
+            {/foreach}
+            </select>
+        </form>
+        {control pdfGallery "/media/download/event/" . $selectedEventId}
+        {control fileUploadForm}
+    </section>
+</div>
+{/block}
