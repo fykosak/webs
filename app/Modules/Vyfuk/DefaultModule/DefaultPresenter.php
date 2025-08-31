@@ -7,6 +7,7 @@ namespace App\Modules\Vyfuk\DefaultModule;
 use App\Models\Downloader\EventModel;
 use App\Models\Downloader\ProblemService;
 use App\Models\Downloader\EventService;
+use App\Models\Downloader\SeriesModel;
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 
 class DefaultPresenter extends BasePresenter
@@ -25,6 +26,22 @@ class DefaultPresenter extends BasePresenter
         $this->eventService = $eventService;
     }
 
+    private function getPreviousSeries(int $year, int $currentSeries): SeriesModel
+    {
+        if ($currentSeries > 1) {
+            return $this->problemService->getSeries(
+                'vyfuk',
+                $year,
+                $currentSeries == 8 ? 6 : $currentSeries - 1 // check due to summer series
+            );
+        }
+
+        $previousYearData = $this->problemService->getYearJson('vyfuk', $year - 1);
+        $availableSeriesNumbers = array_keys($previousYearData);
+        $lastSeries = end($availableSeriesNumbers);
+        return $this->problemService->getSeries('vyfuk', $year - 1, $lastSeries);
+    }
+
     public function renderDefault(): void
     {
         $this->template->newsList = $this->loadNews();
@@ -33,17 +50,12 @@ class DefaultPresenter extends BasePresenter
         $series = $this->problemService->getLatestSeries('vyfuk', $year);
         $seriesModel = $this->problemService->getSeries('vyfuk', $year, $series);
         $this->template->series = $seriesModel;
-        $previousSeries = $this->problemService->getSeries(
-            'vyfuk',
-            $year,
-            $seriesModel->series == 8 ? 6 : $seriesModel->series - 1 // check due to summer series
-        );
+
+        $previousSeries = $this->getPreviousSeries($year, $seriesModel->series);
+
         $this->template->previousSeries = $previousSeries;
-
         $this->template->solutionsReady = $this->solutionsReady($previousSeries, $this->lang);
-
         $this->template->resultsReady = $this->resultsReady($year, $previousSeries);
-
         $this->template->nearestEvent = $this->getNearestEvent();
     }
 
