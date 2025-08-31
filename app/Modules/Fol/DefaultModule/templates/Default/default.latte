@@ -119,17 +119,17 @@
 </div>
 *}
 
-{* <div class="fyziklani-banner">*}
-    {* <div class="inner-container">*}
-        {* <div class="text">*}
-            {* {switch $language->value}*}
-            {* {case 'cs'}Stále pracujeme na zveřejnění oficiálních výsledků. Omlouváme se za komplikace.*}
-            {* {default}We are still working on the official results of the competition. We are sorry for the
-            inconvenience.*}
-            {* {/switch}*}
-            {* </div>*}
-        {* </div>*}
-    {* </div>*}
+{* <div class="fyziklani-banner">
+     <div class="inner-container">
+         <div class="text">
+             {switch $language->value}
+             {case 'cs'}Stále pracujeme na zveřejnění oficiálních výsledků. Omlouváme se za komplikace.
+             {default}We are still working on the official results of the competition. We are sorry for the
+            inconvenience.
+             {/switch}
+             </div>
+         </div>
+     </div>*}
 
 {if !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::before) && !$newestEvent->isLongAfterTheEvent()}
 {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
