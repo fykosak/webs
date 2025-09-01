@@ -18,8 +18,8 @@
         'otherFAQ' => ['Ostatní FAQ', 'Other FAQ']
     ]}
     <script>
-        const showText = {switch $language->value}{case cs}Zobrazit všechny odpovědi{default}Show all answers{/switch};
-        const hideText = {switch $language->value}{case cs}Skrýt všechny odpovědi{default}Skrýt všechny odpovědi{/switch};
+        const showText = "{switch $language->value}{case cs}Zobrazit všechny odpovědi{default}Show all answers{/switch}";
+        const hideText = "{switch $language->value}{case cs}Skrýt všechny odpovědi{default}Skrýt všechny odpovědi{/switch}";
     </script>
     <script n:syntax="off">
         function collapseFAQ(btn) {
