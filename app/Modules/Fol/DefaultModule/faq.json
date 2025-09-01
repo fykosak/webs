@@ -60,6 +60,12 @@
     "category": "game"
   },
   {
+    "question": "Můžeme soutěžit z více PC/lokalit?",
+    "answer": "Ano.",
+    "lang": "cs",
+    "category": "game"
+  },
+  {
     "question": "V jakých jazycích bude psáno zadání úloh?",
     "answer": "V češtině a angličtině.",
     "lang": "cs",
@@ -284,6 +290,12 @@
   {
     "question": "What are the parts of the competition and how do they differ?",
     "answer": "The competition has two parallel parts. The major part starts at the beginning of the competition and one hour later the Hurry-up series will begin. These will then run in parallel until the competition ends. In the second half of the competition you will be able to skip problems. For the Hurry-up series see the rules and the questions and answers below.",
+    "lang": "en",
+    "category": "game"
+  },
+  {
+    "question": "Can we compete from multiple PCs/locations?",
+    "answer": "Yes.",
     "lang": "en",
     "category": "game"
   },
