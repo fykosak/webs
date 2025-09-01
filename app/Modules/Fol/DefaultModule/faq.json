@@ -42,8 +42,14 @@
     "category": "game"
   },
   {
-    "question": "Můžu v průběhu soutěže vyhledávat informace pomocí internetu?",
-    "answer": "Ano, ale nesmí to být informace z komunikačních kanálů s lidmi, kteří nejsou na soupisce vašeho týmu.",
+    "question": "Budeme moci s organizátory soutěže v jejím průběhu nějak komunikovat? Jak? V jakých jazycích?",
+    "answer": "<p>Organizátoři v průběhu celé soutěže oznamují důležité informace týkající se soutěže prostřednictvím elektronické nástěnky, která bude umístěna na našich stránkách.</p>\n\n<p>Vaše otázky týkající se soutěže zasílejte výhradně na emailovou adresu <a href=\"mailto:%22Fyziklání%20Online%22%3conline@fyziklani.cz%3e\">online@fyziklani.cz</a>. </p>\n\n<p>Organizátoři jsou schopni komunikovat v českém, slovenském případně anglickém jazyce. </p>",
+    "lang": "cs",
+    "category": "game"
+  },
+  {
+    "question": "Můžu se do soutěže znovu připojit, pokud mi vypadne internet?",
+    "answer": "Ano.",
     "lang": "cs",
     "category": "game"
   },
@@ -56,6 +62,12 @@
   {
     "question": "V jakých jazycích bude psáno zadání úloh?",
     "answer": "V češtině a angličtině.",
+    "lang": "cs",
+    "category": "tasks"
+  },
+  {
+    "question": "Z jakých oblastí fyziky jsou úlohy?",
+    "answer": "Soutěžní úlohy jsou vybírány napříč fyzikou, obvykle však převažuje mechanika. Inspiraci můžete najít v zadáních z minulých ročníků.",
     "lang": "cs",
     "category": "tasks"
   },
@@ -210,6 +222,12 @@
     "category": "otherFAQ"
   },
   {
+    "question": "Jaké jsou ceny a jak jsou rozdělené?",
+    "answer": "Možné výhry lze nalézt na <a href=\"https://online.fyziklani.cz/\">hlavní stránce</a>. Ceny jsou postupně vybírány týmy s nejvyššími bodovými zisky.",
+    "lang": "cs",
+    "category": "otherFAQ"
+  },
+  {
     "question": "Can I change the information about team members after registration?",
     "answer": "Yes but only until the end of the registration period.",
     "lang": "en",
@@ -242,6 +260,12 @@
   {
     "question": "Can a foreigner take part?",
     "answer": "Yes. Of course a huge advantage for them would be if they knew English or Czech.",
+    "lang": "en",
+    "category": "registration"
+  },
+  {
+    "question": "Can I rejoin the competition if my internet goes down? ",
+    "answer": "Yes.",
     "lang": "en",
     "category": "registration"
   },
@@ -398,6 +422,18 @@
   {
     "question": "Will I get a certificate for attending?",
     "answer": "<p>We will send certificate for attending (with score) to all teams via email.</p>\n\n<p>In the case you didn't receive it, please check your spam folder. In case that it is not in spam, contact us on  <a href=\"mailto: online@fyziklani.cz\">online@fyziklani.cz</a>. </p>",
+    "lang": "en",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "What areas of physics are the problems from?",
+    "answer": "Competition problems are chosen across physics, but usually mechanics prevails. Inspiration can be found in problems from previous years.",
+    "lang": "en",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "What are the prices and how are they distributed?",
+    "answer": "Possible prizes can be found on the <a href=\"https://physicsbrawl.org/\">homepage</a>. Prizes are selected in turn by the teams with the highest point gains",
     "lang": "en",
     "category": "otherFAQ"
   },
