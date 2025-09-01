@@ -87,4 +87,13 @@
         </div>
     {/foreach}
 
+
+           <div class="alert alert-info mt-5" role="alert">
+                        <p class="mb-0">
+                             {switch $language->value}
+                                 {case cs}Máte otázku, na kterou jste zde nenašli odpověď? Neváhejte se zeptat na emailové adrese <a href=\"mailto:%22Fyziklání%20Online%22%3conline@fyziklani.cz%3e\">online@fyziklani.cz</a>.
+                                 {default}Do you have a question that hasn't been answered here? Do not hesitate to ask at the email address <a href=\"mailto:%22Fyziklání%20Online%22%3conline@fyziklani.cz%3e\">online@fyziklani.cz</a>.
+                             {/switch}
+                        </p>
+            </div>
 {/block}
