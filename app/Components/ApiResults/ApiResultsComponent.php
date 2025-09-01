@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Components\ApiResults;
 
-use App\Models\Downloader\FKSDBDownloader;
+use App\Models\Downloader\Downloaders\FKSDBDownloader;
 use App\Models\Game\Connector;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\Components\DIComponent;
@@ -79,9 +79,7 @@ class ApiResultsComponent extends DIComponent
         return $data;
     }
 
-    public function render(): void
-    {
-    }
+    public function render(): void {}
 
     /**
      * @throws JsonException

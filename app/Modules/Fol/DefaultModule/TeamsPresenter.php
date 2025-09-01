@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Fol\DefaultModule;
 
 use App\Components\TeamList\TeamListComponent;
-use App\Models\Downloader\EventModel;
+use App\Models\Downloader\Models\EventModel;
 use Fykosak\Utils\DateTime\Phase;
 use Nette\Application\BadRequestException;
 

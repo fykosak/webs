@@ -1,3 +1,5 @@
+{varType App\Modules\Downloader\Models\ContestYearModel $currentContestYear}
+
 {block title}Zadání{/block}
 
 {block main}
@@ -5,7 +7,7 @@
     <div class="inner-container">
         <div>
             <h1>
-                Zadání {$series->series > 6 ? $series->series - 7 . ". prázdninové" : $series->series . "."} série {$series->year}. ročníku
+                Zadání {(int)$series->label > 6 ? (int)$series->label - 7 . ". prázdninové" : $series->label . "."} série {$series->contestYear['year']}. ročníku
             </h1>
             <div>
                 Termín odevzdání: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>
@@ -21,39 +23,39 @@
                 <div class="dropdown series-selector">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        {$series->year}. ročník
+                        {$series->contestYear['year']}. ročník
                     </button>
                     <div class="dropdown-menu dropdown-menu-end p-0">
-                        {foreach $yearsAndSeries as $yearOption => $seriesList}
+                        {foreach $yearsAndSeries as $contestYear}
                         <ul class="list-group list-group-horizontal-sm">
                             <li class="list-group-item list-group-item-secondary text-nowrap">
-                                {$yearOption}. ročník
+                                {$contestYear->year}. ročník
                             </li>
-                            {foreach $seriesList as $seriesOption}
-                            <a n:class="'list-group-item list-group-item-action', $series->year == $yearOption && $series->series == $seriesOption ? list-group-item-primary"
-                                href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption > 6 ? "P" . $seriesOption - 7 : $seriesOption}</a>
+                            {foreach $contestYear->series as $seriesOption}
+                            <a n:class="'list-group-item list-group-item-action', $series->contestYear['year'] == $contestYear->year && $series->label == $seriesOption->label ? list-group-item-primary"
+                               href="{plink 'this' 'year'=>$contestYear->year, 'series'=>(int)$seriesOption->label}">{(int)$seriesOption->label > 6 ? "P" . (int)$seriesOption->label - 7 : (int)$seriesOption->label}</a>
                             {/foreach}
                         </ul>
                         {/foreach}
                     </div>
                 </div>
-                {if sizeof($yearsAndSeries[$series->year]) > 1}
+                {if sizeof($currentContestYear->series) > 1}
                 <ul class="list-group list-group-horizontal-sm mt-2">
-                    {foreach $yearsAndSeries[$series->year] as $seriesOption}
-                    <a n:class="'list-group-item list-group-item-action text-center', $series->series == $seriesOption ? list-group-item-primary"
-                        href="{plink 'this' 'year'=>$series->year, 'series'=>$seriesOption}">{$seriesOption > 6 ? "P" . $seriesOption - 7: $seriesOption}</a>
+                    {foreach $currentContestYear->series as $seriesOption}
+                        <a n:class="'list-group-item list-group-item-action', $series->label === $seriesOption->label ? list-group-item-primary"
+                           href="{plink 'this' 'year'=>$currentContestYear->year, 'series'=>(int)$seriesOption->label}">{(int)$seriesOption->label > 6 ? "P" . (int)$seriesOption->label - 7 : (int)$seriesOption->label}</a>
                     {/foreach}
                 </ul>
                 {/if}
             </div>
         </div>
 
-        {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
-        {php $batchPath = $problemService->getBatch('vyfuk', $series, $lang)}
+        {php $serialPath = $fileService->getSerial('vyfuk', $series, $lang)}
+        {php $batchPath = $fileService->getBatch('vyfuk', $series, $lang)}
         <div class="tasks-container {if !$serialPath || !$batchPath}tasks-margin{/if}">
             {if $serialPath}
             <a class="btn btn-primary mt-2 mr-4" href="{$serialPath}">
-                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text Výfučtení {$series->series}.
+                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text Výfučtení {$series->label}.
                 série
             </a>
             {/if}

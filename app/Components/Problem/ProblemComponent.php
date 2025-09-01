@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Components\Problem;
 
-use App\Models\Downloader\ProblemModel;
-use App\Models\Downloader\ProblemService;
-use App\Models\Downloader\SeriesModel;
+use App\Models\Downloader\Models\ProblemManager\ProblemModel;
+use App\Models\Downloader\Models\ProblemManager\SeriesModel;
+use App\Models\Downloader\Services\ProblemService;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 

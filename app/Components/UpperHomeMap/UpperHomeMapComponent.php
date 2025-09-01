@@ -6,7 +6,7 @@ namespace App\Components\UpperHomeMap;
 
 use App\Components\Countdown\CountdownComponent;
 use App\Components\Map\MapComponent;
-use App\Models\Downloader\EventModel;
+use App\Models\Downloader\Models\EventModel;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 

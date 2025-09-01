@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\DefaultModule;
 
-use App\Models\Downloader\EventService;
-
 class ArchivePresenter extends BasePresenter
 {
     /**

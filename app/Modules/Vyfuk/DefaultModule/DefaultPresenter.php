@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Modules\Vyfuk\DefaultModule;
 
-use App\Models\Downloader\EventModel;
-use App\Models\Downloader\ProblemService;
-use App\Models\Downloader\EventService;
-use App\Models\Downloader\SeriesModel;
+use App\Models\Downloader\Models\EventModel;
+use App\Models\Downloader\Models\SeriesModel;
+use App\Models\Downloader\Services\ProblemService;
+use App\Models\Downloader\Services\EventService;
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 
 class DefaultPresenter extends BasePresenter

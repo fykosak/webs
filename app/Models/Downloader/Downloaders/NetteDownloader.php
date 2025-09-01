@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Downloader;
+namespace App\Models\Downloader\Downloaders;
 
-use Exception;
-use Fykosak\FKSDBDownloaderCore\Downloader;
+use Fykosak\FKSDBDownloaderCore\BasicDownloader;
 use Fykosak\FKSDBDownloaderCore\DownloaderException;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use Nette\Caching\Cache;
@@ -13,11 +12,10 @@ use Nette\Caching\Storage;
 use Nette\SmartObject;
 use Nette\Utils\DateTime;
 
-abstract class NetteDownloader
+abstract class NetteDownloader extends BasicDownloader
 {
     use SmartObject;
 
-    private Downloader $downloader;
     private Cache $cache;
 
     public function __construct(
@@ -29,7 +27,7 @@ abstract class NetteDownloader
         Storage $storage
     ) {
         $this->cache = new Cache($storage, self::class);
-        $this->downloader = new Downloader(
+        parent::__construct(
             $jsonApiUrl,
             $username,
             $password,
@@ -45,7 +43,7 @@ abstract class NetteDownloader
 
         if (!$data || $data['expire'] < time()) {
             try {
-                $newData = $this->downloader->download($request);
+                $newData = parent::download($request);
             } catch (DownloaderException) {
                 $newData = null;
             }

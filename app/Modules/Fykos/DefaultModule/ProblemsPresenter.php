@@ -6,7 +6,7 @@ namespace App\Modules\Fykos\DefaultModule;
 
 use App\Components\ImagePreviewModal\ImagePreviewModalComponent;
 use App\Components\Problem\ProblemComponent;
-use App\Models\Downloader\ProblemService;
+use App\Models\Downloader\Services\ProblemService;
 use Throwable;
 
 class ProblemsPresenter extends BasePresenter

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Vyfuk\DefaultModule;
 
-use App\Models\Downloader\ContestsRequest;
-use App\Models\Downloader\FKSDBDownloader;
+use App\Models\Downloader\Downloaders\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 
 class AboutPresenter extends BasePresenter
@@ -30,7 +29,7 @@ class AboutPresenter extends BasePresenter
             $currentOrganizers = array_filter(
                 $allOrganizers,
                 fn(array $organizer): bool => $organizer['until'] == null
-                || $organizer['until'] == $currentYear
+                    || $organizer['until'] == $currentYear
             );
 
             // sort by order

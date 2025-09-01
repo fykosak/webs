@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Vyfuk\DefaultModule;
 
-use App\Models\Downloader\ProblemService;
+use App\Models\Downloader\Services\ProblemService;
 use Throwable;
 
 class ArchivePresenter extends BasePresenter

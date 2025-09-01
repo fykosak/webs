@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Fol\Core;
 
 use App\Modules\Core\EventWebPresenter;
-use App\Models\Downloader\EventModel;
+use App\Models\Downloader\Models\EventModel;
 use Nette\Application\UI\Template;
 
 abstract class BasePresenter extends EventWebPresenter

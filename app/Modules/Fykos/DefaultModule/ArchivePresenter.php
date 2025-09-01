@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
-use App\Models\Downloader\ProblemService;
+use App\Models\Downloader\Services\ProblemService;
 use Nette\Caching\Cache;
 
 class ArchivePresenter extends BasePresenter
