@@ -67,7 +67,7 @@
   },
   {
     "question": "Z jakých oblastí fyziky jsou úlohy?",
-    "answer": "Soutěžní úlohy jsou vybírány napříč fyzikou, obvykle však převažuje mechanika. Inspiraci můžete najít v zadáních z minulých ročníků.",
+    "answer": "Soutěžní úlohy jsou vybírány napříč fyzikou, obvykle však převažuje mechanika. Inspiraci můžete najít v zadáních z <a href=\"https://online.fyziklani.cz/archiv\">minulých ročníků</a>.",
     "lang": "cs",
     "category": "tasks"
   },
@@ -312,6 +312,12 @@
     "category": "tasks"
   },
   {
+    "question": "What areas of physics are the problems from?",
+    "answer": "Competition problems are chosen across physics, but usually mechanics prevails. Inspiration can be found in problems from <a href=\"https://physicsbrawl.org/archive\">previous years</a>.",
+    "lang": "en",
+    "category": "tasks"
+  },
+  {
     "question": "How many significant digits should one give in the solution?",
     "answer": "Each task has specified how many significant digits the result should have. You can also submit result with more significant digits.",
     "lang": "en",
@@ -422,12 +428,6 @@
   {
     "question": "Will I get a certificate for attending?",
     "answer": "<p>We will send certificate for attending (with score) to all teams via email.</p>\n\n<p>In the case you didn't receive it, please check your spam folder. In case that it is not in spam, contact us on  <a href=\"mailto: online@fyziklani.cz\">online@fyziklani.cz</a>. </p>",
-    "lang": "en",
-    "category": "otherFAQ"
-  },
-  {
-    "question": "What areas of physics are the problems from?",
-    "answer": "Competition problems are chosen across physics, but usually mechanics prevails. Inspiration can be found in problems from previous years.",
     "lang": "en",
     "category": "otherFAQ"
   },
