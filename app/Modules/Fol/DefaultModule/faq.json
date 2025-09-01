@@ -217,7 +217,7 @@
   },
   {
     "question": "Na jakou adresu mám psát otázky ohledně soutěže, ještě než soutěž začne?",
-    "answer": "<a href='mailto:online@fyziklani.cz'>online@fyziklani.cz</a>",
+    "answer": "<p><a href='mailto:online@fyziklani.cz'>online@fyziklani.cz</a></p>\n<p>Při psaní e-mailu prosíme nezapomeňte uvést název vašeho týmu, abychom vám mohli snadněji pomoci.</p>",
     "lang": "cs",
     "category": "otherFAQ"
   },
@@ -457,7 +457,7 @@
   },
   {
     "question": "Where should I send my questions about the competition before it starts?",
-    "answer": "<a href='mailto:online@fyziklani.cz'>online@fyziklani.cz</a>",
+    "answer": "<p><a href='mailto:online@fyziklani.cz'>online@fyziklani.cz</a></p>\n<p>When sending an email, please be sure to include your team name so we can help you more easily.</p>",
     "lang": "en",
     "category": "otherFAQ"
   },
