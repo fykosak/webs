@@ -119,7 +119,7 @@
 </div>
 *}
 
-{* <div class="fyziklani-banner">
+ {*<div class="fyziklani-banner">
      <div class="inner-container">
          <div class="text">
              {switch $language->value}
@@ -130,6 +130,18 @@
              </div>
          </div>
      </div>*}
+     
+   <div class="fyziklani-banner">
+     <div class="inner-container">
+         <div class="text">
+             {switch $language->value}
+             {case 'cs'}Upozorňujeme, že pravidla byla od minulého ročníku upravena. Aktuální verzi najdete v záložce <i>Pravidla</i>. 
+             {default}Please note that the rules have been modified since last year. You can find the current version in the <i>Rules</i> tab. 
+             {/switch}
+             </div>
+         </div>
+     </div>
+     
 
 {if !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::before) && !$newestEvent->isLongAfterTheEvent()}
 {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
