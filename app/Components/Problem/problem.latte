@@ -35,6 +35,14 @@
                 {if $problem->contest == 'vyfuk' && $problem->number == 7 && $problem->series < 7}
                     <p><small><i>S řešením této úlohy ti může pomoct krátký naučný text – tzv. Výfučtení. To můžeš nalézt pod odkazem níže.</i></small></p>
                 {/if}
+                {if $problem->contest == 'fykos' && $problem->number == 6}
+                    <p><small><i>
+                        {switch $language->value}
+                            {case 'cs'}Tato úloha má otevřené řešení, proto nezapomeňte uvést všechny použité zdroje.
+                            {default}This problem has an open solution, so be sure to cite all sources used.
+                        {/switch}
+                    </i></small></p>
+                {/if}
                 {$problem->task[$language->value]|noescape}
 
                 {if $problem->contest == 'fykos'}
