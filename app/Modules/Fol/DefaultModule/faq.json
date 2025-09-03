@@ -245,6 +245,12 @@
     "lang": "cs",
     "category": "otherFAQ"
   },
+   {
+    "question": "Kdy obdržíme certifikáty?",
+    "answer": "Certifikáty obdržíte poté, co budou vystaveny konečné výsledkové listiny.",
+    "lang": "cs",
+    "category": "otherFAQ"
+  },
   {
     "question": "Jaké jsou ceny a jak jsou rozdělené?",
     "answer": "Možné výhry lze nalézt na <a href=\"https://online.fyziklani.cz/\">hlavní stránce</a>. Ceny jsou postupně vybírány týmy s nejvyššími bodovými zisky.",
@@ -494,6 +500,12 @@
   {
     "question": "Will my result in this competition help me with an application to a university?",
     "answer": "Probably not but you can try to use it.",
+    "lang": "en",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "When will we receive the certificates?",
+    "answer": "You will receive the certificates once the final result lists are published.",
     "lang": "en",
     "category": "otherFAQ"
   },
