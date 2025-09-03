@@ -288,6 +288,12 @@
     "category": "registration"
   },
   {
+  "question": "How do I determine my study year?",
+  "answer": "Firstly refer to the ISCED 2011 classification: https://isced.uis.unesco.org/visualizations/. The year of graduation corresponds to the last year of school classified as level 3.",
+  "lang": "en",
+  "category": "registration"
+  },
+  {
     "question": "Can I rejoin the competition if my internet goes down? ",
     "answer": "Yes.",
     "lang": "en",
