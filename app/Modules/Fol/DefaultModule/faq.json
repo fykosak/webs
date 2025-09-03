@@ -198,6 +198,24 @@
     "category": "hurry-up"
   },
   {
+    "question": "Musíme být na videohovoru všichni?",
+    "answer": "Na videohovoru nemusí být přítomní všichni a nepřítomnost neznamená automaticky žádný postih. Tyto situace ale můžeme zohlednit při kontrole, že soutěž proběhla poctivě a bez podvádění.",
+    "lang": "cs",
+    "category": "calls"
+  },
+  {
+    "question": "Můžeme se připojit z různých PC?",
+    "answer": "Ano.",
+    "lang": "cs",
+    "category": "calls"
+  },
+  {
+    "question": "Nemám webkameru, vadí to?",
+    "answer": "Pokud se někdo nemůže připojit nebo má technické potíže, neznamená to automaticky žádný postih. Tyto situace ale můžeme zohlednit při kontrole, že soutěž proběhla poctivě a bez podvádění.",
+    "lang": "cs",
+    "category": "calls"
+  },
+  {
     "question": "Dostanu diplom nebo nějaké osvědčení o účasti?",
     "answer": "<p>Certifikáty o účasti zasíláme všem týmům automaticky na email.</p>\n\n<p>Pokud vám nepřišel, zkontrolujte si prosím složku se spamem, případně se neváhejte ozvat na email  <a href=\"mailto: online@fyziklani.cz\">online@fyziklani.cz</a>. </p>",
     "lang": "cs",
@@ -430,6 +448,24 @@
     "answer": "You can get bonus points only in a period between 18:00 and 18:30 CET, after that we will be accepting solutions to the Hurry-up problems but you will not get the bonus points.",
     "lang": "en",
     "category": "hurry-up"
+  },
+  {
+    "question": "Do we all have to be present during the video calls?",
+    "answer": "Not everyone needs to be present on the video call and it does not automatically mean a penalty. However, we may take these situations into account when checking that the competition was fair and without cheating.",
+    "lang": "en",
+    "category": "calls"
+  },
+  {
+    "question": "Can we join the video call from different PCs?",
+    "answer": "Yes.",
+    "lang": "en",
+    "category": "calls"
+  },
+  {
+    "question": "I don’t have a webcam, would it be a problem?",
+    "answer": "If someone is unable to join or has technical difficulties, this does not automatically mean a penalty. However, we may take these situations into account when checking that the competition was fair and without cheating.",
+    "lang": "en",
+    "category": "calls"
   },
   {
     "question": "Will I get a certificate for attending?",
