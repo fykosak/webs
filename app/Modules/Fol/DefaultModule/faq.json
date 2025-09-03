@@ -228,6 +228,12 @@
     "category": "otherFAQ"
   },
   {
+    "question": "Mám si poznámky ukládat v nějaké specifické formě?",
+    "answer": "Není třeba. Stačí, že poznámky nevyhodíte či nesmažete a uschováte si je. Taktéž není na škodu si uložit použité kódy nebo si čas od času vyfotit postup v používaném softwaru.",
+    "lang": "cs",
+    "category": "otherFAQ"
+  },
+  {
     "question": "Na jakou adresu mám psát otázky ohledně soutěže, ještě než soutěž začne?",
     "answer": "<p><a href='mailto:online@fyziklani.cz'>online@fyziklani.cz</a></p>\n<p>Při psaní e-mailu prosíme nezapomeňte uvést název vašeho týmu, abychom vám mohli snadněji pomoci.</p>",
     "lang": "cs",
@@ -482,6 +488,12 @@
   {
     "question": "Will my result in this competition help me with an application to a university?",
     "answer": "Probably not but you can try to use it.",
+    "lang": "en",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "Should I save my notes in a specific format?",
+    "answer": "No need. Just don't throw away or delete the notes and keep them. It isn't also bad idea to save the codes you use, or to take a picture of your progress in the software you use from time to time.",
     "lang": "en",
     "category": "otherFAQ"
   },
