@@ -289,7 +289,7 @@
   },
   {
   "question": "How do I determine my study year?",
-  "answer": "Firstly refer to the ISCED 2011 classification: https://isced.uis.unesco.org/visualizations/. The year of graduation corresponds to the last year of school classified as level 3.",
+  "answer": "Firstly refer to the <a href=\"https://isced.uis.unesco.org/visualizations/\">ISCED 2011</a> classification and find your country. The year of graduation corresponds to the last year of school classified as level 3.",
   "lang": "en",
   "category": "registration"
   },
