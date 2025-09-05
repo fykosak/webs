@@ -107,10 +107,34 @@
   background-image: url("./brilliant_white.png");
   background-repeat: no-repeat;
   background-position: 80% 80%;
-  background-size: 17rem;
+  background-size: 15rem;
 
   &:hover {
-    background-size: 17rem * 1.1;
+    background-size: 15rem * 1.1;
+  }
+}
+
+.aops-box {
+  background-color: #BBDEF0;
+  background-image: url("./aops_new.png");
+  background-repeat: no-repeat;
+  background-position: 80% 80%;
+  background-size: 15rem;
+
+  &:hover {
+    background-size: 15rem * 1.1;
+  }
+}
+
+.physolymp-box {
+  background-color: #E6B89C;
+  background-image: url("./logo_256.svg");
+  background-repeat: no-repeat;
+  background-position: 80% 80%;
+  background-size: 15rem;
+
+  &:hover {
+    background-size: 15rem * 1.1;
   }
 }
 
