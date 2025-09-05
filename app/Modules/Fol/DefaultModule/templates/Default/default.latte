@@ -294,7 +294,7 @@
                 </a>
                 *}
                 {default}
-                <a class="price-box propagacni-box large">
+                <a class="price-box propagacni-box small">
                     FYKOS's bottles,<br />T-shirts and other prices
                 </a>
                 <div class="price-box small brilliant-box" href="https://brilliant.org/">
@@ -374,12 +374,14 @@
             </div>
             <div class="col-md-4">
             {switch $language->value}
+            {case cs}
             <div class="price-box small physolymp-box" href="https://physolymp.com/">
-                    {case cs}
-                    PhysOlymp <br />licence
-                    {default}
-                    PhysOlymp <br />licence
-                </div>
+                PhysOlymp <br />licence
+            </div>
+            {default}
+            <div class="price-box small physolymp-box" href="https://physolymp.com/">
+                PhysOlymp <br />licence
+            </div>
                 {*
                 {case cs}
                 <div class="price-box small deskovky-box">
