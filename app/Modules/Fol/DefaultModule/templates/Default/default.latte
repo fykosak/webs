@@ -299,9 +299,11 @@
                 <a class="price-box propagacni-box small">
                     FYKOS's bottles,<br />T-shirts and other prices
                 </a>
-                <div class="price-box small brilliant-box" href="https://brilliant.org/">
+                <a href="https://brilliant.org/">
+                <div class="price-box small brilliant-box">
                     Brilliant <br />premium
                 </div>
+                </a>
                 {*
                 <div class="price-box small" style="background-color: #666666">
                     FYKOS' socks and other promotional items
@@ -331,7 +333,8 @@
                     Board <br>and card<br>games
                     {/switch}
                 </div>
-                <div class="price-box small aops-box" href="https://artofproblemsolving.com/online">
+                <a href="https://artofproblemsolving.com/online">
+                <div class="price-box small aops-box">
                     {switch $language->value}
                     {case cs}
                     AoPS <br />licence
@@ -339,6 +342,7 @@
                     AoPS <br />licence
                     {/switch}
                 </div>
+                </a>
                 {*
                 <a class="price-box large factorio-box" href="https://www.factorio.com/">
                     {switch $language->value}
@@ -377,13 +381,17 @@
             <div class="col-md-4">
             {switch $language->value}
             {case cs}
-            <div class="price-box small physolymp-box" href="https://physolymp.com/">
+            <a href="https://physolymp.com/">
+            <div class="price-box small physolymp-box">
                 PhysOlymp <br />licence
             </div>
+            </a>
             {default}
+            <a href="https://physolymp.com/">
             <div class="price-box small physolymp-box" href="https://physolymp.com/">
                 PhysOlymp <br />licence
             </div>
+            </a>
                 {*
                 {case cs}
                 <div class="price-box small deskovky-box">
