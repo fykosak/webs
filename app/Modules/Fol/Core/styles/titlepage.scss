@@ -102,7 +102,7 @@
   }
 }
 
-.brilliant-box {
+.price-box.brilliant-box {
   background-color: #21c24e;
   background-image: url("./brilliant_white.png");
   background-repeat: no-repeat;
@@ -110,7 +110,7 @@
   background-size: 15rem;
 
   &:hover {
-    background-size: 15rem*1.1;
+    background-size: 50%*1.1;
   }
 }
 
