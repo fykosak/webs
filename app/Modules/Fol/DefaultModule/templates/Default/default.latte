@@ -313,7 +313,7 @@
                 {/switch}
             </div>
             <div class="col-md-4">
-                {*<div class="price-box tri-plet knihy-box">
+                {*<div class="price-box small knihy-box">
                     {switch $language->value}
                     {case cs}
                     Knihy<br />podle<br />výběru
@@ -374,6 +374,12 @@
             </div>
             <div class="col-md-4">
             {switch $language->value}
+            <div class="price-box small physolymp-box" href="https://physolymp.com/">
+                    {case cs}
+                    PhysOlymp <br />licence
+                    {default}
+                    PhysOlymp <br />licence
+                </div>
                 {*
                 {case cs}
                 <div class="price-box small deskovky-box">
@@ -397,11 +403,11 @@
 
                 {switch $language->value}
                 {case cs}
-                <div class="price-box large" style="background-color: #f79c55; display: flex; align-items: center;">
+                <div class="price-box small" style="background-color: #f79c55; display: flex; align-items: center;">
                     Další ceny pro Vás připravujeme...
                 </div>
                 {default}
-                <div class="price-box large" style="background-color: #f79c55; display: flex; align-items: center;">
+                <div class="price-box small" style="background-color: #f79c55; display: flex; align-items: center;">
                     We are preparing more prizes...
                 </div>
                 {/switch}
