@@ -277,7 +277,7 @@
         <div class="row prices">
             <div class="col-md-4">
                 {switch $language->value}{case cs}
-                <div class="price-box propagacni-box small">
+                <div class="price-box tri-plet propagacni-box">
                     FYKOSí lahve,<br />trička a mikiny
                 </div>
                 <div class="price-box small brilliant-box" href="https://brilliant.org/">
@@ -297,6 +297,9 @@
                 <a class="price-box propagacni-box large">
                     FYKOS's bottles,<br />T-shirts and other prices
                 </a>
+                <div class="price-box small brilliant-box" href="https://brilliant.org/">
+                    Brilliant <br />premium
+                </div>
                 {*
                 <div class="price-box small" style="background-color: #666666">
                     FYKOS' socks and other promotional items
@@ -310,20 +313,28 @@
                 {/switch}
             </div>
             <div class="col-md-4">
-                <div class="price-box tri-plet knihy-box">
+                {*<div class="price-box tri-plet knihy-box">
                     {switch $language->value}
                     {case cs}
                     Knihy<br />podle<br />výběru
                     {default}
                     Books<br />by your<br />choice
                     {/switch}
-                </div>
+                </div>*}
                 <div class="price-box tri-plet deskovky-box">
                     {switch $language->value}
                     {case cs}
                     Deskovky<br>a karetní<br>hry
                     {default}
                     Board <br>and card<br>games
+                    {/switch}
+                </div>
+                <div class="price-box small aops-box" href="https://artofproblemsolving.com/online">
+                    {switch $language->value}
+                    {case cs}
+                    AoPS <br />licence
+                    {default}
+                    AoPS <br />licence
                     {/switch}
                 </div>
                 {*
