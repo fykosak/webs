@@ -102,6 +102,18 @@
   }
 }
 
+.brilliant-box {
+  background-color: #222222;
+  background-image: url("wolfram.png");
+  background-repeat: no-repeat;
+  background-position: 150% 150%;
+  background-size: 15rem;
+
+  &:hover {
+    background-size: 15rem*1.1;
+  }
+}
+
 .price-box.chess-box {
   color: black;
   background-color: white;
