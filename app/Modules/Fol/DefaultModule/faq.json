@@ -54,6 +54,12 @@
     "category": "game"
   },
   {
+    "question": "Kdy přijde heslo do soutěže?",
+    "answer": "Heslo přijde nejpozději půl hodiny do soutěže.",
+    "lang": "cs",
+    "category": "game"
+  },
+  {
     "question": "Můžeme soutěžit z více PC/lokalit?",
     "answer": "Ano.",
     "lang": "cs",
@@ -308,6 +314,12 @@
   {
     "question": "Is it possible for participants to communicate with the organizers? If so how and in what languages?",
     "answer": "<p>Organisers will during the competition give out important information through our in-game noticeboard that will be available on our website.</p>\n\n<p>Send your questions about the tasks and other things to <a href=\"mailto: online@fyziklani.cz\">online@fyziklani.cz</a>. </p>\n\n<p>Organisers communicate in Czech, Slovak or English only. </p>",
+    "lang": "en",
+    "category": "game"
+  },
+  {
+    "question": "When do I get the password for the competition?",
+    "answer": "You should receive it at least half an hour before the competition begins.",
     "lang": "en",
     "category": "game"
   },
