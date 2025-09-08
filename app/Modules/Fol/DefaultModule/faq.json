@@ -492,8 +492,14 @@
     "category": "calls"
   },
   {
-    "question": "I don’t have a webcam, would it be a problem?",
+    "question": "I don't have a webcam, would it be a problem?",
     "answer": "If someone is unable to join or has technical difficulties, this does not automatically mean a penalty. However, we may take these situations into account when checking that the competition was fair and without cheating.",
+    "lang": "en",
+    "category": "calls"
+  },
+  {
+    "question": "What if I don't speak English and I used a translator for the tasks?",
+    "answer": "We will include instructions for this in the invitation email. The most important thing is that you let us know, and we will tailor the call to your needs.",
     "lang": "en",
     "category": "calls"
   },
