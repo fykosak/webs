@@ -155,6 +155,9 @@
                 <div class="category">
                     <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}</div>
                     <div class="category-sponsors">
+                        <a {switch $language->value}{case 'cs'}href="https://qminers.com/cs/"{default}href="https://qminers.com/en/"{/switch} style="text-align: center">
+                            <img src="{$basePath}/images/logos/logo-qminers.png" alt="Qminers logo" style="max-width: 12rem">
+                        </a>
                         <a href="https://brilliant.org/" style="text-align: center">
                             <img src="{$basePath}/images/logos/brilliant.png" alt="Brilliant logo " style="max-height: 5rem; max-width: 12rem">
                         </a>
