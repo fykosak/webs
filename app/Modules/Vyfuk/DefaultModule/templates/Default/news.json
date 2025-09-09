@@ -1,18 +1,18 @@
 {
   "cs": [
     {
-      "title": "Je tady další ročník Výfuku",
-      "text": "Přichází nový školní rok a s ním i nový ročník Výfuku! V první sérii 15. ročníku si započítáte úlohy o svižníkovi zvrhlém, vraku na dně moří nebo si vyzkoušíte strategii v deskové hře. Experiment se zaměří na různé metody chlazení. Termín odeslání je 13. října. A také se můžete podívat na vzorová řešení 2. prázdninové série.",
-      "date": "1. září 2025",
-      "link": ":Default:Problems:default",
-      "link-text": "Aktuální zadání"
-    },
-    {
       "title": "Konečné pořadí práznidových serií",
       "text": "Zveřejnili jsme pořadí po obou prázdninových sériích, můžete se tedy podívat, jak jste dopadli. Gratulujeme nejlepším řešitelům, kterým brzy rozešleme dotazník na výběr cen.",
       "date": "8. září 2025",
       "link": ":Default:Results:default",
       "link-text": "Pořadí"
+    },
+    {
+      "title": "Je tady další ročník Výfuku",
+      "text": "Přichází nový školní rok a s ním i nový ročník Výfuku! V první sérii 15. ročníku si započítáte úlohy o svižníkovi zvrhlém, vraku na dně moří nebo si vyzkoušíte strategii v deskové hře. Experiment se zaměří na různé metody chlazení. Termín odeslání je 13. října. A také se můžete podívat na vzorová řešení 2. prázdninové série.",
+      "date": "1. září 2025",
+      "link": ":Default:Problems:default",
+      "link-text": "Aktuální zadání"
     },
     {
       "title": "Známe termín podzimního setkání",
