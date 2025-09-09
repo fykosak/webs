@@ -232,7 +232,7 @@ class DefaultPresenter extends BasePresenter
                 'logo_eventbox' => $data['logo'],
             ];
         }
- 
+
         // zobrazovaní serii
         foreach ($series as $id => $data) {
             $key = 'serie-' . $id;
