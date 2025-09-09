@@ -114,6 +114,18 @@
   }
 }
 
+.origin-box {
+  background-color: #000022;
+  background-image: url("./origin_with_tag.png");
+  background-repeat: no-repeat;
+  background-position: 80% 80%;
+  background-size: 15rem;
+
+  &:hover {
+    background-size: 15rem * 1.1;
+  }
+}
+
 .aops-box {
   background-color: #9BD1E5;
   background-image: url("./aops_new.png");
