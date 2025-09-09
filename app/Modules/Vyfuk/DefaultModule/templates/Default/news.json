@@ -1,6 +1,20 @@
 {
   "cs": [
     {
+      "title": "Je tady další ročník Výfuku",
+      "text": "Přichází nový školní rok a s ním i nový ročník Výfuku! V první sérii 15. ročníku si započítáte úlohy o svižníkovi zvrhlém, vraku na dně moří nebo si vyzkoušíte strategii v deskové hře. Experiment se zaměří na různé metody chlazení. Termín odeslání je 13. října. A také se můžete podívat na vzorová řešení 2. prázdninové série.",
+      "date": "1. září 2025",
+      "link": ":Default:Problems:default",
+      "link-text": "Aktuální zadání"
+    },
+    {
+      "title": "Konečné pořadí práznidových serií",
+      "text": "Zveřejnili jsme pořadí po obou prázdninových sériích, můžete se tedy podívat, jak jste dopadli. Gratulujeme nejlepším řešitelům, kterým brzy rozešleme dotazník na výběr cen.",
+      "date": "8. září 2025",
+      "link": ":Default:Results:default",
+      "link-text": "Pořadí"
+    },
+    {
       "title": "Známe termín podzimního setkání",
       "text": "Podzimní setkání letos proběhne o víkendu od 7. do 9. listopadu. Tradičně se potkáme na gymnáziu Nad Alejí, kde na vás čeká program plný zábavy a hlavně fyziky. Pro získání pozvánky na setkání není rozhodující pořadí – pozveme všechny, kdo se zapojí do 1. série, kterou zveřejníme již brzy! Zúčastnit se naposledy mohou i deváťáci, kteří řešili v této kategorii prázdninové série.",
       "date": "25. srpna 2025",
@@ -13,18 +27,6 @@
       "date": "12. června 2025",
       "link": ":Default:Results:default",
       "link-text": "Pořadí"
-    },
-    {
-      "title": "Zadání 1. a 2. prázdninové série",
-      "text": "Zvěřejnili jsme zadání 1. a 2. prázdninové série. Čas na řešení první prázdninové série máte do <b>22. 7. 2025</b>, svá řešení druhé prázdninové série můžete odevzdávat až do <b>26. 8. 2025</b>.",
-      "date": "5. června 2025",
-      "link": ":Default:Problems:default",
-      "link-text": "Zadání"
-    },
-    {
-      "title": "Spuštění nového webu",
-      "text": "Právě jsme pro vás spustili nový web! Je v novém designu a s množstvím aktualizovaných informací. Pokud byste našli nějakou chybu, neváhejte nás kontaktovat na <a href='mailto:vyfuk@vyfuk.org'>vyfuk@vyfuk.org</a>",
-      "date": "16. května 2025"
     }
   ]
 }
