@@ -47,4 +47,4 @@ Require all granted
 	</IfModule>
 </IfModule>
 
-Redirect 301 /zapoj-se https://docs.google.com/forms/d/e/1FAIpQLSejQsINBOdecmNBIsUusEiQwmvMpNTH6nsuXbpnNpc-znKCLA/viewform?usp=preview
+Redirect 301 /zapoj-se https://docs.google.com/forms/d/e/1FAIpQLSdFtl-tOOAekT6mmIcx6qkYBXzNotPtvnrM0AF4Z-BtRquTAw/viewform?usp=sharing&ouid=108534152799115013557
