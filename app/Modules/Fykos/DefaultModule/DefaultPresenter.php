@@ -174,7 +174,7 @@ class DefaultPresenter extends BasePresenter
         // uncomment the loop below when enabling series
         $series = [
             '1' => [
-                'deadline' => '2025-09-05',
+                'deadline' => '2025-10-05',
                 'description' => [
                     'cs' => 'vodník, dortíky a eliptická čočka',
                     'en' => 'vodyanoy, cupcakes and an elliptical lens'
