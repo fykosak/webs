@@ -13,6 +13,11 @@
             <a class="btn btn-secondary mt-2" n:href="HowToSolve:default">
                 <i class="fas fa-circle-info me-2"></i>Jak se zapojit
             </a>
+            {if $series->series == 1}
+                <a class="btn btn-secondary mt-2" n:href="HowToSolve:solutions">
+                    <i class="fas fa-file-pen me-2"></i>Jak psát řešení
+                </a>
+            {/if}
             <a class="btn btn-secondary mt-2" n:href="Bingo:default">
                 <i class="fas fa-gift me-2"></i>Výfučí bingo
             </a>
