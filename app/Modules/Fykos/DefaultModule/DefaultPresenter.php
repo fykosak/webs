@@ -253,7 +253,7 @@ class DefaultPresenter extends BasePresenter
                 'show-on-timeline' => true
             ];
         }
-        
+
         $this->template->timelineBegin = $this->template->yearBeginDate;
         $this->template->timelineEnd = $this->template->yearEndDate;
 
