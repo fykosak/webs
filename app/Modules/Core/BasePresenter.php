@@ -144,7 +144,7 @@ abstract class BasePresenter extends Presenter
     {
         return new PdfGalleryControl($this->getContext());
     }
-    protected array $imagePreviewSizes = [1024, 2048];
+    protected array $imagePreviewSizes = [512, 1024, 2048];
     protected int $imagePreviewDefaultSizes = 0;
     public function actionImagePreview(int $size, string $path): never
     {
