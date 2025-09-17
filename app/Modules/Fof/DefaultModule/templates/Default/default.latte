@@ -43,7 +43,7 @@
                 </div>
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>
-                    <a target="_blank" href="{$basePath}/download/2025/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>
+                    {* <a target="_blank" href="{$basePath}/download/2025/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>*}
                     {* <a n:href="Merch:" class="btn btn-light">Merch</a> *}
                     <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)" n:href="Registration:" class="btn btn-primary">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
@@ -58,6 +58,7 @@
         </div>
     </div>
 
+    {if false} {*Cerny pas po soutezi*}
     <div class="panel registration" style="background-color: black">
         <div class="inner-container">
             <div class="text">
@@ -78,6 +79,7 @@
             </div>
         </div>
     </div>
+    {/if}
 
     {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
         {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}

@@ -23,9 +23,9 @@ class DefaultPresenter extends BasePresenter
 
         // year_stage is enum of values: 'before', 'during', 'after'
         $this->template->year_stage = null;
-        if ($currentDate < strtotime($this->template->events[0]['date'])) {
+        if ($currentDate < strtotime($this->template->yearBeginDate)) {
             $this->template->year_stage = 'before';
-        } elseif ($currentDate > strtotime($this->template->events[count($this->template->events) - 1]['date'])) {
+        } elseif ($currentDate > strtotime($this->template->yearEndDate)) {
             $this->template->year_stage = 'after';
         } else {
             $this->template->year_stage = 'during';
@@ -101,6 +101,10 @@ class DefaultPresenter extends BasePresenter
 
     public function loadEventData(): void
     {
+
+        $this->template->yearBeginDate = date('Y-m-d', strtotime('2025-09-01'));
+        $this->template->yearEndDate = date('Y-m-d', strtotime('2026-05-31'));
+
         $this->template->events = [];
         $events = [
             'DSEF' => [
@@ -173,51 +177,51 @@ class DefaultPresenter extends BasePresenter
         // IMORTANT!!!
         // uncomment the loop below when enabling series
         $series = [
-            /*
             '1' => [
                 'deadline' => '2025-10-05',
                 'description' => [
-                    'cs' => 'Bude oznámeno',
-                    'en' => 'To be announced'
+                    'cs' => 'vodník, dortíky a eliptická čočka',
+                    'en' => 'vodyanoy, cupcakes and an elliptical lens'
                 ],
             ],
             '2' => [
-                'deadline' => '2000-01-01',
+                'deadline' => '2025-11-16',
                 'description' => [
-                    'cs' => 'Bude oznámeno',
-                    'en' => 'To be announced'
+                    'cs' => 'čas, míč a indukovaná interakce',
+                    'en' => 'time, ball and induced interaction'
                 ],
             ],
             '3' => [
-                'deadline' => '2000-01-01',
+                'deadline' => '2026-01-11',
                 'description' => [
-                    'cs' => 'Bude oznámeno',
-                    'en' => 'To be announced'
+                    'cs' => 'toaleťák, odpor a opilá komora',
+                    'en' => 'toilet paper, resistance and a drunken chamber'
                 ],
             ],
             '4' => [
-                'deadline' => '2000-01-01',
+                'deadline' => '2026-02-22',
                 'description' => [
-                    'cs' => 'Bude oznámeno',
-                    'en' => 'To be announced'
+                    'cs' => 'stromy, raketa a skok na měsíc',
+                    'en' => 'trees, rocket and a jump to the Moon'
                 ],
             ],
             '5' => [
-                'deadline' => '2000-01-01',
+                'deadline' => '2026-03-29',
                 'description' => [
-                    'cs' => 'Bude oznámeno',
-                    'en' => 'To be announced'
+                    'cs' => 'fazole, traverza a magnetka',
+                    'en' => 'beans, beam and a small magnet'
                 ],
             ],
             '6' => [
-                'deadline' => '2000-01-01',
+                'deadline' => '2026-05-10',
                 'description' => [
-                    'cs' => 'Bude oznámeno',
-                    'en' => 'To be announced'
+                    'cs' => 'houpačka, palačinka a sežraná zahrada',
+                    'en' => 'swing, pancake and a devoured garden'
                 ],
             ],
-            */
         ];
+
+        // zobrazovaní akcí
         foreach ($events as $id => $data) {
             $key = strtolower($id);
             $this->template->events[$key] = [
@@ -232,7 +236,8 @@ class DefaultPresenter extends BasePresenter
                 'logo_eventbox' => $data['logo'],
             ];
         }
-        /*
+
+        // zobrazovaní serii
         foreach ($series as $id => $data) {
             $key = 'serie-' . $id;
             $this->template->events[$key] = [
@@ -248,9 +253,9 @@ class DefaultPresenter extends BasePresenter
                 'show-on-timeline' => true
             ];
         }
-        */
-        $this->template->timelineBegin = date('Y-m-d', strtotime('2025-09-01'));
-        $this->template->timelineEnd = date('Y-m-d', strtotime('2026-05-31'));
+
+        $this->template->timelineBegin = $this->template->yearBeginDate;
+        $this->template->timelineEnd = $this->template->yearEndDate;
 
         // sort chronologically
         usort($this->template->events, function ($a, $b) {

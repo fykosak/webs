@@ -45,3 +45,5 @@ Require all granted
 		AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/xml image/svg+xml
 	</IfModule>
 </IfModule>
+
+Redirect 301 /zapoj-se https://docs.google.com/forms/d/e/1FAIpQLSdFtl-tOOAekT6mmIcx6qkYBXzNotPtvnrM0AF4Z-BtRquTAw/viewform?usp=sharing&ouid=108534152799115013557

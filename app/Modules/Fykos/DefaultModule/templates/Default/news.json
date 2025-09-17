@@ -11,42 +11,28 @@
         "do novinek se dají dávat i html elementy"
     ],
     "cs" : [
-            {
-            "title": "Ocenění za organizaci Fyziklání",
-            "text": "U příležitosti oslav 677 let od založení Univerzity Karlovy přebral FYKOS za organizaci mezinárodní soutěže Fyziklání cenu Miloslava Petruska za reprezentaci a propagaci. ",
-            "link": "https://cuni.cz/UK-14607.html",
-            "link-text": "Článek",
-            "color": "fof"
+                  {
+            "title": "Zaregistrujte se na Fyziklání Online",
+            "text": "Spustila se registrace do letošního ročníku Fyziklání Online! Tak sežeňte partu až pěti kamarádů a 26. listopadu se přidejte k týmům z celého světa v řešení originálních fyzikálních úloh!",
+            "link": "https://online.fyziklani.cz/registrace",
+            "link-text": "Registrace",
+            "color": "fol"
         },
-      {
-            "title": "Opravené úlohy na webu",
-            "text": "Nově naleznete svoje opravená řešení i online! Můžete si je prohlédnout po přihlášení v záložce Nahraná řešení.",
-            "link": "https://db.fykos.cz/",
-            "link-text": "Přihlášení",
-            "color": "fykos"
-        },
-{
-            "title": "Problémové úlohy",
-            "text": "Baví vás řešit problémové úlohy? Nově budeme ve vzorových řešení zveřejňovat i vaše nejlepší zpracování problémových úloh. A autory nejlepších řešení samozřejmě nemine ani odměna!",
-            "link": "https://fykos.cz/zadani",
+        	  {          
+            "title": "Poslední šance dostat se na soustředění",
+            "text": "Láká vás strávit týden mezi lidmi se zájmem o fyziku? Pak nezapomeňte řešit úlohy z první série a předběžně je odevzdat do 8. září! Držíme pro vás ještě pár volných míst na podzimním soustředění.",
+            "link": "https://fykos.cz/zadani/39/1",
             "link-text": "Zadání",
-            "color": "fykos"
-        },
-        {
-            "title": "Letní stáže",
-            "text": "Fyzika se neobejde bez vědecké práce, která se neodmyslitelně pojí s experimenty! Letos se nejlepší řešitelé experimentálních úloh budou moct zúčastnit dvoutýdenní letní stáže na vědeckých pracovištích v Praze a zkusit si tak, co všechno práce v laboratoři obnáší! Neváhejte a pusťte se do měření. Jestli si ale ještě nejste jistí, jak na zpracování experimentů, může vám pomoct náš návod.",
-            "link": "https://fykos.cz/akce/staze",
-            "link-text": "Více informací",
             "color": "fykos"
         }
     ],
     "en" : [
-         {
-            "title": "Open Problems",
-            "text": "Do you like to ponder over open-ended questions? This year we will include some of your best solutions to the open problems in our official solution. Oh, and the authors of the chosen solutions will get a reward!",
-            "link": "https://fykos.org/problems",
-            "link-text": "Problems",
-            "color": "fykos"
+            {
+            "title": "Registration for Physics Brawl Online",
+            "text": "The registration for Physics Brawl Online is opened! Gather a group of up to five friends and join teams from all over the world to solve physics problems on November 26th! ",
+            "link": "https://physicsbrawl.org/registration",
+            "link-text": "Registration",
+            "color": "fol"
         }
     ]
 }

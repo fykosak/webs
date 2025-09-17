@@ -125,4 +125,18 @@
             {/switch}
         </div>
     </div>
+        <div class="rules">
+        <div class="title">
+            {switch $language->value}
+                {case cs}Videohovory
+                {default}Video calls
+            {/switch}
+        </div>
+        <div class="description">
+            {switch $language->value}
+                {case cs}Do 30 minut po skončení soutěže může tým obdržet e-mailovou pozvánku k videohovoru. Typicky se bude jednat o týmy s vyššími bodovými zisky. Během něj může být požádán o slovní popis nebo rekonstrukci řešení vybraných úloh. Videohovor slouží k zajištění férovosti a ověření, že řešení skutečně vypracoval daný tým. Podrobnosti najdete v <a n:href="Rules:complete" style="color: #00ae6b">úplných pravidlech soutěže</a>.
+                {default}Within 30 minutes after the end of the competition, teams may receive an email invitation to a video call. Typically, this will apply to teams with higher scores. During the call, teams may be asked to provide a verbal description or reconstruction of their solutions to selected tasks. The video call serves to ensure fairness and verify that the solution was actually developed by the team in question. Details can be found in the <a n:href="Rules:complete" style="color: #00ae6b">full version of rules</a>.
+            {/switch}
+        </div>
+    </div>
 {/block}

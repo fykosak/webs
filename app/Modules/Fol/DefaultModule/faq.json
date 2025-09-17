@@ -42,8 +42,8 @@
     "category": "game"
   },
   {
-    "question": "Můžu v průběhu soutěže vyhledávat informace pomocí internetu?",
-    "answer": "Ano, ale nesmí to být informace z komunikačních kanálů s lidmi, kteří nejsou na soupisce vašeho týmu.",
+    "question": "Můžu se do soutěže znovu připojit, pokud mi vypadne internet?",
+    "answer": "Ano.",
     "lang": "cs",
     "category": "game"
   },
@@ -54,8 +54,26 @@
     "category": "game"
   },
   {
+    "question": "Kdy přijde heslo do soutěže?",
+    "answer": "Heslo přijde nejpozději půl hodiny do soutěže.",
+    "lang": "cs",
+    "category": "game"
+  },
+  {
+    "question": "Můžeme soutěžit z více PC/lokalit?",
+    "answer": "Ano.",
+    "lang": "cs",
+    "category": "game"
+  },
+  {
     "question": "V jakých jazycích bude psáno zadání úloh?",
     "answer": "V češtině a angličtině.",
+    "lang": "cs",
+    "category": "tasks"
+  },
+  {
+    "question": "Z jakých oblastí fyziky jsou úlohy?",
+    "answer": "Soutěžní úlohy jsou vybírány napříč fyzikou, obvykle však převažuje mechanika. Inspiraci můžete najít v zadáních z <a href=\"https://online.fyziklani.cz/archiv\">minulých ročníků</a>.",
     "lang": "cs",
     "category": "tasks"
   },
@@ -186,6 +204,24 @@
     "category": "hurry-up"
   },
   {
+    "question": "Musíme být na videohovoru všichni?",
+    "answer": "Na videohovoru nemusí být přítomni všichni a nepřítomnost neznamená automaticky žádný postih. Tyto situace ale můžeme zohlednit při kontrole, že soutěž proběhla poctivě a bez podvádění.",
+    "lang": "cs",
+    "category": "calls"
+  },
+  {
+    "question": "Můžeme se připojit k videohovorům z různých PC?",
+    "answer": "Ano.",
+    "lang": "cs",
+    "category": "calls"
+  },
+  {
+    "question": "Nemám webkameru, vadí to?",
+    "answer": "Pokud se někdo nemůže připojit nebo má technické potíže, neznamená to automaticky žádný postih. Tyto situace ale můžeme zohlednit při kontrole, že soutěž proběhla poctivě a bez podvádění.",
+    "lang": "cs",
+    "category": "calls"
+  },
+  {
     "question": "Dostanu diplom nebo nějaké osvědčení o účasti?",
     "answer": "<p>Certifikáty o účasti zasíláme všem týmům automaticky na email.</p>\n\n<p>Pokud vám nepřišel, zkontrolujte si prosím složku se spamem, případně se neváhejte ozvat na email  <a href=\"mailto: online@fyziklani.cz\">online@fyziklani.cz</a>. </p>",
     "lang": "cs",
@@ -198,14 +234,32 @@
     "category": "otherFAQ"
   },
   {
+    "question": "Mám si poznámky ukládat v nějaké specifické formě?",
+    "answer": "Není třeba. Stačí, že poznámky nevyhodíte či nesmažete a uschováte si je. Taktéž není na škodu si uložit použité kódy nebo si čas od času vyfotit postup v používaném softwaru.",
+    "lang": "cs",
+    "category": "otherFAQ"
+  },
+  {
     "question": "Na jakou adresu mám psát otázky ohledně soutěže, ještě než soutěž začne?",
-    "answer": "<a href='mailto:online@fyziklani.cz'>online@fyziklani.cz</a>",
+    "answer": "<p><a href='mailto:online@fyziklani.cz'>online@fyziklani.cz</a></p>\n<p>Při psaní e-mailu prosíme nezapomeňte uvést název vašeho týmu, abychom vám mohli snadněji pomoci.</p>",
     "lang": "cs",
     "category": "otherFAQ"
   },
   {
     "question": "Kde naleznu všechny důležité informace o soutěži?",
     "answer": "Na následující <a href=\"/o-soutezi\">stránce</a> a v <a href=\"/pravidla\">pravidlech</a>.",
+    "lang": "cs",
+    "category": "otherFAQ"
+  },
+   {
+    "question": "Kdy obdržíme certifikáty?",
+    "answer": "Certifikáty obdržíte poté, co budou vystaveny konečné výsledkové listiny.",
+    "lang": "cs",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "Jaké jsou ceny a jak jsou rozdělené?",
+    "answer": "Možné výhry lze nalézt na <a href=\"https://online.fyziklani.cz/\">hlavní stránce</a>. Ceny jsou postupně vybírány týmy s nejvyššími bodovými zisky.",
     "lang": "cs",
     "category": "otherFAQ"
   },
@@ -246,8 +300,26 @@
     "category": "registration"
   },
   {
+  "question": "How do I determine my study year?",
+  "answer": "Firstly refer to the <a href=\"https://isced.uis.unesco.org/visualizations/\">ISCED 2011</a> classification and find your country. The year of graduation corresponds to the last year of school classified as level 3.",
+  "lang": "en",
+  "category": "registration"
+  },
+  {
+    "question": "Can I rejoin the competition if my internet goes down? ",
+    "answer": "Yes.",
+    "lang": "en",
+    "category": "registration"
+  },
+  {
     "question": "Is it possible for participants to communicate with the organizers? If so how and in what languages?",
     "answer": "<p>Organisers will during the competition give out important information through our in-game noticeboard that will be available on our website.</p>\n\n<p>Send your questions about the tasks and other things to <a href=\"mailto: online@fyziklani.cz\">online@fyziklani.cz</a>. </p>\n\n<p>Organisers communicate in Czech, Slovak or English only. </p>",
+    "lang": "en",
+    "category": "game"
+  },
+  {
+    "question": "When do I get the password for the competition?",
+    "answer": "You should receive it at least half an hour before the competition begins.",
     "lang": "en",
     "category": "game"
   },
@@ -260,6 +332,12 @@
   {
     "question": "What are the parts of the competition and how do they differ?",
     "answer": "The competition has two parallel parts. The major part starts at the beginning of the competition and one hour later the Hurry-up series will begin. These will then run in parallel until the competition ends. In the second half of the competition you will be able to skip problems. For the Hurry-up series see the rules and the questions and answers below.",
+    "lang": "en",
+    "category": "game"
+  },
+  {
+    "question": "Can we compete from multiple PCs/locations?",
+    "answer": "Yes.",
     "lang": "en",
     "category": "game"
   },
@@ -284,6 +362,12 @@
   {
     "question": "Will we get author's solutions?",
     "answer": "Yes, after the end of the competition the solutions will appear on our website. Some time after the end the organizers will still be on the website and will be reacting to your recommendations, experiences or troubles relating the competition or the problems.",
+    "lang": "en",
+    "category": "tasks"
+  },
+  {
+    "question": "What areas of physics are the problems from?",
+    "answer": "Competition problems are chosen across physics, but usually mechanics prevails. Inspiration can be found in problems from <a href=\"https://physicsbrawl.org/archive\">previous years</a>.",
     "lang": "en",
     "category": "tasks"
   },
@@ -396,8 +480,38 @@
     "category": "hurry-up"
   },
   {
+    "question": "Do we all have to be present during the video calls?",
+    "answer": "Not everyone needs to be present on the video call and it does not automatically mean a penalty. However, we may take these situations into account when checking that the competition was fair and without cheating.",
+    "lang": "en",
+    "category": "calls"
+  },
+  {
+    "question": "Can we join the video call from different PCs?",
+    "answer": "Yes.",
+    "lang": "en",
+    "category": "calls"
+  },
+  {
+    "question": "I don't have a webcam, would it be a problem?",
+    "answer": "If someone is unable to join or has technical difficulties, this does not automatically mean a penalty. However, we may take these situations into account when checking that the competition was fair and without cheating.",
+    "lang": "en",
+    "category": "calls"
+  },
+  {
+    "question": "What if I don't speak English and I used a translator for the tasks?",
+    "answer": "We will include instructions for this in the invitation email. The most important thing is that you let us know, and we will tailor the call to your needs.",
+    "lang": "en",
+    "category": "calls"
+  },
+  {
     "question": "Will I get a certificate for attending?",
     "answer": "<p>We will send certificate for attending (with score) to all teams via email.</p>\n\n<p>In the case you didn't receive it, please check your spam folder. In case that it is not in spam, contact us on  <a href=\"mailto: online@fyziklani.cz\">online@fyziklani.cz</a>. </p>",
+    "lang": "en",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "What are the prices and how are they distributed?",
+    "answer": "Possible prizes can be found on the <a href=\"https://physicsbrawl.org/\">homepage</a>. Prizes are selected in turn by the teams with the highest point gains",
     "lang": "en",
     "category": "otherFAQ"
   },
@@ -408,8 +522,20 @@
     "category": "otherFAQ"
   },
   {
+    "question": "When will we receive the certificates?",
+    "answer": "You will receive the certificates once the final result lists are published.",
+    "lang": "en",
+    "category": "otherFAQ"
+  },
+  {
+    "question": "Should I save my notes in a specific format?",
+    "answer": "No need. Just don't throw away or delete the notes and keep them. It isn't also bad idea to save the codes you use, or to take a picture of your progress in the software you use from time to time.",
+    "lang": "en",
+    "category": "otherFAQ"
+  },
+  {
     "question": "Where should I send my questions about the competition before it starts?",
-    "answer": "<a href='mailto:online@fyziklani.cz'>online@fyziklani.cz</a>",
+    "answer": "<p><a href='mailto:online@fyziklani.cz'>online@fyziklani.cz</a></p>\n<p>When sending an email, please be sure to include your team name so we can help you more easily.</p>",
     "lang": "en",
     "category": "otherFAQ"
   },
