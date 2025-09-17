@@ -110,23 +110,23 @@ final class ProblemService extends AbstractJSONService
                 $futureSeries = array_filter(
                     $series,
                     function ($value, $key) {
-                        return $value['deadline'] && (new DateTime($value['deadline']) > new DateTime()) &&
-                            (!$value['release'] || (new DateTime($value['release']) < new DateTime()));
+                        return $value->deadline && (new DateTime($value->deadline) > new DateTime()) &&
+                            (!$value->release || (new DateTime($value->release) < new DateTime()));
                     },
                     ARRAY_FILTER_USE_BOTH
                 );
 
                 usort($futureSeries, function ($a, $b) {
-                    return (new DateTime($a['deadline'])) <=> (new DateTime($b['deadline']));
+                    return (new DateTime($a->deadline)) <=> (new DateTime($b->deadline));
                 });
 
                 if ($futureSeries) {
                     $series = reset($futureSeries);
-                    return $series['seriesId'];
+                    return $series->seriesId;
                 }
 
                 $series = end($series);
-                return $series['seriesId'];
+                return $series->seriesId;
             }
         );
     }

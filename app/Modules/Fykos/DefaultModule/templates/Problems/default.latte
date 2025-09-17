@@ -1,11 +1,12 @@
-{varType App\Models\Downloader\ProblemService $problemService}
+{varType App\Models\Downloader\Services\FileService $fileService}
 {varType string $lang}
 {varType App\Modules\Core\Language $language}
+{varType App\Modules\Downloader\Models\ContestYearModel $currentContestYear}
 
 {block title}
     {switch $language->value}
-        {case 'cs'}Zadání r. {$series->year} s. {$series->series}
-        {default}Problems y. {$series->year} s. {$series->series}
+        {case 'cs'}Zadání r. {$series->contestYear['year']} s. {$series->label}
+        {default}Problems y. {$series->contestYear['year']} s. {$series->label}
     {/switch}
 {/block}
 {block main}
@@ -25,8 +26,8 @@
                     </div>
                     <h1>
                         {switch $language->value}
-                        {case 'cs'}Zadání {$series->series}. série {$series->year}. ročníku
-                        {default}Problem Statement of Series {$series->series}, Year {$series->year}
+                        {case 'cs'}Zadání {$series->label}. série {$series->contestYear['year']}. ročníku
+                        {default}Problem Statement of Series {$series->label}, Year {$series->contestYear['year']}
                         {/switch}
                     </h1>
 
@@ -69,17 +70,17 @@
                                 <h2 class="accordion-header">
                                     <div class="accordion-button">
                                         {switch $language->value}
-                                        {case 'cs'}Ročník {$series->year}
-                                        {default}Year {$series->year}
+                                        {case 'cs'}Ročník {$series->contestYear['year']}
+                                        {default}Year {$series->contestYear['year']}
                                         {/switch}
                                     </div>
                                 </h2>
                                 <div class="accordion-collapse">
                                     <div class="accordion-body">
                                         <div class="series-container">
-                                            {foreach $yearsAndSeries[$series->year] as $seriesOption}
+                                            {foreach $currentContestYear->series as $seriesOption}
                                             <a class="series-box btn"
-                                                href="{plink 'this' 'year'=>$series->year, 'series'=>$seriesOption}">{$seriesOption}</a>
+                                               href="{plink 'this' 'year'=>$currentContestYear->year, 'series'=>$seriesOption->label}">{$seriesOption->label}</a>
                                             {/foreach}
                                         </div>
                                     </div>
@@ -89,26 +90,26 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <div class="scrollable-menu">
                                 <div class="accordion" id="competitionAccordion">
-                                    {foreach $yearsAndSeries as $yearOption => $seriesList}
+                                    {foreach $yearsAndSeries as $contestYear}
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" id="heading{$yearOption}">
+                                        <h2 class="accordion-header" id="heading{$contestYear->year}">
                                             <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#year{$yearOption}"
-                                                aria-expanded="false" aria-controls="year{$yearOption}">
+                                                data-bs-toggle="collapse" data-bs-target="#year{$contestYear->year}"
+                                                aria-expanded="false" aria-controls="year{$contestYear->year}">
                                                 {switch $language->value}
-                                                {case 'cs'}Ročník {$yearOption}
-                                                {default}Year {$yearOption}
+                                                {case 'cs'}Ročník {$contestYear->year}
+                                                {default}Year {$contestYear->year}
                                                 {/switch}
                                             </button>
                                         </h2>
-                                        <div id="year{$yearOption}" class="accordion-collapse collapse"
-                                            aria-labelledby="heading{$yearOption}"
+                                        <div id="year{$contestYear->year}" class="accordion-collapse collapse"
+                                            aria-labelledby="heading{$contestYear->year}"
                                             data-bs-parent="#competitionAccordion">
                                             <div class="accordion-body">
                                                 <div class="series-container">
-                                                    {foreach $seriesList as $seriesOption}
+                                                    {foreach $contestYear->series as $seriesOption}
                                                     <a class="series-box btn"
-                                                        href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption}</a>
+                                                        href="{plink 'this' 'year'=>$contestYear->year, 'series'=>$seriesOption->label}">{$seriesOption->label}</a>
                                                     {/foreach}
                                                 </div>
                                             </div>
@@ -122,15 +123,15 @@
                 </div>
             </div>
             <div class="mt-5">
-                {php $serialPath = $problemService->getSerial('fykos', $series, $lang)}
-                {php $batchPath = $problemService->getBatch('fykos', $series, $lang)}
-                {php $yearbookPath = $problemService->getYearbook('fykos', $series->year, $lang)}
+                {php $serialPath = $fileService->getSerial('fykos', $series, $lang)}
+                {php $batchPath = $fileService->getBatch('fykos', $series, $lang)}
+                {php $yearbookPath = $fileService->getYearbook('fykos', $series->contestYear['year'], $lang)}
                 {if $serialPath}
                     <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
                         <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
                         {switch $language->value}
-                            {case 'cs'}Text seriálu {$series->series}. série
-                            {default}Text of Serial Number {$series->series}
+                            {case 'cs'}Text seriálu {$series->label}. série
+                            {default}Text of Serial Number {$series->label}
                         {/switch}
                     </a>
                 {/if}
@@ -147,7 +148,7 @@
                     <a class="btn btn-primary my-2 mr-4" href="{$yearbookPath}">
                         <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
                         {switch $language->value}
-                            {case 'cs'}Ročenka {$series->year}. ročníku
+                            {case 'cs'}Ročenka {$series->contestYear['year']}. ročníku
                             {default}Year book (cs)
                         {/switch}
                     </a>

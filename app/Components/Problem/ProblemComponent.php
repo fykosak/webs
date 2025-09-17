@@ -6,28 +6,28 @@ namespace App\Components\Problem;
 
 use App\Models\Downloader\Models\ProblemManager\ProblemModel;
 use App\Models\Downloader\Models\ProblemManager\SeriesModel;
-use App\Models\Downloader\Services\ProblemService;
+use App\Models\Downloader\Services\FileService;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
 class ProblemComponent extends DIComponent
 {
-    private readonly ProblemService $problemService;
+    private readonly FileService $fileService;
 
     public function __construct(Container $container, private readonly SeriesModel $series)
     {
         parent::__construct($container);
     }
 
-    public function injectServiceProblem(ProblemService $problemService): void
+    public function injectServiceProblem(FileService $fileService): void
     {
-        $this->problemService = $problemService;
+        $this->fileService = $fileService;
     }
 
     public function render(ProblemModel $problem)
     {
         $this->template->series = $this->series;
-        $this->template->problemService = $this->problemService;
+        $this->template->fileService = $this->fileService;
         $this->template->problem = $problem;
         $this->template->language = $this->translator->lang;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'problem.latte');

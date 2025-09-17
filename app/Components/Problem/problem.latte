@@ -1,6 +1,6 @@
 {varType App\Models\Downloader\ProblemManager\ProblemModel $problem}
 {varType App\Models\Downloader\ProblemManager\SeriesModel $series}
-{varType App\Models\Downloader\ProblemService $problemService}
+{varType App\Models\Downloader\Services\FileService $fileService}
 {varType App\Modules\Core\Language $language}
 
 {block content}
@@ -47,13 +47,13 @@
                         </a>
                     {/if}
                     {if $problem->seriesOrder == 8}
-                        {php $serialPath = $problemService->getSerial($problem->contest, $series, $language->value)}
+                        {php $serialPath = $fileService->getSerial('fykos', $series, $language->value)}
                         {if $serialPath}
                             <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
                                 <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
                                 {switch $language->value}
-                                    {case 'cs'}Text seriálu {$series->series}. série
-                                    {default}Text of Serial Number {$series->series}
+                                    {case 'cs'}Text seriálu {$series->label}. série
+                                    {default}Text of Serial Number {$series->label}
                                 {/switch}
                             </a>
                         {/if}

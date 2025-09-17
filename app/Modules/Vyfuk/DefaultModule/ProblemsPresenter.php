@@ -6,6 +6,7 @@ namespace App\Modules\Vyfuk\DefaultModule;
 
 use App\Components\ImagePreviewModal\ImagePreviewModalComponent;
 use App\Components\Problem\ProblemComponent;
+use App\Models\Downloader\Models\ProblemManager\SeriesModel;
 use App\Models\Downloader\Services\ProblemService;
 use App\Models\Downloader\Services\FileService;
 use Throwable;
@@ -26,19 +27,25 @@ class ProblemsPresenter extends BasePresenter
         $this->problemService = $problemService;
     }
 
+    private function getSeries(): SeriesModel
+    {
+        $year = $this->year ?? $this->getCurrentYear()->year;
+        $seriesId = $this->series
+            ? $this->problemService->getSeriesId(ProblemService::VYFUK, $year, (string)$this->series)
+            : $this->problemService->getLatestSeriesId(ProblemService::VYFUK, $year);
+
+        return $this->problemService->getSeries($seriesId);
+    }
+
     /**
      * @throws \Throwable
      */
     public function renderDefault(): void
     {
-        $year = $this->year ?? $this->getCurrentYear()->year;
-        $seriesNumber = $this->series ?? $this->problemService->getLatestSeries('vyfuk', $year);
-
-        $seriesId = $this->problemService->getSeriesId(ProblemService::VYFUK, $year, (string)$seriesNumber);
-        $seriesModel = $this->problemService->getSeries($seriesId);
+        $seriesModel = $this->getSeries();
 
         $this->template->series = $seriesModel;
-        $this->template->currentContestYear = $this->problemService->getYear(ProblemService::VYFUK, $year);
+        $this->template->currentContestYear = $this->problemService->getYear(ProblemService::VYFUK, $this->year ?? $this->getCurrentYear()->year);
         $this->template->problems = $seriesModel->problems;
 
         $this->template->fileService = $this->fileService;
@@ -48,11 +55,7 @@ class ProblemsPresenter extends BasePresenter
 
     protected function createComponentProblem(): ProblemComponent
     {
-        $year = $this->year ?? $this->getCurrentYear()->year;
-        $seriesNumber = $this->series ?? $this->problemService->getLatestSeries(ProblemService::VYFUK);
-        $seriesId = $this->problemService->getSeriesId(4, $year, (string)$seriesNumber);
-        $seriesModel = $this->problemService->getSeries($seriesId);
-        return new ProblemComponent($this->getContext(), $seriesModel);
+        return new ProblemComponent($this->getContext(), $this->getSeries());
     }
 
     protected function createComponentImagePreviewModal(): ImagePreviewModalComponent
