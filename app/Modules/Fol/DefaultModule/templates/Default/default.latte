@@ -390,11 +390,21 @@
             </div>
             <div class="col-md-4">
             {switch $language->value}
-            {case cs}
+            {case cs}           
+               <a class="price-box small chess-box" href="https://www.chess.com/">
+                    Diamantové členství na<br />
+                    <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad"
+                        style="max-height: 3rem">
+                </a>  
             <a class="price-box small physolymp-box" href="https://physolymp.com/" style="text-decoration:none;">
                 PhysOlymp <br />licence
             </a>
             {default}
+                <a class="price-box small chess-box" href="https://www.chess.com/">
+                    Diamond membership on<br />
+                    <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad"
+                        style="max-height: 3rem">
+                </a>
             <a class="price-box small physolymp-box" href="https://physolymp.com/" style="text-decoration:none;">
                 PhysOlymp <br />licence
             </a>
