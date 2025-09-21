@@ -296,9 +296,9 @@
                     Wolfram<br />Mathematica<br />software
                 </a>
                 *}
-                <div class="price-box tri-plet" style="background-color: #f79c55; display: flex; align-items: center;">
+                {*<div class="price-box tri-plet" style="background-color: #f79c55; display: flex; align-items: center;">
                     Další ceny pro Vás připravujeme...
-                </div>
+                </div>*}
 
                 {default}
                 <a class="price-box large mathematica-box" href="https://www.wolfram.com/mathematica/">
@@ -320,9 +320,9 @@
                     Wolfram<br />Mathematica<br />software
                 </a>
                 *}
-                <div class="price-box tri-plet" style="background-color: #f79c55; display: flex; align-items: center;">
+                {*<div class="price-box tri-plet" style="background-color: #f79c55; display: flex; align-items: center;">
                     We are preparing more prizes...
-                </div>
+                </div>*}
                 {/switch}
             </div>
             <div class="col-md-4">
@@ -394,6 +394,16 @@
                     </div>
                 {/switch}
                 *}
+                {switch $language->value}
+                {case cs}
+                <div class="price-box tri-plet" style="background-color: #f79c55; display: flex; align-items: center;">
+                    Další ceny pro Vás připravujeme...
+                </div>
+                {default}
+                <div class="price-box tri-plet" style="background-color: #f79c55; display: flex; align-items: center;">
+                    We are preparing more prizes...
+                </div>
+                {/switch}
             </div>
             <div class="col-md-4">
             {switch $language->value}
