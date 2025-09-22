@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe43f004e8ba374b48b522176b79efff",
+    "content-hash": "726a70e0fb4634ca4b7361c94d0f0dba",
     "packages": [
         {
             "name": "68publishers/asset",
@@ -69,16 +69,16 @@
         },
         {
             "name": "fykosak/fksdb-downloader-core",
-            "version": "dev-dev-json-request",
+            "version": "dev-dev-api-key",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/fksdb-downloader-core.git",
-                "reference": "596e9a1"
+                "reference": "3dcc43c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/596e9a1",
-                "reference": "596e9a1",
+                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/3dcc43c",
+                "reference": "3dcc43c",
                 "shasum": ""
             },
             "require": {
@@ -109,9 +109,9 @@
             "description": "Interface for downloading data from FKSDB by SOAP-client",
             "support": {
                 "issues": "https://github.com/fykosak/fksdb-downloader-core/issues",
-                "source": "https://github.com/fykosak/fksdb-downloader-core/tree/dev-json-request"
+                "source": "https://github.com/fykosak/fksdb-downloader-core/tree/dev-api-key"
             },
-            "time": "2024-05-25T20:47:40+00:00"
+            "time": "2025-09-19T11:18:30+00:00"
         },
         {
             "name": "fykosak/nette-fks-utils",

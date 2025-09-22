@@ -1,3 +1,5 @@
+{varType App\Models\Downloader\Models\ProblemManager\SeriesModel $previousSeries}
+
 {block title}Hlavní stránka{/block}
 
 {block main}
@@ -85,7 +87,7 @@
                     </p>
                     {if $solutionsReady}
                         <p class="mb-2">
-                            Také se můžeš podívat na <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}">vzorová řešení</a> úloh předchozí série.
+                            Také se můžeš podívat na <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->contestYear['year'], 'series'=>(int)$previousSeries->label}">vzorová řešení</a> úloh předchozí série.
                         </p>
                     {else}
                         <p class="mb-2">
@@ -93,9 +95,9 @@
                         </p>
                     {/if}
                     <div class="d-block">
-                        <a n:href=":Default:Problems:default" class="btn btn-primary mt-2">Zadání {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série</a>
+                        <a n:href=":Default:Problems:default" class="btn btn-primary mt-2">Zadání {(int)$series->label > 6 ? (int)$series->label - 7 . ".&nbsp;prázdninové " : $series->label . ".&nbsp;"|noescape}série</a>
                         {if $solutionsReady}
-                            <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}" class="btn btn-primary mt-2">Řešení {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}série</a>
+                            <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->contestYear['year'], 'series'=>(int)$previousSeries->label}" class="btn btn-primary mt-2">Řešení {(int)$previousSeries->label > 6 ? (int)$previousSeries->label - 7 . ".&nbsp;prázdninové " : (int)$previousSeries->label . ".&nbsp;"|noescape}série</a>
                         {/if}
                     </div>
                 </div>
@@ -110,10 +112,10 @@
                         Mrkni se na <a n:href=":Default:Results:default">pořadí</a> po poslední sérii a zkontroluj si, jak si průběžně stojíš. Nejlepší řešitele čekají hodnotné <a n:href=":Default:Prizes:default">ceny</a> a především pak účast na našich akcích.
                     </p>
                     {if $resultsReady}
-                        <a href="{plink ':Default:Results:default' 'year'=>$previousSeries->year}" class="btn btn-primary">Pořadí  po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii</a>
+                        <a href="{plink ':Default:Results:default' 'year'=>$previousSeries->contestYear['year']}" class="btn btn-primary">Pořadí  po {(int)$previousSeries->label > 6 ? (int)$previousSeries->label - 7 . ".&nbsp;prázdninové " : $previousSeries->label . ".&nbsp;"|noescape}sérii</a>
                     {else}
                         <p class="mb-2">
-                            Výsledky po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii zveřejníme brzy.
+                            Výsledky po {(int)$previousSeries->label > 6 ? (int)$previousSeries->label - 7 . ".&nbsp;prázdninové " : $previousSeries->label . ".&nbsp;"|noescape}sérii zveřejníme brzy.
                         </p>
                     {/if}
                 </div>
@@ -173,7 +175,7 @@ let timer = setInterval(countdownTimer, 1000);
 countdownTimer();
 
 function countdownTimer() {
-    const seriesNumber = {$series->series};
+    const seriesNumber = {$series->label};
     const now = new Date().getTime();
 
     const distance = Math.floor((countDownDate - now)/1000);

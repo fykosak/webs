@@ -38,10 +38,10 @@ final class FileService extends AbstractJSONService
         );
     }
 
-    public function getSolution(ProblemModel $problem, string $lang): ?string
+    public function getSolution(string $contest, SeriesModel $series, ProblemModel $problem, string $lang): ?string
     {
-        $path = 'solution' . $problem->series . '-' . $problem->number . '.' . $lang . '.pdf';
-        return $this->getMedia($problem->contest, $problem->year, $path);
+        $path = 'solution' . $series->label . '-' . $problem->seriesOrder . '.' . $lang . '.pdf';
+        return $this->getMedia($contest, $series->contestYear['year'], $path);
     }
 
     public function getBatch(string $contest, SeriesModel $series, string $lang): ?string

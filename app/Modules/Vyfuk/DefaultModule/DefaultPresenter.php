@@ -5,66 +5,76 @@ declare(strict_types=1);
 namespace App\Modules\Vyfuk\DefaultModule;
 
 use App\Models\Downloader\Models\EventModel;
-use App\Models\Downloader\Models\SeriesModel;
+use App\Models\Downloader\Models\ProblemManager\SeriesModel;
 use App\Models\Downloader\Services\ProblemService;
 use App\Models\Downloader\Services\EventService;
+use App\Models\Downloader\Services\FileService;
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
+use InvalidArgumentException;
 
 class DefaultPresenter extends BasePresenter
 {
     private readonly ProblemService $problemService;
+    private readonly FileService $fileService;
+    private EventService $eventService;
 
-    public function injectServiceProblem(ProblemService $problemService): void
-    {
+    public function injectService(
+        ProblemService $problemService,
+        FileService $fileService,
+        EventService $eventService
+    ): void {
         $this->problemService = $problemService;
-    }
-
-    protected EventService $eventService;
-
-    public function injectEventServicesAndCache(EventService $eventService): void
-    {
+        $this->fileService = $fileService;
         $this->eventService = $eventService;
-    }
-
-    private function getPreviousSeries(int $year, int $currentSeries): SeriesModel
-    {
-        if ($currentSeries > 1) {
-            return $this->problemService->getSeries(
-                'vyfuk',
-                $year,
-                $currentSeries == 8 ? 6 : $currentSeries - 1 // check due to summer series
-            );
-        }
-
-        $previousYearData = $this->problemService->getYearJson('vyfuk', $year - 1);
-        $availableSeriesNumbers = array_keys($previousYearData);
-        $lastSeries = end($availableSeriesNumbers);
-        return $this->problemService->getSeries('vyfuk', $year - 1, $lastSeries);
     }
 
     public function renderDefault(): void
     {
         $this->template->newsList = $this->loadNews();
 
-        $year = $this->getCurrentYear()->year;
-        $series = $this->problemService->getLatestSeries('vyfuk', $year);
-        $seriesModel = $this->problemService->getSeries('vyfuk', $year, $series);
-        $this->template->series = $seriesModel;
+        //$year = $this->getCurrentYear()->year;
+        //$series = $this->problemService->getLatestSeries('vyfuk', $year);
+        //$seriesModel = $this->problemService->getSeries('vyfuk', $year, $series);
 
-        $previousSeries = $this->getPreviousSeries($year, $seriesModel->series);
+        $seriesId = $this->problemService->getLatestSeriesId(ProblemService::VYFUK);
+        $series = $this->problemService->getSeries($seriesId);
+
+        $previousSeriesId = $this->getPreviousSeriesId($series->contestYear['year'], $series->seriesId);
+        $previousSeries = $this->problemService->getSeries($previousSeriesId);
+
+        $this->template->series = $series;
 
         $this->template->previousSeries = $previousSeries;
         $this->template->solutionsReady = $this->solutionsReady($previousSeries, $this->lang);
-        $this->template->resultsReady = $this->resultsReady($year, $previousSeries);
+        $this->template->resultsReady = $this->resultsReady($previousSeries);
         $this->template->nearestEvent = $this->getNearestEvent();
     }
 
-    public function solutionsReady($series, $lang): bool
+    private function getPreviousSeriesId(int $year, int $currentSeriesId): int
     {
-        foreach ($series->problems as $probNum) {
-            $problem = $this->problemService->getProblem('vyfuk', $series->year, $series->series, $probNum);
+        $currentContestYear = $this->problemService->getYear(ProblemService::VYFUK, $year);
+        $series = $currentContestYear->series;
 
-            if ($this->problemService->getSolution($problem, $lang) !== null) {
+        // assumes that series contains only released series ordered by deadline
+        if (count($series) <= 1) {
+            $previousContestYear = $this->problemService->getYear(ProblemService::VYFUK, $year - 1);
+            return end($previousContestYear->series)->seriesId;
+        }
+
+        for ($i = 1; $i < count($series); $i++) {
+            if ($series[$i]->seriesId === $currentSeriesId) {
+                return $series[$i - 1]->seriesId;
+            }
+        }
+
+        throw new InvalidArgumentException('Expected to find previous series');
+    }
+
+
+    public function solutionsReady(SeriesModel $series, $lang): bool
+    {
+        foreach ($series->problems as $problem) {
+            if ($this->fileService->getSolution('vyfuk', $series, $problem, $lang) !== null) {
                 return true;
             }
         }
@@ -72,11 +82,11 @@ class DefaultPresenter extends BasePresenter
         return false;
     }
 
-    public function resultsReady($year, $series): bool
+    public function resultsReady(SeriesModel $series): bool
     {
-        $results = $this->downloader->download(new SeriesResultsRequest($this->getContestId(), $year));
+        $results = $this->downloader->download(new SeriesResultsRequest($this->getContestId(), $series->contestYear['year']));
 
-        if (isset($results['tasks']['VYFUK_6'][$series->series])) {
+        if (isset($results['tasks']['VYFUK_6'][$series->label])) {
             return true;
         } else {
             return false;
