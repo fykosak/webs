@@ -1,13 +1,13 @@
 parameters:
     # FKSDB API endpoint
     fksdbDownloader:
-        login: ''
-        password: ''
+        login: '<fksdb-login>'
+        password: '<fksdb-password>'
         url: 'https://db.fykos.cz/api/'
     problemManagerDownloader:
         login: ''
         password: ''
-        url: ''
+        url: 'https://static.fykos.cz/problems/'
 
     # game API endpoint, used for FOL/FOF live results
     #gameApi:

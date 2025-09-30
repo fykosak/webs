@@ -21,7 +21,7 @@ services:
       - ./config/msmtprc:/etc/msmtprc # mail config
     ports:
       - 8080-8084:8080-8084 # opened ports mapping, not needed with proxy
-    user: 1000:1000 # expects the main user with uid:pid
+    user: <uid>:<gid> # expects the main user with uid:pid
     extra_hosts:
       # enable the hack in apache.conf
       - "vyfuk.local:127.0.0.1"
