@@ -2,9 +2,22 @@
 
 Codebase pro Nette weby pro účely FYKOSu a Výfuk.
 
-Weby jsou naprogramovány v PHP pomocí frameworku Nette. Běží pod Apache v rámci docker kontejnerů.
+Weby jsou naprogramovány v PHP pomocí frameworku Nette. Běží pod Apache v rámci
+docker kontejnerů.
 
 ## Vývoj
+
+### Prerekvizity
+
+Aby bylo možné spustit weby, je potřeba mít nainstalovaný docker. Pokud jste na
+Linuxu, využijte [návodu na instalaci](https://docs.docker.com/engine/install/).
+
+Pokud jste na Windows, je asi nejlepším způsobem nainstalovat WSL (Ubuntu nebo
+Debian) a využít návodu pro Linux. Alternativně lze nainstalovat [Docker
+desktop](https://docs.docker.com/desktop/setup/install/windows-install/) přímo
+na Windows.
+
+Pro MacOS je možné použít pouze [Docker desktop](https://docs.docker.com/desktop/setup/install/mac-install/).
 
 ### První nastavení
 
