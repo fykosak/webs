@@ -26,8 +26,16 @@ docker_run() {
 
 
 heading "Check dependencies"
-check_command docker
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+if [ "$SCRIPT_DIR" != "$(pwd)" ]
+then
+	echo "You are not in the scripts directory, please cd into it"
+	echo "cd $SCRIPT_DIR"
+	exit 1
+fi
+
+check_command docker
 
 heading "Setting up configuration"
 
@@ -55,15 +63,19 @@ cp "docker/docker-compose.yml.sample" "docker/docker-compose.yml"
 sed -i "s/<uid>/$(id -u)/" "docker/docker-compose.yml"
 sed -i "s/<gid>/$(id -g)/" "docker/docker-compose.yml"
 
+
 heading "Build docker containers"
 (cd docker && docker compose build --pull)
+
 
 heading "Run composer"
 docker_run composer install
 
+
 heading "Run npm"
 docker_run npm install
 docker_run npm run build
+
 
 heading "Setup finished"
 printf "${COLOR_GREEN}Setup finished successfully${COLOR_NONE}\n"
