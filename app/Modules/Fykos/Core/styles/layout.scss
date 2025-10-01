@@ -37,6 +37,18 @@
   border-color: #ED7866;
 }
 
+.btn-primary-fabric {
+  @extend .btn-primary;
+  background-color: #f59622;
+  border-color: #f59622;
+}
+
+.btn-primary-noic {
+  @extend .btn-primary;
+  background-color: #de1b1b;
+  border-color: #de1b1b;
+}
+
 ul {
   list-style-type: square;
 }
