@@ -10,9 +10,9 @@
 
 <div class="person-dropcard organizers">
     <div class="card h-100">
-        <img src="{$basePath}/media/images/people/person{$organizer['personId']}.jpg"
+        <img src="https://db.fykos.cz/photo/person/person_{$organizer['personId']}.jpg"
             class="card-img-top"
-            onerror="this.src = '/images/personUnknown.jpg'"
+            onerror="this.src = '/images/person-unknown.jpg'"
             alt="{$organizer['name']}">
         <h4 class="card-header">{$organizer['name']}</h4>
         <div class="card-body">
