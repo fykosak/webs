@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
-use App\Models\Downloader\Services\ProblemService;
+use App\Models\Downloader\Services\FileService;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 use Nette\Bridges\ApplicationLatte\DefaultTemplate;
 
@@ -13,16 +13,16 @@ use Nette\Bridges\ApplicationLatte\DefaultTemplate;
  */
 final class AboutPresenter extends BasePresenter
 {
-    private readonly ProblemService $problemService;
+    private readonly FileService $fileService;
 
-    public function injectServiceProblem(ProblemService $problemService): void
+    public function injectServiceProblem(FileService $fileService): void
     {
-        $this->problemService = $problemService;
+        $this->fileService = $fileService;
     }
 
     public function getYearbookLink(int $year): ?string
     {
-        $yearbookPath = $this->problemService->getYearbook('fykos', $year, $this->template->lang);
+        $yearbookPath = $this->fileService->getYearbook('fykos', $year, $this->template->lang);
 
         if ($yearbookPath) {
             return $this->template->getLatte()->renderToString(__DIR__ . '/templates/About/yearbookLink.' . $this->template->lang . '.latte', [
@@ -77,7 +77,7 @@ final class AboutPresenter extends BasePresenter
         if ($allOrganizers !== []) {
             $currentOrganizers = array_filter(
                 $allOrganizers,
-                fn(array $organizer): bool => $organizer['until'] == null
+                fn (array $organizer): bool => $organizer['until'] == null
                     || $organizer['until'] === $this->getCurrentYear()->year
             );
             // sort by order and last name

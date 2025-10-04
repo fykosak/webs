@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
+use App\Models\Downloader\Services\FileService;
 use App\Models\Downloader\Services\ProblemService;
 use Nette\Caching\Cache;
 
@@ -12,12 +13,16 @@ class ArchivePresenter extends BasePresenter
     /** @persistent */
     public ?int $year = null;
 
+    private readonly FileService $fileService;
     private readonly ProblemService $problemService;
     private string $expire = '30 minutes';
 
-    public function injectServiceProblem(ProblemService $problemService): void
-    {
+    public function injectServiceProblem(
+        FileService $fileService,
+        ProblemService $problemService
+    ): void {
         $this->problemService = $problemService;
+        $this->fileService = $fileService;
     }
 
     /**
@@ -39,35 +44,22 @@ class ArchivePresenter extends BasePresenter
     private function getYearPartSerialLinks(string $lang): array
     {
         error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
-        $contest = $this->getContest();
+        $years = $this->problemService->getYears(problemService::FYKOS);
         $res = [];
-        foreach ($contest->years as $year) {
-            try {
-                $info = $this->problemService->getYearJson($contest->contest, $year->year);
-                $links = [];
-                foreach (array_keys($info) as $part) {
-                    /// TODO: `ProblemService` needs a refactor, this is bad!!!
-                    $series = $this->problemService->getSeries(
-                        $contest->contest,
-                        $year->year,
-                        $part
-                    );
-                    $link = $this->problemService->getSerial(
-                        $contest->contest,
-                        $series,
-                        $lang
-                    );
-                    if ($link !== null) {
-                        $links[$part] = $link;
-                    }
+        foreach ($years as $year) {
+            $links = [];
+            foreach ($year->series as $series) {
+                /// TODO: `ProblemService` needs a refactor, this is bad!!!
+                $series = $this->problemService->getSeries($series->seriesId);
+                $link = $this->fileService->getSerial('fykos', $series, $lang);
+                if ($link !== null) {
+                    $links[$series->label] = $link;
                 }
-                if (count($links) === 0) {
-                    continue;
-                }
-                $res[$year->year] = $links;
-            } catch (\Throwable $th) {
-                // may not have year info
             }
+            if (count($links) === 0) {
+                continue;
+            }
+            $res[$year->year] = $links;
         }
         krsort($res);
         return $res;

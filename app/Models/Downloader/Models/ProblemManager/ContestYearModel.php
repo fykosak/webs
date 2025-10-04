@@ -11,7 +11,7 @@ class ContestYearModel
     public int $year;
 
     /**
-     * @phpstan-var array<array{
+     * @phpstan-var array<object{
      *      seriesId: int,
      *      contestYearId: int,
      *      label: string,

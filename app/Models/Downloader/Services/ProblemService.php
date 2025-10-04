@@ -16,8 +16,8 @@ use Nette\Caching\Storage;
 
 final class ProblemService extends AbstractJSONService
 {
-    public const int FYKOS = 1;
-    public const int VYFUK = 4;
+    public const FYKOS = 1;
+    public const VYFUK = 4;
 
     public function __construct(
         string $expiration,

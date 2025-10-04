@@ -32,7 +32,7 @@ class ProblemsPresenter extends BasePresenter
         $year = $this->year ?? $this->getCurrentYear()->year;
         $seriesId = $this->series
             ? $this->problemService->getSeriesId(ProblemService::VYFUK, $year, (string)$this->series)
-            : $this->problemService->getLatestSeriesId(ProblemService::VYFUK, $year);
+            : $this->problemService->getLatestSeriesId(ProblemService::VYFUK);
 
         return $this->problemService->getSeries($seriesId);
     }
