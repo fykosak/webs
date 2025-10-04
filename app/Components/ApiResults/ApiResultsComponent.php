@@ -79,7 +79,9 @@ class ApiResultsComponent extends DIComponent
         return $data;
     }
 
-    public function render(): void {}
+    public function render(): void
+    {
+    }
 
     /**
      * @throws JsonException

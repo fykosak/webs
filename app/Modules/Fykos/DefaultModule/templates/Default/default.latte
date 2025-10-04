@@ -58,16 +58,31 @@
                                 </h2>
                             {elseif $year_stage == 'during'}
                                 {if $countdownEventsIndices['previous'][$lang] !== null}
-                                    <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]|noescape} | 
-                                    {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}
+                                    <h4 class="minor-event-heading">{$events[$countdownEventsIndices['previous'][$lang]]['heading'][$lang]|noescape} |
+                                    {switch $lang}
+                                        {case 'cs'}
+                                            {$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'j. n. Y'|replace: ' ','&nbsp;'|noescape}
+                                        {default}
+                                            {$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'M j, Y'|replace: ' ','&nbsp;'|noescape}
+                                    {/switch}
                                 {/if}
-                                <h2 class="next-event-heading">{$events[$countdownEventsIndices['upcoming'][$lang]]['heading'][$lang]|noescape} | 
-                                {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}<br>
+                                <h2 class="next-event-heading">{$events[$countdownEventsIndices['upcoming'][$lang]]['heading'][$lang]|noescape} |
+                                {switch $lang}
+                                    {case 'cs'}
+                                        {$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'j. n. Y'|replace: ' ','&nbsp;'|noescape}
+                                    {default}
+                                        {$events[$countdownEventsIndices['upcoming'][$lang]]['date'] |date:'M j, Y'|replace: ' ','&nbsp;'|noescape}
+                                {/switch}<br>
                                 <span id="countdown-primary"></span>
                                 </h2>
                                 {if $countdownEventsIndices['next'][$lang] !== null}
-                                    <h4 class="minor-event-heading mb-0">{$events[$countdownEventsIndices['next'][$lang]]['heading'][$lang]|noescape} | 
-                                    {switch $lang}{case 'cs'}{$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'j. n. Y'|replace:' ':'&nbsp;'|noescape}{default}{$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'M j, Y'|replace:' ':'&nbsp;'|noescape}{/switch}<br>
+                                    <h4 class="minor-event-heading mb-0">{$events[$countdownEventsIndices['next'][$lang]]['heading'][$lang]|noescape} |
+                                    {switch $lang}
+                                        {case 'cs'}
+                                            {$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'j. n. Y'|replace: ' ','&nbsp;'|noescape}
+                                        {default}
+                                            {$events[$countdownEventsIndices['next'][$lang]]['date'] |date:'M j, Y'|replace: ' ','&nbsp;'|noescape}
+                                    {/switch}<br>
                                     <span id="countdown-secondary"></span></h4>
                                 {else}
                                     <h4 class="minor-event-heading mb-0">
@@ -143,7 +158,7 @@
                 {default}Page of All Events
             {/switch}
         </a>
-        
+
         <a class="btn btn-primary" n:href=":Events:Default:default#events-calendar">
             {switch $language->value}
                 {case 'cs'}Kalendář
@@ -201,7 +216,14 @@
                                                         {* {$event['heading'][$language->value]} *}
                                                     </h3>
                                                 </div>
-                                                <span class="event-date">{switch $lang}{case 'cs'}{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}{default}{$event['date']|date:'M j'|replace:' ':'&nbsp;'|noescape}{/switch}</span>
+                                                <span class="event-date">
+                                                    {switch $lang}
+                                                        {case 'cs'}
+                                                            {$event['date']|date:'j. n.'|replace: ' ','&nbsp;'|noescape}
+                                                        {default}
+                                                            {$event['date']|date:'M j'|replace: ' ','&nbsp;'|noescape}
+                                                    {/switch}
+                                                </span>
                                             </div>
                                             <div>
                                                 <p class="text-start">{$event['description'][$language->value]|noescape}</p>
@@ -244,7 +266,7 @@
                                 <div class="col-md-3 mt-4
                                     {if $seriesCounter%6 == 1}offset-md-1
                                     {elseif $seriesCounter%6 == 4}offset-md-2
-                                    {/if}" 
+                                    {/if}"
                                     id="series-{$seriesCounter}"
                                 >
                                     <a n:href=":Default:Problems:default">
@@ -252,7 +274,14 @@
                                             <div class="event-header">
                                                 <div class="event-title">
                                                     <h3>{$event['heading'][$language->value]|noescape}</h3>
-                                                    <span class="event-date">{switch $lang}{case 'cs'}{$event['date']|date:'j. n.'|replace:' ':'&nbsp;'|noescape}{default}{$event['date']|date:'M j'|replace:' ':'&nbsp;'|noescape}{/switch}</span>
+                                                    <span class="event-date">
+                                                        {switch $lang}
+                                                            {case 'cs'}
+                                                                {$event['date']|date:'j. n.'|replace: ' ','&nbsp;'|noescape}
+                                                            {default}
+                                                                {$event['date']|date:'M j'|replace: ' ','&nbsp;'|noescape}
+                                                        {/switch}
+                                                    </span>
                                                 </div>
                                             </div>
                                             <div>
@@ -689,7 +718,7 @@
         // Parse the dates of events for timeline from template data
         let eventsJson = document.getElementById('events-data').getAttribute('data-events');
         // console.log("Raw JSON:", eventsJson); // Log the raw JSON string
-        
+
         let events;
         try {
             events = JSON.parse(eventsJson);
@@ -702,21 +731,21 @@
 
         let dates_events = [];
         let dates_series = [];
-        
+
         let images_events_v = [];
         let images_events_h = [];
         let images_series_v = [];
         let images_series_h = [];
 
         let hide_event_in_en = [];
-        
+
         let sortedEvents = Object.entries(events).sort((a, b) => new Date(a[1].date) - new Date(b[1].date));
 
         console.log("Sorted events:", sortedEvents);
 
         sortedEvents.forEach(([id, event]) => {
             let key = event['key'];
-            if (event['show-on-timeline']) { 
+            if (event['show-on-timeline']) {
                 let date = new Date(event.date);
                 let formattedDate = date.toISOString().split('T')[0]; // Format as YYYY-MM-DD
 
@@ -737,7 +766,7 @@
             }
         });
 
-        
+
 
 
         // let dates_events = ["2023-11-03", "2023-11-06", "2023-11-22", "2024-02-16"];

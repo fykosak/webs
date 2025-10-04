@@ -29,9 +29,8 @@ class ProblemsPresenter extends BasePresenter
 
     private function getSeries(): SeriesModel
     {
-        $year = $this->year ?? $this->getCurrentYear()->year;
-        $seriesId = $this->series
-            ? $this->problemService->getSeriesId(ProblemService::FYKOS, $year, (string)$this->series)
+        $seriesId = $this->year && $this->series
+            ? $this->problemService->getSeriesId(ProblemService::FYKOS, $this->year, (string)$this->series)
             : $this->problemService->getLatestSeriesId(ProblemService::FYKOS);
 
         return $this->problemService->getSeries($seriesId);
@@ -46,9 +45,14 @@ class ProblemsPresenter extends BasePresenter
         $this->template->series = $series;
         $this->template->problems = $series->problems;
 
+        $this->template->currentContestYear = $this->problemService->getYear(ProblemService::FYKOS, $series->contestYear['year']);
         $this->template->fileService = $this->fileService;
-        $this->template->yearsAndSeries = $this->problemService->getYears(ProblemService::FYKOS);
-        $this->template->currentContestYear = $this->problemService->getYear(ProblemService::FYKOS, $this->year ?? $this->getCurrentYear()->year);
+
+        $yearsAndSeries = $this->problemService->getYears(ProblemService::FYKOS);
+        usort($yearsAndSeries, function ($a, $b) {
+            return $b->year <=> $a->year;
+        });
+        $this->template->yearsAndSeries = $yearsAndSeries;
     }
 
     protected function createComponentProblem(): ProblemComponent

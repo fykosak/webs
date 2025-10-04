@@ -59,7 +59,7 @@
                             {switch $lang->value}{case cs}{var $notAStudentText = 'Nestudent'}{default}{var $notAStudentText = 'Not a student'}{/switch}
                             {var $inSchool = 0}
                             {if $team->members && count($team->members)}
-                                {do
+                                {php
                                     $members = $team->members;
                                     usort($members, fn(App\Models\Downloader\TeamMemberModel $a, App\Models\Downloader\TeamMemberModel $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))
                                 }

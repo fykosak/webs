@@ -9,9 +9,11 @@
             <h1>
                 Zadání {(int)$series->label > 6 ? (int)$series->label - 7 . ". prázdninové" : $series->label . "."} série {$series->contestYear['year']}. ročníku
             </h1>
-            <div>
-                Termín odevzdání: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>
-            </div>
+            {if $series->getDeadline()}
+                <div>
+                    Termín odevzdání: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>
+                </div>
+            {/if}
             <a class="btn btn-secondary mt-2" n:href="HowToSolve:default">
                 <i class="fas fa-circle-info me-2"></i>Jak se zapojit
             </a>
