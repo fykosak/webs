@@ -19,6 +19,15 @@ na Windows.
 
 Pro MacOS je možné použít pouze [Docker desktop](https://docs.docker.com/desktop/setup/install/mac-install/).
 
+Při instalaci na Linuxu chcete hlavně balíčky `docker` a
+`docker-compose-plugin` (případně např. u Arch Linuxu pojmenováno
+`docker-compose`). Po instalaci je možné, že nebude docker spuštěn, stačí jej
+`systemctl` zapnout nebo restartovat počítač.
+
+Po instalaci je možné, že váš linuxový uživatel nebude mít přístup k dockeru.
+Je nutné se přidat do unixové skupiny `docker`, abyste dostali přístup k
+souboru `/var/run/docker.sock`.
+
 ### První nastavení
 
 V root složce se nachází script `setup.sh`. Ten po spuštění vykoná několik kroků:
