@@ -6,8 +6,8 @@
         {foreach $organizers as $organizer}
         <div class="col-md-6 col-xl-4 mb-4">
             <div class="card organizer-card h-100">
-                <img src="/media/photos/people/{$organizer['personId']}.jpg" class="card-img-top"
-                    onerror="this.src = '{$basePath|noescape}/images/organizer_default.svg'" alt="{$organizer['name']}">
+                <img src="https://db.fykos.cz/photo/person/person_{$organizer['personId']}.jpg" class="card-img-top"
+                    onerror="this.src = '/images/organizer_default.svg'" alt="{$organizer['name']}">
                 <h4 class="card-header">{if
                     $organizer['academicDegreePrefix']}{$organizer['academicDegreePrefix']}&#160;{/if}{$organizer['name']}{if
                     $organizer['academicDegreeSuffix']}&#160;{$organizer['academicDegreeSuffix']}{/if}</h4>
