@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Posunutí termínu přihlašování na podzimní setkání",
+      "text": "Termín spuštění registrace na letošní podzimní setkání se posouvá na <b>16. 10. 2025 20:00</b>. Omlouváme se za případné komplikace.",
+      "date": "1. října 2025",
+      "link": ":Default:Events:setkani",
+      "link-text": "Stránka setkání"
+    },
+    {
       "title": "Konečné pořadí práznidových serií",
       "text": "Zveřejnili jsme pořadí po obou prázdninových sériích, můžete se tedy podívat, jak jste dopadli. Gratulujeme nejlepším řešitelům, kterým brzy rozešleme dotazník na výběr cen.",
       "date": "8. září 2025",
@@ -20,13 +27,6 @@
       "date": "25. srpna 2025",
       "link": ":Default:Events:setkani",
       "link-text": "Stránka podzimního setkání"
-    },
-    {
-      "title": "Konečné pořadí",
-      "text": "Se zveřejněním výsledků 6. série známe již celkové pořadí a vítěze 14. ročníku, jimiž jsou v jednotlivých kategoriích Matěj Dudek, Lukáš Kopecký, Richard Menšík a Kryštof Bílý. Vítězům gratulujeme a připomínáme, že mají nejpozději do 23. 6. čas si vybrat některou z <a href=\"https://vyfuk.org/ceny\">odměn</a>, které nabízíme.",
-      "date": "12. června 2025",
-      "link": ":Default:Results:default",
-      "link-text": "Pořadí"
     }
   ]
 }
