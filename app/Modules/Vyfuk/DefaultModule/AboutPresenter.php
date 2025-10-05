@@ -29,8 +29,8 @@ class AboutPresenter extends BasePresenter
         if ($allOrganizers !== []) {
             $currentOrganizers = array_filter(
                 $allOrganizers,
-                fn(array $organizer): bool => $organizer['until'] == null
-                || $organizer['until'] == $currentYear
+                fn(array $organizer): bool => $organizer['state'] == 'active'
+                && $organizer['showOnWeb']
             );
 
             // sort by order
