@@ -19,7 +19,13 @@
             "color": "fol"
         }
     ],
-    "en" : [
+    "en" : [{
+            "title": "Deadline extension",
+            "text": "Due to delays in the S assignment, we have decided to extend its deadline to October 12nd. We apologize for any inconvenience.",
+            "link": "https://fykos.org/problems",
+            "link-text": "Problems",
+            "color": "fykos"
+        },
             {
             "title": "Registration for Physics Brawl Online",
             "text": "The registration for Physics Brawl Online is opened! Gather a group of up to five friends and join teams from all over the world to solve physics problems on November 26th! ",
