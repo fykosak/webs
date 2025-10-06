@@ -4,40 +4,20 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader\Downloaders;
 
-use Fykosak\FKSDBDownloaderCore\BasicDownloader;
 use Fykosak\FKSDBDownloaderCore\DownloaderException;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use Nette\Caching\Cache;
-use Nette\Caching\Storage;
-use Nette\SmartObject;
 use Nette\Utils\DateTime;
 
-abstract class NetteDownloader extends BasicDownloader
+trait CachedDownloaderTrait
 {
-    use SmartObject;
-
     private Cache $cache;
-
-    public function __construct(
-        string $jsonApiUrl,
-        string $username,
-        #[\SensitiveParameter]
-        string $password,
-        private readonly string $expiration,
-        Storage $storage
-    ) {
-        $this->cache = new Cache($storage, self::class);
-        parent::__construct(
-            $jsonApiUrl,
-            $username,
-            $password,
-        );
-    }
+    private string $expiration;
 
     /**
      * @throws \Throwable
      */
-    public function download(Request $request, ?string $explicitExpiration = null): array
+    public function downloadCached(Request $request, ?string $explicitExpiration = null): array
     {
         $data = $this->cache->load($request->getCacheKey() . '-json');
 

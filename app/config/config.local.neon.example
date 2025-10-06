@@ -4,13 +4,15 @@ parameters:
         login: ''
         password: ''
         url: 'https://db.fykos.cz/api/'
-    staticDownloader:
-        login: ''
-        password: ''
-        url: ''
+
+    # Problem Manager API endpoint
     problemManagerDownloader:
         url: ''
         key: ''
+
+    # static.fykos.cz URL
+    static:
+        url: ''
 
     # game API endpoint, used for FOL/FOF live results
     #gameApi:

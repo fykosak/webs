@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader\Services;
 
-use App\Models\Downloader\Downloaders\StaticDownloader;
 use App\Models\Downloader\Models\ProblemManager\ProblemModel;
 use App\Models\Downloader\Models\ProblemManager\SeriesModel;
 use Nette\Caching\Cache;
@@ -16,9 +15,7 @@ final class FileService extends AbstractJSONService
         string $expiration,
         private string $staticURL,
         Storage $storage,
-        StaticDownloader $downloader
     ) {
-        $this->downloader = $downloader;
         parent::__construct($expiration, $storage);
     }
 
