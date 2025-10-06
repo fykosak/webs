@@ -10,7 +10,13 @@
         "pokud něco nefunguje, dost možná je někde špatně čárka",
         "do novinek se dají dávat i html elementy"
     ],
-    "cs" : [
+    "cs" : [{
+            "title": "Prodloužení deadlinu",
+            "text": "Kvůli pozdnímu zveřejnění seriálového textu jsem se rozhodli prodloužit deadline úlohy S do 12. října. Za způsobené potíže se omlováme",
+            "link": "https://fykos.cz/zadani",
+            "link-text": "Zadání",
+            "color": "fykos"
+        },
                   {
             "title": "Zaregistrujte se na Fyziklání Online",
             "text": "Spustila se registrace do letošního ročníku Fyziklání Online! Tak sežeňte partu až pěti kamarádů a 26. listopadu se přidejte k týmům z celého světa v řešení originálních fyzikálních úloh!",
