@@ -351,6 +351,13 @@ class RouterFactory
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
 
+        $router->withModule('Default')
+            ->addRoute('//<domain>/<presenter akce>/<action detail>/<eventId ([0-9]{1,3})>', [
+                'presenter' => 'Events',
+                'action' => 'detail',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
         $router
             ->withModule('Default')
             ->addRoute(
