@@ -12,9 +12,6 @@ class EventsPresenter extends BasePresenter
 {
     protected EventService $eventService;
 
-    /** @persistent */
-    public ?int $eventId = null;
-
     public function injectEventServicesAndCache(EventService $eventService): void
     {
         $this->eventService = $eventService;
