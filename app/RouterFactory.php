@@ -345,9 +345,16 @@ class RouterFactory
             );
 
         $router->withModule('Default')
-            ->addRoute('//<domain>/<presenter poradi>/<year ([0-9]{1,2})>', [
+            ->addRoute('//<domain>/<presenter poradi>/<year ([0-9]+)>', [
                 'presenter' => 'Results',
                 'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
+        $router->withModule('Default')
+            ->addRoute('//<domain>/<presenter akce>/<action detail>/<eventId ([0-9]+)>', [
+                'presenter' => 'Events',
+                'action' => 'detail',
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
 
