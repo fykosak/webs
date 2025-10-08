@@ -24,7 +24,6 @@ class AboutPresenter extends BasePresenter
     {
         $allOrganizers = $this->FKSDBDownloader->download(new OrganizersRequest(2));
         $currentOrganizers = [];
-        $currentYear = $this->getCurrentYear()->year;
 
         if ($allOrganizers !== []) {
             $currentOrganizers = array_filter(
