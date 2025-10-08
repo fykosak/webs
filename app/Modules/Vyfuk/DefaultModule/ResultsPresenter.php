@@ -8,7 +8,6 @@ use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 
 class ResultsPresenter extends BasePresenter
 {
-    /** @persistent */
     public ?int $year = null;
 
     /**

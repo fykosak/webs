@@ -35,7 +35,7 @@ abstract class BasePresenter extends Presenter
      * @throws UnsupportedLanguageException
      * @throws \Throwable
      */
-    protected function startUp(): void
+    protected function startup(): void
     {
         parent::startup();
         $this->localize();

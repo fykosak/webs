@@ -17,9 +17,9 @@ class EventsPresenter extends BasePresenter
         $this->eventService = $eventService;
     }
 
-    public function renderDetail(int $event): void
+    public function renderDetail(int $eventId): void
     {
-        $event = $this->eventService->getEvent($event);
+        $event = $this->eventService->getEvent($eventId);
         if ($event->contestId != 2) {
             $this->error();
         }
