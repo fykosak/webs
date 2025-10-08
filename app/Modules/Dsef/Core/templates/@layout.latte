@@ -65,15 +65,9 @@
                     <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Zaregistrovat se{default}Registration{/switch}</a>
                 {else}
                     {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
-                        {switch $language->value}
-                            {case 'cs'}Registrace se otevře na konci září!
-                            {default} Registration will open in September!
-                        {/switch}
+                        Registrace se otevře 10. 10. 2025 v 00:00!
                     {else}
-                        {switch $language->value}
-                            {case 'cs'}Registrace na další ročník ještě není otevřena.
-                            {default} Registration for the next year is not open yet.
-                        {/switch}
+                        Registrace na další ročník ještě není otevřena.
                     {/if}
                 {/if}
             </div>
