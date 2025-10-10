@@ -13,8 +13,10 @@ class ProblemsPresenter extends BasePresenter
 {
     private readonly ProblemService $problemService;
 
+    /** @persistent */
     public ?int $year = null;
 
+    /** @persistent */
     public ?int $series = null;
 
     public function injectServiceProblem(ProblemService $problemService): void
