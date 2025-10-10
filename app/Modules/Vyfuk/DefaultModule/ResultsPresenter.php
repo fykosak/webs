@@ -30,7 +30,7 @@ class ResultsPresenter extends BasePresenter
                         $tasksHasResult[$taskId] = true;
                     }
                 }
-                if (count($results['submits'][$category][$key]['submits']) == 0) {
+                if (count($results['submits'][$category][$key]['submits']) === 0) {
                     unset($results['submits'][$category][$key]);
                 }
             }
@@ -43,7 +43,7 @@ class ResultsPresenter extends BasePresenter
                         unset($results['tasks'][$category][$serieNumber][$taskOrder]);
                     }
                 }
-                if (count($results['tasks'][$category][$serieNumber]) == 0) {
+                if (count($results['tasks'][$category][$serieNumber]) === 0) {
                     unset($results['tasks'][$category][$serieNumber]);
                 } else {
                     $results['tasks'][$category][$serieNumber] = array_values($results['tasks'][$category][$serieNumber]);

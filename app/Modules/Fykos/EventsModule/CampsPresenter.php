@@ -15,7 +15,7 @@ class CampsPresenter extends BasePresenter
 
     public function getEventHeading(array $event): array
     {
-        if ($event['eventTypeId'] == 4) {
+        if ($event['eventTypeId'] === 4) {
             $year = 1986 + $event['year'] + 1;
             return [
                 'cs' => 'Jarní soustředění ' . $year,
@@ -32,7 +32,7 @@ class CampsPresenter extends BasePresenter
 
     public function eventYearToCalendarYear(int $eventYear, int $season): int
     {
-        if ($season == 4) {
+        if ($season === 4) {
             return 1986 + $eventYear + 1;
         } else { // $season == 5
             return 1986 + $eventYear;
@@ -48,7 +48,7 @@ class CampsPresenter extends BasePresenter
 
         $event = null;
         foreach ($events as $e) {
-            if ($this->eventYearToCalendarYear($e['year'], $e['eventTypeId']) == $year) {
+            if ($this->eventYearToCalendarYear($e['year'], $e['eventTypeId']) === $year) {
                 $event = $e;
                 break;
             }
@@ -66,16 +66,16 @@ class CampsPresenter extends BasePresenter
         $this->template->photoPath = $this->getEventPhotoBasePath($event);
         $participants = $this->downloader->download(new ParticipantsRequest((int)$event['eventId']));
         $participants = array_filter($participants, function ($participant) {
-            return $participant['status'] == 'participated';
+            return $participant['status'] === 'participated';
         });
         $this->template->participants = $participants;
     }
 
     private function getEventPhotoBasePath(array $event): string
     {
-        if ($event['eventTypeId'] == 4) {
+        if ($event['eventTypeId'] === 4) {
             $eventType = 'sous-jaro';
-        } else { // $event['eventTypeId'] == 5
+        } else { // $event['eventTypeId'] === 5
             $eventType = 'sous-podzim';
         }
         if ($event['year'] < 10) {
@@ -92,7 +92,7 @@ class CampsPresenter extends BasePresenter
         // find images in www directory (index.php is in www dir, so ./ resolves to it)
         $photos = glob('.' . $this->getEventPhotoBasePath($event) . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
-        if (empty($photos)) {
+        if (count($photos) === 0) {
             return $this->template->basePath . '/media/images/events/event-missing-photo.png';
         }
 
