@@ -11,13 +11,6 @@
         "do novinek se dají dávat i html elementy"
     ],
     "cs" : [{
-            "title": "Prodloužení deadlinu",
-            "text": "Kvůli pozdnímu zveřejnění seriálového textu jsem se rozhodli prodloužit deadline úlohy S do 12. října. Za způsobené potíže se omlováme.",
-            "link": "https://fykos.cz/zadani",
-            "link-text": "Zadání",
-            "color": "fykos"
-        },
-                  {
             "title": "Zaregistrujte se na Fyziklání Online",
             "text": "Spustila se registrace do letošního ročníku Fyziklání Online! Tak sežeňte partu až pěti kamarádů a 26. listopadu se přidejte k týmům z celého světa v řešení originálních fyzikálních úloh!",
             "link": "https://online.fyziklani.cz/registrace",
@@ -26,13 +19,6 @@
         }
     ],
     "en" : [{
-            "title": "Deadline extension",
-            "text": "Due to delays in the publishing of the task S, we have decided to extend its deadline to October 12. We apologize for any inconvenience.",
-            "link": "https://fykos.org/problems",
-            "link-text": "Problems",
-            "color": "fykos"
-        },
-            {
             "title": "Registration for Physics Brawl Online",
             "text": "The registration for Physics Brawl Online is opened! Gather a group of up to five friends and join teams from all over the world to solve physics problems on November 26th! ",
             "link": "https://physicsbrawl.org/registration",

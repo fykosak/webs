@@ -65,15 +65,9 @@
                     <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Zaregistrovat se{default}Registration{/switch}</a>
                 {else}
                     {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
-                        {switch $language->value}
-                            {case 'cs'}Registrace se otevře na konci září!
-                            {default} Registration will open in September!
-                        {/switch}
+                        Registrace se otevře 10. 10. 2025 v 00:00!
                     {else}
-                        {switch $language->value}
-                            {case 'cs'}Registrace na další ročník ještě není otevřena.
-                            {default} Registration for the next year is not open yet.
-                        {/switch}
+                        Registrace na další ročník ještě není otevřena.
                     {/if}
                 {/if}
             </div>
@@ -111,14 +105,20 @@
                         </a>
                     </div>
                 </div>
-                {* <div class="category">
-                    <div class="category-title">{switch $language->value}{case cs}Partner{default}Partner{/switch}</div>
+                <div class="category">
+                    <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}</div>
                     <div class="category-sponsors">
-                        <a href="https://www.iaps.info/" style="text-align: center">
+                        {*<a href="https://www.iaps.info/" style="text-align: center">
                             <img src="{$basePath}/images/logos/iaps_logo.png" alt="IAPS logo" style="max-height: 10rem; max-width: 13rem">
+                        </a>*}
+                        <a href="https://qminers.com/cs/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/logo-qminers.png" alt="Qminers logo" style="max-width: 12rem">
+                        </a>
+                        <a href="https://www.nadaceneuron.cz" style="text-align: center">
+                            <img class="logo" src="{$basePath}/images/logos/logo-neuron-zlate-CZ.png" alt="Neuron logo" style="max-width: 12rem">
                         </a>
                     </div>
-                </div> *}
+                </div>
             </div>
         </div>
 

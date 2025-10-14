@@ -9,13 +9,12 @@
         <!-- <div class="subheader">Aktuální stránka akce z {*$event->begin|date: "j. n. Y"*}</div>
         <h1>DSEF {*$event->begin|date: "Y"*}</h1> -->
         <h1>Základní informace</h1>
-        
+
         <p>Den s experimentální fyzikou se bude konat {$newestEvent->begin|date: 'j. n. Y'}, tentokrát na Troji.
-            Registrace se otevře {$newestEvent->registrationBegin|date: 'j. n.'} a skončí
-            {$newestEvent->registrationEnd|date: 'j. n. Y'}.
+            Registrace se otevře {$newestEvent->registrationBegin|date: 'j. n. Y'} v {$newestEvent->registrationBegin|date: 'H:i'}
+            a skončí {$newestEvent->registrationEnd|date: 'j. n. Y'}.
             Rozvržení jednotlivých exkurzí budeme postupně přidávat. Již nyní můžeme slíbit, že pro účastníky z daleka
             bude jako každý rok připravené ubytování z neděle na pondělí.
-            {* <a href="#prihlasovani">Přihlašování</a> *}
             Pokud máte nějaký dotaz nebo problém, neváhejte nám napsat na e-mail <a
                 href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.
         </p>
@@ -39,6 +38,7 @@
         <p style="margin-left: 2rem;">
             <b>  Populárně naučná přednáška na laserové technologie   </b> <br>
             doc. RNDr. Martin Kozák, Ph.D.<br>
+             Vynález laseru na začátku druhé poloviny 20. století byl skutečným přelomem ve schopnostech lidstva využívat světlo ve svůj prospěch. V této přednášce si povíme, jaký je princip fungování laseru a jaké typy laserů se do dnešní doby podařilo vyvinout. Dále si ukážeme několik příkladů toho, k čemu všemu v dnešní době lidstvo lasery úspěšně využívá. Například si vysvětlíme jak vývoj laserové technologie v nedávné době umožnil detekovat gravitační vlny či jak je možné pomocí laserů pozorovat extrémně rychlé procesy odehrávající se na časových škálách attosekund.
 
 
         </p>
@@ -49,7 +49,7 @@
         <p>
             Při přihlášení si zvolíte jednu dopolední a odpolední skupinu; níže naleznete informace o tom, jaké exkurze
             na vás čekají. Dopolední program probíhá na pracovištích MFF UK, odpolední na různých vědeckých institucích v
-            Praze a okolí. Začátek a konec odpoledního bloku exkurzí není pro všechny exkurze stejný, uvedený časový interval je pouze orientační. 
+            Praze a okolí. Začátek a konec odpoledního bloku exkurzí není pro všechny exkurze stejný, uvedený časový interval je pouze orientační.
             Podobně jako minulé ročníky, i letos plánujeme celodenní exkurze. Konkrétní exkurze budou teprve zveřejněny.<br>
             Skupinu bude možné v přihlášce změnit do konce registrace,
             tj. {$newestEvent->registrationEnd|date:'j. n. Y'}.
@@ -57,13 +57,12 @@
      </section>
 </div>
 
-{*
+
 <div class="panel color-auto">
     <section class="inner-container" id="prihlasovani">
         <h1>Přihlašování</h1>
        <p>
-            Přihlašování na letošní ročník Dne s experimentální fyzikou se spustí {$newestEvent->registrationBegin|date:
-            'j. n. Y'}.
+            Přihlašování je spuštěno!
 
             Exkurze mají dopolední a odpolední část, v každé z nich jsou účastníci rozdělení do několika skupin,
             jejichž program se liší. Výjimku tvoří celodenní exkurze. Svou skupinu si
@@ -71,7 +70,7 @@
             si ji do konce registrace měnit podle Vašich preferencí.
 
         </p>
-        <p>
+       <p>
 
                 <a href="{plink :Default:Registration:Default}" type="button"
                    class="btn btn-primary btn-block" style="border-radius: 0">Registrovat se</a>
@@ -79,8 +78,7 @@
         </p>
     </section>
 </div>
-*}
-{*
+
 <div class="panel color-auto">
     <section class="inner-container">
         <h1>Ubytování</h1>
@@ -89,7 +87,7 @@
         <div class="level5">
             <ul>
                 <li class="level1">
-                    <div class="li"> Ubytování je v <a href="https://plushostels.com/cs/praha" class="urlextern"
+                    <div class="li"> Ubytování je v <a href="https://www.plusprague.cz/cs/" class="urlextern"
                             title="https://plushostels.com/cs/praha">Hostelu PLUS</a> v Holešovicích. </div>
                 </li>
                 <li class="level1">
@@ -127,7 +125,6 @@
         </div>
     </section>
 </div>
-*}
 
 <div class="panel color-auto">
     <section class="inner-container">
@@ -174,7 +171,7 @@
                     </tr>
                     <tr class="row6">
                         <th class="col0">Echo</th>
-                        <td class="col1"><a href="#RKRYS">RKRYS</a></td>
+                        <td class="col1"><a href="#EXT">EXT</a></td>
                         <td class="col2"><a href="#STR">STR</a></td>
                         <td class="col3"><a href="#TEM">TEM</a></td>
                     </tr>
@@ -205,7 +202,7 @@
                     <tr class="row11">
                         <th class="col0">Juliet</th>
                         <td class="col1"><a href="#NAN">NAN</a></td>
-                        <td class="col2"><a href="#RKRYS">RKRYS</a></td>
+                        <td class="col2"><a href="#EXT">EXT</a></td>
                         <td class="col3"><a href="#SEIS">SEIS</a></td>
                     </tr>
                     <tr class="row12">
@@ -218,9 +215,9 @@
                         <th class="col0">Lima</th>
                         <td class="col1"><a href="#MAG">MAG</a></td>
                         <td class="col2"><a href="#BIO">BIO</a></td>
-                        <td class="col3"><a href="#RKRYS">RKRYS</a></td>
+                        <td class="col3"><a href="#EXT">EXT</a></td>
                     </tr>
-                   
+
 
                 </tbody>
             </table>
@@ -237,10 +234,10 @@
                     <tr class="row17">
                         <td class="col0" colspan="2"></td>
                         <td class="col2" colspan="2"> 14:00–16:30</td>
-                      
+
                     </tr>
                     </tr>
-                 
+
                     <tr class="row19">
                         <th class="col0" colspan="2">November</th>
                         <td class="col2" colspan="2"><a href="#bio">Ústav experimentální botaniky</a>
@@ -248,7 +245,8 @@
                     </tr>
                     <tr class="row20">
                         <th class="col0" colspan="2">Oscar</th>
-                        <td class="col2" colspan="2"><a href="#prot">Proton therapy + Bulovka</a></td>
+                        <td class="col2" colspan="2"><a href="#prot">Proton therapy + Radiologické oddělení na Bulovce</a></td>
+                        
                     </tr>
                     <tr class="row21">
                         <th class="col0" colspan="2">Papa</th>
@@ -262,28 +260,28 @@
                         <th class="col0" colspan="2">Romeo</th>
                         <td class="col2" colspan="2"><a href="#ion">Ionosforická observatoř</a></td>
                     </tr>
-                    
+
 
                     <tr class="row24">
                         <th class="col0" colspan="2">Tango</th>
                         <td class="col2" colspan="2"><a
                                 href="#gen"
                                  >ÚMG</a></td>
-                     </tr>            
+                     </tr>
                                    <tr class="row25">
                         <th class="col0" colspan="2">Uniform</th>
-                        <td class="col2" colspan="2"><a href="#PALS">PALS + Thz</a></td>
-                    
+                        <td class="col2" colspan="2"><a href="#PALS">PALS</a></td>
+
                     </tr>
-                    
+
                                  <tr class="row26">
                         <th class="col0" colspan="2">Victor</th>
                         <td class="col2" colspan="2"><a href="#ÚJV">ÚJV</a></td>
-                    
+
                     </tr>
 
-                    
- {*                   
+
+ {*
 
                   	<tr class="row27">
                         <th class="col0" colspan="2">Yankee</th>
@@ -383,14 +381,14 @@
 	        <h4 id="LAS">Femtosekundová laboratoř(LAS)</h4>
 	        <p>
                 Na exkurzi se účastníci seznámí s principem fungování laserů s ultrakrátkými pulzy
-                a s nelineární optikou, uvidí využití femtosekundových laserů při studiu nelineárních 
+                a s nelineární optikou, uvidí využití femtosekundových laserů při studiu nelineárních
                 optických jevů v látkách.
 
             </p>
-            
+
             <h4 id="NAN">Nano u vás doma u nás v laboratoři (NAN)</h4>
 	        <p>
-                Navštivte s námi nano-svět. Společně se podíváme jaké optické signály vysílají nano-objekty směrem k našemu makro-světu pomocí mikro-spektroskopie. Dále nahlédneme i do světa nanostruktur pomocí mikroskopie atomárních sil, která nám umožňuje ohmatat nano-povrchy a změřit jejich fyzikální vlastnosti 
+                Navštivte s námi nano-svět. Společně se podíváme jaké optické signály vysílají nano-objekty směrem k našemu makro-světu pomocí mikro-spektroskopie. Dále nahlédneme i do světa nanostruktur pomocí mikroskopie atomárních sil, která nám umožňuje ohmatat nano-povrchy a změřit jejich fyzikální vlastnosti
 
             </p>
             <h4 id="BIO"> Laserová spektroskopie pro studium biologicky významných procesů (BIO)</h4>
@@ -411,29 +409,42 @@
             </p>
             <h4 id="PKRYS">Příprava monokrystalů pro materiálový výzkum a aplikace (PKRYS)</h4>
 	        <p>
-            Monokrystaly představují nejuspořádanější formu pevných látek. Díky směrovému charakterů fyzikálních vlastností krystalických latek, růst kvalitních monokrystálů je nezbytným prvotním krokem v materiálovém výzkumu. V rámci exkurze bude demonstrován růst krystalů Czochralského metodou a metodou zonální tavby implementované do nejpokročilejší laserové pece. Monokrystaly jsou v současnosti nepostradatelným blokem i v mnoha aplikacích, zejména elektronika, ale také detektory ionizujícího záření a pevnolátkové lasery. Účastnící se proto seznámí i s monokrystaly křemíku, silikonkarbidu a perovskitů.            
+            Monokrystaly představují nejuspořádanější formu pevných látek. Díky směrovému charakterů fyzikálních vlastností krystalických latek, růst kvalitních monokrystálů je nezbytným prvotním krokem v materiálovém výzkumu. V rámci exkurze bude demonstrován růst krystalů Czochralského metodou a metodou zonální tavby implementované do nejpokročilejší laserové pece. Monokrystaly jsou v současnosti nepostradatelným blokem i v mnoha aplikacích, zejména elektronika, ale také detektory ionizujícího záření a pevnolátkové lasery. Účastnící se proto seznámí i s monokrystaly křemíku, silikonkarbidu a perovskitů.
             </p>
-            
+
             <h4 id="RAM">Ramanova spektroskopie (RAM)</h4>
             <p>
             Ramanova mikroskopie je moderní bezkontaktní zobrazovací metoda kombinující Ramanovou spektroskopii s konfokální optickou mikroskopií. Umožňuje zkoumat chemické složení studovaných objektů se submikrometrickým prostorovým rozlišením. Využívá se v různých oborech od materiálového výzkumu, geologie, chemie až po biologický a lékařský výzkum. V rámci exkurze vysvětlíme fyzikální princip metody, ukážeme moderní Ramanův mikroskop a předvedeme jeho použití na studium chemického složení mikroorganismů.
             </p>
-            
+
             <h4 id="MAG">Světem magnetooptiky (MAG) </h4>
             <p>
-            
+
             </p>
-            
+
             <h4 id="STR">Laboratoř strukturní analýzy (STR)</h4>
             <p>
-            
+                Rentgenové laboratoře Oddělení strukturní analýzy na Katedře fyziky kondenzovaných látek MFF UK jsou vybaveny moderními rentgenovými difraktometry umožňujícími studium struktury materiálů pomocí rozptylu rentgenového záření. V oddělení jsou studovány různé typy tenkých vrstev, nanokrystalické materiály, materiály objemové i práškové a to i za nízkých a vysokých teplot, vysokých tlaků, případně definovaných nestandardních atmosfér. Kromě určování fázového složení vzorků a zpřesňování krystalové struktury se zde zkoumá i tzv. reálná struktura materiálů – strukturní defekty, mikrodeformace,
+velikost krystalitů, textura či zbytková napětí.
+Součástí vybavení je také aparatura pro maloúhlový rozptyl rentgenového záření (SAXS), která umožňuje charakterizovat nanomateriály a struktury ve větším než atomovém měřítku. Výzkum je zaměřen na moderní materiály s vysokým aplikačním potenciálem a zahrnuje i vývoj nových metod rentgenové analýzy ve spolupráci s domácími i zahraničními pracovišti.
             </p>
-            
-            <h4 id="???"></h4>
+
+            <h4 id="PULS">Krátké pulzy a počítání fotonů pro měření rychlých procesů v nanosvětě (PULS)</h4>
             <p>
-            
+                Krátké laserové pulzy umožňují sledovat rychlou dynamiku
+                excitovaných elektronů v molekulách, např. přenos sluneční energie ve
+                fotosyntéze. Optická mikroskopie zase umí pomocí vyzářených fotonů
+                zobrazit a rozlišit excitované komplexy molekul uvnitř buněk, s
+                citlivostí detekce jednotlivých molekul. V naší laboratoři posíláme
+                ultrakrátké pulzy do mikroskopu a detekujeme jednotlivé vyzářené fotony,
+                což nám umožňuje sledovat rychlý přenos energie v nanosvětě.
             </p>
-            
+            <h4 id="EXT">Materiály za extrémních podmínek (EXT)</h4>
+            <p>
+
+            </p>
+
+
             <h2 > Odpolední exkurze </h2>
 	        <div style="border-bottom: 1px solid #ccc; margin: 1.5rem 0;"></div>
 
@@ -441,7 +452,7 @@
 	        <p>
             Exkurze se skládá z návštěv dvou laboratoří: Laboratoře rostlinných biotechnologií a Laboratoře virologie
             </p>
-            
+
             <p>
                 Už jste někdy slyšeli rostliny plakat? Nebo si dokonce povídat?
                  Věřte nevěřte, ony to umí. Nastíníme vám, jakým způsobem mezi sebou rostliny komunikují, s kým si tak ještě "povídají", proč to dělají, co už jsme se dozvěděli z jejich jazyka.
@@ -456,18 +467,20 @@
                  Tyto metody se uplatňují v základním výzkumu, šlechtění i v biotechnologických aplikacích. Celkově patří mezi klíčové techniky pro neinvazivní studium životních procesů rostlin.
 
             </p>
-             <h4 id="prot">Exkurze do centra protonové terapie společně s radiologickém oddělenim v nemocnici Bulovka</h4>
+             <h4 id="prot">Exkurze do Proton Therapy Center a Radiologického oddělení v nemocnici na Bulovce</h4>
              <p>
-             Naše pracoviště - Proton Therapy Center Czech s.r.o. se věnuje léčbě (ozařování) onkologických pacientů pomocí scanovaného protonového svazku tj. technikou IMPT (Intensity Modulated Proton Therapy).
-              V rámci exkurze se seznámíte se základními principy a možnostmi této léčby.
+             Exkurze je striktně 18+. Radioterapie je nedílnou součástí komplexní péče o onkologické pacienty a klíčovou roli v ní hrají radiologičtí fyzici, kteří kombinují medicínské a technické znalosti. Oddělení radiologické fyziky se kromě radioterapie věnuje i radiodiagnostice a radiační ochraně. Je jediným pracovištěm v ČR, které disponuje technologiemi dvou největších výrobců lineárních urychlovačů – Varian a Elekta.
 
+ Součástí vybavení jsou špičkové dozimetrické systémy, zobrazovací technologie pro řízené dýchání i povrchově řízenou radioterapii a plánovací software obou výrobců. V době exkurze bude rovněž uváděn do v provozu první lineární urychlovač v ČR s online adaptivní radioterapií a podporou umělé inteligence. 
+             Druhá část exkurze bude pokračovat v Proton therapy center, kde se věnují léčbě (ozařování) onkologických pacientů pomocí scanovaného protonového svazku tj. technikou IMPT (Intensity Modulated Proton Therapy).
+              V rámci exkurze se seznámíte se základními principy a možnostmi této léčby.
              </p>
             <h4 id="mikr">Exkurze k Mikrotronu z Oddělení urychlovačů ÚJF AV</h4>
             <p>
             Mikrotron je kruhový urychlovač elektronů. Elektrony jsou urychlovány vysokofrekvenčním (RF) polem konstantní amplitudy a frekvence, umístěným v dutinovém rezonátoru. Tento rezonátor je situován v urychlovací komoře s homogenním magnetickým polem. Elektrony se pohybují po kružnicích a při každém průchodu rezonátorem získávají další energii, což je nutí přecházet na dráhy s větším poloměrem. Mikrotron slouží jako zdroj elektronových svazků s energií až 25 MeV, popř. sekundárních fotonových svazků nebo jako zdroj neutronů.
 Mikrotron se využívá zejména pro fotonovou aktivační analýzu, testování radiační odolnosti elektronických součástek i jiných materiálů, pro radiační sterilizaci, radiační polymerizaci, přípravu radiofarmak, produkci fluorescenčních nanodiamantů, testování detektorů a mnoho dalších aplikací.
             </p>
-            
+
              <h4 id="tokam">Exkurze k tokamaku Golem</h4>
              <p>
              Fakulta jaderná a fyzikálně inženýrská ČVUT provozuje unikátní pokusné zařízení pro zvládnutí řízené termojaderné fúze v pozemských podmínkách: tokamak jménem GOLEM. Přednáška nastíní, co to je termojaderná fúze a jaké jsou její výhody jako budoucího zdroje energie pro lidstvo.
@@ -485,35 +498,50 @@ historickém kontextu – na observatoři probíhá pravidelné měření již o
 roku 1957. Exkurze je vhodná pro studenty 2.–4. ročníků středních škol
 se zájmem o fyziku a přírodní vědy.
 
-          </p>  
+          </p>
             <h4 id="gen">Exkurze do Ústavu molekulární genetiky</h4>
-            
+
             <p>
             Na exkurzi si projdete celkem dvě části:
            </p>
            <p>
             Sekvenovací workshop v laboratoři genomiky a bioinformatiky - Michal Kolář
  Činnost laboratoře je založena na pokročilých aplikacích genomiky, transkriptomiky a bioinformatiky, nejdynamičtěji se rozvíjejících disciplínách současných věd o životě. Vyvíjíme bioinformatické nástroje a protokoly k analýze dat vytvořených v naší laboratoři nebo dostupných ve veřejných databázích. Všechny funkčně-genomické a bioinformatické nástroje používáme jak ve vlastních vědeckých projektech, v dlouhodobých spolupracích s našimi kolegy a kliniky, tak k podpoře ostatních vědeckých skupin na Ústavu molekulární genetiky.
- Studenti se budou podílet se na odhalení identity „neznámého“ organismu a získají možnost proniknout až na úroveň buněčné DNA. V laboratoři si vyzkouší extrakci nukleových kyselin, práci s mikroskopem, nahlédnou pod pokličku sekvenování DNA a seznámí se tím, co obnáší základní bioinformatická analýza dat získaných sekvenací DNA. 
+ Studenti se budou podílet se na odhalení identity „neznámého“ organismu a získají možnost proniknout až na úroveň buněčné DNA. V laboratoři si vyzkouší extrakci nukleových kyselin, práci s mikroskopem, nahlédnou pod pokličku sekvenování DNA a seznámí se tím, co obnáší základní bioinformatická analýza dat získaných sekvenací DNA.
 
             </p>
-            
+
             <p>
             Praktickou ukázku práce servisní laboratoře světelné mikroskopie - Jan Valečka
- Laboratoř je špičkovou vědeckou servisní laboratoří vybavenou širokým spektrem pokročilých mikroskopických technik a přístupů pro zpracování obrazu. Dostupné vybavení zahrnuje mnoho přístrojů, od jednoduchých fluorescenčních mikroskopů širokého pole, konfokálních mikroskopů, až po pokročilé techniky, jako jsou light sheet, konfokální spinning disk či superrezoluční metody. Poskytujeme také nástroje a expertízu v oblasti zpracování a analýzy obrazu, matematické modelování a simulace biologických procesů, atd. 
+ Laboratoř je špičkovou vědeckou servisní laboratoří vybavenou širokým spektrem pokročilých mikroskopických technik a přístupů pro zpracování obrazu. Dostupné vybavení zahrnuje mnoho přístrojů, od jednoduchých fluorescenčních mikroskopů širokého pole, konfokálních mikroskopů, až po pokročilé techniky, jako jsou light sheet, konfokální spinning disk či superrezoluční metody. Poskytujeme také nástroje a expertízu v oblasti zpracování a analýzy obrazu, matematické modelování a simulace biologických procesů, atd.
  Představíme špičkové mikroskopické vybavení a ukážeme vzorky na různých typech fluorescenčních mikroskopů. Ukážeme si např. trojbarevné živočišné buňky, ve kterých lze pozorovat současně jádra, mitochondrie i buněčnou kostru. Pozorování vzorků na lightsheet mikroskopu dále umožňuje zobrazování optických řezů.
 
+            </p>
+            <h4 id="PALS">Prague Asterix laser system + Thz spektroskopie</h4>
+            <p>
+                 APALSX Badatelské centrum PALS (Prague Asterix Laser System), založené v listopadu 1998 jako společné pracoviště Fyzikálního ústavu AV ČR a Ústavu fyziky plazmatu AV ČR, je koncipováno jako uživatelská laboratoř poskytující základnu pro experimentální výzkum v oboru výkonových laserů a fyziky laserem vytvářeného plazmatu. Centrum bylo zpřístupněno externím uživatelům v září roku 2000. 
+                 Druhá část exkurze bude oddělení Thz spektroskopie v AV ČR.  THz spektroskopie THz spektroskopie je relativně mladá spektroskopická metoda, zaměřující se na oblast elektromagnetického spektra ležící na rozhraní mikrovlnného a infračerveného záření. Využívá se například ke zkoumání fotonických krystalů nebo meta materiálů. 
+            </p>
+            <h4 id="UJFUJV">ÚJV a ÚJF</h4>
+            <p>
+                V rámci exkurze navštívíte Ústav jaderného výzkumu, kde se podíváte k reaktoru LR0. Posléze navštívíte několik urychlovačů nabitých iontů a představíme jejich široké využití. S ohledem na situaci daných laboratoří nahlédneme pod pokličku výroby radioizotopů, materiálový výzkum nebo třeba ultracitlivé měření některých radionuklidů ve vzorcích kolem nás. 
             </p>
             <h2> Celodenní exkurze </h2>
             <div style="border-bottom: 1px solid #ccc; margin: 1.5rem 0;"></div>
             <h4 id="ELI"> ELI Beamlines </h4>
             <p>
-             ELI Beamlines je výzkumné laserové centrum, které je součástí evropské vědecko-výzkumné organizace The Extreme Light Infrastructure ERIC. V ELI Beamlines mezinárodní tým vědců a vědkyň provozuje jedny z nejintenzivnějších laserových systémů na světě. Díky nim máme k dispozici unikátní nástroje umožňující průkopnický výzkum nejen v oblasti fyziky a materiálových věd, ale také v biomedicíně a laboratorní astrofyzice. ELI je centrum zaměřené na základní fyzikální výzkum. Jedná se o největší vědecký projekt v historii ČR. V současné době zaměstnáváme 350 zaměstnanců z více než 28 zemí světa. Centrum se nachází v obci Dolní Břežany, nedaleko Prahy. 
+             ELI Beamlines je výzkumné laserové centrum, které je součástí evropské vědecko-výzkumné organizace The Extreme Light Infrastructure ERIC. V ELI Beamlines mezinárodní tým vědců a vědkyň provozuje jedny z nejintenzivnějších laserových systémů na světě. Díky nim máme k dispozici unikátní nástroje umožňující průkopnický výzkum nejen v oblasti fyziky a materiálových věd, ale také v biomedicíně a laboratorní astrofyzice. ELI je centrum zaměřené na základní fyzikální výzkum. Jedná se o největší vědecký projekt v historii ČR. V současné době zaměstnáváme 350 zaměstnanců z více než 28 zemí světa. Centrum se nachází v obci Dolní Břežany, nedaleko Prahy.
             </p>
             <h4 id="ASTR"> Astronomický ústav AV ČR Ondřejov</h4>
             <p>
-            
+            V rámci celodenní návštěvy Astronomického ústavu AV ČR navštívíte jednotlivá odborná pracoviště Astronomického ústavu AV ČR v Ondřejově. První zastávkou exkurze budou robotické dalekohledy D 50 a SBT.
+
+            Další část exkurze bude věnována výzkumu bolidů a problematice meziplanetární hmoty, na kterou naváže prezentace Mayerova dalekohledu.
+
+            Odpolední blok zahrnuje návštěvu Perkova dalekohledu, jednoho z největších dalekohledů ve střední Evropě, a závěrečnou zastávku na Sluneční patrole, kde budou účastníci seznámeni s pozorováním a výzkumem Slunce. 
+
             </p>
+            
     </section>
 </div>
 
