@@ -53,7 +53,7 @@ class AboutPresenter extends BasePresenter
                    fn(array $organizer): bool => $organizer['state'] == 'inactive'
                    && $organizer['showOnWeb']
                );
-
+                // sort by order
               usort($exOrganizers, function (array $a, array $b): int {
                   if ($a['order'] === $b['order']) {
                       return implode(' ', array_reverse(explode(' ', $a['name']))) <=> implode(' ', array_reverse(explode(' ', $b['name'])));
