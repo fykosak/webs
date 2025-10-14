@@ -40,6 +40,27 @@ class AboutPresenter extends BasePresenter
                 return $b['order'] <=> $a['order'];
             });
         }
-        $this->template->organizers = $currentOrganizers;
+             $this->template->organizers = $currentOrganizers;
+    }
+    public function renderexOrganizers(): void
+    {
+         $allOrganizers = $this->FKSDBDownloader->download(new OrganizersRequest(2));
+        $exOrganizers = [];
+
+           if ($allOrganizers !== []) {
+               $exOrganizers = array_filter(
+                   $allOrganizers,
+                   fn(array $organizer): bool => $organizer['state'] == 'inactive'
+                   && $organizer['showOnWeb']
+               );
+
+              usort($exOrganizers, function (array $a, array $b): int {
+                  if ($a['order'] === $b['order']) {
+                      return implode(' ', array_reverse(explode(' ', $a['name']))) <=> implode(' ', array_reverse(explode(' ', $b['name'])));
+                  }
+                   return $b['order'] <=> $a['order'];
+              });
+          }
+                $this->template->exorganizers = $exOrganizers;
     }
 }
