@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Zveřejnili jsme zadání druhé série",
+      "text": "První série skončila – můžete si prohlédnout <a href=\"https://vyfuk.org/zadani/15/1\">vzorová řešení</a> a rovnou se pustit do úloh v druhé sérii. Děkujeme za rekordní zájem a prosíme o trpělivost při čekání na zveřejnění pořadí. Zaslali jste nám neuvěřitelných více než dva tisíce řešení, která se budeme v následujících dnech snažit co nejrychleji opravit a obodovat.",
+      "date": "16. října 2025",
+      "link": ":Default:Problems:default",
+      "link-text": "Aktuální zadání"
+    },
+    {
       "title": "Posunutí termínu přihlašování na podzimní setkání",
       "text": "Termín spuštění registrace na letošní podzimní setkání se posouvá na <b>16. 10. 2025 20:00</b>. Omlouváme se za případné komplikace.",
       "date": "1. října 2025",
@@ -20,13 +27,6 @@
       "date": "1. září 2025",
       "link": ":Default:Problems:default",
       "link-text": "Aktuální zadání"
-    },
-    {
-      "title": "Známe termín podzimního setkání",
-      "text": "Podzimní setkání letos proběhne o víkendu od 7. do 9. listopadu. Tradičně se potkáme na gymnáziu Nad Alejí, kde na vás čeká program plný zábavy a hlavně fyziky. Pro získání pozvánky na setkání není rozhodující pořadí – pozveme všechny, kdo se zapojí do 1. série, kterou zveřejníme již brzy! Zúčastnit se naposledy mohou i deváťáci, kteří řešili v této kategorii během minulého ročníku.",
-      "date": "25. srpna 2025",
-      "link": ":Default:Events:setkani",
-      "link-text": "Stránka podzimního setkání"
     }
   ]
 }

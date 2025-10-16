@@ -9,7 +9,7 @@
         <h1>DSEF {*$event->begin|date: "Y"*}</h1> -->
             <h1>Základní informace</h1>
 
-            <p>Den s experimentální fyzikou se bude konat {$newestEvent->begin|date: 'j. n. Y'}, tentokrát na Troji.
+            <p>Den s experimentální fyzikou se bude konat {$newestEvent->begin|date: 'j. n. Y'}, tentokrát na Karlově.
                 Registrace se otevře {$newestEvent->registrationBegin|date: 'j. n. Y'} v {$newestEvent->registrationBegin|date: 'H:i'}
                     a skončí {$newestEvent->registrationEnd|date: 'j. n. Y'}.
                 Rozvržení jednotlivých exkurzí budeme postupně přidávat. Již nyní můžeme slíbit, že pro účastníky z
@@ -31,8 +31,8 @@
                     ubytované) je plánovaná na 7:00.
                 </li>
                 <li>Prezence účastníků bude probíhat v čase <strong>8:00–8:30 na
-                        Matematicko-fyzikální fakultě ve vestibulu budovy M v Karlově na adrese V Holešovičkách
-                        2/747</strong>. Po registraci bude následovat zahájení DSEFu a ranní přednáška.
+                        Matematicko-fyzikální fakultě ve vestibulu budovy F na Karlově na adrese Ke Karlovu
+                        5</strong>. Po registraci bude následovat zahájení DSEFu a ranní přednáška.
                 </li>
             </ul>
             <h4 id="slavnostni-zahajeni">Slavnostní zahájení DSEFu (8:50–9:05)</h4>
@@ -50,7 +50,7 @@
 
             </p>
             <h4 id="dopoledni-blok">Dopolední blok exkurzí (10:00-12:00)</h4>
-            <h4 id="odpoledni-blok">Odpolední blok exkurzí (13:30-16:00)</h4>
+            <h4 id="odpoledni-blok">Odpolední blok exkurzí (13:00-16:00)</h4>
             <hr/>
             <h4 id="exkurze">Exkurze</h4>
             <p>
@@ -106,7 +106,7 @@
             <h5 id="placeni-za-ubytovani">Placení za ubytování</h5>
             <div>
                 <ul>
-                    <li>Poplatek za ubytování je <strong>300 Kč</strong></li>
+                    <li>Poplatek za ubytování je <strong>350 Kč</strong></li>
                     <li>Ubytování se platí předem <a href="https://db.fykos.cz/shop/">zde</a></li>
                 </ul>
 
@@ -124,27 +124,21 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>Exkurze</h1>
-            <div class="alert alert-warning">Anotace u některých exkurzí ještě nejsou doplněné. Jakmile budou k
-                dispozici, objeví se níže na stránce spolu s ostatními.
-            </div>
-            <div>
-                <table class="table">
+            <div class="mb-5">
+                <h2>Dopolední exkurze</h2>
+                <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th></th>
-                        <th>Dopolední exkurze</th>
+                        <th>Skupina</th>
+                        <th>10:15–10:40</th>
+                        <th>10:55–11:20</th>
+                        <th>11:35–12:00</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td></td>
-                        <td>10:15–10:40</td>
-                        <td>10:55–11:20</td>
-                        <td>11:35–12:00</td>
-                    </tr>
-                    <tr>
                         <th>Alfa</th>
-                        <td><a href="SEIS">SEIS</a></td>
+                        <td><a href="#SEIS">SEIS</a></td>
                         <td><a href="#RAM">RAM</a></td>
                         <td><a href="#PUL">PUL</a></td>
                     </tr>
@@ -217,130 +211,41 @@
                     </tbody>
                 </table>
             </div>
-            <div>
-                <table class="table">
+            <div class="my-5">
+                <h2>{$data[245]['name']['cs']}</h2>
+                <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th></th>
-                        <th>Odpolední exkurze</th>
+                        <th>Skupina</th>
+                        <th>{(new \DateTime($data[245]['start']))->format('H:i')}–{(new \DateTime($data[245]['end']))->format('H:i')}</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td></td>
-                        <td>14:00–16:30</td>
-                    </tr>
-                    <tr>
-                        <th>November</th>
-                        <td><a href="#bio">Ústav experimentální botaniky</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Oscar</th>
-                        <td><a href="#prot">Proton therapy + Radiologické oddělení na Bulovce</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Papa</th>
-                        <td><a href="#mikr">Mikrotron</a></td>
-                    </tr>
-                    <tr>
-                        <th>Quebec</th>
-                        <td><a href="#tokam">Tokamak Golem</a></td>
-                    </tr>
-                    <tr>
-                        <th>Romeo</th>
-                        <td><a href="#ion">Ionosforická observatoř</a></td>
-                    </tr>
-                    <tr>
-                        <th>Tango</th>
-                        <td><a href="#gen">ÚMG</a></td>
-                    </tr>
-                    <tr>
-                        <th>Uniform</th>
-                        <td><a href="#PALS">PALS</a></td>
-                    </tr>
-                    <tr>
-                        <th>Victor</th>
-                        <td><a href="#ÚJV">ÚJV</a></td>
-                    </tr>
-
-
- {*
-
-                  	<tr >
-                        <th  >Yankee</th>
-                        <td  ><a
-                                href="#FEL"
-                                 >Fakulta elektrotechnická ČVUT </a></td>
-                    </tr>
-
-
-
-
-                  	<tr >
-                        <th  >Unanone</th>
-                        <td  ><a
-                                href="#GOLEM"
-                                 >GOLEM</a></td>
-                    </tr>
-                  	<tr >
-                        <th  >Nadazero</th>
-                        <td  ><a
-                                href="#Ond"
-                                 >Astronomický ústav Ondřejov</a></td>
-                    </tr>
-                  	<tr >
-                        <th  >Bissoto</th>
-                        <td  ><a
-                                href="#MOGE"
-                                 >Ústav molekulární genetiky </a></td>
-                    </tr>
-                    <tr >
-                        <th  >Frank</th>
-                        <td  ><a
-                                href="#UTER"
-                                 >Ústav Termomechaniky</a></td>
-                    </tr>
-                    <tr >
-                        <th >Pí</th>
-                        <td  ><a href="#Prague-Asterix-Laser-System"
-                                 >PALS</a></td>
-                        <td ><a href="#THz-spektroskopie"
-                                >THz</a></td>
-                    </tr>
-
-                    <tr >
-                        <th  >Omega</th>
-                        <td  ><a href="#ELI-Beamlines"
-                                 >ELI</a></td>
-                    </tr>
-*}
-
+                    {foreach $data[245]['items'] as $item}
+                        <tr>
+                            <td><strong>{$item['name']['cs']}</strong></td>
+                            <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
+                        </tr>
+                    {/foreach}
                     </tbody>
                 </table>
             </div>
-            <div>
-                <table class="table">
+            <div class="my-5">
+                <h2>{$data[246]['name']['cs']}</h2>
+                <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th></th>
-                        <th>Celodenní exkurze</th>
+                        <th>Skupina</th>
+                        <th>{(new \DateTime($data[246]['start']))->format('H:i')}–{(new \DateTime($data[246]['end']))->format('H:i')}</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td></td>
-                        <td>11:00–16:00</td>
-                    </tr>
-                    <tr>
-                        <th>Mike</th>
-                        <td><a href="#ASTR">Ondřejov</a></td>
-                    </tr>
-                    <tr>
-                        <th>Spirit</th>
-                        <td><a href="#ELI">ELI</a></td>
-                    </tr>
+                    {foreach $data[246]['items'] as $item}
+                        <tr>
+                            <td><strong>{$item['name']['cs']}</strong></td>
+                            <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
+                        </tr>
+                    {/foreach}
                     </tbody>
                 </table>
             </div>
@@ -350,10 +255,13 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>Anotace exkurzí</h1>
+            <div class="alert alert-warning">Anotace u některých exkurzí ještě nejsou doplněné. Jakmile budou k
+                dispozici, objeví se níže na stránce spolu s ostatními.
+            </div>
             <h2>Dopolední exkurze </h2>
             <hr/>
-
-            <h4 id="SEM">Svět kolem nás z pohledu skenovací elektronové mikroskopie (SEM)</h4>
+            <strong class="subheader mt-3">SEM</strong>
+            <h4 id="SEM">Svět kolem nás z pohledu skenovací elektronové mikroskopie</h4>
             <p>
                 Jak vypadá povrch kovu nebo třeba i obyčejného vlasu pod statisíckrát větším zvětšením? Na
                 exkurzi se seznámíte s principy a možnostmi skenovací elektronové mikroskopie, která umožňuje
@@ -363,21 +271,23 @@
                 materiálová věda pomáhají řešit aktuální výzvy dneška.
 
             </p>
-            <h4 id="SEIS">Seismická laboratoř (SEIS)</h4>
+            <strong class="subheader mt-3">SEIS</strong>
+            <h4 id="SEIS">Seismická laboratoř</h4>
             <p>
                 Kromě prohlídky nejstarší seismické stanice v ČR, virtuálně navštívíme Řecko, kde má katedra
-                geofyziky MFFUK vlastní seismografy. Seznámíme se s posledním výzkumem řeckých zemětřesení z
+                geofyziky MFF UK vlastní seismografy. Seznámíme se s posledním výzkumem řeckých zemětřesení z
                 oblasti Korintského zálivu, ale můžeme si i povídat o ničivých zemětřesení z minulosti.
             </p>
-            <h4 id="LAS">Femtosekundová laboratoř(LAS)</h4>
+            <strong class="subheader mt-3">LAS</strong>
+            <h4 id="LAS">Femtosekundová laboratoř</h4>
             <p>
                 Na exkurzi se účastníci seznámí s principem fungování laserů s ultrakrátkými pulzy
                 a s nelineární optikou, uvidí využití femtosekundových laserů při studiu nelineárních
                 optických jevů v látkách.
 
             </p>
-
-            <h4 id="NAN">Nano u vás doma u nás v laboratoři (NAN)</h4>
+            <strong class="subheader mt-3">NAN</strong>
+            <h4 id="NAN">Nano u vás doma u nás v laboratoři</h4>
             <p>
                 Navštivte s námi nano-svět. Společně se podíváme jaké optické signály vysílají nano-objekty
                 směrem k našemu makro-světu pomocí mikro-spektroskopie. Dále nahlédneme i do světa nanostruktur
@@ -385,7 +295,8 @@
                 fyzikální vlastnosti
 
             </p>
-            <h4 id="BIO">Laserová spektroskopie pro studium biologicky významných procesů (BIO)</h4>
+            <strong class="subheader mt-3">BIO</strong>
+            <h4 id="BIO">Laserová spektroskopie pro studium biologicky významných procesů</h4>
             <p>
                 Řada biologických procesů v přírodě je poháněna světlem. Patří mezi ně
                 fotosyntéza nebo řada fotochemických procesů v tělech, např.
@@ -397,14 +308,16 @@
                 mikrosekund po femtosekundy.
 
             </p>
+            <strong class="subheader mt-3">TEM</strong>
             <h4 id="TEM">Za hranice viditelného: Detaily struktury materiálů v transmisním elektronovém
-                mikroskopu (TEM)</h4>
+                mikroskopu</h4>
             <p>
                 Metody zobrazení mikrostruktury materiálů v transmisním elektronovém mikroskopu - zobrazení
                 poruch krystalové mříže, hranice zrn, dislokace, precipitáty; difrakce - využití Fourierovy
                 transformace; in-situ žíhání v mikroskopu.
             </p>
-            <h4 id="PKRYS">Příprava monokrystalů pro materiálový výzkum a aplikace (PKRYS)</h4>
+            <strong class="subheader mt-3">PKRYS</strong>
+            <h4 id="PKRYS">Příprava monokrystalů pro materiálový výzkum a aplikace</h4>
             <p>
                 Monokrystaly představují nejuspořádanější formu pevných látek. Díky směrovému charakterů
                 fyzikálních vlastností krystalických latek, růst kvalitních monokrystálů je nezbytným prvotním
@@ -414,8 +327,8 @@
                 detektory ionizujícího záření a pevnolátkové lasery. Účastnící se proto seznámí i s monokrystaly
                 křemíku, silikonkarbidu a perovskitů.
             </p>
-
-            <h4 id="RAM">Ramanova spektroskopie (RAM)</h4>
+            <strong class="subheader mt-3">RAM</strong>
+            <h4 id="RAM">Ramanova spektroskopie</h4>
             <p>
                 Ramanova mikroskopie je moderní bezkontaktní zobrazovací metoda kombinující Ramanovou
                 spektroskopii s konfokální optickou mikroskopií. Umožňuje zkoumat chemické složení studovaných
@@ -424,13 +337,13 @@
                 vysvětlíme fyzikální princip metody, ukážeme moderní Ramanův mikroskop a předvedeme jeho použití
                 na studium chemického složení mikroorganismů.
             </p>
-
-            <h4 id="MAG">Světem magnetooptiky (MAG) </h4>
+            <strong class="subheader mt-3">MAG</strong>
+            <h4 id="MAG">Světem magnetooptiky</h4>
             <p>
 
             </p>
-
-            <h4 id="STR">Laboratoř strukturní analýzy (STR)</h4>
+            <strong class="subheader mt-3">STR</strong>
+            <h4 id="STR">Laboratoř strukturní analýzy</h4>
             <p>
                 Rentgenové laboratoře Oddělení strukturní analýzy na Katedře fyziky kondenzovaných látek MFF UK
                 jsou vybaveny moderními rentgenovými difraktometry umožňujícími studium struktury materiálů
@@ -445,8 +358,8 @@
                 zaměřen na moderní materiály s vysokým aplikačním potenciálem a zahrnuje i vývoj nových metod
                 rentgenové analýzy ve spolupráci s domácími i zahraničními pracovišti.
             </p>
-
-            <h4 id="PULS">Krátké pulzy a počítání fotonů pro měření rychlých procesů v nanosvětě (PULS)</h4>
+            <strong class="subheader mt-3">PULS</strong>
+            <h4 id="PULS">Krátké pulzy a počítání fotonů pro měření rychlých procesů v nanosvětě</h4>
             <p>
                 Krátké laserové pulzy umožňují sledovat rychlou dynamiku
                 excitovaných elektronů v molekulách, např. přenos sluneční energie ve
@@ -456,167 +369,25 @@
                 ultrakrátké pulzy do mikroskopu a detekujeme jednotlivé vyzářené fotony,
                 což nám umožňuje sledovat rychlý přenos energie v nanosvětě.
             </p>
-            <h4 id="EXT">Materiály za extrémních podmínek (EXT)</h4>
+            <strong class="subheader mt-3">EXT</strong>
+            <h4 id="EXT">Materiály za extrémních podmínek</h4>
             <p>
 
             </p>
-
-
-            <h2>Odpolední exkurze </h2>
+            <h2>{$data[245]['name']['cs']}</h2>
             <hr/>
-
-            <h4 id="bio">Exkurze do ústavu experimentální botaniky</h4>
-            <p>
-                Exkurze se skládá z návštěv dvou laboratoří: Laboratoře rostlinných biotechnologií a Laboratoře
-                virologie
-            </p>
-
-            <p>
-                Už jste někdy slyšeli rostliny plakat? Nebo si dokonce povídat?
-                Věřte nevěřte, ony to umí. Nastíníme vám, jakým způsobem mezi sebou rostliny komunikují, s kým
-                si tak ještě "povídají", proč to dělají, co už jsme se dozvěděli z jejich jazyka.
-                Můžete se těšit i na představení několika "slov" v praxi, ze slov složíme "větu", porovnáme
-                jednotlivé "dialekty" a ukážeme si i přesah této komunikace mimo rostlinnou říši.
-            </p>
-            <p>
-                Fluorescence a bioluminiscence představují důležité nástroje ve výzkumu rostlin.
-                Fluorescenční metody umožňují sledovat dynamiku fotosyntézy, využívají se také specifická
-                fluorescenční barviva a značky k vizualizaci buněčných struktur nebo transportu molekul.
-                Fluorescenční proteiny se hojně používají pro sledování exprese genů v živých rostlinách.
-                Bioluminiscenční reportéry, nejčastěji luciferázové systémy, umožňují detekovat genovou aktivitu
-                bez nutnosti vnější excitace světlem.
-                Fluorescence i bioluminiscence se kombinují s moderní mikroskopií a zobrazovacími technologiemi,
-                což poskytuje detailní prostorové i časové informace.
-                Tyto metody se uplatňují v základním výzkumu, šlechtění i v biotechnologických aplikacích.
-                Celkově patří mezi klíčové techniky pro neinvazivní studium životních procesů rostlin.
-
-            </p>
-            <h4 id="prot">Exkurze do Proton Therapy Center a Radiologického oddělení v nemocnici na Bulovce</h4>
-            <p>
-                Exkurze je striktně 18+. Radioterapie je nedílnou součástí komplexní péče o onkologické pacienty
-                a klíčovou roli v ní hrají radiologičtí fyzici, kteří kombinují medicínské a technické znalosti.
-                Oddělení radiologické fyziky se kromě radioterapie věnuje i radiodiagnostice a radiační ochraně.
-                Je jediným pracovištěm v ČR, které disponuje technologiemi dvou největších výrobců lineárních
-                urychlovačů – Varian a Elekta.
-
-                Součástí vybavení jsou špičkové dozimetrické systémy, zobrazovací technologie pro řízené dýchání
-                i povrchově řízenou radioterapii a plánovací software obou výrobců. V době exkurze bude rovněž
-                uváděn do v provozu první lineární urychlovač v ČR s online adaptivní radioterapií a podporou
-                umělé inteligence.
-                Druhá část exkurze bude pokračovat v Proton therapy center, kde se věnují léčbě (ozařování)
-                onkologických pacientů pomocí scanovaného protonového svazku tj. technikou IMPT (Intensity
-                Modulated Proton Therapy).
-                V rámci exkurze se seznámíte se základními principy a možnostmi této léčby.
-            </p>
-            <h4 id="mikr">Exkurze k Mikrotronu z Oddělení urychlovačů ÚJF AV</h4>
-            <p>
-                Mikrotron je kruhový urychlovač elektronů. Elektrony jsou urychlovány vysokofrekvenčním (RF)
-                polem konstantní amplitudy a frekvence, umístěným v dutinovém rezonátoru. Tento rezonátor je
-                situován v urychlovací komoře s homogenním magnetickým polem. Elektrony se pohybují po
-                kružnicích a při každém průchodu rezonátorem získávají další energii, což je nutí přecházet na
-                dráhy s větším poloměrem. Mikrotron slouží jako zdroj elektronových svazků s energií až 25 MeV,
-                popř. sekundárních fotonových svazků nebo jako zdroj neutronů.
-                Mikrotron se využívá zejména pro fotonovou aktivační analýzu, testování radiační odolnosti
-                elektronických součástek i jiných materiálů, pro radiační sterilizaci, radiační polymerizaci,
-                přípravu radiofarmak, produkci fluorescenčních nanodiamantů, testování detektorů a mnoho dalších
-                aplikací.
-            </p>
-
-            <h4 id="tokam">Exkurze k tokamaku Golem</h4>
-            <p>
-                Fakulta jaderná a fyzikálně inženýrská ČVUT provozuje unikátní pokusné zařízení pro zvládnutí
-                řízené termojaderné fúze v pozemských podmínkách: tokamak jménem GOLEM. Přednáška nastíní, co to
-                je termojaderná fúze a jaké jsou její výhody jako budoucího zdroje energie pro lidstvo.
-                Na závěr přednášky bude demonstrována reálná činnost tohoto tokamaku včetně provedení
-                plazmatického výboje.
-
-            </p>
-            <h4 id="ion">Exkurze do ionosferické observatoře z ústavu fyziky atmosféry</h4>
-            <p>Během návštěvy Ionosférické observatoře se studenti seznámí s tím, co je
-                to ionosféra, jak vzniká, jaké má vlastnosti a proč je znalost jejího
-                aktuálního stavu důležitá. Představíme jim metody výzkumu ionosféry,
-                zejména měření pomocí digisondy. Ukážeme, jak vznikají ionogramy a jak
-                se z nich určují hlavní parametry stavu ionosféry. Součástí exkurze bude
-                také představení metod a možností zpracování ionosférických dat dnes i v
-                historickém kontextu – na observatoři probíhá pravidelné měření již od
-                roku 1957. Exkurze je vhodná pro studenty 2.–4. ročníků středních škol
-                se zájmem o fyziku a přírodní vědy.
-            </p>
-            <h4 id="gen">Exkurze do Ústavu molekulární genetiky</h4>
-            <p>
-                Na exkurzi si projdete celkem dvě části:
-            </p>
-            <p>
-                Sekvenovací workshop v laboratoři genomiky a bioinformatiky - Michal Kolář
-                Činnost laboratoře je založena na pokročilých aplikacích genomiky, transkriptomiky a
-                bioinformatiky, nejdynamičtěji se rozvíjejících disciplínách současných věd o životě. Vyvíjíme
-                bioinformatické nástroje a protokoly k analýze dat vytvořených v naší laboratoři nebo dostupných
-                ve veřejných databázích. Všechny funkčně-genomické a bioinformatické nástroje používáme jak ve
-                vlastních vědeckých projektech, v dlouhodobých spolupracích s našimi kolegy a kliniky, tak k
-                podpoře ostatních vědeckých skupin na Ústavu molekulární genetiky.
-                Studenti se budou podílet se na odhalení identity „neznámého“ organismu a získají možnost
-                proniknout až na úroveň buněčné DNA. V laboratoři si vyzkouší extrakci nukleových kyselin, práci
-                s mikroskopem, nahlédnou pod pokličku sekvenování DNA a seznámí se tím, co obnáší základní
-                bioinformatická analýza dat získaných sekvenací DNA.
-            </p>
-            <p>
-                Praktickou ukázku práce servisní laboratoře světelné mikroskopie - Jan Valečka
-                Laboratoř je špičkovou vědeckou servisní laboratoří vybavenou širokým spektrem pokročilých
-                mikroskopických technik a přístupů pro zpracování obrazu. Dostupné vybavení zahrnuje mnoho
-                přístrojů, od jednoduchých fluorescenčních mikroskopů širokého pole, konfokálních mikroskopů, až
-                po pokročilé techniky, jako jsou light sheet, konfokální spinning disk či superrezoluční metody.
-                Poskytujeme také nástroje a expertízu v oblasti zpracování a analýzy obrazu, matematické
-                modelování a simulace biologických procesů, atd.
-                Představíme špičkové mikroskopické vybavení a ukážeme vzorky na různých typech fluorescenčních
-                mikroskopů. Ukážeme si např. trojbarevné živočišné buňky, ve kterých lze pozorovat současně
-                jádra, mitochondrie i buněčnou kostru. Pozorování vzorků na lightsheet mikroskopu dále umožňuje
-                zobrazování optických řezů.
-
-            </p>
-            <h4 id="PALS">Prague Asterix laser system + Thz spektroskopie</h4>
-            <p>
-                APALSX Badatelské centrum PALS (Prague Asterix Laser System), založené v listopadu 1998 jako
-                společné pracoviště Fyzikálního ústavu AV ČR a Ústavu fyziky plazmatu AV ČR, je koncipováno jako
-                uživatelská laboratoř poskytující základnu pro experimentální výzkum v oboru výkonových laserů a
-                fyziky laserem vytvářeného plazmatu. Centrum bylo zpřístupněno externím uživatelům v září roku
-                2000.
-                Druhá část exkurze bude oddělení Thz spektroskopie v AV ČR. THz spektroskopie THz spektroskopie
-                je relativně mladá spektroskopická metoda, zaměřující se na oblast elektromagnetického spektra
-                ležící na rozhraní mikrovlnného a infračerveného záření. Využívá se například ke zkoumání
-                fotonických krystalů nebo meta materiálů.
-            </p>
-            <h4 id="UJFUJV">ÚJV a ÚJF</h4>
-            <p>
-                V rámci exkurze navštívíte Ústav jaderného výzkumu, kde se podíváte k reaktoru LR0. Posléze
-                navštívíte několik urychlovačů nabitých iontů a představíme jejich široké využití. S ohledem na
-                situaci daných laboratoří nahlédneme pod pokličku výroby radioizotopů, materiálový výzkum nebo
-                třeba ultracitlivé měření některých radionuklidů ve vzorcích kolem nás.
-            </p>
-            <h2>Celodenní exkurze</h2>
+            {foreach $data[245]['items'] as $item}
+                <strong class="subheader mt-3">{$item['name']['cs']}</strong>
+                <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
+                {$item['longDescription']['cs']|noescape}
+            {/foreach}
+            <h2>{$data[246]['name']['cs']}</h2>
             <hr/>
-            <h4 id="ELI">ELI Beamlines </h4>
-            <p>
-                ELI Beamlines je výzkumné laserové centrum, které je součástí evropské vědecko-výzkumné
-                organizace The Extreme Light Infrastructure ERIC. V ELI Beamlines mezinárodní tým vědců a vědkyň
-                provozuje jedny z nejintenzivnějších laserových systémů na světě. Díky nim máme k dispozici
-                unikátní nástroje umožňující průkopnický výzkum nejen v oblasti fyziky a materiálových věd, ale
-                také v biomedicíně a laboratorní astrofyzice. ELI je centrum zaměřené na základní fyzikální
-                výzkum. Jedná se o největší vědecký projekt v historii ČR. V současné době zaměstnáváme 350
-                zaměstnanců z více než 28 zemí světa. Centrum se nachází v obci Dolní Břežany, nedaleko Prahy.
-            </p>
-            <h4 id="ASTR">Astronomický ústav AV ČR Ondřejov</h4>
-            <p>
-                V rámci celodenní návštěvy Astronomického ústavu AV ČR navštívíte jednotlivá odborná pracoviště
-                Astronomického ústavu AV ČR v Ondřejově. První zastávkou exkurze budou robotické dalekohledy D
-                50 a SBT.
-
-                Další část exkurze bude věnována výzkumu bolidů a problematice meziplanetární hmoty, na kterou
-                naváže prezentace Mayerova dalekohledu.
-
-                Odpolední blok zahrnuje návštěvu Perkova dalekohledu, jednoho z největších dalekohledů ve
-                střední Evropě, a závěrečnou zastávku na Sluneční patrole, kde budou účastníci seznámeni s
-                pozorováním a výzkumem Slunce.
-            </p>
+            {foreach $data[246]['items'] as $item}
+                <strong class="subheader mt-3">{$item['name']['cs']}</strong>
+                <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
+                {$item['longDescription']['cs']|noescape}
+            {/foreach}
         </section>
     </div>
 
