@@ -55,7 +55,7 @@ class OrgSneakPeakComponent extends DIComponent
     public function getOrg(array $organizers, $personId): array
     {
         foreach ($organizers as $organizer) {
-            if ($organizer['personId'] == $personId) {
+            if ($organizer['personId'] === $personId) {
                 return $organizer;
             }
         }
@@ -67,7 +67,7 @@ class OrgSneakPeakComponent extends DIComponent
         $this->template->lang = $this->translator->lang;
 
         $this->template->organizer = $this->getOrg($this->organizers, $personId);
-        if ($title == null) {
+        if (is_null($title)) {
             $this->template->title = $this->template->organizer['name'];
         } else {
             $this->template->title = $title;

@@ -112,7 +112,7 @@ class TeamResultsComponent extends DIComponent
         }
 
 
-        if (empty($selectedISOs)) {
+        if (count($selectedISOs) === 0) {
             return true;
         }
 

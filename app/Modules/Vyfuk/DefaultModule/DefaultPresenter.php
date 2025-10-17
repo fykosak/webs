@@ -32,7 +32,7 @@ class DefaultPresenter extends BasePresenter
             return $this->problemService->getSeries(
                 'vyfuk',
                 $year,
-                $currentSeries == 8 ? 6 : $currentSeries - 1 // check due to summer series
+                $currentSeries === 8 ? 6 : $currentSeries - 1 // check due to summer series
             );
         }
 
