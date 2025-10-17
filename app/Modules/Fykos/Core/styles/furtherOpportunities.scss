@@ -1,0 +1,46 @@
+.furtherOpportunities-wide-img {
+    margin-left: 5rem;    
+    width: 70%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: top;
+}
+
+.furtherOpportunities-square-img {
+    margin-left: 5rem;
+    width: 70%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: top;
+}
+
+.noic-img {
+    margin-left: 5rem;
+    width: 70%;
+    aspect-ratio: 2.8;
+    object-fit: cover;
+    object-position: top;
+}
+
+.furtherOpportunities-link {
+    text-decoration: underline;
+    text-decoration-color: $primary-color; 
+}
+
+.btn-primary-mff {
+  @extend .btn-primary;
+  background-color: #ed7866;
+  border-color: #ed7866;
+}
+
+.btn-primary-fabric {
+  @extend .btn-primary;
+  background-color: #f59622;
+  border-color: #f59622;
+}
+
+.btn-primary-noic {
+  @extend .btn-primary;
+  background-color: #de1b1b;
+  border-color: #de1b1b;
+}
