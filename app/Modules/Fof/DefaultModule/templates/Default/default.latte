@@ -85,6 +85,21 @@
         {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
     {/if}
 
+    <div class="fyziklani-banner">
+        <div class="inner-container">
+            <div class="text">
+                 {switch $language->value}
+                 {case 'cs'}
+                    Nemůžete se už dočkat Fyziklání? Zkraťte si čekání účastí na jeho online variantě
+                    – <a href="...">Fyziklání Online</a>!.
+                 {default}
+                    Can't wait for Fyziklani? Shorten your wait by participating in its online version
+                    – <a href="...">Physics Brawl Online</a>!
+                 {/switch}
+            </div>
+        </div>
+    </div>
+
     <div class="panel color-auto">
         <section class="inner-container">
             {switch $language->value}
