@@ -17,6 +17,34 @@
                     {default}FYKOS Merchandise
                 {/switch}
             </h1>
+            <p>
+                {switch $language->value}
+                {case 'cs'}
+                    Chtěli byste se obléct do Fyziklání mikiny nebo se zahřát čajem z FYKOS hrnku? 
+                    Pořiďte si náš merch! Nejen, že vám to bude slušet, ale také vaší koupí podpoříte
+                     naši činnost. Expedici objednávek očekávejte z provozních důvodů nejpozději do dvou měsíců.
+                    <br><br>
+                    Pro koupi budete potřebovat FYKOS účet. Pokud ho nemáte, obraťte se na 
+                    <a href="mailto:fykos@fykos.cz?subject=Registrace účtu pro eshop">
+                    fykos@fykos.cz</a>.
+                {default}
+                    Would you like to dress up in a Fyziklání sweatshirt or warm up with tea from a FYKOS mug? 
+                    Get our merch! Not only will it look good on you, but your purchase will also support
+                    our work. For operational reasons, expect your orders to be shipped within two months at the latest.
+                    <br><br>
+                    You will need a FYKOS account to purchase. If you do not have one, please contact us at
+                    <a href="mailto:fykos@fykos.cz?subject=Eshop account registration">
+                    fykos@fykos.org</a>.
+                {/switch}
+            </p>
+            <a href="https://db.fykos.cz/shop/" class="btn btn-primary my-3">
+                {switch $language->value}
+                {case 'cs'}
+                Vstup do e-shopu
+                {default}
+                E-shop entry
+                {/switch}
+            </a> 
 
             {*<p>
                 {switch $language->value}
