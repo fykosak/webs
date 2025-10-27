@@ -15,9 +15,9 @@ class ErasmusPresenter extends BasePresenter
      * @throws \Throwable
      */
 
-    public function startUp(): void
+    public function startup(): void
     {
-        parent::startUp();
+        parent::startup();
 
         // Check if it is the correct event year, otherwise throw 404
         if ($this->eventYear !== '2022') {

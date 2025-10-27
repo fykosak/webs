@@ -77,7 +77,7 @@ final class AboutPresenter extends BasePresenter
         if ($allOrganizers !== []) {
             $currentOrganizers = array_filter(
                 $allOrganizers,
-                fn(array $organizer): bool => $organizer['until'] == null
+                fn(array $organizer): bool => is_null($organizer['until'])
                     || $organizer['until'] === $this->getCurrentYear()->year
             );
             // sort by order and last name

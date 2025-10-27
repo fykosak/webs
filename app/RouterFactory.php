@@ -289,7 +289,7 @@ class RouterFactory
                             return $season === 'jaro' ? 4 : 5;
                         },
                         Route::FILTER_OUT => function ($id) {
-                            return $id == 4 ? 'jaro' : 'podzim';
+                            return $id === 4 ? 'jaro' : 'podzim';
                         }
                     ]
                 ]

@@ -25,7 +25,7 @@ final class GamePhaseCalculator
      * year.
      * @throws \Throwable
      */
-    public function getFKSDBEvent(): ?EventModel
+    public function getFKSDBEvent(): EventModel
     {
         static $fksdbEvent;
         if (!isset($fksdbEvent[$this->eventTypeId])) {
