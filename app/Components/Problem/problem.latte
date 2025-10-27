@@ -36,12 +36,6 @@
                     {if $problem->number == 7 && $problem->series < 7}
                         <p><small><i>S řešením této úlohy ti může pomoct krátký naučný text – tzv. Výfučtení. To můžeš nalézt pod odkazem níže.</i></small></p>
                     {/if}
-                    {if $problem->number == 6 && $problem->series == 2}
-                        <div class="alert alert-warning" role="alert">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            Došlo k mírné úpravě zadání této úlohy. Za případné komplikace způsobené touto změnou se omlouváme.
-                        </div>
-                    {/if}
                 {/if}
                 {if $problem->contest == 'fykos' && $problem->number == 6}
                     <p><small><i>
