@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Modules\Vyfuk\DefaultModule;
 
-use App\Models\Downloader\ContestsRequest;
 use App\Models\Downloader\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 
@@ -28,8 +27,8 @@ class AboutPresenter extends BasePresenter
         if ($allOrganizers !== []) {
             $currentOrganizers = array_filter(
                 $allOrganizers,
-                fn(array $organizer): bool => $organizer['state'] == 'active'
-                && $organizer['showOnWeb']
+                fn (array $organizer): bool => $organizer['state'] === 'active'
+                    && $organizer['showOnWeb']
             );
 
             // sort by order
@@ -40,27 +39,28 @@ class AboutPresenter extends BasePresenter
                 return $b['order'] <=> $a['order'];
             });
         }
-             $this->template->organizers = $currentOrganizers;
+        $this->template->organizers = $currentOrganizers;
     }
-    public function renderexOrganizers(): void
-    {
+     public function renderAllPastOrganizers(): void
+     {
          $allOrganizers = $this->FKSDBDownloader->download(new OrganizersRequest(2));
-        $exOrganizers = [];
+         $AllPastOrganizers = [];
 
-           if ($allOrganizers !== []) {
-               $exOrganizers = array_filter(
-                   $allOrganizers,
-                   fn(array $organizer): bool => $organizer['state'] == 'inactive'
-                   && $organizer['showOnWeb']
-               );
-                // sort by order
-              usort($exOrganizers, function (array $a, array $b): int {
-                  if ($a['order'] === $b['order']) {
-                      return implode(' ', array_reverse(explode(' ', $a['name']))) <=> implode(' ', array_reverse(explode(' ', $b['name'])));
-                  }
-                   return $b['order'] <=> $a['order'];
-              });
-          }
-                $this->template->exorganizers = $exOrganizers;
-    }
+         if ($allOrganizers !== []) {
+             $AllPastOrganizers = array_filter(
+                 $allOrganizers,
+                 fn (array $organizer): bool => $organizer['state'] === 'inactive'
+                     && $organizer['showOnWeb']
+             );
+
+             // sort by order
+             usort($AllPastOrganizers, function (array $a, array $b): int {
+                 if ($a['since'] === $b['since']) {
+                     return implode(' ', array_reverse(explode(' ', $a['name']))) <=> implode(' ', array_reverse(explode(' ', $b['name'])));
+                 }
+                 return $b['since'] <=> $a['since'];
+             });
+         }
+         $this->template->allpastorganizers = $AllPastOrganizers;
+     }
 }

@@ -2,8 +2,8 @@
 {block content}
 {varType string $lang}
 <div class="container mt-5">
-    <div class="row exorganizers">
-        {foreach $exorganizers as $organizer}
+    <div class="row allpastorganizers">
+        {foreach $allpastorganizers as $organizer}
         <div class="col-md-6 col-xl-4 mb-4">
             <div class="card organizer-card h-100">
                 <img src="https://db.fykos.cz/photo/person/person_%7B$organizer['personId']%7D.jpg" class="card-img-top"
@@ -14,13 +14,13 @@
                 <div class="card-body">
                     <table>
                         {if $organizer['role'] and $organizer['role'][$lang]}
-                            {/if}
-{if $organizer['career']}
-                        <tr>
-                            <td class="left-cell"><span class="icon"><i class="fas fa-building-columns"></i></span></td>
-                            <td class="right-cell">{$organizer['career']}</td>
-                        </tr>
                         {/if}
+                        <tr>
+                            <td class="left-cell"><span class="icon"><i class="fas fa-history"></i></span>
+                            </td>
+                             <td class="right-cell">
+                                 <p>ročníky {$organizer['since']} až {$organizer['until']}<p>
+                        </tr>
                         {if $organizer['domainAlias']}
                         {/if}
                     </table>
