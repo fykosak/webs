@@ -27,7 +27,7 @@ class AboutPresenter extends BasePresenter
         if ($allOrganizers !== []) {
             $currentOrganizers = array_filter(
                 $allOrganizers,
-                fn(array $organizer): bool => $organizer['state'] == 'active'
+                fn (array $organizer): bool => $organizer['state'] === 'active'
                     && $organizer['showOnWeb']
             );
 
