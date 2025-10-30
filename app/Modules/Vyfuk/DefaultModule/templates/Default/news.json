@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Pořadí po 1. sérii",
+      "text": "Zveřejnili jsme pořadí po 1. sérii 15. ročníku. V jednotlivých kategoriích zvítězili Lukáš Kopecký, Lucie Jurásková, Richard Menšík, Daniel Foreth, Jan František Lukáš a Patrik Pavlík. Všem děkujeme za účast a těšíme se na vaše řešení 2. série, která má termín odeslání 24. listopadu",
+      "date": "30. října 2025",
+      "link": ":Default:Results:default",
+      "link-text": "Pořadí"
+    },
+    {
       "title": "Kapacita setkání naplněna!",
       "text": "Došlo k naplnění kapacity Podzimního setkání. Stále se ale můžete registrovat a být přijati jako náhradníci. V případě uvolnění kapacity o přijetí náhradníků stále rozhoduje čas přihlášení.",
       "date": "21. října 2025"
@@ -18,13 +25,6 @@
       "date": "1. října 2025",
       "link": ":Default:Events:setkani",
       "link-text": "Stránka setkání"
-    },
-    {
-      "title": "Konečné pořadí práznidových serií",
-      "text": "Zveřejnili jsme pořadí po obou prázdninových sériích, můžete se tedy podívat, jak jste dopadli. Gratulujeme nejlepším řešitelům, kterým brzy rozešleme dotazník na výběr cen.",
-      "date": "8. září 2025",
-      "link": ":Default:Results:default",
-      "link-text": "Pořadí"
     }
   ]
 }
