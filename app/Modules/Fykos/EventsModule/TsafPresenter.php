@@ -24,7 +24,7 @@ class TsafPresenter extends BasePresenter
 
         $event = null;
         foreach ($events as $e) {
-            $eventBegin = strtotime($e["begin"]);
+            $eventBegin = strtotime($e['begin']);
             if (date('Y', $eventBegin) == $year && date('m', $eventBegin) == $month) {
                 $event = $e;
                 break;
@@ -46,7 +46,7 @@ class TsafPresenter extends BasePresenter
         $this->template->participants = $participants;
 
         // $this->template->galleryPath = "/media/images/events/" . ($event['eventTypeId'] == 4 ? 'sous-jaro' : 'sous-podzim') . "/rocnik" . ($event['year'] < 10 ? '0' : '') . $event['year'] . "/carousel-photos/";
-        $this->template->galleryPath = "";
+        $this->template->galleryPath = '';
     }
 
     public function getEventPhoto(array $event): string

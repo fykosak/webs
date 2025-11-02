@@ -25,7 +25,6 @@ abstract class ContestPresenter extends BasePresenter
         $this->downloader = $downloader;
     }
 
-
     public function injectDummyService(DummyService $dummyService): void
     {
         $this->dummyService = $dummyService;
@@ -72,7 +71,7 @@ abstract class ContestPresenter extends BasePresenter
                             }
                         }
                     }
-                } finally {
+                } catch (\Throwable) {
                 }
             }
             return null;
