@@ -60,7 +60,7 @@ final class AboutPresenter extends BasePresenter
                 'until' => $organizer['until'],
                 'texSignature' => $organizer['texSignature'],
                 'domainAlias' => $organizer['domainAlias'],
-                'state'=> $organizer['state'],
+                'state' => $organizer['state'],
             ];
             $parsedOrganizers[] = $parsedOrganizer;
         }

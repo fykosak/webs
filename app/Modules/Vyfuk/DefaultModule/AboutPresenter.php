@@ -55,11 +55,11 @@ class AboutPresenter extends BasePresenter
 
              // sort by order
              usort($allPastOrganizers, function (array $a, array $b): int {
-               if ($a['since'] === $b['since']) {
+                if ($a['since'] === $b['since']) {
                      return implode(' ', array_reverse(explode(' ', $a['name']))) <=> implode(' ', array_reverse(explode(' ', $b['name'])));
-               }
+                }
                  return $b['since'] <=> $a['since'];
-            });
+             });
         }
          $this->template->allpastorganizers = $allPastOrganizers;
     }
