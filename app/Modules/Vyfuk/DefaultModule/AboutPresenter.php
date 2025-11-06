@@ -41,26 +41,26 @@ class AboutPresenter extends BasePresenter
         }
         $this->template->organizers = $currentOrganizers;
     }
-     public function renderAllPastOrganizers(): void
-     {
+    public function renderAllPastOrganizers(): void
+    {
          $allOrganizers = $this->FKSDBDownloader->download(new OrganizersRequest(2));
-         $AllPastOrganizers = [];
+         $allPastOrganizers = [];
 
-         if ($allOrganizers !== []) {
-             $AllPastOrganizers = array_filter(
+        if ($allOrganizers !== []) {
+             $allPastOrganizers = array_filter(
                  $allOrganizers,
                  fn (array $organizer): bool => $organizer['state'] === 'inactive'
                      && $organizer['showOnWeb']
              );
 
              // sort by order
-             usort($AllPastOrganizers, function (array $a, array $b): int {
-                 if ($a['since'] === $b['since']) {
+             usort($allPastOrganizers, function (array $a, array $b): int {
+               if ($a['since'] === $b['since']) {
                      return implode(' ', array_reverse(explode(' ', $a['name']))) <=> implode(' ', array_reverse(explode(' ', $b['name'])));
-                 }
+               }
                  return $b['since'] <=> $a['since'];
-             });
-         }
-         $this->template->allpastorganizers = $AllPastOrganizers;
-     }
+            });
+        }
+         $this->template->allpastorganizers = $allPastOrganizers;
+    }
 }
