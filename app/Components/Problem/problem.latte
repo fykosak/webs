@@ -29,11 +29,13 @@
         </div>
         <div class="card-body">
             <div class="card-title">
-                {if $problem->contest == 'vyfuk' && $problem->number == 1 && $problem->series < 7}
-                    <p><small><i>Tato úloha je určena pouze pro žáky šestých a sedmých ročníků.</i></small></p>
-                {/if}
-                {if $problem->contest == 'vyfuk' && $problem->number == 7 && $problem->series < 7}
-                    <p><small><i>S řešením této úlohy ti může pomoct krátký naučný text – tzv. Výfučtení. To můžeš nalézt pod odkazem níže.</i></small></p>
+                {if $problem->contest == 'vyfuk'}
+                    {if $problem->number == 1 && $problem->series < 7}
+                        <p><small><i>Tato úloha je určena pouze pro žáky šestých a sedmých ročníků.</i></small></p>
+                    {/if}
+                    {if $problem->number == 7 && $problem->series < 7}
+                        <p><small><i>S řešením této úlohy ti může pomoct krátký naučný text – tzv. Výfučtení. To můžeš nalézt pod odkazem níže.</i></small></p>
+                    {/if}
                 {/if}
                 {if $problem->contest == 'fykos' && $problem->number == 6}
                     <p><small><i>

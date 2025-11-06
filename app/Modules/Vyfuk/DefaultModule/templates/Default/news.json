@@ -1,6 +1,18 @@
 {
   "cs": [
     {
+      "title": "Pořadí po 1. sérii",
+      "text": "Zveřejnili jsme pořadí po 1. sérii 15. ročníku. V jednotlivých kategoriích zvítězili Lukáš Kopecký, Lucie Jurásková, Richard Menšík, Daniel Foreth, Jan František Lukáš a Patrik Pavlík. Všem děkujeme za účast a těšíme se na vaše řešení 2. série, která má termín odeslání 24. listopadu",
+      "date": "30. října 2025",
+      "link": ":Default:Results:default",
+      "link-text": "Pořadí"
+    },
+    {
+      "title": "Kapacita setkání naplněna!",
+      "text": "Došlo k naplnění kapacity Podzimního setkání. Stále se ale můžete registrovat a být přijati jako náhradníci. V případě uvolnění kapacity o přijetí náhradníků stále rozhoduje čas přihlášení.",
+      "date": "21. října 2025"
+    },
+    {
       "title": "Zveřejnili jsme zadání druhé série",
       "text": "První série skončila – můžete si prohlédnout <a href=\"https://vyfuk.org/zadani/15/1\">vzorová řešení</a> a rovnou se pustit do úloh v druhé sérii. Děkujeme za rekordní zájem a prosíme o trpělivost při čekání na zveřejnění pořadí. Zaslali jste nám neuvěřitelných více než dva tisíce řešení, která se budeme v následujících dnech snažit co nejrychleji opravit a obodovat.",
       "date": "16. října 2025",
@@ -8,25 +20,11 @@
       "link-text": "Aktuální zadání"
     },
     {
-      "title": "Posunutí termínu přihlašování na podzimní setkání",
-      "text": "Termín spuštění registrace na letošní podzimní setkání se posouvá na <b>16. 10. 2025 20:00</b>. Omlouváme se za případné komplikace.",
+      "title": "Posunutí termínu přihlašování na Podzimní setkání",
+      "text": "Termín spuštění registrace na letošní Podzimní setkání se posouvá na <b>16. 10. 2025 20:00</b>. Omlouváme se za případné komplikace.",
       "date": "1. října 2025",
       "link": ":Default:Events:setkani",
       "link-text": "Stránka setkání"
-    },
-    {
-      "title": "Konečné pořadí práznidových serií",
-      "text": "Zveřejnili jsme pořadí po obou prázdninových sériích, můžete se tedy podívat, jak jste dopadli. Gratulujeme nejlepším řešitelům, kterým brzy rozešleme dotazník na výběr cen.",
-      "date": "8. září 2025",
-      "link": ":Default:Results:default",
-      "link-text": "Pořadí"
-    },
-    {
-      "title": "Je tady další ročník Výfuku",
-      "text": "Přichází nový školní rok a s ním i nový ročník Výfuku! V první sérii 15. ročníku si započítáte úlohy o svižníkovi zvrhlém, vraku na dně moří nebo si vyzkoušíte strategii v deskové hře. Experiment se zaměří na různé metody chlazení. Termín odeslání je 13. října. A také se můžete podívat na vzorová řešení 2. prázdninové série.",
-      "date": "1. září 2025",
-      "link": ":Default:Problems:default",
-      "link-text": "Aktuální zadání"
     }
   ]
 }

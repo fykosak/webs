@@ -66,6 +66,12 @@
     "category": "game"
   },
   {
+    "question": "Můžeme se soutěže účastnit v jiný čas?",
+    "answer": "Ne. Soutěž probíhá pro všechny ve stejný čas.",
+    "lang": "cs",
+    "category": "game"
+  },
+  {
     "question": "V jakých jazycích bude psáno zadání úloh?",
     "answer": "V češtině a angličtině.",
     "lang": "cs",
@@ -338,6 +344,12 @@
   {
     "question": "Can we compete from multiple PCs/locations?",
     "answer": "Yes.",
+    "lang": "en",
+    "category": "game"
+  },
+  {
+    "question": "Can we take part in the competition in a different time?",
+    "answer": "No. Everyone competes simultaneously.",
     "lang": "en",
     "category": "game"
   },
