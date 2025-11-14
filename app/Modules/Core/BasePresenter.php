@@ -119,6 +119,24 @@ abstract class BasePresenter extends Presenter
         }
     }
 
+    public function translateDay(string $day): string
+    {
+        if ($this->language !== Language::cs) {
+            return $day;
+        }
+        return match ($day) {
+            'Monday' => 'Pondělí',
+            'Tuesday' => 'Úterý',
+            'Wednesday' => 'Středa',
+            'Thursday' => 'Čtvrtek',
+            'Friday' => 'Pátek',
+            'Saturday' => 'Sobota',
+            'Sunday' => 'Neděle',
+            default => '',
+        };
+    }
+
+
     /**
      * @throws UnderConstructionException
      */

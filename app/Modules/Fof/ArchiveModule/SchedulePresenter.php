@@ -4,23 +4,43 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\ArchiveModule;
 
+use App\Models\Downloader\FKSDBDownloader;
+use App\Models\Downloader\ScheduleRequest;
+use DateTime;
 use Nette\Application\BadRequestException;
-use Nette\Http\IResponse;
 
 class SchedulePresenter extends BasePresenter
 {
+    private readonly FKSDBDownloader $downloader;
+
+    public function inject(FKSDBDownloader $downloader): void
+    {
+        $this->downloader = $downloader;
+    }
     /**
      * @throws BadRequestException
      * @throws \Throwable
      */
 
-    public function startup(): void
+    public function renderDefault(): void
     {
-        parent::startup();
+        $scheduleGroups = $this->downloader->download(
+            new ScheduleRequest(
+                $this->getEvent()->eventId,
+                ['weekend', 'info', 'teacher_present']
+            )
+        );
+        usort($scheduleGroups, fn (array $aGroup, array $bGroup): int => $aGroup['start'] <=> $bGroup['start']);
 
-        // Check if it is the correct event year, otherwise throw 404
-        if ($this->eventYear !== '2023') {
-            throw new BadRequestException('Event not found', IResponse::S404_NOT_FOUND);
+        $scheduleGroupsByDay = [];
+        foreach ($scheduleGroups as $group) {
+            $day = (new DateTime($group['start']))->format('Y-m-d');
+            if (!key_exists($day, $scheduleGroupsByDay)) {
+                $scheduleGroupsByDay[$day] = [];
+            }
+            $scheduleGroupsByDay[$day][] = $group;
         }
+
+        $this->template->scheduleGroupsByDay = $scheduleGroupsByDay;
     }
 }
