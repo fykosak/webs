@@ -60,6 +60,7 @@ final class AboutPresenter extends BasePresenter
                 'until' => $organizer['until'],
                 'texSignature' => $organizer['texSignature'],
                 'domainAlias' => $organizer['domainAlias'],
+                'state' => $organizer['state'],
             ];
             $parsedOrganizers[] = $parsedOrganizer;
         }
@@ -77,8 +78,7 @@ final class AboutPresenter extends BasePresenter
         if ($allOrganizers !== []) {
             $currentOrganizers = array_filter(
                 $allOrganizers,
-                fn (array $organizer): bool => $organizer['until'] == null
-                    || $organizer['until'] === $this->getCurrentYear()->year
+                fn(array $organizer): bool => $organizer['state'] === 'active'
             );
             // sort by order and last name
             setlocale(LC_COLLATE, 'cs_CZ.utf8');

@@ -10,22 +10,20 @@
         "pokud něco nefunguje, dost možná je někde špatně čárka",
         "do novinek se dají dávat i html elementy"
     ],
-    "cs" : [
-            {
-            "title": "Poslední šance dostat se na soustředění",
-            "text": "Láká vás strávit týden mezi lidmi se zájmem o fyziku? Pak nezapomeňte řešit úlohy z první série a předběžně je odevzdat do 8. září! Držíme pro vás ještě pár volných míst na podzimním soustředění.",
-            "link": "https://fykos.cz/zadani/39/1",
-            "link-text": "Zadání",
-            "color": "fykos"
+    "cs" : [{
+            "title": "Zaregistrujte se na Fyziklání Online",
+            "text": "Spustila se registrace do letošního ročníku Fyziklání Online! Tak sežeňte partu až pěti kamarádů a 26. listopadu se přidejte k týmům z celého světa v řešení originálních fyzikálních úloh!",
+            "link": "https://online.fyziklani.cz/registrace",
+            "link-text": "Registrace",
+            "color": "fol"
         }
     ],
-    "en" : [
-         {
-            "title": "Open Problems",
-            "text": "Do you like to ponder over open-ended questions? This year we will include some of your best solutions to the open problems in our official solution. Oh, and the authors of the chosen solutions will get a reward!",
-            "link": "https://fykos.org/problems",
-            "link-text": "Problems",
-            "color": "fykos"
+    "en" : [{
+            "title": "Registration for Physics Brawl Online",
+            "text": "The registration for Physics Brawl Online is opened! Gather a group of up to five friends and join teams from all over the world to solve physics problems on November 26th! ",
+            "link": "https://physicsbrawl.org/registration",
+            "link-text": "Registration",
+            "color": "fol"
         }
     ]
 }

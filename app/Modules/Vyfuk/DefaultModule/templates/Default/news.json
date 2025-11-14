@@ -1,30 +1,30 @@
 {
   "cs": [
     {
-      "title": "Známe termín podzimního setkání",
-      "text": "Podzimní setkání letos proběhne o víkendu od 7. do 9. listopadu. Tradičně se potkáme na gymnáziu Nad Alejí, kde na vás čeká program plný zábavy a hlavně fyziky. Pro získání pozvánky na setkání není rozhodující pořadí – pozveme všechny, kdo se zapojí do 1. série, kterou zveřejníme již brzy! Zúčastnit se naposledy mohou i deváťáci, kteří řešili v této kategorii prázdninové série.",
-      "date": "25. srpna 2025",
-      "link": ":Default:Events:setkani",
-      "link-text": "Stránka podzimního setkání"
-    },
-    {
-      "title": "Konečné pořadí",
-      "text": "Se zveřejněním výsledků 6. série známe již celkové pořadí a vítěze 14. ročníku, jimiž jsou v jednotlivých kategoriích Matěj Dudek, Lukáš Kopecký, Richard Menšík a Kryštof Bílý. Vítězům gratulujeme a připomínáme, že mají nejpozději do 23. 6. čas si vybrat některou z <a href=\"https://vyfuk.org/ceny\">odměn</a>, které nabízíme.",
-      "date": "12. června 2025",
+      "title": "Pořadí po 1. sérii",
+      "text": "Zveřejnili jsme pořadí po 1. sérii 15. ročníku. V jednotlivých kategoriích zvítězili Lukáš Kopecký, Lucie Jurásková, Richard Menšík, Daniel Foreth, Jan František Lukáš a Patrik Pavlík. Všem děkujeme za účast a těšíme se na vaše řešení 2. série, která má termín odeslání 24. listopadu",
+      "date": "30. října 2025",
       "link": ":Default:Results:default",
       "link-text": "Pořadí"
     },
     {
-      "title": "Zadání 1. a 2. prázdninové série",
-      "text": "Zvěřejnili jsme zadání 1. a 2. prázdninové série. Čas na řešení první prázdninové série máte do <b>22. 7. 2025</b>, svá řešení druhé prázdninové série můžete odevzdávat až do <b>26. 8. 2025</b>.",
-      "date": "5. června 2025",
-      "link": ":Default:Problems:default",
-      "link-text": "Zadání"
+      "title": "Kapacita setkání naplněna!",
+      "text": "Došlo k naplnění kapacity Podzimního setkání. Stále se ale můžete registrovat a být přijati jako náhradníci. V případě uvolnění kapacity o přijetí náhradníků stále rozhoduje čas přihlášení.",
+      "date": "21. října 2025"
     },
     {
-      "title": "Spuštění nového webu",
-      "text": "Právě jsme pro vás spustili nový web! Je v novém designu a s množstvím aktualizovaných informací. Pokud byste našli nějakou chybu, neváhejte nás kontaktovat na <a href='mailto:vyfuk@vyfuk.org'>vyfuk@vyfuk.org</a>",
-      "date": "16. května 2025"
+      "title": "Zveřejnili jsme zadání druhé série",
+      "text": "První série skončila – můžete si prohlédnout <a href=\"https://vyfuk.org/zadani/15/1\">vzorová řešení</a> a rovnou se pustit do úloh v druhé sérii. Děkujeme za rekordní zájem a prosíme o trpělivost při čekání na zveřejnění pořadí. Zaslali jste nám neuvěřitelných více než dva tisíce řešení, která se budeme v následujících dnech snažit co nejrychleji opravit a obodovat.",
+      "date": "16. října 2025",
+      "link": ":Default:Problems:default",
+      "link-text": "Aktuální zadání"
+    },
+    {
+      "title": "Posunutí termínu přihlašování na Podzimní setkání",
+      "text": "Termín spuštění registrace na letošní Podzimní setkání se posouvá na <b>16. 10. 2025 20:00</b>. Omlouváme se za případné komplikace.",
+      "date": "1. října 2025",
+      "link": ":Default:Events:setkani",
+      "link-text": "Stránka setkání"
     }
   ]
 }

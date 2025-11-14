@@ -119,7 +119,7 @@
 </div>
 *}
 
-{* <div class="fyziklani-banner">
+ {*<div class="fyziklani-banner">
      <div class="inner-container">
          <div class="text">
              {switch $language->value}
@@ -130,6 +130,18 @@
              </div>
          </div>
      </div>*}
+
+   <div class="fyziklani-banner">
+     <div class="inner-container">
+         <div class="text">
+             {switch $language->value}
+             {case 'cs'}Upozorňujeme, že pravidla byla od minulého ročníku upravena. Aktuální verzi najdete v záložce <a href="https://online.fyziklani.cz/pravidla/uplna">Pravidla</a>.
+             {default}Please note that the rules have been modified since last year. You can find the current version in the <a href="https://physicsbrawl.org/rules/complete">Rules</a> tab.
+             {/switch}
+             </div>
+         </div>
+     </div>
+
 
 {if !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::before) && !$newestEvent->isLongAfterTheEvent()}
 {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
@@ -238,7 +250,7 @@
         <div class="row strips">
             <div class="col-md-4">
                 Up to five high school students compete from their homes by solving physics
-                problems in a three-hour-long contest, though anyone can take part in the Open category: 
+                problems in a three-hour-long contest, though anyone can take part in the Open category:
                 a teacher, university student or just a fan of physics.
             </div>
             <div class="col-md-4">
@@ -265,22 +277,38 @@
         <div class="row prices">
             <div class="col-md-4">
                 {switch $language->value}{case cs}
-                <div class="price-box propagacni-box large">
+                {*<div class="price-box small propagacni-box">
                     FYKOSí lahve,<br />trička a mikiny
-                </div>
+                </div>*}
+                <a class="price-box small mathematica-box" href="https://www.wolfram.com/mathematica/">
+                    Wolfram<br />Mathematica<br />software
+                </a>
+                <a class="price-box small brilliant-box" href="https://brilliant.org/" style="text-decoration:none;">
+                    Brilliant <br />premium
+                </a>
                 {*
                 <div class="price-box small" style="background-color: #666666">
                     FYKOSí<br />ponožky, plecháčky<br />a další propagační předměty
-                    </div>          
-                *}    
+                    </div>
+                *}
                 {*
                 <a class="price-box large mathematica-box" href="https://www.wolfram.com/mathematica/">
                     Wolfram<br />Mathematica<br />software
                 </a>
                 *}
+                {*<div class="price-box tri-plet" style="background-color: #f79c55; display: flex; align-items: center;">
+                    Další ceny pro Vás připravujeme...
+                </div>*}
+
                 {default}
-                <a class="price-box propagacni-box large">
+                <a class="price-box small mathematica-box" href="https://www.wolfram.com/mathematica/">
+                    Wolfram<br />Mathematica<br />software
+                </a>
+                {*<a class="price-box propagacni-box small">
                     FYKOS's bottles,<br />T-shirts and other prices
+                </a>*}
+                <a class="price-box small brilliant-box" href="https://brilliant.org/" style="text-decoration:none;">
+                    Brilliant <br />premium
                 </a>
                 {*
                 <div class="price-box small" style="background-color: #666666">
@@ -292,17 +320,29 @@
                     Wolfram<br />Mathematica<br />software
                 </a>
                 *}
+                {*<div class="price-box tri-plet" style="background-color: #f79c55; display: flex; align-items: center;">
+                    We are preparing more prizes...
+                </div>*}
                 {/switch}
             </div>
             <div class="col-md-4">
-                <div class="price-box tri-plet knihy-box">
+                {*<div class="price-box small knihy-box">
                     {switch $language->value}
                     {case cs}
                     Knihy<br />podle<br />výběru
                     {default}
                     Books<br />by your<br />choice
                     {/switch}
-                </div>              
+                </div>*}
+                <a class="price-box small origin-box" href="https://www.originlab.com/" style="text-decoration:none;">
+                    {switch $language->value}
+                    {case cs}
+                    OriginPro
+                    {default}
+                    OriginPro
+                    {/switch}
+                </a>
+                {*
                 <div class="price-box tri-plet deskovky-box">
                     {switch $language->value}
                     {case cs}
@@ -311,6 +351,15 @@
                     Board <br>and card<br>games
                     {/switch}
                 </div>
+                *}
+                <a class="price-box small aops-box" href="https://artofproblemsolving.com/online" style="text-decoration:none;color: #1b365d;">
+                    {switch $language->value}
+                    {case cs}
+                    AoPS <br />licence
+                    {default}
+                    AoPS <br />licence
+                    {/switch}
+                </a>
                 {*
                 <a class="price-box large factorio-box" href="https://www.factorio.com/">
                     {switch $language->value}
@@ -325,10 +374,10 @@
                 <a class="price-box small chess-box" href="https://www.chess.com/">
                     {switch $language->value}
                     {case cs}Diamantové členství na<br />
-                    <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad"
+                    <img src="{$basePath}/images/logos/chess_logo_white.png" alt="Chess.com licence"
                         style="max-height: 3rem">
                     {default}Diamond membership on<br />
-                    <img src="{$basePath}/images/logos/chess_logo-removebg-preview.png" alt="Orgpad"
+                    <img src="{$basePath}/images/logos/chess_logo_white.png" alt="Chess.com licences"
                         style="max-height: 3rem">
                     {/switch}
                 </a>
@@ -345,11 +394,39 @@
                     </div>
                 {/switch}
                 *}
-            </div>            
+                {*{switch $language->value}
+                {case cs}
+                <div class="price-box tri-plet" style="background-color: #f79c55; display: flex; align-items: center;">
+                    Další ceny pro Vás připravujeme...
+                </div>
+                {default}
+                <div class="price-box tri-plet" style="background-color: #f79c55; display: flex; align-items: center;">
+                    We are preparing more prizes...
+                </div>
+                {/switch}*}
+            </div>
             <div class="col-md-4">
             {switch $language->value}
+            {case cs}           
+               <a class="price-box small chess-box" href="https://www.chess.com/">
+                    Diamantové členství na<br />
+                    <img src="{$basePath}/images/logos/chess_logo_white.png" alt="Chess.com diamantové členství"
+                        style="max-height: 3rem">
+                </a>  
+            <a class="price-box small physolymp-box" href="https://physolymp.com/" style="text-decoration:none;color:#2E2A5A;">
+                PhysOlymp <br />licence
+            </a>
+            {default}
+                <a class="price-box small chess-box" href="https://www.chess.com/">
+                    Diamond membership on<br />
+                    <img src="{$basePath}/images/logos/chess_logo_white.png" alt="Chess.com diamond membership"
+                        style="max-height: 3rem">
+                </a>
+            <a class="price-box small physolymp-box" href="https://physolymp.com/" style="text-decoration:none;color:#2E2A5A;">
+                PhysOlymp <br />licence
+            </a>
                 {*
-                {case cs}                
+                {case cs}
                 <div class="price-box small deskovky-box">
                     Deskovky<br>a karetní<br>hry
                 </div>
@@ -369,16 +446,16 @@
                     {* {default}Software<br />Graphmatica<br />{/switch}*}
                     {* </a>*}
 
-                {switch $language->value}
+                {*{switch $language->value}
                 {case cs}
-                <div class="price-box large" style="background-color: #f79c55; display: flex; align-items: center;">
+                <div class="price-box tri-plet" style="background-color: #f79c55; display: flex; align-items: center;">
                     Další ceny pro Vás připravujeme...
                 </div>
                 {default}
-                <div class="price-box large" style="background-color: #f79c55; display: flex; align-items: center;">
+                <div class="price-box tri-plet" style="background-color: #f79c55; display: flex; align-items: center;">
                     We are preparing more prizes...
                 </div>
-                {/switch}
+                {/switch}*}
                 {*
                 <a class="price-box large avast-box" href="https://avast.com/">
                     {switch $language->value}
@@ -404,7 +481,7 @@
         <h1>Každý najde svou obtížnost.</h1>
         <div>
             <div class="title-page-problem">
-                Uvažujme lampu o výšce <i>H</i> = 3,2 m jako bodový zdroj světla. Člověk s výškou <i>h</i> = 1,8 m se 
+                Uvažujme lampu o výšce <i>H</i> = 3,2 m jako bodový zdroj světla. Člověk s výškou <i>h</i> = 1,8 m se
                 pohybuje od lampy po přímce rovnoměrnou rychlostí <i>v</i> = 1,5 m·s<sup>-1</sup>. Určete zrychlení vrcholu jeho stínu.
                 {*
                 Jehličnatý strom může být z mechanického hlediska aproximován kolmým (nikoli komolým)
@@ -436,7 +513,7 @@
                 musely jezdit, aby se mohly udržet hlavou dolů na stropě? Zjednodušeně uvažujme, že vůz má
                 z boku tvar pravoúhlého trojúhelníku o délce 5,1 m, výšce 1,0 m a je široký 1,8 m. Hmotnost
                 vozidla i s řidičem je 800 kg. Dále předpokládejme, že částice vzduchu jsou na počátku nehybné
-                a elasticky se od vozidla odráží. 
+                a elasticky se od vozidla odráží.
                 {*
                 Vítek by si rád ze své studny nabral vodu, ale nechce se mu tahat vědro nahoru. Proto vodu
                 postupně roztáčel, až při úhlové rychlosti <i>ω</i> = 11 rad·s<sup>-1</sup>
@@ -452,8 +529,8 @@
         <h1>Everyone Finds Their Level of Difficulty</h1>
         <div>
             <div class="title-page-problem">
-            Consider a street lamp of height <i>H</i> = 3.2 m as a point source of light. 
-            A person of height <i>h</i> = 1.8 m is walking in a straight line directly away from the lamp at a constant speed of <i>v</i> = 1.5 m·s<sup>−1</sup>. 
+            Consider a street lamp of height <i>H</i> = 3.2 m as a point source of light.
+            A person of height <i>h</i> = 1.8 m is walking in a straight line directly away from the lamp at a constant speed of <i>v</i> = 1.5 m·s<sup>−1</sup>.
             Calculate the acceleration of the top of their shadow.
                 {*
                 A coniferous tree could be (from a mechanical point of view) approximated by a homogeneous
@@ -490,7 +567,7 @@
                 The vehicle’s mass, including the driver, is 800 kg. Let us further assume that the air particles
                 are initially stationary and elastically bounce off the vehicle.
                 {*
-                Vítek would like to draw water from his well, but he does not want to haul the bucket up. 
+                Vítek would like to draw water from his well, but he does not want to haul the bucket up.
                 Therefore, he gradually spun the water around until, at an angular
                 velocity <i>ω</i> = 11 rad·s<sup>-1</sup>, the water started to flow out of the well all by itself. Vítek knows the
                 depth of the well (from the top edge to the bottom) is <i>h</i> = 47 m. The well has

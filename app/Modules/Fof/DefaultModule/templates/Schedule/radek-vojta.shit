@@ -1,0 +1,95 @@
+        <script>
+            let count = 0;
+            const btn = document.getElementById("vojta-david-secret-button");
+            const div = document.getElementById("vojta-david-secret-snackbar");
+
+            function eatSnack(message) {
+                bar = document.createElement("div");
+                bar.textContent = message;
+                bar.setAttribute("style", "z-index: " + count + ";");
+                const handle = div.appendChild(bar);
+                setTimeout(_ => div.removeChild(handle), 2000);
+            }
+
+            function handler() {
+                count += 1;
+                diff = 7 - count;
+                if (diff < 4 && diff > 0) {
+                    msg = "Just " + diff + " click" + (diff != 1 ? "s" : "") + " to get a secret button";
+                    eatSnack(msg);
+                } else if (diff <= 0) {
+                    eatSnack("Enjoy your secret button");
+                    btn.removeAttribute("hidden");
+                }
+            }
+
+            document
+                .getElementById("vojta-david-secret-panel")
+                .addEventListener("click", handler);
+        </script>
+
+            <style>
+                    #vojta-david-secret-button {
+                        transition: hidden ease-in-out 1s;
+                    }
+
+                    #vojta-david-secret-snackbar > * {
+                        min-width: 300px;
+                        margin-left: -150px;
+                        background-color: #333;
+                        color: #fff;
+                        text-align: center;
+                        border-radius: 4px;
+                        padding: 16px;
+                        position: fixed;
+                        left: 50%;
+                        bottom: 30px;
+                        -webkit-animation: fadein 0.5s, fadeout 0.5s 1.5s;
+                        animation: fadein 0.5s, fadeout 0.5s 1.5s;
+                    }
+
+                    @-webkit-keyframes fadein {
+                        from {
+                            bottom: 0;
+                            opacity: 0;
+                        }
+                        to {
+                            bottom: 30px;
+                            opacity: 1;
+                        }
+                    }
+
+                    @keyframes fadein {
+                        from {
+                            bottom: 0;
+                            opacity: 0;
+                        }
+                        to {
+                            bottom: 30px;
+                            opacity: 1;
+                        }
+                    }
+
+                    @-webkit-keyframes fadeout {
+                        from {
+                            bottom: 30px;
+                            opacity: 1;
+                        }
+                        to {
+                            bottom: 0;
+                            opacity: 0;
+                        }
+                    }
+
+                    @keyframes fadeout {
+                        from {
+                            bottom: 30px;
+                            opacity: 1;
+                        }
+                        to {
+                            bottom: 0;
+                            opacity: 0;
+                        }
+                    }
+            </style>
+            <!-- end vojta -->

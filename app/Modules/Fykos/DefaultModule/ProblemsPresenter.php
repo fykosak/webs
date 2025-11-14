@@ -9,6 +9,7 @@ use App\Components\Problem\ProblemComponent;
 use App\Models\Downloader\Models\ProblemManager\SeriesModel;
 use App\Models\Downloader\Services\FileService;
 use App\Models\Downloader\Services\ProblemService;
+use Nette\Application\Attributes\Persistent;
 use Throwable;
 
 class ProblemsPresenter extends BasePresenter
@@ -16,9 +17,9 @@ class ProblemsPresenter extends BasePresenter
     private readonly ProblemService $problemService;
     private readonly FileService $fileService;
 
-    /** @persistent */
+    #[Persistent]
     public ?int $year = null;
-    /** @persistent */
+    #[Persistent]
     public ?int $series = null;
 
     public function injectServiceProblem(ProblemService $problemService, FileService $fileService): void
@@ -55,6 +56,9 @@ class ProblemsPresenter extends BasePresenter
         $this->template->yearsAndSeries = $yearsAndSeries;
     }
 
+    /**
+     * @throws Throwable
+     */
     protected function createComponentProblem(): ProblemComponent
     {
         return new ProblemComponent($this->getContext(), $this->getSeries());

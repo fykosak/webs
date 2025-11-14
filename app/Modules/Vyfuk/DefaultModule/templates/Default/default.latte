@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-md-5 text-center d-none d-lg-block">
                     <img style="height: 300px"
-                            src="{$basePath}/images/supervyfuk.svg" alt="Výfuček superhrdina" />{* TODO cool animace *}
+                            src="{$basePath}/images/stupne_vitezu.svg" alt="Výfuček superhrdina" />
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
                                             <a n:href="$news['link']" class="btn btn-primary order-2">{$news['link-text']}</a>
                                         {/if}
                                     {/if}
-                                    <p class="my-auto order-1">
+                                    <p class="my-auto order-1 news-date">
                                         {$news['date']}
                                     </p>
                                 </div>
@@ -230,7 +230,7 @@ function countdownTimer() {
         if (seriesNumber > 6) {
             label = (seriesNumber-7) + ".&nbsp;prázdninová série již proběhla.";
         } else {
-            label = (seriesNumber-7) + ".&nbsp;série již proběhla.";
+            label = seriesNumber + ".&nbsp;série již proběhla.";
         }
         time = '';
         document.getElementById("countdown-time").classList.add("d-none");

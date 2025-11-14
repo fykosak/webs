@@ -18,6 +18,7 @@ class ProblemsPresenter extends BasePresenter
 
     /** @persistent */
     public ?int $year = null;
+
     /** @persistent */
     public ?int $series = null;
 

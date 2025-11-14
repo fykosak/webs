@@ -66,6 +66,16 @@
 <body>
 
     {block body}
+
+    {*<div class="alert alert-warning" role="alert" style="margin: 0">
+    {switch $language->value}
+        {case cs}
+        <strong>Termín odevzdání úlohy S byl prodloužen na 12. října.</strong> Omlouváme se za pozdní zveřejnění.
+        {default}
+        <strong>The deadline of task S has been extended to October 12.</strong> We apologize for the late publication.
+        {/switch}
+    </div>*}
+
     {control navigation '/images/logo.svg', 'FYKOS'}
     <main>
         {block main}
@@ -232,6 +242,7 @@
                                         <li><a n:href=":Default:SupportUs:">Jak podpořit FYKOS</a></li>
                                         <li><a n:href=":Default:About:contact">Kontakt</a></li>
                                         <li><a n:href=":Default:Merch:">Merch</a></li>
+                                        <li><a n:href=":Default:FurtherOpportunities:">Další příležitosti</a></li>
                                     </ul>
                                 </li>
                                 {default}
@@ -240,6 +251,7 @@
                                         <li><a n:href=":Default:SupportUs:">Support us</a></li>
                                         <li><a n:href=":Default:About:contact">Contact</a></li>
                                         <li><a n:href=":Default:Merch:">Merchandise</a></li>
+                                        <li><a n:href=":Default:FurtherOpportunities:">Further Opportunities</a></li>
                                     </ul>
                                 </li>
                             {/switch}
