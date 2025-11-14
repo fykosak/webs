@@ -112,52 +112,6 @@
         </section>
     </div>
 
-    {foreach $scheduleGroupsByDay as $day => $groups}
-        {var $scheduleDay = new \Datetime($day)}
-        <div class="panel color-auto">
-            <section class="inner-container">
-                <div class="subheader">
-                    {switch $language->value}
-                        {dump $day}
-                        {case 'cs'}{$scheduleDay->format('j. n. Y')}
-                        {default}{$scheduleDay->format('F j, Y')}
-                    {/switch}
-                </div>
-                <h1>{$presenter->translateDay($scheduleDay->format('l'))}</h1>
-                {foreach $groups as $group}
-                    {var $start = new \DateTime($group['start'])}
-                    {var $end = new \DateTime($group['end'])}
+    {control scheduleList [689, 690, 691, 692, 693, 694, 695, 696, 697], 661}
 
-                    <div class="subheader">{$start->format('H:i')} - {$end->format('H:i')}</div>
-                    <h2>{$group['name'][$lang]}</h2>
-
-                    {var $itemsToSkip = [689, 690, 691, 692, 693, 694, 695, 696, 697]}
-                    {var $competitionDetail = 661}
-
-                    {foreach $group['items'] as $item}
-                        {if !in_array($item['itemId'], $itemsToSkip)}
-                            <div id="{$item['itemId']}" class="rules">
-                                {if !($group['name'][$lang] == $item['name'][$lang])}
-                                    <div class="title">
-                                        {$item['name'][$lang]}
-                                    </div>
-                                {/if}
-                                <div class="description">
-                                    {if $item['itemId'] != $competitionDetail}
-                                            {$item['longDescription'][$lang]??$item['description'][$lang]|noescape}
-                                    {else}
-                                        <div class="timeline timeline-wider">
-                                            <div>
-                                                {include '../../../DefaultModule/templates/competition_schedule.latte'}
-                                            </div>
-                                        </div>
-                                    {/if}
-                                </div>
-                            </div>
-                        {/if}
-                    {/foreach}
-                {/foreach}
-            </section>
-        </div>
-    {/foreach}
 {/block}

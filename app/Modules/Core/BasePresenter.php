@@ -17,6 +17,7 @@ use InvalidArgumentException;
 use Nette\Application\IPresenterFactory;
 use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Template;
+use Nette\DI\Container;
 
 abstract class BasePresenter extends Presenter
 {
@@ -27,15 +28,18 @@ abstract class BasePresenter extends Presenter
     public GettextTranslator $translator;
     public SettingsService $settings;
     private IPresenterFactory $presenterFactory;
+    private Container $diContainer;
 
     public function injectServices(
         GettextTranslator $translator,
         SettingsService $settings,
-        IPresenterFactory $presenterFactory
+        IPresenterFactory $presenterFactory,
+        Container $diContainer
     ): void {
         $this->translator = $translator;
         $this->settings = $settings;
         $this->presenterFactory = $presenterFactory;
+        $this->diContainer = $diContainer;
     }
 
     /**
@@ -46,6 +50,11 @@ abstract class BasePresenter extends Presenter
     {
         parent::startup();
         $this->localize();
+    }
+
+    public function getContext(): Container
+    {
+        return $this->diContainer;
     }
 
     protected function createComponentNavigation(): Navigation
