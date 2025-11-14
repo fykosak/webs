@@ -53,8 +53,8 @@ final class EventService extends AbstractJSONService
      */
     public function getParticipated(int $eventId, ?string $explicitExpiration = null): array
     {
-        return array_filter($this->getEventParticipants($eventId, $explicitExpiration), function ($v) {
-            return $v->status == 'participated';
+        return array_filter($this->getEventParticipants($eventId, $explicitExpiration), function ($participant) {
+            return $participant->status === 'participated';
         });
     }
 

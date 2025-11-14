@@ -19,7 +19,7 @@ class EventsPresenter extends BasePresenter
     public function renderDetail(int $eventId): void
     {
         $event = $this->eventService->getEvent($eventId);
-        if ($event->contestId != 2) {
+        if ($event->contestId !== 2) {
             $this->error();
         }
         $this->template->event = $event;
