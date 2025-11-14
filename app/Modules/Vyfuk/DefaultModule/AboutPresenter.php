@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Vyfuk\DefaultModule;
 
-use App\Models\Downloader\FKSDBDownloader;
+use App\Models\Downloader\Downloaders\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 
 class AboutPresenter extends BasePresenter
@@ -27,7 +27,7 @@ class AboutPresenter extends BasePresenter
         if ($allOrganizers !== []) {
             $currentOrganizers = array_filter(
                 $allOrganizers,
-                fn (array $organizer): bool => $organizer['state'] === 'active'
+                fn(array $organizer): bool => $organizer['state'] === 'active'
                     && $organizer['showOnWeb']
             );
 

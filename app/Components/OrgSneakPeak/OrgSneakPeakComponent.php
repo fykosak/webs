@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Components\OrgSneakPeak;
 
 use Fykosak\Utils\Components\DIComponent;
-use App\Models\Downloader\FKSDBDownloader;
+use App\Models\Downloader\Downloaders\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
 use Nette\DI\Container;
 

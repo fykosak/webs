@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fol\ArchiveModule;
 
-use App\Models\Downloader\EventService;
-use App\Models\Downloader\EventModel;
+use App\Models\Downloader\Models\EventModel;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;

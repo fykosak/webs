@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Dsef\DefaultModule;
 
-use App\Models\Downloader\EventModel;
+use App\Models\Downloader\Models\EventModel;
 use Nette\Application\BadRequestException;
 
 class RegistrationPresenter extends BasePresenter

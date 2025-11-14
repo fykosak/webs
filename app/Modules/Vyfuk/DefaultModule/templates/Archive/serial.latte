@@ -13,30 +13,30 @@
     </section>
     <section  class="inner-container">
         <div class="accordion" id="yearsAccordion">
-        {foreach $yearsAndSeries as $year => $seriesList}
-            {if $hasAtLeastOneSerial[$year]}
+        {foreach $contestYears as $contestYear}
+        {if $hasAtLeastOneSerial[$contestYear->year]}
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{$year}" aria-expanded="false" aria-controls="collapse{$year}">
-                        {$year}. ročník
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{$contestYear->year}" aria-expanded="false" aria-controls="collapse{$contestYear->year}">
+                        {$contestYear->year}. ročník
                     </button>
                     </h2>
-                    <div id="collapse{$year}" class="accordion-collapse collapse" data-bs-parent="#yearsAccordion">
+                    <div id="collapse{$contestYear->year}" class="accordion-collapse collapse" data-bs-parent="#yearsAccordion">
                     <div class="accordion-body p-0">
                         <div class="d-flex flex-row flex-wrap justify-content-evenly mb-0">
-                            {foreach $seriesList as $seriesNo}
-                                {if $seriesNo <= 6}
-                                    {php $series = $problemService->getSeries('vyfuk', $year, $seriesNo)}
-                                    {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
+                            {foreach $contestYear->series as $contestYearSeries}
+                                {if (int)$contestYearSeries->label <= 6}
+                                    {php $series = $problemService->getSeries($contestYearSeries->seriesId)}
+                                    {php $serialPath = $fileService->getSerial('vyfuk', $series, $lang)}
                                     {if $serialPath}
                                         <div class="m-3">
                                             <div>
-                                                <p class="text-center m-0" scope="col"><strong>{$seriesNo}. série</strong></p>
+                                                <p class="text-center m-0" scope="col"><strong>{$contestYearSeries->label}. série</strong></p>
                                             </div>
                                             <div>
                                                 <p class="m-0">
                                                     <a class="btn btn-primary my-2 mr-4" href={$serialPath}>
-                                                        <i class="far fa-file-pdf"></i><span class="skip-3px"></span> {$series->getSerialTopic('vyfuk', $lang)}
+                                                        <i class="far fa-file-pdf"></i><span class="skip-3px"></span> {*{$series->getSerialTopic('vyfuk', $lang)}*}
                                                     </a>
                                                 </p>
                                             </div>

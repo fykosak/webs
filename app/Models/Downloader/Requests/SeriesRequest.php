@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Downloader;
+namespace App\Models\Downloader\Requests;
 
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 

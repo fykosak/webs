@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Components\ResultsPanel;
 
 use App\Components\ApiResults\ApiResultsComponent;
-use App\Models\Downloader\EventModel;
+use App\Models\Downloader\Models\EventModel;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
