@@ -13,6 +13,8 @@ use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
+use InvalidArgumentException;
+use Nette\Application\IPresenterFactory;
 use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Template;
 
@@ -24,11 +26,16 @@ abstract class BasePresenter extends Presenter
 
     public GettextTranslator $translator;
     public SettingsService $settings;
+    private IPresenterFactory $presenterFactory;
 
-    public function injectServices(GettextTranslator $translator, SettingsService $settings): void
-    {
+    public function injectServices(
+        GettextTranslator $translator,
+        SettingsService $settings,
+        IPresenterFactory $presenterFactory
+    ): void {
         $this->translator = $translator;
         $this->settings = $settings;
+        $this->presenterFactory = $presenterFactory;
     }
 
     /**
@@ -69,6 +76,35 @@ abstract class BasePresenter extends Presenter
         $template->setTranslator($this->translator);
 
         return $template;
+    }
+
+    /**
+     * Helper function get a presenter by it path/name.
+     */
+    public function getPresenterByName(
+        string $presenterName,
+        string $action = 'default',
+        array $params = []
+    ): BasePresenter {
+        $targetPresenter = $this->presenterFactory->createPresenter($presenterName);
+        if (!$targetPresenter instanceof BasePresenter) {
+            throw new InvalidArgumentException('Presenter ' . $presenterName . ' must be an instance of BasePresenter');
+        }
+
+        $targetPresenter->setParent(null, $presenterName);
+        $targetPresenter->loadState($params);
+        $targetPresenter->changeAction($action);
+        $targetPresenter->localize();
+
+        return $targetPresenter;
+    }
+
+    /**
+     * Determine, if presenter should be visible. Meant to be overwritten by child presenters.
+     */
+    public function isVisible(): bool
+    {
+        return true;
     }
 
 

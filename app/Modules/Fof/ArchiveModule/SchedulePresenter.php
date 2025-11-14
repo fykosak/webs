@@ -7,6 +7,7 @@ namespace App\Modules\Fof\ArchiveModule;
 use App\Models\Downloader\FKSDBDownloader;
 use App\Models\Downloader\ScheduleRequest;
 use DateTime;
+use Exception;
 use Nette\Application\BadRequestException;
 
 class SchedulePresenter extends BasePresenter
@@ -17,11 +18,24 @@ class SchedulePresenter extends BasePresenter
     {
         $this->downloader = $downloader;
     }
+
+    /**
+     * Check that at least one template is available for render
+     */
+    public function isVisible(): bool
+    {
+        try {
+            $this->findTemplateFile();
+            return true;
+        } catch (Exception) {
+            return false;
+        }
+    }
+
     /**
      * @throws BadRequestException
      * @throws \Throwable
      */
-
     public function renderDefault(): void
     {
         $scheduleGroups = $this->downloader->download(
