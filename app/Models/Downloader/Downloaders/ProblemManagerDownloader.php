@@ -9,7 +9,7 @@ use Fykosak\FKSDBDownloaderCore\KeyDownloader;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 
-final class ProblemManagerDownloader extends KeyDownloader
+class ProblemManagerDownloader extends KeyDownloader
 {
     use CachedDownloaderTrait;
 

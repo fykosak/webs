@@ -15,3 +15,6 @@ parameters:
         url: ''
         login: ''
         password: ''
+
+services:
+    ProblemManagerDownloader: Tests\Models\Downloader\Downloaders\MockProblemManagerDownloader(%problemManagerDownloader.url%,%problemManagerDownloader.key%, '10 minutes')

@@ -8,7 +8,7 @@ use Fykosak\FKSDBDownloaderCore\Requests\Request;
 
 final class ContestYearRequest implements Request
 {
-    public function __construct(private readonly int $contestId)
+    public function __construct(public readonly int $contestId)
     {
     }
 

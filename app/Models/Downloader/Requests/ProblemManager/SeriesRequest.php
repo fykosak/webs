@@ -8,7 +8,7 @@ use Fykosak\FKSDBDownloaderCore\Requests\Request;
 
 final class SeriesRequest implements Request
 {
-    public function __construct(private readonly int $seriesId)
+    public function __construct(public readonly int $seriesId)
     {
     }
 
