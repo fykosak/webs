@@ -22,18 +22,32 @@
             {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
                 {ifset title}<h1>{include title}</h1>{/ifset}
                 <ul class="stylized">
-                    <li><a n:href="Teams:">
+                    <li>
+                        <a n:href="Teams:">
                             {switch $language->value}
                                 {case 'cs'}Seznam přihlášených týmů
                                 {default}List of registered teams
                             {/switch}
-                        </a></li>
-                    <li><a n:href="Results:">
+                        </a>
+                    </li>
+                    <li>
+                        <a n:href="Results:">
                             {switch $language->value}
                                 {case 'cs'}Výsledky soutěže
                                 {default}Results of the competition
                             {/switch}
-                        </a></li>
+                        </a>
+                    </li>
+                    {if $presenter->getPresenterByName('Archive:Schedule', params: ['eventYear'=>$eventKey])->isVisible()}
+                        <li>
+                            <a n:href="Schedule:">
+                                {switch $language->value}
+                                    {case 'cs'}Program soutěžního týdne
+                                    {default}Competition week schedule
+                                {/switch}
+                            </a>
+                        </li>
+                    {/if}
                 </ul>
 
                 <ul class="stylized">

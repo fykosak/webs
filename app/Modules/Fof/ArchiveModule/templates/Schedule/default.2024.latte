@@ -1,0 +1,112 @@
+{varType array $scheduleGroupsByDay}
+{varType App\Modules\Core\Language $language}
+{varType App\Modules\Fof\DefaultModule\SchedulePresenter $presenter}
+
+{block main}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
+            {ifset title}<h1>{include title}</h1>{/ifset}
+            <p>
+                {switch $language->value}
+                    {case 'cs'}
+                        Na této stránce naleznete detailní popis doprovodného
+                        programu. Informace uvedené na této stránce jsou
+                        aktuální, nicméně se časem ještě můžou mírně změnit.
+                    {default}
+                        On this page you can find detailed description of the
+                        accompanying program. Information on this page should
+                        be up to date; however, they may slightly change over
+                        time.
+                {/switch}
+            </p>
+            {switch $language->value}
+                {case 'cs'}
+                    <h3>Legenda k lokacím</h3>
+                    <div class="rules">
+                      <div class="title">PVA EXPO PRAHA</div>
+                      <div class="description">Beranových 667, 199 00 Praha 9</div>
+                    </div>
+                    <div class="rules">
+                      <div class="title">Hotel Duo</div>
+                      <div class="description">Teplická 492, 190 00 Praha 9</div>
+                    </div>
+                    <div class="rules">
+                      <div class="title">Areál Troja</div>
+                      <div class="description">V Holešovičkách 2/747, 180 00 Praha 8
+                        <ul style="margin-bottom: 0">
+                            <li><strong>N1, N2, N3</strong> - Pavilon Impakt</li>
+                            <li><strong>T1, T2</strong> - Objekt poslucháren</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="rules">
+                      <div class="title">Areál Karlov</div>
+                      <div class="description"><ul style="margin-bottom: 0">
+                            <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Praha 2</li>
+                            <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Praha 2</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="rules">
+                      <div class="title">Futurum Music Bar</div>
+                      <div class="description">Zborovská 7, 150 00 Praha 5</div>
+                    </div>
+                {default}
+                    <h3>Legend for locations</h3>
+                    <div class="rules">
+                      <div class="title">PVA EXPO PRAGUE</div>
+                      <div class="description">Beranových 667, 199 00 Prague 9</div>
+                    </div>
+                    <div class="rules">
+                      <div class="title">Hotel Duo</div>
+                      <div class="description">Teplická 492, 190 00 Prague 9</div>
+                    </div>
+                    <div class="rules">
+                      <div class="title">Troja Campus</div>
+                      <div class="description">V Holešovičkách 2/747, 180 00 Prague 8
+                        <ul style="margin-bottom: 0">
+                            <li><strong>N1, N2, N3</strong> - Impakt Pavilion</li>
+                            <li><strong>T1, T2</strong> - Lecture Hall Building</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="rules">
+                      <div class="title">Karlov Campus</div>
+                      <div class="description"><ul style="margin-bottom: 0">
+                            <li><strong>M1, M2, M3</strong> - Ke Karlovu 2027/3, 121 16 Prague 2</li>
+                            <li><strong>F1, F2</strong> - Ke Karlovu 2027/5, 121 16 Prague 2</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="rules">
+                      <div class="title">Futurum Music Bar</div>
+                      <div class="description">Zborovská 7, 150 00 Prague 5</div>
+                    </div>
+            {/switch}
+        </section>
+    </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            {switch $language->value}
+            {case 'cs'}
+            <div class="subheader">
+                12. 2. 2025 - 16. 2. 2025
+            </div>
+            <h1>Městská hra</h1>
+            <p>Městská hra probíhá průběžně celý týden.</p>
+            {default}
+            <div class="subheader">
+                February 12, 2025 - February 16, 2025
+            </div>
+            <h1>City rally</h1>
+            <p>The city rally runs continuously throughout the week.</p>
+            {/switch}
+            {* {dump $groups} *}
+        </section>
+    </div>
+
+    {control scheduleList [486,496,498,497,499,518,534,552,553,554,555,556,557,558,559,560,561,562,563], -1}
+
+{/block}
