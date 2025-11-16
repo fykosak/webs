@@ -20,6 +20,8 @@ class Bootstrap
             $configurator->setDebugMode(true);
         }
         $configurator->enableTracy(__DIR__ . '/../log');
+        error_reporting(~E_USER_DEPRECATED & ~E_USER_WARNING & ~E_USER_NOTICE & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED);
+
         $configurator->setTimeZone('Europe/Prague');
         $configurator->setTempDirectory(__DIR__ . '/../temp/' . $site);
 

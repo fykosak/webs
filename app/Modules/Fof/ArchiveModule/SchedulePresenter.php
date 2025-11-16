@@ -4,23 +4,26 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\ArchiveModule;
 
-use Nette\Application\BadRequestException;
-use Nette\Http\IResponse;
+use App\Components\ScheduleList\ScheduleListComponent;
+use Exception;
 
 class SchedulePresenter extends BasePresenter
 {
     /**
-     * @throws BadRequestException
-     * @throws \Throwable
+     * Check that at least one template is available for render
      */
-
-    public function startup(): void
+    public function isVisible(): bool
     {
-        parent::startup();
-
-        // Check if it is the correct event year, otherwise throw 404
-        if ($this->eventYear !== '2023') {
-            throw new BadRequestException('Event not found', IResponse::S404_NOT_FOUND);
+        try {
+            $this->findTemplateFile();
+            return true;
+        } catch (Exception) {
+            return false;
         }
+    }
+
+    public function createComponentScheduleList(): ScheduleListComponent
+    {
+        return new ScheduleListComponent($this->getContext(), $this->getEvent());
     }
 }

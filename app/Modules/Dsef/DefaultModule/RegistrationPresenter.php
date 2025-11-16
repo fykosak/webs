@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Modules\Dsef\DefaultModule;
 
-use App\Models\Downloader\EventModel;
 use Nette\Application\BadRequestException;
 
 class RegistrationPresenter extends BasePresenter
@@ -12,9 +11,9 @@ class RegistrationPresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    public static function isVisible(EventModel $event): bool
+    public function isVisible(): bool
     {
-        return $event->getRegistrationPeriod()->isOnGoing();
+        return $this->getNewestEvent()->getRegistrationPeriod()->isOnGoing();
     }
 
     /**
@@ -22,7 +21,7 @@ class RegistrationPresenter extends BasePresenter
      */
     public function actionDefault(): void
     {
-        if (!self::isVisible($this->getNewestEvent())) {
+        if (!self::isVisible()) {
             $this->error();
         }
     }

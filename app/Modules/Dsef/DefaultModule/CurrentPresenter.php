@@ -20,9 +20,9 @@ class CurrentPresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    public static function isVisible(EventModel $event): bool
+    public function isVisible(): bool
     {
-        return !$event->isLongAfterTheEvent();
+        return !$this->getNewestEvent()->isLongAfterTheEvent();
     }
 
     /**
@@ -30,7 +30,7 @@ class CurrentPresenter extends BasePresenter
      */
     public function actionDefault(): void
     {
-        if (!self::isVisible($this->getNewestEvent())) {
+        if (!self::isVisible()) {
             $this->error();
         }
     }

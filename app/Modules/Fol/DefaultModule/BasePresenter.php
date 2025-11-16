@@ -39,10 +39,12 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
             ), // TODO
             ':Default:Faq:default',
         );
-//        $items[] = new NavItem(
-//            new PageTitle(_('howToPlay.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-//            ':Default:HowToPlay:default',
-//        );
+
+        // $items[] = new NavItem(
+        //     new PageTitle(_('howToPlay.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+        //     ':Default:HowToPlay:default',
+        // );
+
         $items[] = new NavItem(
             new PageTitle(
                 $this->csen('Program', 'Schedule'),
@@ -50,10 +52,12 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
             ), // TODO
             ':Default:Schedule:default',
         );
-//        $items[] = new NavItem(
-//            new PageTitle(_('reports.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
-//            ':Default:Reports:default',
-//        );
+
+        // $items[] = new NavItem(
+        //     new PageTitle(_('reports.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+        //     ':Default:Reports:default',
+        // );
+
         $items[] = new NavItem(
             new PageTitle(
                 $this->csen('Archiv', 'History'),
@@ -63,14 +67,14 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
         );
 
 
-        if (TeamsPresenter::isVisible($this->getNewestEvent())) {
+        if ($this->getPresenterByName('Default:Teams')->isVisible()) {
             $items[] = new NavItem(
                 new PageTitle($this->csen('Týmy', 'Teams'), 'visible-sm-inline glyphicon glyphicon-edit'),
                 ':Default:Teams:',
             );
         }
 
-        if (RegistrationPresenter::isVisible($this->getNewestEvent())) {
+        if ($this->getPresenterByName('Default:Registration')->isVisible()) {
             $items[] = new NavItem(
                 new PageTitle(
                     $this->csen('Registrace', 'Registration'),

@@ -1,4 +1,3 @@
-{varType array $groups}
 {varType App\Modules\Core\Language $language}
 {varType array $groups}
 {varType App\Modules\Fof\DefaultModule\SchedulePresenter $presenter}
@@ -129,63 +128,7 @@
 
       </section>
     </div> *}
-    {var $key = null}
-    {foreach $groups as $group}
-        {var $start = new \DateTime($group['start'])}
-        {var $end = new \DateTime($group['end'])}
-        {var $newKey = $start->format('Y-m-d')}
-        {if isset($key) && $newKey !== $key}
-            </section>
-            </div>
-        {/if}
-        {if $newKey !== $key}
 
-            <div class="panel color-auto">
-            <section class="inner-container">
-            <div class="subheader">
-                {switch $language->value}
-                    {case 'cs'}{$start->format('j. n. Y')}
-                    {default}{$start->format('F j, Y')}
-                {/switch}
-            </div>
-            <h1>{$presenter->translateDay($start->format('l'))}</h1>
-        {/if}
+    {control scheduleList [], 830}
 
-        <div class="subheader">{$start->format('H:i')} - {$end->format('H:i')}</div>
-        <h2>{$group['name'][$lang]}</h2>
-
-        {*
-            Do promennych nize je treba dat ID polozek, ktere se nemaji zobrazovat na webu a ID polozky predstavujici prubeh soutezniho dne.
-        *}
-    {var $itemsToSkip = [689, 690, 691, 692, 693, 694, 695, 696, 697]}
-    {var $competitionDetail = 661}
-
-        {foreach $group['items'] as $item}
-            {if !in_array($item['itemId'], $itemsToSkip)}
-                <div id="{$item['itemId']}" class="rules">
-                    {if !($group['name'][$lang] == $item['name'][$lang])}
-                        <div class="title">
-                            {$item['name'][$lang]}
-                        </div>
-                    {/if}
-                    <div class="description">
-                        {if $item['itemId'] != $competitionDetail}
-                            {$item['longDescription'][$lang]??$item['description'][$lang]|noescape}
-                        {else}
-                            <div class="timeline timeline-wider">
-                                <div>
-                                    {include '../competition_schedule.latte'}
-                                </div>
-                            </div>
-                        {/if}
-                    </div>
-                </div>
-            {/if}
-
-        {/foreach}
-        {php $key = $newKey}
-
-    {/foreach}
-    </section>
-    </div>
 {/block}
