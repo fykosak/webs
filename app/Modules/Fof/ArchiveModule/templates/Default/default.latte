@@ -153,17 +153,6 @@
     {if is_dir(__DIR__.'/../../../../media/fof/photos/'.$eventKey)}
         <div class="panel color-auto" id="competition">
             <section class="inner-container">
-                {if $eventKey === '2025'}
-                    <div class="alert alert-info" role="alert">
-                        <p class="mb-0">
-                        {if $language->value === 'cs'}
-                            Zveřejnili jsme první sadu fotek, na další se můžete těšit v blízké době.
-                        {else}
-                            We have published the first batch of photos, you can look forward for more in the near future.
-                        {/if}
-                        </p>
-                    </div>
-                {/if}
                 <h1>{switch $language->value}
                     {case 'cs'}Fotografie ze soutěže
                     {default}Photos from the competition
