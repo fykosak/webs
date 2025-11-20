@@ -178,6 +178,7 @@
                     </div>
                 </div>
 
+                {if false}
                 <div class="col-md-4 organiser">
                     <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_11368.jpg')"></div>
                     <div class="name">Veronika Hendrychová</div>
@@ -203,6 +204,8 @@
                             {default}Studies 2nd year of MSc. Theoretical Physics at CUNI MFF.{/switch}
                     </div>
                 </div>
+                {/if}
+                
                 <div class="col-md-4 organiser">
                     <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_1833.jpg')"></div>
                     <div class="name">Štěpán Stenchlák</div>
@@ -244,7 +247,7 @@
                             {default}Communication with participants{/switch}</div>
                     <div class="about">
                         {switch $language->value}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 2nd year of Bc. Physics at MFF UK.{/switch}
+                        {default}Studies 2nd year of Bc. Physics at MFF UK.{/switch}
                     </div>
                 </div>
 
@@ -258,57 +261,112 @@
                             {default}Studies 3rd year of Bc. Physics at MUNI.{/switch}
                     </div>
                 </div>
-               <div class="col-md-4 organiser">
+                <div class="col-md-4 organiser">
                     <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_6177.jpg')"></div>
                     <div class="name">Radka Křížová</div>
                     <div class="role">{switch $language->value}{case cs}Komunikace se soutěžícími
                         {default}Communication with participants {/switch}</div>
                     <div class="about">
                         {switch $language->value}{case cs}Studuje 3. ročník Bc. Obecné fyziky na MFF UK.
-                            {default}Studies 3. year of BSc. Physics at CUNI MFF.{/switch}
+                        {default}Studies 3. year of BSc. Physics at CUNI MFF.{/switch}
                     </div>
                 </div>
 {/if}
+               <div class="col-md-4 organiser">
+                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_15345.jpg')"></div>
+                    <div class="name">Klára Matějková</div>
+                    <div class="role">{switch $language->value}{case cs}Komunikace se soutěžícími
+                        {default}Communication with participants {/switch}</div>
+                    <div class="about">
+                        {switch $language->value}{case cs}Studuje 2. ročník Bc. Science na PřF UK.
+                        {default}Studies 2. year of Bc. Science at CUNI.{/switch}
+                    </div>
+                </div>
+
+                <div class="col-md-4 organiser">
+                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_29013.jpg')"></div>
+                    <div class="name">Sofie Klepková</div>
+                    <div class="role">{switch $language->value}{case cs}Komunikace se soutěžícími
+                        {default}Communication with participants {/switch}</div>
+                    <div class="about">
+                        {switch $language->value}{case cs}Studuje 1. ročník Bc. Fyziky na MFF UK.
+                        {default}Studies 1st year of Bc. Physics at MFF UK.{/switch}
+                    </div>
+                </div>
+
+                <div class="col-md-4 organiser">
+                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_19917.jpg')"></div>
+                    <div class="name">Petr Brettschneider</div>
+                    <div class="role">{switch $language->value}{case cs}Komunikace se soutěžícími
+                        {default}Communication with participants {/switch}</div>
+                    <div class="about">
+                        {switch $language->value}{case cs}	Studuje 1. ročník Bc. Strojnictví na FS VŠBTUO
+                        {default}Studies 1st year of Bc. Mechanical engineering at FS VŠBTUO.{/switch}
+                    </div>
+                </div>
+                
+                <div class="col-md-4 organiser">
+                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_17251.jpg')"></div>
+                    <div class="name">Patrik Stercz</div>
+                    <div class="role">{switch $language->value}{case cs}Úlohy
+                        {default}Physics problems {/switch}</div>
+                    <div class="about">
+                        {switch $language->value}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
+                        {default}Studies 2nd year of Bc. Physics at MFF UK.{/switch}
+                    </div>
+                </div>
+
+                <div class="col-md-4 organiser">
+                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_13686.jpg')"></div>
+                    <div class="name">Radovan Lev</div>
+                    <div class="role">{switch $language->value}{case cs}Úlohy
+                        {default}Physics problems {/switch}</div>
+                    <div class="about">
+                        {switch $language->value}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
+                        {default}Studies 2nd year of Bc. Physics at MFF UK.{/switch}
+                    </div>
+                </div>
+
             </div>
         </section>
     </div>
 
-{if false}
+{if true}
     <div class="panel color-dark">
         <section class="inner-container">
             <h1>{switch $language->value}
-                {case cs}Na úlohách se podíleli:
-                {default}Authors of physics problems:
+                {case cs}Na úlohách se dále podíleli:
+                {default}Other contributors to the problems included:
             {/switch}</h1>
             <div class="row justify-content-center ms-3 me-3">
                 <ul class="col-sm-4 stylized">
+                    <li>Daniela Dupkalová</li>
+                    <li>Veronika Hendrychová</li>
                     <li>Jaroslav Herman</li>
                     <li>Jindřich Jelínek</li>
-                    <li>Karel Kolář</li>
-                    <li>Šimon Pajger</li>
+                    <li>Jakub Kliment</li>
                     <li>Jiří Kohl</li>
-                    <li>David Škrob</li>
-                    <li>Jozef Lipták</li>
-                    <li>Daniela Dupkalová</li>
+                    <li>Karel Kolář</li>
+                </ul>
 
-                </ul>
                 <ul class="col-sm-4 stylized">
-                    <li>Eliška Malá</li>
-                    <li>Jakub Smolík</li>
-                    <li>Michal Červeňák</li>
-                    <li>Vojtěch David</li>
-                    <li>Nicolas Gavorník</li>
-                    <li>Veronika Hendrychová</li>
-                    <li>Kateřina Charvátová</li>
-                </ul>
-                <ul class="col-sm-4 stylized">
-                    <li>Marek Jankola</li>
-                    <li>Petr Kahan</li>
-                    <li>Radka Křížová</li>
-                    <li>Matěj Mezera</li>
+                    <li>Jakub Koňárek</li>
+                    <li>Ján Kovačovský</li>
+                    <li>Tomáš Kubrický</li>
+                    <li>Jozef Lipták</li>
                     <li>Marek Milička</li>
+                    <li>Šimon Pajger</li>
+                    <li>Jaroslav Potůček</li>
+                </ul>
+
+                <ul class="col-sm-4 stylized">
                     <li>Kateřina Rosická</li>
-                    <li>Matěj Rzehulka</li>
+                    <li>Petr Sacher</li>
+                    <li>Maxmilián Ladislav Skuda</li>
+                    <li>Vladimír Slanina</li>
+                    <li>David Ševčík</li>
+                    <li>David Škrob</li>
+                    <li>Tomáš Tuleja</li>
                 </ul>
             </div>
         </section>
