@@ -7,15 +7,16 @@ namespace App\Modules\Fykos\DefaultModule;
 use App\Components\ImagePreviewModal\ImagePreviewModalComponent;
 use App\Components\Problem\ProblemComponent;
 use App\Models\Downloader\ProblemService;
+use Nette\Application\Attributes\Persistent;
 use Throwable;
 
 class ProblemsPresenter extends BasePresenter
 {
     private readonly ProblemService $problemService;
 
-    /** @persistent */
+    #[Persistent]
     public ?int $year = null;
-    /** @persistent */
+    #[Persistent]
     public ?int $series = null;
 
     public function injectServiceProblem(ProblemService $problemService): void
@@ -46,9 +47,6 @@ class ProblemsPresenter extends BasePresenter
 
     private function getYearsAndSeries(): array
     {
-
-        error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
-
         $yearsAndSeries = [];
         foreach ($this->getContest()->years as $year) {
             try {
@@ -66,6 +64,9 @@ class ProblemsPresenter extends BasePresenter
         return $yearsAndSeries;
     }
 
+    /**
+     * @throws Throwable
+     */
     protected function createComponentProblem(): ProblemComponent
     {
         $year = $this->year ?? $this->getCurrentYear()->year;

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader;
 
-use Exception;
 use Fykosak\FKSDBDownloaderCore\Downloader;
 use Fykosak\FKSDBDownloaderCore\DownloaderException;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;

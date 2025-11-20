@@ -43,14 +43,14 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
             ':Default:Schedule:default',
         );
 
-        if (TeamsPresenter::isVisible($this->getNewestEvent())) {
+        if ($this->getPresenterByName('Default:Teams')->isVisible()) {
             $items[] = new NavItem(
                 new PageTitle($this->csen('Týmy', 'Teams'), 'visible-sm-inline glyphicon glyphicon-edit'),
                 ':Default:Teams:',
             );
         }
 
-        if (RegistrationPresenter::isVisible($this->getNewestEvent())) {
+        if ($this->getPresenterByName('Default:Registration')->isVisible()) {
             $items[] = new NavItem(
                 new PageTitle(
                     $this->csen('Registrace', 'Registration'),
