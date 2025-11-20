@@ -288,8 +288,8 @@ class RouterFactory
                         Route::FILTER_IN => function ($season) {
                             return $season === 'jaro' ? 4 : 5;
                         },
-                        Route::FILTER_OUT => function ($id) {
-                            return $id === 4 ? 'jaro' : 'podzim';
+                        Route::FILTER_OUT => function ($seasonId) {
+                            return intval($seasonId) === 4 ? 'jaro' : 'podzim';
                         }
                     ]
                 ]
@@ -309,9 +309,9 @@ class RouterFactory
             ->addRoute(
                 '//<domain>/<module events|akce>/[<presenter>[/<action>]]',
                 [
-                'presenter' => 'Default',
-                'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['events']),
+                    'presenter' => 'Default',
+                    'action' => 'default',
+                    null => self::useTranslateFilter($domainList, $routerMapping['events']),
                 ]
             );
 
