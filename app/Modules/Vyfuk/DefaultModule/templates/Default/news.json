@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Nápověda k úloze k Výfučtení",
+      "text": "K úloze k Výfučtení nově přibyla nápověda – nezapomeňte se na ní podívat a případně ji zohlednit při řešení úlohy.",
+      "date": "16. listopadu 2025",
+      "link": ":Default:Problems:default",
+      "link-text": "Zadání"
+    },
+    {
       "title": "Výfuk v České televizi",
       "text": "Na Podzimní setkání nám letos přijela natáčet Česká televize. Reportáž byla následně odvysílána 11. listopadu v rámci Zpráviček. Můžete si při jejím sledování připomenout, jak letos setkání probíhalo a zkrátit si čekání na výběr nejlepších fotografií, který brzy zveřejníme na stránce setkání.",
       "date": "15. listopadu 2025",
@@ -18,13 +25,6 @@
       "title": "Kapacita setkání naplněna!",
       "text": "Došlo k naplnění kapacity Podzimního setkání. Stále se ale můžete registrovat a být přijati jako náhradníci. V případě uvolnění kapacity o přijetí náhradníků stále rozhoduje čas přihlášení.",
       "date": "21. října 2025"
-    },
-    {
-      "title": "Zveřejnili jsme zadání druhé série",
-      "text": "První série skončila – můžete si prohlédnout <a href=\"https://vyfuk.org/zadani/15/1\">vzorová řešení</a> a rovnou se pustit do úloh v druhé sérii. Děkujeme za rekordní zájem a prosíme o trpělivost při čekání na zveřejnění pořadí. Zaslali jste nám neuvěřitelných více než dva tisíce řešení, která se budeme v následujících dnech snažit co nejrychleji opravit a obodovat.",
-      "date": "16. října 2025",
-      "link": ":Default:Problems:default",
-      "link-text": "Aktuální zadání"
     }
   ]
 }
