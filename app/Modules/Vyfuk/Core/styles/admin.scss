@@ -1,3 +1,33 @@
+/* Admin layout styles */
 body {
     background-color: $panel-color-light;
+}
+
+/* Files */
+.file-editor-container {
+    max-width: 50rem;
+    width: fit-content;
+}
+
+.file-editor{
+    width: 100%;
+    padding: 0.35rem;
+}
+
+/* Files and media event selector */
+.event-selector {
+    .dropdown-toggle {
+        min-width: 16rem;
+        max-width: 100%;
+        text-align: left;
+        white-space: wrap;
+    }
+
+    .dropdown-menu {
+        min-width: 16rem;
+        max-width: 100%;
+        max-height: 14rem;
+        overflow: auto;
+        text-align: left;
+    }
 }

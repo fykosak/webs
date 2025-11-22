@@ -9,14 +9,20 @@ use Fykosak\Utils\UI\PageTitle;
 use App\Models\Authentication\Authenticator;
 use App\Models\Authentication\UserModel;
 use Nette\Application\ForbiddenRequestException;
+use App\Models\Downloader\EventService;
 
 class AdminPresenter extends BasePresenter
 {
     protected Authenticator $authenticator;
+    protected EventService $eventService;
 
-    public function injectService(Authenticator $authenticator): void
+    /** @persistent */
+    public ?int $eventId = null;
+
+    public function injectService(Authenticator $authenticator, EventService $eventService): void
     {
         $this->authenticator = $authenticator;
+        $this->eventService = $eventService;
     }
 
     public function checkRequirements($element): void
@@ -43,6 +49,14 @@ class AdminPresenter extends BasePresenter
 		$this->getUser()->logout();
 		$this->redirect(':Default:Admin:page');
 	}
+
+    public function renderFiles(): void
+    {
+        $this->template->events = array_reverse($this->eventService->getEvents([10, 11, 12, 18]));
+
+        $event = $this->eventId ? $this->eventService->getEvent($this->eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
+        $this->template->selectedEvent = $event;
+    }
 
     /**
      * @return NavItem[]

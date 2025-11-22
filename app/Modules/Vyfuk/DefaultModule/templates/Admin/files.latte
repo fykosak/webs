@@ -4,8 +4,90 @@
 <div class="panel color-auto">
     <section class="inner-container">
     <h1>Správa souborů</h1>
-    <h2>Vybrat akci</h2>
-        <form id="eventSelect" method="post">
+        <h5>Vybrat akci:</h5>
+        <div class="dropdown event-selector mb-3">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                {$selectedEvent->name} (#{$selectedEvent->eventId})
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {foreach $events as $event}
+                    <li><a class="dropdown-item py-2" href="{plink 'this' 'eventId'=>$event->eventId}">
+                        {$event->name} (#{$event->eventId})
+                    </a></li>
+                {/foreach}
+            </ul>
+        </div>
+        <h5>Upravit soubory:</h5>
+        <div class="file-editor-container">
+            <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
+                <form>
+                    Název souboru.pdf
+                </form>
+                <span class="d-flex ms-5">
+                    <button type="button" class="btn btn-outline-primary mx-2">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline-danger">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
+                <form>
+                    Název souboru kterej je ale fakt hodně dlouhej.pdf
+                </form>
+                <span class="ms-5 d-flex">
+                    <button type="button" class="btn btn-outline-primary mx-2">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline-danger">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
+                <form>
+                    Název souboru.pdf
+                </form>
+                <span class="d-flex ms-5">
+                    <button type="button" class="btn btn-outline-primary mx-2">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline-danger">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
+                <form>
+                    Název souboru.pdf
+                </form>
+                <span class="d-flex ms-5">
+                    <button type="button" class="btn btn-outline-primary mx-2">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline-danger">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
+                <form>
+                    Název souboru.pdf
+                </form>
+                <span class="d-flex ms-5">
+                    <button type="button" class="btn btn-outline-primary mx-2">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline-danger">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <h5>Nahrát nové soubory:</h5>
+        {*<form id="eventSelect" method="post">
             <select name="eventSelector" id="eventSelector" class="form-select" onchange="this.form.submit()">
             <option selected="true" disabled="true" class="d-none">Název akce (#Event ID)</option>
             {foreach $events as $event}
@@ -14,7 +96,7 @@
             </select>
         </form>
         {control pdfGallery "/media/download/event/" . $selectedEventId}
-        {control fileUploadForm}
+        {control fileUploadForm}*}
     </section>
 </div>
 {/block}

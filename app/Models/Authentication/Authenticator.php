@@ -7,11 +7,12 @@ namespace App\Models\Authentication;
 use Jumbojett\OpenIDConnectClient;
 
 class Authenticator {
-    public function __construct(readonly private string $providerUrl,
-                                readonly private string $clientId,
-                                readonly private string $clientSecret,
-                                readonly public string $requiredGroup)
-    {}
+    public function __construct(
+        readonly private string $providerUrl,
+        readonly private string $clientId,
+        readonly private string $clientSecret,
+        readonly public string $requiredGroup
+    ) {}
 
     public function authenticateOIDC(): UserModel
     {

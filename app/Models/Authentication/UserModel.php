@@ -8,10 +8,11 @@ use Nette\Security\IIdentity;
 
 class UserModel implements IIdentity
 {
-    public function __construct(readonly public int $id,
-                                readonly public string $name,
-                                readonly public array $groups)
-    {}
+    public function __construct(
+        readonly public int $id,
+        readonly public string $name,
+        readonly public array $groups
+    ) {}
 
     public function getId(): int
     {
