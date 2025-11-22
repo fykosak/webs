@@ -85,6 +85,21 @@
         {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
     {/if}
 
+    <div class="fyziklani-banner">
+        <div class="inner-container">
+            <div class="text">
+                 {switch $language->value}
+                 {case 'cs'}
+                    Nemůžete se už dočkat Fyziklání? Zkraťte si čekání účastí na jeho online variantě
+                    – <b><a href="https://online.fyziklani.cz/">Fyziklání Online</a></b>!
+                 {default}
+                    Can't wait for Fyziklani? Shorten your wait by participating in its online version
+                    – <b><a href="https://physicsbrawl.org/">Physics Brawl Online</a></b>!
+                 {/switch}
+            </div>
+        </div>
+    </div>
+
     <div class="panel color-auto">
         <section class="inner-container">
             {switch $language->value}
@@ -243,7 +258,7 @@
                         Each edge of the cube has a resistance <i>R</i> = 1 000 Ω.
                     </div>
                     <div class="title-page-problem">
-                        Vítek would like to draw water from his well, but he does not want to haul the bucket up. 
+                        Vítek would like to draw water from his well, but he does not want to haul the bucket up.
                         Therefore, he gradually spun the water around until, at an angular
                         velocity <i>ω</i> = 11 rad·s<sup>-1</sup>, the water started to flow out of the well all by itself. Vítek knows the
                         depth of the well (from the top edge to the bottom) is <i>h</i> = 47 m. The well has
@@ -263,15 +278,15 @@
                 <div class="subheader">Harmonogram Fyziklání</div>
                 {*<h1>Soutěžíme v pátek {$gamePhaseCalculator->getFKSDBEvent()->begin |date:'j. n. Y'}.</h1>*}
                 <h1>V Praze se můžete zdržet i déle</h1>
-          		<p>Kromě soutěže se můžete těšit i na bohatý doprovodný program plný přednášek, exkurzí a mnoha dalšího. Podrobnosti naleznete <a href="https://fyziklani.cz/program">zde</a>.</p>
-          		<p><strong>Od středy do neděle bude též probíhat městská hra, kterou si budete moci projít kdykoliv budete chít.</strong></p>
+                <p>Kromě soutěže se můžete těšit i na bohatý doprovodný program plný přednášek, exkurzí a mnoha dalšího. Podrobnosti naleznete <a href="https://fyziklani.cz/program">zde</a>.</p>
+                {*<p><strong>Od středy do neděle bude též probíhat městská hra, kterou si budete moci projít kdykoliv budete chít.</strong></p>*}
                 {*<p>Doprovodný program Fyziklání je volitelný, lze se zúčastnit i pouze samotné soutěže.</p>*}
             {default}
                 <div class="subheader">Fyziklani Schedule</div>
                 {*<h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}.</h1>*}
                 <h1>You Can Stay in Prague a Little Longer</h1>
-                <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more. 
-                Details can be found <a href="https://fyziklani.org/schedule">here</a>.</p> 
+                <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more.
+                Details can be found <a href="https://fyziklani.org/schedule">here</a>.</p>
                 <p><strong>There is a City rally that you can go through your own, available from Wednesday to Sunday, whenever you want.</strong></p>
                 {*<p>The accompanying program is optional, it is possible to take part only in the competition itself.</p>*}
             {/switch}

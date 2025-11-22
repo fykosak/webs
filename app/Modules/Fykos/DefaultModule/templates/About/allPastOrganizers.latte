@@ -25,9 +25,9 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
 
-                        <img src="{$basePath}/media/images/people/person{$organizer['personId']}.jpg"
+                        <img src="https://db.fykos.cz/photo/person/person_{$organizer['personId']}.jpg"
                             class="card-img-top"
-                            onerror="this.src = '/images/personUnknown.jpg'"
+                            onerror="this.src = '/images/person-unknown.jpg'"
                             alt="{$organizer['name']}">
                         <h4 class="card-header">{$organizer['name']}</h4>
                         <div class="card-body">
@@ -41,7 +41,7 @@
                                                 {case 'cs'} ročníky
                                                 {default} years
                                             {/switch}
-                                            {$organizer['since']}–⁠⁠⁠⁠⁠⁠{$organizer['until']}
+                                            {$organizer['since']}–{$organizer['until']}
                                         {elseif $organizer['until']}
                                             {switch $language->value}
                                                 {case 'cs'} ročník

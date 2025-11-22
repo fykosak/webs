@@ -33,7 +33,7 @@
     }
   }
 
-  &>.row {
+  & > .row {
     --bs-gutter-x: 0;
   }
 }
@@ -51,7 +51,7 @@
     color: white;
     font-size: 2rem;
     padding: 1.5rem;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
     font-weight: 500;
     line-height: 1.45;
 
@@ -66,7 +66,7 @@
 }
 
 .fyziklani-box {
-  background-color: #F44336;
+  background-color: #f44336;
   //background-image: url("https://fyziklani.cz/lib/tpl/redfoftpl/images/prague.svg");
   background-image: url(./scholarship.png);
   background-repeat: no-repeat;
@@ -74,7 +74,7 @@
   background-size: 45rem;
 
   &:hover {
-    background-size: 45rem*1.1;
+    background-size: 45rem * 1.1;
   }
 }
 
@@ -86,7 +86,7 @@
   background-position: center;
 
   &:hover {
-    background-size: 110%*1.1;
+    background-size: 110% * 1.1;
   }
 }
 
@@ -98,32 +98,82 @@
   background-size: 15rem;
 
   &:hover {
-    background-size: 15rem*1.1;
+    background-size: 15rem * 1.1;
+  }
+}
+
+.brilliant-box {
+  background-color: #21c24e;
+  background-image: url("./brilliant_white.png");
+  background-repeat: no-repeat;
+  background-position: 80% 80%;
+  background-size: 15rem;
+
+  &:hover {
+    background-size: 15rem * 1.1;
+  }
+}
+
+.origin-box {
+  background-color: #000022;
+  background-image: url("./origin_with_tag.png");
+  background-repeat: no-repeat;
+  background-position: 80% 80%;
+  background-size: 17rem;
+
+  &:hover {
+    background-size: 17rem * 1.1;
+  }
+}
+
+.aops-box {
+  color: #1b365d;
+  background-color: #9BD1E5;
+  background-image: url("./aops_new.png");
+  background-repeat: no-repeat;
+  background-position: 80% 80%;
+  background-size: 15rem;
+
+  &:hover {
+    background-size: 15rem * 1.1;
+  }
+}
+
+.physolymp-box {
+  color: #050039;
+  background-color: #E6B89C;
+  background-image: url("./logo_256.svg");
+  background-repeat: no-repeat;
+  background-position: 95% 105%;
+  background-size: 13rem;
+
+  &:hover {
+    background-size: 13rem * 1.1;
   }
 }
 
 .price-box.chess-box {
-  color: black;
-  background-color: white;
-  background-image: url("./chess-removebg-preview (1).png");
+  color: white;
+  background-color: #302e2b;
+  background-image: url("./chess.png");
   background-repeat: no-repeat;
-  background-position: bottom right;
-  background-size: 50%;
+  background-position:  120% 110%;;
+  background-size: 70%;
 
   &:hover {
-    background-size: 50%*1.1;
+    background-size: 70% * 1.08;
   }
 }
 
 .price-box.deskovky-box {
-  background-color: #EAD56C;
+  background-color: #ead56c;
   background-image: url("./deskovky.png");
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 75%;
 
   &:hover {
-    background-size: 75%*1.1;
+    background-size: 75% * 1.1;
   }
 }
 
@@ -135,7 +185,7 @@
   background-position: 109% -17%;
 
   &:hover {
-    background-size: 44%*1.1;
+    background-size: 44% * 1.1;
     background-position: 119% 14%;
   }
 }
@@ -148,7 +198,7 @@
   background-position: bottom 120% right -15%;
 
   &:hover {
-    background-size: 40%*1.1;
+    background-size: 40% * 1.1;
     background-position: bottom 40% right -10%;
   }
 }
@@ -161,7 +211,7 @@
   background-position: bottom -50% right -50%;
 
   &:hover {
-    background-size: 65%*1.1;
+    background-size: 65% * 1.1;
   }
 }
 
@@ -190,21 +240,21 @@
   background-position: bottom 100% right -15%;
 
   &:hover {
-    background-size: 50%*1.1;
+    background-size: 50% * 1.1;
     background-position: bottom 40% right -10%;
   }
 }
 
 .price-box.avast-box {
   color: black;
-  background-color: #FFDDBF;
+  background-color: #ffddbf;
   background-image: url("./avast_pc.png");
   background-repeat: no-repeat;
   background-position: 125% 100%;
   background-size: 80%;
 
   &:hover {
-    background-size: 80%*1.1;
+    background-size: 80% * 1.1;
   }
 }
 
@@ -222,14 +272,14 @@
 }
 
 .upper-home-registration-deadline {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   text-align: center;
 }
 
 .title-page-problem {
-  border-left: .25rem solid $primary-color;
+  border-left: 0.25rem solid $primary-color;
   margin-bottom: 2rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .begin-countdown {
@@ -247,7 +297,7 @@
 }
 
 .social-sites {
-  margin-right: 1.5rem
+  margin-right: 1.5rem;
 }
 
 @import "../../DefaultModule/styles/legends";

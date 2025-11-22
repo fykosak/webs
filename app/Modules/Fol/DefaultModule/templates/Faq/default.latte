@@ -15,11 +15,12 @@
         'skipping' => ['Přeskakování úloh', 'Task skipping'],
         'scoring' => ['Bodování', 'Scoring'],
         'hurry-up' => ['Hurry up', 'Hurry up'],
-        'otherFAQ' => ['Ostatní FAQ', 'Other FAQ']
+        'calls' => ['Videohovory', 'Video calls'],
+        'otherFAQ' => ['Ostatní FAQ', 'Other FAQ'],
     ]}
     <script>
-        const showText = {switch $language->value}{case cs}Zobrazit všechny odpovědi{default}Show all answers{/switch};
-        const hideText = {switch $language->value}{case cs}Skrýt všechny odpovědi{default}Skrýt všechny odpovědi{/switch};
+        const showText = "{switch $language->value}{case cs}Zobrazit všechny odpovědi{default}Show all answers{/switch}";
+        const hideText = "{switch $language->value}{case cs}Skrýt všechny odpovědi{default}Hide all answers{/switch}";
     </script>
     <script n:syntax="off">
         function collapseFAQ(btn) {
@@ -86,5 +87,5 @@
             </section>
         </div>
     {/foreach}
-
+    
 {/block}

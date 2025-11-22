@@ -16,7 +16,7 @@ class TsafPresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    public function renderDetail(int $year, int $month): void
+    public function renderDetail(string $year, string $month): void
     {
         // filter events by year
 
@@ -24,8 +24,8 @@ class TsafPresenter extends BasePresenter
 
         $event = null;
         foreach ($events as $e) {
-            $eventBegin = strtotime($e["begin"]);
-            if (date('Y', $eventBegin) == $year && date('m', $eventBegin) == $month) {
+            $eventBegin = strtotime($e['begin']);
+            if (date('Y', $eventBegin) === $year && date('m', $eventBegin) === $month) {
                 $event = $e;
                 break;
             }
@@ -41,12 +41,12 @@ class TsafPresenter extends BasePresenter
         $this->template->event = $event;
         $participants = $this->downloader->download(new ParticipantsRequest((int)$event['eventId']));
         $participants = array_filter($participants, function ($participant) {
-            return $participant['status'] == 'participated';
+            return $participant['status'] === 'participated';
         });
         $this->template->participants = $participants;
 
         // $this->template->galleryPath = "/media/images/events/" . ($event['eventTypeId'] == 4 ? 'sous-jaro' : 'sous-podzim') . "/rocnik" . ($event['year'] < 10 ? '0' : '') . $event['year'] . "/carousel-photos/";
-        $this->template->galleryPath = "";
+        $this->template->galleryPath = '';
     }
 
     public function getEventPhoto(array $event): string
@@ -90,9 +90,9 @@ class TsafPresenter extends BasePresenter
         $this->template->events = $events;
     }
 
-    public function eventHasDate(array $event, int $year, int $month): bool
+    public function eventHasDate(array $event, string $year, string $month): bool
     {
         $eventBegin = strtotime($event['begin']);
-        return date('Y', $eventBegin) == $year && date('m', $eventBegin) == $month;
+        return date('Y', $eventBegin) === $year && date('m', $eventBegin) === $month;
     }
 }

@@ -67,12 +67,12 @@
         </h1>
         <div class="container mt-5">
             <div class="row organizers">
-                <div class="col-md-4 mb-4">
+                <div class="col-md-6 col-xl-4 mb-4">
                     <div class="card h-100">
-                        <img src="{$basePath}/media/images/people/person-kolorenc.jpg"
+                        <img src="/images/person-kolorenc.jpg"
                              class="card-img-top"
                              alt="Přemysl Kolorenč"
-                             onerror="this.src = '/images/personUnknown.jpg'">
+                             onerror="this.src = '/images/person-unknown.jpg'">
                         <h4 class="card-header">Přemysl Kolorenč</h4>
                         <div class="card-body">
                             <table>
@@ -135,11 +135,11 @@
                     {/if}
                     {php $lastOrgOrder = $organizer['order']}
 
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-6 col-xl-4 mb-4">
                         <div class="card h-100">
-                            <img src="{$basePath}/media/images/people/person{$organizer['personId']}.jpg"
+                            <img src="https://db.fykos.cz/photo/person/person_{$organizer['personId']}.jpg"
                                 class="card-img-top"
-                                onerror="this.src = '/images/personUnknown.jpg'"
+                                onerror="this.src = '/images/person-unknown.jpg'"
                                 alt="{$organizer['name']}">
                             <h4 class="card-header">{$organizer['name']}</h4>
                             <div class="card-body">

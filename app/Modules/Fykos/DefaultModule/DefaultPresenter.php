@@ -23,9 +23,9 @@ class DefaultPresenter extends BasePresenter
 
         // year_stage is enum of values: 'before', 'during', 'after'
         $this->template->year_stage = null;
-        if ($currentDate < strtotime($this->template->events[0]['date'])) {
+        if ($currentDate < strtotime($this->template->yearBeginDate)) {
             $this->template->year_stage = 'before';
-        } elseif ($currentDate > strtotime($this->template->events[count($this->template->events) - 1]['date'])) {
+        } elseif ($currentDate > strtotime($this->template->yearEndDate)) {
             $this->template->year_stage = 'after';
         } else {
             $this->template->year_stage = 'during';
@@ -101,6 +101,10 @@ class DefaultPresenter extends BasePresenter
 
     public function loadEventData(): void
     {
+
+        $this->template->yearBeginDate = date('Y-m-d', strtotime('2025-09-01'));
+        $this->template->yearEndDate = date('Y-m-d', strtotime('2026-05-31'));
+
         $this->template->events = [];
         $events = [
             'DSEF' => [
@@ -215,7 +219,6 @@ class DefaultPresenter extends BasePresenter
                     'en' => 'swing, pancake and a devoured garden'
                 ],
             ],
-            
         ];
 
         // zobrazovaní akcí
@@ -233,7 +236,7 @@ class DefaultPresenter extends BasePresenter
                 'logo_eventbox' => $data['logo'],
             ];
         }
-        
+
         // zobrazovaní serii
         foreach ($series as $id => $data) {
             $key = 'serie-' . $id;
@@ -250,9 +253,9 @@ class DefaultPresenter extends BasePresenter
                 'show-on-timeline' => true
             ];
         }
-        
-        $this->template->timelineBegin = date('Y-m-d', strtotime('2025-09-01'));
-        $this->template->timelineEnd = date('Y-m-d', strtotime('2026-05-31'));
+
+        $this->template->timelineBegin = $this->template->yearBeginDate;
+        $this->template->timelineEnd = $this->template->yearEndDate;
 
         // sort chronologically
         usort($this->template->events, function ($a, $b) {

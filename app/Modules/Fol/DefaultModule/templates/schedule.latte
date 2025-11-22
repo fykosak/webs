@@ -7,7 +7,7 @@
                 {case cs}
                 <div class="timeline-title">Začátek soutěže</div>
                 <p>
-                    Účastníci dostávají prvních 7 příkladů na počítání. Jamile je příklad vyřešen, dostávají
+                    Účastníci dostávají prvních 7 příkladů na počítání. Jakmile je příklad vyřešen, dostávají
                     ihned další.
                 </p>
             {default}
@@ -77,14 +77,14 @@
                     Konec soutěže
                 </div>
                 <p>
-                    Soutěž končí. Zveřejňujeme autorská řešení a řešíme případné spory.
+                    Soutěž končí. Zveřejňujeme autorská řešení a řešíme případné spory. Zároveň vybraným týmům rozesíláme pozvánky k videohovorům.
                 </p>
             {default}
                 <div class="timeline-title">
                     End of the competition
                 </div>
                 <p>
-                    The competition is over. We publish the author's solutions and settle potential conflicts.
+                    The competition is over. We publish the author's solutions and settle potential conflicts. At the same time, we send invitations to video calls to the selected teams.
                 </p>
             {/switch}
             <time datetime="20:00" class="timeline-element-date">20:00</time>
@@ -97,20 +97,89 @@
             {switch $language->value}
                 {case cs}
                 <div class="timeline-title">
+                    Začátek videohovorů
+                </div>
+                <p>
+                    Na videohovory se připojují první týmy.
+                </p>
+            {default}
+                <div class="timeline-title">
+                    Start of video calls
+                </div>
+                <p>
+                    The first teams join the video calls.
+                </p>
+            {/switch}
+            <time datetime="20:15" class="timeline-element-date">20:15</time>
+        </div>
+    </div>
+
+    <div>
+        <span class="timeline-element-icon"></span>
+        <div class="timeline-element-content">
+            {switch $language->value}
+                {case cs}
+                <div class="timeline-title">
+                    Konec rozesílání pozvánek
+                </div>
+                <p>
+                    Pozvánky na videohovory se již rozeslaly a další se již posílat nebudou.
+                </p>
+            {default}
+                <div class="timeline-title">
+                    End of sending invitations
+                </div>
+                <p>
+                    All invitations to video calls have been sent and no further ones will follow.
+                </p>
+            {/switch}
+            <time datetime="20:30" class="timeline-element-date">20:30</time>
+        </div>
+    </div>
+
+    <div>
+        <span class="timeline-element-icon"></span>
+        <div class="timeline-element-content">
+            {switch $language->value}
+                {case cs}
+                <div class="timeline-title">
                     Konec přijímání stížností
                 </div>
                 <p>
-                    Ukončujeme přijímání stížností a připravujeme zveřejnění oficiálních vítězů během příštích dnů.
+                    Ukončujeme přijímání stížností.
                 </p>
             {default}
                 <div class="timeline-title">
                     Deadline for complaints
                 </div>
                 <p>
-                    We close the possibility to complain and prepare to publish the official winners during the upcoming days.
+                    We close the possibility to complain.
                 </p>
             {/switch}
             <time datetime="21:00" class="timeline-element-date">21:00</time>
+        </div>
+    </div>
+    
+    <div>
+        <span class="timeline-element-icon"></span>
+        <div class="timeline-element-content">
+            {switch $language->value}
+                {case cs}
+                <div class="timeline-title">
+                    Konec videohovorů
+                </div>
+                <p>
+                    Dokončujeme poslední hovory a připravujeme vyhlášení vítězů, které proběhne v následujících dnech.
+                </p>
+            {default}
+                <div class="timeline-title">
+                    End of video calls
+                </div>
+                <p>
+                    We finish the last calls and prepare to publish the official winners during the upcoming days.
+                </p>
+            {/switch}
+            <time datetime="21:30" class="timeline-element-date">21:30</time>
         </div>
     </div>
 </div>

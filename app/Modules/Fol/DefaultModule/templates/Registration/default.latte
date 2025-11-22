@@ -16,7 +16,7 @@
                 <li>Jedná se o online soutěž. Nikam se nejezdí.</li>
                 <li>Soutěží se v nejvýše <strong>5členných týmech</strong>.</li>
                 <li>Soutěžit mohou žáci <strong>středních</strong> i <strong>základních škol</strong> v oficiálních kategoriích
-                    (A, B a C). Ostatní soutěžící mohou soutěžit v kategorii Open.
+                    (A, B a C). Ostatní soutěžící mohou soutěžit v kategorii <strong>Open</strong>.
                 </li>
                 <li>Úlohy jsou zadávány v <strong>českém</strong> a <strong>anglickém</strong> jazyce.</li>
             </ul>
@@ -46,6 +46,42 @@
                 <li>You can reach us at <a href="mailto:online@fyziklani.cz">online@fyziklani.cz</a>.</li>
             </ul>
     {/switch}
+
+    <div class="accordion mb-2" id="videoAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
+                  {switch $language->value}{case cs}Jak se registrovat?{default}How to register?{/switch}
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#videoAccordion">
+              <div class="accordion-body text-center ratio ratio-16x9">
+                <iframe
+                    width="560" height="315"
+                    src="https://www.youtube-nocookie.com/embed/{switch $language->value}{case cs}sZUoXQZ2_ts{default}tsBp7Ojz7k4{/switch}"
+                    title="YouTube video player"
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+            </div>
+        </div>
+        {*<div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
+                {switch $language->value}{case cs}Jak se přidat chybějící školu?{default}How to create missing school?{/switch}
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#videoAccordion">
+              <div class="accordion-body text-center ratio ratio-16x9">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/{switch $language->value}{case cs}ExvrNWPaYPg{default}LdTpwMJ6OhQ{/switch}"
+                    title="YouTube video player"
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+            </div>
+        </div>*}
+    </div>
 
     <div class="d-grid gap-2">
         <a href="https://db.fykos.cz/events/{$newestEvent->eventId}/teams/create?lang={$lang}" type="button"

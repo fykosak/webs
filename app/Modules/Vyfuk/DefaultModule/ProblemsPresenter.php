@@ -15,6 +15,7 @@ class ProblemsPresenter extends BasePresenter
 
     /** @persistent */
     public ?int $year = null;
+
     /** @persistent */
     public ?int $series = null;
 
@@ -48,9 +49,6 @@ class ProblemsPresenter extends BasePresenter
 
     private function getYearsAndSeries(): array
     {
-
-        error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
-
         $yearsAndSeries = [];
         foreach ($this->getContest()->years as $year) {
             try {
