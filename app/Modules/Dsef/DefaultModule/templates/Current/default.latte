@@ -9,14 +9,17 @@
         <h1>DSEF {*$event->begin|date: "Y"*}</h1> -->
             <h1>Základní informace</h1>
 
-            <p>Den s experimentální fyzikou se bude konat {$newestEvent->begin|date: 'j. n. Y'}, tentokrát na Karlově.
+            <p>Den s experimentální fyzikou se konal {$newestEvent->begin|date: 'j. n. Y'} na Karlově.
+{*
                 Registrace se otevře {$newestEvent->registrationBegin|date: 'j. n. Y'} v {$newestEvent->registrationBegin|date: 'H:i'}
                     a skončí {$newestEvent->registrationEnd|date: 'j. n. Y'}.
-                Rozvržení jednotlivých exkurzí budeme postupně přidávat. Již nyní můžeme slíbit, že pro účastníky z
+                Rozvržení jednotlivých exkurzí budeme postupně přidávat. *}
+                Pro účastníky z
+
                 daleka
-                bude jako každý rok připravené ubytování z neděle na pondělí.
-                Pokud máte nějaký dotaz nebo problém, neváhejte nám napsat na e-mail <a
-                        href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.
+                bylo jako každý rok připravené ubytování z neděle na pondělí.
+                {*Pokud máte nějaký dotaz nebo problém, neváhejte nám napsat na e-mail <a
+                        href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.*}
             </p>
         </section>
     </div>
@@ -27,12 +30,12 @@
 
             <h4 id="zacatek-dsefu">Začátek DSEFu</h4>
             <ul>
-                <li>Příjezd pro ubytované v hostelu bude v neděli od 16:00 až do půlnoci. Pondělní snídaně (pouze pro
-                    ubytované) je plánovaná na 7:00.
+                <li>Příjezd pro ubytované v hostelu byl v neděli od 16:00 až do půlnoci. Pondělní snídaně (pouze pro
+                    ubytované) od 7:00.
                 </li>
-                <li>Prezence účastníků bude probíhat v čase <strong>8:00–8:30 na
+                <li>Prezence účastníků proběhl v čase <strong>8:00–8:30 na
                         Matematicko-fyzikální fakultě ve vestibulu budovy F na Karlově na adrese Ke Karlovu
-                        5</strong>. Po registraci bude následovat zahájení DSEFu a ranní přednáška.
+                        5</strong>. Po registraci následovalo zahájení DSEFu a ranní přednáška.
                 </li>
             </ul>
             <h4 id="slavnostni-zahajeni">Slavnostní zahájení DSEFu (8:50–9:05)</h4>
@@ -72,18 +75,19 @@
         <section class="inner-container" id="prihlasovani">
             <h1>Přihlašování</h1>
             <p>
-                Přihlašování je spuštěno!
-
+                Přihlašování již skončilo.
+                {*
                 Exkurze mají dopolední a odpolední část, v každé z nich jsou účastníci rozdělení do několika skupin,
                 jejichž program se liší. Výjimku tvoří celodenní exkurze. Svou skupinu si
                 zvolíte už v přihlášce a pokud bude volná kapacita, je možné
-                si ji do konce registrace měnit podle Vašich preferencí.
+                si ji do konce registrace měnit podle Vašich preferencí. 
+                *}
             </p>
-            <p>
-                <a href="{plink :Default:Registration:Default}" type="button"
+            {*<p>
+                 <a href="{plink :Default:Registration:Default}" type="button"
                    class="btn btn-primary btn-block">Registrovat se</a>
 
-            </p>
+            </p>*}
         </section>
     </div>
 
@@ -94,11 +98,11 @@
             <h5 id="kde-je-ubytovani-a-jake">Kde je ubytování a jaké?</h5>
             <div>
                 <ul>
-                    <li>Ubytování je v <a href="https://www.plusprague.cz/cs/" class="urlextern"
+                    <li>Ubytování bylo v <a href="https://www.plusprague.cz/cs/" class="urlextern"
                                           title="https://plushostels.com/cs/praha">Hostelu PLUS</a> v Holešovicích.
                     </li>
-                    <li>Ubytováni budete pohromadě na velkých pokojích (7–8lůžkových).</li>
-                    <li>V ceně ubytování jsou malé ručníky.</li>
+                    <li>Ubytováni bylo pohromadě na velkých pokojích (7–8lůžkových).</li>
+                    {*<li>V ceně ubytování  malé ručníky.</li>*}
 
                 </ul>
             </div>
@@ -106,16 +110,16 @@
             <h5 id="placeni-za-ubytovani">Placení za ubytování</h5>
             <div>
                 <ul>
-                    <li>Poplatek za ubytování je <strong>350 Kč</strong></li>
-                    <li>Ubytování se platí předem <a href="https://db.fykos.cz/shop/">zde</a></li>
+                    <li>Poplatek za ubytování bylo <strong>350 Kč</strong></li>
+                    {*<li>Ubytování se platí předem <a href="https://db.fykos.cz/shop/">zde</a></li>*}
                 </ul>
 
             </div>
             <h5 id="prijezd-na-ubytovani">Příjezd na ubytování</h5>
             <div>
                 <ul>
-                    <li>Přijet na ubytování můžete od <strong>16:00</strong>.</li>
-                    <li>Recepce na hotelu je otevřená nonstop, během večera můžete dorazit kdykoliv.</li>
+                    <li>Přijezd na ubytování byl od <strong>16:00</strong>.</li>
+                    {*<li>Recepce na hotelu je otevřená nonstop, během večera můžete dorazit kdykoliv.</li>*}
                 </ul>
             </div>
         </section>
@@ -254,10 +258,12 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
+            {*
             <h1>Anotace exkurzí</h1>
             <div class="alert alert-warning">Anotace u některých exkurzí ještě nejsou doplněné. Jakmile budou k
                 dispozici, objeví se níže na stránce spolu s ostatními.
             </div>
+            *}
             <h2>Dopolední exkurze </h2>
             <hr/>
             <strong class="subheader mt-3">SEM</strong>
@@ -340,7 +346,19 @@
             <strong class="subheader mt-3">MAG</strong>
             <h4 id="MAG">Světem magnetooptiky</h4>
             <p>
-
+                Během exkurze do magnetooptické laboratoře se studenti seznámí s moderními
+                metodami výzkumu interakce světla s magnetickými materiály. Dozví se, co je
+                polarizace světla a jak lze její změny využít k pozorování magnetických vlastností
+                látek prostřednictvím magnetooptických jevů, zejména Kerrova a Faradayova jevu.
+                Tyto jevy umožňují sledovat chování magnetizace v materiálech pomocí optických
+                měření. Součástí exkurze bude také ukázka experimentálního vybavení, včetně
+                optických kryostatů umožňujících měření při teplotách blízkých teplotě kapalného
+                helia (≈ 4 K) a supravodivého magnetu, který vytváří silná a stabilní magnetická pole.
+                Studenti tak získají přímý vhled do principů a technologií používaných v současném
+                výzkumu magnetooptických materiálů a fyziky pevných látek. Navíc se studenti dozví
+                jak se magnetooptika využívá v praxi – od výzkumu nových materiálů v širokém
+                rozsahu teplot až po technologie pro ukládání dat, moderní sensory a jednosměrky
+                pro světlo zvané magnetooptické izolátory.
             </p>
             <strong class="subheader mt-3">STR</strong>
             <h4 id="STR">Laboratoř strukturní analýzy</h4>
@@ -372,7 +390,11 @@
             <strong class="subheader mt-3">EXT</strong>
             <h4 id="EXT">Materiály za extrémních podmínek</h4>
             <p>
+                Při výzkumu fyzikálních vlastností materiálů je využíváno působení vnějších podmínek, například teploty, magnetického pole nebo hydrostatického tlaku. Při našem výzkumu používáme často kombinací uvedených podmínek, čímž lze dosáhnout mutliextrémních podmínek v rámci fázového prostoru. Tyto podmínky otevírají dveře k novým vlastnostem materiálů a mikroskopického chování, často elektronového původu. Typicky aplikace vnějšího mechanického tlaku vede ke změnám meziatomových vzdáleností, což má za následek změny v elektronových vlastnostech studovaných materiálů - transportních (např. supravodivost) či magnetických.
 
+                V rámci exkurze bude předvedeno několik typů tlakových cel pro studium různých fyzikálních veličin za vysokého hydrostatického tlaku a nízkých teplot a několik příkladů nejnovějších výsledků současného výzkumu.
+
+                Pro omezený prostor v laboratoři je možno pro tuto exkurzi přijmout nejvýše 10 osob najednou.
             </p>
             <h2>{$data[245]['name']['cs']}</h2>
             <hr/>
