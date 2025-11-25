@@ -11,6 +11,8 @@ use App\Models\Authentication\UserModel;
 use Nette\Application\ForbiddenRequestException;
 use App\Models\Downloader\EventService;
 
+use Nette\Utils\Finder;
+
 class AdminPresenter extends BasePresenter
 {
     protected Authenticator $authenticator;
@@ -56,6 +58,31 @@ class AdminPresenter extends BasePresenter
 
         $event = $this->eventId ? $this->eventService->getEvent($this->eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
         $this->template->selectedEvent = $event;
+
+        $this->template->files = $this->getFiles($event->eventId);
+    }
+
+    public function getFiles($eventId): array
+    {
+        $files = [];
+
+        try {
+            $iterator = Finder::findFiles('*.pdf')->in('/var/www/html/www/vyfuk/media/download/event/' . $eventId)->getIterator();
+        } catch (\Exception $e) {
+            return [];
+        }
+
+        foreach ($iterator as $file) {
+            $name = $file->getBasename('.pdf');
+            $files[] = $name;
+        };
+
+        return $files;
+    }
+
+    public function render(): void
+    {
+        // Nothing to do here yet
     }
 
     /**

@@ -20,73 +20,50 @@
         </div>
         <h5>Upravit soubory:</h5>
         <div class="file-editor-container">
-            <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
-                <form>
-                    Název souboru.pdf
-                </form>
-                <span class="d-flex ms-5">
-                    <button type="button" class="btn btn-outline-primary mx-2">
-                        <i class="fa-solid fa-pen"></i>
-                    </button>
-                    <button type="button" class="btn btn-outline-danger">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </span>
-            </div>
-            <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
-                <form>
-                    Název souboru kterej je ale fakt hodně dlouhej.pdf
-                </form>
-                <span class="ms-5 d-flex">
-                    <button type="button" class="btn btn-outline-primary mx-2">
-                        <i class="fa-solid fa-pen"></i>
-                    </button>
-                    <button type="button" class="btn btn-outline-danger">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </span>
-            </div>
-            <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
-                <form>
-                    Název souboru.pdf
-                </form>
-                <span class="d-flex ms-5">
-                    <button type="button" class="btn btn-outline-primary mx-2">
-                        <i class="fa-solid fa-pen"></i>
-                    </button>
-                    <button type="button" class="btn btn-outline-danger">
-                        <i class="fa-solid fa-trash-can"></i>
+            {foreach $files as $file}
+                <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
+                    <form>
+                        {$file}
+                    </form>
+                    <span class="d-flex ms-5">
+                        <button type="button" class="btn btn-outline-warning">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mx-2">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-danger">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </span>
+                </div>
+            {/foreach}
+        </div>
+        <h5>Nahrát nové soubory:</h5>
+        <div class="file-upload-container">
+            <div class="d-flex justify-content-start align-items-center border rounded my-2 border-dark-subtle file-upload">
+                <span class="d-flex me-3">
+                    <button type="button" class="btn btn-outline-primary">
+                        <i class="fa-solid fa-search"></i>
                     </button>
                 </span>
+                <div class="d-flex me-5">
+                    Vyberte soubory k nahrání...
+                </div>
             </div>
-            <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
-                <form>
-                    Název souboru.pdf
-                </form>
+        </div>
+        <div class="file-upload-container">
+            <div class="d-flex justify-content-start align-items-center border rounded my-2 border-dark-subtle file-upload">
+                <div class="">
+                    Ten danej soubor co vybereme.
+                </div>
                 <span class="d-flex ms-5">
-                    <button type="button" class="btn btn-outline-primary mx-2">
-                        <i class="fa-solid fa-pen"></i>
-                    </button>
                     <button type="button" class="btn btn-outline-danger">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </span>
-            </div>
-            <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
-                <form>
-                    Název souboru.pdf
-                </form>
-                <span class="d-flex ms-5">
-                    <button type="button" class="btn btn-outline-primary mx-2">
-                        <i class="fa-solid fa-pen"></i>
-                    </button>
-                    <button type="button" class="btn btn-outline-danger">
-                        <i class="fa-solid fa-trash-can"></i>
+                        <i class="fa-solid fa-times"></i>
                     </button>
                 </span>
             </div>
         </div>
-        <h5>Nahrát nové soubory:</h5>
         {*<form id="eventSelect" method="post">
             <select name="eventSelector" id="eventSelector" class="form-select" onchange="this.form.submit()">
             <option selected="true" disabled="true" class="d-none">Název akce (#Event ID)</option>

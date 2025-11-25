@@ -2,6 +2,10 @@
     color: $text-on-primary;
 }
 
+.btn-outline-warning:hover, .btn-outline-warning:focus-visible, .btn-outline-warning:active, .btn-outline-warning.active, .open>.dropdown-toggle.btn-outline-warning {
+    color: white !important;
+}
+
 .btn-danger {
     color: white;
 }
