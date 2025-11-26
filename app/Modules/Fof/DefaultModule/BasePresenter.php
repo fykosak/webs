@@ -43,6 +43,14 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
             ':Default:Schedule:default',
         );
 
+        
+        if ($this->language->value === 'en') {
+            $items[] = new NavItem(
+                new PageTitle($this->csen('', 'Travel'), 'visible-sm-inline glyphicon glyphicon-info-sign'),
+                ':Default:TravelSupport:default',
+            );
+        }
+
         if ($this->getPresenterByName('Default:Teams')->isVisible()) {
             $items[] = new NavItem(
                 new PageTitle($this->csen('Týmy', 'Teams'), 'visible-sm-inline glyphicon glyphicon-edit'),
