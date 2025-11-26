@@ -2,6 +2,22 @@
     color: $text-on-primary;
 }
 
+.btn-outline-warning:hover, .btn-outline-warning:focus-visible, .btn-outline-warning:active, .btn-outline-warning.active, .open>.dropdown-toggle.btn-outline-warning {
+    color: white !important;
+}
+
+.btn-danger {
+    color: white;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open>.dropdown-toggle.btn-danger {
+    color: white !important;
+}
+
+.btn-outline-danger:hover, .btn-outline-danger:focus-visible, .btn-outline-danger:active, .btn-outline-danger.active, .open>.dropdown-toggle.btn-outline-danger {
+    color: white !important;
+}
+
 // Custom links
 a {
     text-decoration: none;
@@ -14,11 +30,11 @@ a:hover {
 
 // Remove default button highlight on hover
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-    color: $text-on-primary;
+    color: $text-on-primary !important;
 }
 
-.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
-    color: $text-on-primary;
+.btn-outline-primary:hover, .btn-outline-primary:focus-visible, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
+    color: $text-on-primary !important;
 }
 
 a.btn:hover, a.dropdown-item:hover {
