@@ -22,13 +22,15 @@
         <div class="file-editor-container">
             {foreach $files as $file}
                 <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
-                    <form>
-                        {$file}
+                    <form class="ms-2">
+                        {$file['name']}
                     </form>
                     <span class="d-flex ms-5">
-                        <button type="button" class="btn btn-outline-warning">
-                            <i class="fa-solid fa-eye"></i>
-                        </button>
+                        <a href="{$file['path']}" target="_blank">
+                            <button type="button" class="btn btn-outline-warning">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </a>
                         <button type="button" class="btn btn-outline-primary mx-2">
                             <i class="fa-solid fa-pen"></i>
                         </button>
@@ -42,19 +44,19 @@
         <h5>Nahrát nové soubory:</h5>
         <div class="file-upload-container">
             <div class="d-flex justify-content-start align-items-center border rounded my-2 border-dark-subtle file-upload">
-                <span class="d-flex me-3">
+                <span class="d-flex">
                     <button type="button" class="btn btn-outline-primary">
                         <i class="fa-solid fa-search"></i>
                     </button>
                 </span>
-                <div class="d-flex me-5">
+                <div class="d-flex mx-3">
                     Vyberte soubory k nahrání...
                 </div>
             </div>
         </div>
         <div class="file-upload-container">
             <div class="d-flex justify-content-start align-items-center border rounded my-2 border-dark-subtle file-upload">
-                <div class="">
+                <div class="ms-2">
                     Ten danej soubor co vybereme.
                 </div>
                 <span class="d-flex ms-5">

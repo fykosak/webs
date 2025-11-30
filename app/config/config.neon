@@ -35,3 +35,4 @@ parameters:
         login:
         password:
         url: ''
+    mediaDir: %wwwDir%/media

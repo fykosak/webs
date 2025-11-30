@@ -27,6 +27,12 @@ class AdminPresenter extends BasePresenter
         $this->eventService = $eventService;
     }
 
+    public function getMediaDir(): string
+    {
+        $mediaDir = $this->getContext()->getParameters()['mediaDir'];
+        return $mediaDir;
+    }
+
     public function checkRequirements($element): void
     {
         parent::checkRequirements($element);
@@ -64,17 +70,22 @@ class AdminPresenter extends BasePresenter
 
     public function getFiles($eventId): array
     {
+        $mediaDir = $this->getMediaDir();
         $files = [];
 
         try {
-            $iterator = Finder::findFiles('*.pdf')->in('/var/www/html/www/vyfuk/media/download/event/' . $eventId)->getIterator();
+            $iterator = Finder::findFiles('*.pdf')->in($mediaDir . '/download/event/' . $eventId)->getIterator();
         } catch (\Exception $e) {
             return [];
         }
 
         foreach ($iterator as $file) {
             $name = $file->getBasename('.pdf');
-            $files[] = $name;
+            $path = '/media' . substr($file->getPathname(), strlen($mediaDir));
+            $files[] = [
+                'path' => $path,
+                'name' => $name,
+            ];
         };
 
         return $files;
