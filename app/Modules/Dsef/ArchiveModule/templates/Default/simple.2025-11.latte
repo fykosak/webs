@@ -1,0 +1,383 @@
+{varType App\Models\Downloader\EventModel $event}
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <!-- <div class="subheader">Aktuální stránka akce z {*$event->begin|date: "j. n. Y"*}</div>
+    <h1>DSEF {*$event->begin|date: "Y"*}</h1> -->
+        <h1>Základní informace</h1>
+
+        <p>Den s experimentální fyzikou se konal {$event->begin|date: 'j. n. Y'} na Karlově.
+            Pro účastníky z daleka bylo jako každý rok připravené ubytování z
+            neděle na pondělí.
+        </p>
+    </section>
+</div>
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Harmonogram dne</h1>
+
+        <h4 id="zacatek-dsefu">Začátek DSEFu</h4>
+        <ul>
+            <li>Příjezd pro ubytované v hostelu byl v neděli od 16:00 až do půlnoci. Pondělní snídaně (pouze pro
+                ubytované) od 7:00.
+            </li>
+            <li>Prezence účastníků proběhl v čase <strong>8:00–8:30 na
+                    Matematicko-fyzikální fakultě ve vestibulu budovy F na Karlově na adrese Ke Karlovu
+                    5</strong>. Po registraci následovalo zahájení DSEFu a ranní přednáška.
+            </li>
+        </ul>
+        <h4 id="slavnostni-zahajeni">Slavnostní zahájení DSEFu (8:50–9:05)</h4>
+        <h4 id="ranni-prednaska">Ranní přednáška (9:05–10:00)</h4>
+        <p class="ms-3">
+            <b>Populárně naučná přednáška na laserové technologie</b><br/>
+            doc. RNDr. Martin Kozák, Ph.D.<br/>
+            Vynález laseru na začátku druhé poloviny 20. století byl skutečným přelomem ve schopnostech lidstva
+            využívat světlo ve svůj prospěch. V této přednášce si povíme, jaký je princip fungování laseru a jaké
+            typy laserů se do dnešní doby podařilo vyvinout. Dále si ukážeme několik příkladů toho, k čemu všemu v
+            dnešní době lidstvo lasery úspěšně využívá. Například si vysvětlíme jak vývoj laserové technologie v
+            nedávné době umožnil detekovat gravitační vlny či jak je možné pomocí laserů pozorovat extrémně rychlé
+            procesy odehrávající se na časových škálách attosekund.
+
+
+        </p>
+        <h4 id="dopoledni-blok">Dopolední blok exkurzí (10:00-12:00)</h4>
+        <h4 id="odpoledni-blok">Odpolední blok exkurzí (13:00-17:00)</h4>
+        <hr/>
+        <h4 id="exkurze">Exkurze</h4>
+        <p>
+            Při přihlášení si zvolíte jednu dopolední a odpolední skupinu; níže naleznete informace o tom, jaké
+            exkurze
+            na vás čekají. Dopolední program probíhá na pracovištích MFF UK, odpolední na různých vědeckých
+            institucích v
+            Praze a okolí. Začátek a konec odpoledního bloku exkurzí není pro všechny exkurze stejný, uvedený časový
+            interval je pouze orientační.
+            Podobně jako minulé ročníky, i letos plánujeme celodenní exkurze. Konkrétní exkurze budou teprve
+            zveřejněny.<br>
+            Skupinu bude možné v přihlášce změnit do konce registrace,
+            tj. {$event->registrationEnd|date:'j. n. Y'}.
+        </p>
+    </section>
+</div>
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Ubytování</h1>
+
+        <h5 id="kde-je-ubytovani-a-jake">Kde je ubytování a jaké?</h5>
+        <div>
+            <ul>
+                <li>Ubytování bylo v <a href="https://www.plusprague.cz/cs/" class="urlextern"
+                                      title="https://plushostels.com/cs/praha">Hostelu PLUS</a> v Holešovicích.
+                </li>
+                <li>Ubytováni bylo pohromadě na velkých pokojích (7–8lůžkových).</li>
+                {*<li>V ceně ubytování  malé ručníky.</li>*}
+
+            </ul>
+        </div>
+
+        <h5 id="placeni-za-ubytovani">Placení za ubytování</h5>
+        <div>
+            <ul>
+                <li>Poplatek za ubytování byl <strong>350 Kč</strong></li>
+                {*<li>Ubytování se platí předem <a href="https://db.fykos.cz/shop/">zde</a></li>*}
+            </ul>
+
+        </div>
+        <h5 id="prijezd-na-ubytovani">Příjezd na ubytování</h5>
+        <div>
+            <ul>
+                <li>Přijezd na ubytování byl od <strong>16:00</strong>.</li>
+                {*<li>Recepce na hotelu je otevřená nonstop, během večera můžete dorazit kdykoliv.</li>*}
+            </ul>
+        </div>
+    </section>
+</div>
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Exkurze</h1>
+        <div class="mb-5">
+            <h2>Dopolední exkurze</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Skupina</th>
+                    <th>10:15–10:40</th>
+                    <th>10:55–11:20</th>
+                    <th>11:35–12:00</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Alfa</th>
+                    <td><a href="#SEIS">SEIS</a></td>
+                    <td><a href="#RAM">RAM</a></td>
+                    <td><a href="#PUL">PUL</a></td>
+                </tr>
+                <tr>
+                    <th>Bravo</th>
+                    <td><a href="#STR">STR</a></td>
+                    <td><a href="#SEM">SEM</a></td>
+                    <td><a href="#BIO">BIO</a></td>
+                </tr>
+                <tr>
+                    <th>Charlie</th>
+                    <td><a href="#PKRYS">PKRYS</a></td>
+                    <td><a href="#MAG">MAG</a></td>
+                    <td><a href="#RAM">RAM</a></td>
+                </tr>
+                <tr>
+                    <th>Delta</th>
+                    <td><a href="#SEM">SEM</a></td>
+                    <td><a href="#LAS">LAS</a></td>
+                    <td><a href="#MAG">MAG</a></td>
+                </tr>
+                <tr>
+                    <th>Echo</th>
+                    <td><a href="#EXT">EXT</a></td>
+                    <td><a href="#STR">STR</a></td>
+                    <td><a href="#TEM">TEM</a></td>
+                </tr>
+                <tr>
+                    <th>Foxtrot</th>
+                    <td><a href="#TEM">TEM</a></td>
+                    <td><a href="#SEIS">SEIS</a></td>
+                    <td><a href="#NAN">NAN</a></td>
+                </tr>
+                <tr>
+                    <th>Golf</th>
+                    <td><a href="#RAM">RAM</a></td>
+                    <td><a href="#NAN">NAN</a></td>
+                    <td><a href="#SEM">SEM</a></td>
+                </tr>
+                <tr>
+                    <th>Hotel</th>
+                    <td><a href="#LAS">LAS</a></td>
+                    <td><a href="#PUL">PUL</a></td>
+                    <td><a href="#STR">STR</a></td>
+                </tr>
+                <tr>
+                    <th>India</th>
+                    <td><a href="#BIO">BIO</a></td>
+                    <td><a href="#TEM">TEM</a></td>
+                    <td><a href="#PKRYS">PKRYS</a></td>
+                </tr>
+                <tr>
+                    <th>Juliet</th>
+                    <td><a href="#NAN">NAN</a></td>
+                    <td><a href="#EXT">EXT</a></td>
+                    <td><a href="#SEIS">SEIS</a></td>
+                </tr>
+                <tr>
+                    <th>Kilo</th>
+                    <td><a href="#PUL">PUL</a></td>
+                    <td><a href="#PKRYS">PKRYS</a></td>
+                    <td><a href="#LAS">LAS</a></td>
+                </tr>
+                <tr>
+                    <th>Lima</th>
+                    <td><a href="#MAG">MAG</a></td>
+                    <td><a href="#BIO">BIO</a></td>
+                    <td><a href="#EXT">EXT</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="my-5">
+            <h2>{$data[245]['name']['cs']}</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Skupina</th>
+                    <th>{(new \DateTime($data[245]['start']))->format('H:i')}–{(new \DateTime($data[245]['end']))->format('H:i')}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach $data[245]['items'] as $item}
+                    <tr>
+                        <td><strong>{$item['name']['cs']}</strong></td>
+                        <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
+                    </tr>
+                {/foreach}
+                </tbody>
+            </table>
+        </div>
+        <div class="my-5">
+            <h2>{$data[246]['name']['cs']}</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Skupina</th>
+                    <th>{(new \DateTime($data[246]['start']))->format('H:i')}–{(new \DateTime($data[246]['end']))->format('H:i')}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach $data[246]['items'] as $item}
+                    <tr>
+                        <td><strong>{$item['name']['cs']}</strong></td>
+                        <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
+                    </tr>
+                {/foreach}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<div class="panel color-auto">
+    <section class="inner-container">
+        {*
+        <h1>Anotace exkurzí</h1>
+        <div class="alert alert-warning">Anotace u některých exkurzí ještě nejsou doplněné. Jakmile budou k
+            dispozici, objeví se níže na stránce spolu s ostatními.
+        </div>
+        *}
+        <h2>Dopolední exkurze </h2>
+        <hr/>
+        <strong class="subheader mt-3">SEM</strong>
+        <h4 id="SEM">Svět kolem nás z pohledu skenovací elektronové mikroskopie</h4>
+        <p>
+            Jak vypadá povrch kovu nebo třeba i obyčejného vlasu pod statisíckrát větším zvětšením? Na
+            exkurzi se seznámíte s principy a možnostmi skenovací elektronové mikroskopie, která umožňuje
+            nahlédnout do fascinujícího světa mikrostruktury materiálů. Dozvíte se, proč vnitřní struktura
+            materiálu je důležité pro vlastnosti kovů, slitin či kompozitů. Ukážeme vám moderní laboratoře,
+            kde se zkoumají nové materiály pro špičkové i každodenní aplikace, a zjistíte, jak fyzika a
+            materiálová věda pomáhají řešit aktuální výzvy dneška.
+
+        </p>
+        <strong class="subheader mt-3">SEIS</strong>
+        <h4 id="SEIS">Seismická laboratoř</h4>
+        <p>
+            Kromě prohlídky nejstarší seismické stanice v ČR, virtuálně navštívíme Řecko, kde má katedra
+            geofyziky MFF UK vlastní seismografy. Seznámíme se s posledním výzkumem řeckých zemětřesení z
+            oblasti Korintského zálivu, ale můžeme si i povídat o ničivých zemětřesení z minulosti.
+        </p>
+        <strong class="subheader mt-3">LAS</strong>
+        <h4 id="LAS">Femtosekundová laboratoř</h4>
+        <p>
+            Na exkurzi se účastníci seznámí s principem fungování laserů s ultrakrátkými pulzy
+            a s nelineární optikou, uvidí využití femtosekundových laserů při studiu nelineárních
+            optických jevů v látkách.
+
+        </p>
+        <strong class="subheader mt-3">NAN</strong>
+        <h4 id="NAN">Nano u vás doma u nás v laboratoři</h4>
+        <p>
+            Navštivte s námi nano-svět. Společně se podíváme jaké optické signály vysílají nano-objekty
+            směrem k našemu makro-světu pomocí mikro-spektroskopie. Dále nahlédneme i do světa nanostruktur
+            pomocí mikroskopie atomárních sil, která nám umožňuje ohmatat nano-povrchy a změřit jejich
+            fyzikální vlastnosti
+
+        </p>
+        <strong class="subheader mt-3">BIO</strong>
+        <h4 id="BIO">Laserová spektroskopie pro studium biologicky významných procesů</h4>
+        <p>
+            Řada biologických procesů v přírodě je poháněna světlem. Patří mezi ně
+            fotosyntéza nebo řada fotochemických procesů v tělech, např.
+            fotodynamická terapie rakoviny. Pro správné pochopení těchto procesů je
+            nutná detailní znalost jejich mechanizmů. V případě fotochemických
+            procesů se zde uplatňuje především časově rozlišená spektroskopie. Na
+            našem pracovišti je k dispozici řada různých pulsních laserů a
+            detekčních technik, které umožňují studium procesů na škálách od
+            mikrosekund po femtosekundy.
+
+        </p>
+        <strong class="subheader mt-3">TEM</strong>
+        <h4 id="TEM">Za hranice viditelného: Detaily struktury materiálů v transmisním elektronovém
+            mikroskopu</h4>
+        <p>
+            Metody zobrazení mikrostruktury materiálů v transmisním elektronovém mikroskopu - zobrazení
+            poruch krystalové mříže, hranice zrn, dislokace, precipitáty; difrakce - využití Fourierovy
+            transformace; in-situ žíhání v mikroskopu.
+        </p>
+        <strong class="subheader mt-3">PKRYS</strong>
+        <h4 id="PKRYS">Příprava monokrystalů pro materiálový výzkum a aplikace</h4>
+        <p>
+            Monokrystaly představují nejuspořádanější formu pevných látek. Díky směrovému charakterů
+            fyzikálních vlastností krystalických latek, růst kvalitních monokrystálů je nezbytným prvotním
+            krokem v materiálovém výzkumu. V rámci exkurze bude demonstrován růst krystalů Czochralského
+            metodou a metodou zonální tavby implementované do nejpokročilejší laserové pece. Monokrystaly
+            jsou v současnosti nepostradatelným blokem i v mnoha aplikacích, zejména elektronika, ale také
+            detektory ionizujícího záření a pevnolátkové lasery. Účastnící se proto seznámí i s monokrystaly
+            křemíku, silikonkarbidu a perovskitů.
+        </p>
+        <strong class="subheader mt-3">RAM</strong>
+        <h4 id="RAM">Ramanova spektroskopie</h4>
+        <p>
+            Ramanova mikroskopie je moderní bezkontaktní zobrazovací metoda kombinující Ramanovou
+            spektroskopii s konfokální optickou mikroskopií. Umožňuje zkoumat chemické složení studovaných
+            objektů se submikrometrickým prostorovým rozlišením. Využívá se v různých oborech od
+            materiálového výzkumu, geologie, chemie až po biologický a lékařský výzkum. V rámci exkurze
+            vysvětlíme fyzikální princip metody, ukážeme moderní Ramanův mikroskop a předvedeme jeho použití
+            na studium chemického složení mikroorganismů.
+        </p>
+        <strong class="subheader mt-3">MAG</strong>
+        <h4 id="MAG">Světem magnetooptiky</h4>
+        <p>
+            Během exkurze do magnetooptické laboratoře se studenti seznámí s moderními
+            metodami výzkumu interakce světla s magnetickými materiály. Dozví se, co je
+            polarizace světla a jak lze její změny využít k pozorování magnetických vlastností
+            látek prostřednictvím magnetooptických jevů, zejména Kerrova a Faradayova jevu.
+            Tyto jevy umožňují sledovat chování magnetizace v materiálech pomocí optických
+            měření. Součástí exkurze bude také ukázka experimentálního vybavení, včetně
+            optických kryostatů umožňujících měření při teplotách blízkých teplotě kapalného
+            helia (≈ 4 K) a supravodivého magnetu, který vytváří silná a stabilní magnetická pole.
+            Studenti tak získají přímý vhled do principů a technologií používaných v současném
+            výzkumu magnetooptických materiálů a fyziky pevných látek. Navíc se studenti dozví
+            jak se magnetooptika využívá v praxi – od výzkumu nových materiálů v širokém
+            rozsahu teplot až po technologie pro ukládání dat, moderní sensory a jednosměrky
+            pro světlo zvané magnetooptické izolátory.
+        </p>
+        <strong class="subheader mt-3">STR</strong>
+        <h4 id="STR">Laboratoř strukturní analýzy</h4>
+        <p>
+            Rentgenové laboratoře Oddělení strukturní analýzy na Katedře fyziky kondenzovaných látek MFF UK
+            jsou vybaveny moderními rentgenovými difraktometry umožňujícími studium struktury materiálů
+            pomocí rozptylu rentgenového záření. V oddělení jsou studovány různé typy tenkých vrstev,
+            nanokrystalické materiály, materiály objemové i práškové a to i za nízkých a vysokých teplot,
+            vysokých tlaků, případně definovaných nestandardních atmosfér. Kromě určování fázového složení
+            vzorků a zpřesňování krystalové struktury se zde zkoumá i tzv. reálná struktura materiálů –
+            strukturní defekty, mikrodeformace,
+            velikost krystalitů, textura či zbytková napětí.
+            Součástí vybavení je také aparatura pro maloúhlový rozptyl rentgenového záření (SAXS), která
+            umožňuje charakterizovat nanomateriály a struktury ve větším než atomovém měřítku. Výzkum je
+            zaměřen na moderní materiály s vysokým aplikačním potenciálem a zahrnuje i vývoj nových metod
+            rentgenové analýzy ve spolupráci s domácími i zahraničními pracovišti.
+        </p>
+        <strong class="subheader mt-3">PULS</strong>
+        <h4 id="PULS">Krátké pulzy a počítání fotonů pro měření rychlých procesů v nanosvětě</h4>
+        <p>
+            Krátké laserové pulzy umožňují sledovat rychlou dynamiku
+            excitovaných elektronů v molekulách, např. přenos sluneční energie ve
+            fotosyntéze. Optická mikroskopie zase umí pomocí vyzářených fotonů
+            zobrazit a rozlišit excitované komplexy molekul uvnitř buněk, s
+            citlivostí detekce jednotlivých molekul. V naší laboratoři posíláme
+            ultrakrátké pulzy do mikroskopu a detekujeme jednotlivé vyzářené fotony,
+            což nám umožňuje sledovat rychlý přenos energie v nanosvětě.
+        </p>
+        <strong class="subheader mt-3">EXT</strong>
+        <h4 id="EXT">Materiály za extrémních podmínek</h4>
+        <p>
+            Při výzkumu fyzikálních vlastností materiálů je využíváno působení vnějších podmínek, například teploty, magnetického pole nebo hydrostatického tlaku. Při našem výzkumu používáme často kombinací uvedených podmínek, čímž lze dosáhnout mutliextrémních podmínek v rámci fázového prostoru. Tyto podmínky otevírají dveře k novým vlastnostem materiálů a mikroskopického chování, často elektronového původu. Typicky aplikace vnějšího mechanického tlaku vede ke změnám meziatomových vzdáleností, což má za následek změny v elektronových vlastnostech studovaných materiálů - transportních (např. supravodivost) či magnetických.
+
+            V rámci exkurze bude předvedeno několik typů tlakových cel pro studium různých fyzikálních veličin za vysokého hydrostatického tlaku a nízkých teplot a několik příkladů nejnovějších výsledků současného výzkumu.
+
+            Pro omezený prostor v laboratoři je možno pro tuto exkurzi přijmout nejvýše 10 osob najednou.
+        </p>
+        <h2>{$data[245]['name']['cs']}</h2>
+        <hr/>
+        {foreach $data[245]['items'] as $item}
+            <strong class="subheader mt-3">{$item['name']['cs']}</strong>
+            <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
+            {$item['longDescription']['cs']|noescape}
+        {/foreach}
+        <h2>{$data[246]['name']['cs']}</h2>
+        <hr/>
+        {foreach $data[246]['items'] as $item}
+            <strong class="subheader mt-3">{$item['name']['cs']}</strong>
+            <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
+            {$item['longDescription']['cs']|noescape}
+        {/foreach}
+    </section>
+</div>

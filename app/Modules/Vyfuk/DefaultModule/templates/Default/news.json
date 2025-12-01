@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Zadání 3. série zveřejněno",
+      "text": "Odevzdávání 2. série je za námi, ale Výfuk jede dál! Na výsledky a opravená řešení se můžete těšit za dva týdny, vzorová řešení druhé série a zadání té třetí ale najdete na webu už teď. Deadline na odeslání řešení je 12. ledna 2026. Přejeme hodně štěstí.",
+      "date": "26. listopadu 2025",
+      "link": ":Default:Problems:default",
+      "link-text": "Zadání"
+    },
+    {
       "title": "Nápověda k úloze k Výfučtení",
       "text": "K úloze k Výfučtení nově přibyla nápověda – nezapomeňte se na ní podívat a případně ji zohlednit při řešení úlohy.",
       "date": "16. listopadu 2025",
@@ -20,11 +27,6 @@
       "date": "30. října 2025",
       "link": ":Default:Results:default",
       "link-text": "Pořadí"
-    },
-    {
-      "title": "Kapacita setkání naplněna!",
-      "text": "Došlo k naplnění kapacity Podzimního setkání. Stále se ale můžete registrovat a být přijati jako náhradníci. V případě uvolnění kapacity o přijetí náhradníků stále rozhoduje čas přihlášení.",
-      "date": "21. října 2025"
     }
   ]
 }
