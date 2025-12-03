@@ -153,7 +153,7 @@ final class ProblemService extends AbstractJSONService
         return $this->getMedia($contest, $year, $path);
     }
 
-    public function getProblems(string $contest, SeriesModel $series, string $lang): ?string
+    public function getTasks(string $contest, SeriesModel $series, string $lang): ?string
     {
         $path = 'problems' . $series->series . '.pdf';
         return $this->getMedia($contest, $series->year, $path);
