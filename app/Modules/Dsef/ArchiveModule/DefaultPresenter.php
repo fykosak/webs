@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Modules\Dsef\ArchiveModule;
 
 use App\Components\ImageGallery\ImageGalleryControl;
-use App\Models\Downloader\FKSDBDownloader;
-use App\Models\Downloader\ScheduleRequest;
+use App\Models\Downloader\Downloaders\FKSDBDownloader;
+use App\Models\Downloader\Requests\ScheduleRequest;
 
 class DefaultPresenter extends BasePresenter
 {
