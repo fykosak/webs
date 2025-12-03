@@ -47,3 +47,8 @@ a.btn:hover, a.dropdown-item:hover {
 .accordion-button:focus {
     box-shadow: none;
 }
+
+mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
