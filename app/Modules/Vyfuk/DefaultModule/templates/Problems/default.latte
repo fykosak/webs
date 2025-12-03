@@ -69,7 +69,7 @@
                 série
             </a>
             {/if}
-            {if $series->series === 1 || new Datetime() > $problemService->getSeries('vyfuk', $series->year, $series->series - 1)->getDeadline() && $batchPath}
+            {if $series->series === 1 || new Datetime() > $problemService->getSeries('vyfuk', $series->year, $series->series === 8 ? 6 : $currentSeries - 1)->getDeadline() && $batchPath}
             <a class="btn btn-primary mt-2 mr-4" href="{$batchPath}">
                 <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka s řešeními {$series->series - 1}. série
             </a>
