@@ -17,14 +17,41 @@
                     {default}FYKOS Merchandise
                 {/switch}
             </h1>
-            <p>
+                {switch $language->value}
+                {case 'cs'}
+                    <p>Chtěli byste se obléct do Fyziklání mikiny nebo se zahřát čajem z FYKOS hrnku? 
+                    Pořiďte si náš merch! Nejen, že vám to bude slušet, ale také vaší koupí podpoříte
+                     naši činnost. Expedici objednávek očekávejte z provozních důvodů nejpozději do dvou měsíců.
+                    <br><br>
+                    Pro koupi budete potřebovat FYKOS účet. Pokud ho nemáte, obraťte se na 
+                    <a href="mailto:fykos@fykos.cz?subject=Registrace účtu pro eshop">
+                    fykos@fykos.cz</a>.</p>
+                {default}
+                    <p>Would you like to dress up in a Fyziklání sweatshirt or warm up with tea from a FYKOS mug? 
+                    Get our merch! Not only will it look good on you, but your purchase will also support
+                    our work. For operational reasons, expect your orders to be shipped within two months at the latest.
+                    <br><br>
+                    You will need a FYKOS account to purchase. If you do not have one, please contact us at
+                    <a href="mailto:fykos@fykos.cz?subject=Eshop account registration">
+                    fykos@fykos.org</a>.</p>
+                {/switch}
+            <a href="https://db.fykos.cz/shop/" class="btn btn-primary my-3">
+                {switch $language->value}
+                {case 'cs'}
+                    Vstup do e-shopu
+                {default}
+                    E-shop entry
+                {/switch}
+            </a> 
+
+            {*<p>
                 {switch $language->value}
                 {case 'cs'}
                     Chcete podpořit FYKOS? Pořiďte si náš merch! Nabízíme hrnky, čepice, mikiny a trička. Brzy budeme spouštět e-shop, v mezičase si merch můžete objednat skrz <a href="https://forms.gle/5tHZahuHZGmSKe1B9">tento formulář</a>. Expedici objednávek očekávejte z provozních důvodů nejpozději do dvou měsíců.
                 {default}
                 Want to support FYKOS? Get your favorite merch! Check out our mugs, beanies, sweatshirts, and t-shirts. We will be launching our e-shop soon. In the meantime, you can order merch through <a href="https://forms.gle/fhPdJDxLCKJTuKBy5">this form</a>. Due to operational reasons, please expect delivery within two months from placing your order.
                 {/switch}
-            </p>
+            </p>*}
             {*<p>
                 {switch $language->value}
                     {case 'cs'}
@@ -57,7 +84,7 @@
         </section>
     </div>
 
-    <div class="panel color-auto">
+    {*<div class="panel color-auto">
         <section class="inner-container">
             <div class="category-section row align-items-center">
                 <div class="col-md-7">
@@ -103,9 +130,9 @@
                 </div>
             </div>
         </section>
-    </div>
+    </div>*}
 
-    <div class="panel color-auto">
+    {*<div class="panel color-auto">
         <section class="inner-container">
             <div class="category-section row align-items-center">
                 <div class="col-md-7">
@@ -150,9 +177,9 @@
                 </div>
             </div>
         </section>
-    </div>
+    </div>*}
 
-    <div class="panel color-auto">
+    {*<div class="panel color-auto">
         <section class="inner-container">
             <div class="category-section row align-items-center">
                 <div class="col-md-7">
@@ -211,19 +238,19 @@
                             {switch $language->value}
                                 {case 'cs'}
                                 Cena: <strong>350 Kč</strong> nebo <strong>15 €</strong>
-                                {*<span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>299 Kč</strong></span> <span style="color: green;"><strong>249 Kč</strong></span> nebo <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>13 €</strong></span> <span style="color: green;"><strong>11 €</strong></span>*}
+                                <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>299 Kč</strong></span> <span style="color: green;"><strong>249 Kč</strong></span> nebo <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>13 €</strong></span> <span style="color: green;"><strong>11 €</strong></span>
                                 {default}
                                 Price: <strong>15 €</strong>
-                                {*<span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>13 €</strong></span> <span style="color: green;"><strong>11 €</strong></span>*}
+                                <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>13 €</strong></span> <span style="color: green;"><strong>11 €</strong></span>
                             {/switch}
                         </p>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
+    </div>*}
 
-    <div class="panel color-auto">
+    {*<div class="panel color-auto">
         <section class="inner-container">
             <div class="category-section row align-items-center">
                 <div class="col-md-7">
@@ -274,17 +301,17 @@
                             {switch $language->value}
                                 {case 'cs'}
                                 Cena: <strong>800 Kč</strong> nebo <strong>34 €</strong>
-                                {*<span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>799 Kč</strong></span> <span style="color: green;"><strong>749 Kč</strong></span> nebo <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>34 €</strong></span> <span style="color: green;"><strong>32 €</strong></span>*}
+                                <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>799 Kč</strong></span> <span style="color: green;"><strong>749 Kč</strong></span> nebo <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>34 €</strong></span> <span style="color: green;"><strong>32 €</strong></span>
                                 {default}
                                 Price: <strong>34 €</strong>
-                                {*<span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>34 €</strong></span> <span style="color: green;"><strong>32 €</strong></span>*}
+                                <span style="text-decoration: line-through; text-decoration-thickness: 2px; color: red;"><strong>34 €</strong></span> <span style="color: green;"><strong>32 €</strong></span>
                             {/switch}
                         </p>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
+    </div>*}
 
 
 {/block}
