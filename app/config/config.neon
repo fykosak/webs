@@ -12,11 +12,12 @@ services:
     - Fykosak\Utils\Localization\GettextTranslator(App\Modules\Core\Language)
     - App\Models\SettingsService(%domains%)
     - App\Models\Game\Connector(%gameApi.url%, %gameApi.login%, %gameApi.password%)
-    - App\Models\Downloader\FKSDBDownloader(%fksdbDownloader.url%,%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes')
-    - App\Models\Downloader\ProblemManagerDownloader(%problemManagerDownloader.url%,%problemManagerDownloader.login%,%problemManagerDownloader.password%,'10 minutes')
-    - App\Models\Downloader\ProblemService('10 minutes', %problemManagerDownloader.url%)
-    - App\Models\Downloader\EventService('10 minutes')
-    - App\Models\Downloader\DummyService('10 minutes')
+    - App\Models\Downloader\Downloaders\FKSDBDownloader(%fksdbDownloader.url%,%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes')
+    ProblemManagerDownloader: App\Models\Downloader\Downloaders\ProblemManagerDownloader(%problemManagerDownloader.url%,%problemManagerDownloader.key%, '10 minutes')
+    - App\Models\Downloader\Services\FileService('10 minutes', %static.url%)
+    - App\Models\Downloader\Services\ProblemService('10 minutes')
+    - App\Models\Downloader\Services\EventService('10 minutes')
+    - App\Models\Downloader\Services\DummyService('10 minutes')
 
 extensions:
     asset: SixtyEightPublishers\Asset\Bridge\Nette\DI\AssetExtension

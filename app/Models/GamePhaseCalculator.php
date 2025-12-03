@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Models\Downloader\EventService;
-use App\Models\Downloader\EventModel;
+use App\Models\Downloader\Services\EventService;
+use App\Models\Downloader\Models\EventModel;
 use Nette\SmartObject;
 
 /**
@@ -20,6 +20,7 @@ final class GamePhaseCalculator
         private readonly EventService $eventService
     ) {
     }
+
     /**
      * Returns newest FKSDB event. That means by creating a new one, the application automatically switches to the new
      * year.

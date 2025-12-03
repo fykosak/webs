@@ -4,15 +4,20 @@ declare(strict_types=1);
 
 namespace App\Modules\Vyfuk\DefaultModule;
 
-use App\Models\Downloader\ProblemService;
+use App\Models\Downloader\Services\FileService;
+use App\Models\Downloader\Services\ProblemService;
 use Throwable;
 
 class ArchivePresenter extends BasePresenter
 {
     private readonly ProblemService $problemService;
+    private readonly FileService $fileService;
 
-    public function injectServiceProblem(ProblemService $problemService): void
-    {
+    public function injectServiceProblem(
+        FileService $fileService,
+        ProblemService $problemService
+    ): void {
+        $this->fileService = $fileService;
         $this->problemService = $problemService;
     }
 
@@ -22,39 +27,22 @@ class ArchivePresenter extends BasePresenter
     public function renderSerial(): void
     {
         $this->template->problemService = $this->problemService;
-        $this->template->yearsAndSeries = $this->getYearsAndSeries();
-        $this->template->hasAtLeastOneSerial = $this->checkYearsSerials($this->getYearsAndSeries());
+        $this->template->fileService = $this->fileService;
+        $this->template->contestYears = $this->problemService->getYears(ProblemService::VYFUK);
+        $this->template->hasAtLeastOneSerial = $this->checkYearsSerials();
     }
 
-    private function getYearsAndSeries(): array
+    private function checkYearsSerials(): array
     {
-        $yearsAndSeries = [];
-        foreach ($this->getContest()->years as $year) {
-            try {
-                $yearJson = $this->problemService->getYearJson('vyfuk', $year->year);
-                $availableSeriesNumbers = array_keys($yearJson);
-                $yearsAndSeries[$year->year] = $availableSeriesNumbers;
-            } catch (Throwable $e) {
-                continue;
-            }
-        }
-
-        // sort in decreasing order by key
-        krsort($yearsAndSeries);
-
-        return $yearsAndSeries;
-    }
-
-    private function checkYearsSerials($yearsAndSeries): array
-    {
+        $contestYears = $this->problemService->getYears(ProblemService::VYFUK);
         $hasAtLeastOneSerial = [];
-        foreach ($yearsAndSeries as $year => $seriesList) {
-            $hasAtLeastOneSerial[$year] = false;
-            foreach ($seriesList as $seriesNo) {
-                $series = $this->problemService->getSeries('vyfuk', $year, $seriesNo);
-                $serialPath = $this->problemService->getSerial('vyfuk', $series, $this->lang);
+        foreach ($contestYears as $contestYear) {
+            $hasAtLeastOneSerial[$contestYear->year] = false;
+            foreach ($contestYear->series as $series) {
+                $series = $this->problemService->getSeries($series->seriesId);
+                $serialPath = $this->fileService->getSerial('vyfuk', $series, $this->lang);
                 if ($serialPath) {
-                    $hasAtLeastOneSerial[$year] = true;
+                    $hasAtLeastOneSerial[$contestYear->year] = true;
                     break;
                 }
             }

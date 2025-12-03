@@ -2,8 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Downloader;
+namespace App\Models\Downloader\Services;
 
+use App\Models\Downloader\Downloaders\FKSDBDownloader;
+use App\Models\Downloader\Requests\EventOrganizersRequest;
+use App\Models\Downloader\Models\EventModel;
+use App\Models\Downloader\Models\EventOrganizerModel;
+use App\Models\Downloader\Models\EventParticipantModel;
+use App\Models\Downloader\Models\PersonScheduleModel;
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;

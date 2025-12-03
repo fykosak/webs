@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Downloader;
+namespace App\Models\Downloader\Services;
 
+use Fykosak\FKSDBDownloaderCore\Downloader;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
@@ -13,7 +14,7 @@ abstract class AbstractJSONService
 {
     use SmartObject;
 
-    protected NetteDownloader $downloader;
+    protected Downloader $downloader;
     protected readonly Cache $cache;
     protected readonly string $expiration;
 

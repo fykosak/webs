@@ -4,6 +4,10 @@ includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
 parameters:
     phpVersion: 80100 # php 8.1
+    level: 5
+    paths:
+        - app
+        - tests
     ignoreErrors:
         - '#Class [a-zA-Z0-9\\_]+ has an uninitialized readonly property \$[a-zA-Z0-9\\_]+. Assign it in the constructor.#'
         - '#Readonly property [a-zA-Z0-9\\_]+::\$[a-zA-Z0-9\\_]+ is assigned outside of the constructor.#'

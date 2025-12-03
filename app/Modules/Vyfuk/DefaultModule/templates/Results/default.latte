@@ -14,7 +14,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 {foreach array_reverse($contest->years) as $contestYear}
-                {varType App\Models\Downloader\ContestYearModel $contestYear}
+                {varType App\Models\Downloader\Models\ContestYearModel $contestYear}
                     {if $contestYear->year > 0}
                         <li><a class="dropdown-item py-2" href="{plink 'this' 'year'=>$contestYear->year}">
                             {$contestYear->year}. ročník ({$contestYear->begin->format('Y')}/{$contestYear->end->format('y')})

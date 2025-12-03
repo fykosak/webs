@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Components\ScheduleList;
 
-use App\Models\Downloader\EventModel;
-use App\Models\Downloader\FKSDBDownloader;
-use App\Models\Downloader\ScheduleRequest;
+use App\Models\Downloader\Downloaders\FKSDBDownloader;
+use App\Models\Downloader\Models\EventModel;
+use App\Models\Downloader\Requests\ScheduleRequest;
 use DateTime;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;

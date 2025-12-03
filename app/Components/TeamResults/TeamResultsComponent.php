@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Components\TeamResults;
 
-use App\Models\Downloader\DummyService;
-use App\Models\Downloader\EventModel;
-use App\Models\Downloader\TeamModel;
+use App\Models\Downloader\Services\DummyService;
+use App\Models\Downloader\Models\EventModel;
+use App\Models\Downloader\Models\TeamModel;
 use App\Modules\Core\Language;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\Components\DIComponent;
@@ -184,7 +184,7 @@ class TeamResultsComponent extends DIComponent
 
         $form->addSubmit('applyFilters', 'Apply')->setHtmlAttribute('class', 'btn btn-primary');
 
-        $form->onSuccess[] = fn (Form $form) => $this->filterData = $form->getValues('array');
+        $form->onSuccess[] = fn(Form $form) => $this->filterData = $form->getValues('array');
         // $form->onSuccess[] = function(Form $form) {
         //     $this->filterData = $form->getValues('array');
         //     $this->redirect('this', ['filterData' => $this->filterData]);

@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Vyfuk\DefaultModule;
 
-use App\Models\Downloader\EventService;
+use App\Models\Downloader\Services\EventService;
 use DateTime;
-use Nette\Caching\Cache;
 
 class EventsPresenter extends BasePresenter
 {

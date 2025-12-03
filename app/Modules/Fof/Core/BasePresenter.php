@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\Core;
 
-use App\Models\Downloader\EventModel;
+use App\Models\Downloader\Models\EventModel;
 use App\Modules\Core\EventWebPresenter;
 
 abstract class BasePresenter extends EventWebPresenter

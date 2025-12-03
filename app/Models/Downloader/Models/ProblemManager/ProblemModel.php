@@ -2,50 +2,54 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Downloader;
+namespace App\Models\Downloader\Models\ProblemManager;
+
+use App\Models\Downloader\Services\ProblemService;
+use App\Modules\Core\Language;
 
 class ProblemModel
 {
-    public string $contest;
-    public int $year;
-    public int $series;
-    public int $number;
+    public int $problemId;
+    public int $contestId;
+    public int $seriesId;
+    public int $seriesOrder;
+    public int $typeId;
+    public string $created;
+
     /**
-     * @var string[]
-     */
-    public array $name;
-    /**
-     * @var string[]
-     */
-    public ?array $origin = [];
-    public ?int $points; // null for backwards compatibility
-    /**
-     * @var string[]
+     * @var string[] $topics
      */
     public array $topics;
-    /**
-     * @var array[][]
-     */
-    public array $authors;
-    /**
-     * @var int[]
-     */
-    public ?array $studyYears;
-    /**
-     * @var string[]
-     */
-    public array $task;
-    /**
-     * @var string[]
-     */
-    public array $solution;
-    public ?float $machineResult;
-    /**
-     * @var string[]
-     */
-    public array $humanResult;
 
-    public static function getTopicLabel(string $topic, string $lang): string
+    public array $metadata;
+
+    public array $texts;
+
+    public function getText(string $type, Language $lang)
+    {
+        foreach ($this->texts as $text) {
+            if ($text['type'] === $type && $text['lang'] === $lang->value) {
+                return $text;
+            }
+        }
+
+        return null;
+    }
+
+    public function getOrigin(Language $lang)
+    {
+        if (!array_key_exists('origin', $this->metadata)) {
+            return null;
+        }
+
+        if (!array_key_exists($lang->value, $this->metadata['origin'])) {
+            return null;
+        }
+
+        return $this->metadata['origin'][$lang->value];
+    }
+
+    public static function getTopicLabel(string $topic, Language $lang): string
     {
         $topicLabels = match ($topic) {
             "mechHmBodu" => [
@@ -162,7 +166,7 @@ class ProblemModel
                 "cs" => "Optika"
             ],
             "elektrina" => [
-                "cs" => "Elektrina"
+                "cs" => "Elektřina"
             ],
             "odhady" => [
                 "cs" => "Odhady"
@@ -182,13 +186,13 @@ class ProblemModel
             default => $topic
         };
 
-        return $topicLabels[$lang] ?? $topic;
+        return $topicLabels[$lang->value] ?? $topic;
     }
 
     public function getLabel(): string
     {
-        if ($this->contest === 'fykos') {
-            switch ($this->number) {
+        if ($this->contestId === ProblemService::FYKOS) {
+            switch ($this->seriesOrder) {
                 case 6:
                     return 'P';
                 case 7:
@@ -196,8 +200,8 @@ class ProblemModel
                 case 8:
                     return 'S';
             }
-        } elseif ($this->contest === 'vyfuk') {
-            switch ($this->number) {
+        } elseif ($this->contestId === ProblemService::VYFUK) {
+            switch ($this->seriesOrder) {
                 case 6:
                     return 'E';
                 case 7:
@@ -205,13 +209,13 @@ class ProblemModel
             }
         }
 
-        return (string)$this->number;
+        return (string)$this->seriesOrder;
     }
 
     public function getIcon(): string
     {
-        if ($this->contest === 'fykos') {
-            return match ($this->number) {
+        if ($this->contestId === ProblemService::FYKOS) {
+            return match ($this->seriesOrder) {
                 1, 2 => 'fas fa-smile',
                 3, 4, 5 => 'fas fa-brain',
                 6 => 'fas fa-lightbulb',
@@ -219,8 +223,8 @@ class ProblemModel
                 8 => 'fas fa-book',
                 default => ''
             };
-        } elseif ($this->contest === 'vyfuk') {
-            return match ($this->number) {
+        } elseif ($this->contestId === ProblemService::VYFUK) {
+            return match ($this->seriesOrder) {
                 1 => 'fas fa-pencil',
                 2 => 'fas fa-calculator',
                 3 => 'fas fa-magnet',
