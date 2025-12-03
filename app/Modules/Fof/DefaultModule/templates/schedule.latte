@@ -1,34 +1,78 @@
 {varType App\Modules\Core\Language $language}
 <div class="timeline timeline-wider">
-    {if false}
     <div>
-        <div class="timeline-group">{switch $language->value}{case cs}Středa 12. 2.{default}Wednesday, Feb 12{/switch}
+        <div class="timeline-group">{switch $language->value}{case cs}Úterý 10. 2.{default}Tuesday, Feb 10{/switch}
         </div>
         <div>
             <span class="timeline-element-icon"></span>
             {switch $language->value}
             {case cs}
             <div class="timeline-element-content">
-                <time class="timeline-element-date">18:00 - 20:00</time>
-                <div class="timeline-title">Prohlídka Štefánikovy hvězdárny</div>
-                <p>
-                    V rámci prohlídky také proběhne zahájení doprovodného programu.
-                </p>
+                <time class="timeline-element-date">19:00 - 23:00</time>
+                <div class="timeline-title">Noční prohlídka Prahy</div>
             </div>
             {default}
             <div class="timeline-element-content">
-                <time class="timeline-element-date">18:00 - 20:00</time>
-                <div class="timeline-title">Tour of Stefanik Observatory and Opening of the Accompanying Program</div>
-                <p>
-                    The tour will also include the opening of the accompanying program.
-                </p>
+                <time class="timeline-element-date">19:00 - 23:00</time>
+                <div class="timeline-title">Night Tour of Prague</div>
+            </div>
+            {/switch}
+        </div>
+    </div>
+    <div>
+        <div class="timeline-group">{switch $language->value}{case cs}Středa 11. 2.{default}Wednesday, Feb 11{/switch}
+        </div>
+        <div>
+            <span class="timeline-element-icon"></span>
+            {switch $language->value}
+            {case cs}
+            <div class="timeline-element-content">
+                <time class="timeline-element-date">10:00 - 13:00</time>
+                <div class="timeline-title">Astronomické dopoledne</div>
+            </div>
+            {default}
+            <div class="timeline-element-content">
+                <time class="timeline-element-date">10:00 - 13:00</time>
+                <div class="timeline-title">Morning with Astronomy</div>
+            </div>
+            {/switch}
+        </div>
+        <div>
+            <span class="timeline-element-icon"></span>
+            {switch $language->value}
+            {case cs}
+            <div class="timeline-element-content">
+                <time class="timeline-element-date">15:00 - 16:30</time>
+                <div class="timeline-title">Planetárium</div>
+            </div>
+            {default}
+            <div class="timeline-element-content">
+                <time class="timeline-element-date">15:00 - 16:30</time>
+                <div class="timeline-title">Planetarium</div>
+            </div>
+            {/switch}
+        </div>
+        <div>
+            <span class="timeline-element-icon"></span>
+            {switch $language->value}
+            {case cs}
+            <div class="timeline-element-content">
+                <time class="timeline-element-date">17:00 - 22:00</time>
+                <div class="timeline-title">Večer národů</div>
+                <p>Večer věnovaný představování kultur zemí jednotlivých týmů.</p>
+            </div>
+            {default}
+            <div class="timeline-element-content">
+                <time class="timeline-element-date">17:00 - 22:00</time>
+                <div class="timeline-title">Nations' Evening</div>
+                <p>An evening where teams present their countries and get to know each other's cultures.</p>
             </div>
             {/switch}
         </div>
     </div>
 
     <div>
-        <div class="timeline-group">{switch $language->value}{case cs}Čtvrtek 13. 2.{default}Thursday, Feb 13{/switch}
+        <div class="timeline-group">{switch $language->value}{case cs}Čtvrtek 12. 2.{default}Thursday, Feb 12{/switch}
         </div>
         {switch $language->value}
         {case cs}
@@ -83,7 +127,6 @@
             {/switch}
         </div>
     </div>
-    {/if}
     <div>
         <div class="timeline-group">{switch $language->value}{case cs}Pátek 13. 2.{default}Friday, Feb 13{/switch}</div>
 
@@ -134,9 +177,8 @@
         </div>
         {/if}
     </div>
-    {if false}
     <div>
-        <div class="timeline-group">{switch $language->value}{case cs}Sobota 15. 2.{default}Saturday, Feb 15{/switch}
+        <div class="timeline-group">{switch $language->value}{case cs}Sobota 14. 2.{default}Saturday, Feb 14{/switch}
         </div>
 
         <div>
@@ -147,7 +189,7 @@
                 <div class="timeline-title">Přednášky</div>
                 <time class="timeline-element-date">9:30 - 12:00</time>
                 <p>
-                    Přednášky od předních českých vědců a hostů
+                    Přednášky od předních českých vědců a hostů.
                 </p>
             </div>
             {default}
@@ -155,7 +197,7 @@
                 <div class="timeline-title">Lectures</div>
                 <time class="timeline-element-date">9:30 - 12:00</time>
                 <p>
-                    Lectures from excellent Czech scientists and guest speakers
+                    Lectures from excellent Czech scientists and guest speakers.
                 </p>
             </div>
             {/switch}
@@ -166,13 +208,15 @@
             {switch $language->value}
             {case cs}
             <div class="timeline-element-content">
-                <div class="timeline-title">Science Show</div>
+                <div class="timeline-title">Kulaté stoly</div>
                 <time class="timeline-element-date">14:00 - 16:00</time>
+                <p>Diskuze s vědci o fyzice a nejen o ní.</p>
             </div>
             {default}
             <div class="timeline-element-content">
-                <div class="timeline-title">Science Show</div>
+                <div class="timeline-title">Round Tables</div>
                 <time class="timeline-element-date">14:00 - 16:00</time>
+                <p>Discussions with scientists about physics and beyond.</p>
             </div>
             {/switch}
         </div>
@@ -182,51 +226,21 @@
             {switch $language->value}
             {case cs}
             <div class="timeline-element-content">
-                <div class="timeline-title">Raut</div>
-                <time class="timeline-element-date">19:00 - 22:00</time>
+                <div class="timeline-title">Deskoherní večer</div>
+                <time class="timeline-element-date">18:30 - 23:59</time>
                 <p>
-                    Slavnostní večeře s dalšími soutěžícími a oficiální zakončení doprovodného programu.
+                    Neformální setkání s organizátory a soutěžícími u deskových her.
                 </p>
             </div>
             {default}
             <div class="timeline-element-content">
                 <div class="timeline-title">Buffet</div>
-                <time class="timeline-element-date">19:00 - 22:00</time>
+                <time class="timeline-element-date">18:30 - 23:59</time>
                 <p>
-                    Ceremonial dinner with other contestants and the official closing of the accompanying program.
+                    Informal board game evening with organizers and participants.
                 </p>
             </div>
             {/switch}
         </div>
     </div>
-    {/if}
-    {*<div>
-        <div class="timeline-group">
-            {switch $language->value}{case cs}Neděle 18. 2.{default}Sunday, Feb 18{/switch}
-        </div>
-
-        <div>
-            <span class="timeline-element-icon"></span>
-            {switch $language->value}
-            {case cs}
-            <div class="timeline-element-content">
-                <div class="timeline-title">Městská hra</div>
-                <time class="timeline-element-date">10:00 - volné</time>
-                <p>
-                    Zábavná hra, která vás nejen provede po Praze, ale také zaměstná vaše mozkové buňky. Hra může končit
-                    i dříve; záleží, jak budete rychlí.
-                </p>
-            </div>
-            {default}
-            <div class="timeline-element-content">
-                <div class="timeline-title">City Rally</div>
-                <time class="timeline-element-date">10:00 - arbit.</time>
-                <p>
-                    Fun game will guide you through Prague and also keep your brain cells busy. The game might end
-                    earlier depending on how fast you are.
-                </p>
-            </div>
-            {/switch}
-        </div>
-    </div>*}
 </div>

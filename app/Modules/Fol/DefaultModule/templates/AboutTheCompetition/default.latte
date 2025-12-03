@@ -1,67 +1,67 @@
 {varType App\Modules\Core\Language $language}
 {varType App\Models\Downloader\Models\EventModel $newestEvent}
 {block main}
-    <div class="panel color-light">
-        <section class="inner-container">
-            {switch $language->value}
-                {case cs}
-                <h1>Základní informace</h1>
-                <ul class="stylized">
-                    <li>Fyziklání Online je internetová týmová soutěž pro každého, kdo má zájem o fyziku.</li>
-                    <li>Až pětičlenné týmy se snaží v časovém limitu <strong>tří hodin</strong> vyřešit co nejvíce zadaných fyzikálních úloh v lítém boji stovek týmů z celého světa.</li>
-                    <li>Každý tým začíná se sedmi úlohami, za každou správně vyřešenou úlohu dostává novou, obtížnější úlohu.</li>
-                    <li>Soutěž probíhá jak v českém, tak v anglickém jazyce.</li>
-                    <li>Účast je zcela zdarma.</li>
-                    <li>Soutěž se koná {$newestEvent->begin |date:'j. n. Y'} 17:00 - 20:00.</li>
-                    <li>Registrace je otevřena od {$newestEvent->registrationBegin |date:'j. n.'} do {$newestEvent->registrationEnd |date:'j. n. H:i'}.</li>
+<div class="panel color-light">
+    <section class="inner-container">
+        {switch $language->value}
+            {case cs}
+            <h1>Základní informace</h1>
+            <ul class="stylized">
+                <li>Fyziklání Online je internetová týmová soutěž pro každého, kdo má zájem o fyziku.</li>
+                <li>Až pětičlenné týmy se snaží v časovém limitu <strong>tří hodin</strong> vyřešit co nejvíce zadaných fyzikálních úloh v lítém boji stovek týmů z celého světa.</li>
+                <li>Každý tým začíná se sedmi úlohami, za každou správně vyřešenou úlohu dostává novou, obtížnější úlohu.</li>
+                <li>Soutěž probíhá jak v českém, tak v anglickém jazyce.</li>
+                <li>Účast je zcela zdarma.</li>
+                <li>Soutěž se koná {$newestEvent->begin |date:'j. n. Y'} 17:00 - 20:00.</li>
+                <li>Registrace je otevřena od {$newestEvent->registrationBegin |date:'j. n.'} do {$newestEvent->registrationEnd |date:'j. n. H:i'}.</li>
 
-                </ul>
-                {default}
-                <h1>Basic Information</h1>
-                <ul class="stylized">
-                    <li>Physics Brawl Online is a non-profit three-hour-long team competition for anyone with an interest in physics.</li>
-                    <li>Teams of up to five competitors are trying to solve as many physics problems as possible in a given time limit of three hours in a fierce competition of hundreds of teams from all around the world.</li>
-                    <li>Every team starts with the same seven problems, for each problem solved they get a new, more challenging one.</li>
-                    <li>It is possible to compete in Czech and English language.</li>
-                    <li>The participation is free of charge.</li>
-                    <li>The competition take place on {$newestEvent->begin |date:'l, F j, Y'}, 5:00 - 8:00 p.m. CET.</li>
-                    <li>Registration is open from {$newestEvent->registrationBegin |date:'F j'} until {$newestEvent->registrationEnd |date:'F j, h:i a'} CET.</li>
-                </ul>
-            {/switch}
-        </section>
-    </div>
+            </ul>
+            {default}
+            <h1>Basic Information</h1>
+            <ul class="stylized">
+                <li>Physics Brawl Online is a non-profit three-hour-long team competition for anyone with an interest in physics.</li>
+                <li>Teams of up to five competitors are trying to solve as many physics problems as possible in a given time limit of three hours in a fierce competition of hundreds of teams from all around the world.</li>
+                <li>Every team starts with the same seven problems, for each problem solved they get a new, more challenging one.</li>
+                <li>It is possible to compete in Czech and English language.</li>
+                <li>The participation is free of charge.</li>
+                <li>The competition take place on {$newestEvent->begin |date:'l, F j, Y'}, 5:00 - 8:00 p.m. CET.</li>
+                <li>Registration is open from {$newestEvent->registrationBegin |date:'F j'} until {$newestEvent->registrationEnd |date:'F j, h:i a'} CET.</li>
+            </ul>
+        {/switch}
+    </section>
+</div>
 
-    <div class="panel color-dark">
-        <section class="inner-container">
-            {switch $language->value}
-                {case cs}
-                    <h1>O organizátorech</h1>
-                    <p>
-                        Fyziklání Online vyhlašují <em><a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulta Univerzity Karlovy (MFF UK)</a></em> a&nbsp;<em><a href="https://www.msmt.cz/">Ministerstvo školství, mláděže a tělovýchovy</a></em>.
-                        Organizátoři jsou převážně studenti MFF UK, sdružení ve studentské skupině <em><a href="https://fykos.cz">FYKOS</a></em> (Fyzikální korespondenční seminář).
+<div class="panel color-dark">
+    <section class="inner-container">
+        {switch $language->value}
+            {case cs}
+                <h1>O organizátorech</h1>
+                <p>
+                    Fyziklání Online vyhlašují <em><a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulta Univerzity Karlovy (MFF UK)</a></em> a&nbsp;<em><a href="https://www.msmt.cz/">Ministerstvo školství, mláděže a tělovýchovy</a></em>.
+                    Organizátoři jsou převážně studenti MFF UK, sdružení ve studentské skupině <em><a href="https://fykos.cz">FYKOS</a></em> (Fyzikální korespondenční seminář).
 
-                        Zázemí a hardware poskytují <em>Ústav Teoretické Fyziky</em> MFF UK a <em>Katedra Aplikované Matematiky</em> MFF UK.
-                    </p>
-                    <p>
-                        FYKOS také organizuje několik dalších akcí, například offline verzi této soutěže, <a href="https://fyziklani.cz/">Fyziklání</a>,
-                        která se koná každý rok v Praze a <a href="https://fykos.cz/">Fyzikální korespondenční seminář</a>, který probíhá během celého školního roku.
-                    </p>
-                <a class="btn btn-primary my-2" href="https://fykos.cz/akce/start">akce pořádané FYKOSem</a>
-                {default}
-                    <h1>Organizers</h1>
-                    <p>
-                        Physics Brawl Online is organized on behalf of the <em><a href="https://www.msmt.cz/?lang=2">Ministry of Education, Youth and Sports of the Czech Republic</a></em>
-                        by the <em><a href="https://fykos.org/en">FYKOS</a></em> student group, consisting mostly of
-                        students of physics at the <em><a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a></em>.
-                        The rooms, hosting and hardware are provided by the <em>Institute of Theoretical Physics and the Department of Applied Mathematics</em>.</p>
-                    <p>
-                        The FYKOS group also organizes an offline version of the Physics Brawl Online called <a href="https://fyziklani.org/">Fyziklani</a> (which in Czech loosely translates to "Physics Brawl") which is held annually in Prague, and the <a href="https://fykos.org/">FYKOS Online Physics Competition</a> taking place throughout the school year.
-                    </p>
-                <a class="btn btn-primary my-2" href="https://fykos.org/events/start">events organized by FYKOS</a>
-            {/switch}
+                    Zázemí a hardware poskytují <em>Ústav Teoretické Fyziky</em> MFF UK a <em>Katedra Aplikované Matematiky</em> MFF UK.
+                </p>
+                <p>
+                    FYKOS také organizuje několik dalších akcí, například offline verzi této soutěže, <a href="https://fyziklani.cz/">Fyziklání</a>,
+                    která se koná každý rok v Praze a <a href="https://fykos.cz/">Fyzikální korespondenční seminář</a>, který probíhá během celého školního roku.
+                </p>
+            <a class="btn btn-primary my-2" href="https://fykos.cz/akce/start">akce pořádané FYKOSem</a>
+            {default}
+                <h1>Organizers</h1>
+                <p>
+                    Physics Brawl Online is organized on behalf of the <em><a href="https://www.msmt.cz/?lang=2">Ministry of Education, Youth and Sports of the Czech Republic</a></em>
+                    by the <em><a href="https://fykos.org/en">FYKOS</a></em> student group, consisting mostly of
+                    students of physics at the <em><a href="https://www.mff.cuni.cz/en">Faculty of Mathematics and Physics, Charles University</a></em>.
+                    The rooms, hosting and hardware are provided by the <em>Institute of Theoretical Physics and the Department of Applied Mathematics</em>.</p>
+                <p>
+                    The FYKOS group also organizes an offline version of the Physics Brawl Online called <a href="https://fyziklani.org/">Fyziklani</a> (which in Czech loosely translates to "Physics Brawl") which is held annually in Prague, and the <a href="https://fykos.org/">FYKOS Online Physics Competition</a> taking place throughout the school year.
+                </p>
+            <a class="btn btn-primary my-2" href="https://fykos.org/events/start">events organized by FYKOS</a>
+        {/switch}
 
-        </section>
-    </div>
+    </section>
+</div>
 
 
     {*    <p>*}
@@ -89,401 +89,451 @@
 
 
 
-    <div class="panel color-light">
-        <section class="inner-container">
-            <h1>{switch $language->value}{case cs}Hlavní organizátoři{default}Main Organizers{/switch}</h1>
-            <div class="row justify-content-center">
-
-                <div class="col-md-5 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_19762.jpg')"></div>
-                    <div class="name">Monika Drexlerová</div>
-                    <div class="role">{switch $language->value}{case cs}Hlavní organizátorka Fyziklání Online
-                            {default}Head Organizer of Physics Brawl Online{/switch}</div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 2nd year of BSc. Physics at MFF UK.{/switch}
-                    </div>
-                </div>
-
-                <div class="col-md-5 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_19781.jpg')"></div>
-                    <div class="name">Jiří Sýkora</div>
-                    <div class="role">{switch $language->value}{case cs}Zástupce Hlavní organizátorky Fyziklání Online
-                            {default}Deputy Head Organizer of Physics Brawl Online{/switch}</div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 2nd year of BSc. Physics at MFF UK.{/switch}
-                    </div>
-                </div>
-
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_2762.jpg')"></div>
-                    <div class="name">Vojtěch David</div>
-                    <div class="role">
-                        {switch $language->value}{case cs}Hlavní organizátor Fyziklání, vedení soutěže
-                            {default}Head Organizer of Fyziklani, management of the competition{/switch}
-                    </div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 2. ročník NMgr. Matematických struktur na MFF UK.
-                            {default}Studies 2nd year of MSc. Mathematical Structures at CUNI MFF.{/switch}
-                    </div>
-                </div>
-
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_15214.jpg')"></div>
-                    <div class="name">David Škrob</div>
-                    <div class="role">
-                        {switch $language->value}{case cs}Hlavní organizátor FYKOSu
-                            {default}Head Organizer of FYKOS{/switch}
-                    </div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 3. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 3rd year of BSc. Physics at CUNI MFF.{/switch}
-                    </div>
-                </div>
-
-
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_4792.jpg')"></div>
-                    <div class="name">Kateřina Charvátová</div>
-                    <div class="role">
-                        {switch $language->value}{case cs}Konzultantka
-                            {default}Consultant{/switch}
-                    </div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 2. ročník Ph.D. oboru Biofyzika, chemická makromolekulární fyzika na MFF UK.
-                            {default}Studies 2nd year of Ph.D. Biophysics, Chemical an Macromolecular Physics at CUNI MFF.{/switch}
-                    </div>
-                </div>
-
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_324.jpg')"></div>
-                    <div class="name">Michal Červeňák</div>
-                    <div class="role">IT</div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Pracuje na AV ČR.{default}Works at The Academy of Sciences of the Czech Republic.{/switch}
-                    </div>
-                </div>
-
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_4352.jpg')"></div>
-                    <div class="name">Adam Krška</div>
-                    <div class="role">
-                        {switch $language->value}{case cs}IT
-                            {default}IT{/switch}
-                    </div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 3. ročník Bc. Informačních technologií FIT VUT.
-                            {default}Studies 3rd year of BSc. IT at FIT VUT.{/switch}
-                    </div>
-                </div>
-
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_11368.jpg')"></div>
-                    <div class="name">Veronika Hendrychová</div>
-                    <div class="role">
-                        {switch $language->value}{case cs}IT
-                        {default}IT{/switch}
-                    </div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 2. ročník NMgr. Matematické informatiky na FJFI ČVUT.
-                            {default}Studies 2nd year of MSc. Mathematical Informatics at FNSPE CTU.{/switch}
-                    </div>
-                </div>
-
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_11295.jpg')"></div>
-                    <div class="name">Martin Vaněk</div>
-                    <div class="role">
-                        {switch $language->value}{case cs}Konzultant
-                            {default}Consultant{/switch}
-                    </div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 2. ročník NMgr. Teoretické fyziky na MFF UK.
-                            {default}Studies 2nd year of MSc. Theoretical Physics at CUNI MFF.{/switch}
-                    </div>
-                </div>
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_1833.jpg')"></div>
-                    <div class="name">Štěpán Stenchlák</div>
-                    <div class="role">IT</div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 4. ročník Ph.D. oboru Softwarové systémy na MFF UK.
-                            {default}Studies 4th year of Ph.D. Software Systems at CUNI MFF.{/switch}
-                    </div>
-                </div>
-{if false}
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_13618.jpg')"></div>
-                    <div class="name">Marek Milička</div>
-                    <div class="role">{switch $language->value}{case cs}IT
-                            {default}IT{/switch}</div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 3. ročník Bc. oboru Fyzika na MFF UK.
-                            {default}Studies 3nd year of Bc. Physics at CUNI MFF.{/switch}
-                    </div>
-                </div>
-{/if}
-
-
-                <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_22358.jpg')"></div>
-                    <div class="name">Petr Sacher</div>
-                    <div class="role">{switch $language->value}{case cs}Zástupce hlavního organizátora FYKOSu, pokladník
-                        {default}Deputy Head Organizer of FYKOS, Treasurer{/switch}</div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 3. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 3rd year of BSc. Physics at CUNI MFF.{/switch}
-                    </div>
-                </div>
-{if false}
-                  <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_14823.jpg')"></div>
-                    <div class="name">Daniela Karpíšková</div>
-                    <div class="role">{switch $language->value}{case cs}Komunikace s účastníky
-                            {default}Communication with participants{/switch}</div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
-                            {default}Studies 2nd year of Bc. Physics at MFF UK.{/switch}
-                    </div>
-                </div>
-
-                 <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_14043.jpg')"></div>
-                    <div class="name">Denisa Zdvořilá</div>
-                    <div class="role">{switch $language->value}{case cs}Komunikace s účastníky
-                            {default}Communication with participants{/switch}</div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 3. ročník Bc. Obecné fyziky na MUNI.
-                            {default}Studies 3rd year of Bc. Physics at MUNI.{/switch}
-                    </div>
-                </div>
-               <div class="col-md-4 organiser">
-                    <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_6177.jpg')"></div>
-                    <div class="name">Radka Křížová</div>
-                    <div class="role">{switch $language->value}{case cs}Komunikace se soutěžícími
-                        {default}Communication with participants {/switch}</div>
-                    <div class="about">
-                        {switch $language->value}{case cs}Studuje 3. ročník Bc. Obecné fyziky na MFF UK.
-                            {default}Studies 3. year of BSc. Physics at CUNI MFF.{/switch}
-                    </div>
-                </div>
-{/if}
-            </div>
-        </section>
-    </div>
-
-{if false}
-    <div class="panel color-dark">
-        <section class="inner-container">
-            <h1>{switch $language->value}
-                {case cs}Na úlohách se podíleli:
-                {default}Authors of physics problems:
-            {/switch}</h1>
-            <div class="row justify-content-center ms-3 me-3">
-                <ul class="col-sm-4 stylized">
-                    <li>Jaroslav Herman</li>
-                    <li>Jindřich Jelínek</li>
-                    <li>Karel Kolář</li>
-                    <li>Šimon Pajger</li>
-                    <li>Jiří Kohl</li>
-                    <li>David Škrob</li>
-                    <li>Jozef Lipták</li>
-                    <li>Daniela Dupkalová</li>
-
-                </ul>
-                <ul class="col-sm-4 stylized">
-                    <li>Eliška Malá</li>
-                    <li>Jakub Smolík</li>
-                    <li>Michal Červeňák</li>
-                    <li>Vojtěch David</li>
-                    <li>Nicolas Gavorník</li>
-                    <li>Veronika Hendrychová</li>
-                    <li>Kateřina Charvátová</li>
-                </ul>
-                <ul class="col-sm-4 stylized">
-                    <li>Marek Jankola</li>
-                    <li>Petr Kahan</li>
-                    <li>Radka Křížová</li>
-                    <li>Matěj Mezera</li>
-                    <li>Marek Milička</li>
-                    <li>Kateřina Rosická</li>
-                    <li>Matěj Rzehulka</li>
-                </ul>
-            </div>
-        </section>
-    </div>
-    {/if}
-
-{if false}
-<div class="panel color-dark">
-        <section class="inner-container">
-            <h1>{switch $language->value}
-                {case cs}Komunikace se soutěžícími:
-                {default}Communication with participants:
-            {/switch}</h1>
-            <div class="row justify-content-center ms-3 me-3">
-                <ul class="col-sm-4 stylized">
-                    <li>Kateřina Charvátová</li>
-                    <li>Daniela Karpíšková</li>
-                    <li>Denisa Zdvořilá</li>
-                    <li>Radka Křížová</li>
-                </ul>
-                <ul class="col-sm-4 stylized">
-                    <li>Helena Boušová</li>
-                    <li>Klára Matějková</li>
-                    <li>Patrik Stercz</li>
-                    <li>Veronika Hendrychová</li>
-                </ul>
-                <ul class="col-sm-4 stylized">
-                    <li>Petr Sacher</li>
-                    <li>Tereza Hochmanová</li>
-                    <li>David Škrob</li>
-                </ul>
-            </div>
-        </section>
-    </div>
-    {/if}
-
-{if false}
 <div class="panel color-light">
-        <section class="inner-container">
-            <h1>{switch $language->value}
-                {case cs}Komunikace s partnery:
-                {default}Communication with partners:
-            {/switch}</h1>
-            <div class="row justify-content-center ms-3 me-3">
-                <ul class="col-sm-4 stylized">
-                    <li>Petr Sacher</li>
-                </ul>
-                <ul class="col-sm-4 stylized">
-                    <li>Juraj Pavolko</li>
-                </ul>
-                <ul class="col-sm-4 stylized">
-                    <li>Monika Drexlerová</li>
-                </ul>
-            </div>
-        </section>
-    </div>
-    {/if}
+    <section class="inner-container">
+        <h1>{switch $language->value}{case cs}Hlavní organizátoři{default}Main Organizers{/switch}</h1>
+        <div class="row justify-content-center">
 
-    <div class="panel color-dark">
-        <section class="inner-container">
-            <h1>{switch $language->value}{case cs}Ústřední komise{default}Central Committee{/switch}</h1>
-
-            <div class="organiser">
-                     <div class="name"><small>Bc. </small>Vojtěch David</div>
-                     <div class="role">
-                        {switch $language->value}{case cs}předseda
-                            {default}President{/switch}
-                     </div>
-                     <div class="about">
-                        {switch $language->value}{case cs}Student MFF UK, hlavní organizátor Fyziklání. Působí také jako organizátor Fyzikálního korespondenčního semináře a aktivně se tak podílí na chodu Fyziklání Online a dalších akcí FYKOSu. Též pracuje jako učitel matematiky na gymnáziu Altis, přispívá k fungování dalších předmětových soutěží v ČR a působí jako přednášející na několika odborných soustředěních a táborech pro žáky ZŠ a SŠ.
-                            {default}A student at <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr>. He is the head organizer of Fyziklani. He is also an organizer of FYKOS and thus actively participates in the running of Physics Brawl Online and other FYKOS events. Furthermore, he works as a mathematics teacher at Altis grammar school, organizes other STEM competitions in the Czech Republic, and is a lecturer at several camps for elementary and high school students.{/switch}
-                     </div>
-            </div>
-
-            <div class="organiser">
-               <div class="name"><small>Mgr. </small>Daniel Dupkala</div>
-               <div class="role">
-                    {switch $language->value}{case cs}místopředseda
-                        {default}Vice-President{/switch}
-               </div>
-               <div class="about">
-                    {switch $language->value}{case cs}IRC Government of Ireland Scholar, věnuje se výzkumu exoplanet na Trinity College Dublin. Šest let byl hlavním organizátorem Fyziklání. Je absolventem MFF UK, bývalý člen propagační komise fakulty. Pracoval také jako výzkumník na Astronomickém ústavu Akademie věd ČR a učitel matematiky na SPŠST Panská.
-                        {default}An IRC Government of Ireland Scholar conducting postgraduate research of exoplanets at Trinity College Dublin. He has been the head organizer of Fyziklani for six years. He is a graduate of <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr>, a former member of the PR committee of the faculty. He worked as a researcher at the Astronomical Institute of the <abbr title="Czech Academy of Sciences">CAS</abbr> and a mathematics teacher at SPŠST Panská high school.{/switch}
+            <div class="col-md-5 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_19762.jpg')"></div>
+                <div class="name">Monika Drexlerová</div>
+                <div class="role">{switch $language->value}{case cs}Hlavní organizátorka Fyziklání Online
+                        {default}Head Organizer of Physics Brawl Online{/switch}</div>
+                <div class="about">
+                    {switch $language->value}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
+                        {default}Studies 2nd year of BSc. Physics at MFF UK.{/switch}
                 </div>
             </div>
 
-            <div class="organiser">
+            <div class="col-md-5 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_19781.jpg')"></div>
+                <div class="name">Jiří Sýkora</div>
+                <div class="role">{switch $language->value}{case cs}Zástupce Hlavní organizátorky Fyziklání Online
+                        {default}Deputy Head Organizer of Physics Brawl Online{/switch}</div>
+                <div class="about">
+                    {switch $language->value}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
+                        {default}Studies 2nd year of BSc. Physics at MFF UK.{/switch}
+                </div>
+            </div>
+
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_2762.jpg')"></div>
+                <div class="name">Vojtěch David</div>
+                <div class="role">
+                    {switch $language->value}{case cs}Hlavní organizátor Fyziklání, vedení soutěže
+                        {default}Head Organizer of Fyziklani, management of the competition{/switch}
+                </div>
+                <div class="about">
+                    {switch $language->value}{case cs}Studuje 2. ročník NMgr. Matematických struktur na MFF UK.
+                        {default}Studies 2nd year of MSc. Mathematical Structures at CUNI MFF.{/switch}
+                </div>
+            </div>
+
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_15214.jpg')"></div>
+                <div class="name">David Škrob</div>
+                <div class="role">
+                    {switch $language->value}{case cs}Hlavní organizátor FYKOSu
+                        {default}Head Organizer of FYKOS{/switch}
+                </div>
+                <div class="about">
+                    {switch $language->value}{case cs}Studuje 3. ročník Bc. Fyziky na MFF UK.
+                        {default}Studies 3rd year of BSc. Physics at CUNI MFF.{/switch}
+                </div>
+            </div>
+
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_4792.jpg')"></div>
+                <div class="name">Kateřina Charvátová</div>
+                <div class="role">
+                    {switch $language->value}{case cs}Konzultantka
+                        {default}Consultant{/switch}
+                </div>
+                <div class="about">
+                    {switch $language->value}{case cs}Studuje 2. ročník Ph.D. oboru Biofyzika, chemická makromolekulární fyzika na MFF UK.
+                        {default}Studies 2nd year of Ph.D. Biophysics, Chemical an Macromolecular Physics at CUNI MFF.{/switch}
+                </div>
+            </div>
+
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_324.jpg')"></div>
                 <div class="name">Michal Červeňák</div>
+                <div class="role">IT</div>
                 <div class="about">
-                    {switch $language->value}{case cs}Zaměstnanec Ústavu fyziky plazmatu AV ČR v.v.i. Dlouholetý organizátor Fyzikálního korespondenčního semináře. Dlouhodobě zabezpečuje organizaci Fyziklání i Fyziklání Online zvláště po technické stránce, připravuje a spravuje herní systémy.
-                        {default}An employee of the Institute of Plasma Physics of the <abbr title="Czech Academy of Sciences">CAS</abbr>. A long-time organizer of FYKOS, he has overseen the organization of Fyziklani and Physics Brawl Online, especially the technical side, and develops and maintains the game systems.{/switch}
+                    {switch $language->value}{case cs}Pracuje na AV ČR.{default}Works at The Academy of Sciences of the Czech Republic.{/switch}
                 </div>
             </div>
 
-            <div class="organiser">
-                <div class="name"><small>doc. RNDr. </small>Martin Čížek<small>, Ph.D.</small></div>
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_4352.jpg')"></div>
+                <div class="name">Adam Krška</div>
+                <div class="role">
+                    {switch $language->value}{case cs}IT
+                        {default}IT{/switch}
+                </div>
                 <div class="about">
-                    {switch $language->value}{case cs}Zaměstnanec <abbr title="Ústav teoretické fyziky">ÚTF</abbr> MFF UK, zabývá se kolizemi atomů a molekul a molekulární elektronikou. Účastní se odborného testování úloh do Fyziklání a Fyziklání Online.
-                        {default}An employee of <abbr title="Institute of Theoretical Physics, Faculty of Mathematics and Physics, Charles University">ITP CUNI MFF</abbr>. He examines collisions of atoms and molecules and molecular electronics. He takes part in the testing of problem assignments for Fyziklani and Physics Brawl Online.{/switch}
+                    {switch $language->value}{case cs}Studuje 3. ročník Bc. Informačních technologií FIT VUT.
+                        {default}Studies 3rd year of BSc. IT at FIT VUT.{/switch}
                 </div>
             </div>
 
-            <div class="organiser">
-                <div class="name"><small>Mgr. </small>Daniela Dupkalová</div>
+            {* <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_11368.jpg')"></div>
+                <div class="name">Veronika Hendrychová</div>
+                <div class="role">
+                    {switch $language->value}{case cs}IT
+                    {default}IT{/switch}
+                </div>
                 <div class="about">
-                    {switch $language->value}{case cs}Predoctoral researcher na Universitat de Barcelona. Je absolventkou MFF UK, čtyři roky byla hlavní organizátorkou Fyzikálního korespondenčního semináře. Má bohaté zkušenosti s organizací soutěží Fyziklání, Fyziklání Online a Fyzikální Náboj.
-                        {default}A predoctoral researcher at the Universitat de Barcelona and a graduate of <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr>. She was the head organizer of FYKOS for four years. She has extensive experience with organizing events such as Fyziklani, Physics Brawl Online, and Náboj Physics.{/switch}
+                    {switch $language->value}{case cs}Studuje 2. ročník NMgr. Matematické informatiky na FJFI ČVUT.
+                        {default}Studies 2nd year of MSc. Mathematical Informatics at FNSPE CTU.{/switch}
                 </div>
             </div>
 
-            <div class="organiser">
-                <div class="name"><small>RNDr. </small>Karel Kolář<small>, Ph.D.</small></div>
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_11295.jpg')"></div>
+                <div class="name">Martin Vaněk</div>
+                <div class="role">
+                    {switch $language->value}{case cs}Konzultant
+                        {default}Consultant{/switch}
+                </div>
                 <div class="about">
-                    {switch $language->value}{case cs}Redaktor v nakladatelství Prometheus, spol s r. o., vedl několik let FYKOS jako hlavní organizátor. Má zkušenosti s přípravou a realizací Fyziklání od 3. ročníku a všech ročníků Fyziklání Online. Byl hlavním koordinátorem MF náboje (dnes Náboj Junior). Podílel se na organizaci Dnů s experimentální fyzikou, Týdnů s aplikovanou fyzikou, Týdne vědy na Jaderce a dalších aktivit pro SŠ. Je porotcem <abbr title="Turnaj mladých fyziků">TMF</abbr>.
-                        {default}An editor in the Prometheus publishing house. He ran FYKOS for several years as the head organizer. He has prior experience in the preparation and execution of Fyziklani since its 3rd year and of every edition of Physics Brawl Online. He was the main coordinator of MF Naboj (currently Naboj Junior). He was instrumental in organizing DSEF (Day of Experimental Physics), Week of Applied Physics, Science Week at <abbr title="Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University">FNSPE CTU</abbr>, and other activities for high schools. He is a judge of the Czech <abbr title="International Young Physicists' Tournament">IYPT</abbr>.{/switch}
+                    {switch $language->value}{case cs}Studuje 2. ročník NMgr. Teoretické fyziky na MFF UK.
+                        {default}Studies 2nd year of MSc. Theoretical Physics at CUNI MFF.{/switch}
                 </div>
             </div>
 
-            <div class="organiser">
-                <div class="name"><small>doc. RNDr. </small>Přemysl Kolorenč<small>, Ph.D.</small></div>
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_1833.jpg')"></div>
+                <div class="name">Štěpán Stenchlák</div>
+                <div class="role">IT</div>
                 <div class="about">
-                    {switch $language->value}{case cs}Zaměstnanec <abbr title="Ústav teoretické fyziky">ÚTF</abbr> MFF UK, od 21. ročníku je vedoucím Fyzikálního korespondenčního semináře a zaštiťuje všechny jeho aktivity.
-                        {default}An employee of <abbr title="Institute of Theoretical Physics, Faculty of Mathematics and Physics, Charles University">ITP CUNI MFF</abbr>. He has been the head of FYKOS since its 21st year and supervises all its activities.{/switch}
+                    {switch $language->value}{case cs}Studuje 4. ročník Ph.D. oboru Softwarové systémy na MFF UK.
+                        {default}Studies 4th year of Ph.D. Software Systems at CUNI MFF.{/switch}
+                </div>
+            </div>*}
+
+           {* <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_13618.jpg')"></div>
+                <div class="name">Marek Milička</div>
+                <div class="role">{switch $language->value}{case cs}IT
+                        {default}IT{/switch}</div>
+                <div class="about">
+                    {switch $language->value}{case cs}Studuje 3. ročník Bc. oboru Fyzika na MFF UK.
+                        {default}Studies 3nd year of Bc. Physics at CUNI MFF.{/switch}
+                </div>
+            </div>*}
+
+
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_22358.jpg')"></div>
+                <div class="name">Petr Sacher</div>
+                <div class="role">{switch $language->value}{case cs}Zástupce hlavního organizátora FYKOSu, pokladník
+                    {default}Deputy Head Organizer of FYKOS, Treasurer{/switch}</div>
+                <div class="about">
+                    {switch $language->value}{case cs}Studuje 3. ročník Bc. Fyziky na MFF UK.
+                        {default}Studies 3rd year of BSc. Physics at CUNI MFF.{/switch}
+                </div>
+            </div>
+            {* <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_14823.jpg')"></div>
+                <div class="name">Daniela Karpíšková</div>
+                <div class="role">{switch $language->value}{case cs}Komunikace s účastníky
+                        {default}Communication with participants{/switch}</div>
+                <div class="about">
+                    {switch $language->value}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
+                    {default}Studies 2nd year of Bc. Physics at MFF UK.{/switch}
                 </div>
             </div>
 
-            <div class="organiser">
-                <div class="name"><small>Mgr. </small>Kateřina Rosická</div>
+             <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_14043.jpg')"></div>
+                <div class="name">Denisa Zdvořilá</div>
+                <div class="role">{switch $language->value}{case cs}Komunikace s účastníky
+                        {default}Communication with participants{/switch}</div>
                 <div class="about">
-                    {switch $language->value}{case cs}Doktorandka na MFF UK, věnuje se výzkumu blesků na Ústavu fyziky atmosféry AV ČR. Dlouhodobá organizátorka Fyzikálního korespondenčního semináře, bývalá hlavní organizátorka korespondenčního semináře Výfuk a koordinátorka pro ČR soutěže Náboj Junior. Působí také jako členka propagační komise MFF UK a ústřední komise Fyzikální olympiády.
-                       {default}A PhD student at <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr>. focusing on research of lightning at the Institute of Atmospheric Physics of the <abbr title="Czech Academy of Sciences">CAS</abbr>. She is a long-term organizer of FYKOS, a former head organizer of the Výfuk correspondence competition, and the Czech national coordinator of the Náboj Junior competition. She also serves as a member of the PR Committee of <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr> and of the central committee of the Physics Olympiad.{/switch}
+                    {switch $language->value}{case cs}Studuje 3. ročník Bc. Obecné fyziky na MUNI.
+                        {default}Studies 3rd year of Bc. Physics at MUNI.{/switch}
+                </div>
+            </div>
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_6177.jpg')"></div>
+                <div class="name">Radka Křížová</div>
+                <div class="role">{switch $language->value}{case cs}Komunikace se soutěžícími
+                    {default}Communication with participants {/switch}</div>
+                <div class="about">
+                    {switch $language->value}{case cs}Studuje 3. ročník Bc. Obecné fyziky na MFF UK.
+                    {default}Studies 3. year of BSc. Physics at CUNI MFF.{/switch}
+                </div>
+            </div>*}
+
+           <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_15345.jpg')"></div>
+                <div class="name">Klára Matějková</div>
+                <div class="role">{switch $language->value}{case cs}Komunikace se soutěžícími
+                    {default}Communication with participants {/switch}</div>
+                <div class="about">
+                    {switch $language->value}{case cs}Studuje 2. ročník Bc. Science na PřF UK.
+                    {default}Studies 2. year of Bc. Science at CUNI.{/switch}
                 </div>
             </div>
 
-            <div class="organiser">
-                <div class="name"><small></small>Petr Sacher</div>
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_29013.jpg')"></div>
+                <div class="name">Sofie Klepková</div>
+                <div class="role">{switch $language->value}{case cs}Komunikace se soutěžícími
+                    {default}Communication with participants {/switch}</div>
                 <div class="about">
-                    {switch $language->value}{case cs}Student MFF UK, je organizátorem Fyzikálního korespondenčního semináře. Podílí se na zabezpečování technické podpory soutěží Fyziklání a Fyziklání Online.
-                       {default}A student at <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr>. He also serves as the deputy head organizer and treasurer of FYKOS, within which he helps organize the competitions Fyziklani and Physics Brawl Online, as well as other events.{/switch}
+                    {switch $language->value}{case cs}Studuje 1. ročník Bc. Fyziky na MFF UK.
+                    {default}Studies 1st year of Bc. Physics at MFF UK.{/switch}
                 </div>
             </div>
 
-            <div class="organiser">
-                <div class="name"><small>Mgr. </small>Martin Vaněk</div>
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_19917.jpg')"></div>
+                <div class="name">Petr Brettschneider</div>
+                <div class="role">{switch $language->value}{case cs}Komunikace se soutěžícími
+                    {default}Communication with participants {/switch}</div>
                 <div class="about">
-                    {switch $language->value}{case cs}Absolvent MFF UK, byl 3 roky hlavním organizátorem Fyzikálního korespondenčního semináře, pod který spadají jak soutěže Fyziklání a Fyziklání Online, tak také další vzdělávací akce jako Den s experimentální fyzikou či odborná soustředění.
-                        {default}A graduate of <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr>. He was the head organizer of FYKOS for three years, which, apart from running Fyziklani and Physics Brawl Online, also organizes other educational events such as DSEF (Day of Experimental Physics) or educational camps.{/switch}
-               </div>
-            </div>
-
-            <div class="organiser">
-                <div class="name"><small>doc. RNDr. Mgr. </small>Vojtěch Žák<small>, Ph.D.</small></div>
-                <div class="about">
-                    {switch $language->value}{case cs}Vedoucí <abbr title="Katedra didaktiky fyziky">KDF</abbr> MFF UK, je odborným konzultantem Fyzikálního korespondenčního semináře. Ve své vědecké práci se věnuje kvalitě fyzikálního vzdělávání a fyzikálním kurikulem. Je členem propagační komise MFF UK a jejím koordinátorem pro fyzikální sekci v Troji.
-                        {default}The head of <abbr title="Department of Physics Education, Faculty of Mathematics and Physics, Charles University">KDF CUNI MFF</abbr> and he is a consultant of FYKOS. In his work, he focuses on the quality of physics education and the physics curriculum. He is a member of the PR Committee of <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr> and also its coordinator for the physics section in Troja.{/switch}
+                    {switch $language->value}{case cs}	Studuje 1. ročník Bc. Strojnictví na FS VŠBTUO
+                    {default}Studies 1st year of Bc. Mechanical engineering at FS VŠBTUO.{/switch}
                 </div>
             </div>
-        </section>
-    </div>
 
-    <div class="panel color-light">
-        <section class="inner-container">
-            {switch $language->value}
-                {case cs}
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_17251.jpg')"></div>
+                <div class="name">Patrik Stercz</div>
+                <div class="role">{switch $language->value}{case cs}Úlohy
+                    {default}Physics problems {/switch}</div>
+                <div class="about">
+                    {switch $language->value}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
+                    {default}Studies 2nd year of Bc. Physics at MFF UK.{/switch}
+                </div>
+            </div>
+
+            <div class="col-md-4 organiser">
+                <div class="image-cropper" style="background-image: url('https://db.fykos.cz/photo/person/person_13686.jpg')"></div>
+                <div class="name">Radovan Lev</div>
+                <div class="role">{switch $language->value}{case cs}Úlohy
+                    {default}Physics problems {/switch}</div>
+                <div class="about">
+                    {switch $language->value}{case cs}Studuje 2. ročník Bc. Fyziky na MFF UK.
+                    {default}Studies 2nd year of Bc. Physics at MFF UK.{/switch}
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<div class="panel color-dark">
+    <section class="inner-container">
+        <h1>{switch $language->value}
+            {case cs}Na úlohách se dále podíleli:
+            {default}Other contributors to the problems included:
+        {/switch}</h1>
+        <div class="row justify-content-center ms-3 me-3">
+            <ul class="col-sm-4 stylized">
+                <li>Daniela Dupkalová</li>
+                <li>Veronika Hendrychová</li>
+                <li>Jaroslav Herman</li>
+                <li>Jindřich Jelínek</li>
+                <li>Jakub Kliment</li>
+                <li>Jiří Kohl</li>
+                <li>Karel Kolář</li>
+            </ul>
+
+            <ul class="col-sm-4 stylized">
+                <li>Jakub Koňárek</li>
+                <li>Ján Kovačovský</li>
+                <li>Tomáš Kubrický</li>
+                <li>Jozef Lipták</li>
+                <li>Marek Milička</li>
+                <li>Šimon Pajger</li>
+                <li>Jaroslav Potůček</li>
+            </ul>
+
+            <ul class="col-sm-4 stylized">
+                <li>Kateřina Rosická</li>
+                <li>Petr Sacher</li>
+                <li>Maxmilián Ladislav Skuda</li>
+                <li>Vladimír Slanina</li>
+                <li>David Ševčík</li>
+                <li>David Škrob</li>
+                <li>Tomáš Tuleja</li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+{*
+<div class="panel color-dark">
+    <section class="inner-container">
+        <h1>{switch $language->value}
+            {case cs}Komunikace se soutěžícími:
+            {default}Communication with participants:
+        {/switch}</h1>
+        <div class="row justify-content-center ms-3 me-3">
+            <ul class="col-sm-4 stylized">
+                <li>Kateřina Charvátová</li>
+                <li>Daniela Karpíšková</li>
+                <li>Denisa Zdvořilá</li>
+                <li>Radka Křížová</li>
+            </ul>
+            <ul class="col-sm-4 stylized">
+                <li>Helena Boušová</li>
+                <li>Klára Matějková</li>
+                <li>Patrik Stercz</li>
+                <li>Veronika Hendrychová</li>
+            </ul>
+            <ul class="col-sm-4 stylized">
+                <li>Petr Sacher</li>
+                <li>Tereza Hochmanová</li>
+                <li>David Škrob</li>
+            </ul>
+        </div>
+    </section>
+</div>
+*}
+
+{*
+<div class="panel color-light">
+    <section class="inner-container">
+        <h1>{switch $language->value}
+            {case cs}Komunikace s partnery:
+            {default}Communication with partners:
+        {/switch}</h1>
+        <div class="row justify-content-center ms-3 me-3">
+            <ul class="col-sm-4 stylized">
+                <li>Petr Sacher</li>
+            </ul>
+            <ul class="col-sm-4 stylized">
+                <li>Juraj Pavolko</li>
+            </ul>
+            <ul class="col-sm-4 stylized">
+                <li>Monika Drexlerová</li>
+            </ul>
+        </div>
+    </section>
+</div>
+*}
+
+<div class="panel color-dark">
+    <section class="inner-container">
+        <h1>{switch $language->value}{case cs}Ústřední komise{default}Central Committee{/switch}</h1>
+
+        <div class="organiser">
+                 <div class="name"><small>Bc. </small>Vojtěch David</div>
+                 <div class="role">
+                    {switch $language->value}{case cs}předseda
+                        {default}President{/switch}
+                 </div>
+                 <div class="about">
+                    {switch $language->value}{case cs}Student MFF UK, hlavní organizátor Fyziklání. Působí také jako organizátor Fyzikálního korespondenčního semináře a aktivně se tak podílí na chodu Fyziklání Online a dalších akcí FYKOSu. Též pracuje jako učitel matematiky na gymnáziu Altis, přispívá k fungování dalších předmětových soutěží v ČR a působí jako přednášející na několika odborných soustředěních a táborech pro žáky ZŠ a SŠ.
+                        {default}A student at <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr>. He is the head organizer of Fyziklani. He is also an organizer of FYKOS and thus actively participates in the running of Physics Brawl Online and other FYKOS events. Furthermore, he works as a mathematics teacher at Altis grammar school, organizes other STEM competitions in the Czech Republic, and is a lecturer at several camps for elementary and high school students.{/switch}
+                 </div>
+        </div>
+
+        <div class="organiser">
+           <div class="name"><small>Mgr. </small>Daniel Dupkala</div>
+           <div class="role">
+                {switch $language->value}{case cs}místopředseda
+                    {default}Vice-President{/switch}
+           </div>
+           <div class="about">
+                {switch $language->value}{case cs}IRC Government of Ireland Scholar, věnuje se výzkumu exoplanet na Trinity College Dublin. Šest let byl hlavním organizátorem Fyziklání. Je absolventem MFF UK, bývalý člen propagační komise fakulty. Pracoval také jako výzkumník na Astronomickém ústavu Akademie věd ČR a učitel matematiky na SPŠST Panská.
+                    {default}An IRC Government of Ireland Scholar conducting postgraduate research of exoplanets at Trinity College Dublin. He has been the head organizer of Fyziklani for six years. He is a graduate of <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr>, a former member of the PR committee of the faculty. He worked as a researcher at the Astronomical Institute of the <abbr title="Czech Academy of Sciences">CAS</abbr> and a mathematics teacher at SPŠST Panská high school.{/switch}
+            </div>
+        </div>
+
+        <div class="organiser">
+            <div class="name">Michal Červeňák</div>
+            <div class="about">
+                {switch $language->value}{case cs}Zaměstnanec Ústavu fyziky plazmatu AV ČR v.v.i. Dlouholetý organizátor Fyzikálního korespondenčního semináře. Dlouhodobě zabezpečuje organizaci Fyziklání i Fyziklání Online zvláště po technické stránce, připravuje a spravuje herní systémy.
+                    {default}An employee of the Institute of Plasma Physics of the <abbr title="Czech Academy of Sciences">CAS</abbr>. A long-time organizer of FYKOS, he has overseen the organization of Fyziklani and Physics Brawl Online, especially the technical side, and develops and maintains the game systems.{/switch}
+            </div>
+        </div>
+
+        <div class="organiser">
+            <div class="name"><small>doc. RNDr. </small>Martin Čížek<small>, Ph.D.</small></div>
+            <div class="about">
+                {switch $language->value}{case cs}Zaměstnanec <abbr title="Ústav teoretické fyziky">ÚTF</abbr> MFF UK, zabývá se kolizemi atomů a molekul a molekulární elektronikou. Účastní se odborného testování úloh do Fyziklání a Fyziklání Online.
+                    {default}An employee of <abbr title="Institute of Theoretical Physics, Faculty of Mathematics and Physics, Charles University">ITP CUNI MFF</abbr>. He examines collisions of atoms and molecules and molecular electronics. He takes part in the testing of problem assignments for Fyziklani and Physics Brawl Online.{/switch}
+            </div>
+        </div>
+
+        <div class="organiser">
+            <div class="name"><small>Mgr. </small>Daniela Dupkalová</div>
+            <div class="about">
+                {switch $language->value}{case cs}Predoctoral researcher na Universitat de Barcelona. Je absolventkou MFF UK, čtyři roky byla hlavní organizátorkou Fyzikálního korespondenčního semináře. Má bohaté zkušenosti s organizací soutěží Fyziklání, Fyziklání Online a Fyzikální Náboj.
+                    {default}A predoctoral researcher at the Universitat de Barcelona and a graduate of <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr>. She was the head organizer of FYKOS for four years. She has extensive experience with organizing events such as Fyziklani, Physics Brawl Online, and Náboj Physics.{/switch}
+            </div>
+        </div>
+
+        <div class="organiser">
+            <div class="name"><small>RNDr. </small>Karel Kolář<small>, Ph.D.</small></div>
+            <div class="about">
+                {switch $language->value}{case cs}Redaktor v nakladatelství Prometheus, spol s r. o., vedl několik let FYKOS jako hlavní organizátor. Má zkušenosti s přípravou a realizací Fyziklání od 3. ročníku a všech ročníků Fyziklání Online. Byl hlavním koordinátorem MF náboje (dnes Náboj Junior). Podílel se na organizaci Dnů s experimentální fyzikou, Týdnů s aplikovanou fyzikou, Týdne vědy na Jaderce a dalších aktivit pro SŠ. Je porotcem <abbr title="Turnaj mladých fyziků">TMF</abbr>.
+                    {default}An editor in the Prometheus publishing house. He ran FYKOS for several years as the head organizer. He has prior experience in the preparation and execution of Fyziklani since its 3rd year and of every edition of Physics Brawl Online. He was the main coordinator of MF Naboj (currently Naboj Junior). He was instrumental in organizing DSEF (Day of Experimental Physics), Week of Applied Physics, Science Week at <abbr title="Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University">FNSPE CTU</abbr>, and other activities for high schools. He is a judge of the Czech <abbr title="International Young Physicists' Tournament">IYPT</abbr>.{/switch}
+            </div>
+        </div>
+
+        <div class="organiser">
+            <div class="name"><small>doc. RNDr. </small>Přemysl Kolorenč<small>, Ph.D.</small></div>
+            <div class="about">
+                {switch $language->value}{case cs}Zaměstnanec <abbr title="Ústav teoretické fyziky">ÚTF</abbr> MFF UK, od 21. ročníku je vedoucím Fyzikálního korespondenčního semináře a zaštiťuje všechny jeho aktivity.
+                    {default}An employee of <abbr title="Institute of Theoretical Physics, Faculty of Mathematics and Physics, Charles University">ITP CUNI MFF</abbr>. He has been the head of FYKOS since its 21st year and supervises all its activities.{/switch}
+            </div>
+        </div>
+
+        <div class="organiser">
+            <div class="name"><small>Mgr. </small>Kateřina Rosická</div>
+            <div class="about">
+                {switch $language->value}{case cs}Doktorandka na MFF UK, věnuje se výzkumu blesků na Ústavu fyziky atmosféry AV ČR. Dlouhodobá organizátorka Fyzikálního korespondenčního semináře, bývalá hlavní organizátorka korespondenčního semináře Výfuk a koordinátorka pro ČR soutěže Náboj Junior. Působí také jako členka propagační komise MFF UK a ústřední komise Fyzikální olympiády.
+                   {default}A PhD student at <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr>. focusing on research of lightning at the Institute of Atmospheric Physics of the <abbr title="Czech Academy of Sciences">CAS</abbr>. She is a long-term organizer of FYKOS, a former head organizer of the Výfuk correspondence competition, and the Czech national coordinator of the Náboj Junior competition. She also serves as a member of the PR Committee of <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr> and of the central committee of the Physics Olympiad.{/switch}
+            </div>
+        </div>
+
+        <div class="organiser">
+            <div class="name"><small></small>Petr Sacher</div>
+            <div class="about">
+                {switch $language->value}{case cs}Student MFF UK, je organizátorem Fyzikálního korespondenčního semináře. Podílí se na zabezpečování technické podpory soutěží Fyziklání a Fyziklání Online.
+                   {default}A student at <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr>. He also serves as the deputy head organizer and treasurer of FYKOS, within which he helps organize the competitions Fyziklani and Physics Brawl Online, as well as other events.{/switch}
+            </div>
+        </div>
+
+        <div class="organiser">
+            <div class="name"><small>Mgr. </small>Martin Vaněk</div>
+            <div class="about">
+                {switch $language->value}{case cs}Absolvent MFF UK, byl 3 roky hlavním organizátorem Fyzikálního korespondenčního semináře, pod který spadají jak soutěže Fyziklání a Fyziklání Online, tak také další vzdělávací akce jako Den s experimentální fyzikou či odborná soustředění.
+                    {default}A graduate of <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr>. He was the head organizer of FYKOS for three years, which, apart from running Fyziklani and Physics Brawl Online, also organizes other educational events such as DSEF (Day of Experimental Physics) or educational camps.{/switch}
+           </div>
+        </div>
+
+        <div class="organiser">
+            <div class="name"><small>doc. RNDr. Mgr. </small>Vojtěch Žák<small>, Ph.D.</small></div>
+            <div class="about">
+                {switch $language->value}{case cs}Vedoucí <abbr title="Katedra didaktiky fyziky">KDF</abbr> MFF UK, je odborným konzultantem Fyzikálního korespondenčního semináře. Ve své vědecké práci se věnuje kvalitě fyzikálního vzdělávání a fyzikálním kurikulem. Je členem propagační komise MFF UK a jejím koordinátorem pro fyzikální sekci v Troji.
+                    {default}The head of <abbr title="Department of Physics Education, Faculty of Mathematics and Physics, Charles University">KDF CUNI MFF</abbr> and he is a consultant of FYKOS. In his work, he focuses on the quality of physics education and the physics curriculum. He is a member of the PR Committee of <abbr title="Faculty of Mathematics and Physics, Charles University">CUNI MFF</abbr> and also its coordinator for the physics section in Troja.{/switch}
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="panel color-light">
+    <section class="inner-container">
+        {switch $language->value}
+            {case cs}
                 <h1>Odborní garanti</h1>
                 <p>
-                 Odbornými garanty soutěže jsou pracoviště Fyzikální sekce Matematicko-fyzikální fakulty Univerzity Karlovy, konkrétně Ústav teoretické fyziky (ÚTF), Katedra didaktiky fyziky (KDF) a Ústav částicové a jaderné fyziky (ÚČJF). Dále konkrétní osoby, které převzaly garanci odborné úrovně úloh, jsou pak jmenovitě (v abecedním pořadí) doc. RNDr. Martin Čížek, Ph.D. (ÚTF), doc. RNDr. Jiří Dolejší, CSc. (ÚČJF), doc. RNDr. Zdeněk Drozd, Ph.D. (KDF), doc. RNDr. Karel Houfek, Ph.D. (ÚTF), doc. RNDr. Přemysl Kolorenč, Ph.D. (ÚTF), doc. Mgr. Tomáš Ledvinka, Ph.D. (ÚTF), RNDr. Dana Mandíková, CSc. (KDF), RNDr. Jiří Novotný, CSc. (ÚČJF), Mgr. Martin Rybář, Ph.D. (ÚČJF) a doc. RNDr. Vojtěch Žák, Ph.D. (KDF).
+                    Odbornými garanty soutěže jsou pracoviště Fyzikální sekce Matematicko-fyzikální fakulty Univerzity Karlovy, konkrétně Ústav teoretické fyziky (ÚTF), Katedra didaktiky fyziky (KDF) a Ústav částicové a jaderné fyziky (ÚČJF). Dále konkrétní osoby, které převzaly garanci odborné úrovně úloh, jsou pak jmenovitě (v abecedním pořadí) doc. RNDr. Martin Čížek, Ph.D. (ÚTF), doc. RNDr. Jiří Dolejší, CSc. (ÚČJF), doc. RNDr. Zdeněk Drozd, Ph.D. (KDF), doc. RNDr. Karel Houfek, Ph.D. (ÚTF), doc. RNDr. Přemysl Kolorenč, Ph.D. (ÚTF), doc. Mgr. Tomáš Ledvinka, Ph.D. (ÚTF), RNDr. Dana Mandíková, CSc. (KDF), RNDr. Jiří Novotný, CSc. (ÚČJF), Mgr. Martin Rybář, Ph.D. (ÚČJF) a doc. RNDr. Vojtěch Žák, Ph.D. (KDF).
                 </p>
-                {default}
-                 <h1>Guarantors</h1>
-                 <p>
-                  The guarantors of the competition are the workplaces of the Physics Section of the Faculty of Mathematics and Physics of Charles University, specifically the Institute of Theoretical Physics (ITP), the Department of Physics Didactics (DPD), and the Institute of Particle and Nuclear Physics (IPNP). Furthermore, distinct persons who have taken over the guarantee of the physics level of the competition problems are then nominally (in alphabetical order) doc. RNDr. Martin Cizek, Ph.D. (ITP), doc. RNDr. Jiří Dolejší, CSc. (IPNP), doc. RNDr. Zdenek Drozd, Ph.D. (DPD), doc. RNDr. Karel Houfek, Ph.D. (ITP), doc. RNDr. Přemysl Kolorenč, Ph.D. (ITP), doc. Mgr. Tomáš Ledvinka, Ph.D. (ITP), RNDr. Dana Mandikova, CSc. (DPD), RNDr. Jiří Novotný, CSc. (IPNP), Mgr. Martin Rybář Ph.D. (IPNP) and doc. RNDr. Vojtech Zak, Ph.D. (DPD).
-
-                 </p>
-            {/switch}
-        </section>
-    </div>
+            {default}
+                <h1>Guarantors</h1>
+                <p>
+                    The guarantors of the competition are the workplaces of the Physics Section of the Faculty of Mathematics and Physics of Charles University, specifically the Institute of Theoretical Physics (ITP), the Department of Physics Didactics (DPD), and the Institute of Particle and Nuclear Physics (IPNP). Furthermore, distinct persons who have taken over the guarantee of the physics level of the competition problems are then nominally (in alphabetical order) doc. RNDr. Martin Cizek, Ph.D. (ITP), doc. RNDr. Jiří Dolejší, CSc. (IPNP), doc. RNDr. Zdenek Drozd, Ph.D. (DPD), doc. RNDr. Karel Houfek, Ph.D. (ITP), doc. RNDr. Přemysl Kolorenč, Ph.D. (ITP), doc. Mgr. Tomáš Ledvinka, Ph.D. (ITP), RNDr. Dana Mandikova, CSc. (DPD), RNDr. Jiří Novotný, CSc. (IPNP), Mgr. Martin Rybář Ph.D. (IPNP) and doc. RNDr. Vojtech Zak, Ph.D. (DPD).
+                </p>
+        {/switch}
+    </section>
+</div>
 {/block}

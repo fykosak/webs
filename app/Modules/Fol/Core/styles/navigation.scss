@@ -26,7 +26,11 @@ nav {
   .nav-item {
     //padding: 1rem;
     //@include media-breakpoint-up(lg) { padding: 0 .1rem; }
-    @include media-breakpoint-up(xl) { padding: 0 .3rem; }
-    @include media-breakpoint-up(xxl) { padding: 0 1rem; }
+    @include media-breakpoint-up(xl) {
+      padding: 0 0.3rem;
+    }
+    @include media-breakpoint-up(xxl) {
+      padding: 0 0.6rem;
+    }
   }
 }

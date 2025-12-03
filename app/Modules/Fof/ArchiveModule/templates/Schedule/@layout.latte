@@ -1,0 +1,19 @@
+{layout '../@layout.latte'}
+
+{varType App\Modules\Core\Language $language}
+{varType App\Models\Downloader\EventModel $event}
+
+{var $year = $event->begin->format('Y')}
+{block subtitle}
+{switch $language->value}
+    {case 'cs'}Archivní stránka programu z roku {$year}
+    {default}Archive page of the schedule in {$year}
+{/switch}
+{/block}
+
+{block title}
+    {switch $language->value}
+        {case 'cs'}Program roku {$year}
+        {default}Program details for year {$year}
+    {/switch}
+{/block}

@@ -56,7 +56,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
      */
     protected function getNavItems(): array
     {
-        return [
+        $navItems = [
             new NavItem(
                 new PageTitle(
                     $this->csen('Archiv', 'Archive'),
@@ -77,13 +77,26 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
                     'visible-sm-inline glyphicon glyphicon-compressed'
                 ), // TODO
                 ':Archive:Results:default',
-            ),
+            )
             //new NavItem(
             //    new PageTitle( _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
             //    // TODO
             //    ':Archive:DetailedResults:default',
             //),
         ];
+
+        if ($this->getPresenterByName('Archive:Schedule')->isVisible()) {
+            $navItems[] = new NavItem(
+                new PageTitle(
+                    $this->csen('Program', 'Program'),
+                    'visible-sm-inline glyphicon glyphicon-compressed'
+                ), // TODO
+                ':Archive:Schedule:default',
+            );
+        }
+
+
+        return $navItems;
     }
 
     /**

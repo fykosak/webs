@@ -17,8 +17,8 @@
             {if !$newestEvent->isLongAfterTheEvent()}
             <time class="competition-date" datetime="{$newestEvent->begin |date:'Y-m-d'}">
                 {switch $language->value}
-                {case 'cs'} {$newestEvent->begin |date:'j. n. Y'} 17:00 - 20:00
-                {default} {$newestEvent->begin |date:'F j, Y'}, 5:00 - 8:00 p.m. CET
+                {case 'cs'} {$newestEvent->begin |date:'j. n. Y'} 17:00–20:00
+                {default} {$newestEvent->begin |date:'F j, Y'}, 17:00–20:00 UTC+1
                 {/switch}
             </time>
             {else}
@@ -46,7 +46,7 @@
                 {default}<p>
                     Sign up with a team of up to five members.
                     {if $newestEvent->getRegistrationPeriod()->isOnGoing()}
-                    <br> Registration is open until {$newestEvent->registrationEnd |date:'F j, G:i'} CET.
+                    <br> Registration is open until {$newestEvent->registrationEnd |date:'F j, G:i'} UTC+1.
                     {/if}
                 </p>
                 {/switch}
@@ -407,12 +407,12 @@
             </div>
             <div class="col-md-4">
             {switch $language->value}
-            {case cs}           
+            {case cs}
                <a class="price-box small chess-box" href="https://www.chess.com/">
                     Diamantové členství na<br />
                     <img src="{$basePath}/images/logos/chess_logo_white.png" alt="Chess.com diamantové členství"
                         style="max-height: 3rem">
-                </a>  
+                </a>
             <a class="price-box small physolymp-box" href="https://physolymp.com/" style="text-decoration:none;color:#2E2A5A;">
                 PhysOlymp <br />licence
             </a>

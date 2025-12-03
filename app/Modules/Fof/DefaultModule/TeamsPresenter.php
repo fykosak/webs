@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Modules\Fof\DefaultModule;
 
 use App\Components\TeamList\TeamListComponent;
-use App\Models\Downloader\Models\EventModel;
 use Fykosak\Utils\DateTime\Phase;
 use Nette\Application\BadRequestException;
 
@@ -14,9 +13,9 @@ class TeamsPresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    public static function isVisible(EventModel $event): bool
+    public function isVisible(): bool
     {
-        return !$event->getRegistrationPeriod()->is(Phase::before);
+        return !$this->getNewestEvent()->getRegistrationPeriod()->is(Phase::before);
     }
 
     /**
@@ -25,7 +24,7 @@ class TeamsPresenter extends BasePresenter
      */
     public function actionDefault(): void
     {
-        if (!self::isVisible($this->getNewestEvent())) {
+        if (!self::isVisible()) {
             $this->error();
         }
     }
