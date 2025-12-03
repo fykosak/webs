@@ -1,0 +1,41 @@
+{block title}Admin dashboard{/block}
+
+{block main}
+<div class="panel color-light">
+    <section class="inner-container">
+    <h1>Admin dashboard</h1>
+        <div class="row row-cols-1 row-cols-lg-3 mt-5">
+            <div class="col p-2 d-flex justify-content-center">
+                <a href="{link :Default:Admin:news}" class="text-decoration-none">
+                    <div class="d-flex justify-content-center pb-3">
+                        <i class="fa-solid fa-newspaper fa-3x"></i>
+                    </div>
+                    <div>
+                        <h5>Správa novinek</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col p-2 d-flex justify-content-center">
+                <a href="{link :Default:Admin:files}" class="text-decoration-none">
+                    <div class="d-flex justify-content-center pb-3">
+                        <i class="fa-solid fa-file-pen fa-3x"></i>
+                    </div>
+                    <div>
+                        <h5>Správa souborů</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col p-2 d-flex justify-content-center">
+                <a href="{link :Default:Admin:media}" class="text-decoration-none">
+                    <div class="d-flex justify-content-center pb-3">
+                        <i class="fa-solid fa-images fa-3x"></i>
+                    </div>
+                    <div>
+                        <h5>Správa fotek</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+{/block}
