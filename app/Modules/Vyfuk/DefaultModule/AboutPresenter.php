@@ -41,26 +41,26 @@ class AboutPresenter extends BasePresenter
         }
         $this->template->organizers = $currentOrganizers;
     }
-    public function renderAllPastOrganizers(): void
+    public function renderPastOrganizers(): void
     {
-         $allOrganizers = $this->FKSDBDownloader->download(new OrganizersRequest(2));
-         $allPastOrganizers = [];
+        $allOrganizers = $this->FKSDBDownloader->download(new OrganizersRequest(2));
+        $allPastOrganizers = [];
 
         if ($allOrganizers !== []) {
-             $allPastOrganizers = array_filter(
-                 $allOrganizers,
-                 fn (array $organizer): bool => $organizer['state'] === 'inactive'
-                     && $organizer['showOnWeb']
-             );
+            $allPastOrganizers = array_filter(
+                $allOrganizers,
+                fn (array $organizer): bool => $organizer['state'] === 'inactive'
+                    && $organizer['showOnWeb']
+            );
 
-             // sort by order
-             usort($allPastOrganizers, function (array $a, array $b): int {
-                if ($a['since'] === $b['since']) {
-                     return implode(' ', array_reverse(explode(' ', $a['name']))) <=> implode(' ', array_reverse(explode(' ', $b['name'])));
+            // sort by order
+            usort($allPastOrganizers, function (array $a, array $b): int {
+                if ($a['until'] === $b['until']) {
+                    return implode(' ', array_reverse(explode(' ', $a['name']))) <=> implode(' ', array_reverse(explode(' ', $b['name'])));
                 }
-                 return $b['since'] <=> $a['since'];
-             });
+                return $b['until'] <=> $a['until'];
+            });
         }
-         $this->template->allpastorganizers = $allPastOrganizers;
+        $this->template->allPastOrganizers = $allPastOrganizers;
     }
 }
