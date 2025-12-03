@@ -1,0 +1,33 @@
+{block title}Bývalí organizátoři{/block}
+{block content}
+{varType string $lang}
+<div class="container mt-5">
+    <div class="row allpastorganizers">
+        {foreach $allPastOrganizers as $organizer}
+        <div class="col-md-6 col-xl-4 mb-4">
+            <div class="card organizer-card h-100">
+                <img src="https://db.fykos.cz/photo/person/person_{$organizer['personId']}.jpg" class="card-img-top"
+                    onerror="this.src = '/images/organizer_default.svg'" alt="{$organizer['name']}">
+                <h4 class="card-header">{if
+                    $organizer['academicDegreePrefix']}{$organizer['academicDegreePrefix']}&#160;{/if}{$organizer['name']}{if
+                    $organizer['academicDegreeSuffix']}&#160;{$organizer['academicDegreeSuffix']}{/if}</h4>
+                <div class="card-body">
+                    <table>
+                        <tr>
+                            <td class="left-cell"><span class="icon"><i class="fas fa-history"></i></span>
+                            </td>
+                             <td class="right-cell">ročníky {$organizer['since']} až {$organizer['until']}</tr>
+                        {if $organizer['role'] and $organizer['role'][$lang]}
+                            <tr>
+                                <td class="left-cell"><span class="icon"><i class="fas fa-user-group"></i></span></td>
+                                <td class="right-cell">{$organizer['role'][$lang]}</td>
+                            </tr>
+                        {/if}
+                    </table>
+                </div>
+            </div>
+        </div>
+        {/foreach}
+  </div>
+</div>
+{/block}
