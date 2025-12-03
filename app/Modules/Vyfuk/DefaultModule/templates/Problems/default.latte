@@ -54,11 +54,18 @@
         </div>
 
         {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
+        {php $problemsPath = $problemService->getProblems('vyfuk', $series, $lang)}
         {php $batchPath = $problemService->getBatch('vyfuk', $series, $lang)}
         <div class="tasks-container {if !$serialPath || !$batchPath}tasks-margin{/if}">
             {if $serialPath}
             <a class="btn btn-primary mt-2 mr-4" href="{$serialPath}">
                 <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text Výfučtení {$series->series}.
+                série
+            </a>
+            {/if}
+            {if $problemsPath}
+            <a class="btn btn-primary mt-2 mr-4" href="{$problemsPath}">
+                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Zadání {$series->series}.
                 série
             </a>
             {/if}
