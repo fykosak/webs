@@ -53,9 +53,9 @@
             </div>
         </div>
 
-        {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
-        {php $tasksPath = $problemService->getTasks('vyfuk', $series, $lang)}
-        {php $batchPath = $problemService->getBatch('vyfuk', $series, $lang)}
+        {var $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
+        {var $tasksPath = $problemService->getTasks('vyfuk', $series, $lang)}
+        {var $batchPath = $problemService->getBatch('vyfuk', $series, $lang)}
         <div class="tasks-container {if !$serialPath || !$batchPath}tasks-margin{/if}">
             {if $serialPath}
             <a class="btn btn-primary mt-2 mr-4" href="{$serialPath}">
