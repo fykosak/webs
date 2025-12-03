@@ -54,7 +54,7 @@
         </div>
 
         {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
-        {php $problemsPath = $problemService->getProblems('vyfuk', $series, $lang)}
+        {php $problemsPath = $problemService->getTasks('vyfuk', $series, $lang)}
         {php $batchPath = $problemService->getBatch('vyfuk', $series, $lang)}
         <div class="tasks-container {if !$serialPath || !$batchPath}tasks-margin{/if}">
             {if $serialPath}
