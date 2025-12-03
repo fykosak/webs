@@ -53,8 +53,9 @@
             </div>
         </div>
 
-        {php $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
-        {php $batchPath = $problemService->getBatch('vyfuk', $series, $lang)}
+        {var $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
+        {var $tasksPath = $problemService->getTasks('vyfuk', $series, $lang)}
+        {var $batchPath = $problemService->getBatch('vyfuk', $series, $lang)}
         <div class="tasks-container {if !$serialPath || !$batchPath}tasks-margin{/if}">
             {if $serialPath}
             <a class="btn btn-primary mt-2 mr-4" href="{$serialPath}">
@@ -62,9 +63,23 @@
                 série
             </a>
             {/if}
-            {if new Datetime() > $series->getDeadline() && $batchPath}
+            {if $problemsPath}
+            <a class="btn btn-primary mt-2 mr-4" href="{$tasksPath}">
+                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Zadání {$series->series}.
+                série
+            </a>
+            {/if}
+            {if ($series->series === 1 || $series->series === 8 || new Datetime() > $problemService->getSeries('vyfuk', $series->year, $series->series - 1)->getDeadline()) && $batchPath}
             <a class="btn btn-primary mt-2 mr-4" href="{$batchPath}">
-                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka s řešeními
+                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka
+                {switch $series->series}
+                    {case 1}
+                        1. série
+                    {case 8}
+                        1. prázdninové série
+                    {default}
+                        s řešeními {$series->series > 8 ? $series->series - 8 . '. prázdninové' : $series->series - 1}. série
+                {/switch}
             </a>
             {/if}
             <div class="row mt-4">

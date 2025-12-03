@@ -14,11 +14,11 @@ a:hover {
 
 // Remove default button highlight on hover
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-    color: $text-on-primary;
+    color: $text-on-primary !important;
 }
 
 .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
-    color: $text-on-primary;
+    color: $text-on-primary !important;
 }
 
 a.btn:hover, a.dropdown-item:hover {
@@ -46,4 +46,9 @@ a.btn:hover, a.dropdown-item:hover {
 
 .accordion-button:focus {
     box-shadow: none;
+}
+
+mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
 }
