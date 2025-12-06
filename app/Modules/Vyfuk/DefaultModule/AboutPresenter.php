@@ -44,23 +44,23 @@ class AboutPresenter extends BasePresenter
     public function renderPastOrganizers(): void
     {
         $allOrganizers = $this->FKSDBDownloader->download(new OrganizersRequest(2));
-        $allPastOrganizers = [];
+        $pastOrganizers = [];
 
         if ($allOrganizers !== []) {
-            $allPastOrganizers = array_filter(
+            $pastOrganizers = array_filter(
                 $allOrganizers,
                 fn (array $organizer): bool => $organizer['state'] === 'inactive'
                     && $organizer['showOnWeb']
             );
 
             // sort by order
-            usort($allPastOrganizers, function (array $a, array $b): int {
+            usort($pastOrganizers, function (array $a, array $b): int {
                 if ($a['until'] === $b['until']) {
                     return implode(' ', array_reverse(explode(' ', $a['name']))) <=> implode(' ', array_reverse(explode(' ', $b['name'])));
                 }
                 return $b['until'] <=> $a['until'];
             });
         }
-        $this->template->allPastOrganizers = $allPastOrganizers;
+        $this->template->pastOrganizers = $pastOrganizers;
     }
 }
