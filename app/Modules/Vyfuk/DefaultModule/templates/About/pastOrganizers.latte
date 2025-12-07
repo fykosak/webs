@@ -23,6 +23,12 @@
                                     {/if}
                                 </td>
                             </tr>
+                            {if $organizer['career']}
+                                <tr>
+                                    <td class="left-cell"><span class="icon"><i class="fa-solid fa-building-columns"></i></span></td>
+                                    <td class="right-cell">{$organizer['career']}</td>
+                                </tr>
+                            {/if}
                             {if $organizer['contribution'] and $organizer['contribution'][$lang]}
                                 <tr>
                                     <td class="left-cell"><span class="icon"><i class="fa-solid fa-trophy"></i></span></td>
