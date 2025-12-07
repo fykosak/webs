@@ -49,6 +49,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
                 new NavItem(new PageTitle('Pravidla'), ':Default:HowToSolve:rules'),
                 new NavItem(new PageTitle('Jak psát řešení'), ':Default:HowToSolve:solutions'),
                 new NavItem(new PageTitle('Jak psát experimenty'), ':Default:HowToSolve:experiments'),
+                new NavItem(new PageTitle('Výfučí bingo'), ':Default:Bingo:'),
             ],
         );
 
