@@ -34,6 +34,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
                 new NavItem(new PageTitle('Co je Výfuk?'), ':Default:About:default'),
                 new NavItem(new PageTitle('Organizátoři'), ':Default:About:organizers'),
                 new NavItem(new PageTitle('Historie'), ':Default:About:history'),
+                new NavItem(new PageTitle('Síň slávy'), ':Default:About:pastOrganizers'),
                 new NavItem(new PageTitle('Podpořte nás'), ':Default:About:sponsors'),
                 new NavItem(new PageTitle('Kontakt'), ':Default:About:contact'),
             ],

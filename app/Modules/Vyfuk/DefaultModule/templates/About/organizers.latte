@@ -1,12 +1,6 @@
 {block title}Organizátoři{/block}
 {block content}
 {varType string $lang}
-<p>
-    Pokud vás zajímá, kdo se o chod Výfuku zasloužil v minulosti, můžete si také projít seznam bývalých organizátorů.
-<p>
-<a class="btn btn-primary" n:href="About:pastOrganizers">
-    Seznam bývalých organizátorů
-</a>
 <div class="container mt-5">
     <div class="row organizers">
         {foreach $organizers as $organizer}
@@ -46,6 +40,9 @@
         {/foreach}
         <p>
             Garantem semináře je <a href="https://www.mff.cuni.cz/cs/fakulta/organizacni-struktura/lide?hdl=477">doc. RNDr. Zdeněk Drozd, Ph.D.</a> z Katedry didaktiky fyziky MFF UK, která jej zastřešuje.
+        </p>
+        <p>
+            Pokud vás zajímá, kdo se o chod Výfuku zasloužil v minulosti, můžete si také projít <a n:href="About:pastOrganizers">Síň slávy</a>.
         </p>
     </div>
 </div>
