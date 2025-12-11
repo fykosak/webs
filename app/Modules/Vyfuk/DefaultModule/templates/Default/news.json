@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Pořadí po 2. sérii",
+      "text": "Všechna zaslaná řešení 2. série jsme už opravili a nahráli do systému FKSDB. Zveřejnili jsme i vaše bodové ohodnocení. Na stránce pořadí najdete výsledky 2. série i průběžné pořadí celého ročníku. Gratulujeme ke krásným výsledkům!",
+      "date": "11. prosince 2025",
+      "link": ":Default:Results:default",
+      "link-text": "Pořadí"
+    },
+    {
       "title": "Zadání 3. série zveřejněno",
       "text": "Odevzdávání 2. série je za námi, ale Výfuk jede dál! Na výsledky a opravená řešení se můžete těšit za dva týdny, vzorová řešení druhé série a zadání té třetí ale najdete na webu už teď. Deadline na odeslání řešení je 12. ledna 2026. Přejeme hodně štěstí.",
       "date": "26. listopadu 2025",
@@ -20,13 +27,6 @@
       "date": "15. listopadu 2025",
       "link": "https://www.ceskatelevize.cz/porady/10265744641-zpravicky/225411000161111/",
       "link-text": "Reportáž Zpráviček"
-    },
-    {
-      "title": "Pořadí po 1. sérii",
-      "text": "Zveřejnili jsme pořadí po 1. sérii 15. ročníku. V jednotlivých kategoriích zvítězili Lukáš Kopecký, Lucie Jurásková, Richard Menšík, Daniel Foreth, Jan František Lukáš a Patrik Pavlík. Všem děkujeme za účast a těšíme se na vaše řešení 2. série, která má termín odeslání 24. listopadu",
-      "date": "30. října 2025",
-      "link": ":Default:Results:default",
-      "link-text": "Pořadí"
     }
   ]
 }
