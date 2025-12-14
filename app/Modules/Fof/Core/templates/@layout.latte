@@ -168,36 +168,50 @@
                                 <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo"
                                     style="max-width:7rem">
                             </a>
-                            <a href="https://www.wolfram.com/" style="text-align: center">
-                                <img src="{$basePath}/images/logos/wolfram-logo.png" alt="Wolfram logo"
-                                    style="max-width:7rem">
-                            </a>
                             {*<a href="https://brilliant.org/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo"
                                     style="max-width:10rem">
                             </a>*}
                         </div>
                     </div>
+                    {/if}
+                    <div class="category">
+                        <div class="category-title">{switch $language->value}{case cs}Zlatý partner{default}Gold
+                            Partner{/switch}</div>
+                        <div class="category-sponsors">
+                            <a href="https://www.factorio.com/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/wube.png" alt="Wube logo" style="max-height: 5rem; max-width: 12rem">
+                            </a>
+                        </div>
+                    </div>
                     <div class="category">
                         <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}
                         </div>
                         <div class="category-sponsors">
-                            <a href="https://www.humusoft.cz/" style="text-align: center">
+                            <a href="https://www.wolfram.com/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/wolfram-logo.png" alt="Wolfram logo"
+                                    style="max-width:7rem">
+                            </a>
+                            <a href="https://www.eserocz.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/esero.png" alt="Esero logo"
+                                    style="max-width:7rem">
+                            </a>
+                            {*<a href="https://www.humusoft.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/Mathworks-Humusoft.png"
                                     alt="Humusoft and Mathworks logo" style="max-width: 20rem">
-                            </a>
-                            <a href="https://vida.cz/" style="text-align: center">
+                            </a>*}
+                            {*<a href="https://vida.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/vida-logo.png" alt="Vida logo"
                                     style="max-width:7rem">
-                            </a>
-                            <a href="https://www.escapepoint.cz/" style="text-align: center">
+                            </a>*}
+                            {*<a href="https://www.escapepoint.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/escape-logo.jpg" alt="Escape logo"
                                     style="max-width: 10rem">
-                            </a>
-                            {*<a href="https://casioczech.fastcr.cz/" style="text-align: center">
+                            </a>*}
+                            <a href="https://casioczech.fastcr.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo"
                                     style="max-width:7rem">
-                            </a>*}
+                            </a>
                             {*<a href="https://brilliant.org/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo"
                                     style="max-width:10rem">
@@ -239,6 +253,7 @@
                             </a>
                         </div>
                     </div>
+                    {if false}
                     <div class="category">
                         <div class="category-title">{switch $language->value}{case cs}Mediální partner{default}Media
                             Partner{/switch}</div>
