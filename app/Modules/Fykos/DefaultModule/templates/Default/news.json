@@ -10,19 +10,34 @@
         "pokud něco nefunguje, dost možná je někde špatně čárka",
         "do novinek se dají dávat i html elementy"
     ],
+    
     "cs" : [{
-            "title": "Zaregistrujte se na Fyziklání Online",
-            "text": "Spustila se registrace do letošního ročníku Fyziklání Online! Tak sežeňte partu až pěti kamarádů a 26. listopadu se přidejte k týmům z celého světa v řešení originálních fyzikálních úloh!",
-            "link": "https://online.fyziklani.cz/registrace",
+            "title": "Otevřela se registrace na Fyziklání",
+            "text": "Otevřeli jsme registraci na Fyziklání 2026, které se bude konat 13. 2. v Praze. Můžeš se těšit na týmovou soutěž v počítání zajímavých fyzikálních úloh, ale i na bohatý doprovodný program! Tak neváhej a přihlaš svůj tým!",
+            "link": "https://fyziklani.cz/registrace",
             "link-text": "Registrace",
+            "color": "fof"
+       },
+       {
+            "title": "Výsledky Fyziklání Online",
+            "text": "Proběhl 15. ročník soutěže Fyziklání Online, který se konal 26. listopadu. Jak se týmům dařilo si můžete prohlédnout ve výsledcích.",
+            "link": "https://online.fyziklani.cz/2025/vysledky/",
+            "link-text": "Výsledky",
             "color": "fol"
         }
     ],
     "en" : [{
-            "title": "Registration for Physics Brawl Online",
-            "text": "The registration for Physics Brawl Online is opened! Gather a group of up to five friends and join teams from all over the world to solve physics problems on November 26th! ",
-            "link": "https://physicsbrawl.org/registration",
-            "link-text": "Registration",
+            "title": "Registration for Fyziklání is now open",
+            "text": "We have opened registration for Fyziklání 2026, which will take place on February 13 in Prague. You can look forward to a team-based competition focused on solving interesting physics problems, as well as a rich accompanying program. So don’t hesitate and register your team!",
+            "link": "https://fyziklani.cz/registrace",
+            "link-text": "Registrace",
+            "color": "fof"
+        },
+        {
+            "title": "Results of Physics Brawl Online",
+            "text": "The 15th edition of the Fyziklání Online competition took place on November 26. You can see how the teams performed in the published results.",
+            "link": "https://physicsbrawl.org/2025/results/",
+            "link-text": "Results",
             "color": "fol"
         }
     ]
