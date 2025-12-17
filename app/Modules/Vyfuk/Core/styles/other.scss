@@ -39,6 +39,11 @@ a.btn:hover, a.dropdown-item:hover {
     padding-bottom: 0.35rem;
 }
 
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: $primary;
+    color: $text-on-primary
+}
+
 // Remove boostrap accordion box shadow
 .accordion-button:not(.collapsed){
     box-shadow: none;
