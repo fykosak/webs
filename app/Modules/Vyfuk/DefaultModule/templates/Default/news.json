@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Druhá vlna přihlašování na Zimní Víkendovku",
+      "text": "Dnes ve 20:00 se spustí druhé kolo přihlašování na Zimní víkendovku. Přihlásit se bude moct každý, kdo se po druhé sérii umístil do 60. místa. Pokud jste se stále nepřihlásili a máte v plánu se zúčastnit, tak se co nejdříve přihlašte.",
+      "date": "12. ledna 2026",
+      "link": "https://vyfuk.org/akce/detail/204",
+      "link-text": "Stránka Zimní víkendovky"
+    },
+    {
       "title": "Zimní víkendovka",
       "text": "Už pro vás připravujeme letošní Zimní víkendovku! Tento rok se bude konat od 30. ledna do 1. února na severu Čech ve skautské základně Mentaurov. Přihlašování bude spuštěno 5. 1. 2026 ve 20:00. Přihlásit se v systému FKSDB bude moct 30 nejúspěšnějších řešitelů z každé kategorie.",
       "date": "3. ledna 2026",
@@ -18,13 +25,6 @@
       "title": "Zadání 3. série zveřejněno",
       "text": "Odevzdávání 2. série je za námi, ale Výfuk jede dál! Na výsledky a opravená řešení se můžete těšit za dva týdny, vzorová řešení druhé série a zadání té třetí ale najdete na webu už teď. Deadline na odeslání řešení je 12. ledna 2026. Přejeme hodně štěstí.",
       "date": "26. listopadu 2025",
-      "link": ":Default:Problems:default",
-      "link-text": "Zadání"
-    },
-    {
-      "title": "Nápověda k úloze k Výfučtení",
-      "text": "K úloze k Výfučtení nově přibyla nápověda – nezapomeňte se na ni podívat a případně ji zohlednit při řešení úlohy.",
-      "date": "16. listopadu 2025",
       "link": ":Default:Problems:default",
       "link-text": "Zadání"
     }
