@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Zadání 4. série",
+      "text": "15. ročník Výfuku se přehoupl do své druhé poloviny. Na webu najdete zadání už 4. letošní série. Spolu s ním jsme zveřejnili i vzorová řešení minulé série, nezapomeňte si zkontrolovat své výsledky a postupy řešení. Než organizátoři opraví vaše řešení a dozvíte se pořadí po 3. sérii (které mimo jiné rozhoduje o pozvánkách na letní tábor), můžete se pustit do nejnovějších úloh a zkrátit si čas třeba přemýšlením o oblíbených pizzách organizátorů nebo Alešově těžké lahvi!",
+      "date": "15. ledna 2026",
+      "link": ":Default:Problems:default",
+      "link-text": "Zadání"
+    },
+    {
       "title": "Druhá vlna přihlašování na Zimní Víkendovku",
       "text": "Dnes ve 20:00 se spustí druhé kolo přihlašování na Zimní víkendovku. Přihlásit se bude moct každý, kdo se po druhé sérii umístil do 60. místa. Pokud jste se stále nepřihlásili a máte v plánu se zúčastnit, tak se co nejdříve přihlašte.",
       "date": "12. ledna 2026",
@@ -20,13 +27,6 @@
       "date": "11. prosince 2025",
       "link": ":Default:Results:default",
       "link-text": "Pořadí"
-    },
-    {
-      "title": "Zadání 3. série zveřejněno",
-      "text": "Odevzdávání 2. série je za námi, ale Výfuk jede dál! Na výsledky a opravená řešení se můžete těšit za dva týdny, vzorová řešení druhé série a zadání té třetí ale najdete na webu už teď. Deadline na odeslání řešení je 12. ledna 2026. Přejeme hodně štěstí.",
-      "date": "26. listopadu 2025",
-      "link": ":Default:Problems:default",
-      "link-text": "Zadání"
     }
   ]
 }
