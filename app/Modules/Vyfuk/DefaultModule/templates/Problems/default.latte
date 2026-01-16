@@ -65,15 +65,7 @@
             {/if}
             {if $tasksPath}
             <a class="btn btn-primary mt-2 mr-4" href="{$tasksPath}">
-                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Zadání
-                {switch $series->series}
-                    {case 1}
-                        1. série
-                    {case 8}
-                        1. prázdninové série
-                    {default}
-                        s řešeními {$series->series > 8 ? $series->series - 8 . '. prázdninové' : $series->series - 1}. série
-                {/switch}
+                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Zadání {$series->series}. série
             </a>
             {/if}
             {if ($series->series === 1 || $series->series === 8 || new Datetime() > $problemService->getSeries('vyfuk', $series->year, $series->series - 1)->getDeadline()) && $batchPath}
