@@ -15,7 +15,7 @@ class PdfGalleryControl extends DIComponent
 {
     private readonly string $wwwDir;
     private readonly Cache $cache;
-    private string $expire = '10 minutes';
+    private const EXPIRE = '10 minutes';
 
     public function __construct(Container $container)
     {
@@ -71,7 +71,7 @@ class PdfGalleryControl extends DIComponent
         $this->template->pdfs = $this->cache->load(
             [$path, $this->wwwDir],
             fn() => self::getPdfs($path, $this->wwwDir),
-            [Cache::Expire => $this->expire]
+            [Cache::Expire => self::EXPIRE]
         );
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGalleryList.latte');
     }
@@ -80,7 +80,7 @@ class PdfGalleryControl extends DIComponent
         $this->template->pdfs = $this->cache->load(
             [$path, $this->wwwDir],
             fn() => self::getPdfs($path, $this->wwwDir),
-            [Cache::Expire => $this->expire]
+            [Cache::Expire => self::EXPIRE]
         );
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGalleryButtons.latte');
     }
@@ -94,7 +94,7 @@ class PdfGalleryControl extends DIComponent
         return count($this->cache->load(
             [$path, $this->wwwDir],
             fn() => self::getPdfs($path, $this->wwwDir),
-            [Cache::Expire => $this->expire]
+            [Cache::Expire => self::EXPIRE]
         )) > 0;
     }
 }
