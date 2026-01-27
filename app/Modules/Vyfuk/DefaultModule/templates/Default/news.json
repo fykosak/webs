@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Pořadí po 3. sérii",
+      "text": "Na našem webu právě přistálo pořadí řešitelů 3. série. Také bylo zveřejněno celkové pořadí po 3. sérii, podle kterého se vybírá na letní tábor. Všem gratulujeme a těšíme se na vaše řešení 4. sady úloh, která nám můžete posílat do 23. února.",
+      "date": "27. ledna 2026",
+      "link": ":Default:Results:default",
+      "link-text": "Pořadí"
+    },
+    {
       "title": "Zadání 4. série",
       "text": "15. ročník Výfuku se přehoupl do své druhé poloviny. Na webu najdete zadání už 4. letošní série. Spolu s ním jsme zveřejnili i vzorová řešení minulé série, nezapomeňte si zkontrolovat své výsledky a postupy řešení. Než organizátoři opraví vaše řešení a dozvíte se pořadí po 3. sérii (které mimo jiné rozhoduje o pozvánkách na letní tábor), můžete se pustit do nejnovějších úloh a zkrátit si čas třeba přemýšlením o oblíbených pizzách organizátorů nebo Alešově těžké lahvi!",
       "date": "15. ledna 2026",
@@ -20,13 +27,6 @@
       "date": "3. ledna 2026",
       "link": "https://vyfuk.org/akce/detail/204",
       "link-text": "Stránka Zimní víkendovky"
-    },
-    {
-      "title": "Pořadí po 2. sérii",
-      "text": "Všechna zaslaná řešení 2. série jsme už opravili a nahráli do systému FKSDB. Zveřejnili jsme i vaše bodové ohodnocení. Na stránce pořadí najdete výsledky 2. série i průběžné pořadí celého ročníku. Gratulujeme ke krásným výsledkům!",
-      "date": "11. prosince 2025",
-      "link": ":Default:Results:default",
-      "link-text": "Pořadí"
     }
   ]
 }
