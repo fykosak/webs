@@ -129,11 +129,7 @@
                             Partner{/switch}</div>
                         <div class="category-sponsors">
                             <a href="https://www.cez.cz/" style="text-align: center">
-                                {switch $language->value}{case cs}<img
-                                    src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo"
-                                    style="max-width: 10rem">
-                                {default}<img src="{$basePath}/images/logos/CEZ_Group_Logo_EN.png" alt="CEZ group logo"
-                                    style="max-width: 10rem">{/switch}
+                                <img src="{$basePath}/images/logos/cez.svg" alt="ČEZ logo" style="max-width: 10rem">
                             </a>
                         </div>
                     </div>
@@ -155,13 +151,28 @@
                             </a>
                         </div>
                     </div>
-                    {if false}
+                    <div class="category">
+                        <div class="category-title">{switch $language->value}{case cs}Zlatí partneři{default}Gold
+                            Partners{/switch}</div>
+                        <div class="category-sponsors">
+                            <a href="https://www.factorio.com/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/wube.png" alt="Wube logo" style="max-height: 5rem; max-width: 12rem">
+                            </a>
+                            <a href="https://aerospace.czechoslovakgroup.com/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/csg-aerospace.svg" alt="CSG Aerospace logo" style="max-height: 5rem; max-width: 14rem">
+                            </a>
+                            <a href="http://www.kalabria.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/kalabria.svg" alt="Kalabria logo"
+                                    style="max-width:7rem">
+                            </a>
+                        </div>
+                    </div>
                     <div class="category">
                         <div class="category-title">{switch $language->value}{case cs}Stříbrní partneři{default}Silver
                             Partners{/switch}</div>
                         <div class="category-sponsors">
-                            <a href="http://www.kalabria.cz/" style="text-align: center">
-                                <img src="{$basePath}/images/logos/limo-logo.png" alt="Kalabria logo"
+                            <a href="https://www.wolfram.com/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/wolfram-logo.png" alt="Wolfram logo"
                                     style="max-width:7rem">
                             </a>
                             <a href="https://casioczech.fastcr.cz/" style="text-align: center">
@@ -172,50 +183,28 @@
                                 <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo"
                                     style="max-width:10rem">
                             </a>*}
-                        </div>
-                    </div>
-                    {/if}
-                    <div class="category">
-                        <div class="category-title">{switch $language->value}{case cs}Zlatý partner{default}Gold
-                            Partner{/switch}</div>
-                        <div class="category-sponsors">
-                            <a href="https://www.factorio.com/" style="text-align: center">
-                                <img src="{$basePath}/images/logos/wube.png" alt="Wube logo" style="max-height: 5rem; max-width: 12rem">
-                            </a>
                         </div>
                     </div>
                     <div class="category">
                         <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}
                         </div>
                         <div class="category-sponsors">
-                            <a href="https://www.wolfram.com/" style="text-align: center">
-                                <img src="{$basePath}/images/logos/wolfram-logo.png" alt="Wolfram logo"
-                                    style="max-width:7rem">
-                            </a>
                             <a href="https://www.eserocz.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/esero.png" alt="Esero logo"
                                     style="max-width:7rem">
                             </a>
-                            {*<a href="https://www.humusoft.cz/" style="text-align: center">
+                            <a href="https://www.humusoft.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/Mathworks-Humusoft.png"
                                     alt="Humusoft and Mathworks logo" style="max-width: 20rem">
-                            </a>*}
+                            </a>
                             {*<a href="https://vida.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/vida-logo.png" alt="Vida logo"
                                     style="max-width:7rem">
                             </a>*}
-                            {*<a href="https://www.escapepoint.cz/" style="text-align: center">
+                            <a href="https://www.escapepoint.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/escape-logo.jpg" alt="Escape logo"
-                                    style="max-width: 10rem">
-                            </a>*}
-                            <a href="https://casioczech.fastcr.cz/" style="text-align: center">
-                                <img src="{$basePath}/images/logos/casio-logo.jpg" alt="Casio logo"
-                                    style="max-width:7rem">
+                                    style="max-width: 8rem">
                             </a>
-                            {*<a href="https://brilliant.org/" style="text-align: center">
-                                <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo"
-                                    style="max-width:10rem">
-                            </a>*}
                             {*<a href="https://www.hobza.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/hobza-logo.jpg" alt="Hobza logo"
                                     style="max-width: 8rem">
