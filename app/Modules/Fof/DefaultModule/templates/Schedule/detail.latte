@@ -12,8 +12,8 @@
             </h1>
             <p>
                 {switch $language->value}
-                    {case 'cs'}Na této stránce časem naleznete detailní popis doprovodného programu. {*Informace uvedené na této stránce jsou aktuální, nicméně se časem ještě můžou mírně změnit.*}
-                    {default}A detailed description of the accompanying program will be available on this page in due course.{*On this page you can find detailed description of the accompanying program. Information on this page should be up to date; however, they may slightly change over time.*}
+                    {case 'cs'}{*Na této stránce časem naleznete detailní popis doprovodného programu. *}Informace uvedené na této stránce jsou aktuální, nicméně se časem ještě můžou mírně změnit.
+                    {default}{*A detailed description of the accompanying program will be available on this page in due course.*}Information on this page should be up to date; however, they may slightly change over time.
                 {/switch}
             </p>
             {switch $language->value}
@@ -31,8 +31,17 @@
                     <div class="title">Areál Troja</div>
                     <div class="description">V Holešovičkách 2/747, 180 00 Praha 8
                         <ul style="margin-bottom: 0">
-                            <li><strong>N1, N2, N3</strong> - Pavilon Impakt</li>
-                            <li><strong>T1, T2</strong> - Objekt poslucháren</li>
+                            <li><strong>N1</strong> - Pavilon Impakt</li>
+                            <li><strong>T1</strong> - Objekt poslucháren</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rules">
+                    <div class="title">Areál Malá Strana</div>
+                    <div class="description">Malostranské nám. 2/25, 118 00 Praha 1
+                        <ul style="margin-bottom: 0">
+                            <li><strong>S9, refektář</strong> - 1. patro</li>
+                            <li><strong>S9</strong> - 3. patro</li>
                         </ul>
                     </div>
                 </div>
@@ -66,8 +75,17 @@
                     <div class="title">Troja Campus</div>
                     <div class="description">V Holešovičkách 2/747, 180 00 Prague 8
                         <ul style="margin-bottom: 0">
-                            <li><strong>N1, N2, N3</strong> - Impakt Pavilion</li>
-                            <li><strong>T1, T2</strong> - Lecture Hall Building</li>
+                            <li><strong>N1</strong> - Impakt Pavilion</li>
+                            <li><strong>T1</strong> - Lecture Hall Building</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rules">
+                    <div class="title">Malá Strana Campus</div>
+                    <div class="description">Malostranské nám. 2/25, 118 00 Prague 1
+                        <ul style="margin-bottom: 0">
+                            <li><strong>S9, Refectory</strong> - 1st floor</li>
+                            <li><strong>S9</strong> - 3rd floor</li>
                         </ul>
                     </div>
                 </div>
