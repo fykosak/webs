@@ -105,7 +105,7 @@
             <div class="text">
                  {switch $language->value}
                  {case 'cs'}
-                    Z důvodu několika posledních volných míst byl čas registrace o den prodloužen do
+                    Z důvodu několika posledních volných míst byl konec registrace o den prodloužen do
                     <strong class="text-primary">{$newestEvent->registrationEnd->sub(new DateInterval('PT1M'))|date:'j. n. Y, H:i'}</strong>.
                  {default}
                     Since a limited number of places are still available, the registration deadline has been extended by one day until
