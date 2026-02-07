@@ -12,8 +12,8 @@
             </h1>
             <p>
                 {switch $language->value}
-                    {case 'cs'}{*Na této stránce časem naleznete detailní popis doprovodného programu. *}Informace uvedené na této stránce jsou aktuální, nicméně se časem ještě můžou mírně změnit.
-                    {default}{*A detailed description of the accompanying program will be available on this page in due course.*}Information on this page should be up to date; however, they may slightly change over time.
+                    {case 'cs'}{*Na této stránce časem naleznete detailní popis doprovodného programu. *}Informace uvedené na této stránce jsou aktuální{*, nicméně se časem ještě můžou mírně změnit*}.
+                    {default}{*A detailed description of the accompanying program will be available on this page in due course.*}Information on this page are up to date{*; however, they may slightly change over time*}.
                 {/switch}
             </p>
             {switch $language->value}
