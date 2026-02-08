@@ -308,9 +308,10 @@
                             <strong>#fykos</strong>
                             {switch $language->value}
                             {case 'cs'}<strong>#fyziklani</strong>
-                            {default}<strong>#fyziklani{$newestEvent->begin|date:'Y'}</strong>
-                            {/switch}
                             <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>
+                            {default}<strong>#fyziklani{$newestEvent->begin|date:'Y'}</strong>
+                            <a href="mailto:fyziklani@fykos.org">fyziklani@fykos.org</a>
+                            {/switch}
                         </p>
                         <p>
                             {switch $language->value}
