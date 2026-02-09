@@ -43,7 +43,7 @@
                 </div>
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>
-                    {* <a target="_blank" href="{$basePath}/download/2025/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>*}
+                    <a target="_blank" href="{$basePath}/download/2026/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>
                     {* <a n:href="Merch:" class="btn btn-light">Merch</a> *}
                     <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)" n:href="Registration:" class="btn btn-primary">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
@@ -70,11 +70,11 @@
             <div class="buttons">
                 {switch $language->value}
                     {case cs}
-                    <a class="btn btn-primary m-1" href="/2025/vysledky/">Výsledky soutěže</a>
-                    <a class="btn btn-primary m-1" href="/download/2025/reseni.pdf">Úlohy a řešení</a>
+                    <a class="btn btn-primary m-1" href="/2026/vysledky/">Výsledky soutěže</a>
+                    <a class="btn btn-primary m-1" href="/download/2026/reseni.pdf">Úlohy a řešení</a>
                 {default}
-                    <a class="btn btn-primary m-1" href="/2025/results/">Competition results</a>
-                    <a class="btn btn-primary m-1" href="/download/2025/solutions.pdf">Problem statements and solutions</a>
+                    <a class="btn btn-primary m-1" href="/2026/results/">Competition results</a>
+                    <a class="btn btn-primary m-1" href="/download/2026/solutions.pdf">Problem statements and solutions</a>
                 {/switch}
             </div>
         </div>
