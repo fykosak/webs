@@ -58,7 +58,6 @@
         </div>
     </div>
 
-    {if false} {*Cerny pas po soutezi*}
     <div class="panel registration" style="background-color: black">
         <div class="inner-container">
             <div class="text">
@@ -79,7 +78,6 @@
             </div>
         </div>
     </div>
-    {/if}
 
     {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
         {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
