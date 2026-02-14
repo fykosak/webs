@@ -22,7 +22,6 @@ class CountdownComponent extends DIComponent
 
     public function render(): void
     {
-
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'countdown.latte', [
             'id' => $this->id,
             'countdownTo' => $this->countdownTo,

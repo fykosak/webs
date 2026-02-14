@@ -20,15 +20,16 @@ class ScheduleListComponent extends DIComponent
         parent::__construct($container);
     }
 
-    public function inject(fksdbDownloader $fksdbDownloader): void
+    public function inject(FKSDBDownloader $fksdbDownloader): void
     {
         $this->fksdbDownloader = $fksdbDownloader;
     }
 
     /**
      * @param int $competitionDetailItemId Schedule item id for competition to render timeline
+     * @throws \Throwable
      */
-    public function render(int $competitionDetailItemId)
+    public function render(int $competitionDetailItemId): void
     {
         $scheduleGroups = $this->fksdbDownloader->download(
             new ScheduleRequest(
