@@ -1,44 +1,45 @@
 {
-    "komentář k používání" : [
-        "všechny novinky jsou v tomto souboru",
-        "každá novinka je objekt s klíči title, text, link, link-text a color uzavřené ve složených závorkách. Jednotlivé novinky jsou odděleny čárkami",
-        "barvy -- pokud se novinka týká akce, co má námi danou barvu, tak dodržujte ideálně tyto barvy -- lze napsat prostě 'fof', 'fol', 'fykos', 'dsef', 'naboj'.",
-        "jinak se dá použít libovolná barva v hex formátu, např. '#000000' je černá. Ale pozor, ať se to do stránky graficky hodí.",
-        "ad text -- Pozor na kapitalizace u nadpisů, hlavně v angličtině... 'Tohle je nadpis', ale v en 'This Is a Heading' (google 'title-style capitalization')",
-        "Název tlačítka se bere jako nadpis a taky ho kapitalizujeme dle stejných pravidel",
-        "Pokud chceš v textu uvozovky, buď uvoď daný text jednoduchou uvozovkou ' místo dvojitou, nebo v textu použij backslash: \" ",
-        "pokud něco nefunguje, dost možná je někde špatně čárka",
-        "do novinek se dají dávat i html elementy"
-    ],
-    
-    "cs" : [{
-            "title": "Otevřela se registrace na Fyziklání",
-            "text": "Otevřeli jsme registraci na Fyziklání 2026, které se bude konat 13. 2. v Praze. Můžeš se těšit na týmovou soutěž v počítání zajímavých fyzikálních úloh, ale i na bohatý doprovodný program! Tak neváhej a přihlaš svůj tým!",
-            "link": "https://fyziklani.cz/registrace",
-            "link-text": "Registrace",
-            "color": "fof"
-       },
-       {
-            "title": "Výsledky Fyziklání Online",
-            "text": "Proběhl 15. ročník soutěže Fyziklání Online, který se konal 26. listopadu. Jak se týmům dařilo si můžete prohlédnout ve výsledcích.",
-            "link": "https://online.fyziklani.cz/2025/vysledky/",
-            "link-text": "Výsledky",
-            "color": "fol"
-        }
-    ],
-    "en" : [{
-            "title": "Registration for Fyziklání is now open",
-            "text": "We have opened registration for Fyziklání 2026, which will take place on February 13 in Prague. You can look forward to a team-based competition focused on solving interesting physics problems, as well as a rich accompanying program. So don't hesitate and register your team!",
-            "link": "https://fyziklani.org/registration",
-            "link-text": "Registration",
-            "color": "fof"
-        },
-        {
-            "title": "Results of Physics Brawl Online",
-            "text": "The 15th edition of the Fyziklání Online competition took place on November 26. You can see how the teams performed in the published results.",
-            "link": "https://physicsbrawl.org/2025/results/",
-            "link-text": "Results",
-            "color": "fol"
-        }
-    ]
+  "komentář k používání": [
+    "všechny novinky jsou v tomto souboru",
+    "každá novinka je objekt s klíči title, text, link, link-text a color uzavřené ve složených závorkách. Jednotlivé novinky jsou odděleny čárkami",
+    "barvy -- pokud se novinka týká akce, co má námi danou barvu, tak dodržujte ideálně tyto barvy -- lze napsat prostě 'fof', 'fol', 'fykos', 'dsef', 'naboj'.",
+    "jinak se dá použít libovolná barva v hex formátu, např. '#000000' je černá. Ale pozor, ať se to do stránky graficky hodí.",
+    "ad text -- Pozor na kapitalizace u nadpisů, hlavně v angličtině... 'Tohle je nadpis', ale v en 'This Is a Heading' (google 'title-style capitalization')",
+    "Název tlačítka se bere jako nadpis a taky ho kapitalizujeme dle stejných pravidel",
+    "Pokud chceš v textu uvozovky, buď uvoď daný text jednoduchou uvozovkou ' místo dvojitou, nebo v textu použij backslash: \" ",
+    "pokud něco nefunguje, dost možná je někde špatně čárka",
+    "do novinek se dají dávat i html elementy"
+  ],
+  "cs": [
+    {
+      "title": "Pozor, změna zadání!",
+      "text": "Zadání úlohy 4 (\"jen počkej, raketo!\") obsahovalo požadavky, které nemohou být v obecném případě splněny současně. Úlohu proto stačí vyřešit pro malé úhly ($\\theta \\ll 1$). Zadání na webu jsme již aktualizovali. Zároveň dáváme vědět, že prodlužujeme termín odevzdání úloh 4 a S (detektory ionizujícího záření) až do 8. 3. 2026, 23:59. Omlouváme se za komplikace a přejeme hodně štěstí při řešení!",
+      "link": "https://fykos.cz/zadani/39/4",
+      "link-text": "Zadání úloh",
+      "color": "fykos"
+    },
+    {
+      "title": "Fyziklání je za námi",
+      "text": "Letošní Fyziklání je již úspěšně za námi. Zadání a řešení úloh nebo to, jak si týmy vedli, již můžete najít na webu. Zároveň se v blízké době můžete těšit na fotky ze soutěže.",
+      "link": "https://fyziklani.cz/2026/vysledky/",
+      "link-text": "Výsledky",
+      "color": "fof"
+    }
+  ],
+  "en": [
+    {
+      "title": "Attention, assignment update!",
+      "text": "The statement of Problem 4 (\"just you wait, rocket!\") included requirements that cannot generally be satisfied at the same time. Therefore, it is sufficient to solve the problem for small angles ($\\theta \\ll 1$). We have already updated the assignment on the website. We also want to let you know that we are extending the submission deadline for Problems 4 and S (ionizing radiation detectors) until March 8, 2026, at 11:59 PM. We apologize for the inconvenience and wish you the best of luck with the solutions!",
+      "link": "https://fykos.org/problems/39/4",
+      "link-text": "Problem Statement",
+      "color": "fykos"
+    },
+    {
+      "title": "Fyziklání je za námi",
+      "text": "This year's Fyziklání is successfully behind us. You can already find the assignment and solutions to the problems or how the teams performed on the our website. At the same time, you can look forward to photos from the competition in the near future.",
+      "link": "https://fyziklani.org/2026/results/",
+      "link-text": "Competition results",
+      "color": "fof"
+    }
+  ]
 }
