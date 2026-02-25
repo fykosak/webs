@@ -134,17 +134,17 @@
                         </div>
                     </div>
                     <div class="category">
-                        <div class="category-title">{switch $language->value}{case cs}Hlavní partneři
-                            {default}Main Partners{/switch}</div>
+                        <div class="category-title">{switch $language->value}{case cs}Hlavní partner
+                            {default}Main Partner{/switch}</div>
                         <div class="category-sponsors">
                             {*<a href="https://www.nadacecez.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/nadaceCEZ-logo.png" alt="Nadace CEZ logo"
                                     style="max-width: 5rem">
                             </a>*}
-                            <a href="https://www.nfneuron.cz/" style="text-align: center">
+                            {*<a href="https://www.nfneuron.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/neuron.svg" alt="Neuron logo"
                                     style="max-width: 10rem">
-                            </a>
+                            </a>*}
                             <a href="https://qminers.com/cs/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/qminers-logo.png" alt="Qminers logo"
                                     style="max-width: 10rem">
@@ -159,7 +159,7 @@
                                 <img src="{$basePath}/images/logos/wube.png" alt="Wube logo" style="max-height: 5rem; max-width: 12rem">
                             </a>
                             <a href="https://aerospace.czechoslovakgroup.com/" style="text-align: center">
-                                <img src="{$basePath}/images/logos/csg-aerospace.svg" alt="CSG Aerospace logo" style="max-height: 5rem; max-width: 14rem">
+                                <img src="{$basePath}/images/logos/CSG_logo_short_RGB.svg" alt="CSG Aerospace logo" style="max-height: 5rem; max-width: 10rem">
                             </a>
                             <a href="http://www.kalabria.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/kalabria.svg" alt="Kalabria logo"
@@ -183,16 +183,20 @@
                                 <img src="{$basePath}/images/logos/Brilliant Large Logo.png" alt="Brilliant logo"
                                     style="max-width:10rem">
                             </a>*}
+                            <a href="https://www.eserocz.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/esero.png" alt="Esero logo"
+                                    style="max-width:8rem">
+                            </a>
+                            <a href="https://www.planetum.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/planetum.svg" alt="Planetum logo"
+                                    style="max-width:9rem">
+                            </a>
                         </div>
                     </div>
                     <div class="category">
                         <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}
                         </div>
                         <div class="category-sponsors">
-                            <a href="https://www.eserocz.cz/" style="text-align: center">
-                                <img src="{$basePath}/images/logos/esero.png" alt="Esero logo"
-                                    style="max-width:7rem">
-                            </a>
                             <a href="https://www.humusoft.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/Mathworks-Humusoft.png"
                                     alt="Humusoft and Mathworks logo" style="max-width: 20rem">
@@ -221,17 +225,17 @@
                                 <img src="{$basePath}/images/logos/mindok.png" alt="Mindok logo"
                                     style="max-width: 12rem">
                             </a>*}
-                            {*<a href="https://www.merkurtoys.cz/" style="text-align: center">
-                                <img src="{$basePath}/images/logos/merkur.png" alt="Merkur logo"
-                                    style="max-width: 12rem">
-                            </a>*}
+                            <a href="https://www.merkurtoys.cz/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/merkur.svg" alt="Merkur logo"
+                                    style="max-width: 10rem">
+                            </a>
                             {*<a href="https://efektivni-altruismus.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/czea.png" alt="CZEA logo" style="max-width: 15rem">
                             </a>*}
-                            {*<a href="https://prometheus-nakl.cz/" style="text-align: center">
+                            <a href="https://prometheus-nakl.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/prometheus-logo.png" alt="Prometheus logo"
                                     style="max-width: 4rem">
-                            </a>*}
+                            </a>
                             {*<a href="https://www.natur.cuni.cz/" style="text-align: center">
                                 <img src="{$basePath}/images/logos/prfuk-logo.jpeg" alt="Přírodovědecká fakulta"
                                     style="max-width: 12rem">
@@ -240,6 +244,10 @@
                                 <img src="{$basePath}/images/logos/bohemiagarmet.png" alt="Bohemia garmet"
                                     style="max-width: 12rem">
                             </a>*}
+                            <a href="https://www.radiacode.com/" style="text-align: center">
+                                <img src="{$basePath}/images/logos/radiacode.svg" alt="Radiacode logo"
+                                    style="max-width: 12rem">
+                            </a>
                         </div>
                     </div>
                     {if false}
@@ -300,9 +308,10 @@
                             <strong>#fykos</strong>
                             {switch $language->value}
                             {case 'cs'}<strong>#fyziklani</strong>
-                            {default}<strong>#fyziklani{$newestEvent->begin|date:'Y'}</strong>
-                            {/switch}
                             <a href="mailto:fyziklani@fykos.cz">fyziklani@fykos.cz</a>
+                            {default}<strong>#fyziklani{$newestEvent->begin|date:'Y'}</strong>
+                            <a href="mailto:fyziklani@fykos.org">fyziklani@fykos.org</a>
+                            {/switch}
                         </p>
                         <p>
                             {switch $language->value}

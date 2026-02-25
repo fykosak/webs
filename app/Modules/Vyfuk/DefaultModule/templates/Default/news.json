@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Přihlašování na Letní tábor",
+      "text": "Letní tábor Výfuku se bude konat v termínu 26. 7. – 8. 8. 2026 v Panenské Rozsíčce na Vysočině. V první fázi přihlašování, která začne 9. února ve 20:00, se bude moct přihlásit nejlepších 7 řešitelů z každé kategorie dle pořadí po 3. sérii. Tato fáze bude trvat dva týdny a místa, která se v první fázi přihlašování nenaplní, budou následně 23. února ve 20:00 nabídnuta prvním 50 řešitelům z každé kategorie, přičemž v této fázi již bude rozhodovat čas přihlášení.",
+      "date": "8. února 2026",
+      "link": ":Default:Events:tabor",
+      "link-text": "Stránka Letního tábora"
+    },
+    {
       "title": "Pořadí po 3. sérii",
       "text": "Na našem webu právě přistálo pořadí řešitelů 3. série. Také bylo zveřejněno celkové pořadí po 3. sérii, podle kterého se vybírá na letní tábor. Všem gratulujeme a těšíme se na vaše řešení 4. sady úloh, která nám můžete posílat do 23. února.",
       "date": "27. ledna 2026",
@@ -18,13 +25,6 @@
       "title": "Druhá vlna přihlašování na Zimní Víkendovku",
       "text": "Dnes ve 20:00 se spustí druhé kolo přihlašování na Zimní víkendovku. Přihlásit se bude moct každý, kdo se po druhé sérii umístil do 60. místa. Pokud jste se stále nepřihlásili a máte v plánu se zúčastnit, tak se co nejdříve přihlašte.",
       "date": "12. ledna 2026",
-      "link": "https://vyfuk.org/akce/detail/204",
-      "link-text": "Stránka Zimní víkendovky"
-    },
-    {
-      "title": "Zimní víkendovka",
-      "text": "Už pro vás připravujeme letošní Zimní víkendovku! Tento rok se bude konat od 30. ledna do 1. února na severu Čech ve skautské základně Mentaurov. Přihlašování bude spuštěno 5. 1. 2026 ve 20:00. Přihlásit se v systému FKSDB bude moct 30 nejúspěšnějších řešitelů z každé kategorie.",
-      "date": "3. ledna 2026",
       "link": "https://vyfuk.org/akce/detail/204",
       "link-text": "Stránka Zimní víkendovky"
     }
