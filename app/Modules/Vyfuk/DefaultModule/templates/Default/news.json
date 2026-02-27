@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Zadání 4. série",
+      "text": "4. série je za námi, ale už teď se můžete vrhnout do počítání úloh 5. série letošního ročníku. Čas na odesílání vašich řešení vyprší 6. dubna ve 20:00. A pokud nemáte náladu na řešení úloh, můžete se podívat na vzorová řešení 4. série. Už teď je najdete v záložce zadání.",
+      "date": "27. února 2026",
+      "link": ":Default:Problems:",
+      "link-text": "Zadání"
+    },
+    {
       "title": "Přihlašování na Letní tábor",
       "text": "Letní tábor Výfuku se bude konat v termínu 26. 7. – 8. 8. 2026 v Panenské Rozsíčce na Vysočině. V první fázi přihlašování, která začne 9. února ve 20:00, se bude moct přihlásit nejlepších 7 řešitelů z každé kategorie dle pořadí po 3. sérii. Tato fáze bude trvat dva týdny a místa, která se v první fázi přihlašování nenaplní, budou následně 23. února ve 20:00 nabídnuta prvním 50 řešitelům z každé kategorie, přičemž v této fázi již bude rozhodovat čas přihlášení.",
       "date": "8. února 2026",
@@ -20,13 +27,6 @@
       "date": "15. ledna 2026",
       "link": ":Default:Problems:default",
       "link-text": "Zadání"
-    },
-    {
-      "title": "Druhá vlna přihlašování na Zimní Víkendovku",
-      "text": "Dnes ve 20:00 se spustí druhé kolo přihlašování na Zimní víkendovku. Přihlásit se bude moct každý, kdo se po druhé sérii umístil do 60. místa. Pokud jste se stále nepřihlásili a máte v plánu se zúčastnit, tak se co nejdříve přihlašte.",
-      "date": "12. ledna 2026",
-      "link": "https://vyfuk.org/akce/detail/204",
-      "link-text": "Stránka Zimní víkendovky"
     }
   ]
 }
