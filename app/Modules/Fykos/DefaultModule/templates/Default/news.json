@@ -13,7 +13,7 @@
   "cs": [
     {
       "title": "Pozor, změna zadání!",
-      "text": "Zadání úlohy 4 (\"jen počkej, raketo!\") obsahovalo požadavky, které nemohou být v obecném případě splněny současně. Úlohu proto stačí vyřešit pro malé úhly ($\\theta \\ll 1$). Zadání na webu jsme již aktualizovali. Zároveň dáváme vědět, že prodlužujeme termín odevzdání úloh 4 a S (detektory ionizujícího záření) až do 8. 3. 2026, 23:59. Omlouváme se za komplikace a přejeme hodně štěstí při řešení!",
+      "text": "Zadání úlohy 4 (\"jen počkej, raketo!\") obsahovalo požadavky, které nemohou být v obecném případě splněny současně. Úlohu proto stačí vyřešit pro malé úhly ($\\theta \\ll 1$) a impuls hybnosti v obecném směru. Zadání na webu jsme již aktualizovali. Zároveň dáváme vědět, že prodlužujeme termín odevzdání úloh 4 a S (detektory ionizujícího záření) až do 8. 3. 2026, 23:59. Omlouváme se za komplikace a přejeme hodně štěstí při řešení!",
       "link": "https://fykos.cz/zadani/39/4",
       "link-text": "Zadání úloh",
       "color": "fykos"
@@ -29,7 +29,7 @@
   "en": [
     {
       "title": "Attention, assignment update!",
-      "text": "The statement of Problem 4 (\"just you wait, rocket!\") included requirements that cannot generally be satisfied at the same time. Therefore, it is sufficient to solve the problem for small angles ($\\theta \\ll 1$). We have already updated the assignment on the website. We also want to let you know that we are extending the submission deadline for Problems 4 and S (X-ray methods) until March 8, 2026, at 11:59 PM. We apologize for the inconvenience and wish you the best of luck with the solutions!",
+      "text": "The statement of Problem 4 (\"just you wait, rocket!\") included requirements that cannot generally be satisfied at the same time. Therefore, it is sufficient to solve the problem for small angles ($\\theta \\ll 1$) and a momentum impulse in a general direction. We have already updated the assignment on the website. We also want to let you know that we are extending the submission deadline for Problems 4 and S (X-ray methods) until March 8, 2026, at 11:59 PM. We apologize for the inconvenience and wish you the best of luck with the solutions!",
       "link": "https://fykos.org/problems/39/4",
       "link-text": "Problem Statement",
       "color": "fykos"
