@@ -1,0 +1,18 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  dummy:
+    name: "Dummy action"
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "hello world"
+  deploy:
+    name: "Test deploy"
+    needs: dummy
+    uses: fykosak/deployment/.github/workflows/deploy.yml@dev-curl-actions
+    with:
+      deploy-url: ${{ vars.DEPLOY_URL }}
+    secrets:
+      token: ${{ secrets.DEPLOY_TOKEN }}
