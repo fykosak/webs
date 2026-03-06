@@ -11,7 +11,7 @@ jobs:
   deploy:
     name: "Test deploy"
     needs: dummy
-    uses: fykosak/deployment/.github/workflows/deploy.yml@dev-curl-actions
+    uses: fykosak/actions/.github/workflows/deploy.yml@master
     with:
       deploy-url: ${{ vars.DEPLOY_URL }}
     secrets:
