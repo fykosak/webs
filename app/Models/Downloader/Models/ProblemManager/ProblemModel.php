@@ -45,11 +45,11 @@ class ProblemModel
             return null;
         }
 
-        if (!array_key_exists('origin', $this->metadata['html'])) {
+        if (!array_key_exists('name', $this->metadata['html'])) {
             return null;
         }
 
-        if (!array_key_exists($lang->value, $this->metadata['html']['origin'])) {
+        if (!array_key_exists($lang->value, $this->metadata['html']['name'])) {
             return null;
         }
 
