@@ -36,17 +36,45 @@ class ProblemModel
         return null;
     }
 
-    public function getOrigin(Language $lang)
+    /**
+     * Returns problem name by lang only if its html value exists.
+     */
+    public function getName(Language $lang): string | null
     {
-        if (!array_key_exists('origin', $this->metadata)) {
+        if (!array_key_exists('html', $this->metadata)) {
             return null;
         }
 
-        if (!array_key_exists($lang->value, $this->metadata['origin'])) {
+        if (!array_key_exists('origin', $this->metadata['html'])) {
             return null;
         }
 
-        return $this->metadata['origin'][$lang->value];
+        if (!array_key_exists($lang->value, $this->metadata['html']['origin'])) {
+            return null;
+        }
+
+        // By default, HTML from PM contains paragraphs, remove them
+        return str_replace(array("<p>","</p>"), "", $this->metadata['html']['name'][$lang->value]);
+    }
+
+    /**
+     * Returns problem origin by lang only if its html value exists.
+     */
+    public function getOrigin(Language $lang): string | null
+    {
+        if (!array_key_exists('html', $this->metadata)) {
+            return null;
+        }
+
+        if (!array_key_exists('origin', $this->metadata['html'])) {
+            return null;
+        }
+
+        if (!array_key_exists($lang->value, $this->metadata['html']['origin'])) {
+            return null;
+        }
+
+        return $this->metadata['html']['origin'][$lang->value];
     }
 
     public static function getTopicLabel(string $topic, Language $lang): string
