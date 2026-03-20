@@ -58,6 +58,35 @@ class AdminPresenter extends BasePresenter
 		$this->redirect(':Default:Admin:page');
 	}
 
+    public function renderMedia(): void
+    {
+        $this->template->events = array_reverse($this->eventService->getEvents([10, 11, 12, 18]));
+
+        $event = $this->eventId ? $this->eventService->getEvent($this->eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
+        $this->template->selectedEvent = $event;
+
+        $this->template->media = $this->getMedia($event->eventId);
+    }
+
+    public function getMedia($eventId): array
+    {
+        $mediaDir = $this->getMediaDir();
+        $media = [];
+
+        try {
+                $iterator = Finder::findFiles('*.jpg', '*.jpeg', '*.png', '*.JPG', '*.gif', '*.bmp', '*.webp')->in($mediaDir . '/photos/event/' . $eventId)->getIterator();
+        } catch (\Exception $e) {
+            return [];
+        }
+
+        foreach ($iterator as $file) {
+            $name = pathinfo($file->getPathname())['filename'];
+            $media[] = $name;
+        };
+
+        return $media;
+    }
+
     public function renderFiles(): void
     {
         $this->template->events = array_reverse($this->eventService->getEvents([10, 11, 12, 18]));

@@ -18,29 +18,31 @@
                 {/foreach}
             </ul>
         </div>
-        <h5>Upravit soubory:</h5>
-        <div class="file-editor-container">
-            {foreach $files as $file}
-                <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
-                    <form class="ms-2">
-                        {$file['name']}
-                    </form>
-                    <span class="d-flex ms-5">
-                        <a href="{$file['path']}" target="_blank">
-                            <button type="button" class="btn btn-outline-warning">
-                                <i class="fa-solid fa-eye"></i>
+        {if $files}
+            <h5>Upravit soubory:</h5>
+            <div class="file-editor-container">
+                {foreach $files as $file}
+                    <div class="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
+                        <form class="ms-2">
+                            {$file['name']}
+                        </form>
+                        <span class="d-flex ms-5">
+                            <a href="{$file['path']}" target="_blank">
+                                <button type="button" class="btn btn-outline-warning">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </a>
+                            <button type="button" class="btn btn-outline-primary mx-2">
+                                <i class="fa-solid fa-pen"></i>
                             </button>
-                        </a>
-                        <button type="button" class="btn btn-outline-primary mx-2">
-                            <i class="fa-solid fa-pen"></i>
-                        </button>
-                        <button type="button" class="btn btn-outline-danger">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </button>
-                    </span>
-                </div>
-            {/foreach}
-        </div>
+                            <button type="button" class="btn btn-outline-danger">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </span>
+                    </div>
+                {/foreach}
+            </div>
+        {/if}
         <h5>Nahrát nové soubory:</h5>
         <div class="file-upload-container">
             <div class="d-flex justify-content-start align-items-center border rounded my-2 border-dark-subtle file-upload">
