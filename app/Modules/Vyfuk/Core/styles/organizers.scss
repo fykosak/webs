@@ -23,14 +23,13 @@
             border-spacing: 0 5px;
         }
 
-
         .left-cell {
             .icon {
                 color: $primary-color;
+                vertical-align: middle;
             }
 
-            padding-right: 10px;
-            padding-top: 2px;
+            padding-right: 0.5rem;
         }
     }
 }

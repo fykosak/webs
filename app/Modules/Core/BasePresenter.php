@@ -100,6 +100,10 @@ abstract class BasePresenter extends Presenter
             throw new InvalidArgumentException('Presenter ' . $presenterName . ' must be an instance of BasePresenter');
         }
 
+        $params = array_merge([
+            'lang' => $this->lang // inherit lang from current presenter to keep translator on the same language
+        ], $params);
+
         $targetPresenter->setParent(null, $presenterName);
         $targetPresenter->loadState($params);
         $targetPresenter->changeAction($action);

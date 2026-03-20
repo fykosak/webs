@@ -31,8 +31,8 @@
                         {/switch}
                     {elseif $newestEvent->getRegistrationPeriod()->isOnGoing()}
                         {switch $language->value}
-                            {case 'cs'}<p>Registace pro rok 2025 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 20 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>
-                            {default}<p>Registration for the year 2025 is open!<br>Last year, almost 1200 of us gathered from more than 20 countries around the world. Come and enjoy this physics feast with us again this year!</p>
+                            {case 'cs'}<p>Registrace pro rok 2026 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 10 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>
+                            {default}<p>Registration for the year 2026 is open!<br>Last year, almost 1200 of us gathered from more than 10 countries around the world. Come and enjoy this physics feast with us again this year!</p>
                         {/switch}
                     {elseif $newestEvent->getRegistrationPeriod()->isBefore()}
                         {switch $language->value}
@@ -43,7 +43,7 @@
                 </div>
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>
-                    {* <a target="_blank" href="{$basePath}/download/2025/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>*}
+                    <a target="_blank" href="{$basePath}/download/2026/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>
                     {* <a n:href="Merch:" class="btn btn-light">Merch</a> *}
                     <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)" n:href="Registration:" class="btn btn-primary">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
@@ -58,7 +58,6 @@
         </div>
     </div>
 
-    {if false} {*Cerny pas po soutezi*}
     <div class="panel registration" style="background-color: black">
         <div class="inner-container">
             <div class="text">
@@ -70,22 +69,23 @@
             <div class="buttons">
                 {switch $language->value}
                     {case cs}
-                    <a class="btn btn-primary m-1" href="/2025/vysledky/">Výsledky soutěže</a>
-                    <a class="btn btn-primary m-1" href="/download/2025/reseni.pdf">Úlohy a řešení</a>
+                    <a class="btn btn-primary m-1" href="/2026/vysledky/">Výsledky soutěže</a>
+                    <a class="btn btn-primary m-1" href="/download/2026/reseni.pdf">Úlohy a řešení</a>
+                    <a class="btn btn-primary m-1" href="/2026/">Fotky ze soutěže</a>
                 {default}
-                    <a class="btn btn-primary m-1" href="/2025/results/">Competition results</a>
-                    <a class="btn btn-primary m-1" href="/download/2025/solutions.pdf">Problem statements and solutions</a>
+                    <a class="btn btn-primary m-1" href="/2026/results/">Competition results</a>
+                    <a class="btn btn-primary m-1" href="/download/2026/solutions.pdf">Problems and solutions</a>
+                    <a class="btn btn-primary m-1" href="/2026/">Photos from the competition</a>
                 {/switch}
             </div>
         </div>
     </div>
-    {/if}
 
     {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
         {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
     {/if}
 
-    <div class="fyziklani-banner">
+    {*<div class="fyziklani-banner">
         <div class="inner-container">
             <div class="text">
                  {switch $language->value}
@@ -98,7 +98,22 @@
                  {/switch}
             </div>
         </div>
-    </div>
+    </div>*}
+
+    {*<div class="fyziklani-banner">
+        <div class="inner-container">
+            <div class="text">
+                 {switch $language->value}
+                 {case 'cs'}
+                    Z důvodu několika posledních volných míst byl konec registrace o den prodloužen do
+                    <strong class="text-primary">{$newestEvent->registrationEnd->sub(new DateInterval('PT1M'))|date:'j. n. Y, H:i'}</strong>.
+                 {default}
+                    Since a limited number of places are still available, the registration deadline has been extended by one day until
+                    <strong class="text-primary">{$newestEvent->registrationEnd->sub(new DateInterval('PT1M'))|date:'j. n. Y, H:i'}</strong>.
+                 {/switch}
+            </div>
+        </div>
+    </div>*}
 
     <div class="panel color-auto">
         <section class="inner-container">
@@ -280,15 +295,15 @@
                 <h1>V Praze se můžete zdržet i déle</h1>
                 <p>Kromě soutěže se můžete těšit i na bohatý doprovodný program plný přednášek, exkurzí a mnoha dalšího. Podrobnosti naleznete <a href="https://fyziklani.cz/program">zde</a>.</p>
                 {*<p><strong>Od středy do neděle bude též probíhat městská hra, kterou si budete moci projít kdykoliv budete chít.</strong></p>*}
-                {*<p>Doprovodný program Fyziklání je volitelný, lze se zúčastnit i pouze samotné soutěže.</p>*}
+                <p>Doprovodný program Fyziklání je volitelný, lze se zúčastnit i pouze samotné soutěže.</p>
             {default}
                 <div class="subheader">Fyziklani Schedule</div>
                 {*<h1>The contest takes place on {$gamePhaseCalculator->getFKSDBEvent()->begin|date:'F j, Y'}.</h1>*}
                 <h1>You Can Stay in Prague a Little Longer</h1>
                 <p>Besides the competition, you can look forward to a rich accompanying program full of lectures, excursions and much more.
                 Details can be found <a href="https://fyziklani.org/schedule">here</a>.</p>
-                <p><strong>There is a City rally that you can go through your own, available from Wednesday to Sunday, whenever you want.</strong></p>
-                {*<p>The accompanying program is optional, it is possible to take part only in the competition itself.</p>*}
+                {*<p><strong>There is a City rally that you can go through your own, available from Wednesday to Sunday, whenever you want.</strong></p>*}
+                <p>The accompanying program is optional, it is possible to take part only in the competition itself.</p>
             {/switch}
 
             {include "../schedule.latte"}

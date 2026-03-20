@@ -15,6 +15,7 @@ parameters:
                     kontakt: contact
                     historie: history
                     organizatori: organizers
+                    byvaliOrganizatori: pastOrganizers
                     proSponzory: sponsors
                     vyfucteni: serial
                     pravidla: rules

@@ -42,16 +42,7 @@
             </div>
         </div>
         <h2>Dokumenty ke stažení</h2>
-        <a class="btn btn-primary" target="_blank" href="{$basePath}/download/bingo/bingo-table.pdf">
-            <i class="far fa-file-pdf"></i>
-            <span class="skip-3px"></span>
-            Tabulky s pravidly
-        </a>
-        <a class="btn btn-primary" target="_blank" href="{$basePath}/download/bingo/bingo.pdf">
-            <i class="far fa-file-pdf"></i>
-            <span class="skip-3px"></span>
-            Bingo k vytištění
-        </a>
+        {control pdfGallery:buttons "/download/bingo"}
     </section>
 </div>
 {/block}

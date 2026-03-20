@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9da7f10c46dcd14f1ec872c616c53ae",
+    "content-hash": "f82c9a97e3f74a8fb44b0140374bec64",
     "packages": [
         {
             "name": "68publishers/asset",
@@ -2157,24 +2157,24 @@
     "packages-dev": [
         {
             "name": "nette/tester",
-            "version": "v2.5.2",
+            "version": "v2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tester.git",
-                "reference": "328d7b64579cdbc82e0e01d92ea9c58b9cf0a327"
+                "reference": "0d416a3715ee7547f5e286aa7e65180f35467624"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tester/zipball/328d7b64579cdbc82e0e01d92ea9c58b9cf0a327",
-                "reference": "328d7b64579cdbc82e0e01d92ea9c58b9cf0a327",
+                "url": "https://api.github.com/repos/nette/tester/zipball/0d416a3715ee7547f5e286aa7e65180f35467624",
+                "reference": "0d416a3715ee7547f5e286aa7e65180f35467624",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0 <8.4"
+                "php": "8.0 - 8.5"
             },
             "require-dev": {
                 "ext-simplexml": "*",
-                "phpstan/phpstan": "^1.0"
+                "phpstan/phpstan": "^2.0@stable"
             },
             "bin": [
                 "src/tester"
@@ -2182,10 +2182,13 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
+                "psr-4": {
+                    "Tester\\": "src"
+                },
                 "classmap": [
                     "src/"
                 ]
@@ -2226,9 +2229,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/tester/issues",
-                "source": "https://github.com/nette/tester/tree/v2.5.2"
+                "source": "https://github.com/nette/tester/tree/v2.6.0"
             },
-            "time": "2024-01-08T11:41:26+00:00"
+            "time": "2026-01-22T08:39:16+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -2481,6 +2484,6 @@
         "ext-gettext": "*",
         "ext-json": "*"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }
