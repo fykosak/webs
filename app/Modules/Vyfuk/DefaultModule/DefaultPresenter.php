@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Vyfuk\DefaultModule;
 
 use App\Models\Downloader\Models\EventModel;
-use App\Models\Downloader\Models\ProblemManager\SeriesModel;
+use App\Models\Downloader\Models\ProblemManager\PMSeriesModel;
 use App\Models\Downloader\Services\ProblemService;
 use App\Models\Downloader\Services\EventService;
 use App\Models\Downloader\Services\FileService;
@@ -71,7 +71,7 @@ class DefaultPresenter extends BasePresenter
     }
 
 
-    public function solutionsReady(SeriesModel $series, $lang): bool
+    public function solutionsReady(PMSeriesModel $series, $lang): bool
     {
         foreach ($series->problems as $problem) {
             if ($this->fileService->getSolution('vyfuk', $series, $problem, $lang) !== null) {
@@ -82,7 +82,7 @@ class DefaultPresenter extends BasePresenter
         return false;
     }
 
-    public function resultsReady(SeriesModel $series): bool
+    public function resultsReady(PMSeriesModel $series): bool
     {
         $results = $this->downloader->download(new SeriesResultsRequest($this->getContestId(), $series->contestYear['year']));
 

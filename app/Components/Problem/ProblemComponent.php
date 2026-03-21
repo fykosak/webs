@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Components\Problem;
 
-use App\Models\Downloader\Models\ProblemManager\ProblemModel;
-use App\Models\Downloader\Models\ProblemManager\SeriesModel;
+use App\Models\Downloader\Models\Core\ProblemModel;
+use App\Models\Downloader\Models\Core\SeriesModel;
 use App\Models\Downloader\Services\FileService;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
@@ -24,7 +24,7 @@ class ProblemComponent extends DIComponent
         $this->fileService = $fileService;
     }
 
-    public function render(ProblemModel $problem)
+    public function render(ProblemModel $problem): void
     {
         $this->template->series = $this->series;
         $this->template->fileService = $this->fileService;

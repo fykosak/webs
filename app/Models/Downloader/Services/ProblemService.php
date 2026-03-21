@@ -6,7 +6,7 @@ namespace App\Models\Downloader\Services;
 
 use App\Models\Downloader\Downloaders\ProblemManagerDownloader;
 use App\Models\Downloader\Models\ProblemManager\ContestYearModel;
-use App\Models\Downloader\Models\ProblemManager\SeriesModel;
+use App\Models\Downloader\Models\ProblemManager\PMSeriesModel;
 use App\Models\Downloader\Requests\ProblemManager\ContestYearRequest;
 use App\Models\Downloader\Requests\ProblemManager\SeriesRequest;
 use DateTime;
@@ -33,11 +33,11 @@ final class ProblemService extends AbstractJSONService
      */
     public function getSeries(
         int $seriesId,
-    ): SeriesModel {
+    ): PMSeriesModel {
         return $this->getItem(
             new SeriesRequest($seriesId),
             [],
-            SeriesModel::class,
+            PMSeriesModel::class,
             false
         );
     }

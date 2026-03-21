@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
+use App\Components\ImagePreviewModal\ImagePreviewModalComponent;
+use App\Components\Problem\ProblemComponent;
 use App\Models\Downloader\Services\FileService;
 use App\Models\Downloader\Services\ProblemService;
+use Fykosak\FKSDBDownloaderCore\DownloaderException;
 use Nette\Caching\Cache;
 
 class ArchivePresenter extends BasePresenter
 {
     /** @persistent */
     public ?int $year = null;
+    /** @persistent */
+    public ?int $series = null;
 
     private readonly FileService $fileService;
     private readonly ProblemService $problemService;
@@ -63,5 +68,56 @@ class ArchivePresenter extends BasePresenter
         }
         krsort($res);
         return $res;
+    }
+
+    /**
+     * Shows the series list in case year or series is not specified in the URL.
+     * With a specified route enables to have subroute with year and series without the need of a submodule.
+     */
+    public function actionProblems(): void
+    {
+        if (is_null($this->year) || is_null($this->series)) {
+            $this->setView('series');
+        }
+    }
+
+    public function renderProblems(int $year, int $series): void
+    {
+        $seriesModel = $this->fileService->getArchiveSeriesList('fykos', $year)[$series];
+
+        $problems = [];
+        foreach ($seriesModel->problems as $problemNum) {
+            $problems[$problemNum] = $this->fileService->getArchiveProblem('fykos', $year, $series, $problemNum);
+        }
+
+        $this->template->series = $seriesModel;
+        $this->template->problems = $problems;
+    }
+
+    public function renderSeries(): void
+    {
+        $years = [];
+
+        for ($i = 39; $i > 0; $i--) {
+            try {
+                $years[$i] = $this->fileService->getArchiveSeriesList('fykos', $i);
+            } catch (DownloaderException $e) {
+            }
+        }
+        bdump($years);
+        $this->template->years = $years;
+    }
+
+    protected function createComponentProblem(): ProblemComponent
+    {
+        return new ProblemComponent(
+            $this->getContext(),
+            $this->fileService->getArchiveSeriesList('fykos', $this->year)[$this->series]
+        );
+    }
+
+    protected function createComponentImagePreviewModal(): ImagePreviewModalComponent
+    {
+        return new ImagePreviewModalComponent($this->getContext());
     }
 }

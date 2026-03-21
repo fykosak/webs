@@ -2,80 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Downloader\Models\ProblemManager;
+namespace App\Models\Downloader\Models\Core;
 
 use App\Models\Downloader\Services\ProblemService;
 use App\Modules\Core\Language;
 
-class ProblemModel
+abstract class ProblemModel
 {
-    public int $problemId;
-    public int $contestId;
-    public int $seriesId;
-    public int $seriesOrder;
-    public int $typeId;
-    public string $created;
-
-    /**
-     * @var string[] $topics
-     */
-    public array $topics;
-
-    public array $metadata;
-
-    public array $texts;
-
-    public function getText(string $type, Language $lang)
-    {
-        foreach ($this->texts as $text) {
-            if ($text['type'] === $type && $text['lang'] === $lang->value) {
-                return $text;
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * Returns problem name by lang only if its html value exists.
-     */
-    public function getName(Language $lang): string | null
-    {
-        if (!array_key_exists('html', $this->metadata)) {
-            return null;
-        }
-
-        if (!array_key_exists('name', $this->metadata['html'])) {
-            return null;
-        }
-
-        if (!array_key_exists($lang->value, $this->metadata['html']['name'])) {
-            return null;
-        }
-
-        // By default, HTML from PM contains paragraphs, remove them
-        return str_replace(array("<p>","</p>"), "", $this->metadata['html']['name'][$lang->value]);
-    }
-
-    /**
-     * Returns problem origin by lang only if its html value exists.
-     */
-    public function getOrigin(Language $lang): string | null
-    {
-        if (!array_key_exists('html', $this->metadata)) {
-            return null;
-        }
-
-        if (!array_key_exists('origin', $this->metadata['html'])) {
-            return null;
-        }
-
-        if (!array_key_exists($lang->value, $this->metadata['html']['origin'])) {
-            return null;
-        }
-
-        return $this->metadata['html']['origin'][$lang->value];
-    }
+    abstract public function getText(string $type, Language $lang): ?string;
+    abstract public function getName(Language $lang): ?string;
+    abstract public function getOrigin(Language $lang): ?string;
+    abstract public function getOrder(): int;
+    abstract public function getContestId(): int;
+    abstract public function getPoints(): ?int;
 
     public static function getTopicLabel(string $topic, Language $lang): string
     {
@@ -219,8 +158,8 @@ class ProblemModel
 
     public function getLabel(): string
     {
-        if ($this->contestId === ProblemService::FYKOS) {
-            switch ($this->seriesOrder) {
+        if ($this->getContestId() === ProblemService::FYKOS) {
+            switch ($this->getOrder()) {
                 case 6:
                     return 'P';
                 case 7:
@@ -228,8 +167,8 @@ class ProblemModel
                 case 8:
                     return 'S';
             }
-        } elseif ($this->contestId === ProblemService::VYFUK) {
-            switch ($this->seriesOrder) {
+        } elseif ($this->getContestId() === ProblemService::VYFUK) {
+            switch ($this->getOrder()) {
                 case 6:
                     return 'E';
                 case 7:
@@ -237,13 +176,13 @@ class ProblemModel
             }
         }
 
-        return (string)$this->seriesOrder;
+        return (string)$this->getOrder();
     }
 
     public function getIcon(): string
     {
-        if ($this->contestId === ProblemService::FYKOS) {
-            return match ($this->seriesOrder) {
+        if ($this->getContestId() === ProblemService::FYKOS) {
+            return match ($this->getOrder()) {
                 1, 2 => 'fas fa-smile',
                 3, 4, 5 => 'fas fa-brain',
                 6 => 'fas fa-lightbulb',
@@ -251,8 +190,8 @@ class ProblemModel
                 8 => 'fas fa-book',
                 default => ''
             };
-        } elseif ($this->contestId === ProblemService::VYFUK) {
-            return match ($this->seriesOrder) {
+        } elseif ($this->getContestId() === ProblemService::VYFUK) {
+            return match ($this->getOrder()) {
                 1 => 'fas fa-pencil',
                 2 => 'fas fa-calculator',
                 3 => 'fas fa-magnet',

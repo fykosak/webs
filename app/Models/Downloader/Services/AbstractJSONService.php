@@ -37,7 +37,7 @@ abstract class AbstractJSONService
         return $this->cache->load(
             $request->getCacheKey() . '_' . implode('.', $path),
             function (&$dependencies) use ($request, $path, $modelClassName, $asArray, $explicitExpiration) {
-                $dependencies[Cache::EXPIRE] = $explicitExpiration ?? $this->expiration;
+                $dependencies[Cache::Expire] = $explicitExpiration ?? $this->expiration;
                 $json = $this->downloader->download($request);
                 foreach ($path as $pathItem) {
                     $json = $json[$pathItem];

@@ -258,7 +258,7 @@ class RouterFactory
         $router
             ->withModule('Default')
             ->addRoute(
-                '//<domain>/<presenter problems|zadani>/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>',
+                '//<domain>/<presenter problems|zadani>/<year ([0-9]{1,2})>/<series ([0-9]{1})>',
                 [
                     'presenter' => 'Problems',
                     'action' => 'default',
@@ -269,10 +269,9 @@ class RouterFactory
         $router
             ->withModule('Default')
             ->addRoute(
-                '//<domain>/<presenter archive>[/<action>]/<year ([0-9]{1,2})(-.*)?>',
+                '//<domain>/<presenter archive|archiv>[/<action>]/<year ([0-9]{1,2})>[/<series ([0-9]{1,2})>]',
                 [
                     'presenter' => 'Archive',
-                    'action' => 'default',
                     null => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
@@ -336,7 +335,7 @@ class RouterFactory
         $router
             ->withModule('Default')
             ->addRoute(
-                '//<domain>/<presenter zadani>/<year ([0-9]{1,2})(-.*)?>/<series ([0-9]{1})(-.*)?>',
+                '//<domain>/<presenter zadani>/<year ([0-9]{1,2})>/<series ([0-9]{1})>',
                 [
                     'presenter' => 'Problems',
                     'action' => 'default',

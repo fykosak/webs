@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models\Downloader\Models\ProblemManager;
 
+use App\Models\Downloader\Models\Core\SeriesModel;
 use DateTime;
 
-class SeriesModel
+class PMSeriesModel extends SeriesModel
 {
     public int $seriesId;
     public int $contestYearId;
@@ -16,7 +17,7 @@ class SeriesModel
     public ?string $deadline;
 
     /**
-     * @var ProblemModel[]
+     * @var PMProblemModel[]
      */
     public array $problems;
 
@@ -55,5 +56,15 @@ class SeriesModel
             return new DateTime($this->deadline);
         }
         return null;
+    }
+
+    public function getLabel(): string
+    {
+        return $this->label;
+    }
+
+    public function getYear(): int
+    {
+        return $this->contestYear['year'];
     }
 }

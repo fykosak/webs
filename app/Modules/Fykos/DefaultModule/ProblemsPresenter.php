@@ -6,7 +6,7 @@ namespace App\Modules\Fykos\DefaultModule;
 
 use App\Components\ImagePreviewModal\ImagePreviewModalComponent;
 use App\Components\Problem\ProblemComponent;
-use App\Models\Downloader\Models\ProblemManager\SeriesModel;
+use App\Models\Downloader\Models\ProblemManager\PMSeriesModel;
 use App\Models\Downloader\Services\FileService;
 use App\Models\Downloader\Services\ProblemService;
 use Nette\Application\Attributes\Persistent;
@@ -28,7 +28,7 @@ class ProblemsPresenter extends BasePresenter
         $this->fileService = $fileService;
     }
 
-    private function getSeries(): SeriesModel
+    private function getSeries(): PMSeriesModel
     {
         $seriesId = $this->year && $this->series
             ? $this->problemService->getSeriesId(ProblemService::FYKOS, $this->year, (string)$this->series)
@@ -46,7 +46,10 @@ class ProblemsPresenter extends BasePresenter
         $this->template->series = $series;
         $this->template->problems = $series->problems;
 
-        $this->template->currentContestYear = $this->problemService->getYear(ProblemService::FYKOS, $series->contestYear['year']);
+        $this->template->currentContestYear = $this->problemService->getYear(
+            ProblemService::FYKOS,
+            $series->contestYear['year']
+        );
         $this->template->fileService = $this->fileService;
 
         $yearsAndSeries = $this->problemService->getYears(ProblemService::FYKOS);

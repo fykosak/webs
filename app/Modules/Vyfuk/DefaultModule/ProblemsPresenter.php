@@ -6,7 +6,7 @@ namespace App\Modules\Vyfuk\DefaultModule;
 
 use App\Components\ImagePreviewModal\ImagePreviewModalComponent;
 use App\Components\Problem\ProblemComponent;
-use App\Models\Downloader\Models\ProblemManager\SeriesModel;
+use App\Models\Downloader\Models\ProblemManager\PMSeriesModel;
 use App\Models\Downloader\Services\ProblemService;
 use App\Models\Downloader\Services\FileService;
 use Throwable;
@@ -28,7 +28,7 @@ class ProblemsPresenter extends BasePresenter
         $this->problemService = $problemService;
     }
 
-    private function getSeries(): SeriesModel
+    private function getSeries(): PMSeriesModel
     {
         $seriesId = $this->year && $this->series
             ? $this->problemService->getSeriesId(ProblemService::VYFUK, $this->year, (string)$this->series)
