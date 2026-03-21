@@ -9,6 +9,7 @@ use App\Components\Problem\ProblemComponent;
 use App\Models\Downloader\Services\FileService;
 use App\Models\Downloader\Services\ProblemService;
 use Fykosak\FKSDBDownloaderCore\DownloaderException;
+use Nette\Application\BadRequestException;
 use Nette\Caching\Cache;
 
 class ArchivePresenter extends BasePresenter
@@ -83,7 +84,16 @@ class ArchivePresenter extends BasePresenter
 
     public function renderProblems(int $year, int $series): void
     {
-        $seriesModel = $this->fileService->getArchiveSeriesList('fykos', $year)[$series];
+        try {
+            $seriesList = $this->fileService->getArchiveSeriesList('fykos', $year);
+        } catch (DownloaderException) {
+            throw new BadRequestException('Year does not exist', 404);
+        }
+        if (!array_key_exists($series, $seriesList)) {
+            throw new BadRequestException('Series does not exist', 404);
+        }
+
+        $seriesModel = $seriesList[$series];
 
         $problems = [];
         foreach ($seriesModel->problems as $problemNum) {
@@ -104,7 +114,6 @@ class ArchivePresenter extends BasePresenter
             } catch (DownloaderException $e) {
             }
         }
-        bdump($years);
         $this->template->years = $years;
     }
 
