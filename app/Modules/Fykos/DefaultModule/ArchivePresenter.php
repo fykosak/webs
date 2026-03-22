@@ -50,7 +50,7 @@ class ArchivePresenter extends BasePresenter
     private function getYearPartSerialLinks(string $lang): array
     {
         error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
-        $years = $this->problemService->getYears(problemService::FYKOS);
+        $years = $this->problemService->getYears(ProblemService::FYKOS);
         $res = [];
         foreach ($years as $year) {
             $links = [];

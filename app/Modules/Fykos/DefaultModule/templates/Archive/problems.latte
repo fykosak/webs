@@ -11,6 +11,14 @@
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
+        <div class="subheader">
+            {if $series->getDeadline()}
+                {switch $language->value}
+                    {case 'cs'}Deadline pro odeslání: <strong>{$series->getDeadline()|date:"j. n. Y, H:i"}</strong>.
+                    {default}Deadline for submission: <strong>{$series->getDeadline()|date:"M. j, Y, H:i"}, CET</strong>.
+                {/switch}
+            {/if}
+        </div>
         {switch $lang}
             {case 'cs'}<h1>Úlohy {$series->year}. ročníku, {$series->series}. série</h1>
             {default}<h1>Problems of year {$series->year}, series {$series->series}</h1>

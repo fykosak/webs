@@ -27,7 +27,7 @@
         {foreach $seriesList as $series}
             <a class="btn btn-outline-primary" n:href=":Problems year: $year, series: $series->series">
                 {switch $lang}
-                {case 'cs'}{$series->series} série
+                {case 'cs'}{$series->series}. série
                     {default}series {$series->series}
                 {/switch}
             </a>
