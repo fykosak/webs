@@ -7,8 +7,9 @@ namespace App\Modules\Vyfuk\DefaultModule;
 use App\Components\ImagePreviewModal\ImagePreviewModalComponent;
 use App\Components\Problem\ProblemComponent;
 use App\Models\Downloader\Models\ProblemManager\PMSeriesModel;
-use App\Models\Downloader\Services\ProblemService;
 use App\Models\Downloader\Services\FileService;
+use App\Models\Downloader\Services\ProblemService;
+use Nette\Application\Attributes\Persistent;
 use Throwable;
 
 class ProblemsPresenter extends BasePresenter
@@ -16,10 +17,10 @@ class ProblemsPresenter extends BasePresenter
     private readonly FileService $fileService;
     private readonly ProblemService $problemService;
 
-    /** @persistent */
+    #[Persistent]
     public ?int $year = null;
 
-    /** @persistent */
+    #[Persistent]
     public ?int $series = null;
 
     public function injectServiceProblem(FileService $fileService, ProblemService $problemService): void
@@ -45,8 +46,12 @@ class ProblemsPresenter extends BasePresenter
         $series = $this->getSeries();
         $this->template->series = $series;
         $this->template->problems = $series->problems;
+        bdump($series);
 
-        $this->template->currentContestYear = $this->problemService->getYear(ProblemService::VYFUK, $series->contestYear['year']);
+        $this->template->currentContestYear = $this->problemService->getYear(
+            ProblemService::VYFUK,
+            $series->contestYear['year']
+        );
         $this->template->fileService = $this->fileService;
 
         $yearsAndSeries = $this->problemService->getYears(ProblemService::VYFUK);

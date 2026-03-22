@@ -14,18 +14,19 @@ use Throwable;
 
 class ProblemsPresenter extends BasePresenter
 {
-    private readonly ProblemService $problemService;
     private readonly FileService $fileService;
+    private readonly ProblemService $problemService;
 
     #[Persistent]
     public ?int $year = null;
+
     #[Persistent]
     public ?int $series = null;
 
-    public function injectServiceProblem(ProblemService $problemService, FileService $fileService): void
+    public function injectServiceProblem(FileService $fileService, ProblemService $problemService): void
     {
-        $this->problemService = $problemService;
         $this->fileService = $fileService;
+        $this->problemService = $problemService;
     }
 
     private function getSeries(): PMSeriesModel
@@ -45,6 +46,7 @@ class ProblemsPresenter extends BasePresenter
         $series = $this->getSeries();
         $this->template->series = $series;
         $this->template->problems = $series->problems;
+        bdump($series);
 
         $this->template->currentContestYear = $this->problemService->getYear(
             ProblemService::FYKOS,

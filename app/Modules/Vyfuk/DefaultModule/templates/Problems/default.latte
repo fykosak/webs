@@ -30,7 +30,7 @@
                 <div class="dropdown series-selector">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        {$series->contestYear['year']}. ročník
+                        {$series->getYear()}. ročník
                     </button>
                     <div class="dropdown-menu dropdown-menu-end p-0">
                         {foreach $yearsAndSeries as $contestYear}
@@ -64,25 +64,24 @@
         <div class="tasks-container {if !$serialPath || !$batchPath}tasks-margin{/if}">
             {if $serialPath}
             <a class="btn btn-primary mt-2 mr-4" href="{$serialPath}">
-                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text Výfučtení {$series->label}.
-                série
+                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text Výfučtení {$series->label}. série
             </a>
             {/if}
             {if $tasksPath}
             <a class="btn btn-primary mt-2 mr-4" href="{$tasksPath}">
-                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Zadání {$series->series}. série
+                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Zadání {$series->label}. série
             </a>
             {/if}
-            {if ($series->series === 1 || $series->series === 8 || new Datetime() > $problemService->getSeries('vyfuk', $series->year, $series->series - 1)->getDeadline()) && $batchPath}
+            {if $batchPath}
             <a class="btn btn-primary mt-2 mr-4" href="{$batchPath}">
                 <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka
-                {switch $series->series}
-                    {case 1}
+                {switch $series->getLabel()}
+                    {case '1'}
                         1. série
-                    {case 8}
+                    {case '8'}
                         1. prázdninové série
                     {default}
-                        s řešeními {$series->series > 8 ? $series->series - 8 . '. prázdninové' : $series->series - 1}. série
+                        s řešeními {(int)$series->label > 8 ? (int)$series->label . '. prázdninové' : (int)$series->label - 1}. série
                 {/switch}
             </a>
             {/if}
