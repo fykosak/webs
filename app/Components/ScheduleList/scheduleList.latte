@@ -10,7 +10,6 @@
         <section class="inner-container">
             <div class="subheader">
                 {switch $language->value}
-                    {dump $day}
                     {case 'cs'}{$scheduleDay->format('j. n. Y')}
                     {default}{$scheduleDay->format('F j, Y')}
                 {/switch}
@@ -24,28 +23,35 @@
                 <h2>{$group['name'][$language->value]}</h2>
 
                 {foreach $group['items'] as $item}
-                    {if !in_array($item['itemId'], $scheduleItemIdsToSkip)}
-                        {continueIf $group['name'][$language->value] == $item['name'][$language->value] &&
-                            !isset($item['longDescription'][$language->value])}
-                        <div id="{$item['itemId']}" class="rules">
-                            {if !($group['name'][$language->value] == $item['name'][$language->value])}
-                                <div class="title">
-                                    {$item['name'][$language->value]}
+                    {continueIf !$item['showOnWeb']}
+                    {continueIf $group['name'][$language->value] == $item['name'][$language->value] &&
+                        !isset($item['longDescription'][$language->value])}
+                    <div id="{$item['itemId']}" class="rules">
+                        {if !($group['name'][$language->value] == $item['name'][$language->value])}
+                            <div class="title">
+                                {$item['name'][$language->value]}
+                            </div>
+                        {/if}
+                        {if !is_null($item['lang'])}
+                            <div class="badge bg-primary mb-2">
+                                {switch $language->value}
+                                    {case 'cs'} Program v {switch $item['lang']}{case 'cs'}češtině{default}angličtině{/switch}
+                                    {case 'en'} Program in {switch $item['lang']}{case 'cs'}Czech{default}English{/switch}
+                                {/switch}
+                            </div>
+                        {/if}
+                        <div class="description">
+                            {if $item['itemId'] != $competitionDetailItemId}
+                                {$item['longDescription'][$language->value]??$item['description'][$lang]|noescape}
+                            {else}
+                                <div class="timeline timeline-wider">
+                                    <div>
+                                        {include '../../Modules/Fof/DefaultModule/templates/competition_schedule.latte'}
+                                    </div>
                                 </div>
                             {/if}
-                            <div class="description">
-                                {if $item['itemId'] != $competitionDetailItemId}
-                                    {$item['longDescription'][$language->value]??$item['description'][$lang]|noescape}
-                                {else}
-                                    <div class="timeline timeline-wider">
-                                        <div>
-                                            {include '../../Modules/Fof/DefaultModule/templates/competition_schedule.latte'}
-                                        </div>
-                                    </div>
-                                {/if}
-                            </div>
                         </div>
-                    {/if}
+                    </div>
                 {/foreach}
             {/foreach}
         </section>

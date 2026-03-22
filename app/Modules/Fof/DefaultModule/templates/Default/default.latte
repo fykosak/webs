@@ -31,7 +31,7 @@
                         {/switch}
                     {elseif $newestEvent->getRegistrationPeriod()->isOnGoing()}
                         {switch $language->value}
-                            {case 'cs'}<p>Registace pro rok 2026 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 10 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>
+                            {case 'cs'}<p>Registrace pro rok 2026 je otevřena!<br>Loni se nás sešlo téměř 1200 z více než 10 zemí světa; pojďte si s námi užít tento svátek fyziky i letos!</p>
                             {default}<p>Registration for the year 2026 is open!<br>Last year, almost 1200 of us gathered from more than 10 countries around the world. Come and enjoy this physics feast with us again this year!</p>
                         {/switch}
                     {elseif $newestEvent->getRegistrationPeriod()->isBefore()}
@@ -43,7 +43,7 @@
                 </div>
                 <div class="buttons">
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>
-                    {* <a target="_blank" href="{$basePath}/download/2025/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>*}
+                    <a target="_blank" href="{$basePath}/download/2026/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>
                     {* <a n:href="Merch:" class="btn btn-light">Merch</a> *}
                     <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)" n:href="Registration:" class="btn btn-primary">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
@@ -58,7 +58,6 @@
         </div>
     </div>
 
-    {if false} {*Cerny pas po soutezi*}
     <div class="panel registration" style="background-color: black">
         <div class="inner-container">
             <div class="text">
@@ -70,16 +69,17 @@
             <div class="buttons">
                 {switch $language->value}
                     {case cs}
-                    <a class="btn btn-primary m-1" href="/2025/vysledky/">Výsledky soutěže</a>
-                    <a class="btn btn-primary m-1" href="/download/2025/reseni.pdf">Úlohy a řešení</a>
+                    <a class="btn btn-primary m-1" href="/2026/vysledky/">Výsledky soutěže</a>
+                    <a class="btn btn-primary m-1" href="/download/2026/reseni.pdf">Úlohy a řešení</a>
+                    <a class="btn btn-primary m-1" href="/2026/">Fotky ze soutěže</a>
                 {default}
-                    <a class="btn btn-primary m-1" href="/2025/results/">Competition results</a>
-                    <a class="btn btn-primary m-1" href="/download/2025/solutions.pdf">Problem statements and solutions</a>
+                    <a class="btn btn-primary m-1" href="/2026/results/">Competition results</a>
+                    <a class="btn btn-primary m-1" href="/download/2026/solutions.pdf">Problems and solutions</a>
+                    <a class="btn btn-primary m-1" href="/2026/">Photos from the competition</a>
                 {/switch}
             </div>
         </div>
     </div>
-    {/if}
 
     {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
         {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
@@ -95,6 +95,21 @@
                  {default}
                     Can't wait for Fyziklani? Shorten your wait by participating in its online version
                     – <b><a href="https://physicsbrawl.org/">Physics Brawl Online</a></b>!
+                 {/switch}
+            </div>
+        </div>
+    </div>*}
+
+    {*<div class="fyziklani-banner">
+        <div class="inner-container">
+            <div class="text">
+                 {switch $language->value}
+                 {case 'cs'}
+                    Z důvodu několika posledních volných míst byl konec registrace o den prodloužen do
+                    <strong class="text-primary">{$newestEvent->registrationEnd->sub(new DateInterval('PT1M'))|date:'j. n. Y, H:i'}</strong>.
+                 {default}
+                    Since a limited number of places are still available, the registration deadline has been extended by one day until
+                    <strong class="text-primary">{$newestEvent->registrationEnd->sub(new DateInterval('PT1M'))|date:'j. n. Y, H:i'}</strong>.
                  {/switch}
             </div>
         </div>

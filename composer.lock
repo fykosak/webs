@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c2ffa07d05b8fb4ace9a2e9fbb5f88f",
+    "content-hash": "f82c9a97e3f74a8fb44b0140374bec64",
     "packages": [
         {
             "name": "68publishers/asset",
@@ -1888,16 +1888,16 @@
     "packages-dev": [
         {
             "name": "nette/tester",
-            "version": "v2.5.6",
+            "version": "v2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tester.git",
-                "reference": "f7328f743d06df233bbc9b68da9f4941f73ad661"
+                "reference": "0d416a3715ee7547f5e286aa7e65180f35467624"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tester/zipball/f7328f743d06df233bbc9b68da9f4941f73ad661",
-                "reference": "f7328f743d06df233bbc9b68da9f4941f73ad661",
+                "url": "https://api.github.com/repos/nette/tester/zipball/0d416a3715ee7547f5e286aa7e65180f35467624",
+                "reference": "0d416a3715ee7547f5e286aa7e65180f35467624",
                 "shasum": ""
             },
             "require": {
@@ -1905,7 +1905,7 @@
             },
             "require-dev": {
                 "ext-simplexml": "*",
-                "phpstan/phpstan-nette": "^2.0@stable"
+                "phpstan/phpstan": "^2.0@stable"
             },
             "bin": [
                 "src/tester"
@@ -1913,7 +1913,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -1960,9 +1960,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/tester/issues",
-                "source": "https://github.com/nette/tester/tree/v2.5.6"
+                "source": "https://github.com/nette/tester/tree/v2.6.0"
             },
-            "time": "2025-08-07T00:28:58+00:00"
+            "time": "2026-01-22T08:39:16+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -2214,6 +2214,6 @@
         "ext-gettext": "*",
         "ext-json": "*"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }

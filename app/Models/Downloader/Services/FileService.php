@@ -65,6 +65,12 @@ final class FileService extends AbstractJSONService
         return $this->getMedia($contest, $year, $path);
     }
 
+    public function getTasks(string $contest, SeriesModel $series, string $lang): ?string
+    {
+        $path = 'problems' . $series->getLabel() . '.pdf';
+        return $this->getMedia($contest, $series->getYear(), $path);
+    }
+
     public function getArchiveProblem(string $contest, int $year, int $series, int $number): ArchiveProblemModel
     {
         return $this->getItem(

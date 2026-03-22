@@ -315,6 +315,31 @@ def getSchedule(id):
 def getTeams(id):
     return jsonify( generateTeams())
 
+@app.route("/events/<id>/organizers")
+def getEventOrganizers(id):
+    return [{
+        "person": {
+            "name": "John Doe",
+            "otherName": "John",
+            "familyName": "Doe",
+            "personId": 42,
+            "email": "john@doe.com"
+        },
+        "id": 69,
+        "note": None,
+        "order": 10,
+        "role": {
+            "cs": "Vedení",
+            "en": "Management"
+        },
+        "carreer": {
+            "cs": "Vede",
+            "en": "Manages"
+        },
+        "showOnWeb": True
+    }]
+
+
 
 @app.route("/GetEvent")
 def getEvent():

@@ -20,16 +20,16 @@ class ScheduleListComponent extends DIComponent
         parent::__construct($container);
     }
 
-    public function inject(fksdbDownloader $fksdbDownloader): void
+    public function inject(FKSDBDownloader $fksdbDownloader): void
     {
         $this->fksdbDownloader = $fksdbDownloader;
     }
 
     /**
-     * @param int[] $scheduleItemIdsToSkip Ids of Schedule items, that should not be rendered
      * @param int $competitionDetailItemId Schedule item id for competition to render timeline
+     * @throws \Throwable
      */
-    public function render(array $scheduleItemIdsToSkip, int $competitionDetailItemId)
+    public function render(int $competitionDetailItemId): void
     {
         $scheduleGroups = $this->fksdbDownloader->download(
             new ScheduleRequest(
@@ -41,6 +41,10 @@ class ScheduleListComponent extends DIComponent
 
         $scheduleGroupsByDay = [];
         foreach ($scheduleGroups as $group) {
+            if (!$group['showOnWeb']) {
+                continue;
+            }
+
             $day = (new DateTime($group['start']))->format('Y-m-d');
             if (!key_exists($day, $scheduleGroupsByDay)) {
                 $scheduleGroupsByDay[$day] = [];
@@ -49,7 +53,6 @@ class ScheduleListComponent extends DIComponent
         }
 
         $this->template->scheduleGroupsByDay = $scheduleGroupsByDay;
-        $this->template->scheduleItemIdsToSkip = $scheduleItemIdsToSkip;
         $this->template->competitionDetailItemId = $competitionDetailItemId;
         $this->template->language = $this->translator->lang;
 

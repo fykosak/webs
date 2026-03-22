@@ -1,32 +1,32 @@
 {
   "cs": [
     {
-      "title": "Zadání 3. série zveřejněno",
-      "text": "Odevzdávání 2. série je za námi, ale Výfuk jede dál! Na výsledky a opravená řešení se můžete těšit za dva týdny, vzorová řešení druhé série a zadání té třetí ale najdete na webu už teď. Deadline na odeslání řešení je 12. ledna 2026. Přejeme hodně štěstí.",
-      "date": "26. listopadu 2025",
-      "link": ":Default:Problems:default",
-      "link-text": "Zadání"
+      "title": "Jarní setkání",
+      "text": "Už pro vás připravujeme letošní jarní setkání. To proběhne od <strong>22. do 24. května</strong> v Pardubicích, a to v prostorách Střední školy informatiky a ekonomie Delta. Tu naleznete na adrese Ke Kamenci 151, 530 03, Pardubice.<p>Přihlašování na akci bude spuštěno <strong>12. dubna 20:00</strong> a otevřené bude až do 8. května 20:00.</p>",
+      "date": "18. března 2026",
+      "link": ":Default:Events:setkani",
+      "link-text": "Stránka setkání"
     },
     {
-      "title": "Nápověda k úloze k Výfučtení",
-      "text": "K úloze k Výfučtení nově přibyla nápověda – nezapomeňte se na ní podívat a případně ji zohlednit při řešení úlohy.",
-      "date": "16. listopadu 2025",
-      "link": ":Default:Problems:default",
-      "link-text": "Zadání"
-    },
-    {
-      "title": "Výfuk v České televizi",
-      "text": "Na Podzimní setkání nám letos přijela natáčet Česká televize. Reportáž byla následně odvysílána 11. listopadu v rámci Zpráviček. Můžete si při jejím sledování připomenout, jak letos setkání probíhalo a zkrátit si čekání na výběr nejlepších fotografií, který brzy zveřejníme na stránce setkání.",
-      "date": "15. listopadu 2025",
-      "link": "https://www.ceskatelevize.cz/porady/10265744641-zpravicky/225411000161111/",
-      "link-text": "Reportáž Zpráviček"
-    },
-    {
-      "title": "Pořadí po 1. sérii",
-      "text": "Zveřejnili jsme pořadí po 1. sérii 15. ročníku. V jednotlivých kategoriích zvítězili Lukáš Kopecký, Lucie Jurásková, Richard Menšík, Daniel Foreth, Jan František Lukáš a Patrik Pavlík. Všem děkujeme za účast a těšíme se na vaše řešení 2. série, která má termín odeslání 24. listopadu",
-      "date": "30. října 2025",
+      "title": "Pořadí po 4. sérii",
+      "text": "Po dvou týdnech usilovné práce máme opravená všechna vámi zaslaná řešení 4. série Výfuku. Už teď se můžete podívat na vzorová řešení a svá opravená řešení. Pokud vás zajímá, jak si vedete v porovnání s ostatními, průběžné pořadí najdete na webu nebo v brožurce 5. série.",
+      "date": "10. března 2026",
       "link": ":Default:Results:default",
       "link-text": "Pořadí"
+    },
+    {
+      "title": "Zadání 5. série",
+      "text": "Čtvrtá série je za námi, ale už teď se můžete vrhnout do počítání úloh 5. série letošního ročníku. Čas na odesílání vašich řešení vyprší 6. dubna ve 20:00. A pokud nemáte náladu na řešení úloh, můžete se podívat na vzorová řešení 4. série. Už teď je najdete v záložce zadání.",
+      "date": "27. února 2026",
+      "link": ":Default:Problems:",
+      "link-text": "Zadání"
+    },
+    {
+      "title": "Přihlašování na Letní tábor",
+      "text": "Letní tábor Výfuku se bude konat v termínu 26. 7. – 8. 8. 2026 v Panenské Rozsíčce na Vysočině. V první fázi přihlašování, která začne 9. února ve 20:00, se bude moct přihlásit nejlepších 7 řešitelů z každé kategorie dle pořadí po 3. sérii. Tato fáze bude trvat dva týdny a místa, která se v první fázi přihlašování nenaplní, budou následně 23. února ve 20:00 nabídnuta prvním 50 řešitelům z každé kategorie, přičemž v této fázi již bude rozhodovat čas přihlášení.",
+      "date": "8. února 2026",
+      "link": ":Default:Events:tabor",
+      "link-text": "Stránka Letního tábora"
     }
   ]
 }

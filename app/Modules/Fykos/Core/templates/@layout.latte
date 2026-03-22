@@ -70,9 +70,11 @@
     {*<div class="alert alert-warning" role="alert" style="margin: 0">
     {switch $language->value}
         {case cs}
-        <strong>Termín odevzdání úlohy S byl prodloužen na 23. listopadu</strong> z důvodu pozdního zveřejnění anglické verze.
+            U úlohy 4 ze 4. série bylo znovu upraveno zadání. Úlohu řešte pro malé úhly ($\theta \ll 1$) a impuls hybnosti v obecném směru.
+            <strong>Termín odevzdání úloh 4 a S (ze 4. série) zůstává 8. 3. 2026, 23:59</strong>.
         {default}
-        <strong>The deadline of task S has been extended to November 12</strong> because of the delayed release of english version.
+            The statement of Problem 4 of Series 4 has been updated once again. Please solve the problem for small angles ($\theta \ll 1$)
+            and a momentum impulse in a general direction. <strong>The submission deadline for Problems 4 and S (of Series 4) remains March 8, 2026, 23:59</strong>.
         {/switch}
     </div>*}
 
@@ -133,8 +135,7 @@
                         Partner{/switch}</div>
                     <div class="category-sponsors">
                         <a href="https://www.cez.cz/" style="text-align: center">
-                            {switch $language->value}{case cs}<img src="{$basePath}/images/logos/CEZ_Skupina_Logo_CZ.png" alt="ČEZ logo" style="max-width: 10rem">
-                          	{default}<img src="{$basePath}/images/logos/CEZ_Group_Logo_EN.png" alt="CEZ group logo" style="max-width: 10rem">{/switch}
+                            <img src="{$basePath}/images/logos/cez.svg" alt="ČEZ logo" style="max-width: 10rem">
                         </a>
                     </div>
                 </div>
@@ -154,6 +155,9 @@
                         </a>
                         <a href="https://www.nfneuron.cz/" style="text-align: center">
                             <img src="{$basePath}/images/logos/neuron.svg" alt="Neuron logo" style="max-width: 10rem">
+                        </a>
+                        <a href="https://aerospace.czechoslovakgroup.com/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/CSG_logo_short_RGB.svg" alt="CSG Aerospace logo" style="max-height: 5rem; max-width: 10rem">
                         </a>
                     </div>
                 </div>

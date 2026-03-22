@@ -34,6 +34,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
                 new NavItem(new PageTitle('Co je Výfuk?'), ':Default:About:default'),
                 new NavItem(new PageTitle('Organizátoři'), ':Default:About:organizers'),
                 new NavItem(new PageTitle('Historie'), ':Default:About:history'),
+                new NavItem(new PageTitle('Síň slávy'), ':Default:About:pastOrganizers'),
                 new NavItem(new PageTitle('Podpořte nás'), ':Default:About:sponsors'),
                 new NavItem(new PageTitle('Kontakt'), ':Default:About:contact'),
             ],
@@ -48,6 +49,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
                 new NavItem(new PageTitle('Pravidla'), ':Default:HowToSolve:rules'),
                 new NavItem(new PageTitle('Jak psát řešení'), ':Default:HowToSolve:solutions'),
                 new NavItem(new PageTitle('Jak psát experimenty'), ':Default:HowToSolve:experiments'),
+                new NavItem(new PageTitle('Výfučí bingo'), ':Default:Bingo:'),
             ],
         );
 
