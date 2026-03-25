@@ -54,7 +54,7 @@ class PMSeriesModel extends SeriesModel
     public function getDeadline(): ?DateTime
     {
         if ($this->deadline) {
-            return new DateTime($this->deadline)->setTimezone(new DateTimeZone('Europe/Prague'));
+            return (new DateTime($this->deadline))->setTimezone(new DateTimeZone('Europe/Prague'));
         }
         return null;
     }

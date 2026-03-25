@@ -46,7 +46,6 @@ class ProblemsPresenter extends BasePresenter
         $series = $this->getSeries();
         $this->template->series = $series;
         $this->template->problems = $series->problems;
-        bdump($series);
 
         $this->template->currentContestYear = $this->problemService->getYear(
             ProblemService::VYFUK,
