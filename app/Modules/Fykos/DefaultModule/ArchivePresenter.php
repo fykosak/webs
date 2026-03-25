@@ -108,7 +108,7 @@ class ArchivePresenter extends BasePresenter
     {
         $years = [];
 
-        for ($i = 39; $i > 0; $i--) {
+        for ($i = 24; $i > 0; $i--) {
             try {
                 $years[$i] = $this->fileService->getArchiveSeriesList('fykos', $i);
             } catch (DownloaderException $e) {
