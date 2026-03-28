@@ -34,7 +34,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end p-0">
                         {foreach $yearsAndSeries as $contestYear}
-                        <ul class="list-group list-group-horizontal-sm">
+                        <ul class="list-group list-group-horizontal-custom">
                             <li class="list-group-item list-group-item-secondary text-nowrap">
                                 {$contestYear->year}. ročník
                             </li>
@@ -47,9 +47,9 @@
                     </div>
                 </div>
                 {if sizeof($currentContestYear->series) > 1}
-                <ul class="list-group list-group-horizontal-sm mt-2">
+                <ul class="list-group list-group-horizontal-custom mt-2">
                     {foreach $currentContestYear->series as $seriesOption}
-                        <a n:class="'list-group-item list-group-item-action', $series->label === $seriesOption->label ? list-group-item-primary"
+                        <a n:class="'list-group-item list-group-item-action text-center', $series->label === $seriesOption->label ? list-group-item-primary"
                            href="{plink 'this' 'year'=>$currentContestYear->year, 'series'=>(int)$seriesOption->label}">{(int)$seriesOption->label > 6 ? "P" . (int)$seriesOption->label - 7 : (int)$seriesOption->label}</a>
                     {/foreach}
                 </ul>
@@ -61,29 +61,29 @@
         {var $tasksPath = $fileService->getTasks('vyfuk', $series, $lang)}
         {var $batchPath = $fileService->getBatch('vyfuk', $series, $lang)}
 
-        <div class="tasks-container {if !$serialPath || !$batchPath}tasks-margin{/if}">
+        <div class="tasks-container {if !$serialPath || !$batchPath || !$tasksPath}tasks-margin{/if}">
             {if $serialPath}
-            <a class="btn btn-primary mt-2 mr-4" href="{$serialPath}">
-                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text Výfučtení {$series->label}. série
-            </a>
+                <a class="btn btn-primary mt-2 mr-4" href="{$serialPath}">
+                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text Výfučtení {$series->label}. série
+                </a>
             {/if}
             {if $tasksPath}
-            <a class="btn btn-primary mt-2 mr-4" href="{$tasksPath}">
-                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Zadání {$series->label}. série
-            </a>
+                <a class="btn btn-primary mt-2 mr-4" href="{$tasksPath}">
+                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Zadání {$series->label}. série
+                </a>
             {/if}
             {if $batchPath}
-            <a class="btn btn-primary mt-2 mr-4" href="{$batchPath}">
-                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka
-                {switch $series->getLabel()}
-                    {case '1'}
-                        1. série
-                    {case '8'}
-                        1. prázdninové série
-                    {default}
-                        s řešeními {(int)$series->label > 8 ? (int)$series->label . '. prázdninové' : (int)$series->label - 1}. série
-                {/switch}
-            </a>
+                <a class="btn btn-primary mt-2 mr-4" href="{$batchPath}">
+                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka
+                    {switch $series->getLabel()}
+                        {case '1'}
+                            1. série
+                        {case '8'}
+                            1. prázdninové série
+                        {default}
+                            s řešeními {(int)$series->label > 8 ? (int)$series->label . '. prázdninové' : (int)$series->label - 1}. série
+                    {/switch}
+                </a>
             {/if}
             <div class="row mt-4">
                 {foreach $problems as $problem}
