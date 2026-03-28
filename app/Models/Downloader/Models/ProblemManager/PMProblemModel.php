@@ -91,4 +91,9 @@ class PMProblemModel extends ProblemModel
     {
         return $this->metadata['points'];
     }
+
+    public function getTypeId(): int
+    {
+        return $this->typeId;
+    }
 }

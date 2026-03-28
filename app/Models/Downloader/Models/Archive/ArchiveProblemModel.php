@@ -67,7 +67,6 @@ class ArchiveProblemModel extends ProblemModel
         return null;
     }
 
-
     public function getOrder(): int
     {
         return $this->number;
@@ -85,5 +84,21 @@ class ArchiveProblemModel extends ProblemModel
     public function getPoints(): ?int
     {
         return $this->points;
+    }
+
+    public function getTypeId(): ?int
+    {
+        if ($this->contest === 'fykos') {
+            return match ($this->number) {
+                1, 2 => 1,
+                3, 4, 5 => 2,
+                6 => 3,
+                7 => 4,
+                8 => 5,
+                default => null
+            };
+        }
+
+        return null;
     }
 }

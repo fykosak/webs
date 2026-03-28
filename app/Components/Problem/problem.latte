@@ -6,7 +6,7 @@
 {block content}
 <div class="col-md-12">
     <div class="card mb-3 problem-card">
-        <div class="card-header problem-header problem-header-{$problem->getOrder()}">
+        <div class="card-header problem-header problem-header-{$problem->getTypeId ? $problem->getTypeId : 2}">
             <div style="display: flex; justify-content: space-between;">
                 <h4><i class={$problem->getIcon()}></i><span class="skip-3px"></span>
                     {if $problem->getContestId() == 4}

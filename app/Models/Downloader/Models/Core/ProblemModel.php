@@ -15,6 +15,7 @@ abstract class ProblemModel
     abstract public function getOrder(): int;
     abstract public function getContestId(): int;
     abstract public function getPoints(): ?int;
+    abstract public function getTypeId(): ?int;
 
     public static function getTopicLabel(string $topic, Language $lang): string
     {
@@ -159,21 +160,18 @@ abstract class ProblemModel
     public function getLabel(): string
     {
         if ($this->getContestId() === ProblemService::FYKOS) {
-            switch ($this->getOrder()) {
-                case 6:
-                    return 'P';
-                case 7:
-                    return 'E';
-                case 8:
-                    return 'S';
-            }
+            return match ($this->getTypeId()) {
+                3 => 'P',
+                4 => 'E',
+                5 => 'S',
+                default => (string)$this->getOrder()
+            };
         } elseif ($this->getContestId() === ProblemService::VYFUK) {
-            switch ($this->getOrder()) {
-                case 6:
-                    return 'E';
-                case 7:
-                    return 'V';
-            }
+            return match ($this->getTypeId()) {
+                12 => 'E',
+                13 => 'V',
+                default => (string)$this->getOrder()
+            };
         }
 
         return (string)$this->getOrder();
@@ -182,23 +180,24 @@ abstract class ProblemModel
     public function getIcon(): string
     {
         if ($this->getContestId() === ProblemService::FYKOS) {
-            return match ($this->getOrder()) {
-                1, 2 => 'fas fa-smile',
-                3, 4, 5 => 'fas fa-brain',
-                6 => 'fas fa-lightbulb',
-                7 => 'fas fa-flask',
-                8 => 'fas fa-book',
+            return match ($this->getTypeId()) {
+                1 => 'fas fa-smile', /*easy*/
+                2 => 'fas fa-brain', /*hard*/
+                3 => 'fas fa-lightbulb', /*open*/
+                4 => 'fas fa-flask', /*experimental*/
+                5 => 'fas fa-book', /*serial*/
                 default => ''
             };
         } elseif ($this->getContestId() === ProblemService::VYFUK) {
-            return match ($this->getOrder()) {
-                1 => 'fas fa-pencil',
-                2 => 'fas fa-calculator',
-                3 => 'fas fa-magnet',
-                4 => 'fas fa-cogs',
-                5 => 'fas fa-lightbulb',
-                6 => 'fas fa-flask',
-                7 => 'fas fa-book',
+            return match ($this->getTypeId()) {
+                9 => 'fas fa-pencil', /*jednička*/
+                10 => 'fas fa-calculator', /*matematika*/
+                12, 16 => 'fas fa-flask', /*experiment, pr. exp.*/
+                13 => 'fas fa-book', /*seriál*/
+                14 => 'fas fa-list-ul', /*kvíz*/
+                15 => 'fas fa-lightbulb', /*odhadovací*/
+                20 => 'fas fa-magnet', /*lehká fyzika*/
+                21 => 'fas fa-cogs', /*těžká fyzika*/
                 default => ''
             };
         }
