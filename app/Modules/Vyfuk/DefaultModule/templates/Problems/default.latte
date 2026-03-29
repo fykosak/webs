@@ -7,7 +7,13 @@
     <div class="inner-container">
         <div>
             <h1>
-                Zadání {(int)$series->label > 6 ? (int)$series->label - 7 . ". prázdninové" : $series->label . "."} série {$series->contestYear['year']}. ročníku
+                Zadání
+                {if str_starts_with($series->label, 'P')}
+                    {trim($series->label, 'P')}.&nbsp;prázdninové série
+                {else}
+                    {$series->label}.&nbsp;série
+                {/if}
+                {$series->contestYear['year']}.&nbsp;ročníku
             </h1>
             {if $series->getDeadline()}
                 <div>
@@ -30,17 +36,17 @@
                 <div class="dropdown series-selector">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        {$series->getYear()}. ročník
+                        {$series->getYear()}.&nbsp;ročník
                     </button>
                     <div class="dropdown-menu dropdown-menu-end p-0">
                         {foreach $yearsAndSeries as $contestYear}
                         <ul class="list-group list-group-horizontal-custom">
                             <li class="list-group-item list-group-item-secondary text-nowrap">
-                                {$contestYear->year}. ročník
+                                {$contestYear->year}.&nbsp;ročník
                             </li>
                             {foreach $contestYear->series as $seriesOption}
                             <a n:class="'list-group-item list-group-item-action', $series->contestYear['year'] == $contestYear->year && $series->label == $seriesOption->label ? list-group-item-primary"
-                               href="{plink 'this' 'year'=>$contestYear->year, 'series'=>(int)$seriesOption->label}">{(int)$seriesOption->label > 6 ? "P" . (int)$seriesOption->label - 7 : (int)$seriesOption->label}</a>
+                               href="{plink 'this' 'year'=>$contestYear->year, 'series'=>$seriesOption->label}">{$seriesOption->label}</a>
                             {/foreach}
                         </ul>
                         {/foreach}
@@ -50,7 +56,7 @@
                 <ul class="list-group list-group-horizontal-custom mt-2">
                     {foreach $currentContestYear->series as $seriesOption}
                         <a n:class="'list-group-item list-group-item-action text-center', $series->label === $seriesOption->label ? list-group-item-primary"
-                           href="{plink 'this' 'year'=>$currentContestYear->year, 'series'=>(int)$seriesOption->label}">{(int)$seriesOption->label > 6 ? "P" . (int)$seriesOption->label - 7 : (int)$seriesOption->label}</a>
+                           href="{plink 'this' 'year'=>$currentContestYear->year, 'series'=>$seriesOption->label}">{$seriesOption->label}</a>
                     {/foreach}
                 </ul>
                 {/if}
@@ -64,24 +70,34 @@
         <div class="tasks-container {if !$serialPath || !$batchPath || !$tasksPath}tasks-margin{/if}">
             {if $serialPath}
                 <a class="btn btn-primary mt-2 mr-4" href="{$serialPath}">
-                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text Výfučtení {$series->label}. série
+                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text Výfučtení {$series->label}.&nbsp;série
                 </a>
             {/if}
             {if $tasksPath}
                 <a class="btn btn-primary mt-2 mr-4" href="{$tasksPath}">
-                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Zadání {$series->label}. série
+                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Zadání
+                    {if str_starts_with($series->label, 'P')}
+                        {trim($series->label, 'P')}.&nbsp;prázdninové série
+                    {else}
+                        {$series->label}.&nbsp;série
+                    {/if}
                 </a>
             {/if}
             {if $batchPath}
                 <a class="btn btn-primary mt-2 mr-4" href="{$batchPath}">
                     <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka
-                    {switch $series->getLabel()}
+                    {switch $series->label}
                         {case '1'}
-                            1. série
-                        {case '8'}
-                            1. prázdninové série
+                            1.&nbsp;série
+                        {case 'P1'}
+                            1.&nbsp;prázdninové série
                         {default}
-                            s řešeními {(int)$series->label > 8 ? (int)$series->label . '. prázdninové' : (int)$series->label - 1}. série
+                            s řešeními
+                            {if str_starts_with($previousSeries->label, 'P')}
+                                {trim($previousSeries->label, 'P')}.&nbsp;prázdninové série
+                            {else}
+                                {$previousSeries->label}.&nbsp;série
+                            {/if}
                     {/switch}
                 </a>
             {/if}

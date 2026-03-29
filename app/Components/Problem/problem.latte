@@ -32,14 +32,14 @@
         <div class="card-body">
             <div class="card-title">
                 {if $problem->getContestId() == 4}
-                    {if $problem->getOrder() == 1 && (int)$series->getLabel() < 7}
+                    {if $problem->getOrder() == 1 && !str_starts_with($series->getLabel(), 'P')}
                         <p><small><i>Tato úloha je určena pouze pro žáky šestých a sedmých ročníků.</i></small></p>
                     {/if}
-                    {if $problem->getOrder() == 7 && (int)$problem->getLabel() < 7}
+                    {if $problem->getTypeId() == 13 && !str_starts_with($series->getLabel(), 'P')}
                         <p><small><i>S řešením této úlohy ti může pomoct krátký naučný text – tzv. Výfučtení. To můžeš nalézt pod odkazem níže.</i></small></p>
                     {/if}
                 {/if}
-                {if $problem->getContestId() == 1 && $problem->getOrder() == 6}
+                {if $problem->getContestId() == 1 && $problem->getTypeId() == 3}
                     <p><small><i>
                         {switch $language->value}
                             {case 'cs'}Tato úloha má otevřené řešení, proto nezapomeňte uvést všechny použité zdroje.
@@ -60,7 +60,7 @@
                 {/if}
 
                 {if $problem->getContestId() == 1}
-                    {if $problem->seriesOrder == 7}
+                    {if $problem->getTypeId() == 4}
                         <a class="btn btn-primary mr-2 mb-3" href={plink :Events:Fykos:experiments}>
                             {switch $language->value}
                             {case 'cs'}Návod pro řešení experimentálních úloh
@@ -68,7 +68,7 @@
                             {/switch}
                         </a>
                     {/if}
-                    {if $problem->getOrder() == 8}
+                    {if $problem->getTypeId() == 5}
                         {php $serialPath = $fileService->getSerial('fykos', $series, $language->value)}
                         {if $serialPath}
                             <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
@@ -81,13 +81,13 @@
                         {/if}
                     {/if}
                 {elseif $problem->getContestId() == 4}
-                    {if $problem->getOrder() == 6}
+                    {if $problem->getTypeId() == 12 || $problem->getTypeId() == 16}
                         <a class="btn btn-secondary my-2 mr-4" href={plink HowToSolve:experiments}>
                             <i class="fas fa-rocket"></i>
                             Jak psát experimenty
                         </a>
                     {/if}
-                    {if $problem->getOrder() == 7}
+                    {if $problem->getTypeId() == 13}
                         {php $serialPath = $fileService->getSerial('vyfuk', $series, $language->value)}
                         {if $serialPath}
                             <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">

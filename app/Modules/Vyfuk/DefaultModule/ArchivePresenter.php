@@ -28,7 +28,7 @@ class ArchivePresenter extends BasePresenter
     {
         $this->template->problemService = $this->problemService;
         $this->template->fileService = $this->fileService;
-        $this->template->contestYears = $this->problemService->getYears(ProblemService::VYFUK);
+        $this->template->contestYears = array_reverse($this->problemService->getYears(ProblemService::VYFUK));
         $this->template->hasAtLeastOneSerial = $this->checkYearsSerials();
     }
 

@@ -67,20 +67,13 @@
     text-align: center;
 }
 
-.countdown {
-    @media screen and (max-width: 535px) {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
 .countdown-text {
     color: white !important;
     margin: 0;
-    @media screen and (max-width: 535px) {
+    @media screen and (max-width: 516px) {
         margin-bottom: 0.5rem;
         ~ .countdown-text {
-        margin-bottom: 0;
+            margin-bottom: 0;
         }
     }
 }

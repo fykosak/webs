@@ -11,6 +11,7 @@ use App\Models\Downloader\Services\FileService;
 use App\Models\Downloader\Services\ProblemService;
 use Nette\Application\Attributes\Persistent;
 use Throwable;
+use InvalidArgumentException;
 
 class ProblemsPresenter extends BasePresenter
 {
@@ -21,7 +22,7 @@ class ProblemsPresenter extends BasePresenter
     public ?int $year = null;
 
     #[Persistent]
-    public ?int $series = null;
+    public ?string $series = null;
 
     public function injectServiceProblem(FileService $fileService, ProblemService $problemService): void
     {
@@ -32,10 +33,30 @@ class ProblemsPresenter extends BasePresenter
     private function getSeries(): PMSeriesModel
     {
         $seriesId = $this->year && $this->series
-            ? $this->problemService->getSeriesId(ProblemService::VYFUK, $this->year, (string)$this->series)
+            ? $this->problemService->getSeriesId(ProblemService::VYFUK, $this->year, $this->series)
             : $this->problemService->getLatestSeriesId(ProblemService::VYFUK);
 
         return $this->problemService->getSeries($seriesId);
+    }
+
+    private function getPreviousSeries(int $year, int $currentSeriesId): PMSeriesModel
+    {
+        $currentContestYear = $this->problemService->getYear(ProblemService::VYFUK, $year);
+        $series = $currentContestYear->series;
+
+        // assumes that series contains only released series ordered by deadline
+        if (count($series) <= 1) {
+            $previousContestYear = $this->problemService->getYear(ProblemService::VYFUK, $year - 1);
+            return $this->problemService->getSeries(end($previousContestYear->series)->seriesId);
+        }
+
+        for ($i = 1; $i < count($series); $i++) {
+            if ($series[$i]->seriesId === $currentSeriesId) {
+                return $this->problemService->getSeries($series[$i - 1]->seriesId);
+            }
+        }
+
+        throw new InvalidArgumentException('Expected to find previous series');
     }
 
     /**
@@ -46,6 +67,8 @@ class ProblemsPresenter extends BasePresenter
         $series = $this->getSeries();
         $this->template->series = $series;
         $this->template->problems = $series->problems;
+
+        $this->template->previousSeries = $this->getPreviousSeries($series->contestYear['year'], $series->seriesId);
 
         $this->template->currentContestYear = $this->problemService->getYear(
             ProblemService::VYFUK,
