@@ -36,7 +36,13 @@
                                                     <div>
                                                         <p class="m-0 text-center">
                                                             <a class="btn btn-primary my-2 mr-4" href={$serialPath}>
-                                                                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> {*{$series->getSerialTopic('vyfuk', $lang)}*}
+                                                                <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
+                                                                {if $serialTopics[$contestYear->year][$series->label]["cs"]}
+                                                                    {$serialTopics[$contestYear->year][$series->label]["cs"]}
+                                                                {else}
+                                                                    {$series->label}. Výfučtení
+                                                                {/if}
+                                                                {* Témata výfučtení od 10. ročníku níže nejsou ověřená, protože nemají dostupná pdf *}
                                                             </a>
                                                         </p>
                                                     </div>
