@@ -112,44 +112,53 @@ abstract class ProblemModel
                 "cs" => "Ostatní",
                 "en" => "Other"
             ],
-            "kinematika" => [
-                "cs" => "Kinematika"
+            "kalorimetrie" => [
+                "cs" => "Kalorimetrie"
             ],
-            "dynamika" => [
-                "cs" => "Dynamika"
+            "astrofyzika" => [
+                "cs" => "Astrofyzika"
             ],
             "energie" => [
                 "cs" => "Energie"
             ],
-            "gravitace" => [
-                "cs" => "Gravitace"
-            ],
-            "teplo" => [
-                "cs" => "Gravitace"
-            ],
-            "astronomie" => [
-                "cs" => "Astronomie"
-            ],
             "optika" => [
                 "cs" => "Optika"
-            ],
-            "elektrina" => [
-                "cs" => "Elektřina"
-            ],
-            "odhady" => [
-                "cs" => "Odhady"
             ],
             "geometrie" => [
                 "cs" => "Geometrie"
             ],
-            "programovani" => [
-                "cs" => "Programování"
+            "mechanika hmotného bodu" => [
+                "cs" => "Mechanika hmotného bodu"
             ],
-            "logika" => [
-                "cs" => "Logika"
+            "mechanika tuhého tělesa" => [
+                "cs" => "Mechanika tuhého tělesa"
             ],
-            "experimenty" => [
-                "cs" => "Experimenty"
+            "mechanika kapalin" => [
+                "cs" => "Mechanika kapalin"
+            ],
+            "deformace" => [
+                "cs" => "Deformace"
+            ],
+            "termodynamika" => [
+                "cs" => "Termodynamika"
+            ],
+            "jaderná fyzika" => [
+                "cs" => "Jaderná fyzika"
+            ],
+            "elektrický proud" => [
+                "cs" => "Elektrický proud"
+            ],
+            "elektromagnetismus" => [
+                "cs" => "Elektromagnetismus"
+            ],
+            "kmitání a vlnění" => [
+                "cs" => "Kmitání a vlnění"
+            ],
+            "síly" => [
+                "cs" => "Síly"
+            ],
+            "ostatní" => [
+                "cs" => "Ostatní"
             ],
             default => $topic
         };
