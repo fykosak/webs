@@ -38,32 +38,33 @@ class DefaultPresenter extends BasePresenter
 
         $seriesId = $this->problemService->getLatestSeriesId(ProblemService::VYFUK);
         $series = $this->problemService->getSeries($seriesId);
-
-        $previousSeriesId = $this->getPreviousSeriesId($series->contestYear['year'], $series->seriesId);
-        $previousSeries = $this->problemService->getSeries($previousSeriesId);
+        $previousSeries = $this->getPreviousSeries($series->contestYear['year'], $series->seriesId);
 
         $this->template->series = $series;
-
         $this->template->previousSeries = $previousSeries;
         $this->template->solutionsReady = $this->solutionsReady($previousSeries, $this->lang);
         $this->template->resultsReady = $this->resultsReady($previousSeries);
         $this->template->nearestEvent = $this->getNearestEvent();
     }
 
-    private function getPreviousSeriesId(int $year, int $currentSeriesId): int
+    private function getPreviousSeries(int $year, int $currentSeriesId): ?PMSeriesModel
     {
         $currentContestYear = $this->problemService->getYear(ProblemService::VYFUK, $year);
         $series = $currentContestYear->series;
+        $currentSeries = $this->problemService->getSeries($currentSeriesId);
 
         // assumes that series contains only released series ordered by deadline
-        if (count($series) <= 1) {
+        if ($currentSeries->label === '1') {
+            if ($year === 1) {
+                return null;
+            }
             $previousContestYear = $this->problemService->getYear(ProblemService::VYFUK, $year - 1);
-            return end($previousContestYear->series)->seriesId;
+            return $this->problemService->getSeries(end($previousContestYear->series)->seriesId);
         }
 
         for ($i = 1; $i < count($series); $i++) {
             if ($series[$i]->seriesId === $currentSeriesId) {
-                return $series[$i - 1]->seriesId;
+                return $this->problemService->getSeries($series[$i - 1]->seriesId);
             }
         }
 

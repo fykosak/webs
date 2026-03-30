@@ -39,13 +39,17 @@ class ProblemsPresenter extends BasePresenter
         return $this->problemService->getSeries($seriesId);
     }
 
-    private function getPreviousSeries(int $year, int $currentSeriesId): PMSeriesModel
+    private function getPreviousSeries(int $year, int $currentSeriesId): ?PMSeriesModel
     {
         $currentContestYear = $this->problemService->getYear(ProblemService::VYFUK, $year);
         $series = $currentContestYear->series;
+        $currentSeries = $this->problemService->getSeries($currentSeriesId);
 
         // assumes that series contains only released series ordered by deadline
-        if (count($series) <= 1) {
+        if ($currentSeries->label === '1') {
+            if ($year === 1) {
+                return null;
+            }
             $previousContestYear = $this->problemService->getYear(ProblemService::VYFUK, $year - 1);
             return $this->problemService->getSeries(end($previousContestYear->series)->seriesId);
         }
