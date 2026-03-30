@@ -57,6 +57,7 @@ final class MockProblemManagerDownloader extends ProblemManagerDownloader
                     'seriesId' => $seriesId,
                     'seriesOrder' => 1,
                     'contestId' => 1,
+                    'typeId' => 1,
                     'metadata' => [
                         'name' => [
                             'cs' => 'Šla Nanynka do zelí',
