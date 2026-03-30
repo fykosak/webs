@@ -40,7 +40,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end p-0">
                         {foreach $yearsAndSeries as $contestYear}
-                        <ul class="list-group list-group-horizontal-custom">
+                        <ul class="list-group list-group-horizontal-sm">
                             <li class="list-group-item list-group-item-secondary text-nowrap">
                                 {$contestYear->year}.&nbsp;ročník
                             </li>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 {if sizeof($currentContestYear->series) > 1}
-                <ul class="list-group list-group-horizontal-custom mt-2">
+                <ul class="list-group list-group-horizontal-sm mt-2">
                     {foreach $currentContestYear->series as $seriesOption}
                         <a n:class="'list-group-item list-group-item-action text-center', $series->label === $seriesOption->label ? list-group-item-primary"
                            href="{plink 'this' 'year'=>$currentContestYear->year, 'series'=>$seriesOption->label}">{$seriesOption->label}</a>
