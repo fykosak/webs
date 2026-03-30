@@ -6,9 +6,9 @@
 {block content}
 <div class="col-md-12">
     <div class="card mb-3 problem-card">
-        <div class="card-header problem-header problem-header-{$problem->getTypeId ? $problem->getTypeId : 2}">
+        <div class="card-header problem-header problem-header-{$problem->getType() ? $problem->getType()->value : 2}">
             <div style="display: flex; justify-content: space-between;">
-                <h4><i class={$problem->getIcon()}></i><span class="skip-3px"></span>
+                <h4><i class="{$problem->getIcon()}"></i><span class="skip-3px"></span>
                     {if $problem->getContestId() == 4}
                         {$problem->getLabel()} ...
                     {else}
@@ -35,11 +35,11 @@
                     {if $problem->getOrder() == 1 && !str_starts_with($series->getLabel(), 'P')}
                         <p><small><i>Tato úloha je určena pouze pro žáky šestých a sedmých ročníků.</i></small></p>
                     {/if}
-                    {if $problem->getTypeId() == 13 && !str_starts_with($series->getLabel(), 'P')}
+                    {if $problem->getType() == App\Models\Downloader\Models\Core\ProblemTypes::VyfukSerial && !str_starts_with($series->getLabel(), 'P')}
                         <p><small><i>S řešením této úlohy ti může pomoct krátký naučný text – tzv. Výfučtení. To můžeš nalézt pod odkazem níže.</i></small></p>
                     {/if}
                 {/if}
-                {if $problem->getContestId() == 1 && $problem->getTypeId() == 3}
+                {if $problem->getContestId() == 1 && $problem->getType() == App\Models\Downloader\Models\Core\ProblemTypes::FykosOpen}
                     <p><small><i>
                         {switch $language->value}
                             {case 'cs'}Tato úloha má otevřené řešení, proto nezapomeňte uvést všechny použité zdroje.
@@ -60,15 +60,15 @@
                 {/if}
 
                 {if $problem->getContestId() == 1}
-                    {if $problem->getTypeId() == 4}
-                        <a class="btn btn-primary mr-2 mb-3" href={plink :Events:Fykos:experiments}>
+                    {if $problem->getType() == App\Models\Downloader\Models\Core\ProblemTypes::FykosExperimental}
+                        <a class="btn btn-primary mr-2 mb-3" href="{plink :Events:Fykos:experiments}">
                             {switch $language->value}
                             {case 'cs'}Návod pro řešení experimentálních úloh
                             {default}Instructions for Experimental Tasks
                             {/switch}
                         </a>
                     {/if}
-                    {if $problem->getTypeId() == 5}
+                    {if $problem->getType() == App\Models\Downloader\Models\Core\ProblemTypes::FykosSerial}
                         {php $serialPath = $fileService->getSerial('fykos', $series, $language->value)}
                         {if $serialPath}
                             <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
@@ -81,20 +81,20 @@
                         {/if}
                     {/if}
                 {elseif $problem->getContestId() == 4}
-                    {if $problem->getTypeId() == 12 || $problem->getTypeId() == 16}
-                        <a class="btn btn-secondary my-2 mr-4" href={plink HowToSolve:experiments}>
+                    {if $problem->getType() == App\Models\Downloader\Models\Core\ProblemTypes::VyfukExperiment || $problem->getType() == App\Models\Downloader\Models\Core\ProblemTypes::VyfukPrExp}
+                        <a class="btn btn-secondary my-2 mr-4" href="{plink HowToSolve:experiments}">
                             <i class="fas fa-rocket"></i>
                             Jak psát experimenty
                         </a>
                     {/if}
-                    {if $problem->getTypeId() == 13}
+                    {if $problem->getType() == App\Models\Downloader\Models\Core\ProblemTypes::VyfukSerial}
                         {php $serialPath = $fileService->getSerial('vyfuk', $series, $language->value)}
                         {if $serialPath}
                             <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
                                 <i class="far fa-file-pdf"></i><span class="skip-3px"></span>Text Výfučtení {$series->getLabel()}. série
                             </a>
                         {/if}
-                        <a class="btn btn-secondary my-2 mr-4" href={plink :Default:Archive:serial}>
+                        <a class="btn btn-secondary my-2 mr-4" href="{plink :Default:Archive:serial}">
                             <i class="fas fa-box-archive"></i><span class="skip-3px"></span> Archiv Výfučtení
                         </a>
                     {/if}
