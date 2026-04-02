@@ -15,11 +15,22 @@
         <div class="container mt-3">
             {if $series->year === 39 && $series->series === 6}
                 <div class="alert alert-info">
-                    Doufáme, že se vám naše aprílové úlohy líbily. Budete-li mít
-                    zájem, můžete nám do 19. 4. poslat svá řešení na e-mail
-                    <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>; ta
-                    nejkreativnější drobně oceníme. Zadání reálně 6. série
-                    zveřejníme v následujících dnech.
+                    {switch $language->value}
+                        {case 'cs'}
+                            Doufáme, že se vám naše aprílové úlohy líbily. Budete-li mít
+                            zájem, můžete nám do 19. 4. poslat svá řešení na e-mail
+                            <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>; ta
+                            nejkreativnější drobně oceníme. Zadání reálné 6. série
+                            zveřejníme v následujících dnech.
+                        {default}
+                            We hope you enjoyed our April Fools' problems. If
+                            you are interested, you can send us your solutions
+                            to <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
+                            until April 19th; we will provide small prizes for
+                            the most creative ones. We will publish the
+                            assignments for the real 6th series in the coming
+                            days.
+                    {/switch}
                 </div>
             {/if}
             <div class="row">
