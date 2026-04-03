@@ -36,8 +36,7 @@ enum ProblemTypes: int
             ProblemTypes::VyfukKviz => 'fas fa-list-ul',
             ProblemTypes::VyfukOdhadovaci => 'fas fa-lightbulb',
             ProblemTypes::VyfukLehkaFyzika => 'fas fa-magnet',
-            ProblemTypes::VyfukTezkaFyzika => 'fas fa-cogs',
-            default => ''
+            ProblemTypes::VyfukTezkaFyzika => 'fas fa-cogs'
         };
     }
 }
