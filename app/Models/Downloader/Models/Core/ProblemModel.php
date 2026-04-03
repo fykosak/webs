@@ -168,49 +168,13 @@ abstract class ProblemModel
 
     public function getLabel(): string
     {
-        if ($this->getContestId() === ProblemService::FYKOS) {
-            return match ($this->getType()) {
-                ProblemTypes::FykosOpen => 'P',
-                ProblemTypes::FykosExperimental => 'E',
-                ProblemTypes::FykosSerial => 'S',
-                default => (string)$this->getOrder()
-            };
-        } elseif ($this->getContestId() === ProblemService::VYFUK) {
-            return match ($this->getType()) {
-                ProblemTypes::VyfukExperiment, ProblemTypes::VyfukPrExp => 'E',
-                ProblemTypes::VyfukSerial => 'V',
-                default => (string)$this->getOrder()
-            };
-        }
-
-        return (string)$this->getOrder();
-    }
-
-    public function getIcon(): string
-    {
-        if ($this->getContestId() === ProblemService::FYKOS) {
-            return match ($this->getType()) {
-                ProblemTypes::FykosEasy => 'fas fa-smile',
-                ProblemTypes::FykosHard => 'fas fa-brain',
-                ProblemTypes::FykosOpen => 'fas fa-lightbulb',
-                ProblemTypes::FykosExperimental => 'fas fa-flask',
-                ProblemTypes::FykosSerial => 'fas fa-book',
-                default => ''
-            };
-        } elseif ($this->getContestId() === ProblemService::VYFUK) {
-            return match ($this->getType()) {
-                ProblemTypes::VyfukJednicka => 'fas fa-pencil',
-                ProblemTypes::VyfukMatematika => 'fas fa-calculator',
-                ProblemTypes::VyfukExperiment, ProblemTypes::VyfukPrExp => 'fas fa-flask',
-                ProblemTypes::VyfukSerial => 'fas fa-book',
-                ProblemTypes::VyfukKviz => 'fas fa-list-ul',
-                ProblemTypes::VyfukOdhadovaci => 'fas fa-lightbulb',
-                ProblemTypes::VyfukLehkaFyzika => 'fas fa-magnet',
-                ProblemTypes::VyfukTezkaFyzika => 'fas fa-cogs',
-                default => ''
-            };
-        }
-
-        return '';
+        return match ($this->getType()) {
+            ProblemTypes::FykosOpen => 'P',
+            ProblemTypes::FykosExperimental => 'E',
+            ProblemTypes::FykosSerial => 'S',
+            ProblemTypes::VyfukExperiment, ProblemTypes::VyfukPrExp => 'E',
+            ProblemTypes::VyfukSerial => 'V',
+            default => (string)$this->getOrder()
+        };
     }
 }

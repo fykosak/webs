@@ -8,7 +8,7 @@
     <div class="card mb-3 problem-card">
         <div class="card-header problem-header problem-header-{$problem->getType()?->value ?? 2}">
             <div style="display: flex; justify-content: space-between;">
-                <h4><i class="{$problem->getIcon()}"></i><span class="skip-3px"></span>
+                <h4><i class="{$problem->getType()?->getIcon() ?? ''}"></i><span class="skip-3px"></span>
                     {if $problem->getContestId() === 4}
                         {$problem->getLabel()} ...
                     {else}
