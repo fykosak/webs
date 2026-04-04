@@ -7,6 +7,7 @@ namespace App\Models\Downloader\Models\Archive;
 use App\Models\Downloader\Models\Core\ProblemModel;
 use App\Models\Downloader\Services\ProblemService;
 use App\Modules\Core\Language;
+use App\Models\Downloader\Models\Core\ProblemTypes;
 
 class ArchiveProblemModel extends ProblemModel
 {
@@ -67,7 +68,6 @@ class ArchiveProblemModel extends ProblemModel
         return null;
     }
 
-
     public function getOrder(): int
     {
         return $this->number;
@@ -85,5 +85,21 @@ class ArchiveProblemModel extends ProblemModel
     public function getPoints(): ?int
     {
         return $this->points;
+    }
+
+    public function getType(): ?ProblemTypes
+    {
+        if ($this->contest === 'fykos') {
+            return match ($this->number) {
+                1, 2 => ProblemTypes::FykosEasy,
+                3, 4, 5 => ProblemTypes::FykosHard,
+                6 => ProblemTypes::FykosOpen,
+                7 => ProblemTypes::FykosExperimental,
+                8 => ProblemTypes::FykosSerial,
+                default => null
+            };
+        }
+
+        return null;
     }
 }

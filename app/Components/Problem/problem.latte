@@ -6,10 +6,10 @@
 {block content}
 <div class="col-md-12">
     <div class="card mb-3 problem-card">
-        <div class="card-header problem-header problem-header-{$problem->getOrder()}">
+        <div class="card-header problem-header problem-header-{$problem->getType()?->value ?? 2}">
             <div style="display: flex; justify-content: space-between;">
-                <h4><i class={$problem->getIcon()}></i><span class="skip-3px"></span>
-                    {if $problem->getContestId() == 4}
+                <h4><i class="{$problem->getType()?->getIcon() ?? ''}"></i><span class="skip-3px"></span>
+                    {if $problem->getContestId() === 4}
                         {$problem->getLabel()} ...
                     {else}
                         {$problem->getLabel()}...
@@ -20,10 +20,10 @@
                     {if $points}
                         {switch $language->value}
                             {case 'cs'}
-                                <h4>{$problem->getPoints()} bod{if $points == 1}
+                                <h4>{$problem->getPoints()} bod{if $points === 1}
                                 {elseif $points > 1 && $points < 5}y{else}ů{/if}</h4>
                             {default}
-                                <h4>{$points} point{if $points == 1}{else}s{/if}</h4>
+                                <h4>{$points} point{if $points === 1}{else}s{/if}</h4>
                         {/switch}
                     {/if}
                 </div>
@@ -31,15 +31,11 @@
         </div>
         <div class="card-body">
             <div class="card-title">
-                {if $problem->getContestId() == 4}
-                    {if $problem->getOrder() == 1 && (int)$series->getLabel() < 7}
-                        <p><small><i>Tato úloha je určena pouze pro žáky šestých a sedmých ročníků.</i></small></p>
-                    {/if}
-                    {if $problem->getOrder() == 7 && (int)$problem->getLabel() < 7}
-                        <p><small><i>S řešením této úlohy ti může pomoct krátký naučný text – tzv. Výfučtení. To můžeš nalézt pod odkazem níže.</i></small></p>
-                    {/if}
-                {/if}
-                {if $problem->getContestId() == 1 && $problem->getOrder() == 6}
+                {if $problem->getContestId() === 4 &&$problem->getOrder() === 1 && !str_starts_with($series->getLabel(), 'P')}
+                    <p><small><i>Tato úloha je určena pouze pro žáky šestých a sedmých ročníků.</i></small></p>
+                {elseif $problem->getType() === App\Models\Downloader\Models\Core\ProblemTypes::VyfukSerial}
+                    <p><small><i>S řešením této úlohy ti může pomoct krátký naučný text – tzv. Výfučtení. To můžeš nalézt pod odkazem níže.</i></small></p>
+                {elseif $problem->getType() === App\Models\Downloader\Models\Core\ProblemTypes::FykosOpen}
                     <p><small><i>
                         {switch $language->value}
                             {case 'cs'}Tato úloha má otevřené řešení, proto nezapomeňte uvést všechny použité zdroje.
@@ -47,6 +43,7 @@
                         {/switch}
                     </i></small></p>
                 {/if}
+
                 {var $textHtml = $problem->getText('task', $language)}
                 {if $textHtml}
                     {$textHtml|noescape}
@@ -59,51 +56,45 @@
                     {/switch}
                 {/if}
 
-                {if $problem->getContestId() == 1}
-                    {if $problem->seriesOrder == 7}
-                        <a class="btn btn-primary mr-2 mb-3" href={plink :Events:Fykos:experiments}>
-                            {switch $language->value}
+                {if $problem->getType() === App\Models\Downloader\Models\Core\ProblemTypes::FykosExperimental}
+                    <a class="btn btn-primary mr-2 mb-3" href="{plink :Events:Fykos:experiments}">
+                        {switch $language->value}
                             {case 'cs'}Návod pro řešení experimentálních úloh
                             {default}Instructions for Experimental Tasks
+                        {/switch}
+                    </a>
+                {elseif $problem->getType() === App\Models\Downloader\Models\Core\ProblemTypes::FykosSerial}
+                    {var $serialPath = $fileService->getSerial('fykos', $series, $language->value)}
+                    {if $serialPath}
+                        <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
+                            <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
+                            {switch $language->value}
+                                {case 'cs'}Text seriálu {$series->getLabel()}. série
+                                {default}Text of Serial Number {$series->getLabel()}
                             {/switch}
                         </a>
                     {/if}
-                    {if $problem->getOrder() == 8}
-                        {php $serialPath = $fileService->getSerial('fykos', $series, $language->value)}
-                        {if $serialPath}
-                            <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
-                                <i class="far fa-file-pdf"></i><span class="skip-3px"></span>
-                                {switch $language->value}
-                                    {case 'cs'}Text seriálu {$series->getLabel()}. série
-                                    {default}Text of Serial Number {$series->getLabel()}
-                                {/switch}
-                            </a>
-                        {/if}
-                    {/if}
-                {elseif $problem->getContestId() == 4}
-                    {if $problem->getOrder() == 6}
-                        <a class="btn btn-secondary mr-2 mb-3" href={plink HowToSolve:experiments}>
-                            <i class="fas fa-rocket"></i>
-                            Jak psát experimenty
+                {elseif $problem->getType() === App\Models\Downloader\Models\Core\ProblemTypes::VyfukExperiment || $problem->getType() === App\Models\Downloader\Models\Core\ProblemTypes::VyfukPrExp}
+                    <a class="btn btn-secondary my-2 mr-4" href="{plink HowToSolve:experiments}">
+                        <i class="fas fa-rocket"></i>
+                        Jak psát experimenty
+                    </a>
+                {elseif $problem->getType() === App\Models\Downloader\Models\Core\ProblemTypes::VyfukSerial}
+                    {var $serialPath = $fileService->getSerial('vyfuk', $series, $language->value)}
+                    {if $serialPath}
+                        <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
+                            <i class="far fa-file-pdf"></i><span class="skip-3px"></span>Text Výfučtení {$series->getLabel()}. série
                         </a>
                     {/if}
-                    {if $problem->getOrder() == 7}
-                        {php $serialPath = $fileService->getSerial('vyfuk', $series, $language->value)}
-                        {if $serialPath}
-                            <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
-                                <i class="far fa-file-pdf"></i><span class="skip-3px"></span>Text Výfučtení {$series->getLabel()}. série
-                            </a>
-                        {/if}
-                        <a class="btn btn-secondary my-2 mr-4" href={plink :Default:Archive:serial}>
-                            <i class="fas fa-box-archive"></i><span class="skip-3px"></span> Archiv Výfučtení
-                        </a>
-                    {/if}
+                    <a class="btn btn-secondary my-2 mr-4" href="{plink :Default:Archive:serial}">
+                        <i class="fas fa-box-archive"></i><span class="skip-3px"></span> Archiv Výfučtení
+                    </a>
                 {/if}
             </div>
             {if new Datetime() > $series->getDeadline()}
                 <div class="solution-and-origin">
                     <div>
-                        {php $solutionPath = $fileService->getSolution($problem->getContestId() === 4 ? 'vyfuk' : 'fykos', $series, $problem, $language->value)}
+                        {var $solutionPath = $fileService->getSolution($problem->getContestId() === 4 ? 'vyfuk' : 'fykos', $series, $problem, $language->value)}
                         {if $solutionPath}
                             <a class="btn btn-primary" target="_blank" href="{$solutionPath}">
                                 <i class="far fa-file-pdf"></i>
@@ -114,7 +105,7 @@
                                 {/switch}
                             </a>
                         {else}
-                            {if $series->getDeadline() == null || new Datetime() > (clone $series->getDeadline())->modify('+2 months')}
+                            {if $series->getDeadline() === null || new Datetime() > (clone $series->getDeadline())->modify('+2 months')}
                                 {switch $language->value}
                                     {case 'cs'}Řešení této úlohy není dostupné.
                                     {default}The solution to this problem is not available.
@@ -136,14 +127,14 @@
         </div>
 
         {if count($problem->topics)}
-        <div class="card-footer">
-            {foreach $problem->topics as $topic}
-            <span style="margin-right: 1rem;">
-                <i class="fas fa-tag mr-1"></i>
-                {App\Models\Downloader\Models\Core\ProblemModel::getTopicLabel($topic, $language)}
-            </span>
-            {/foreach}
-        </div>
+            <div class="card-footer">
+                {foreach $problem->topics as $topic}
+                    <span style="margin-right: 1rem;">
+                        <i class="fas fa-tag mr-1"></i>
+                        {App\Models\Downloader\Models\Core\ProblemModel::getTopicLabel($topic, $language)}
+                    </span>
+                {/foreach}
+            </div>
         {/if}
     </div>
 </div>

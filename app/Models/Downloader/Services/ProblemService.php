@@ -80,7 +80,7 @@ final class ProblemService extends AbstractJSONService
     }
 
     /**
-     * Get the lastest upcoming series.
+     * Get the latest upcoming series.
      *
      * Gets all series for contest and filters the ones that are not after
      * deadline. If there is at least one, it returns the first one (with the

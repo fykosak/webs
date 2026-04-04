@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models\Downloader\Models\ProblemManager;
 
 use App\Models\Downloader\Models\Core\ProblemModel;
+use App\Models\Downloader\Models\Core\ProblemTypes;
 use App\Modules\Core\Language;
 
 class PMProblemModel extends ProblemModel
@@ -90,5 +91,10 @@ class PMProblemModel extends ProblemModel
     public function getPoints(): ?int
     {
         return $this->metadata['points'];
+    }
+
+    public function getType(): ProblemTypes
+    {
+        return ProblemTypes::from($this->typeId);
     }
 }

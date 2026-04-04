@@ -15,6 +15,7 @@ abstract class ProblemModel
     abstract public function getOrder(): int;
     abstract public function getContestId(): int;
     abstract public function getPoints(): ?int;
+    abstract public function getType(): ?ProblemTypes;
 
     public static function getTopicLabel(string $topic, Language $lang): string
     {
@@ -111,44 +112,53 @@ abstract class ProblemModel
                 "cs" => "Ostatní",
                 "en" => "Other"
             ],
-            "kinematika" => [
-                "cs" => "Kinematika"
+            "kalorimetrie" => [
+                "cs" => "Kalorimetrie"
             ],
-            "dynamika" => [
-                "cs" => "Dynamika"
+            "astrofyzika" => [
+                "cs" => "Astrofyzika"
             ],
             "energie" => [
                 "cs" => "Energie"
             ],
-            "gravitace" => [
-                "cs" => "Gravitace"
-            ],
-            "teplo" => [
-                "cs" => "Gravitace"
-            ],
-            "astronomie" => [
-                "cs" => "Astronomie"
-            ],
             "optika" => [
                 "cs" => "Optika"
-            ],
-            "elektrina" => [
-                "cs" => "Elektřina"
-            ],
-            "odhady" => [
-                "cs" => "Odhady"
             ],
             "geometrie" => [
                 "cs" => "Geometrie"
             ],
-            "programovani" => [
-                "cs" => "Programování"
+            "mechanika hmotného bodu" => [
+                "cs" => "Mechanika hmotného bodu"
             ],
-            "logika" => [
-                "cs" => "Logika"
+            "mechanika tuhého tělesa" => [
+                "cs" => "Mechanika tuhého tělesa"
             ],
-            "experimenty" => [
-                "cs" => "Experimenty"
+            "mechanika kapalin" => [
+                "cs" => "Mechanika kapalin"
+            ],
+            "deformace" => [
+                "cs" => "Deformace"
+            ],
+            "termodynamika" => [
+                "cs" => "Termodynamika"
+            ],
+            "jaderná fyzika" => [
+                "cs" => "Jaderná fyzika"
+            ],
+            "elektrický proud" => [
+                "cs" => "Elektrický proud"
+            ],
+            "elektromagnetismus" => [
+                "cs" => "Elektromagnetismus"
+            ],
+            "kmitání a vlnění" => [
+                "cs" => "Kmitání a vlnění"
+            ],
+            "síly" => [
+                "cs" => "Síly"
+            ],
+            "ostatní" => [
+                "cs" => "Ostatní"
             ],
             default => $topic
         };
@@ -158,51 +168,13 @@ abstract class ProblemModel
 
     public function getLabel(): string
     {
-        if ($this->getContestId() === ProblemService::FYKOS) {
-            switch ($this->getOrder()) {
-                case 6:
-                    return 'P';
-                case 7:
-                    return 'E';
-                case 8:
-                    return 'S';
-            }
-        } elseif ($this->getContestId() === ProblemService::VYFUK) {
-            switch ($this->getOrder()) {
-                case 6:
-                    return 'E';
-                case 7:
-                    return 'V';
-            }
-        }
-
-        return (string)$this->getOrder();
-    }
-
-    public function getIcon(): string
-    {
-        if ($this->getContestId() === ProblemService::FYKOS) {
-            return match ($this->getOrder()) {
-                1, 2 => 'fas fa-smile',
-                3, 4, 5 => 'fas fa-brain',
-                6 => 'fas fa-lightbulb',
-                7 => 'fas fa-flask',
-                8 => 'fas fa-book',
-                default => ''
-            };
-        } elseif ($this->getContestId() === ProblemService::VYFUK) {
-            return match ($this->getOrder()) {
-                1 => 'fas fa-pencil',
-                2 => 'fas fa-calculator',
-                3 => 'fas fa-magnet',
-                4 => 'fas fa-cogs',
-                5 => 'fas fa-lightbulb',
-                6 => 'fas fa-flask',
-                7 => 'fas fa-book',
-                default => ''
-            };
-        }
-
-        return '';
+        return match ($this->getType()) {
+            ProblemTypes::FykosOpen => 'P',
+            ProblemTypes::FykosExperimental => 'E',
+            ProblemTypes::FykosSerial => 'S',
+            ProblemTypes::VyfukExperiment, ProblemTypes::VyfukPrExp => 'E',
+            ProblemTypes::VyfukSerial => 'V',
+            default => (string)$this->getOrder()
+        };
     }
 }
