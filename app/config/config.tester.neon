@@ -3,8 +3,18 @@ parameters:
         login: ''
         password: ''
         url: http://127.0.0.1:8090/
+
     problemManagerDownloader:
+        url: ''
+        key: ''
+
+    static:
+        url: ''
+
+    gameApi:
+        url: ''
         login: ''
         password: ''
-        url: http://127.0.0.1:8090/
-    gameApiURL: ''
+
+services:
+    ProblemManagerDownloader: Tests\Models\Downloader\Downloaders\MockProblemManagerDownloader(%problemManagerDownloader.url%,%problemManagerDownloader.key%, '10 minutes')

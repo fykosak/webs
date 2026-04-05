@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Vyfuk\DefaultModule;
 
-use App\Models\Downloader\EventService;
+use App\Models\Downloader\Services\EventService;
 use DateTime;
-use Nette\Caching\Cache;
 
 class EventsPresenter extends BasePresenter
 {
@@ -26,20 +25,22 @@ class EventsPresenter extends BasePresenter
         $this->template->event = $event;
         $this->template->hasGallery = $this->getComponent('gallery')->hasPhotos("/media/photos/event/" . $event->eventId);
         $this->template->hasPdfs = $this->getComponent('pdfGallery')->hasFiles("/media/download/event/" . $event->eventId);
-        $persons = $event->end < new DateTime() ? $this->eventService->getEventOrganizers($event->eventId) : [];
-        $array = [];
-        foreach ($persons as $person) {
-            $array[] = $person->person->name;
+
+        $eventOrganizers = $event->end < new DateTime() ? $this->eventService->getEventOrganizers($event->eventId) : [];
+        $organizers = [];
+        foreach ($eventOrganizers as $eventOrganizer) {
+            $organizers[] = $eventOrganizer->person->name;
         }
-        $this->template->organizers = implode(', ', $array);
-        $persons = $event->end < new DateTime() ? $this->eventService->getEventParticipants($event->eventId) : [];
-        $array = [];
-        foreach ($persons as $person) {
-            if ($person->status === 'participated') {
-                $array[] = $person->name;
+        $this->template->organizers = implode(', ', $organizers);
+
+        $eventParticipants = $event->end < new DateTime() ? $this->eventService->getEventParticipants($event->eventId) : [];
+        $participants = [];
+        foreach ($eventParticipants as $participant) {
+            if ($participant->status === 'participated') {
+                $participants[] = $participant->name;
             }
         }
-        $this->template->participants = implode(', ', $array);
+        $this->template->participants = implode(', ', $participants);
     }
 
     public function renderTabor(): void

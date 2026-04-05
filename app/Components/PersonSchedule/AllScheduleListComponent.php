@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Components\PersonSchedule;
 
-use App\Models\Downloader\EventService;
-use App\Models\Downloader\FKSDBDownloader;
-use App\Models\Downloader\PersonScheduleModel;
-use App\Models\Downloader\ScheduleRequest;
+use App\Models\Downloader\Services\EventService;
+use App\Models\Downloader\Downloaders\FKSDBDownloader;
+use App\Models\Downloader\Models\PersonScheduleModel;
+use App\Models\Downloader\Requests\ScheduleRequest;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Modules\Core;
 
-use App\Models\Downloader\DummyService;
-use App\Models\Downloader\EventService;
-use App\Models\Downloader\EventModel;
+use App\Models\Downloader\Services\DummyService;
+use App\Models\Downloader\Services\EventService;
+use App\Models\Downloader\Models\EventModel;
 use Nette\Application\UI\Template;
 
 abstract class EventWebPresenter extends BasePresenter

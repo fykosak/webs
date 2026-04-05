@@ -13,11 +13,15 @@ a:hover {
 }
 
 // Remove default button highlight on hover
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+.btn-primary:hover, .btn-primary:focus, .btn-primary:focus-visible, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: $text-on-primary !important;
 }
 
-.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
+.btn-outline-primary:hover, .btn-outline-primary:focus, btn-outline-primary:focus-visible, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
+    color: $text-on-primary !important;
+}
+
+.btn-primary.show {
     color: $text-on-primary !important;
 }
 

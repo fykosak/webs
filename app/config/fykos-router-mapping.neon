@@ -6,6 +6,7 @@ parameters:
     router-mapping:
         default:
             cs:
+                Archiv: Archive
                 Default: Default
                 ONas: About
                 Pravidla: Rules
@@ -16,6 +17,7 @@ parameters:
                 DalsiPrilezitosti: FurtherOpportunities
             actions:
                 cs:
+                    zadani: problems
                     historie: history
                     organizatori: organizers
                     kontakt: contact

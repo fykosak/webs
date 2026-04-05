@@ -1,3 +1,5 @@
+{varType App\Modules\Downloader\Models\ContestYearModel $currentContestYear}
+
 {block title}Zadání{/block}
 
 {block main}
@@ -5,11 +7,19 @@
     <div class="inner-container">
         <div>
             <h1>
-                Zadání {$series->series > 6 ? $series->series - 7 . ". prázdninové" : $series->series . "."} série {$series->year}. ročníku
+                Zadání
+                {if str_starts_with($series->label, 'P')}
+                    {trim($series->label, 'P')}.&nbsp;prázdninové série
+                {else}
+                    {$series->label}.&nbsp;série
+                {/if}
+                {$series->contestYear['year']}.&nbsp;ročníku
             </h1>
-            <div>
-                Termín odevzdání: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>
-            </div>
+            {if $series->getDeadline()}
+                <div>
+                    Termín odevzdání: <strong>{$series->getDeadline()|date:"d. m. Y, H:i"}</strong>
+                </div>
+            {/if}
             <a class="btn btn-secondary mt-2" n:href="HowToSolve:default">
                 <i class="fas fa-circle-info me-2"></i>Jak se zapojit
             </a>
@@ -26,60 +36,70 @@
                 <div class="dropdown series-selector">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        {$series->year}. ročník
+                        {$series->getYear()}.&nbsp;ročník
                     </button>
                     <div class="dropdown-menu dropdown-menu-end p-0">
-                        {foreach $yearsAndSeries as $yearOption => $seriesList}
+                        {foreach $yearsAndSeries as $contestYear}
                         <ul class="list-group list-group-horizontal-sm">
                             <li class="list-group-item list-group-item-secondary text-nowrap">
-                                {$yearOption}. ročník
+                                {$contestYear->year}.&nbsp;ročník
                             </li>
-                            {foreach $seriesList as $seriesOption}
-                            <a n:class="'list-group-item list-group-item-action', $series->year == $yearOption && $series->series == $seriesOption ? list-group-item-primary"
-                                href="{plink 'this' 'year'=>$yearOption, 'series'=>$seriesOption}">{$seriesOption > 6 ? "P" . $seriesOption - 7 : $seriesOption}</a>
+                            {foreach $contestYear->series as $seriesOption}
+                            <a n:class="'list-group-item list-group-item-action', $series->contestYear['year'] == $contestYear->year && $series->label == $seriesOption->label ? list-group-item-primary"
+                               href="{plink 'this' 'year'=>$contestYear->year, 'series'=>$seriesOption->label}">{$seriesOption->label}</a>
                             {/foreach}
                         </ul>
                         {/foreach}
                     </div>
                 </div>
-                {if sizeof($yearsAndSeries[$series->year]) > 1}
+                {if sizeof($currentContestYear->series) > 1}
                 <ul class="list-group list-group-horizontal-sm mt-2">
-                    {foreach $yearsAndSeries[$series->year] as $seriesOption}
-                    <a n:class="'list-group-item list-group-item-action text-center', $series->series == $seriesOption ? list-group-item-primary"
-                        href="{plink 'this' 'year'=>$series->year, 'series'=>$seriesOption}">{$seriesOption > 6 ? "P" . $seriesOption - 7: $seriesOption}</a>
+                    {foreach $currentContestYear->series as $seriesOption}
+                        <a n:class="'list-group-item list-group-item-action text-center', $series->label === $seriesOption->label ? list-group-item-primary"
+                           href="{plink 'this' 'year'=>$currentContestYear->year, 'series'=>$seriesOption->label}">{$seriesOption->label}</a>
                     {/foreach}
                 </ul>
                 {/if}
             </div>
         </div>
 
-        {var $serialPath = $problemService->getSerial('vyfuk', $series, $lang)}
-        {var $tasksPath = $problemService->getTasks('vyfuk', $series, $lang)}
-        {var $batchPath = $problemService->getBatch('vyfuk', $series, $lang)}
-        <div class="tasks-container {if !$serialPath || !$batchPath}tasks-margin{/if}">
+        {var $serialPath = $fileService->getSerial('vyfuk', $series, $lang)}
+        {var $tasksPath = $fileService->getTasks('vyfuk', $series, $lang)}
+        {var $batchPath = $fileService->getBatch('vyfuk', $series, $lang)}
+
+        <div class="tasks-container {if !$serialPath || !$batchPath || !$tasksPath}tasks-margin{/if}">
             {if $serialPath}
-            <a class="btn btn-primary mt-2 mr-4" href="{$serialPath}">
-                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text Výfučtení {$series->series}.
-                série
-            </a>
+                <a class="btn btn-primary mt-2 mr-4" href="{$serialPath}">
+                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Text Výfučtení {$series->label}.&nbsp;série
+                </a>
             {/if}
             {if $tasksPath}
-            <a class="btn btn-primary mt-2 mr-4" href="{$tasksPath}">
-                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Zadání {$series->series}. série
-            </a>
+                <a class="btn btn-primary mt-2 mr-4" href="{$tasksPath}">
+                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Zadání
+                    {if str_starts_with($series->label, 'P')}
+                        {trim($series->label, 'P')}.&nbsp;prázdninové série
+                    {else}
+                        {$series->label}.&nbsp;série
+                    {/if}
+                </a>
             {/if}
-            {if ($series->series === 1 || $series->series === 8 || new Datetime() > $problemService->getSeries('vyfuk', $series->year, $series->series - 1)->getDeadline()) && $batchPath}
-            <a class="btn btn-primary mt-2 mr-4" href="{$batchPath}">
-                <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka
-                {switch $series->series}
-                    {case 1}
-                        1. série
-                    {case 8}
-                        1. prázdninové série
-                    {default}
-                        s řešeními {$series->series > 8 ? $series->series - 8 . '. prázdninové' : $series->series - 1}. série
-                {/switch}
-            </a>
+            {if $batchPath}
+                <a class="btn btn-primary mt-2 mr-4" href="{$batchPath}">
+                    <i class="far fa-file-pdf"></i><span class="skip-3px"></span> Brožurka
+                    {switch $series->label}
+                        {case '1'}
+                            1.&nbsp;série
+                        {case 'P1'}
+                            1.&nbsp;prázdninové série
+                        {default}
+                            s řešeními
+                            {if str_starts_with($previousSeries->label, 'P')}
+                                {trim($previousSeries->label, 'P')}.&nbsp;prázdninové série
+                            {else}
+                                {$previousSeries->label}.&nbsp;série
+                            {/if}
+                    {/switch}
+                </a>
             {/if}
             <div class="row mt-4">
                 {foreach $problems as $problem}

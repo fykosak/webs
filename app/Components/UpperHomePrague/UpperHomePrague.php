@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Components\UpperHomePrague;
 
 use App\Components\Countdown\CountdownComponent;
-use App\Models\Downloader\EventModel;
+use App\Models\Downloader\Models\EventModel;
 use Fykosak\Utils\Components\DIComponent;
 use Fykosak\Utils\DateTime\Phase;
 use Nette\DI\Container;

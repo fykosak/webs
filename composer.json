@@ -13,7 +13,7 @@
   "require": {
     "php": ">= 8.1",
     "nette/nette": "^v3.2.0",
-    "fykosak/fksdb-downloader-core": "dev-dev-json-request#596e9a1",
+    "fykosak/fksdb-downloader-core": "dev-master",
     "fykosak/nette-fks-utils": "dev-dev-datetime-period",
     "ext-soap": "*",
     "ext-dom": "*",
@@ -32,7 +32,7 @@
   "scripts": {
     "clearTestCache": "rm -rf temp/tester/",
     "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 --exclude=Generic.Files.LineLength --extensions=php,phpt app/ tests/",
-    "testPHPStan": "vendor/bin/phpstan analyse --level 5 app tests",
+    "testPHPStan": "vendor/bin/phpstan analyse",
     "test": [
       "@clearTestCache",
       "tests/api/commandWithApi.sh vendor/bin/tester tests/ -p php -s -c tests/php.ini -j 8"

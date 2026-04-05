@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Modules\Core;
 
-use App\Models\Downloader\ContestModel;
-use App\Models\Downloader\ContestRequest;
-use App\Models\Downloader\ContestYearModel;
-use App\Models\Downloader\DummyService;
-use App\Models\Downloader\FKSDBDownloader;
+use App\Models\Downloader\Requests\ContestRequest;
+use App\Models\Downloader\Services\DummyService;
+use App\Models\Downloader\Downloaders\FKSDBDownloader;
+use App\Models\Downloader\Models\ContestModel;
+use App\Models\Downloader\Models\ContestYearModel;
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
