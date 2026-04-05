@@ -1,7 +1,11 @@
-{varType App\Models\Downloader\ProblemManager\ProblemModel $problem}
-{varType App\Models\Downloader\ProblemManager\SeriesModel $series}
+{varType App\Models\Downloader\Core\ProblemModel $problem}
+{varType App\Models\Downloader\Core\SeriesModel $series}
 {varType App\Models\Downloader\Services\FileService $fileService}
 {varType App\Modules\Core\Language $language}
+
+{var $ProblemTypes = App\Models\Downloader\Models\Core\ProblemTypes::class}
+{var $ProblemModel = App\Models\Downloader\Models\Core\ProblemModel::class}
+{var $ProblemService = App\Models\Downloader\Services\ProblemService::class}
 
 {block content}
 <div class="col-md-12">
@@ -9,7 +13,7 @@
         <div class="card-header problem-header problem-header-{$problem->getType()?->value ?? 2}">
             <div style="display: flex; justify-content: space-between;">
                 <h4><i class="{$problem->getType()?->getIcon() ?? ''}"></i><span class="skip-3px"></span>
-                    {if $problem->getContestId() === 4}
+                    {if $problem->getContestId() === $ProblemService::VYFUK}
                         {$problem->getLabel()} ...
                     {else}
                         {$problem->getLabel()}...
@@ -31,11 +35,11 @@
         </div>
         <div class="card-body">
             <div class="card-title">
-                {if $problem->getContestId() === 4 &&$problem->getOrder() === 1 && !str_starts_with($series->getLabel(), 'P')}
+                {if $problem->getContestId() === $ProblemService::VYFUK && $problem->getOrder() === 1 && !str_starts_with($series->getLabel(), 'P')}
                     <p><small><i>Tato úloha je určena pouze pro žáky šestých a sedmých ročníků.</i></small></p>
-                {elseif $problem->getType() === App\Models\Downloader\Models\Core\ProblemTypes::VyfukSerial}
+                {elseif $problem->getType() === $ProblemTypes::VyfukSerial}
                     <p><small><i>S řešením této úlohy ti může pomoct krátký naučný text – tzv. Výfučtení. To můžeš nalézt pod odkazem níže.</i></small></p>
-                {elseif $problem->getType() === App\Models\Downloader\Models\Core\ProblemTypes::FykosOpen}
+                {elseif $problem->getType() === $ProblemTypes::FykosOpen}
                     <p><small><i>
                         {switch $language->value}
                             {case 'cs'}Tato úloha má otevřené řešení, proto nezapomeňte uvést všechny použité zdroje.
@@ -56,14 +60,14 @@
                     {/switch}
                 {/if}
 
-                {if $problem->getType() === App\Models\Downloader\Models\Core\ProblemTypes::FykosExperimental}
+                {if $problem->getType() === $ProblemTypes::FykosExperimental}
                     <a class="btn btn-primary mr-2 mb-3" href="{plink :Events:Fykos:experiments}">
                         {switch $language->value}
                             {case 'cs'}Návod pro řešení experimentálních úloh
                             {default}Instructions for Experimental Tasks
                         {/switch}
                     </a>
-                {elseif $problem->getType() === App\Models\Downloader\Models\Core\ProblemTypes::FykosSerial}
+                {elseif $problem->getType() === $ProblemTypes::FykosSerial}
                     {var $serialPath = $fileService->getSerial('fykos', $series, $language->value)}
                     {if $serialPath}
                         <a class="btn btn-primary my-2 mr-4" href="{$serialPath}">
@@ -94,7 +98,7 @@
             {if new Datetime() > $series->getDeadline()}
                 <div class="solution-and-origin">
                     <div>
-                        {var $solutionPath = $fileService->getSolution($problem->getContestId() === 4 ? 'vyfuk' : 'fykos', $series, $problem, $language->value)}
+                        {var $solutionPath = $fileService->getSolution($problem->getContestId() === $ProblemService::VYFUK ? 'vyfuk' : 'fykos', $series, $problem, $language->value)}
                         {if $solutionPath}
                             <a class="btn btn-primary" target="_blank" href="{$solutionPath}">
                                 <i class="far fa-file-pdf"></i>
@@ -131,7 +135,7 @@
                 {foreach $problem->topics as $topic}
                     <span style="margin-right: 1rem;">
                         <i class="fas fa-tag mr-1"></i>
-                        {App\Models\Downloader\Models\Core\ProblemModel::getTopicLabel($topic, $language)}
+                        {$ProblemModel::getTopicLabel($topic, $language)}
                     </span>
                 {/foreach}
             </div>
