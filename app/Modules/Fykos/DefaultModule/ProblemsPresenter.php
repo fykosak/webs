@@ -6,22 +6,36 @@ namespace App\Modules\Fykos\DefaultModule;
 
 use App\Components\ImagePreviewModal\ImagePreviewModalComponent;
 use App\Components\Problem\ProblemComponent;
-use App\Models\Downloader\ProblemService;
+use App\Models\Downloader\Models\ProblemManager\PMSeriesModel;
+use App\Models\Downloader\Services\FileService;
+use App\Models\Downloader\Services\ProblemService;
 use Nette\Application\Attributes\Persistent;
 use Throwable;
 
 class ProblemsPresenter extends BasePresenter
 {
+    private readonly FileService $fileService;
     private readonly ProblemService $problemService;
 
     #[Persistent]
     public ?int $year = null;
-    #[Persistent]
-    public ?int $series = null;
 
-    public function injectServiceProblem(ProblemService $problemService): void
+    #[Persistent]
+    public ?string $series = null;
+
+    public function injectServiceProblem(FileService $fileService, ProblemService $problemService): void
     {
+        $this->fileService = $fileService;
         $this->problemService = $problemService;
+    }
+
+    private function getSeries(): PMSeriesModel
+    {
+        $seriesId = $this->year && $this->series
+            ? $this->problemService->getSeriesId(ProblemService::FYKOS, $this->year, $this->series)
+            : $this->problemService->getLatestSeriesId(ProblemService::FYKOS);
+
+        return $this->problemService->getSeries($seriesId);
     }
 
     /**
@@ -29,39 +43,21 @@ class ProblemsPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $year = $this->year ?? $this->getCurrentYear()->year;
-        $series = $this->series ?? $this->problemService->getLatestSeries('fykos', $year);
-        $series = $this->problemService->getSeries('fykos', $year, $series);
+        $series = $this->getSeries();
         $this->template->series = $series;
+        $this->template->problems = $series->problems;
 
-        $problems = [];
-        foreach ($series->problems as $probNum) {
-            $problems[] = $this->problemService->getProblem('fykos', $series->year, $series->series, $probNum);
-        }
-        $this->template->problems = $problems;
-        $this->template->problemService = $this->problemService;
+        $this->template->currentContestYear = $this->problemService->getYear(
+            ProblemService::FYKOS,
+            $series->contestYear['year']
+        );
+        $this->template->fileService = $this->fileService;
 
-        $this->template->yearsAndSeries = $this->getYearsAndSeries();
-    }
-
-
-    private function getYearsAndSeries(): array
-    {
-        $yearsAndSeries = [];
-        foreach ($this->getContest()->years as $year) {
-            try {
-                $yearJson = $this->problemService->getYearJson('fykos', $year->year);
-                $availableSeriesNumbers = array_keys($yearJson);
-                $yearsAndSeries[$year->year] = $availableSeriesNumbers;
-            } catch (Throwable $e) {
-                continue;
-            }
-        }
-
-        // sort in decreasing order by key
-        krsort($yearsAndSeries);
-
-        return $yearsAndSeries;
+        $yearsAndSeries = $this->problemService->getYears(ProblemService::FYKOS);
+        usort($yearsAndSeries, function ($a, $b) {
+            return $b->year <=> $a->year;
+        });
+        $this->template->yearsAndSeries = $yearsAndSeries;
     }
 
     /**
@@ -69,10 +65,7 @@ class ProblemsPresenter extends BasePresenter
      */
     protected function createComponentProblem(): ProblemComponent
     {
-        $year = $this->year ?? $this->getCurrentYear()->year;
-        $series = $this->series ?? $this->problemService->getLatestSeries('fykos', $year);
-        $seriesModel = $this->problemService->getSeries('fykos', $year, $series);
-        return new ProblemComponent($this->getContext(), $seriesModel);
+        return new ProblemComponent($this->getContext(), $this->getSeries());
     }
 
     protected function createComponentImagePreviewModal(): ImagePreviewModalComponent

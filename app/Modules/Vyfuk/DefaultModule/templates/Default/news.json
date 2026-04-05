@@ -1,6 +1,11 @@
 {
   "cs": [
     {
+      "title": "Posunutí termínu odevzdání 5. série",
+      "text": "Některým řešitelům stále nedorazila kostka k experimentální úloze 5. série, a proto posouváme termín odevzdání této série o 14 dnů až na <strong>20. dubna 20:00</strong>, aby měli na řešení všichni dostatek času. Omlouváme se za způsobené potíže a doufáme, že všem řešitelům obálky co nejdříve dorazí.",
+      "date": "29. března 2026"
+    },
+    {
       "title": "Jarní setkání",
       "text": "Už pro vás připravujeme letošní jarní setkání. To proběhne od <strong>22. do 24. května</strong> v Pardubicích, a to v prostorách Střední školy informatiky a ekonomie Delta. Tu naleznete na adrese Ke Kamenci 151, 530 03, Pardubice.<p>Přihlašování na akci bude spuštěno <strong>12. dubna 20:00</strong> a otevřené bude až do 8. května 20:00.</p>",
       "date": "18. března 2026",
@@ -20,13 +25,6 @@
       "date": "27. února 2026",
       "link": ":Default:Problems:",
       "link-text": "Zadání"
-    },
-    {
-      "title": "Přihlašování na Letní tábor",
-      "text": "Letní tábor Výfuku se bude konat v termínu 26. 7. – 8. 8. 2026 v Panenské Rozsíčce na Vysočině. V první fázi přihlašování, která začne 9. února ve 20:00, se bude moct přihlásit nejlepších 7 řešitelů z každé kategorie dle pořadí po 3. sérii. Tato fáze bude trvat dva týdny a místa, která se v první fázi přihlašování nenaplní, budou následně 23. února ve 20:00 nabídnuta prvním 50 řešitelům z každé kategorie, přičemž v této fázi již bude rozhodovat čas přihlášení.",
-      "date": "8. února 2026",
-      "link": ":Default:Events:tabor",
-      "link-text": "Stránka Letního tábora"
     }
   ]
 }

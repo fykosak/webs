@@ -1,0 +1,37 @@
+{varType array $years}
+
+{block title}
+    {switch $lang}
+        {case 'cs'}Archiv úloh
+        {default}Problem archive
+    {/switch}
+{/block}
+
+{block main}
+<div class="panel color-auto">
+    <section class="inner-container">
+        {switch $lang}
+            {case 'cs'}<h1>Archiv úloh</h1>
+            {default}<h1>Problem archive</h1>
+        {/switch}
+    </section>
+</div>
+
+{foreach $years as $year => $seriesList}
+<div class="panel color-auto">
+    <section class="inner-container">
+        {switch $lang}
+            {case 'cs'}<h2>{$year}. ročník</h2>
+            {default}<h2>Year {$year}</h2>
+        {/switch}
+        {foreach $seriesList as $series}
+            <a class="btn btn-outline-primary" n:href=":Problems year: $year, series: $series->series">
+                {switch $lang}
+                {case 'cs'}{$series->series}. série
+                    {default}series {$series->series}
+                {/switch}
+            </a>
+        {/foreach}
+    </section>
+</div>
+{/foreach}

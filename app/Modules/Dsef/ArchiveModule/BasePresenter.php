@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Dsef\ArchiveModule;
 
 use App\Components\PersonSchedule\AllScheduleListComponent;
-use App\Models\Downloader\EventModel;
+use App\Models\Downloader\Models\EventModel;
 use App\Modules\Dsef\DefaultModule\CurrentPresenter;
 use App\Modules\Dsef\DefaultModule\RegistrationPresenter;
 use Fykosak\Utils\UI\Navigation\NavItem;

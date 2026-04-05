@@ -1,3 +1,5 @@
+{varType App\Models\Downloader\Models\ProblemManager\SeriesModel $previousSeries}
+
 {block title}Hlavní stránka{/block}
 
 {block main}
@@ -31,8 +33,8 @@
 </div>
 <div class="countdown-container py-3">
     <section class="inner-container">
-        <h2 class="m-0 countdown">
-            <a n:href=":Default:Problems:default" style="text-decoration: none;">
+        <h2 class="m-0">
+            <a n:href=":Default:Problems:default" style="text-decoration: none;" class="d-flex flex-wrap justify-content-center">
                 <span id="countdown-label" class="countdown-text mx-3 mx-sm-4 mx-md-5"></span><span id="countdown-time" class="countdown-text mx-3 mx-sm-4 mx-md-5">
             </a>
         </h2>
@@ -85,7 +87,7 @@
                     </p>
                     {if $solutionsReady}
                         <p class="mb-2">
-                            Také se můžeš podívat na <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}">vzorová řešení</a> úloh předchozí série.
+                            Také se můžeš podívat na <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->contestYear['year'], 'series'=>$previousSeries->label}">vzorová řešení</a> úloh předchozí série.
                         </p>
                     {else}
                         <p class="mb-2">
@@ -93,9 +95,23 @@
                         </p>
                     {/if}
                     <div class="d-block">
-                        <a n:href=":Default:Problems:default" class="btn btn-primary mt-2">Zadání {$series->series > 6 ? $series->series - 7 . ".&nbsp;prázdninové " : $series->series . ".&nbsp;"|noescape}série</a>
+                        <a n:href=":Default:Problems:" class="btn btn-primary mt-2">
+                            Zadání
+                            {if str_starts_with($series->label, 'P')}
+                                {trim($series->label, 'P')}.&nbsp;prázdninové série
+                            {else}
+                                {$series->label}.&nbsp;série
+                            {/if}
+                        </a>
                         {if $solutionsReady}
-                            <a href="{plink ':Default:Problems:default' 'year'=>$previousSeries->year, 'series'=>$previousSeries->series}" class="btn btn-primary mt-2">Řešení {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}série</a>
+                            <a href="{plink ':Default:Problems:' 'year'=>$previousSeries->contestYear['year'], 'series'=>$previousSeries->label}" class="btn btn-primary mt-2">
+                                Řešení
+                                {if str_starts_with($previousSeries->label, 'P')}
+                                    {trim($previousSeries->label, 'P')}.&nbsp;prázdninové série
+                                {else}
+                                    {$previousSeries->label}.&nbsp;série
+                                {/if}
+                            </a>
                         {/if}
                     </div>
                 </div>
@@ -110,10 +126,23 @@
                         Mrkni se na <a n:href=":Default:Results:default">pořadí</a> po poslední sérii a zkontroluj si, jak si průběžně stojíš. Nejlepší řešitele čekají hodnotné <a n:href=":Default:Prizes:default">ceny</a> a především pak účast na našich akcích.
                     </p>
                     {if $resultsReady}
-                        <a href="{plink ':Default:Results:default' 'year'=>$previousSeries->year}" class="btn btn-primary">Pořadí  po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii</a>
+                        <a href="{plink ':Default:Results:default' 'year'=>$previousSeries->contestYear['year']}" class="btn btn-primary">
+                            Pořadí po
+                            {if str_starts_with($previousSeries->label, 'P')}
+                                {trim($previousSeries->label, 'P')}.&nbsp;prázdninové sérii
+                            {else}
+                                {$previousSeries->label}.&nbsp;sérii
+                            {/if}
+                        </a>
                     {else}
                         <p class="mb-2">
-                            Výsledky po {$previousSeries->series > 6 ? $previousSeries->series - 7 . ".&nbsp;prázdninové " : $previousSeries->series . ".&nbsp;"|noescape}sérii zveřejníme brzy.
+                            Výsledky po
+                            {if str_starts_with($previousSeries->label, 'P')}
+                                {trim($previousSeries->label, 'P')}.&nbsp;prázdninové sérii
+                            {else}
+                                {$previousSeries->label}.&nbsp;sérii
+                            {/if}
+                            zveřejníme brzy.
                         </p>
                     {/if}
                 </div>
@@ -173,7 +202,6 @@ let timer = setInterval(countdownTimer, 1000);
 countdownTimer();
 
 function countdownTimer() {
-    const seriesNumber = {$series->series};
     const now = new Date().getTime();
 
     const distance = Math.floor((countDownDate - now)/1000);
@@ -219,17 +247,23 @@ function countdownTimer() {
             secondsLabel = "&nbsp;sekund";
     }
 
-    let label = "Termín " + seriesNumber + ".&nbsp;série"
-    if (seriesNumber > 6) {
-        label = "Termín " + (seriesNumber-7) + ".&nbsp;prázdninové série"
-    }
+    let label = "Termín " +
+        {if str_starts_with($series->label, 'P')}
+            {trim($series->label, 'P')} + ".&nbsp;prázdninové série"
+        {else}
+            {$series->label} + ".&nbsp;série"
+        {/if}
+
     if (distance <= 0) {
         clearInterval(timer);
-        if (seriesNumber > 6) {
-            label = (seriesNumber-7) + ".&nbsp;prázdninová série již proběhla.";
-        } else {
-            label = seriesNumber + ".&nbsp;série již proběhla.";
-        }
+        label =
+        {if str_starts_with($series->label, 'P')}
+            {trim($series->label, 'P')} + ".&nbsp;prázdninová série"
+        {else}
+            {$series->label} + ".&nbsp;série"
+        {/if}
+        + "již proběhla.";
+
         time = '';
         document.getElementById("countdown-time").classList.add("d-none");
         document.getElementById("countdown-label").classList.add("mb-0");

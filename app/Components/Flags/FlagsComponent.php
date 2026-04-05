@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Components\Flags;
 
-use App\Models\Downloader\TeamMemberModel;
-use App\Models\Downloader\TeamModel;
+use App\Models\Downloader\Models\TeamMemberModel;
+use App\Models\Downloader\Models\TeamModel;
 use Fykosak\Utils\Components\DIComponent;
 
 class FlagsComponent extends DIComponent

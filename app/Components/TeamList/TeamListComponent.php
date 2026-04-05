@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Components\TeamList;
 
 use App\Components\Flags\FlagsComponent;
-use App\Models\Downloader\DummyService;
-use App\Models\Downloader\TeamModel;
+use App\Models\Downloader\Services\DummyService;
+use App\Models\Downloader\Models\TeamModel;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;

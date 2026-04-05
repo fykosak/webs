@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\DefaultModule;
 
-use App\Models\Downloader\EventOrganizersRequest;
-use App\Models\Downloader\FKSDBDownloader;
+use App\Models\Downloader\Downloaders\FKSDBDownloader;
+use App\Models\Downloader\Requests\EventOrganizersRequest;
 
 class AboutTheCompetitionPresenter extends BasePresenter
 {

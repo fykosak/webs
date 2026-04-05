@@ -1,0 +1,299 @@
+{
+    "15" : {
+        "1" : {
+            "cs": "Těžišťová soustava"
+        },
+        "2" : {
+            "cs": "Otáčení, moment setrvačnosti"
+        },
+        "3" : {
+            "cs": "Rozměrová analýza"
+        },
+        "4" : {
+            "cs": "Světlo"
+        },
+        "5" : {
+            "cs": "Coulombův zákon"
+        },
+        "6" : {
+            "cs": "Plazma a fúze"
+        }
+    },
+    "14" : {
+        "1" : {
+            "cs": "Zobrazovací optika"
+        },
+        "2" : {
+            "cs": "Odpor prostředí"
+        },
+        "3" : {
+            "cs": "Fyzika potápění"
+        },
+        "4" : {
+            "cs": "Slunce"
+        },
+        "5" : {
+            "cs": "Kombinatorika a pravděpodobnost"
+        },
+        "6" : {
+            "cs": "Aproximace"
+        }
+    },
+    "13" : {
+        "1" : {
+            "cs": "Ideální plyn"
+        },
+        "2" : {
+            "cs": "Teplo"
+        },
+        "3" : {
+            "cs": "Archimedův zákon"
+        },
+        "4" : {
+            "cs": "Vysoké napětí"
+        },
+        "5" : {
+            "cs": "Gravitace"
+        },
+        "6" : {
+            "cs": "Tranzistory"
+        }
+    },
+    "12" : {
+        "1" : {
+            "cs": "Energie"
+        },
+        "2" : {
+            "cs": "Duha"
+        },
+        "3" : {
+            "cs": "Hybnost"
+        },
+        "4" : {
+            "cs": "Dalekohledy"
+        },
+        "5" : {
+            "cs": "Bohrův model"
+        },
+        "6" : {
+            "cs": "Magnety"
+        }
+    },
+    "11" : {
+        "1" : {
+            "cs": "Zanedbávání a zaokrouhlování"
+        },
+        "2" : {
+            "cs": "Jaderná energie"
+        },
+        "3" : {
+            "cs": "Spektroskopie"
+        },
+        "4" : {
+            "cs": "Pohony kosmických lodí"
+        },
+        "5" : {
+            "cs": "Teorie hudby"
+        },
+        "6" : {
+            "cs": "Termodynamika"
+        }
+    },
+    "10" : {
+        "1" : {
+            "cs": "Krystalové soustavy"
+        },
+        "2" : {
+            "cs": "Grafy"
+        },
+        "3" : {
+            "cs": "Mikroskopy"
+        },
+        "4" : {
+            "cs": "Fotometrie hvězd"
+        },
+        "5" : {
+            "cs": "Fraktály"
+        },
+        "6" : {
+            "cs": "Statika"
+        }
+    },
+    "9" : {
+        "1" : {
+            "cs": "Částicová ZOO"
+        },
+        "2" : {
+            "cs": "Doppler"
+        },
+        "3" : {
+            "cs": "Vrhy"
+        },
+        "4" : {
+            "cs": "Roztažnosti"
+        },
+        "5" : {
+            "cs": "Kladky, páky"
+        },
+        "6" : {
+            "cs": "Hydrodynamika"
+        }
+    },
+    "8" : {
+        "1" : {
+            "cs": "Isaac Newton"
+        },
+        "2" : {
+            "cs": "Max Planck"
+        },
+        "3" : {
+            "cs": "Blaise Pascal"
+        },
+        "4" : {
+            "cs": "Arthur Ashkin"
+        },
+        "5" : {
+            "cs": "Michael Faraday"
+        },
+        "6" : {
+            "cs": "William Thomson"
+        }
+    },
+    "7" : {
+        "1" : {
+            "cs": "Hybnost"
+        },
+        "2" : {
+            "cs": "Fotoelektrický jev"
+        },
+        "3" : {
+            "cs": "Elasticita"
+        },
+        "4" : {
+            "cs": "Sférické souřadnice"
+        },
+        "5" : {
+            "cs": "Elektrické obvody"
+        },
+        "6" : {
+            "cs": "Polovodiče"
+        }
+    },
+    "6" : {
+        "1" : {
+            "cs": "Netradiční fyzikální jednotky"
+        },
+        "2" : {
+            "cs": "Ideální plyn"
+        },
+        "3" : {
+            "cs": "Elektronová struktura atomů"
+        },
+        "4" : {
+            "cs": "Otáčení a moment setravčnosti"
+        },
+        "5" : {
+            "cs": "Paprsková optika"
+        },
+        "6" : {
+            "cs": "Černé díry"
+        }
+    },
+    "5" : {
+        "1" : {
+            "cs": "Vektory"
+        },
+        "2" : {
+            "cs": "Triky ve fyzice"
+        },
+        "3" : {
+            "cs": "Meteorologie"
+        },
+        "4" : {
+            "cs": "Symetrie a podobnosti"
+        },
+        "5" : {
+            "cs": "Vzdálenosti ve vesmíru"
+        },
+        "6" : {
+            "cs": "O kruzích, kružnicích, radiánech a stupních"
+        }
+    },
+    "4" : {
+        "1" : {
+            "cs": "Zrychlený pohyb"
+        },
+        "2" : {
+            "cs": "Experimenty"
+        },
+        "3" : {
+            "cs": "Astrofyzika"
+        },
+        "4" : {
+            "cs": "Mocniny, polynomy"
+        },
+        "5" : {
+            "cs": "Původ různých sil"
+        },
+        "6" : {
+            "cs": "Radiaktivita, stavba atomu"
+        }
+    },
+    "3" : {
+        "1" : {
+            "cs": "Čísla a jednotky"
+        },
+        "2" : {
+            "cs": "Hydrostatika"
+        },
+        "3" : {
+            "cs": "Řešení obvodů"
+        },
+        "4" : {
+            "cs": "Zákony zachování"
+        },
+        "5" : {
+            "cs": "Logaritmy a exponenciály ve fyzice"
+        },
+        "6" : {
+            "cs": "Keplerovy zákony"
+        }
+    },
+    "2" : {
+        "1" : {
+            "cs": "Triky s mírami"
+        },
+        "2" : {
+            "cs": "Vektory"
+        },
+        "3" : {
+            "cs": "Ideální plyn"
+        },
+        "4" : {
+            "cs": "Goniometrické a cyklometrické funkce"
+        },
+        "5" : {
+            "cs": "Elektrické obvody"
+        },
+        "6" : {
+            "cs": "Radioaktivita"
+        }
+    },
+    "1" : {
+        "1" : {
+            "cs": "Dopravní značka v elektrotechnice"
+        },
+        "2" : {
+            "cs": "Goniometrické funkce"
+        },
+        "3" : {
+            "cs": "Sliby chyby"
+        },
+        "4" : {
+            "cs": "O kráse regrese"
+        },
+        "5" : {
+            "cs": "Pády a vrhy"
+        }
+    }
+}

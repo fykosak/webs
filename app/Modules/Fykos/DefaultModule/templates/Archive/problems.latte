@@ -1,0 +1,42 @@
+{varType SeriesModel $series}
+{varType array $problems}
+
+{block title}
+    {switch $lang}
+        {case 'cs'}Úlohy {$series->year}. ročníku, {$series->series}. série
+        {default}Problems of year {$series->year}, series {$series->series}
+    {/switch}
+{/block}
+
+{block main}
+<div class="panel color-auto">
+    <section class="inner-container">
+        <div class="subheader">
+            {if $series->getDeadline()}
+                {switch $language->value}
+                    {case 'cs'}Deadline pro odeslání: <strong>{$series->getDeadline()|date:"j. n. Y, H:i"}</strong>.
+                    {default}Deadline for submission: <strong>{$series->getDeadline()|date:"M. j, Y, H:i"}, CET</strong>.
+                {/switch}
+            {/if}
+        </div>
+        {switch $lang}
+            {case 'cs'}<h1>Úlohy {$series->year}. ročníku, {$series->series}. série</h1>
+            {default}<h1>Problems of year {$series->year}, series {$series->series}</h1>
+        {/switch}
+
+        <a class="btn btn-outline-primary" n:href=":Problems year: null, series: null">
+            {switch $lang}
+                {case 'cs'}Zpět na seznam všech sérií
+                {default}List of all series
+            {/switch}
+        </a>
+
+        <div class="row mt-3">
+            {foreach $series->problems as $problemNum}
+                {control problem $problems[$problemNum]}
+            {/foreach}
+        </div>
+    </section>
+</div>
+
+{control imagePreviewModal}
