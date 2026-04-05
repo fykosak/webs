@@ -9,7 +9,7 @@ use Fykosak\Utils\UI\PageTitle;
 use App\Models\Authentication\Authenticator;
 use App\Models\Authentication\UserModel;
 use Nette\Application\ForbiddenRequestException;
-use App\Models\Downloader\EventService;
+use App\Models\Downloader\Services\EventService;
 
 use Nette\Utils\Finder;
 
