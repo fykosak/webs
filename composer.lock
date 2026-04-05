@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f82c9a97e3f74a8fb44b0140374bec64",
+    "content-hash": "64d960b1d44ef791f0bc89a019d59bd7",
     "packages": [
         {
             "name": "68publishers/asset",
@@ -69,16 +69,16 @@
         },
         {
             "name": "fykosak/fksdb-downloader-core",
-            "version": "dev-dev-api-key",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fykosak/fksdb-downloader-core.git",
-                "reference": "3dcc43c"
+                "reference": "68a162b42e87c61b57a33df1b5b013d06c30cffd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/3dcc43c",
-                "reference": "3dcc43c",
+                "url": "https://api.github.com/repos/fykosak/fksdb-downloader-core/zipball/68a162b42e87c61b57a33df1b5b013d06c30cffd",
+                "reference": "68a162b42e87c61b57a33df1b5b013d06c30cffd",
                 "shasum": ""
             },
             "require": {
@@ -89,6 +89,7 @@
             "require-dev": {
                 "squizlabs/php_codesniffer": "^3.6.0"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -109,9 +110,9 @@
             "description": "Interface for downloading data from FKSDB by SOAP-client",
             "support": {
                 "issues": "https://github.com/fykosak/fksdb-downloader-core/issues",
-                "source": "https://github.com/fykosak/fksdb-downloader-core/tree/dev-api-key"
+                "source": "https://github.com/fykosak/fksdb-downloader-core/tree/master"
             },
-            "time": "2025-09-19T11:18:30+00:00"
+            "time": "2026-04-05T12:04:19+00:00"
         },
         {
             "name": "fykosak/nette-fks-utils",
