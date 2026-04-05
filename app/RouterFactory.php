@@ -258,7 +258,7 @@ class RouterFactory
         $router
             ->withModule('Default')
             ->addRoute(
-                '//<domain>/<presenter problems|zadani>/<year ([0-9]{1,2})>/<series ([0-9]{1})>',
+                '//<domain>/<presenter problems|zadani>/<year ([0-9]{1,2})>/<series>',
                 [
                     'presenter' => 'Problems',
                     'action' => 'default',

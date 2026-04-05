@@ -10,7 +10,6 @@ use App\Models\Downloader\Models\ProblemManager\PMSeriesModel;
 use App\Models\Downloader\Services\FileService;
 use App\Models\Downloader\Services\ProblemService;
 use Nette\Application\Attributes\Persistent;
-use Throwable;
 use InvalidArgumentException;
 
 class ProblemsPresenter extends BasePresenter

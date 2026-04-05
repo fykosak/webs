@@ -21,7 +21,7 @@ class ProblemsPresenter extends BasePresenter
     public ?int $year = null;
 
     #[Persistent]
-    public ?int $series = null;
+    public ?string $series = null;
 
     public function injectServiceProblem(FileService $fileService, ProblemService $problemService): void
     {
@@ -32,7 +32,7 @@ class ProblemsPresenter extends BasePresenter
     private function getSeries(): PMSeriesModel
     {
         $seriesId = $this->year && $this->series
-            ? $this->problemService->getSeriesId(ProblemService::FYKOS, $this->year, (string)$this->series)
+            ? $this->problemService->getSeriesId(ProblemService::FYKOS, $this->year, $this->series)
             : $this->problemService->getLatestSeriesId(ProblemService::FYKOS);
 
         return $this->problemService->getSeries($seriesId);
