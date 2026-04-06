@@ -18,7 +18,6 @@ class AdminPresenter extends BasePresenter
     protected Authenticator $authenticator;
     protected EventService $eventService;
 
-    /** @persistent */
     public ?int $eventId = null;
 
     public function injectService(Authenticator $authenticator, EventService $eventService): void
