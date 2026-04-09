@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Archiv úloh",
+      "text": "Nově na stránce zadání najedete kompletní archiv všech úloh od 1. ročníku. V blízké době k nim budou dostupná i jejich řešení a bude také rozšířen archiv Výfučtení.",
+      "date": "9. dubna 2026",
+      "link": ":Default:Problems:",
+      "link-text": "Stránka zadání"
+    },
+    {
       "title": "Posunutí termínu odevzdání 5. série",
       "text": "Některým řešitelům stále nedorazila kostka k experimentální úloze 5. série, a proto posouváme termín odevzdání této série o 14 dnů až na <strong>20. dubna 20:00</strong>, aby měli na řešení všichni dostatek času. Omlouváme se za způsobené potíže a doufáme, že všem řešitelům obálky co nejdříve dorazí.",
       "date": "29. března 2026"
@@ -18,13 +25,6 @@
       "date": "10. března 2026",
       "link": ":Default:Results:default",
       "link-text": "Pořadí"
-    },
-    {
-      "title": "Zadání 5. série",
-      "text": "Čtvrtá série je za námi, ale už teď se můžete vrhnout do počítání úloh 5. série letošního ročníku. Čas na odesílání vašich řešení vyprší 6. dubna ve 20:00. A pokud nemáte náladu na řešení úloh, můžete se podívat na vzorová řešení 4. série. Už teď je najdete v záložce zadání.",
-      "date": "27. února 2026",
-      "link": ":Default:Problems:",
-      "link-text": "Zadání"
     }
   ]
 }
