@@ -12,13 +12,6 @@
   ],
   "cs": [
     {
-      "title": "Posunutí odevzdání seriálové úlohy",
-      "text": "Termín odevzdání seriálové úlohy 5. série je posunut na 10. 4. 2026, 23:59.",
-      "link": "https://fykos.cz/zadani/39/5",
-      "link-text": "Zadání úloh",
-      "color": "fykos"
-    },
-    {
       "title": "Fyziklání je za námi",
       "text": "Letošní Fyziklání je již úspěšně za námi. Zadání a řešení úloh nebo to, jak si týmy vedli, již můžete najít na webu. Zároveň se v blízké době můžete těšit na fotky ze soutěže.",
       "link": "https://fyziklani.cz/2026/vysledky/",
@@ -27,13 +20,6 @@
     }
   ],
   "en": [
-    {
-      "title": "Postponed submission deadline",
-      "text": "The submission deadline for Problem S in Series 5 is postponed to April 10, 2026, 23:59.",
-      "link": "https://fykos.org/problems/39/5",
-      "link-text": "Problem Statement",
-      "color": "fykos"
-    },
     {
       "title": "Fyziklání je za námi",
       "text": "This year's Fyziklání is successfully behind us. You can already find the assignment and solutions to the problems or how the teams performed on the our website. At the same time, you can look forward to photos from the competition in the near future.",
