@@ -1,11 +1,16 @@
 {
   "cs": [
     {
+      "title": "Zadání 6. série",
+      "text": "15. ročník Výfuku se blíži ke svému konci. Zveřejnili jsme zadání poslední série úloh. Svá řešení nám můžete posílat do 18. května. Nezapomeňte využít poslední příležitosti vylepšit své umístění! Také se můžete podívat na vzorová řešení včera ukončené 5. série.",
+      "date": "22. dubna 2026",
+      "link": ":Default:Problems:",
+      "link-text": "Zadání"
+    },
+    {
       "title": "Archiv úloh",
       "text": "Nově na stránce zadání najedete kompletní archiv všech úloh od 1. ročníku. V blízké době k nim budou dostupná i jejich řešení a bude také rozšířen archiv Výfučtení.",
-      "date": "9. dubna 2026",
-      "link": ":Default:Problems:",
-      "link-text": "Stránka zadání"
+      "date": "9. dubna 2026"
     },
     {
       "title": "Posunutí termínu odevzdání 5. série",
@@ -18,13 +23,6 @@
       "date": "18. března 2026",
       "link": ":Default:Events:setkani",
       "link-text": "Stránka setkání"
-    },
-    {
-      "title": "Pořadí po 4. sérii",
-      "text": "Po dvou týdnech usilovné práce máme opravená všechna vámi zaslaná řešení 4. série Výfuku. Už teď se můžete podívat na vzorová řešení a svá opravená řešení. Pokud vás zajímá, jak si vedete v porovnání s ostatními, průběžné pořadí najdete na webu nebo v brožurce 5. série.",
-      "date": "10. března 2026",
-      "link": ":Default:Results:default",
-      "link-text": "Pořadí"
     }
   ]
 }
