@@ -76,9 +76,9 @@ abstract class BasePresenter extends Presenter
         $this->template->pageTitle = $pageTitle;
     }
 
-    protected function createTemplate(): Template
+    protected function createTemplate(?string $class = null): Template
     {
-        $template = parent::createTemplate();
+        $template = parent::createTemplate($class);
         $template->lang = $this->lang;
         $template->language = $this->language;
         /** @var \Nette\Bridges\ApplicationLatte\Template $template */
@@ -141,7 +141,7 @@ abstract class BasePresenter extends Presenter
         }
         $this->language = Language::from($this->lang);
 
-        $this->translator->setLang($this->language);
+        $this->translator->setLang($this->language->value);
     }
 
     /**

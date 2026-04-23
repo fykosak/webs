@@ -109,9 +109,9 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
      * @throws \Throwable
      * @throws BadRequestException
      */
-    protected function createTemplate(): Template
+    protected function createTemplate(?string $class = null): Template
     {
-        $template = parent::createTemplate();
+        $template = parent::createTemplate($class);
         $template->event = $this->getEvent();
         return $template;
     }
