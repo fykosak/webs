@@ -30,7 +30,7 @@ class TeamListComponent extends DIComponent
 
     protected function createComponentFlags(): FlagsComponent
     {
-        return new FlagsComponent($this->getContext());
+        return new FlagsComponent($this->container);
     }
 
     /**

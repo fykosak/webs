@@ -31,7 +31,7 @@ final class UpperHomeBeforeRegistrationComponent extends DIComponent
     protected function createComponentCountdown(): CountdownComponent
     {
         return new CountdownComponent(
-            $this->getContext(),
+            $this->container,
             $this->event->registrationBegin
         );
     }

@@ -33,7 +33,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
                     [$year, $month] = explode('-', $this->eventYear);
                 }
                 $events = $this->eventService->getEventsByYear(
-                    [$this->context->getParameters()['eventTypeId']],
+                    [$this->getContext()->getParameters()['eventTypeId']],
                     intval($year)
                 );
                 if (count($events)) {
@@ -43,7 +43,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
             if (!isset($event)) {
                 throw new BadRequestException(
                     $this->csen('Akce nenalezena', 'Event not found'),
-                    IResponse::S404_NOT_FOUND
+                    IResponse::S404_NotFound
                 );
             }
             $this->event = $event;
@@ -59,6 +59,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
         $navItems = [
             new NavItem(
                 new PageTitle(
+                    null,
                     $this->csen('Archiv', 'Archive'),
                     'visible-sm-inline glyphicon glyphicon-info-sign'
                 ), // TODO
@@ -66,6 +67,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
             ),
             new NavItem(
                 new PageTitle(
+                    null,
                     $this->csen('Týmy', 'Teams'),
                     'visible-sm-inline glyphicon glyphicon-info-sign'
                 ), // TODO
@@ -73,13 +75,14 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
             ),
             new NavItem(
                 new PageTitle(
+                    null,
                     $this->csen('Pořadí', 'Results'),
                     'visible-sm-inline glyphicon glyphicon-compressed'
                 ), // TODO
                 ':Archive:Results:default',
             )
             //new NavItem(
-            //    new PageTitle( _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
+            //    new PageTitle(null,  _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
             //    // TODO
             //    ':Archive:DetailedResults:default',
             //),
@@ -88,6 +91,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
         if ($this->getPresenterByName('Archive:Schedule')->isVisible()) {
             $navItems[] = new NavItem(
                 new PageTitle(
+                    null,
                     $this->csen('Program', 'Program'),
                     'visible-sm-inline glyphicon glyphicon-compressed'
                 ), // TODO

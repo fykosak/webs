@@ -14,7 +14,7 @@ class RegistrationPresenter extends BasePresenter
      */
     public function isVisible(): bool
     {
-        return $this->getNewestEvent()->getRegistrationPeriod()->is(Phase::onGoing);
+        return $this->getNewestEvent()->getRegistrationPeriod()->is(Phase::OnGoing);
     }
 
     /**

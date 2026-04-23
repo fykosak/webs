@@ -21,7 +21,7 @@ final class ResultsPanelComponent extends DIComponent
      */
     protected function createComponentApiResults(): ApiResultsComponent
     {
-        return new ApiResultsComponent($this->getContext(), $this->event->eventId);
+        return new ApiResultsComponent($this->container, $this->event->eventId);
     }
 
     public function render(bool $dark = false): void

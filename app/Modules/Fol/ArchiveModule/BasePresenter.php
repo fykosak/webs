@@ -33,7 +33,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
                     [$year, $month] = explode('-', $this->eventYear);
                 }
                 $events = $this->eventService->getEventsByYear(
-                    [$this->context->getParameters()['eventTypeId']],
+                    [$this->getContext()->getParameters()['eventTypeId']],
                     intval($year)
                 );
                 if (count($events)) {
@@ -43,7 +43,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
             if (!isset($event)) {
                 throw new BadRequestException(
                     $this->csen('Akce nenalezena', 'Event not found'),
-                    IResponse::S404_NOT_FOUND
+                    IResponse::S404_NotFound
                 );
             }
             $this->event = $event;
@@ -59,6 +59,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
         return [
             new NavItem(
                 new PageTitle(
+                    null,
                     $this->csen('Archiv', 'History'),
                     'visible-sm-inline glyphicon glyphicon-info-sign'
                 ), // TODO
@@ -66,6 +67,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
             ),
             new NavItem(
                 new PageTitle(
+                    null,
                     $this->csen('Týmy', 'Teams'),
                     'visible-sm-inline glyphicon glyphicon-info-sign'
                 ), // TODO
@@ -73,6 +75,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
             ),
             new NavItem(
                 new PageTitle(
+                    null,
                     $this->csen('Pořadí', 'Results'),
                     'visible-sm-inline glyphicon glyphicon-compressed'
                 ), // TODO
@@ -80,6 +83,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
             ),
             new NavItem(
                 new PageTitle(
+                    null,
                     $this->csen('Ohlasy účastníků', 'Reports'),
                     'visible-sm-inline glyphicon glyphicon-exclamation-sign'
                 ),

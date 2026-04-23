@@ -34,7 +34,7 @@ final class UpperHomePrague extends DIComponent
      */
     protected function createComponentCountdown(): CountdownComponent
     {
-        if ($this->event->getRegistrationPeriod()->is(Phase::before)) {
+        if ($this->event->getRegistrationPeriod()->is(Phase::Before)) {
             return new CountdownComponent(
                 $this->container,
                 $this->event->registrationBegin

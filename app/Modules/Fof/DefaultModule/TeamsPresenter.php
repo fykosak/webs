@@ -15,7 +15,7 @@ class TeamsPresenter extends BasePresenter
      */
     public function isVisible(): bool
     {
-        return !$this->getNewestEvent()->getRegistrationPeriod()->is(Phase::before);
+        return !$this->getNewestEvent()->getRegistrationPeriod()->is(Phase::Before);
     }
 
     /**

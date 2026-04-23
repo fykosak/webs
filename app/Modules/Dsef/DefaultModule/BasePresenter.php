@@ -18,20 +18,20 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
         $items = [];
         if ($this->getPresenterByName('Default:Registration')->isVisible()) {
             $items[] = new NavItem(
-                new PageTitle('Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(null, 'Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 'Registration:',
             );
         }
 
         if ($this->getPresenterByName('Default:Current')->isVisible()) {
             $items[] = new NavItem(
-                new PageTitle('Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(null, 'Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 'Current:',
             );
         }
 
         $items[] = new NavItem(
-            new PageTitle('Minulé ročníky', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, 'Minulé ročníky', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             'Archive:',
         );
         return $items;

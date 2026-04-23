@@ -161,11 +161,10 @@ abstract class BasePresenter extends Presenter
      */
     public function csen(string $cs, string $en): string
     {
-        if ($this->translator->lang === Language::cs) {
-            return $cs;
-        } else {
-            return $en;
-        }
+        return $this->translator->getVariant([
+            Language::cs->value => $cs,
+            Language::en->value => $en,
+        ]);
     }
 
     public function translateDay(string $day): string
