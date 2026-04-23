@@ -164,13 +164,11 @@
                                             {default}<td class="right-cell"><a href="mailto:{$organizer['domainAlias']}@fykos.org">{$organizer['domainAlias']}@fykos.org</a></td>
                                         {/switch}
                                     </tr>
-                                    {php
-                                    $phoneNumbers = [
+                                    {var $phoneNumbers = [
                                         22358 => '+420 725 301 980',
                                         15214 => '+420 775 504 193',
                                         2762 => '+420 730 974 923'
-                                    ];
-                                    }
+                                    ]}
                                     {if isset($phoneNumbers[$organizer['personId']])}
                                     <tr>
                                         <td class="left-cell"><span class="icon"><i class="fas fa-phone"></i></span></td>

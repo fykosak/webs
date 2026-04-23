@@ -13,7 +13,7 @@
                 <div class="subheader">
                     <p>Den plný přednášek a exkurzí po fyzikálních laboratořích (nejen) MFF UK.</p>
                 </div>
-                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}<time class="competition-date" datetime="{$newestEvent->begin |date:'Y-m-d'}">
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::Before)}<time class="competition-date" datetime="{$newestEvent->begin |date:'Y-m-d'}">
                     {$newestEvent->begin |date:'j. n. Y'}
                 </time>{/if}
 {*                <div class="buttons">*}

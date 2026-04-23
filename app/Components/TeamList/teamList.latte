@@ -7,7 +7,7 @@
             <h1>{switch $lang->value}{case 'cs'}Přihlášené týmy{default}Registered Teams{/switch}</h1>
 
             {do ksort($teams)}
-            {foreach $teams AS $category => $teamsForCategory}
+            {foreach $teams as $category => $teamsForCategory}
                 {if $category == 'F'}
                     <a class="btn btn-primary my-2" href="#{$category}">
                         {switch $lang->value}
@@ -35,7 +35,7 @@
     </div>
 
     {var $parityCounter = true}
-    {foreach $teams AS $category => $teamsForCategory}
+    {foreach $teams as $category => $teamsForCategory}
         {do $parityCounter = !$parityCounter}
         <div n:class="panel, $parityCounter ? color-light : color-dark">
             <section class="inner-container" id="{$category}">
@@ -54,17 +54,15 @@
                 </h1>
 
                 <ol class="team-list">
-                    {foreach $teamsForCategory AS $team}
+                    {foreach $teamsForCategory as $team}
                         {varType App\Models\Downloader\Models\EventModel $team}
                         {if in_array($team->state, ['pending', 'applied', 'arrived', 'participated', 'missed', 'disqualified'])}
                             <li id="{$team->teamId}" class="team-state-{$team->state}">
                                 <strong>{$team->name}</strong>:
                                 {var $inSchool = 0}
                             {if $team->members && count($team->members)}
-                                    {php
-                                        $members = $team->members;
-                                        usort($members, fn(App\Models\Downloader\Models\TeamMemberModel $a,App\Models\Downloader\Models\TeamMemberModel $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))
-                                    }
+                                {var $members = $team->members}
+                                {php usort($members, fn(App\Models\Downloader\Models\TeamMemberModel $a,App\Models\Downloader\Models\TeamMemberModel $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))}
                                     {foreach $members as $key => $member}
                                         {varType App\Models\Downloader\Models\TeamMemberModel $member}
                                         {$member->name}

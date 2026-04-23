@@ -61,10 +61,10 @@
                         {default}Are you interested?
                     {/switch}
                 </div>
-                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
                     <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Zaregistrovat se{default}Registration{/switch}</a>
                 {else}
-                    {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+                    {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::Before)}
                         Registrace se otevře 10. 10. 2025 v 00:00!
                     {else}
                         Registrace na další ročník ještě není otevřena.

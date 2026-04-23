@@ -24,7 +24,7 @@
         </div>
         <div class="team-counts">
             <strong>{$teamCount}</strong>
-            {if $event->isLongAfterTheEvent(Fykosak\Utils\DateTime\Phase::after)}
+            {if $event->isLongAfterTheEvent(Fykosak\Utils\DateTime\Phase::After)}
                 {switch $lang->value}
                     {case cs}
                     {if $teamCount === 1}
