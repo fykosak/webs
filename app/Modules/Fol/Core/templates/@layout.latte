@@ -62,7 +62,7 @@
         </div>
     </div>
 {/if}
-{if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after) && !$newestEvent->isLongAfterTheEvent()}
+{if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::After) && !$newestEvent->isLongAfterTheEvent()}
     <div class="fyziklani-banner">
         <div class="inner-container">
             <div class="text">
@@ -102,10 +102,10 @@
                         {default}Are you interested?
                     {/switch}
                 </div>
-                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
                     <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Registrace{default}Registration{/switch}</a>
                 {else}
-                    {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+                    {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::Before)}
                         {switch $language->value}
                             {case 'cs'}Registrace se otevře v září!
                             {default} Registration will open in September!
@@ -251,7 +251,7 @@
                                         <li><a n:href=":Default:Rules:">Pravidla</a></li>
                                         <li><a n:href=":Default:Faq:">FAQ</a></li>
                                         <li><a n:href=":Default:Schedule:">Program</a></li>
-                                        {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+                                        {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
                                             <li><a n:href=":Default:Registration:">Registrace</a></li>
                                         {/if}
                                     </ul>
@@ -263,7 +263,7 @@
                                         <li><a n:href=":Default:Rules:">Rules</a></li>
                                         <li><a n:href=":Default:Faq:">FAQ</a></li>
                                         <li><a n:href=":Default:Schedule:">Schedule</a></li>
-                                        {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+                                        {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
                                             <li><a n:href=":Default:Registration:">Registration</a></li>
                                         {/if}
                                     </ul>

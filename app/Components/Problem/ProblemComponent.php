@@ -7,6 +7,7 @@ namespace App\Components\Problem;
 use App\Models\Downloader\Models\Core\ProblemModel;
 use App\Models\Downloader\Models\Core\SeriesModel;
 use App\Models\Downloader\Services\FileService;
+use App\Modules\Core\Language;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
@@ -29,7 +30,7 @@ class ProblemComponent extends DIComponent
         $this->template->series = $this->series;
         $this->template->fileService = $this->fileService;
         $this->template->problem = $problem;
-        $this->template->language = $this->translator->lang;
+        $this->template->language = Language::from($this->translator->lang);
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'problem.latte');
     }
 }

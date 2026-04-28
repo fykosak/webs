@@ -39,7 +39,7 @@
             <div class="subheader">{include title}</div>
             <h1>FAQ</h1>
             <ul class="stylized">
-            {foreach $questions AS $category => $questionsForCategory}
+            {foreach $questions as $category => $questionsForCategory}
                 <li><a href="#{$category}">{$translations[$category][$lang == 'cs' ? 0 : 1]}</a></li>
             {/foreach}
             </ul>
@@ -55,7 +55,7 @@
 
     {var $i = 1}
     {var $parityCounter = true}
-    {foreach $questions AS $category => $questionsForCategory}
+    {foreach $questions as $category => $questionsForCategory}
         {do $parityCounter = !$parityCounter}
         <div n:class="panel, $parityCounter ? color-light : color-dark">
             <section class="inner-container" id="{$category}">
@@ -67,7 +67,7 @@
                 </div>
                 <h1>{$translations[$category][$lang == 'cs' ? 0 : 1]}</h1>
 
-                {foreach $questionsForCategory AS $question}
+                {foreach $questionsForCategory as $question}
                     <div class="card faq-question-and-answer rounded-0">
                         <a href="javascript:void(0)" class="btn-primary" data-bs-toggle="collapse"
                            data-bs-target="#faq{$i}">
@@ -87,5 +87,5 @@
             </section>
         </div>
     {/foreach}
-    
+
 {/block}

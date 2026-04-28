@@ -17,54 +17,54 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
         $items = [];
 
         $items[] = new NavItem(
-            new PageTitle('Zadání', 'fa-solid fa-file-pen'),
+            new PageTitle(null, 'Zadání', 'fa-solid fa-file-pen'),
             ':Default:Problems:default'
         );
 
         $items[] = new NavItem(
-            new PageTitle('Pořadí', 'fa-solid fa-ranking-star'),
+            new PageTitle(null, 'Pořadí', 'fa-solid fa-ranking-star'),
             ':Default:Results:default'
         );
 
         $items[] = new NavItem(
-            new PageTitle('O nás', 'fa-solid fa-users'),
+            new PageTitle(null, 'O nás', 'fa-solid fa-users'),
             ':Default:About:default',
             [],
             [
-                new NavItem(new PageTitle('Co je Výfuk?'), ':Default:About:default'),
-                new NavItem(new PageTitle('Organizátoři'), ':Default:About:organizers'),
-                new NavItem(new PageTitle('Historie'), ':Default:About:history'),
-                new NavItem(new PageTitle('Síň slávy'), ':Default:About:pastOrganizers'),
-                new NavItem(new PageTitle('Podpořte nás'), ':Default:About:sponsors'),
-                new NavItem(new PageTitle('Kontakt'), ':Default:About:contact'),
+                new NavItem(new PageTitle(null, 'Co je Výfuk?'), ':Default:About:default'),
+                new NavItem(new PageTitle(null, 'Organizátoři'), ':Default:About:organizers'),
+                new NavItem(new PageTitle(null, 'Historie'), ':Default:About:history'),
+                new NavItem(new PageTitle(null, 'Síň slávy'), ':Default:About:pastOrganizers'),
+                new NavItem(new PageTitle(null, 'Podpořte nás'), ':Default:About:sponsors'),
+                new NavItem(new PageTitle(null, 'Kontakt'), ':Default:About:contact'),
             ],
         );
 
         $items[] = new NavItem(
-            new PageTitle('Jak řešit', 'fa-solid fa-book'),
+            new PageTitle(null, 'Jak řešit', 'fa-solid fa-book'),
             ':Default:HowToSolve:default',
             [],
             [
-                new NavItem(new PageTitle('Jak se zapojit'), ':Default:HowToSolve:default'),
-                new NavItem(new PageTitle('Pravidla'), ':Default:HowToSolve:rules'),
-                new NavItem(new PageTitle('Jak psát řešení'), ':Default:HowToSolve:solutions'),
-                new NavItem(new PageTitle('Jak psát experimenty'), ':Default:HowToSolve:experiments'),
-                new NavItem(new PageTitle('Výfučí bingo'), ':Default:Bingo:'),
+                new NavItem(new PageTitle(null, 'Jak se zapojit'), ':Default:HowToSolve:default'),
+                new NavItem(new PageTitle(null, 'Pravidla'), ':Default:HowToSolve:rules'),
+                new NavItem(new PageTitle(null, 'Jak psát řešení'), ':Default:HowToSolve:solutions'),
+                new NavItem(new PageTitle(null, 'Jak psát experimenty'), ':Default:HowToSolve:experiments'),
+                new NavItem(new PageTitle(null, 'Výfučí bingo'), ':Default:Bingo:'),
             ],
         );
 
         $items[] = new NavItem(
-            new PageTitle('Akce', 'fa-solid fa-calendar-days'),
+            new PageTitle(null, 'Akce', 'fa-solid fa-calendar-days'),
             ':Default:Events:'
         );
 
         $items[] = new NavItem(
-            new PageTitle('Pro učitele', 'fa-solid fa-user-graduate'),
+            new PageTitle(null, 'Pro učitele', 'fa-solid fa-user-graduate'),
             ':Default:Teachers:default',
         );
 
         $items[] = new NavItem(
-            new PageTitle('Přihlásit se', "icon icon-fksdb"),
+            new PageTitle(null, 'Přihlásit se', "icon icon-fksdb"),
             'https://db.fykos.cz'
         );
 

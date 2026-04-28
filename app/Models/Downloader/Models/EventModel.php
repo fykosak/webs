@@ -35,7 +35,10 @@ final class EventModel
 
 
     public readonly GameModel|null $game;
-    public readonly Period $registration; // TODO magic?
+    /**
+     * @var string[] $nameNew
+     */
+    public readonly array $registration; // TODO cast to Period
 
     public function getRegistrationPeriod(): Period
     {

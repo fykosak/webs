@@ -31,7 +31,7 @@ final class UpperHomeMapComponent extends DIComponent
 
     protected function createComponentMap(): MapComponent
     {
-        return new MapComponent($this->getContext(), $this->event);
+        return new MapComponent($this->container, $this->event);
     }
 
     /**

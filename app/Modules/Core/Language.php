@@ -7,7 +7,7 @@ namespace App\Modules\Core;
 use Fykosak\Utils\Localization\LangEnum;
 use Nette\Utils\Html;
 
-enum Language: string implements LangEnum
+enum Language: string
 {
     case cs = 'cs';
     case en = 'en';

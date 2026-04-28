@@ -8,6 +8,7 @@ use Fykosak\Utils\Components\DIComponent;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\DI\Container;
+use Nette\InvalidStateException;
 use Nette\Utils\Finder;
 use Nette\Utils\Image;
 use Nette\Utils\UnknownImageFileException;
@@ -37,18 +38,18 @@ class ImageGalleryControl extends DIComponent
 
         try {
             $iterator = Finder::findFiles('*.jpg', '*.jpeg', '*.JPG', '*.png', '*.gif', '*.bmp', '*.webp')->in($wwwDir . $path)->getIterator();
-        } catch (\Exception $e) {
-            return [];
-        }
 
-        foreach ($iterator as $file) {
-            $imageInfo = getimagesize($file->getPathname());
-            $wwwPath = substr($file->getPathname(), strlen($wwwDir));
-            $images[] = [
+            foreach ($iterator as $file) {
+                $imageInfo = getimagesize($file->getPathname());
+                $wwwPath = substr($file->getPathname(), strlen($wwwDir));
+                $images[] = [
                 'src' => $wwwPath,
                 'width' => $imageInfo[0],
                 'height' => $imageInfo[1],
-            ];
+                ];
+            }
+        } catch (InvalidStateException $e) {
+            return [];
         }
 
         usort($images, function ($a, $b) {
