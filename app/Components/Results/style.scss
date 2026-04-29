@@ -8,19 +8,19 @@
   [data-label="3"],
   [data-label="4"],
   [data-label="5"] {
-    --task-color: var(--task-color-3);
+    --task-color: var(--task-color-2);
   }
 
   [data-label="P"] {
-    --task-color: var(--task-color-P);
+    --task-color: var(--task-color-3);
   }
 
   [data-label="E"] {
-    --task-color: var(--task-color-E);
+    --task-color: var(--task-color-4);
   }
 
   [data-label="S"] {
-    --task-color: var(--task-color-S);
+    --task-color: var(--task-color-5);
   }
 
   .points {
