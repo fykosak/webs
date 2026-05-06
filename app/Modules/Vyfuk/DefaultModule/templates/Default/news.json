@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Pořadí po 5. sérii",
+      "text": "Právě jsme zveřejnili pořadí po 5. sérii. Jak jste si vedli, najdete v záložce pořadí. A kdybyste chtěli vylepšit své průběžné pořadí, stačí vyřešit úlohy poslední 6. série. Zadání jsme zveřejnili na webu už před dvěma týdny a brzy vám přijde i poštou.",
+      "date": "6. května 2026",
+      "link": ":Default:Results:",
+      "link-text": "Pořadí"
+    },
+    {
       "title": "Zadání 6. série",
       "text": "15. ročník Výfuku se blíži ke svému konci. Zveřejnili jsme zadání poslední série úloh. Svá řešení nám můžete posílat do 1. června. Nezapomeňte využít poslední příležitosti vylepšit své umístění! Také se můžete podívat na vzorová řešení včera ukončené 5. série.",
       "date": "22. dubna 2026",
@@ -16,13 +23,6 @@
       "title": "Posunutí termínu odevzdání 5. série",
       "text": "Některým řešitelům stále nedorazila kostka k experimentální úloze 5. série, a proto posouváme termín odevzdání této série o 14 dnů až na <strong>20. dubna 20:00</strong>, aby měli na řešení všichni dostatek času. Omlouváme se za způsobené potíže a doufáme, že všem řešitelům obálky co nejdříve dorazí.",
       "date": "29. března 2026"
-    },
-    {
-      "title": "Jarní setkání",
-      "text": "Už pro vás připravujeme letošní jarní setkání. To proběhne od <strong>22. do 24. května</strong> v Pardubicích, a to v prostorách Střední školy informatiky a ekonomie Delta. Tu naleznete na adrese Ke Kamenci 151, 530 03, Pardubice.<p>Přihlašování na akci bude spuštěno <strong>12. dubna 20:00</strong> a otevřené bude až do 8. května 20:00.</p>",
-      "date": "18. března 2026",
-      "link": ":Default:Events:setkani",
-      "link-text": "Stránka setkání"
     }
   ]
 }
