@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Prohlédni si, co můžeš stále vyhrát",
+      "text": "Z daru <a href=\"https://www.nadaceneuron.cz\" target=\"_blank\">Nadace Neuron</a> jsme zakoupili spoustu krásných cen, které si můžeš prohlédnout na stránce věnované odměnám. Na řešení 6. série máš pořád více než dva týdny, tak se pusť do řešení a zkus zabojovat o přední příčky! A nezapomeň, že Výfuk oceňuje nejen ty nejlepší - jak konkrétně najdeš na <a href=\"https://vyfuk.org/bingo\">stránce výfučího binga</a>.",
+      "date": "16. května 2026",
+      "link": ":Default:Prizes:",
+      "link-text": "Stránka cen"
+    },
+    {
       "title": "Pořadí po 5. sérii",
       "text": "Právě jsme zveřejnili pořadí po 5. sérii. Jak jste si vedli, najdete v záložce pořadí. A kdybyste chtěli vylepšit své průběžné pořadí, stačí vyřešit úlohy poslední 6. série. Zadání jsme zveřejnili na webu už před dvěma týdny a brzy vám přijde i poštou.",
       "date": "6. května 2026",
@@ -18,11 +25,6 @@
       "title": "Archiv úloh",
       "text": "Nově na stránce zadání najedete kompletní archiv všech úloh od 1. ročníku. V blízké době k nim budou dostupná i jejich řešení a bude také rozšířen archiv Výfučtení.",
       "date": "9. dubna 2026"
-    },
-    {
-      "title": "Posunutí termínu odevzdání 5. série",
-      "text": "Některým řešitelům stále nedorazila kostka k experimentální úloze 5. série, a proto posouváme termín odevzdání této série o 14 dnů až na <strong>20. dubna 20:00</strong>, aby měli na řešení všichni dostatek času. Omlouváme se za způsobené potíže a doufáme, že všem řešitelům obálky co nejdříve dorazí.",
-      "date": "29. března 2026"
     }
   ]
 }
