@@ -1,30 +1,30 @@
 {
   "cs": [
     {
-      "title": "Posunutí termínu odevzdání 5. série",
-      "text": "Některým řešitelům stále nedorazila kostka k experimentální úloze 5. série, a proto posouváme termín odevzdání této série o 14 dnů až na <strong>20. dubna 20:00</strong>, aby měli na řešení všichni dostatek času. Omlouváme se za způsobené potíže a doufáme, že všem řešitelům obálky co nejdříve dorazí.",
-      "date": "29. března 2026"
+      "title": "Prohlédni si, co můžeš stále vyhrát",
+      "text": "Z daru <a href=\"https://www.nadaceneuron.cz\" target=\"_blank\">Nadace Neuron</a> jsme zakoupili spoustu krásných cen, které si můžeš prohlédnout na stránce věnované odměnám. Na řešení 6. série máš pořád více než dva týdny, tak se pusť do řešení a zkus zabojovat o přední příčky! A nezapomeň, že Výfuk oceňuje nejen ty nejlepší – jak konkrétně najdeš na <a href=\"https://vyfuk.org/bingo\">stránce výfučího binga</a>.",
+      "date": "16. května 2026",
+      "link": ":Default:Prizes:",
+      "link-text": "Stránka cen"
     },
     {
-      "title": "Jarní setkání",
-      "text": "Už pro vás připravujeme letošní jarní setkání. To proběhne od <strong>22. do 24. května</strong> v Pardubicích, a to v prostorách Střední školy informatiky a ekonomie Delta. Tu naleznete na adrese Ke Kamenci 151, 530 03, Pardubice.<p>Přihlašování na akci bude spuštěno <strong>12. dubna 20:00</strong> a otevřené bude až do 8. května 20:00.</p>",
-      "date": "18. března 2026",
-      "link": ":Default:Events:setkani",
-      "link-text": "Stránka setkání"
-    },
-    {
-      "title": "Pořadí po 4. sérii",
-      "text": "Po dvou týdnech usilovné práce máme opravená všechna vámi zaslaná řešení 4. série Výfuku. Už teď se můžete podívat na vzorová řešení a svá opravená řešení. Pokud vás zajímá, jak si vedete v porovnání s ostatními, průběžné pořadí najdete na webu nebo v brožurce 5. série.",
-      "date": "10. března 2026",
-      "link": ":Default:Results:default",
+      "title": "Pořadí po 5. sérii",
+      "text": "Právě jsme zveřejnili pořadí po 5. sérii. Jak jste si vedli, najdete v záložce pořadí. A kdybyste chtěli vylepšit své průběžné pořadí, stačí vyřešit úlohy poslední 6. série. Zadání jsme zveřejnili na webu už před dvěma týdny a brzy vám přijde i poštou.",
+      "date": "6. května 2026",
+      "link": ":Default:Results:",
       "link-text": "Pořadí"
     },
     {
-      "title": "Zadání 5. série",
-      "text": "Čtvrtá série je za námi, ale už teď se můžete vrhnout do počítání úloh 5. série letošního ročníku. Čas na odesílání vašich řešení vyprší 6. dubna ve 20:00. A pokud nemáte náladu na řešení úloh, můžete se podívat na vzorová řešení 4. série. Už teď je najdete v záložce zadání.",
-      "date": "27. února 2026",
+      "title": "Zadání 6. série",
+      "text": "15. ročník Výfuku se blíži ke svému konci. Zveřejnili jsme zadání poslední série úloh. Svá řešení nám můžete posílat do 1. června. Nezapomeňte využít poslední příležitosti vylepšit své umístění! Také se můžete podívat na vzorová řešení včera ukončené 5. série.",
+      "date": "22. dubna 2026",
       "link": ":Default:Problems:",
       "link-text": "Zadání"
+    },
+    {
+      "title": "Archiv úloh",
+      "text": "Nově na stránce zadání najedete kompletní archiv všech úloh od 1. ročníku. V blízké době k nim budou dostupná i jejich řešení a bude také rozšířen archiv Výfučtení.",
+      "date": "9. dubna 2026"
     }
   ]
 }
