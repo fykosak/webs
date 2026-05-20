@@ -103,7 +103,7 @@ class DefaultPresenter extends BasePresenter
     {
 
         $this->template->yearBeginDate = date('Y-m-d', strtotime('2025-09-01'));
-        $this->template->yearEndDate = date('Y-m-d', strtotime('2026-05-31'));
+        $this->template->yearEndDate = date('Y-m-d', strtotime('2026-05-10'));
 
         $this->template->events = [];
         $events = [
