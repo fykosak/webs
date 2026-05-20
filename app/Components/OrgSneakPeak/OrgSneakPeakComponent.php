@@ -62,7 +62,7 @@ class OrgSneakPeakComponent extends DIComponent
         return [];
     }
 
-    public function render(int $personId = null, string $title = null): void
+    public function render(?int $personId = null, ?string $title = null): void
     {
         $this->template->organizer = $this->getOrg($this->organizers, $personId);
         if (is_null($title)) {

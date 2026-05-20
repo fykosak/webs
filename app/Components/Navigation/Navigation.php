@@ -12,7 +12,7 @@ class Navigation extends DIComponent
 {
     private array $items = [];
 
-    public function render(string $logoPath = null, string $logoAlt = null, bool $hasI18n = true): void
+    public function render(?string $logoPath = null, ?string $logoAlt = null, bool $hasI18n = true): void
     {
         $this->template->logoPath = $logoPath;
         $this->template->logoAlt = $logoAlt;
