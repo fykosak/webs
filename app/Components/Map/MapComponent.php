@@ -7,6 +7,7 @@ namespace App\Components\Map;
 use App\Models\Downloader\Services\DummyService;
 use App\Models\Downloader\Models\EventModel;
 use App\Models\Downloader\Models\TeamModel;
+use App\Modules\Core\Language;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
@@ -70,7 +71,7 @@ class MapComponent extends DIComponent
         $this->template->uniqueId = self::$uniqueId++;
         $this->template->inverseColors = $inverseColors;
 
-        $this->template->lang = $this->translator->lang;
+        $this->template->lang = Language::from($this->translator->lang);
         $this->template->event = $this->event;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'map.latte');
     }

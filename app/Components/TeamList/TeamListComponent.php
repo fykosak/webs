@@ -7,6 +7,7 @@ namespace App\Components\TeamList;
 use App\Components\Flags\FlagsComponent;
 use App\Models\Downloader\Services\DummyService;
 use App\Models\Downloader\Models\TeamModel;
+use App\Modules\Core\Language;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
@@ -59,7 +60,7 @@ class TeamListComponent extends DIComponent
     public function render(): void
     {
         $this->loadTeams();
-        $this->template->lang = $this->translator->lang;
+        $this->template->lang = Language::from($this->translator->lang);
         $this->template->teams = $this->teams;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamList.latte');
     }

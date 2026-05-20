@@ -6,6 +6,7 @@ namespace App\Components\UpperHomePrague;
 
 use App\Components\Countdown\CountdownComponent;
 use App\Models\Downloader\Models\EventModel;
+use App\Modules\Core\Language;
 use Fykosak\Utils\Components\DIComponent;
 use Fykosak\Utils\DateTime\Phase;
 use Nette\DI\Container;
@@ -24,7 +25,7 @@ final class UpperHomePrague extends DIComponent
      */
     public function render(): void
     {
-        $this->template->lang = $this->translator->lang;
+        $this->template->lang = Language::from($this->translator->lang);
         $this->template->event = $this->event;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomePrague.latte');
     }

@@ -36,7 +36,7 @@ class TeamResultsComponent extends DIComponent
      */
     public function render(): void
     {
-        $this->template->lang = $this->translator->lang;
+        $this->template->lang = Language::from($this->translator->lang);
         if (!$this->event->game->hardVisible) {
             $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamResultsHidden.latte');
             return;
