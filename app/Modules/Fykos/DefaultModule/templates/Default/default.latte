@@ -65,6 +65,7 @@
                                         {default}
                                             {$events[$countdownEventsIndices['previous'][$lang]]['date'] |date:'M j, Y'|replace: ' ','&nbsp;'|noescape}
                                     {/switch}
+                                </h4>
                                 {/if}
                                 <h2 class="next-event-heading">{$events[$countdownEventsIndices['upcoming'][$lang]]['heading'][$lang]|noescape} |
                                 {switch $lang}
@@ -240,11 +241,11 @@
                         <div class="col-12 my-4">
                             <div id="timeline-horizontal-container" class="position-relative">
                                 <div class="start-timeline-text position-absolute">
-                                    <p>{switch $lang}{case 'cs'}{$timelineBegin|date:'j.'}&nbsp;{$timelineBegin|date:'n.'} {$timelineBegin|date:'Y'}{default}{$timelineBegin|date:'M'}&nbsp;{$timelineBegin|date:'j'}, {$timelineBegin|date:'Y'}{/switch}
+                                    <p>{switch $lang}{case 'cs'}{$timelineBegin|date:'j.'}&nbsp;{$timelineBegin|date:'n.'} {$timelineBegin|date:'Y'}{default}{$timelineBegin|date:'M'}&nbsp;{$timelineBegin|date:'j'}, {$timelineBegin|date:'Y'}{/switch}</p>
                                 </div>
                                 <hr id="timeline-horizontal">
                                 <div class="end-timeline-text position-absolute">
-                                    <p>{switch $lang}{case 'cs'}{$timelineEnd|date:'j.'}&nbsp;{$timelineEnd|date:'n.'} {$timelineEnd|date:'Y'}{default}{$timelineEnd|date:'M'}&nbsp;{$timelineEnd|date:'j'}, {$timelineEnd|date:'Y'}{/switch}
+                                    <p>{switch $lang}{case 'cs'}{$timelineEnd|date:'j.'}&nbsp;{$timelineEnd|date:'n.'} {$timelineEnd|date:'Y'}{default}{$timelineEnd|date:'M'}&nbsp;{$timelineEnd|date:'j'}, {$timelineEnd|date:'Y'}{/switch}</p>
                                 </div>
                             </div>
                         </div>
