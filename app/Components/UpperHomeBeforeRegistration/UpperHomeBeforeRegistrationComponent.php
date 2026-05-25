@@ -6,6 +6,7 @@ namespace App\Components\UpperHomeBeforeRegistration;
 
 use App\Components\Countdown\CountdownComponent;
 use App\Models\Downloader\Models\EventModel;
+use App\Modules\Core\Language;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
@@ -21,7 +22,7 @@ final class UpperHomeBeforeRegistrationComponent extends DIComponent
     public function render(): void
     {
         $this->template->event = $this->event;
-        $this->template->lang = $this->translator->lang;
+        $this->template->lang = Language::from($this->translator->lang);
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomeBeforeRegistration.latte');
     }
 
@@ -31,7 +32,7 @@ final class UpperHomeBeforeRegistrationComponent extends DIComponent
     protected function createComponentCountdown(): CountdownComponent
     {
         return new CountdownComponent(
-            $this->getContext(),
+            $this->container,
             $this->event->registrationBegin
         );
     }

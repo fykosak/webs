@@ -138,7 +138,14 @@
                                     {/foreach}
                                     <div class="accordion-item">
                                         <div class="accordion-collapse">
-                                            <a class="btn btn-outline-light text-body w-100" n:href="Archive:Problems">Archiv starších ročníků</a>
+                                            <a class="btn btn-outline-light text-body w-100" n:href="Archive:Problems">
+                                                {switch $language->value}
+                                                {case 'cs'}
+                                                    Archiv starších ročníků
+                                                {default}
+                                                    Archive of older years
+                                                {/switch}
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

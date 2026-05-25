@@ -22,7 +22,7 @@
     </div>
 </div>
 <div class="team-results-control">
-    {foreach $teams AS $category => $teamsForCategory}
+    {foreach $teams as $category => $teamsForCategory}
         <button class="btn btn-primary button-collapse-header" type="button" data-bs-toggle="collapse"
         data-bs-target="#collapse-category-{$category}" aria-expanded="false" aria-controls="collapse-category-{$category}">
         {switch $lang->value}
@@ -42,7 +42,7 @@
                 <div class="result-column" style="width: 5rem">{switch $lang->value}{case cs}Celkové pořadí{default}Rank total{/switch}</div>
             </div>
             {do usort($teamsForCategory, fn($a, $b) => ($a->rankCategory ? $a->rankCategory : PHP_INT_MAX) <=> ($b->rankCategory ? $b->rankCategory : PHP_INT_MAX))}
-            {foreach $teamsForCategory AS $index => $team}
+            {foreach $teamsForCategory as $index => $team}
                 <div class="results-row">
                     <div class="results-first-row">
                         {varType App\Models\Downloader\Models\TeamModel $team}
@@ -59,10 +59,8 @@
                             {switch $lang->value}{case cs}{var $notAStudentText = 'Nestudent'}{default}{var $notAStudentText = 'Not a student'}{/switch}
                             {var $inSchool = 0}
                             {if $team->members && count($team->members)}
-                                {php
-                                    $members = $team->members;
-                                    usort($members, fn(App\Models\Downloader\Models\TeamMemberModel $a, App\Models\Downloader\Models\TeamMemberModel $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))
-                                }
+                                {var $members = $team->members}
+                                {php usort($members, fn(App\Models\Downloader\Models\TeamMemberModel $a, App\Models\Downloader\Models\TeamMemberModel $b) => ($a->school['schoolId']??0) <=> ($b->school['schoolId']??0))}
                                 {foreach $members as $key => $member}
                                     {varType App\Models\Downloader\Models\TeamMemberModel $member}
                                     {do $inSchool++}

@@ -25,9 +25,9 @@ abstract class EventWebPresenter extends BasePresenter
     /**
      * @throws \Throwable
      */
-    protected function createTemplate(): Template
+    protected function createTemplate(?string $class = null): Template
     {
-        $template = parent::createTemplate();
+        $template = parent::createTemplate($class);
         $template->newestEvent = $this->getNewestEvent();
         return $template;
     }

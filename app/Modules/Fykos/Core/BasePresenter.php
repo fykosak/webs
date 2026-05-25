@@ -20,45 +20,45 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
         $items = [];
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('O nás', 'About Us'), $icon), // TODO
+            new PageTitle(null, $this->csen('O nás', 'About Us'), $icon), // TODO
             ':Default:About:',
             [],
             [
-                new NavItem(new PageTitle($this->csen('Co je FYKOS?', 'What Is FYKOS?')), ':Default:About:default'),
-                new NavItem(new PageTitle($this->csen('Organizátoři', 'Organizers')), ':Default:About:organizers'),
-                new NavItem(new PageTitle($this->csen('Historie', 'History')), ':Default:About:history'),
-                new NavItem(new PageTitle($this->csen('Kontakt', 'Contact')), ':Default:About:contact'),
-                new NavItem(new PageTitle($this->csen('Podpořte nás', 'Support Us')), ':Default:SupportUs:'),
-                new NavItem(new PageTitle($this->csen('Merch', 'Merch')), ':Default:Merch:'),
-                new NavItem(new PageTitle($this->csen('Další příležitosti', 'Further Opportunities')), ':Default:FurtherOpportunities:'),
+                new NavItem(new PageTitle(null, $this->csen('Co je FYKOS?', 'What Is FYKOS?')), ':Default:About:default'),
+                new NavItem(new PageTitle(null, $this->csen('Organizátoři', 'Organizers')), ':Default:About:organizers'),
+                new NavItem(new PageTitle(null, $this->csen('Historie', 'History')), ':Default:About:history'),
+                new NavItem(new PageTitle(null, $this->csen('Kontakt', 'Contact')), ':Default:About:contact'),
+                new NavItem(new PageTitle(null, $this->csen('Podpořte nás', 'Support Us')), ':Default:SupportUs:'),
+                new NavItem(new PageTitle(null, $this->csen('Merch', 'Merch')), ':Default:Merch:'),
+                new NavItem(new PageTitle(null, $this->csen('Další příležitosti', 'Further Opportunities')), ':Default:FurtherOpportunities:'),
             ],
         );
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('Akce', 'Events'), $icon), // TODO
+            new PageTitle(null, $this->csen('Akce', 'Events'), $icon), // TODO
             ':Events:Default:',
         );
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('Seminář', 'FYKOS Competition'), $icon),
+            new PageTitle(null, $this->csen('Seminář', 'FYKOS Competition'), $icon),
             ':Events:Fykos:',
             [],
             [
-                new NavItem(new PageTitle($this->csen('Základní informace', 'Basic Information')), ':Events:Fykos:'),
-                new NavItem(new PageTitle($this->csen('Pravidla', 'Rules')), ':Events:Fykos:rules'),
+                new NavItem(new PageTitle(null, $this->csen('Základní informace', 'Basic Information')), ':Events:Fykos:'),
+                new NavItem(new PageTitle(null, $this->csen('Pravidla', 'Rules')), ':Events:Fykos:rules'),
                 new NavItem(
-                    new PageTitle($this->csen('Jak psát řešení', 'How to Write Solutions')),
+                    new PageTitle(null, $this->csen('Jak psát řešení', 'How to Write Solutions')),
                     ':Events:Fykos:texTutorial'
                 ),
                 new NavItem(
-                    new PageTitle($this->csen('Jak na experimenty', 'How to Do Experiments')),
+                    new PageTitle(null, $this->csen('Jak na experimenty', 'How to Do Experiments')),
                     ':Events:Fykos:experiments'
                 ),
             ],
         );
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('Zadání', 'Problems'), $icon),
+            new PageTitle(null, $this->csen('Zadání', 'Problems'), $icon),
             ':Default:Problems:default',
             // @phpstan-ignore-next-line
             [
@@ -71,12 +71,12 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
 
         /*
         $items[] = new NavItem(
-            new PageTitle($this->csen('Archiv', 'Archive'), $icon),
+            new PageTitle(null, $this->csen('Archiv', 'Archive'), $icon),
             ':Default:Archive:default',
             [],
             [
                 new NavItem(
-                    new PageTitle($this->csen('Archiv seriálů', 'Serial Archive')),
+                    new PageTitle(null, $this->csen('Archiv seriálů', 'Serial Archive')),
                     ':Default:Archive:serial'
                 ),
             ],
@@ -84,7 +84,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
         */
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('Pořadí', 'Results'), $icon),
+            new PageTitle(null, $this->csen('Pořadí', 'Results'), $icon),
             ':Default:Results:default',
             // @phpstan-ignore-next-line
             [
@@ -93,7 +93,7 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
         );
 
         $items[] = new NavItem(
-            new PageTitle($this->csen('Přihlásit se', 'Sign In'), $icon),
+            new PageTitle(null, $this->csen('Přihlásit se', 'Sign In'), $icon),
             'https://db.fykos.cz',
         );
         return $items;

@@ -6,6 +6,7 @@ namespace App\Components\ResultsPanel;
 
 use App\Components\ApiResults\ApiResultsComponent;
 use App\Models\Downloader\Models\EventModel;
+use App\Modules\Core\Language;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
@@ -21,13 +22,13 @@ final class ResultsPanelComponent extends DIComponent
      */
     protected function createComponentApiResults(): ApiResultsComponent
     {
-        return new ApiResultsComponent($this->getContext(), $this->event->eventId);
+        return new ApiResultsComponent($this->container, $this->event->eventId);
     }
 
     public function render(bool $dark = false): void
     {
         $this->template->dark = $dark;
-        $this->template->lang = $this->translator->lang;
+        $this->template->lang = Language::from($this->translator->lang);
         $this->template->event = $this->event;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'panel.latte');
     }

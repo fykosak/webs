@@ -54,28 +54,28 @@
             <div class="buttons">
                 <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O
                     soutěži{default}About{/switch}</a>
-                {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
+                {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::After)}
                 <a href="https://cdn.static.fykos.cz/physics-brawl-online-{$eventKey}/{switch $language->value}{case 'cs'}reseni{default}solutions{/switch}.pdf"
                     class="btn btn-secondary">{switch $language->value}{case 'cs'}Řešení
                     úloh{default}Solutions{/switch}</a>
                 {/if}
                 {* todo: phase - results are final and in FKSDB *}
-                {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
+                {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::After)}
                 <a n:href=":Archive:Results: eventYear:$eventKey" class="btn btn-secondary">{switch
                     $language->value}{case 'cs'}Pořadí týmů{default}Results list{/switch}</a>
                 {/if}
-                <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)"
+                <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)"
                     n:href="Registration:" class="btn btn-outline-light">{switch $language->value}{case
                     'cs'}Registrace{default}Register{/switch}</a>
-                {if $newestEvent->getNearEventPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing) &&
-                !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
+                {if $newestEvent->getNearEventPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing) &&
+                !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::After)}
                 <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $language->value}{case
                     'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>
                 {/if}
             </div>
         </div>
         <div class="col-md-6 right-block topic-panel">
-            {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+            {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::Before)}
             {control upperHomeBeforeRegistration}
             {elseif true}
             {control upperHomeMap}
@@ -143,12 +143,12 @@
      </div>
 
 
-{if !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::before) && !$newestEvent->isLongAfterTheEvent()}
-{control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+{if !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::Before) && !$newestEvent->isLongAfterTheEvent()}
+{control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
 {/if}
 
-{if $newestEvent->getNearEventPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing) &&
-!$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
+{if $newestEvent->getNearEventPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing) &&
+!$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::After)}
 <div class="panel color-dark" id="{$anchorBeforeCompetition}">
     <section class="inner-container">
         {switch $language->value}
@@ -177,7 +177,7 @@
                 </div>
             </div>
             <div class="col-md-4 begin-countdown">
-                {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+                {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::Before)}
                 Začínáme za
                 {control countdown}
                 {else}
@@ -212,7 +212,7 @@
                 </div>
             </div>
             <div class="col-md-4 begin-countdown">
-                {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+                {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::Before)}
                 Competition starts in
                 {control countdown}
                 {else}

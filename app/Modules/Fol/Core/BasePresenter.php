@@ -22,12 +22,12 @@ abstract class BasePresenter extends EventWebPresenter
     /**
      * @throws \Throwable
      */
-    protected function createTemplate(): Template
+    protected function createTemplate(?string $class = null): Template
     {
 
-        $template = parent::createTemplate();
+        $template = parent::createTemplate($class);
         $template->fofEvent = $this->eventService->getNewest([
-            $this->context->getParameters()['fofEventTypeId'],
+            $this->getContext()->getParameters()['fofEventTypeId'],
         ]);
         return $template;
     }
