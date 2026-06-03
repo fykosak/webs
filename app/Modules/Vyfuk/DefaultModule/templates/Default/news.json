@@ -1,6 +1,13 @@
 {
   "cs": [
     {
+      "title": "Zadání prázdninových sérií",
+      "text": "Všech šest klasických sérií 15. ročníku Výfuku je minulostí. Všechny úlohy jste vyřešili a brzy se dočkáte i závěrečné výsledkové listiny. Ale nemusíte být smutní, protože Výfuk jede dál! I letos jsme si pro vás připravili dvě prázdninové série, plné zajímavých úloh trochu jiného typu, než jste řešili v průběhu roku. Proto neváhejte a vrhněte se do řešení. První prázdninovou sérii můžete odevzdávat do 27. července.",
+      "date": "3. června 2026",
+      "link": ":Default:Problems:",
+      "link-text": "Zadání"
+    },
+    {
       "title": "Prohlédni si, co můžeš stále vyhrát",
       "text": "Z daru <a href=\"https://www.nadaceneuron.cz\" target=\"_blank\">Nadace Neuron</a> jsme zakoupili spoustu krásných cen, které si můžeš prohlédnout na stránce věnované odměnám. Na řešení 6. série máš pořád více než dva týdny, tak se pusť do řešení a zkus zabojovat o přední příčky! A nezapomeň, že Výfuk oceňuje nejen ty nejlepší – jak konkrétně najdeš na <a href=\"https://vyfuk.org/bingo\">stránce výfučího binga</a>.",
       "date": "16. května 2026",
@@ -13,18 +20,6 @@
       "date": "6. května 2026",
       "link": ":Default:Results:",
       "link-text": "Pořadí"
-    },
-    {
-      "title": "Zadání 6. série",
-      "text": "15. ročník Výfuku se blíži ke svému konci. Zveřejnili jsme zadání poslední série úloh. Svá řešení nám můžete posílat do 1. června. Nezapomeňte využít poslední příležitosti vylepšit své umístění! Také se můžete podívat na vzorová řešení včera ukončené 5. série.",
-      "date": "22. dubna 2026",
-      "link": ":Default:Problems:",
-      "link-text": "Zadání"
-    },
-    {
-      "title": "Archiv úloh",
-      "text": "Nově na stránce zadání najedete kompletní archiv všech úloh od 1. ročníku. V blízké době k nim budou dostupná i jejich řešení a bude také rozšířen archiv Výfučtení.",
-      "date": "9. dubna 2026"
     }
   ]
 }
