@@ -1,5 +1,6 @@
 {varType App\Models\Downloader\Models\EventModel $event}
 {varType App\Modules\Core\Language $language}
+{varType App\Modules\Images\ImageService $imageService}
 {varType string $eventKey}
 
 {block subtitle}
@@ -85,7 +86,7 @@
                         {/if}
                     </ul>
                 {/if}
-            {if is_dir(__DIR__.'/../../../../media/fof/photos/'.$eventKey)}
+            {if $imageService->hasPhotosEvent($event)}
                 <ul class="stylized">
                     <li>
                         <a href="#competition">
@@ -150,14 +151,14 @@
 {*    {/if}*}
 
 
-    {if is_dir(__DIR__.'/../../../../media/fof/photos/'.$eventKey)}
+    {if $imageService->hasPhotosEvent($event)}
         <div class="panel color-auto" id="competition">
             <section class="inner-container">
                 <h1>{switch $language->value}
                     {case 'cs'}Fotografie ze soutěže
                     {default}Photos from the competition
                 {/switch}</h1>
-                {control gallery "/media/photos/" . $eventKey . "/"}
+                {control gallery $event}
             </section>
         </div>
     {/if}

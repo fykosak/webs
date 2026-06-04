@@ -19,6 +19,7 @@ services:
     - App\Models\Downloader\Services\ProblemService('10 minutes')
     - App\Models\Downloader\Services\EventService('10 minutes')
     - App\Models\Downloader\Services\DummyService('10 minutes')
+    - App\Models\Images\ImageService()
 
 extensions:
     asset: SixtyEightPublishers\Asset\Bridge\Nette\DI\AssetExtension

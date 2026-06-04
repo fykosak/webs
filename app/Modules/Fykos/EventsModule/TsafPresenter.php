@@ -52,7 +52,7 @@ class TsafPresenter extends BasePresenter
     public function getEventPhoto(array $event): string
     {
         // choose a photo for the event randomly from the available ones
-        return $this->template->basePath . '/media/images/events/event-missing-photo.png';
+        return $this->template->basePath . '/images/event-missing-photo.png';
 
         // if ($event['year'] < 10) {
         //     $fullYear = '0' . $event['year'];

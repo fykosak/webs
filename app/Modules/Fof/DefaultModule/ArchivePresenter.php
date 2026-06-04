@@ -4,8 +4,17 @@ declare(strict_types=1);
 
 namespace App\Modules\Fof\DefaultModule;
 
+use App\Models\Images\ImageService;
+
 class ArchivePresenter extends BasePresenter
 {
+    private readonly ImageService $imageService;
+
+    public function inject(ImageService $imageService): void
+    {
+        $this->imageService = $imageService;
+    }
+
     /**
      * @throws \Throwable
      */
@@ -24,6 +33,7 @@ class ArchivePresenter extends BasePresenter
             ];
         }
 
+        $this->template->imageService = $this->imageService;
         $this->template->eventKeys = $eventKeys;
     }
 }
