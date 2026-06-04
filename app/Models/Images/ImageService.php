@@ -92,7 +92,6 @@ final class ImageService
         foreach ($images as $index => &$image) {
             $image['index'] = $index;
         }
-        bdump($images);
 
         return $images;
     }
@@ -119,9 +118,9 @@ final class ImageService
      *
      * @return ImageInfo[]
      */
-    public function getEventImages(EventModel $event): array
+    public function getEventImages(EventModel $event, EventImageType $imageType): array
     {
-        $imageDirectory = $this->getEventImageDirectory($event);
+        $imageDirectory = FileSystem::joinPaths($this->getEventImageDirectory($event), $imageType->value);
 
         return $this->cache->load(
             [$imageDirectory],
@@ -143,9 +142,9 @@ final class ImageService
         return count($this->getPathImages($path)) > 0;
     }
 
-    public function hasPhotosEvent(EventModel $event): bool
+    public function hasPhotosEvent(EventModel $event, EventImageType $imageType = EventImageType::Default): bool
     {
-        return count($this->getEventImages($event)) > 0;
+        return count($this->getEventImages($event, $imageType)) > 0;
     }
 
     /**
@@ -153,11 +152,11 @@ final class ImageService
      */
     public function getRandomImage(EventModel $event): ?array
     {
-        if (!$this->hasPhotosEvent($event)) {
+        if (!$this->hasPhotosEvent($event, EventImageType::Default)) {
             return null;
         }
 
-        $photos = $this->getEventImages($event);
+        $photos = $this->getEventImages($event, EventImageType::Default);
         return $photos[array_rand($photos)];
     }
 }

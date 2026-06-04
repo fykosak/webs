@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Components\ImageGallery;
 
 use App\Models\Downloader\Models\EventModel;
+use App\Models\Images\EventImageType;
 use App\Models\Images\ImageService;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
@@ -74,12 +75,16 @@ class ImageGalleryControl extends DIComponent
     /**
      * @throws UnknownImageFileException|\Throwable
      */
-    public function render(EventModel $event, ?string $layout = null, bool $trimmed = false): void
-    {
-        if (!$this->imageService->hasPhotosEvent($event)) {
+    public function render(
+        EventModel $event,
+        ?string $layout = null,
+        bool $trimmed = false,
+        EventImageType $imageType = EventImageType::Default
+    ): void {
+        if (!$this->imageService->hasPhotosEvent($event, $imageType)) {
             return;
         }
-        $images = $this->imageService->getEventImages($event);
+        $images = $this->imageService->getEventImages($event, $imageType);
         $this->renderTemplate($images, $layout, $trimmed);
     }
 
