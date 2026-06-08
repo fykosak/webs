@@ -20,6 +20,7 @@ services:
     - App\Models\Downloader\Services\EventService('10 minutes')
     - App\Models\Downloader\Services\DummyService('10 minutes')
     - App\Models\Images\ImageService()
+    - App\Models\Images\ImageManipulator()
 
 extensions:
     asset: SixtyEightPublishers\Asset\Bridge\Nette\DI\AssetExtension
