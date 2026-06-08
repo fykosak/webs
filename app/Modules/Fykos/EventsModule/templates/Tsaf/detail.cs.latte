@@ -1,10 +1,10 @@
-{varType array $event}
+{varType App\Models\Downloader\Models\EventModel $event}
 {varType array $participants}
 {varType App\Modules\Core\Language $language}
 
-{block title}{$event['nameNew'][$lang]|firstUpper}{/block}
+{block title}{$event->nameNew[$lang]|firstUpper}{/block}
 {block subtitle}
-    {$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}
+    {$event->begin|date:'j. n. Y'} - {$event->end|date:'j. n. Y'}
 {/block}
 {block main}
 {dump $event}
@@ -13,7 +13,7 @@
             {ifset subtitle}
                 <div class="subheader">{include subtitle}</div>{/ifset}
                 {ifset title}<h1>{include title}</h1>{/ifset}
-            <p>{$event['report'][$lang]}</p>
+            <p>{$event->report[$lang]}</p>
             {* {if $presenter->eventHasDate($event, "2017", "11")}
                 <p>V roce 2017 proběhl TSAF.</p>
             {/if} *}
@@ -23,14 +23,14 @@
         <section class="inner-container">
             <h1>Účastníci</h1>
             {foreach $participants as $participant}
-                {$participant['name']}{if !$iterator->isLast()},{else}.{/if}
+                {$participant->name}{if !$iterator->isLast()},{else}.{/if}
             {/foreach}
         </section>
     </div>
-    <div class="panel color-auto">
+    {*<div class="panel color-auto">
         <section class="inner-container">
             <h1>Fotogalerie</h1>
-            {control gallery $galleryPath}
+            {control gallery $event}
         </section>
-    </div>
+    </div>*}
 {/block}

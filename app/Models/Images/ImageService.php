@@ -43,12 +43,14 @@ final class ImageService
             // Camp spring
             4 => sprintf('events/sous-jaro/rocnik%d/carousel-photos', $event->year),
             5 => sprintf('events/sous-podzim/rocnik%d/carousel-photos', $event->year),
+            // TSAF
+            7 => sprintf('events/sous-podzim/rocnik%d/carousel-photos', $event->year),
             // FOL
             9 => sprintf('%d', $event->getYear()),
             // Tábor, Jarní setkání, Podzimní setkání, Víkendovka
             10, 11, 12, 18 => sprintf('event/%d', $event->eventId),
             // Internships
-            19 => sprintf('events/interships/'),
+            19 => sprintf('events/internships/%d', $event->getYear()),
             default => throw new NotImplementedException(
                 sprintf('Images for event type %d not implemented', $event->eventTypeId)
             )
