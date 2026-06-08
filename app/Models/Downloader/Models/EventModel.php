@@ -78,6 +78,6 @@ final class EventModel
 
     public function getMonth(): int
     {
-        return (int)$this->begin->format('m');
+        return (int)$this->begin->format('n');
     }
 }

@@ -30,7 +30,7 @@ class ArchivePresenter extends BasePresenter
             $eventKeys[] = [
                 'event' => $event,
                 'year' => $event->getYear(),
-                'month' => $event->getMonth(),
+                'month' => $event->begin->format('m'),
                 'contestYear' => $event->year,
             ];
         }
