@@ -14,6 +14,11 @@ use Nette\Utils\ImageException;
 final class ImageManipulator
 {
     /**
+     * List images in a path. By default it lists the original files,
+     * optionally list other variants (that actually exist).
+     *
+     * @param $path Absolute path to a directory.
+     *
      * @phpstan-return \SplFileInfo[]
      */
     public function listImages(string $path, ImageVariant $variant = ImageVariant::Original): array
@@ -43,6 +48,28 @@ final class ImageManipulator
             $variant->suffix() . '.' . $originalFile->getExtension();
 
         return FileSystem::joinPaths($originalFile->getPath(), $variantFilename);
+    }
+
+    /**
+     * Returns all possible variants as filepaths for existing original images
+     * in a path. The variant is NOT guaranteed to exist.
+     *
+     * @phpstan-return array<array<ImageVariant, string>>
+     */
+    public function listAllVariants(string $path): array
+    {
+        $images = [];
+
+        $originalFiles = $this->listImages($path);
+        foreach ($originalFiles as $file) {
+            $imageVariants = [];
+            foreach (ImageVariant::cases() as $variant) {
+                $imageVariants[$variant->value] = $this->getFileVariantName($file, $variant);
+            }
+            $images[] = $imageVariants;
+        }
+
+        return $images;
     }
 
     /**

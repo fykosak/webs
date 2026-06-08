@@ -71,7 +71,6 @@
                         {/if}
                     </ul>
                     <ul class="stylized">
-                        {dump __DIR__}
                         {if file_exists(__DIR__.'/../../../../../../www/fof/download/'.App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey['event']).'/reseni.pdf')}
                         <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($eventKey['event'])}/reseni.pdf">
                                 {switch $language->value}

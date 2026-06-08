@@ -212,7 +212,6 @@
             </style>
             <!-- end vojta -->
             {var $key = null}
-            {* {dump $groups} *}
             {foreach $groups as $group}
             {var $start = new \DateTime($group['start'])}
             {var $end = new \DateTime($group['end'])}

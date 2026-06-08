@@ -6,11 +6,11 @@ namespace App\Models\Images;
 
 use Nette\InvalidStateException;
 
-enum ImageVariant
+enum ImageVariant: string
 {
-    case Thumb;
-    case Full;
-    case Original;
+    case Thumb = 'thumb';
+    case Full = 'full';
+    case Original = 'original';
 
     /**
      * @phpstan-return array{int,int}

@@ -24,7 +24,6 @@ class InternshipsPresenter extends BasePresenter
         foreach ($events as $event) {
             $eventsById[$event->eventId] = $event;
         }
-        bdump($eventsById);
         $this->template->eventsById = $eventsById;
     }
 }
