@@ -7,7 +7,6 @@ namespace Tools;
 use App\Models\Images\ImageManipulator;
 use Nette\DI\Container;
 use Nette\Utils\FileSystem;
-use Tracy\Debugger;
 
 if ($argc < 2) {
     print_r("Missing target directory containing images\n");
@@ -22,4 +21,7 @@ $container = require __DIR__ . '/bootstrap.php';
 $imageManipulator = $container->getByType(ImageManipulator::class);
 
 $path = FileSystem::resolvePath(getcwd(), $argv[1]);
+
+echo("Processing directory $path\n");
 $imageManipulator->processDirectory($path);
+echo("Processing done\n");
