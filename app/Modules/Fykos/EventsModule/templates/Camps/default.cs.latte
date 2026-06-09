@@ -45,8 +45,8 @@
         <section class="inner-container">
             <div class="row event-box">
                 <div class="col-md-8 event-text-box">
-                    <div class="subheader">{$event->nameNew[$language->value]} – {$event->begin|date:'j. n. Y'} - {$event->end|date:'j. n. Y'}</div>
-                    <h1>{$event->nameNew[$language->value]}</h1>
+                    <div class="subheader">{$event->place} – {$event->begin|date:'j. n. Y'} - {$event->end|date:'j. n. Y'}</div>
+                    <h1>{if $event->eventTypeId === 4}Jarní{else}Podzimní{/if} soustředění {$event->getYear()}</h1>
                     <p>
                         {if $event->end < new \DateTime()}
                             {if $event->report[$language->value]}

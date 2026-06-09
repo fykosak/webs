@@ -40,11 +40,9 @@ final class ImageService
             1 => sprintf('%d', $event->getYear()),
             // DSEF
             2, 14 => sprintf('%d-%d', $event->getYear(), $event->getMonth()),
-            // Camp spring
-            4 => sprintf('events/sous-jaro/rocnik%d/carousel-photos', $event->year),
-            5 => sprintf('events/sous-podzim/rocnik%d/carousel-photos', $event->year),
-            // TSAF
-            7 => sprintf('events/sous-podzim/rocnik%d/carousel-photos', $event->year),
+            // Soustředění
+            4 => sprintf('events/sous-jaro/%d', $event->getYear()),
+            5 => sprintf('events/sous-podzim/%d', $event->getYear()),
             // FOL
             9 => sprintf('%d', $event->getYear()),
             // Tábor, Jarní setkání, Podzimní setkání, Víkendovka
