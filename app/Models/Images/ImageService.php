@@ -42,7 +42,7 @@ final class ImageService
             // FOF
             1 => sprintf('%d', $event->getYear()),
             // DSEF
-            2, 14 => sprintf('%d-%d', $event->getYear(), $event->getMonth()),
+            2, 14 => $event->begin->format('Y-m'),
             // Soustředění
             4 => sprintf('events/sous-jaro/%d', $event->getYear()),
             5 => sprintf('events/sous-podzim/%d', $event->getYear()),
