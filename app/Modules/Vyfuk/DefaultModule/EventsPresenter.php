@@ -5,15 +5,22 @@ declare(strict_types=1);
 namespace App\Modules\Vyfuk\DefaultModule;
 
 use App\Models\Downloader\Services\EventService;
+use App\Models\Images\ImageService;
 use DateTime;
 
 class EventsPresenter extends BasePresenter
 {
     protected EventService $eventService;
+    protected ImageService $imageService;
 
-    public function injectEventServicesAndCache(EventService $eventService): void
+    public function injectEventService(EventService $eventService): void
     {
         $this->eventService = $eventService;
+    }
+
+    public function injectImageService(ImageService $imageService): void
+    {
+        $this->imageService = $imageService;
     }
 
     public function renderDetail(int $eventId): void
@@ -23,7 +30,7 @@ class EventsPresenter extends BasePresenter
             $this->error();
         }
         $this->template->event = $event;
-        $this->template->hasGallery = $this->getComponent('gallery')->hasPhotos("/media/photos/event/" . $event->eventId);
+        $this->template->hasGallery = $this->imageService->hasPhotosEvent($event);
         $this->template->hasPdfs = $this->getComponent('pdfGallery')->hasFiles("/media/download/event/" . $event->eventId);
 
         $eventOrganizers = $event->end < new DateTime() ? $this->eventService->getEventOrganizers($event->eventId) : [];
