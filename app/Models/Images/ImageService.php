@@ -17,6 +17,7 @@ use Nette\Utils\Finder;
 /**
  * @phpstan-type ImageInfo array{
  *    src: string,
+ *    thumbSrc: string,
  *    width: non-negative-int,
  *    height: non-negative-int,
  *    index: non-negative-int
@@ -26,11 +27,13 @@ final class ImageService
 {
     private readonly string $wwwDir;
     private readonly Cache $cache;
+    private readonly ImageManipulator $imageManipulator;
 
-    public function __construct(Container $container, Storage $storage)
+    public function __construct(Container $container, Storage $storage, ImageManipulator $imageManipulator)
     {
         $this->wwwDir = $container->getParameter('wwwDir');
         $this->cache = new Cache($storage, self::class);
+        $this->imageManipulator = $imageManipulator;
     }
 
     private function getEventImageDirectory(EventModel $event): string
@@ -65,35 +68,35 @@ final class ImageService
      */
     private function listImagesInDirectory(string $path): array
     {
-        $images = [];
+        $dirPath = FileSystem::joinPaths($this->wwwDir, $path);
+        $images = $this->imageManipulator->listAllVariants($dirPath);
 
-        try {
-            $iterator = Finder::findFiles('*.jpg', '*.jpeg', '*.JPG', '*.png', '*.gif', '*.bmp', '*.webp')->
-                in(FileSystem::joinPaths($this->wwwDir, $path))->getIterator();
+        $imageData = [];
+        foreach ($images as $image) {
+            $fullImagePath = $image[ImageVariant::Full->value];
+            $fullImageInfo = getimagesize($fullImagePath);
 
-            foreach ($iterator as $file) {
-                $imageInfo = getimagesize($file->getPathname());
-                $wwwPath = substr($file->getPathname(), strlen($this->wwwDir));
-                $images[] = [
-                    'src' => $wwwPath,
-                    'width' => $imageInfo[0],
-                    'height' => $imageInfo[1],
-                    'index' => 0
-                ];
-            }
-        } catch (InvalidStateException $e) {
-            return [];
+            $fullImageWWWPath = substr($fullImagePath, strlen($this->wwwDir));
+            $thumbImageWWWPath = substr($image[ImageVariant::Thumb->value], strlen($this->wwwDir));
+
+            $imageData[] = [
+                'src' => $fullImageWWWPath,
+                'thumbSrc' => $thumbImageWWWPath,
+                'width' => $fullImageInfo[0],
+                'height' => $fullImageInfo[1],
+                'index' => 0
+            ];
         }
 
-        usort($images, function ($a, $b) {
+        usort($imageData, function ($a, $b) {
             return $a['src'] <=> $b['src'];
         });
 
-        foreach ($images as $index => &$image) {
+        foreach ($imageData as $index => &$image) {
             $image['index'] = $index;
         }
 
-        return $images;
+        return $imageData;
     }
 
 
