@@ -52,7 +52,7 @@ final class AboutPresenter extends BasePresenter
                 'email' => $organizer['email'],
                 'academicDegreePrefix' => $organizer['academicDegreePrefix'],
                 'academicDegreeSuffix' => $organizer['academicDegreeSuffix'],
-                'career' => $organizer['career'],
+                'career' => $organizer['careerNew'],
                 'contribution' => $organizer['contribution'],
                 'order' => $organizer['order'],
                 'role' => $organizer['role'],

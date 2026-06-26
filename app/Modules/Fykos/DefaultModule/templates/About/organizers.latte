@@ -151,10 +151,10 @@
                                         <td class="right-cell">{$organizer['role'][$lang]}</td>
                                     </tr>
                                     {/if}
-                                    {if $organizer['career'] and $lang == 'cs'}
+                                    {if $organizer['career'][$language->value]}
                                         <tr>
                                             <td class="left-cell"><span class="icon"><i class="fas fa-school"></i></span></td>
-                                            <td class="right-cell">{$organizer['career']}</td>
+                                            <td class="right-cell">{$organizer['career'][$language->value]}</td>
                                         </tr>
                                     {/if}
                                     <tr>
