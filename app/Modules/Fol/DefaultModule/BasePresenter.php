@@ -48,14 +48,14 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
         //     ':Default:HowToPlay:default',
         // );
 
-        $items[] = new NavItem(
-            new PageTitle(
-                null,
-                $this->csen('Program', 'Schedule'),
-                'visible-sm-inline glyphicon glyphicon-info-sign'
-            ), // TODO
-            ':Default:Schedule:default',
-        );
+        //$items[] = new NavItem(
+        //    new PageTitle(
+        //        null,
+        //        $this->csen('Program', 'Schedule'),
+        //        'visible-sm-inline glyphicon glyphicon-info-sign'
+        //    ), // TODO
+        //    ':Default:Schedule:default',
+        //);
 
         // $items[] = new NavItem(
         //     new PageTitle(null, _('reports.menu'), 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
