@@ -52,21 +52,10 @@
                 {/switch}
             </div>
             <div class="buttons">
-                <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O
-                <div class="legends-row">
-                    <div class="legends-year">2021</div>
-                    <div class="legends-item">
-                        <div>
-                            <span class="fi fi-jp"></span>
-                            <span class="fi fi-us"></span>
-                            Metaphysical Brawlers
-                        </div>
-                        <div class="members">
-                            Đức Huy Trần, Nam Nguyen Hoang, Mạnh Quân Nguyễn, Tung Tran, Ung Nguyen
-                        </div>
-                    </div>
-                </div>
-                    soutěži{default}About{/switch}</a>
+                <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}
+                    {case 'cs'} O soutěži
+                    {default}About
+                    {/switch}</a>
                 <a n:href="Archive:" class="btn btn-secondary">{switch $language->value}{case 'cs'}Archiv ročníků
                     {default}Archive{/switch}</a>
                 {*{if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::After)}
