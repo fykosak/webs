@@ -22,12 +22,12 @@
                 {/switch}
             </time>
             {else}
-            <time class="competition-date">
+            {*<time class="competition-date">
                 {switch $language->value}
                 {case 'cs'} Listopad {$newestEvent->begin->add(new \DateInterval('P1Y')) |date:'Y'}
                 {default} November {$newestEvent->begin->add(new \DateInterval('P1Y')) |date:'Y'}
                 {/switch}
-            </time>
+            </time>*}
             {/if}
             <h1>
                 {switch $language->value}
@@ -38,13 +38,13 @@
             <div class="subheader">
                 {switch $language->value}
                 {case 'cs'}<p>
-                    Přihlašte se společně až s pětičlenným týmem.
+                    {*Přihlašte se společně až s pětičlenným týmem.*}Děkujeme za <strong>15 let</strong> podpory.
                     {if $newestEvent->getRegistrationPeriod()->isOnGoing()}
                     <br> Registrace končí {$newestEvent->registrationEnd |date:'j. n. \v G:i'}.
                     {/if}
                 </p>
                 {default}<p>
-                    Sign up with a team of up to five members.
+                    {*Sign up with a team of up to five members.*}Thank you for <strong>15 years</strong> of support.
                     {if $newestEvent->getRegistrationPeriod()->isOnGoing()}
                     <br> Registration is open until {$newestEvent->registrationEnd |date:'F j, G:i'} UTC+1.
                     {/if}
@@ -54,24 +54,26 @@
             <div class="buttons">
                 <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O
                     soutěži{default}About{/switch}</a>
-                {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::After)}
+                <a n:href="Archive:" class="btn btn-secondary">{switch $language->value}{case 'cs'}Archiv ročníků
+                    {default}Archive{/switch}</a>
+                {*{if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::After)}
                 <a href="https://cdn.static.fykos.cz/physics-brawl-online-{$eventKey}/{switch $language->value}{case 'cs'}reseni{default}solutions{/switch}.pdf"
                     class="btn btn-secondary">{switch $language->value}{case 'cs'}Řešení
                     úloh{default}Solutions{/switch}</a>
-                {/if}
+                {/if}*}
                 {* todo: phase - results are final and in FKSDB *}
-                {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::After)}
+                {*{if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::After)}
                 <a n:href=":Archive:Results: eventYear:$eventKey" class="btn btn-secondary">{switch
                     $language->value}{case 'cs'}Pořadí týmů{default}Results list{/switch}</a>
-                {/if}
-                <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)"
+                {/if}*}
+                {*<a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)"
                     n:href="Registration:" class="btn btn-outline-light">{switch $language->value}{case
-                    'cs'}Registrace{default}Register{/switch}</a>
-                {if $newestEvent->getNearEventPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing) &&
+                    'cs'}Registrace{default}Register{/switch}</a>*}
+                {*{if $newestEvent->getNearEventPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing) &&
                 !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::After)}
                 <a href="#{$anchorBeforeCompetition}" class="btn btn-secondary">{switch $language->value}{case
                     'cs'}Informace před soutěží{default}Information before the competition{/switch}</a>
-                {/if}
+                {/if}*}
             </div>
         </div>
         <div class="col-md-6 right-block topic-panel">
@@ -131,7 +133,7 @@
          </div>
      </div>*}
 
-   <div class="fyziklani-banner">
+   {*<div class="fyziklani-banner">
      <div class="inner-container">
          <div class="text">
              {switch $language->value}
@@ -140,7 +142,7 @@
              {/switch}
              </div>
          </div>
-     </div>
+     </div>*}
 
 
 {if !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::Before) && !$newestEvent->isLongAfterTheEvent()}
@@ -226,7 +228,89 @@
 </div>
 {/if}
 
+
 <div class="panel color-light">
+    <section class="inner-container">
+        {switch $language->value}
+        {case 'cs'}
+        <div class="subheader">Důležité oznámení</div>
+        <h1>Oznámení o konci Fyziklání Online</h1>
+        <p>Milí účastníci, učitelé, přátelé fyziky,</p>
+
+        <p>po patnácti letech se s vámi loučíme se soutěží Fyziklání Online.</p>
+
+        <p>K tomuto rozhodnutí jsme nedospěli lehce. Nástroje umělé inteligence dnes dokáží řešit naše soutěžní úlohy srovnatelně se středoškoláky nebo lépe – a s jejich rozvojem ztrácí online soutěž v dosavadní podobě smysl. Nechceme, aby se z Fyziklání Online stala soutěž v promptování, a nechceme ani, aby poctiví účastníci ztráceli motivaci, protože kolem sebe vidí, že ostatní podvádějí.</p>
+
+        <p>Více než před rokem jsme mezi vás rozeslali dotazníky a probírali různé možnosti, jak soutěž v těchto podmínkách zachovat. Po dlouhých diskuzích jsme celou situaci transparentně diskutovali, zavedli změny pravidel a s některými týmy mimo jiné provedli videohovory pro kontrolu jejich řešení. V ročníku 2025 jsme ale po důkladném vyšetřování diskvalifikovali 175 týmů a máme důvodná podezření, že AI využila řada dalších, kterým to neumíme prokázat. I když nechceme zveřejňovat všechny metody, které jsme při vyšetřování podvádění používali, považujeme za důležité zdůraznit, že jsme celému procesu věnovali značné úsilí – ručně jsme pečlivě procházeli vzorce chování a shromažďovali důkazy u stovek týmů. Nakonec jsme ale došli k závěru, že ani zavedená opatření nestačí a že většina dalších nabízených řešení by byla buď technicky takřka nerealizovatelná, nebo by šla proti základní myšlence soutěže – zprostředkovat fyziku každému, kdo o ni má zájem.</p>
+
+        <p>Za patnáct let své existence se Fyziklání Online vybudovalo v největší akci svého typu na světě – v nejúspěšnějším ročníku se utkalo <strong>1574 týmů z 81 zemí</strong>. Vícekrát se nám stalo, že někdo znal FYKOS nebo dokonce Českou republiku právě a pouze díky této soutěži. Pro nás jako organizátory to byl nesmírně krásný zážitek, který v nás zachoval velkou pokoru a přineslo nám to spoustu zkušeností – od sjednocování podmínek pro školské systémy napříč celým světem po technické výzvy se současným připojením tisíců zařízení. Za to všechno vděčíme především vám – účastníkům, učitelům i všem generacím organizátorů, kteří soutěž postupně budovali a posouvali ke dnešní podobě.</p>
+
+        <p>Proto chceme skončit důstojně a se vztyčenou hlavou. Tento krok nám zároveň umožní soustředit síly na <a href="https://fykos.cz/akce/">naše další aktivity</a>. <a n:href="Archive:">Archiv soutěžních úloh</a> z uplynulých ročníků zůstane na webu i nadále k dispozici. A kdo ví – možná se jednou Fyziklání Online vrátí v nové podobě.</p>
+
+        <p>Děkujeme všem, kteří z Fyziklání Online udělali fenomén. Těšíme se, že se s vámi potkáme zase někde jinde.</p>
+
+        <p>Za celý organizační tým,</p>
+
+        <div class="row strips">
+        <div class="col-md-3" style="margin: 0.25em 0 0.25em 0;">
+            <strong>Vojtěch David</strong><br>
+            <div style="font-size: 0.7em;">Předseda Ústřední komise Fyziklání Online</div>
+        </div>
+        <div class="col-md-3" style="margin: 0.25em 0 0.25em 0;">
+            <strong>Monika Drexlerová</strong><br>
+            <div style="font-size: 0.7em;">Hlavní organizátorka Fyziklání Online</div>
+        </div>
+        <div class="col-md-3" style="margin: 0.25em 0 0.25em 0;">
+            <strong>Jiří Sýkora</strong><br>
+            <div style="font-size: 0.7em;">Zástupce hlavní organizátorky Fyziklání Online</div>
+        </div>
+        <div class="col-md-3" style="margin: 0.25em 0 0.25em 0;">
+            <strong>David Škrob</strong><br>
+            <div style="font-size: 0.7em;">Hlavní organizátor FYKOSu</div>
+        </div>
+        </div>
+        {default}
+        <div class="subheader">Important Announcement</div>
+        <h1>Announcement of the End of Physics Brawl Online</h1>
+        <p>Dear participants, teachers, and physics enthusiasts,</p>
+
+        <p>After fifteen years, we are saying goodbye to Physics Brawl Online.</p>
+
+        <p>This was not an easy decision. Today, artificial intelligence tools are able to solve our competition problems at a level comparable to that of high-school students, or better. As these tools continue to develop, the online competition in its current form is losing its purpose. We do not want Physics Brawl Online to become a prompting competition, nor do we want honest participants to lose motivation because they see others around them cheating.</p>
+
+        <p>More than a year ago, we sent out questionnaires to you and discussed various ways to keep the competition going under these circumstances. After long discussions, we addressed the situation transparently, introduced changes to the rules, and, among other things, held video calls with selected teams to verify their solutions. However, in the 2025 contest, after a thorough investigation, we disqualified 175 teams, and we have reasonable grounds to suspect that many others used AI as well, although we are unable to prove it. Although we do not wish to disclose all the methods we used to investigate cheating, we consider it important to emphasize that we devoted considerable effort to detecting dishonest behaviour: we carefully reviewed patterns of behaviour by hand and gathered evidence for hundreds of teams. In the end, however, we came to the conclusion that even the measures we had introduced were not enough, and that most of the other proposed solutions would either be almost technically impossible to implement or would go against the fundamental idea of the competition: to make physics accessible to everyone who is interested.</p>
+
+        <p>Over the fifteen years of its existence, Physics Brawl Online grew into the largest event of its kind in the world. In its most successful year, <strong>1,574 teams from 81 countries</strong> took part. More than once, we encountered someone who knew FYKOS, or even the Czech Republic, precisely and only because of this competition. For us as organizers, this was an immensely humbling and beautiful experience, and it taught us a great deal – from unifying conditions for school systems across the world to the technical challenges of thousands of devices connecting at the same time. For all of this, we owe our thanks above all to you: the participants, teachers, and all generations of organizers who gradually built the competition and shaped it into what it is today.</p>
+
+        <p>That is why we want to bring it to a close with dignity and with our heads held high. This step will also allow us to focus our efforts on <a href="https://fykos.cz/akce/">our other activities</a>. The <a n:href="Archive:">archive of competition problems</a> from previous years will remain available on the website. And who knows – perhaps one day Physics Brawl Online will return in a new form.</p>
+
+        <p>Thank you to everyone who made Physics Brawl Online a phenomenon. We look forward to meeting you again somewhere else.</p>
+
+        <p>On behalf of the entire organizing team,</p>
+
+        <div class="row strips">
+        <div class="col-md-3" style="margin: 0.25em 0 0.25em 0;">
+            <strong>Vojtěch David</strong><br>
+            <div style="font-size: 0.7em;">President of the Central Committee of Physics Brawl Online</div>
+        </div>
+        <div class="col-md-3" style="margin: 0.25em 0 0.25em 0;">
+            <strong>Monika Drexlerová</strong><br>
+            <div style="font-size: 0.7em;">Head Organizer of Physics Brawl Online</div>
+        </div>
+        <div class="col-md-3" style="margin: 0.25em 0 0.25em 0;">
+            <strong>Jiří Sýkora</strong><br>
+            <div style="font-size: 0.7em;">Deputy Head Organizer of Physics Brawl Online</div>
+        </div>
+        <div class="col-md-3" style="margin: 0.25em 0 0.25em 0;">
+            <strong>David Škrob</strong><br>
+            <div style="font-size: 0.7em;">Head Organizer of FYKOS</div>
+        </div>
+        </div>
+        {/switch}
+    </section>
+</div>
+
+<div class="panel color-dark">
     <section class="inner-container">
         {switch $language->value}
         {case 'cs'}
@@ -267,7 +351,7 @@
     </section>
 </div>
 
-<div class="panel color-dark">
+{*<div class="panel color-dark">
     <section class="inner-container">
         <div class="subheader">{switch $language->value}{case cs}O co soutěžíme?{default}What are the prizes?{/switch}
         </div>
@@ -471,7 +555,7 @@
             </div>
         </div>
     </section>
-</div>
+</div>*}
 
 <div class="panel color-light">
     <section class="inner-container">
@@ -580,7 +664,7 @@
     </section>
 </div>
 
-<div class="panel color-dark">
+{*<div class="panel color-dark">
     <section class="inner-container">
         {switch $language->value}
         {case cs}
@@ -593,20 +677,20 @@
 
         {include "../schedule.latte"}
     </section>
-</div>
+</div>*}
 
-<div class="panel color-light">
+<div class="panel color-dark">
     <section class="inner-container">
         {switch $language->value}
         {case cs}
-        <div class="subheader">Registrace</div>
-        <h1>Přihlašte se a staňte se legendami!</h1>
+        <div class="subheader">Síň slávy</div>
+        <h1>Vítězové předchozích ročníků</h1>
         {default}
-        <div class="subheader">Registration</div>
-        <h1>Sign up and become a legend!</h1>
+        <div class="subheader">Hall of fame</div>
+        <h1>Winners of the previous years</h1>
         {/switch}
 
-        <ul class="stylized">
+        {*<ul class="stylized">
             {switch $language->value}
             {case cs}
             <li>Soutěž je zdarma pro kohokoli!</li>
@@ -625,9 +709,21 @@
             </li>
             <li>Except for communicating with other teams and generative AI, you can use any tools to solve the problems.</li>
             {/switch}
-        </ul>
+        </ul>*}
         <div class="row legends">
             <div class="col-md-6">
+                <div class="legends-row">
+                    <div class="legends-year">2025</div>
+                    <div class="legends-item">
+                        <div>
+                            <span class="fi fi-tr"></span>
+                            SciTech
+                        </div>
+                        <div class="members">
+                            Ahmet Cemal Usta, İhsan Yağız Kara, Kaan Güngör, Eyüp Efe Şimşek, Mert Andaç Karan
+                        </div>
+                    </div>
+                </div>
                 <div class="legends-row">
                     <div class="legends-year">2024</div>
                     <div class="legends-item">
@@ -719,7 +815,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="legends-row">
+                {*<div class="legends-row">
                     <div class="legends-year">2017</div>
                     <div class="legends-item">
                         <div>
@@ -732,7 +828,7 @@
                             Dušan Kavický, Filip Kubina, Matej Badin, Jakub Cimerman, Michal Hledík
                         </div>
                     </div>
-                </div>
+                </div>*}
             </div>
         </div>
     </section>
