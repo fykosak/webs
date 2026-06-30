@@ -1,0 +1,27 @@
+{block title}Správa fotek{/block}
+
+{block main}
+<div class="panel color-auto">
+    <section class="inner-container">
+    <h1>Správa fotek</h1>
+        <h5>Vybrat akci:</h5>
+        <div class="dropdown event-selector mb-3">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                {$selectedEvent->name} (#{$selectedEvent->eventId})
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {foreach $events as $event}
+                    <li><a class="dropdown-item py-2" href="{plink 'this' 'eventId'=>$event->eventId}">
+                        {$event->name} (#{$event->eventId})
+                    </a></li>
+                {/foreach}
+            </ul>
+        </div>
+        <h5>Nahrané fotky:</h5>
+        <div>
+            text
+        </div>
+    </section>
+</div>
+{/block}
