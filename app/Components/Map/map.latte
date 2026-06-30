@@ -24,9 +24,9 @@
         </div>
         <div class="team-counts">
             <strong>{$teamCount}</strong>
-            {if $event->isLongAfterTheEvent(Fykosak\Utils\DateTime\Phase::after)}
+            {if $event->isLongAfterTheEvent(Fykosak\Utils\DateTime\Phase::After)}
                 {switch $lang->value}
-                    {case cs}
+                    {case 'cs'}
                     {if $teamCount === 1}
                         zúčastněný tým z
                     {elseif $teamCount > 1 &&  $teamCount < 5}
@@ -35,7 +35,7 @@
                         zúčastněných týmů z
                     {/if}
 
-                    {case en}
+                    {case 'en'}
 
                     {if $teamCount === 1}
                         participated team from

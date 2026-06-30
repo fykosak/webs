@@ -45,7 +45,7 @@
                     <a n:href="AboutTheCompetition:" class="btn btn-light">{switch $language->value}{case 'cs'}O soutěži{default}About{/switch}</a>
                     <a target="_blank" href="{$basePath}/download/2026/{switch $language->value}{case 'cs'}infobooklet-cs{default}infobooklet-en{/switch}.pdf" class="btn btn-light">{switch $language->value}{case 'cs'}Průvodce soutěží{default}Competition guidebook{/switch}</a>
                     {* <a n:href="Merch:" class="btn btn-light">Merch</a> *}
-                    <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)" n:href="Registration:" class="btn btn-primary">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
+                    <a n:if="$newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)" n:href="Registration:" class="btn btn-primary">{switch $language->value}{case 'cs'}Registrace{default}Register{/switch}</a>
                 </div>
             </div>
             <div class="col-md-6 right-block topic-panel">
@@ -81,8 +81,8 @@
         </div>
     </div>
 
-    {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
-        {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+    {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
+        {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
     {/if}
 
     {*<div class="fyziklani-banner">
@@ -343,6 +343,28 @@
             <div class="row legends">
                 <div class="col-md-6">
                     <div class="legends-row">
+                        <div class="legends-year">2026</div>
+                        <div class="legends-item">
+                            <div>
+                                Flux Deluxe
+                            </div>
+                            <div class="members">
+                                Andrej Drobnjaković, Jovan Kulezić, Luka Smiljanić, Nikola Kočović, Dušan Lazić
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legends-row">
+                        <div class="legends-year">2025</div>
+                        <div class="legends-item">
+                            <div>
+                                NANITZA KOPILE
+                            </div>
+                            <div class="members">
+                                Ionut Gabriel Stan, Tudor Dan Popescu, Rares Felix Tudose, Bogdan Mihai Ciocârlan, Andrei Vila
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legends-row">
                         <div class="legends-year">2024</div>
                         <div class="legends-item">
                             <div>
@@ -364,6 +386,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2022</div>
                         <div class="legends-item">
@@ -375,9 +399,6 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-md-6">
                     <div class="legends-row">
                         <div class="legends-year">2021<br>online</div>
                         <div class="legends-item">

@@ -77,9 +77,9 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
      * @throws \Throwable
      * @throws BadRequestException
      */
-    protected function createTemplate(): Template
+    protected function createTemplate(?string $class = null): Template
     {
-        $template = parent::createTemplate();
+        $template = parent::createTemplate($class);
         $template->event = $this->getEvent();
         $template->eventKey = parent::getEventKey($this->getEvent());
         return $template;
@@ -99,20 +99,20 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
         $items = [];
         if ($this->getPresenterByName('Default:Registration')->isVisible()) {
             $items[] = new NavItem(
-                new PageTitle('Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(null, 'Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Registration:',
             );
         }
 
         if ($this->getPresenterByName('Default:Current')->isVisible()) {
             $items[] = new NavItem(
-                new PageTitle('Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new PageTitle(null, 'Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Current:',
             );
         }
 
         $items[] = new NavItem(
-            new PageTitle('Archiv', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new PageTitle(null, 'Archiv', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Archive:default',
         );
         return $items;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\EventsModule;
 
+use App\Models\Downloader\Services\EventService;
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
 use Nette\Application\BadRequestException;
@@ -13,19 +14,24 @@ class TsafPresenter extends BasePresenter
 {
     private const TSAF_IDS = [6, 7];
 
+    private readonly EventService $eventService;
+
+    public function injectEventService(EventService $eventService): void
+    {
+        $this->eventService = $eventService;
+    }
+
     /**
      * @throws \Throwable
      */
-    public function renderDetail(string $year, string $month): void
+    public function renderDetail(int $year, int $month): void
     {
         // filter events by year
-
-        $events = $this->downloader->download(new EventListRequest(self::TSAF_IDS));
+        $events = $this->eventService->getEvents(self::TSAF_IDS);
 
         $event = null;
         foreach ($events as $e) {
-            $eventBegin = strtotime($e['begin']);
-            if (date('Y', $eventBegin) === $year && date('m', $eventBegin) === $month) {
+            if ($e->getYear() === $year && $e->getMonth() === $month) {
                 $event = $e;
                 break;
             }
@@ -34,41 +40,12 @@ class TsafPresenter extends BasePresenter
         if ($event === null) {
             throw new BadRequestException(
                 $this->csen('Stránka nenalezena', 'Page not found'),
-                IResponse::S404_NOT_FOUND
+                IResponse::S404_NotFound
             );
         }
 
         $this->template->event = $event;
-        $participants = $this->downloader->download(new ParticipantsRequest((int)$event['eventId']));
-        $participants = array_filter($participants, function ($participant) {
-            return $participant['status'] === 'participated';
-        });
-        $this->template->participants = $participants;
-
-        // $this->template->galleryPath = "/media/images/events/" . ($event['eventTypeId'] == 4 ? 'sous-jaro' : 'sous-podzim') . "/rocnik" . ($event['year'] < 10 ? '0' : '') . $event['year'] . "/carousel-photos/";
-        $this->template->galleryPath = '';
-    }
-
-    public function getEventPhoto(array $event): string
-    {
-        // choose a photo for the event randomly from the available ones
-        return $this->template->basePath . '/media/images/events/event-missing-photo.png';
-
-        // if ($event['year'] < 10) {
-        //     $fullYear = '0' . $event['year'];
-        // } else {
-        //     $fullYear = $event['year'];
-        // }
-
-        // $photosBasePath = './media/images/events/' . $eventType . '/rocnik' . $fullYear . '/carousel-photos';
-        // $photos = glob($photosBasePath . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-
-        // if (empty($photos)) {
-        //     return $this->template->basePath . '/media/images/events/event-missing-photo.png';
-        // }
-
-        // $photo = $photos[array_rand($photos)];
-        // return substr($photo, 1); // remove leading dot
+        $this->template->participants = $this->eventService->getParticipated($event->eventId);
     }
 
     /**
@@ -76,17 +53,19 @@ class TsafPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $events = $this->downloader->download(new EventListRequest(self::TSAF_IDS));
+        $events = $this->eventService->getEvents(self::TSAF_IDS);
 
         // sort by date
         usort($events, function ($a, $b) {
-            return strtotime($b['begin']) - strtotime($a['begin']);
+            return $b->begin <=> $a->begin;
         });
 
-        foreach ($events as &$event) {
-            $event['photo'] = $this->getEventPhoto($event);
+        $coverImages = [];
+        foreach ($events as $event) {
+            $coverImages[$event->eventId] = '/images/event-missing-photo.png';
         }
 
+        $this->template->coverImages = $coverImages;
         $this->template->events = $events;
     }
 

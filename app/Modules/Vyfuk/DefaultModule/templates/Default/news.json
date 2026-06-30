@@ -1,30 +1,25 @@
 {
   "cs": [
     {
-      "title": "Posunutí termínu odevzdání 5. série",
-      "text": "Některým řešitelům stále nedorazila kostka k experimentální úloze 5. série, a proto posouváme termín odevzdání této série o 14 dnů až na <strong>20. dubna 20:00</strong>, aby měli na řešení všichni dostatek času. Omlouváme se za způsobené potíže a doufáme, že všem řešitelům obálky co nejdříve dorazí.",
-      "date": "29. března 2026"
-    },
-    {
-      "title": "Jarní setkání",
-      "text": "Už pro vás připravujeme letošní jarní setkání. To proběhne od <strong>22. do 24. května</strong> v Pardubicích, a to v prostorách Střední školy informatiky a ekonomie Delta. Tu naleznete na adrese Ke Kamenci 151, 530 03, Pardubice.<p>Přihlašování na akci bude spuštěno <strong>12. dubna 20:00</strong> a otevřené bude až do 8. května 20:00.</p>",
-      "date": "18. března 2026",
-      "link": ":Default:Events:setkani",
-      "link-text": "Stránka setkání"
-    },
-    {
-      "title": "Pořadí po 4. sérii",
-      "text": "Po dvou týdnech usilovné práce máme opravená všechna vámi zaslaná řešení 4. série Výfuku. Už teď se můžete podívat na vzorová řešení a svá opravená řešení. Pokud vás zajímá, jak si vedete v porovnání s ostatními, průběžné pořadí najdete na webu nebo v brožurce 5. série.",
-      "date": "10. března 2026",
-      "link": ":Default:Results:default",
+      "title": "Výsledková listina 15. ročníku",
+      "text": "Na webu právě přistála konečná výsledková listina 15. ročníku! Jak jste dopadli zjistíte už teď v záložce pořadí. Gratulujeme ke krásným výsledkům a děkujeme, že jste měli odvahu poprat se s našimi úlohami. Pokud budete chtít, přes prázdniny můžete řešit dvě prázdninové série, z nichž první má deadline na odevzdání řešení 27. července. A v září se můžete těšit na první sérii již 16. ročníku Výfuku.",
+      "date": "18. června 2026",
+      "link": ":Default:Results:",
       "link-text": "Pořadí"
     },
     {
-      "title": "Zadání 5. série",
-      "text": "Čtvrtá série je za námi, ale už teď se můžete vrhnout do počítání úloh 5. série letošního ročníku. Čas na odesílání vašich řešení vyprší 6. dubna ve 20:00. A pokud nemáte náladu na řešení úloh, můžete se podívat na vzorová řešení 4. série. Už teď je najdete v záložce zadání.",
-      "date": "27. února 2026",
+      "title": "Zadání prázdninových sérií",
+      "text": "Všech šest klasických sérií 15. ročníku Výfuku je minulostí. Všechny úlohy jste vyřešili a brzy se dočkáte i závěrečné výsledkové listiny. Ale nemusíte být smutní, protože Výfuk jede dál! I letos jsme si pro vás připravili dvě prázdninové série, plné zajímavých úloh trochu jiného typu, než jste řešili v průběhu roku. Proto neváhejte a vrhněte se do řešení. První prázdninovou sérii můžete odevzdávat do 27. července.",
+      "date": "3. června 2026",
       "link": ":Default:Problems:",
       "link-text": "Zadání"
+    },
+    {
+      "title": "Prohlédni si, co můžeš stále vyhrát",
+      "text": "Z daru <a href=\"https://www.nadaceneuron.cz\" target=\"_blank\">Nadace Neuron</a> jsme zakoupili spoustu krásných cen, které si můžeš prohlédnout na stránce věnované odměnám. Na řešení 6. série máš pořád více než dva týdny, tak se pusť do řešení a zkus zabojovat o přední příčky! A nezapomeň, že Výfuk oceňuje nejen ty nejlepší – jak konkrétně najdeš na <a href=\"https://vyfuk.org/bingo\">stránce výfučího binga</a>.",
+      "date": "16. května 2026",
+      "link": ":Default:Prizes:",
+      "link-text": "Stránka cen"
     }
   ]
 }

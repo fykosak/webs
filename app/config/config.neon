@@ -9,7 +9,7 @@ session:
     cookie_secure: true
 
 services:
-    - Fykosak\Utils\Localization\GettextTranslator(App\Modules\Core\Language)
+    - Fykosak\Utils\Localization\GettextTranslator(%i18n.locales%, '')
     - App\Models\SettingsService(%domains%)
     - App\Models\Game\Connector(%gameApi.url%, %gameApi.login%, %gameApi.password%)
     - App\Models\Downloader\Downloaders\FKSDBDownloader(%fksdbDownloader.url%,%fksdbDownloader.login%,%fksdbDownloader.password%,'10 minutes')
@@ -20,6 +20,8 @@ services:
     - App\Models\Downloader\Services\EventService('10 minutes')
     - App\Models\Downloader\Services\DummyService('10 minutes')
     - App\Models\Authentication\Authenticator(%keycloak.providerUrl%, %keycloak.clientId%, %keycloak.clientSecret%, %keycloak.requiredGroup%)
+    - App\Models\Images\ImageService()
+    - App\Models\Images\ImageManipulator()
 
 extensions:
     asset: SixtyEightPublishers\Asset\Bridge\Nette\DI\AssetExtension

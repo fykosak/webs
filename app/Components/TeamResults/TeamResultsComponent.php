@@ -36,7 +36,7 @@ class TeamResultsComponent extends DIComponent
      */
     public function render(): void
     {
-        $this->template->lang = $this->translator->lang;
+        $this->template->lang = Language::from($this->translator->lang);
         if (!$this->event->game->hardVisible) {
             $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'teamResultsHidden.latte');
             return;
@@ -155,7 +155,10 @@ class TeamResultsComponent extends DIComponent
         // one member teams
         $form->addCheckbox(
             'OneMemberTeams',
-            $this->translator->lang === Language::cs ? 'Pouze jednočlenné týmy' : 'One member teams only'
+            $this->translator->getVariant([
+                Language::cs->value => 'Pouze jednočlenné týmy',
+                Language::en->value => 'One member teams only'
+            ])
         );
 
         // countries
@@ -171,7 +174,10 @@ class TeamResultsComponent extends DIComponent
             $countryISOContainer->addCheckbox(
                 $countryISO,
                 sprintf(
-                    $this->translator->lang === Language::cs ? ' %s: %s účastníků' : ' %s: %s participants',
+                    $this->translator->getVariant([
+                        Language::cs->value => ' %s: %s účastníků',
+                        Language::en->value => ' %s: %s participants'
+                    ]),
                     /** @phpstan-ignore-next-line */
                     $countryISO !== 'Uknown' ? $countryISO : $this->presenter->csen('Nestudent', 'Not a student'),
                     $count

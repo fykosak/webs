@@ -1,4 +1,5 @@
 {varType App\Modules\Core\Language $language}
+{varType App\Modules\Images\ImageService $imageService}
 {varType array $eventKeys}
 
 {block title}Minulé ročníky{/block}
@@ -10,8 +11,7 @@
             {ifset title}<h1>{include title}</h1>{/ifset}
         </section>
     </div>
-    {dump $eventKeys}
-    {foreach $eventKeys AS $eventKey}
+    {foreach $eventKeys as $eventKey}
         <div class="panel color-auto">
             <section class="inner-container">
                 <div class="subheader">
@@ -33,9 +33,9 @@
                     </a>
                 </h1>
 
-                {if $control->getComponent('gallery')->hasPhotos('/media/photos/' . $eventKey['contestYear'] . '/')}
+                {if $imageService->hasPhotosEvent($eventKey['event'])}
                     <div class="mt-5">
-                        {control gallery '/media/photos/' . $eventKey['contestYear'] . '/', 'randomLine'}
+                        {control gallery $eventKey['event'], 'randomLine'}
                     </div>
                 {elseif $eventKey['contestYear'] == 34}
                     <div class="mt-5">

@@ -16,7 +16,7 @@
         </section>
     </div>
 
-    {foreach $historicalEvents AS $historicalEvent}
+    {foreach $historicalEvents as $historicalEvent}
         <div class="panel color-auto">
             <section class="inner-container">
 
@@ -56,7 +56,7 @@
                             </a></li>
                     </ul>
                     <ul class="stylized">
-                        {if file_exists(__DIR__.'/../../../../www/fol/download/'.App\Modules\Fol\Core\BasePresenter::createEventKey($historicalEvent['event']).'/reseni.pdf')}
+                        {if file_exists(__DIR__.'/../../../../../../www/fol/download/'.App\Modules\Fol\Core\BasePresenter::createEventKey($historicalEvent['event']).'/reseni.pdf')}
                         <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($historicalEvent['event'])}/reseni.pdf">
                                 {switch $language->value}
                                     {case 'cs'}Zadání a řešení úloh v českém jazyce
@@ -64,7 +64,7 @@
                                 {/switch}
                             </a></li>
                         {/if}
-                        {if file_exists(__DIR__.'/../../../../www/fol/download/'.App\Modules\Fol\Core\BasePresenter::createEventKey($historicalEvent['event']).'/solutions.pdf')}
+                        {if file_exists(__DIR__.'/../../../../../../www/fol/download/'.App\Modules\Fol\Core\BasePresenter::createEventKey($historicalEvent['event']).'/solutions.pdf')}
                         <li><a href="{$basePath}/download/{App\Modules\Fof\Core\BasePresenter::createEventKey($historicalEvent['event'])}/solutions.pdf">
                                 {switch $language->value}
                                     {case 'cs'}Zadání a řešení úloh v anglickém jazyce
@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="mt-5">
-                        {control gallery '/media/photos/' . $historicalEvent['key'] . '/', 'randomLine'}
+                    {control gallery $event, 'randomLine'}
                 </div>
             </section>
         </div>

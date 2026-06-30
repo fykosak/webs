@@ -7,6 +7,7 @@ namespace App\Components\UpperHomeMap;
 use App\Components\Countdown\CountdownComponent;
 use App\Components\Map\MapComponent;
 use App\Models\Downloader\Models\EventModel;
+use App\Modules\Core\Language;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
 
@@ -24,14 +25,14 @@ final class UpperHomeMapComponent extends DIComponent
      */
     public function render(): void
     {
-        $this->template->lang = $this->translator->lang;
+        $this->template->lang = Language::from($this->translator->lang);
         $this->template->event = $this->event;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'upperHomeMap.latte');
     }
 
     protected function createComponentMap(): MapComponent
     {
-        return new MapComponent($this->getContext(), $this->event);
+        return new MapComponent($this->container, $this->event);
     }
 
     /**

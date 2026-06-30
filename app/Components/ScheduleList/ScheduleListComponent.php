@@ -7,6 +7,7 @@ namespace App\Components\ScheduleList;
 use App\Models\Downloader\Downloaders\FKSDBDownloader;
 use App\Models\Downloader\Models\EventModel;
 use App\Models\Downloader\Requests\ScheduleRequest;
+use App\Modules\Core\Language;
 use DateTime;
 use Fykosak\Utils\Components\DIComponent;
 use Nette\DI\Container;
@@ -54,7 +55,7 @@ class ScheduleListComponent extends DIComponent
 
         $this->template->scheduleGroupsByDay = $scheduleGroupsByDay;
         $this->template->competitionDetailItemId = $competitionDetailItemId;
-        $this->template->language = $this->translator->lang;
+        $this->template->language = Language::from($this->translator->lang);
 
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'scheduleList.latte');
     }

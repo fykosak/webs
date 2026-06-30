@@ -4,75 +4,34 @@ declare(strict_types=1);
 
 namespace App\Components\ImageGallery;
 
+use App\Models\Downloader\Models\EventModel;
+use App\Models\Images\EventImageType;
+use App\Models\Images\ImageService;
 use Fykosak\Utils\Components\DIComponent;
-use Nette\Caching\Cache;
-use Nette\Caching\Storage;
 use Nette\DI\Container;
-use Nette\Utils\Finder;
-use Nette\Utils\Image;
 use Nette\Utils\UnknownImageFileException;
 
+/**
+ * @phpstan-import-type ImageInfo from ImageService
+ */
 class ImageGalleryControl extends DIComponent
 {
-    private readonly string $wwwDir;
-    private readonly Cache $cache;
+    private readonly ImageService $imageService;
 
     public function __construct(Container $container)
     {
         parent::__construct($container);
-        $this->wwwDir = $container->getParameters()['wwwDir'];
     }
 
-    public function injectStorage(Storage $storage): void
+    public function inject(ImageService $imageService): void
     {
-        $this->cache = new Cache($storage, __NAMESPACE__);
+        $this->imageService = $imageService;
     }
 
     /**
-     * @throws UnknownImageFileException
+     * @param ImageInfo[] $images
+     * @return ImageInfo[] $images
      */
-    public static function getImages(string $path, string $wwwDir): array
-    {
-        $images = [];
-
-        try {
-            $iterator = Finder::findFiles('*.jpg', '*.jpeg', '*.JPG', '*.png', '*.gif', '*.bmp', '*.webp')->in($wwwDir . $path)->getIterator();
-        } catch (\Exception $e) {
-            return [];
-        }
-
-        foreach ($iterator as $file) {
-            $imageInfo = getimagesize($file->getPathname());
-            $wwwPath = substr($file->getPathname(), strlen($wwwDir));
-            $images[] = [
-                'src' => $wwwPath,
-                'width' => $imageInfo[0],
-                'height' => $imageInfo[1],
-            ];
-        }
-
-        usort($images, function ($a, $b) {
-            return $a['src'] <=> $b['src'];
-        });
-
-        foreach ($images as $index => &$image) {
-            $image['index'] = $index;
-        }
-
-        return $images;
-    }
-
-    /**
-     * @throws \Throwable
-     */
-    private function getCachedImages(string $path): array
-    {
-        return $this->cache->load(
-            [$path, $this->wwwDir],
-            fn() => self::getImages($path, $this->wwwDir)
-        );
-    }
-
     private function getPreviewImages(array $images, int $step): array
     {
         if (count($images) <= 6) {
@@ -88,44 +47,53 @@ class ImageGalleryControl extends DIComponent
     }
 
     /**
-     * @throws \Throwable
+     * @param ImageInfo[] $images
      */
-    public function hasPhotos(string $path): bool
+    private function renderTemplate(array $images, ?string $layout, bool $trimmed): void
     {
-        return count($this->getCachedImages($path)) > 0;
-    }
-
-    /**
-     * @throws UnknownImageFileException|\Throwable
-     */
-    public function render(string $path, ?string $layout = null, bool $trimmed = false): void
-    {
-        $images = $this->getCachedImages($path);
-        $this->template->images = $images;
+        $template = 'default.latte';
 
         switch ($layout) {
             case 'randomLine':
-                if (!$this->hasPhotos($path)) {
-                    return;
-                }
                 $this->template->previewImages = $this->getPreviewImages($images, (int)(count($images) / 6));
                 $template = 'oneLine.latte';
                 break;
             case 'orderedLine':
-                if (!$this->hasPhotos($path)) {
-                    return;
-                }
                 $this->template->previewImages = $this->getPreviewImages($images, 1);
                 $template = 'oneLine.latte';
                 break;
-            default:
-                $template = 'default.latte';
         }
 
         if ($trimmed) {
             $template = 'trimmedLine.latte';
         }
 
+        $this->template->images = $images;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . $template);
+    }
+
+    /**
+     * @throws UnknownImageFileException|\Throwable
+     */
+    public function render(
+        EventModel $event,
+        ?string $layout = null,
+        bool $trimmed = false,
+        EventImageType $imageType = EventImageType::Default
+    ): void {
+        if (!$this->imageService->hasPhotosEvent($event, $imageType)) {
+            return;
+        }
+        $images = $this->imageService->getEventImages($event, $imageType);
+        $this->renderTemplate($images, $layout, $trimmed);
+    }
+
+    public function renderPath(string $path, ?string $layout = null, bool $trimmed = false): void
+    {
+        if (!$this->imageService->hasPhotosPath($path)) {
+            return;
+        }
+        $images = $this->imageService->getPathImages($path);
+        $this->renderTemplate($images, $layout, $trimmed);
     }
 }

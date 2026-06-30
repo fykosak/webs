@@ -22,10 +22,10 @@ final class AboutPresenter extends BasePresenter
 
     public function getYearbookLink(int $year): ?string
     {
-        $yearbookPath = $this->fileService->getYearbook('fykos', $year, $this->template->lang);
+        $yearbookPath = $this->fileService->getYearbook('fykos', $year, $this->translator->lang);
 
         if ($yearbookPath) {
-            return $this->template->getLatte()->renderToString(__DIR__ . '/templates/About/yearbookLink.' . $this->template->lang . '.latte', [
+            return $this->template->getLatte()->renderToString(__DIR__ . '/templates/About/yearbookLink.' . $this->translator->lang . '.latte', [
                 'yearbookPath' => $yearbookPath,
                 'year' => $year,
             ]);
@@ -52,7 +52,7 @@ final class AboutPresenter extends BasePresenter
                 'email' => $organizer['email'],
                 'academicDegreePrefix' => $organizer['academicDegreePrefix'],
                 'academicDegreeSuffix' => $organizer['academicDegreeSuffix'],
-                'career' => $organizer['career'],
+                'career' => $organizer['careerNew'],
                 'contribution' => $organizer['contribution'],
                 'order' => $organizer['order'],
                 'role' => $organizer['role'],

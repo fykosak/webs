@@ -4,39 +4,26 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\EventsModule;
 
-use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
-use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
+use App\Models\Downloader\Services\EventService;
+use App\Models\Images\ImageService;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
+use Nette\InvalidStateException;
 
 class CampsPresenter extends BasePresenter
 {
     private const CAMPS_IDS = [4, 5];
+    private readonly EventService $eventService;
+    private readonly ImageService $imageService;
 
-    public function getEventHeading(array $event): array
+    public function injectEventService(EventService $eventService): void
     {
-        if ($event['eventTypeId'] === 4) {
-            $year = 1986 + $event['year'] + 1;
-            return [
-                'cs' => 'Jarní soustředění ' . $year,
-                'en' => 'Spring camp ' . $year,
-            ];
-        } else { // $event['eventTypeId'] == 5
-            $year = 1986 + $event['year'];
-            return [
-                'cs' => 'Podzimní soustředění ' . $year,
-                'en' => 'Autumn camp ' . $year,
-            ];
-        }
+        $this->eventService = $eventService;
     }
 
-    public function eventYearToCalendarYear(int $eventYear, int $season): int
+    public function injectImageService(ImageService $imageService): void
     {
-        if ($season === 4) {
-            return 1986 + $eventYear + 1;
-        } else { // $season == 5
-            return 1986 + $eventYear;
-        }
+        $this->imageService = $imageService;
     }
 
     /**
@@ -44,60 +31,21 @@ class CampsPresenter extends BasePresenter
      */
     public function renderDetail(int $year, int $season): void
     {
-        $events = $this->downloader->download(new EventListRequest([$season]));
-
-        $event = null;
-        foreach ($events as $e) {
-            if ($this->eventYearToCalendarYear($e['year'], $e['eventTypeId']) === $year) {
-                $event = $e;
-                break;
-            }
-        }
-
-        if ($event === null) {
+        $events = $this->eventService->getEventsByYear([$season], $year);
+        if (count($events) > 1) {
+            throw new InvalidStateException(sprintf('More than one event type for a year %d', $year));
+        } elseif (count($events) === 0) {
             throw new BadRequestException(
-                $this->csen('Stránka nenalezena', 'Page not found'),
+                $this->csen('Akce nenalezena', 'Event not found'),
                 IResponse::S404_NotFound
             );
         }
 
-        $event['heading'] = $this->getEventHeading($event);
+        $event = reset($events);
+
         $this->template->event = $event;
-        $this->template->photoPath = $this->getEventPhotoBasePath($event);
-        $participants = $this->downloader->download(new ParticipantsRequest((int)$event['eventId']));
-        $participants = array_filter($participants, function ($participant) {
-            return $participant['status'] === 'participated';
-        });
-        $this->template->participants = $participants;
-    }
-
-    private function getEventPhotoBasePath(array $event): string
-    {
-        if ($event['eventTypeId'] === 4) {
-            $eventType = 'sous-jaro';
-        } else { // $event['eventTypeId'] === 5
-            $eventType = 'sous-podzim';
-        }
-        if ($event['year'] < 10) {
-            $fullYear = '0' . $event['year'];
-        } else {
-            $fullYear = $event['year'];
-        }
-
-        return '/media/images/events/' . $eventType . '/rocnik' . $fullYear . '/carousel-photos';
-    }
-
-    public function getEventPhoto(array $event): string
-    {
-        // find images in www directory (index.php is in www dir, so ./ resolves to it)
-        $photos = glob('.' . $this->getEventPhotoBasePath($event) . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-
-        if (count($photos) === 0) {
-            return $this->template->basePath . '/media/images/events/event-missing-photo.png';
-        }
-
-        $photo = $photos[array_rand($photos)];
-        return substr($photo, 1); // remove leading dot
+        $this->template->imageService = $this->imageService;
+        $this->template->participants = $this->eventService->getParticipated($event->eventId);
     }
 
     /**
@@ -105,18 +53,24 @@ class CampsPresenter extends BasePresenter
      */
     public function renderDefault(): void
     {
-        $events = $this->downloader->download(new EventListRequest(self::CAMPS_IDS));
+        $events = $this->eventService->getEvents(self::CAMPS_IDS);
 
         // sort by date
         usort($events, function ($a, $b) {
-            return strtotime($b['begin']) - strtotime($a['begin']);
+            return $b->begin <=> $a->begin;
         });
 
-        foreach ($events as &$event) {
-            $event['heading'] = $this->getEventHeading($event);
-            $event['photo'] = $this->getEventPhoto($event);
+        $coverImages = [];
+        foreach ($events as $event) {
+            $image =  $this->imageService->getRandomImage($event);
+            if (!$image) {
+                $coverImages[$event->eventId] = '/images/event-missing-photo.png';
+                continue;
+            }
+            $coverImages[$event->eventId] = $image['src'];
         }
 
+        $this->template->coverImages = $coverImages;
         $this->template->events = $events;
     }
 }

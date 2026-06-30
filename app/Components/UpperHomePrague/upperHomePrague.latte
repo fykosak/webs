@@ -3,7 +3,7 @@
 
 {block content}
 
-{if $event->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+{if $event->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::Before)}
 <div class="upper-home-countdown countdown-panel subheader justify-content-center">
     <div class="info-text">
         {switch $lang->value}
@@ -162,7 +162,7 @@
     {control countdown}
 </div>
 <div class="upper-home-registration-deadline">
-    {if $event->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
+    {if $event->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::After)}
     {*<div style="margin-top: 1rem; text-align: center;">
         {switch $lang->value}
         {case cs}
@@ -173,13 +173,13 @@
         <a class="btn btn-primary" href="/download/2024/solutions.pdf">Problem assignment and solutions</a>
         {/switch}
     </div>*}
-    {elseif $event->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::after)}
+    {elseif $event->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::After)}
     {switch $lang->value}
     {case cs} Registrace je již uzavřena. Soutěžíme <strong>{$event->game->begin|date:'j. n. G:i'}</strong>.
     {default} Registration is already closed. The competition starts <strong>{$event->game->begin|date:'F j, G:i'}
         CET</strong>.
     {/switch}
-    {elseif !$event->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+    {elseif !$event->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::Before)}
     {switch $lang->value}
     {case cs}
     Registrace je otevřena do

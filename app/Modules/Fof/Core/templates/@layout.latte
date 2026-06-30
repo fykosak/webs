@@ -69,11 +69,11 @@
                     {default}Are you interested?
                     {/switch}
                 </div>
-                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
                 <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case
                     'cs'}Registrace{default}Registration{/switch}</a>
                 {else}
-                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::before)}
+                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::Before)}
                 {switch $language->value}
                 {case 'cs'}Registrace se otevře v listopadu!
                 {default} Registration will open in November!
@@ -343,7 +343,7 @@
                                         <li><a n:href=":Default:Rules:">Pravidla</a></li>
                                         {* <li><a n:href=":Default:Schedule:">Program</a></li>*}
                                         {if
-                                        $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+                                        $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
                                         <li><a n:href=":Default:Registration:">Registrace</a></li>
                                         {/if}
                                         {* <li><a n:href=":Default:Erasmus: lang: en">Program Erasmus+</a></li>*}
@@ -357,7 +357,7 @@
                                         <li><a n:href=":Default:Rules:">Rules</a></li>
                                         {* <li><a n:href=":Default:Schedule:">Schedule</a></li>*}
                                         {if
-                                        $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::onGoing)}
+                                        $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
                                         <li><a n:href=":Default:Registration:">Registration</a></li>
                                         {/if}
                                         {* <li><a n:href=":Default:Erasmus: lang: en">Fyziklani International 2022</a>
@@ -397,21 +397,20 @@
                             <ul>
                                 {switch $language->value}
                                 {case cs}
-                                <li>Sledujte nás
-                                    {default}
-                                <li>Follow us on social media
-                                    {/switch}
-                                    <ul>
-                                        <li>
-                                            <a class="social-sites" href="https://www.facebook.com/FYKOS">
-                                                <i class="fa-brands fa-square-facebook fa-2x"></i>
-                                            </a>
-                                            <a class="social-sites" href="https://www.instagram.com/fykosak/">
-                                                <i class="fa-brands fa-instagram fa-2x"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                    <li>Sledujte nás</li>
+                                {default}
+                                    <li>Follow us on social media</li>
+                                {/switch}
+                                <ul>
+                                    <li>
+                                        <a class="social-sites" href="https://www.facebook.com/FYKOS">
+                                            <i class="fa-brands fa-square-facebook fa-2x"></i>
+                                        </a>
+                                        <a class="social-sites" href="https://www.instagram.com/fykosak/">
+                                            <i class="fa-brands fa-instagram fa-2x"></i>
+                                        </a>
+                                    </li>
+                                </ul>
                             </ul>
                         </nav>
                         <a href="#top" style="position: absolute; bottom: 0; right: 0;"><i

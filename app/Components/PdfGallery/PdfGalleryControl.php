@@ -8,6 +8,7 @@ use Fykosak\Utils\Components\DIComponent;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\DI\Container;
+use Nette\InvalidStateException;
 use Nette\Utils\Finder;
 use Nette\Utils\UnknownImageFileException;
 
@@ -33,21 +34,21 @@ class PdfGalleryControl extends DIComponent
         $pdfs = [];
         try {
             $iterator = Finder::findFiles('*.pdf')->in($wwwDir . $path)->getIterator();
-        } catch (\Exception $e) {
-            return [];
-        }
 
-        foreach ($iterator as $file) {
-            $name = $file->getBasename('.pdf');
-            // if the name is urlencoded decode it
-            if (1 !== preg_match('/[^a-zA-Z0-9+%-_.]/', $name)) {
-                $name = urldecode($name);
-            }
-            $wwwPath = substr($file->getPathname(), strlen($wwwDir));
-            $pdfs[] = [
+            foreach ($iterator as $file) {
+                $name = $file->getBasename('.pdf');
+                // if the name is urlencoded decode it
+                if (1 !== preg_match('/[^a-zA-Z0-9+%-_.]/', $name)) {
+                    $name = urldecode($name);
+                }
+                $wwwPath = substr($file->getPathname(), strlen($wwwDir));
+                $pdfs[] = [
                 'src' => $wwwPath,
                 'name' => $name,
-            ];
+                ];
+            }
+        } catch (InvalidStateException $e) {
+            return [];
         }
 
         //sort alphabetically

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Components\OrgSneakPeak;
 
+use App\Modules\Core\Language;
 use Fykosak\Utils\Components\DIComponent;
 use App\Models\Downloader\Downloaders\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\OrganizersRequest;
@@ -19,7 +20,6 @@ class OrgSneakPeakComponent extends DIComponent
     {
         parent::__construct($container);
         $this->downloader = $container->getByType(FKSDBDownloader::class);
-
         $this->organizers = $this->parseOrganizers();
     }
 
@@ -52,7 +52,7 @@ class OrgSneakPeakComponent extends DIComponent
         return $parsedOrganizers;
     }
 
-    public function getOrg(array $organizers, $personId): array
+    public function getOrg(array $organizers, int $personId): array
     {
         foreach ($organizers as $organizer) {
             if ($organizer['personId'] === $personId) {
@@ -62,17 +62,15 @@ class OrgSneakPeakComponent extends DIComponent
         return [];
     }
 
-    public function render($personId = null, $title = null)
+    public function render(?int $personId = null, ?string $title = null): void
     {
-        $this->template->lang = $this->translator->lang;
-
         $this->template->organizer = $this->getOrg($this->organizers, $personId);
         if (is_null($title)) {
             $this->template->title = $this->template->organizer['name'];
         } else {
             $this->template->title = $title;
         }
-        $this->template->lang = $this->translator->lang;
+        $this->template->lang = Language::from($this->translator->lang);
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'orgSneakPeak.latte');
     }
 }

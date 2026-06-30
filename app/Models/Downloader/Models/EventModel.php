@@ -35,7 +35,10 @@ final class EventModel
 
 
     public readonly GameModel|null $game;
-    public readonly Period $registration; // TODO magic?
+    /**
+     * @var string[] $nameNew
+     */
+    public readonly array $registration; // TODO cast to Period
 
     public function getRegistrationPeriod(): Period
     {
@@ -73,8 +76,8 @@ final class EventModel
         return (int)$this->begin->format('Y');
     }
 
-    public function getMonth(): string
+    public function getMonth(): int
     {
-        return $this->begin->format('m');
+        return (int)$this->begin->format('n');
     }
 }
