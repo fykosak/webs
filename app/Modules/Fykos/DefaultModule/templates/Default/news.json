@@ -12,6 +12,13 @@
   ],
   "cs": [
     {
+      "title": "Zadání nového ročníku",
+      "text": "Zveřejněli jsme zadání jubilejního 40. ročníku. Zároveň pro vás připravujeme novou podobu pravidel, proto můžete očekávat jejich úpravu.",
+      "link": "https://fykos.cz/zadani",
+      "link-text": "Zadání",
+      "color": "fykos"
+    },
+    {
       "title": "39. ročník je za námi",
       "text": "Letoční 39. ročník je za námi a vy se můžete v blízké době těšit na svá opravená řešení a konečné výsledkové listiny.",
       "link": "https://fykos.cz/poradi",
@@ -20,6 +27,13 @@
     }
   ],
   "en": [
+    {
+      "title": "New year tasks",
+      "text": "We have published the problems for the milestone 40th year. At the same time, we are preparing a rules revision, so you can expect them to be updated.",
+      "link": "https://fykos.cz/zadani",
+      "link-text": "Problems",
+      "color": "fykos"
+    },
     {
       "title": "39th year is behind us",
       "text": "39th year is behind us, and you can look forward to your corrected solutions and the final results in the near future.",

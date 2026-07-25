@@ -34,7 +34,7 @@
                             {default}News
                         {/switch}
                     </a>
-                    <a class="btn btn-outline ml-2 mt-2" n:href=":Default:About:">
+                    <a class="btn btn-outline-light ml-2 mt-2" n:href=":Default:About:">
                         {switch $language->value}
                             {case 'cs'}O&nbsp;nás
                             {default}About&nbsp;Us
@@ -122,7 +122,12 @@
                     <div class="card-body news-card" style="border-left: 5px solid {$news['color']|noescape}">
                         <div style="display: flex; justify-content: space-between;">
                             <h4 class="card-title">{$news['title']}</h4>
-                            <div><a href="{$news['link']}" class="btn btn-primary" style="background-color: {$news['color']|noescape}; border: 1px solid {$news['color']|noescape}">{$news['link-text']}</a></div>
+                            <a href="{$news['link']}" class="btn btn-primary" style="
+                                --bs-btn-bg: {$news['color']|noescape};
+                                --bs-btn-hover-bg: color-mix(in srgb, var(--bs-btn-bg), black 15%);
+                                --bs-btn-border-color: {$news['color']|noescape};
+                                --bs-btn-hover-border-color: color-mix(in srgb, var(--bs-btn-border-color), black 15%);
+                            ">{$news['link-text']}</a>
                         </div>
                         <p class="card-text">{$news['text']|noescape}</p>
                     </div>
@@ -204,7 +209,7 @@
                                 {php $eventCounter++}
                                 <div class="col-md-5 mt-4
                                     {if $eventCounter%4 == 1}offset-md-1
-                                    {elseif $eventCounter%4 == 3}offset-md-2
+                                    {elseif $eventCounter%4 == 3}offset-md-3
                                     {/if}"
                                     id="event-{$eventCounter}"
                                 >
