@@ -19,6 +19,7 @@ services:
     - App\Models\Downloader\Services\ProblemService('10 minutes')
     - App\Models\Downloader\Services\EventService('10 minutes')
     - App\Models\Downloader\Services\DummyService('10 minutes')
+    - App\Models\Authentication\Authenticator(%keycloak.providerUrl%, %keycloak.clientId%, %keycloak.clientSecret%, %keycloak.requiredGroup%)
     - App\Models\Images\ImageService()
     - App\Models\Images\ImageManipulator()
 
@@ -38,3 +39,4 @@ parameters:
         login:
         password:
         url: ''
+    mediaDir: %wwwDir%/media
