@@ -1,6 +1,6 @@
 name: PHP (Nette Tester)
 
-on: [ push, pull_request ]
+on: [push, pull_request]
 
 jobs:
   test:
@@ -9,8 +9,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['8.1']
-#        php: ['8.1','8.2','8.3']
+        php: ["8.3"]
+    #        php: ['8.1','8.2','8.3']
     steps:
       - uses: actions/checkout@v2
         name: Checkout
@@ -28,8 +28,8 @@ jobs:
       - uses: actions/setup-python@v4
         name: Setup Python
         with:
-          python-version: '3.11'
-          cache: 'pip'
+          python-version: "3.11"
+          cache: "pip"
       - run: pip install -r tests/api/requirements.txt
         name: Pip install
       - run: composer run-script test
