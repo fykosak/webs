@@ -43,7 +43,7 @@ class EventsPresenter extends BasePresenter
         $eventParticipants = $event->end < new DateTime() ? $this->eventService->getEventParticipants($event->eventId) : [];
         $participants = [];
         foreach ($eventParticipants as $participant) {
-            if ($participant->status === 'participated') {
+            if ($participant->state === 'participated') {
                 $participants[] = $participant->name;
             }
         }

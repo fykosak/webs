@@ -9,7 +9,7 @@ final class EventParticipantModel
     public string $name;
     public int $personId;
     public int $eventParticipantId;
-    public string $status;
+    public string $state;
     public int $lunchCount;
     public ?string $code;
     public ?object $school;
