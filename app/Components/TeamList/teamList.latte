@@ -56,7 +56,7 @@
                 <ol class="team-list">
                     {foreach $teamsForCategory as $team}
                         {varType App\Models\Downloader\Models\EventModel $team}
-                        {if in_array($team->state, ['pending', 'applied', 'arrived', 'participated', 'missed', 'disqualified'])}
+                        {if in_array($team->state, ['registered.pending', 'registered', 'arrived', 'participated', 'missed', 'disqualified'])}
                             <li id="{$team->teamId}" class="team-state-{$team->state}">
                                 <strong>{$team->name}</strong>:
                                 {var $inSchool = 0}

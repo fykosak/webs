@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Models\Downloader\Services;
 
 use App\Models\Downloader\Downloaders\FKSDBDownloader;
-use App\Models\Downloader\Requests\EventOrganizersRequest;
 use App\Models\Downloader\Models\EventModel;
 use App\Models\Downloader\Models\EventOrganizerModel;
 use App\Models\Downloader\Models\EventParticipantModel;
 use App\Models\Downloader\Models\PersonScheduleModel;
+use App\Models\Downloader\Requests\EventOrganizersRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
@@ -19,8 +19,7 @@ final class EventService extends AbstractJSONService
 {
     public function __construct(string $expiration, Storage $storage, FKSDBDownloader $downloader)
     {
-        $this->downloader = $downloader;
-        parent::__construct($expiration, $storage);
+        parent::__construct($expiration, $storage, $downloader);
     }
 
     /**
@@ -36,6 +35,7 @@ final class EventService extends AbstractJSONService
 
     /**
      * @return EventParticipantModel[]
+     * @throws \Throwable
      */
     public function getEventParticipants(int $eventId, ?string $explicitExpiration = null): array
     {
@@ -50,6 +50,7 @@ final class EventService extends AbstractJSONService
 
     /**
      * @return EventParticipantModel[]
+     * @throws \Throwable
      */
     public function getParticipated(int $eventId, ?string $explicitExpiration = null): array
     {
@@ -60,6 +61,7 @@ final class EventService extends AbstractJSONService
 
     /**
      * @return EventOrganizerModel[]
+     * @throws \Throwable
      */
     public function getEventOrganizers(int $eventId, ?string $explicitExpiration = null): array
     {
