@@ -18,13 +18,6 @@
       "link-text": "Zadání",
       "color": "fykos"
     },
-    {
-      "title": "39. ročník je za námi",
-      "text": "Letoční 39. ročník je za námi a vy se můžete v blízké době těšit na svá opravená řešení a konečné výsledkové listiny.",
-      "link": "https://fykos.cz/poradi",
-      "link-text": "Pořadí",
-      "color": "fykos"
-    }
   ],
   "en": [
     {
@@ -34,12 +27,5 @@
       "link-text": "Problems",
       "color": "fykos"
     },
-    {
-      "title": "39th year is behind us",
-      "text": "39th year is behind us, and you can look forward to your corrected solutions and the final results in the near future.",
-      "link": "https://fykos.org/results",
-      "link-text": "Results",
-      "color": "fykos"
-    }
   ]
 }
