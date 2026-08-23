@@ -23,7 +23,7 @@
     "netresearch/jsonmapper": "^4.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "3.7.2",
+    "squizlabs/php_codesniffer": "^4.0.0",
     "nette/tester": "^v2.6.0",
     "phpstan/phpstan": "2.1.30",
     "phpstan/phpstan-nette": "^2.0.6",
