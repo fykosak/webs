@@ -46,7 +46,7 @@
                 {default}Photos
                 {/switch}</h1>
             <div class="mt-5">
-                {control gallery '/media/photos/' . $eventKey . '/erasmus/'}
+                {control gallery $event, imageType: App\Models\Images\EventImageType::Erasmus}
             </div>
         </section>
     </div>

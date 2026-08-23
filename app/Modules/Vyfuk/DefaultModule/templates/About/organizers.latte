@@ -19,10 +19,10 @@
                                 <td class="right-cell">{$organizer['role'][$lang]}</td>
                             </tr>
                         {/if}
-                        {if $organizer['career']}
+                        {if $organizer['careerNew'][$language->value]}
                             <tr>
                                 <td class="left-cell"><span class="icon"><i class="fa-solid fa-building-columns"></i></span></td>
-                                <td class="right-cell">{$organizer['career']}</td>
+                                <td class="right-cell">{$organizer['careerNew'][$language->value]}</td>
                             </tr>
                         {/if}
                         {if $organizer['domainAlias']}

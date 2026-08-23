@@ -14,23 +14,15 @@
 <div class="panel color-auto">
     <section class="inner-container">
         <div class="container mt-3">
-            {if $series->getYear() === 39 && $series->getLabel() === 'April'}
-                <div class="alert alert-info">
+            {if $series->getYear() === 40 && $series->getLabel() === '1'}
+                <div class="alert alert-warning">
                     {switch $language->value}
                         {case 'cs'}
-                            Doufáme, že se vám naše aprílové úlohy líbily. Budete-li mít
-                            zájem, můžete nám do 19. 4. poslat svá řešení na e-mail
-                            <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>; ta
-                            nejkreativnější drobně oceníme. Zadání reálné 6. série
-                            zveřejníme v následujících dnech.
+                            Pravidla korespondenčního semináře aktuálně procházejí revizí.
+                            Před začátkem dalšího ročníku proto může dojít k jejich úpravě.
                         {default}
-                            We hope you enjoyed our April Fools' problems. If
-                            you are interested, you can send us your solutions
-                            to <a href="mailto:fykos@fykos.cz">fykos@fykos.cz</a>
-                            until April 19th; we will provide small prizes for
-                            the most creative ones. We will publish the
-                            assignments for the real 6th series in the coming
-                            days.
+                            The correspondence seminar rules are currently under review. As a result,
+                            they may be revised before the start of the next seminar year.
                     {/switch}
                 </div>
             {/if}

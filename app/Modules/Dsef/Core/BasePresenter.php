@@ -18,7 +18,7 @@ abstract class BasePresenter extends EventWebPresenter
 
     public static function getEventKey(EventModel $event): string
     {
-        return $event->getYear() . '-' . $event->getMonth();
+        return $event->begin->format('Y-m');
     }
 
     protected function localize(): void

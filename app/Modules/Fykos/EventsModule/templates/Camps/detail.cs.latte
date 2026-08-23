@@ -1,11 +1,11 @@
-{varType array $event}
 {varType array $participants}
+{varType App\Models\Downloader\Models\EventModel $event}
+{varType App\Models\Images\ImageService $imageService}
 {varType App\Modules\Core\Language $language}
-{varType string $photoPath}
 
-{block title}{$event['nameNew'][$lang]|firstUpper}{/block}
+{block title}{$event->nameNew[$lang]|firstUpper}{/block}
 {block subtitle}
-{$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}
+{$event->begin|date:'j. n. Y'} - {$event->end|date:'j. n. Y'}
 {/block}
 {block main}
 <div class="panel color-auto">
@@ -13,14 +13,14 @@
         {ifset subtitle}
         <div class="subheader">{include subtitle}</div>{/ifset}
         {ifset title}<h1>{include title}</h1>{/ifset}
-        <p>{$event['report'][$lang]}</p>
+        <p>{$event->report[$lang]}</p>
     </section>
 </div>
 <div class="panel color-auto">
     <section class="inner-container">
         <h1>Fotogalerie</h1>
-        {if $control->getComponent('gallery')->hasPhotos($photoPath)}
-            {control gallery $photoPath, 'randomLine'}
+        {if $imageService->hasPhotosEvent($event)}
+            {control gallery $event, 'randomLine'}
         {else}
             {switch $lang}
                 {case 'cs'}Fotografie momentálně nejsou k dispozici.
@@ -33,7 +33,7 @@
     <section class="inner-container">
         <h1>Účastníci</h1>
         {foreach $participants as $participant}
-        {$participant['name']}{if !$iterator->isLast()},{else}.{/if}
+        {$participant->name}{if !$iterator->isLast()},{else}.{/if}
         {/foreach}
     </section>
 </div>

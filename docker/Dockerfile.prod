@@ -23,7 +23,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # install apache EXTENSIONS
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-RUN EXTENSIONS="gettext soap opcache gd" \
+RUN EXTENSIONS="exif gettext soap opcache gd" \
 	&& docker-php-ext-install $EXTENSIONS \
 	&& docker-php-ext-enable $EXTENSIONS
 RUN a2enmod rewrite proxy proxy_http
@@ -33,7 +33,7 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 # copy and execute entrypoint
 COPY ./docker/entrypoint.sh /
-CMD /entrypoint.sh
+CMD ["/entrypoint.sh"]
 
 EXPOSE 80
 

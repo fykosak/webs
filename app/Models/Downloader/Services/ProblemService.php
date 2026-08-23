@@ -24,8 +24,7 @@ final class ProblemService extends AbstractJSONService
         Storage $storage,
         ProblemManagerDownloader $downloader
     ) {
-        $this->downloader = $downloader;
-        parent::__construct($expiration, $storage);
+        parent::__construct($expiration, $storage, $downloader);
     }
 
     /**

@@ -58,7 +58,7 @@
         </div>
     </div>
 
-    <div class="panel registration" style="background-color: black">
+    {*<div class="panel registration" style="background-color: black">
         <div class="inner-container">
             <div class="text">
                 {switch $language->value}
@@ -79,7 +79,7 @@
                 {/switch}
             </div>
         </div>
-    </div>
+    </div>*}
 
     {if $newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
         {control resultsPanel !$newestEvent->getGamePeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}

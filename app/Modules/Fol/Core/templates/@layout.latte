@@ -98,8 +98,8 @@
             <div class="inner-container">
                 <div class="text">
                     {switch $language->value}
-                        {case 'cs'}Zaujalo vás to?
-                        {default}Are you interested?
+                        {case 'cs'}Fyziklání Online v tomto roce neprobíhá.
+                        {default}Physics Brawl Online does not take place this year.
                     {/switch}
                 </div>
                 {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
@@ -112,8 +112,8 @@
                         {/switch}
                     {else}
                         {switch $language->value}
-                            {case 'cs'}Registrace do dalšího ročníku ještě není otevřena.
-                            {default} Registration for the next year is not open yet.
+                            {case 'cs'}<a href="https://fykos.cz/akce/" class="btn btn-outline-light">Akce FYKOSu</a>
+                            {default} <a href="https://fykos.org/events/" class="btn btn-outline-light">FYKOS Events</a>
                         {/switch}
                     {/if}
                 {/if}

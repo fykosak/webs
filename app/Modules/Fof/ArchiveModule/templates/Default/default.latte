@@ -1,6 +1,9 @@
 {varType App\Models\Downloader\Models\EventModel $event}
 {varType App\Modules\Core\Language $language}
+{varType App\Modules\Images\ImageService $imageService}
 {varType string $eventKey}
+
+{var $imageType = App\Models\Images\EventImageType::class}
 
 {block subtitle}
     {switch $language->value}
@@ -65,7 +68,7 @@
                         </a>
                     </li>
                 </ul>
-                {if file_exists(__DIR__.'/../../../../www/fof/download/'.$eventKey.'/infobooklet-cs.pdf')}
+                {if file_exists(__DIR__.'/../../../../../../www/fof/download/'.$eventKey.'/infobooklet-cs.pdf')}
                     <ul class="stylized">
                         <li><a href="{$basePath}/download/{$eventKey}/infobooklet-cs.pdf">
                             {switch $language->value}
@@ -74,7 +77,7 @@
                             {/switch}
                         </a></li>
 
-                        {if file_exists(__DIR__.'/../../../../www/fof/download/'.$eventKey.'/infobooklet-en.pdf')}
+                        {if file_exists(__DIR__.'/../../../../../../www/fof/download/'.$eventKey.'/infobooklet-en.pdf')}
                             <li><a href="{$basePath}/download/{$eventKey}/infobooklet-en.pdf">
                                 {switch $language->value}
                                     {case 'cs'}Průvodce Fyzikláním {$eventKey} v anglickém jazyce
@@ -85,7 +88,7 @@
                         {/if}
                     </ul>
                 {/if}
-            {if is_dir(__DIR__.'/../../../../media/fof/photos/'.$eventKey)}
+            {if $imageService->hasPhotosEvent($event)}
                 <ul class="stylized">
                     <li>
                         <a href="#competition">
@@ -95,7 +98,7 @@
                             {/switch}
                         </a>
                     </li>
-                    {if is_dir(__DIR__.'/../../../../media/fof/photos/' . $eventKey . '/teams')}
+                    {if $imageService->hasPhotosEvent($event, $imageType::Teams)}
                         <li>
                             <a href="#backdrop">
                                 {switch $language->value}
@@ -105,7 +108,7 @@
                             </a>
                         </li>
                     {/if}
-                    {if is_dir(__DIR__.'/../../../../media/fof/photos/' . $eventKey . '/winners')}
+                    {if $imageService->hasPhotosEvent($event, $imageType::Winners)}
                         <li>
                             <a href="#winners">
                                 {switch $language->value}
@@ -115,7 +118,7 @@
                             </a>
                         </li>
                     {/if}
-                    {if is_dir(__DIR__.'/../../../../media/fof/photos/' . $eventKey . '/weekend')}
+                    {if $imageService->hasPhotosEvent($event, $imageType::Weekend)}
                         <li>
                             <a href="#weekend">
                                 {switch $language->value}
@@ -150,50 +153,50 @@
 {*    {/if}*}
 
 
-    {if is_dir(__DIR__.'/../../../../media/fof/photos/'.$eventKey)}
+    {if $imageService->hasPhotosEvent($event)}
         <div class="panel color-auto" id="competition">
             <section class="inner-container">
                 <h1>{switch $language->value}
                     {case 'cs'}Fotografie ze soutěže
                     {default}Photos from the competition
                 {/switch}</h1>
-                {control gallery "/media/photos/" . $eventKey . "/"}
+                {control gallery $event}
             </section>
         </div>
     {/if}
 
-    {if is_dir(__DIR__.'/../../../../media/fof/photos/' . $eventKey . '/teams')}
+    {if $imageService->hasPhotosEvent($event, $imageType::Teams)}
         <div class="panel color-auto" id="backdrop">
             <section class="inner-container">
                 <h1>{switch $language->value}
                     {case 'cs'}Fotostěna
                     {default}Fyziklani Backdrop
                     {/switch}</h1>
-                {control gallery "/media/photos/" . $eventKey . "/teams"}
+                {control gallery $event, imageType: $imageType::Teams}
             </section>
         </div>
     {/if}
 
-    {if is_dir(__DIR__.'/../../../../media/fof/photos/' . $eventKey . '/winners')}
+    {if $imageService->hasPhotosEvent($event, $imageType::Winners)}
         <div class="panel color-auto" id="winners">
             <section class="inner-container">
                 <h1>{switch $language->value}
                     {case 'cs'}Fotografie vítězů
                     {default}Photos of the winners
                     {/switch}</h1>
-                {control gallery "/media/photos/" . $eventKey . "/winners"}
+                {control gallery $event, imageType: $imageType::Winners}
             </section>
         </div>
     {/if}
 
-    {if is_dir(__DIR__.'/../../../../media/fof/photos/' . $eventKey . '/weekend')}
+    {if $imageService->hasPhotosEvent($event, $imageType::Weekend)}
         <div class="panel color-auto" id="weekend">
             <section class="inner-container">
                 <h1>{switch $language->value}
                     {case 'cs'}Doprovodný program Fyziklání
                     {default}Accompanying program of Fyziklani
                     {/switch}</h1>
-                {control gallery "/media/photos/" . $eventKey . "/weekend"}
+                {control gallery $event, imageType: $imageType::Weekend}
             </section>
         </div>
     {/if}

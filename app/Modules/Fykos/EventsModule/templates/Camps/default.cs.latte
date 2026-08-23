@@ -1,3 +1,5 @@
+{varType App\Models\Downloader\Models\EventModel[] $events}
+{varType array $coverImages}
 {varType App\Modules\Core\Language $language}
 {block title}Soustředění{/block}
 {block main}
@@ -43,12 +45,12 @@
         <section class="inner-container">
             <div class="row event-box">
                 <div class="col-md-8 event-text-box">
-                    <div class="subheader">{$event['nameNew'][$language->value]} – {$event['begin']|date:'j. n. Y'} - {$event['end']|date:'j. n. Y'}</div>
-                    <h1>{$event['heading'][$language->value]}</h1>
+                    <div class="subheader">{$event->place} – {$event->begin|date:'j. n. Y'} - {$event->end|date:'j. n. Y'}</div>
+                    <h1>{if $event->eventTypeId === 4}Jarní{else}Podzimní{/if} soustředění {$event->getYear()}</h1>
                     <p>
-                        {if new \DateTime($event['end']) < new \DateTime()}
-                            {if $event['report'][$language->value]}
-                                {$event['report'][$language->value]}
+                        {if $event->end < new \DateTime()}
+                            {if $event->report[$language->value]}
+                                {$event->report[$language->value]}
                             {else}
                                 Report z akce momentálně není dostupný.
                             {/if}
@@ -57,15 +59,14 @@
                         {/if}
                     </p>
                     <div>
-                        {var $calendarYear = $presenter->eventYearToCalendarYear($event['year'], $event['eventTypeId'])}
-                        <a class="btn btn-primary" n:href=":Events:Camps:detail year:$calendarYear, season:$event['eventTypeId']">
+                        <a class="btn btn-primary" n:href=":Events:Camps:detail year:$event->getYear(), season:$event->eventTypeId">
                             Stránka soustředění
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4 event-img-box">
-                    <a n:href=":Events:Camps:detail year:$calendarYear, season:$event['eventTypeId']">
-                        <img src="{$basePath}{$event['photo']}" alt="{$event['heading'][$language->value]}"
+                    <a n:href=":Events:Camps:detail year:$event->getYear(), season:$event->eventTypeId">
+                        <img src="{$coverImages[$event->eventId]}" alt="{$event->nameNew[$language->value]}"
                         class="event-img">
                     </a>
                 </div>

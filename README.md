@@ -63,17 +63,7 @@ terminál, ve je docker spuštěn, lze pomocí `docker compose up -d` ve složce
 Více informací o tom, jak používat docker a jak v něm spouštět příkazy
 naleznete v [Docker README](docker/README.md).
 
-## Manuální instalace
-
-Script `setup.sh` provádí úkony, které by bylo nutné udělat jinak ručně. Jedná
-se o:
-
-- ve složce `app/config/` zkopírování konfiguračního souboru `config.local.neon.sample` do složky `local` pod názvy `fykos.neon`, `vyfuk.neon`, `fol.neon`, `fof.neon`, `dsef.neon`
-- zkopíruje soubor `docker/docker-compose.yml.sample` do `docker/docker-compose.yml` a vyplní `UID` a `GID` uživatele
-- buildne kontejnery přes `docker compose build`
-- pomocí vytvořeného kontejneru nainstaluje balíčky pro composer a npm a spustí `npm run build`
-
-## Development using podman
+### Development using podman
 
 As a convenience for `podman` based setups, you can use [just](https://just.systems/)
 command runner for your development environment. For `docker` see below. All
@@ -91,3 +81,33 @@ To use `docker` instead of `podman`, instead of `just cmd` write `just runner=do
 This is untested, so contact @rkuklik if you run into issues.
 
 To access the websites (after running `just dev`), following links can be used:
+
+## Manuální instalace
+
+Script `setup.sh` provádí úkony, které by bylo nutné udělat jinak ručně. Jedná
+se o:
+
+- ve složce `app/config/` zkopírování konfiguračního souboru `config.local.neon.sample` do složky `local` pod názvy `fykos.neon`, `vyfuk.neon`, `fol.neon`, `fof.neon`, `dsef.neon`
+- zkopíruje soubor `docker/docker-compose.yml.sample` do `docker/docker-compose.yml` a vyplní `UID` a `GID` uživatele
+- buildne kontejnery přes `docker compose build`
+- pomocí vytvořeného kontejneru nainstaluje balíčky pro composer a npm a spustí `npm run build`
+
+## Nahrávání fotek
+
+Fotky a obecně média se nachází ve složce `media/<web>/`, fotky potom v
+`media/<web>/photos/`. Při zveřejňování fotek je potřeba je nahrát do správné
+podsložce. To, v jak pojmenovaných složkách mají fotky být, je specifikováno v
+`ImageService.php`.
+
+Pokud jsou fotky nějakého specifického typu (např. u Fyziklání), vkládají se
+ještě do jedné podsložky, viz `EventImageType.php`.
+
+Po nahrání fotek je potřeba spustit script `tools/resizeImages.php`, který
+vygeneruje potřebné velikosti fotek, jinak se je nepovede prohlížeči načíst.
+Tomuto scriptu se jako první argument dává cesta, ve které se obrázky nachází.
+Pokud tuto akci děláte na serveru, je potřeba ji provést pomocí `docker exec`
+se specifikovaným uživatelem, aby bylo možné spustit PHP.
+
+```
+docker exec -u <docker-user-uid> -it webs php tools/resizeImages.php media/<web>/photos/<subdirectory>
+```
