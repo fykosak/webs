@@ -132,27 +132,27 @@ class AdminPresenter extends BasePresenter
         $items = [];
 
         $items[] = new NavItem(
-            new PageTitle('Správa novinek', 'fa-solid fa-newspaper'),
+            new PageTitle(null, 'Správa novinek', 'fa-solid fa-newspaper'),
             ':Default:Admin:news'
         );
 
         $items[] = new NavItem(
-            new PageTitle('Správa souborů', 'fa-solid fa-file-pen'),
+            new PageTitle(null, 'Správa souborů', 'fa-solid fa-file-pen'),
             ':Default:Admin:files'
         );
 
         $items[] = new NavItem(
-            new PageTitle('Správa fotek', 'fa-solid fa-images'),
+            new PageTitle(null, 'Správa fotek', 'fa-solid fa-images'),
             ':Default:Admin:media'
         );
 
         $items[] = new NavItem(
-            new PageTitle(sprintf('%s (#%d)', $this->getLoggedUser()->name, $this->getLoggedUser()->id), 'fa-solid fa-user-gear'),
+            new PageTitle(null, sprintf('%s (#%d)', $this->getLoggedUser()->name, $this->getLoggedUser()->id), 'fa-solid fa-user-gear'),
             ':Default:Admin:default'
         );
 
         $items[] = new NavItem(
-            new PageTitle('Odhlásit se', 'fa-solid fa-arrow-right-from-bracket'),
+            new PageTitle(null, 'Odhlásit se', 'fa-solid fa-arrow-right-from-bracket'),
             ':Default:Admin:logout'
         );
 
