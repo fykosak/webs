@@ -211,25 +211,6 @@
                 </table>
             </div>
             <div class="my-5">
-                <h2>{$data[245]['name']['cs']}</h2>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Skupina</th>
-                        <th>{(new \DateTime($data[245]['start']))->format('H:i')}–{(new \DateTime($data[245]['end']))->format('H:i')}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {foreach $data[245]['items'] as $item}
-                        <tr>
-                            <td><strong>{$item['name']['cs']}</strong></td>
-                            <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
-                        </tr>
-                    {/foreach}
-                    </tbody>
-                </table>
-            </div>
-            <div class="my-5">
                 <h2>{$data[296]['name']['cs']}</h2>
                 <table class="table table-striped">
                     <thead>
@@ -240,6 +221,25 @@
                     </thead>
                     <tbody>
                     {foreach $data[296]['items'] as $item}
+                        <tr>
+                            <td><strong>{$item['name']['cs']}</strong></td>
+                            <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
+                        </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+            </div>
+            <div class="my-5">
+                <h2>{$data[295]['name']['cs']}</h2>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Skupina</th>
+                        <th>{(new \DateTime($data[295]['start']))->format('H:i')}–{(new \DateTime($data[295]['end']))->format('H:i')}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach $data[295]['items'] as $item}
                         <tr>
                             <td><strong>{$item['name']['cs']}</strong></td>
                             <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
@@ -325,16 +325,16 @@
             <p>
                 anotace bude přidána později
             </p>
-            <h2>{$data[245]['name']['cs']}</h2>
+            <h2>{$data[296]['name']['cs']}</h2>
             <hr/>
-            {foreach $data[245]['items'] as $item}
+            {foreach $data[296]['items'] as $item}
                 <strong class="subheader mt-3">{$item['name']['cs']}</strong>
                 <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
                 {$item['longDescription']['cs']|noescape}
             {/foreach}
-            <h2>{$data[296]['name']['cs']}</h2>
+            <h2>{$data[295]['name']['cs']}</h2>
             <hr/>
-            {foreach $data[296]['items'] as $item}
+            {foreach $data[295]['items'] as $item}
                 <strong class="subheader mt-3">{$item['name']['cs']}</strong>
                 <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
                 {$item['longDescription']['cs']|noescape}
