@@ -230,16 +230,16 @@
                 </table>
             </div>
             <div class="my-5">
-                <h2>{$data[246]['name']['cs']}</h2>
+                <h2>{$data[296]['name']['cs']}</h2>
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th>Skupina</th>
-                        <th>{(new \DateTime($data[246]['start']))->format('H:i')}–{(new \DateTime($data[246]['end']))->format('H:i')}</th>
+                        <th>{(new \DateTime($data[296]['start']))->format('H:i')}–{(new \DateTime($data[296]['end']))->format('H:i')}</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {foreach $data[246]['items'] as $item}
+                    {foreach $data[296]['items'] as $item}
                         <tr>
                             <td><strong>{$item['name']['cs']}</strong></td>
                             <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
