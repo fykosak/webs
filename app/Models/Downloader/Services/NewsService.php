@@ -39,9 +39,8 @@ final class NewsService extends AbstractJSONService
         $newsList = $this->loadNews();
 
         $updatedNews = [];
-        /* TODO PHP 8.4 $news = array_find($newsList, fn($newsItem) => $newsItem['newsId'] === $news->newsId); */
         foreach ($newsList as $newsItem) {
-            if (!$newsItem->newsId === $newsInput->newsId) {
+            if ($newsItem->newsId !== $newsInput->newsId) {
                 $updatedNews[] = $newsItem;
             }
         }
@@ -55,9 +54,8 @@ final class NewsService extends AbstractJSONService
         $newsList = $this->loadNews();
 
         $updatedNews = [];
-        /* TODO PHP 8.4 $news = array_find($newsList, fn($newsItem) => $newsItem['newsId'] === $news->newsId); */
         foreach ($newsList as $newsItem) {
-            if (!$newsItem->newsId === $newsInput->newsId) {
+            if ($newsItem->newsId !== $newsInput->newsId) {
                 $updatedNews[] = $newsItem;
             }
         }
@@ -76,7 +74,7 @@ final class NewsService extends AbstractJSONService
 
     public function getActiveNews(int $number): array
     {
-        $newsList = $this->loadNews;
+        $newsList = $this->loadNews();
         usort($newsList, fn(NewsModel $a, NewsModel $b): int => $a->releaseDate <=> $b->releaseDate);
 
         $activeNews = [];
