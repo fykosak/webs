@@ -21,7 +21,7 @@ final class DummyService extends AbstractJSONService
      */
     public function get(Request $request, string $model, ?string $explicitExpiration = null)
     {
-        return $this->getItem($request, [], $model, true, $explicitExpiration);
+        return $this->getRequestAsClass($request, [], $model, true, $explicitExpiration);
     }
 
     /**
@@ -29,6 +29,6 @@ final class DummyService extends AbstractJSONService
      */
     public function getFlat(Request $request, string $model, ?string $explicitExpiration = null)
     {
-        return $this->getItem($request, [], $model, false, $explicitExpiration);
+        return $this->getRequestAsClass($request, [], $model, false, $explicitExpiration);
     }
 }

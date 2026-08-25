@@ -34,7 +34,7 @@ final class ProblemService extends AbstractJSONService
     public function getSeries(
         int $seriesId,
     ): PMSeriesModel {
-        return $this->getItem(
+        return $this->getRequestAsClass(
             new SeriesRequest($seriesId),
             [],
             PMSeriesModel::class,
@@ -47,7 +47,7 @@ final class ProblemService extends AbstractJSONService
      */
     public function getYears(int $contestId): array
     {
-        return $this->getItem(
+        return $this->getRequestAsClass(
             new ContestYearRequest($contestId),
             [],
             ContestYearModel::class,

@@ -27,7 +27,7 @@ abstract class AbstractJSONService
     /**
      * @throws \Throwable
      */
-    protected function getItem(
+    protected function getRequestAsClass(
         Request $request,
         array $path,
         string $modelClassName,
@@ -43,21 +43,25 @@ abstract class AbstractJSONService
                     $json = $json[$pathItem];
                 }
 
-                $mapper = new \JsonMapper();
-                $mapper->bEnforceMapType = false;
-                if ($asArray) {
-                    return $mapper->mapArray(
-                        array_map(function (array $datum) {
-                            return self::toStd($datum);
-                        }, $json),
-                        [],
-                        $modelClassName
-                    );
-                } else {
-                    return $mapper->map((object)$json, new $modelClassName());
-                }
+                $this->mapJsonToClass($json, $asArray, $modelClassName);
             }
         );
+    }
+
+    public function mapJsonToClass(mixed $json, bool $asArray, string $modelClassName) {
+        $mapper = new \JsonMapper();
+        $mapper->bEnforceMapType = false;
+        if ($asArray) {
+            return $mapper->mapArray(
+                array_map(function (array $datum) {
+                    return self::toStd($datum);
+                }, $json),
+                [],
+                $modelClassName
+            );
+        } else {
+            return $mapper->map((object)$json, new $modelClassName());
+        }
     }
 
     public static function toStd(array $datum): \stdClass

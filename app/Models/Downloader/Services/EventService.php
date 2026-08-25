@@ -39,7 +39,7 @@ final class EventService extends AbstractJSONService
      */
     public function getEventParticipants(int $eventId, ?string $explicitExpiration = null): array
     {
-        return $this->getItem(
+        return $this->getRequestAsClass(
             new ParticipantsRequest($eventId),
             [],
             EventParticipantModel::class,
@@ -63,7 +63,7 @@ final class EventService extends AbstractJSONService
      */
     public function getEventOrganizers(int $eventId, ?string $explicitExpiration = null): array
     {
-        return $this->getItem(
+        return $this->getRequestAsClass(
             new EventOrganizersRequest($eventId),
             [],
             EventOrganizerModel::class,
@@ -74,7 +74,7 @@ final class EventService extends AbstractJSONService
 
     public function getEvent(int $eventId, ?string $explicitExpiration = null): EventModel
     {
-        return $this->getItem(
+        return $this->getRequestAsClass(
             new EventRequest($eventId),
             [],
             EventModel::class,
@@ -89,7 +89,7 @@ final class EventService extends AbstractJSONService
      */
     public function getPersonSchedule(int $eventId, ?string $explicitExpiration = null): array
     {
-        return $this->getItem(
+        return $this->getRequestAsClass(
             new EventRequest($eventId),
             ['personSchedule'],
             PersonScheduleModel::class,
@@ -106,7 +106,7 @@ final class EventService extends AbstractJSONService
      */
     public function getEvents(array $eventTypeIds, ?string $explicitExpiration = null): array
     {
-        $items = $this->getItem(
+        $items = $this->getRequestAsClass(
             new EventListRequest($eventTypeIds),
             [],
             EventModel::class,
