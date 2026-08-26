@@ -43,12 +43,13 @@ abstract class AbstractJSONService
                     $json = $json[$pathItem];
                 }
 
-                $this->mapJsonToClass($json, $asArray, $modelClassName);
+                return $this->mapJsonToClass($json, $asArray, $modelClassName);
             }
         );
     }
 
-    public function mapJsonToClass(mixed $json, bool $asArray, string $modelClassName) {
+    public function mapJsonToClass(mixed $json, bool $asArray, string $modelClassName): mixed
+    {
         $mapper = new \JsonMapper();
         $mapper->bEnforceMapType = false;
         if ($asArray) {
