@@ -10,6 +10,7 @@ use App\Models\Authentication\Authenticator;
 use App\Models\Authentication\UserModel;
 use Nette\Application\ForbiddenRequestException;
 use App\Models\Downloader\Services\EventService;
+use App\Models\Downloader\Services\NewsService;
 
 use Nette\Utils\Finder;
 
@@ -17,13 +18,15 @@ class AdminPresenter extends BasePresenter
 {
     protected Authenticator $authenticator;
     protected EventService $eventService;
+    protected NewsService $newsService;
 
     public ?int $eventId = null;
 
-    public function injectService(Authenticator $authenticator, EventService $eventService): void
+    public function injectService(Authenticator $authenticator, EventService $eventService, NewsService $newsService): void
     {
         $this->authenticator = $authenticator;
         $this->eventService = $eventService;
+        $this->newsService = $newsService;
     }
 
     public function getMediaDir(): string
@@ -119,9 +122,9 @@ class AdminPresenter extends BasePresenter
         return $files;
     }
 
-    public function render(): void
+    public function renderNews(): void
     {
-        // Nothing to do here yet
+        $this->template->news = $this->newsService->getActiveNews(4);
     }
 
     /**
