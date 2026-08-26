@@ -15,7 +15,7 @@ use Fykosak\FKSDBDownloaderCore\Requests\EventRequest;
 use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
 use Nette\Caching\Storage;
 
-final class EventService extends AbstractJSONService
+final class EventService extends AbstractDownloaderService
 {
     public function __construct(string $expiration, Storage $storage, FKSDBDownloader $downloader)
     {

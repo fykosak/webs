@@ -8,7 +8,7 @@ use App\Models\Downloader\Downloaders\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use Nette\Caching\Storage;
 
-final class DummyService extends AbstractJSONService
+final class DummyService extends AbstractDownloaderService
 {
     public function __construct(string $expiration, Storage $storage, FKSDBDownloader $downloader)
     {

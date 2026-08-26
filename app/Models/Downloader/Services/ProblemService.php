@@ -14,7 +14,7 @@ use Nette\Application\BadRequestException;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 
-final class ProblemService extends AbstractJSONService
+final class ProblemService extends AbstractDownloaderService
 {
     public const FYKOS = 1;
     public const VYFUK = 4;

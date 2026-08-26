@@ -14,7 +14,7 @@ use App\Models\Downloader\Requests\Archive\SeriesRequest;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 
-final class FileService extends AbstractJSONService
+final class FileService extends AbstractDownloaderService
 {
     public function __construct(
         string $expiration,
