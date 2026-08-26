@@ -3,36 +3,35 @@
 
 name: Node.js CI
 
-on: [ push, pull_request ]
+on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-24.04
 
     strategy:
       matrix:
-        node-version: [ 16.x , 18.x ]
+        node-version: [16.x, 18.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - uses: shivammathur/setup-php@v2
-      name: Setup PHP
-      with:
-        php-version: 8.1
-        extensions: curl, mbstring, mysql, soap, xml
-        tools: composer
-        ini-values: session.gc_probability=0, date.timezone="Europe/Prague", display_startup_errors = Off
-    - uses: actions/setup-python@v4
-      name: Setup Python
-    - run: composer install
-    - run: npm ci
-      name: NPM clean install
-    - run: npm run build
-      env:
-        CI: true
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - uses: shivammathur/setup-php@v2
+        name: Setup PHP
+        with:
+          php-version: 8.3
+          extensions: curl, mbstring, mysql, soap, xml
+          tools: composer
+          ini-values: session.gc_probability=0, date.timezone="Europe/Prague", display_startup_errors = Off
+      - uses: actions/setup-python@v4
+        name: Setup Python
+      - run: composer install
+      - run: npm ci
+        name: NPM clean install
+      - run: npm run build
+        env:
+          CI: true

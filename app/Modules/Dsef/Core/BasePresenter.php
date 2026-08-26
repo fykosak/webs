@@ -9,7 +9,7 @@ use App\Modules\Core\EventWebPresenter;
 
 abstract class BasePresenter extends EventWebPresenter
 {
-    public const EVENT_IDS = [2, 14];
+    public const array EVENT_IDS = [2, 14];
 
     protected function getEventIds(): array
     {

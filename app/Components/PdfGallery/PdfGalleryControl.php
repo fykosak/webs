@@ -16,7 +16,7 @@ class PdfGalleryControl extends DIComponent
 {
     private readonly string $wwwDir;
     private readonly Cache $cache;
-    private const EXPIRE = '10 minutes';
+    private const string EXPIRE = '10 minutes';
 
     public function __construct(Container $container)
     {
