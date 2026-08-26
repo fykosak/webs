@@ -43,6 +43,7 @@ final class ProblemService extends AbstractJSONService
 
     /**
      * @phpstan-return ContestYearModel[]
+     * @throws \Throwable
      */
     public function getYears(int $contestId): array
     {
@@ -54,6 +55,9 @@ final class ProblemService extends AbstractJSONService
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getYear(int $contestId, int $year): ?ContestYearModel
     {
         $contestYears = $this->getYears($contestId);
@@ -66,6 +70,9 @@ final class ProblemService extends AbstractJSONService
         return null;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getSeriesId(int $contestId, int $year, string $seriesLabel): int
     {
         $contestYear = $this->getYear($contestId, $year);
@@ -93,7 +100,7 @@ final class ProblemService extends AbstractJSONService
     public function getLatestSeriesId(int $contestId): int
     {
         return $this->cache->load(
-            sprintf("lastSeries_%d", $contestId),
+            sprintf('lastSeries_%d', $contestId),
             function (&$dependencies) use ($contestId) {
                 $dependencies[Cache::Expire] = $this->expiration;
                 $years = $this->getYears($contestId);

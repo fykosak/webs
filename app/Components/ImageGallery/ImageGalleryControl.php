@@ -88,6 +88,9 @@ class ImageGalleryControl extends DIComponent
         $this->renderTemplate($images, $layout, $trimmed);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderPath(string $path, ?string $layout = null, bool $trimmed = false): void
     {
         if (!$this->imageService->hasPhotosPath($path)) {

@@ -18,13 +18,16 @@ final class FileService extends AbstractJSONService
 {
     public function __construct(
         string $expiration,
-        private string $staticURL,
+        private readonly string $staticURL,
         Storage $storage,
         StaticDownloader $downloader
     ) {
         parent::__construct($expiration, $storage, $downloader);
     }
 
+    /**
+     * @throws \Throwable
+     */
     private function getMedia(string $contest, int $year, string $path): ?string
     {
         $path = sprintf('%s%s/%d/media/%s', $this->staticURL, $contest, $year, $path);
@@ -40,36 +43,54 @@ final class FileService extends AbstractJSONService
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getSolution(string $contest, SeriesModel $series, ProblemModel $problem, string $lang): ?string
     {
         $path = 'solution' . $series->getLabel() . '-' . $problem->getOrder() . '.' . $lang . '.pdf';
         return $this->getMedia($contest, $series->getYear(), $path);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getBatch(string $contest, SeriesModel $series, string $lang): ?string
     {
         $path = 'serie' . $series->getLabel() . '.pdf';
         return $this->getMedia($contest, $series->getYear(), $path);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getSerial(string $contest, SeriesModel $series, string $lang): ?string
     {
         $path = 'serial' . $series->getLabel() . '.' . $lang . '.pdf';
         return $this->getMedia($contest, $series->getYear(), $path);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getYearbook(string $contest, int $year, string $lang): ?string
     {
         $path = 'yearbook.pdf';
         return $this->getMedia($contest, $year, $path);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getTasks(string $contest, SeriesModel $series, string $lang): ?string
     {
         $path = 'problems' . $series->getLabel() . '.pdf';
         return $this->getMedia($contest, $series->getYear(), $path);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getArchiveProblem(string $contest, int $year, int $series, int $number): ArchiveProblemModel
     {
         return $this->getItem(
@@ -85,6 +106,7 @@ final class FileService extends AbstractJSONService
 
     /**
      * @return ArchiveSeriesModel[]
+     * @throws \Throwable
      */
     public function getArchiveSeriesList(string $contest, int $year): array
     {

@@ -9,7 +9,7 @@ use Fykosak\Utils\Components\DIComponent;
 
 class ImagePreviewModalComponent extends DIComponent
 {
-    public function render()
+    public function render(): void
     {
         $this->template->language = Language::from($this->translator->lang);
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'imagePreviewModal.latte');

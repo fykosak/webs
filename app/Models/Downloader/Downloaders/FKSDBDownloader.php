@@ -30,6 +30,9 @@ final class FKSDBDownloader extends BasicDownloader
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function download(Request $request, ?string $explicitExpiration = null): array
     {
         return $this->downloadCached($request, $explicitExpiration);

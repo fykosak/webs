@@ -9,10 +9,8 @@ use DateTime;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 use Nette\DI\Container;
-use Nette\InvalidStateException;
 use Nette\NotImplementedException;
 use Nette\Utils\FileSystem;
-use Nette\Utils\Finder;
 
 /**
  * @phpstan-type ImageInfo array{
@@ -23,11 +21,11 @@ use Nette\Utils\Finder;
  *    index: non-negative-int
  * }
  */
-final class ImageService
+final readonly class ImageService
 {
-    private readonly string $wwwDir;
-    private readonly Cache $cache;
-    private readonly ImageManipulator $imageManipulator;
+    private string $wwwDir;
+    private Cache $cache;
+    private ImageManipulator $imageManipulator;
 
     public function __construct(Container $container, Storage $storage, ImageManipulator $imageManipulator)
     {
@@ -40,14 +38,13 @@ final class ImageService
     {
         $eventDirectory = match ($event->eventTypeId) {
             // FOF
-            1 => sprintf('%d', $event->getYear()),
+            1, 9 => sprintf('%d', $event->getYear()),
             // DSEF
             2, 14 => $event->begin->format('Y-m'),
             // Soustředění
             4 => sprintf('events/sous-jaro/%d', $event->getYear()),
             5 => sprintf('events/sous-podzim/%d', $event->getYear()),
             // FOL
-            9 => sprintf('%d', $event->getYear()),
             // Tábor, Jarní setkání, Podzimní setkání, Víkendovka
             10, 11, 12, 18 => sprintf('event/%d', $event->eventId),
             // Internships
@@ -103,6 +100,7 @@ final class ImageService
     /**
      * @param string $path Path to the directory relative to WWW.
      * @return ImageInfo[]
+     * @throws \Throwable
      */
     public function getPathImages(string $path): array
     {
@@ -120,6 +118,7 @@ final class ImageService
      * Paths relative to WWW directory.
      *
      * @return ImageInfo[]
+     * @throws \Throwable
      */
     public function getEventImages(EventModel $event, EventImageType $imageType): array
     {
@@ -140,11 +139,17 @@ final class ImageService
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function hasPhotosPath(string $path): bool
     {
         return count($this->getPathImages($path)) > 0;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function hasPhotosEvent(EventModel $event, EventImageType $imageType = EventImageType::Default): bool
     {
         return count($this->getEventImages($event, $imageType)) > 0;
@@ -152,6 +157,7 @@ final class ImageService
 
     /**
      * @phpstan-return ?ImageInfo
+     * @throws \Throwable
      */
     public function getRandomImage(EventModel $event): ?array
     {

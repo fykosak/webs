@@ -9,10 +9,10 @@ namespace App\Models;
  * Dummy service used as a wrapper for neon settings specified in 'parameters',
  * that are need in the application.
  */
-class SettingsService
+readonly class SettingsService
 {
     public function __construct(
-        public readonly ?array $domains
+        public ?array $domains
     ) {
     }
 }

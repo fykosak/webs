@@ -6,39 +6,39 @@ namespace App\Models\Downloader\Models;
 
 use Fykosak\Utils\DateTime\Period;
 
-final class EventModel
+final readonly class EventModel
 {
-    public readonly int $eventId;
-    public readonly int $eventTypeId;
-    public readonly string $name;
-    public readonly int $eventYear;
-    public readonly int $year;
-    public readonly \DateTimeImmutable $begin;
-    public readonly \DateTimeImmutable $end;
-    public readonly \DateTimeImmutable $registrationBegin;
-    public readonly \DateTimeImmutable $registrationEnd;
+    public int $eventId;
+    public int $eventTypeId;
+    public string $name;
+    public int $eventYear;
+    public int $year;
+    public \DateTimeImmutable $begin;
+    public \DateTimeImmutable $end;
+    public \DateTimeImmutable $registrationBegin;
+    public \DateTimeImmutable $registrationEnd;
     /**
      * @var string[] $report
      */
-    public readonly array $report;
+    public array $report;
     /**
      * @var string[] $description
      */
-    public readonly array $description;
+    public array $description;
     /**
      * @var string[] $nameNew
      */
-    public readonly array $nameNew;
-    public readonly ?string $place;
-    public readonly ?int $contestId;
-    public readonly ?array $schedule;
+    public array $nameNew;
+    public ?string $place;
+    public ?int $contestId;
+    public ?array $schedule;
 
 
-    public readonly GameModel|null $game;
+    public GameModel|null $game;
     /**
      * @var string[] $nameNew
      */
-    public readonly array $registration; // TODO cast to Period
+    public array $registration; // TODO cast to Period
 
     public function getRegistrationPeriod(): Period
     {
@@ -55,6 +55,9 @@ final class EventModel
         return $this->game?->getGamePeriod();
     }
 
+    /**
+     * @throws \DateInvalidOperationException
+     */
     public function getNearEventPeriod(): Period
     {
         $begin = $this->begin->sub(new \DateInterval('P3D'));

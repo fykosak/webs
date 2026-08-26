@@ -24,6 +24,9 @@ class ProblemManagerDownloader extends KeyDownloader
         parent::__construct($url, $apiKey);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function download(Request $request): array
     {
         return $this->downloadCached($request);

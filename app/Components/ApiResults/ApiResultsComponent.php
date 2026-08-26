@@ -63,7 +63,6 @@ class ApiResultsComponent extends DIComponent
     }
 
     /**
-     * @return array
      * @throws Throwable
      */
     public function serialiseResults(): array

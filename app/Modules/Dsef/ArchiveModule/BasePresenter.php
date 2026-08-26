@@ -6,10 +6,8 @@ namespace App\Modules\Dsef\ArchiveModule;
 
 use App\Components\PersonSchedule\AllScheduleListComponent;
 use App\Models\Downloader\Models\EventModel;
-use App\Modules\Dsef\DefaultModule\CurrentPresenter;
-use App\Modules\Dsef\DefaultModule\RegistrationPresenter;
 use Fykosak\Utils\UI\Navigation\NavItem;
-use Fykosak\Utils\UI\PageTitle;
+use Fykosak\Utils\UI\Title;
 use Nette\Application\BadRequestException;
 use Nette\Application\UI\Template;
 use Nette\Http\IResponse;
@@ -99,20 +97,20 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
         $items = [];
         if ($this->getPresenterByName('Default:Registration')->isVisible()) {
             $items[] = new NavItem(
-                new PageTitle(null, 'Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new Title(null, 'Registrace', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Registration:',
             );
         }
 
         if ($this->getPresenterByName('Default:Current')->isVisible()) {
             $items[] = new NavItem(
-                new PageTitle(null, 'Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+                new Title(null, 'Aktuální ročník', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
                 ':Default:Current:',
             );
         }
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Archiv', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
+            new Title(null, 'Archiv', 'visible-sm-inline glyphicon glyphicon-info-sign'), // TODO
             ':Default:Archive:default',
         );
         return $items;

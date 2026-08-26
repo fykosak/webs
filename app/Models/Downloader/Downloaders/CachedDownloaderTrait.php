@@ -43,7 +43,7 @@ trait CachedDownloaderTrait
                 ]);
             } else {
                 // if no data is available
-                throw new DownloaderException("Downloader failed to download data");
+                throw new DownloaderException('Downloader failed to download data');
             }
         }
 

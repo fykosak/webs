@@ -74,6 +74,9 @@ final class EventService extends AbstractJSONService
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getEvent(int $eventId, ?string $explicitExpiration = null): EventModel
     {
         return $this->getItem(

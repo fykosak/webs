@@ -20,15 +20,22 @@ final class AboutPresenter extends BasePresenter
         $this->fileService = $fileService;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getYearbookLink(int $year): ?string
     {
         $yearbookPath = $this->fileService->getYearbook('fykos', $year, $this->translator->lang);
 
         if ($yearbookPath) {
-            return $this->template->getLatte()->renderToString(__DIR__ . '/templates/About/yearbookLink.' . $this->translator->lang . '.latte', [
-                'yearbookPath' => $yearbookPath,
-                'year' => $year,
-            ]);
+            return $this->template->getLatte()
+                ->renderToString(
+                    __DIR__ . '/templates/About/yearbookLink.' . $this->translator->lang . '.latte',
+                    [
+                        'yearbookPath' => $yearbookPath,
+                        'year' => $year,
+                    ]
+                );
         }
 
         return null;

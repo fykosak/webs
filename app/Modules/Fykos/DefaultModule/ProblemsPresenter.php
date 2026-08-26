@@ -29,6 +29,9 @@ class ProblemsPresenter extends BasePresenter
         $this->problemService = $problemService;
     }
 
+    /**
+     * @throws Throwable
+     */
     private function getSeries(): PMSeriesModel
     {
         $seriesId = $this->year && $this->series

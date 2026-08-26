@@ -72,8 +72,7 @@ class TeamResultsComponent extends DIComponent
 
         // remove categories that are empty after the filtering
         foreach ($teams as $category => $teamsForCategory) {
-            /** @phpstan-ignore-next-line*/
-            if (!count($teamsForCategory)) {
+            if (count($teamsForCategory) === 0) {
                 unset($teams[$category]);
             }
         }
@@ -178,7 +177,6 @@ class TeamResultsComponent extends DIComponent
                         Language::cs->value => ' %s: %s účastníků',
                         Language::en->value => ' %s: %s participants'
                     ]),
-                    /** @phpstan-ignore-next-line */
                     $countryISO !== 'Uknown' ? $countryISO : $this->presenter->csen('Nestudent', 'Not a student'),
                     $count
                 )

@@ -12,7 +12,7 @@ use App\Models\SettingsService;
 use Fykosak\Utils\Localization\GettextTranslator;
 use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Fykosak\Utils\UI\Navigation\NavItem;
-use Fykosak\Utils\UI\PageTitle;
+use Fykosak\Utils\UI\Title;
 use InvalidArgumentException;
 use Nette\Application\IPresenterFactory;
 use Nette\Application\UI\Presenter;
@@ -71,7 +71,7 @@ abstract class BasePresenter extends Presenter
      */
     abstract protected function getNavItems(): array;
 
-    final public function setPageTitle(PageTitle $pageTitle): void
+    final public function setPageTitle(Title $pageTitle): void
     {
         $this->template->pageTitle = $pageTitle;
     }
@@ -89,6 +89,7 @@ abstract class BasePresenter extends Presenter
 
     /**
      * Helper function get a presenter by it path/name.
+     * @throws UnsupportedLanguageException
      */
     public function getPresenterByName(
         string $presenterName,

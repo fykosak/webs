@@ -6,9 +6,9 @@ namespace App\Models\Downloader\Requests;
 
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 
-final class EventOrganizersRequest implements Request
+final readonly class EventOrganizersRequest implements Request
 {
-    public function __construct(private readonly int $eventId)
+    public function __construct(private int $eventId)
     {
     }
 

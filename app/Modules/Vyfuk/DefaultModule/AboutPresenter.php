@@ -34,13 +34,18 @@ class AboutPresenter extends BasePresenter
             // sort by order
             usort($currentOrganizers, function (array $a, array $b): int {
                 if ($a['order'] === $b['order']) {
-                    return implode(' ', array_reverse(explode(' ', $a['name']))) <=> implode(' ', array_reverse(explode(' ', $b['name'])));
+                    return implode(' ', array_reverse(explode(' ', $a['name'])))
+                        <=> implode(' ', array_reverse(explode(' ', $b['name'])));
                 }
                 return $b['order'] <=> $a['order'];
             });
         }
         $this->template->organizers = $currentOrganizers;
     }
+
+    /**
+     * @throws \Throwable
+     */
     public function renderPastOrganizers(): void
     {
         $allOrganizers = $this->FKSDBDownloader->download(new OrganizersRequest(2));
@@ -56,7 +61,8 @@ class AboutPresenter extends BasePresenter
             // sort by order
             usort($pastOrganizers, function (array $a, array $b): int {
                 if ($a['until'] === $b['until']) {
-                    return implode(' ', array_reverse(explode(' ', $a['name']))) <=> implode(' ', array_reverse(explode(' ', $b['name'])));
+                    return implode(' ', array_reverse(explode(' ', $a['name'])))
+                        <=> implode(' ', array_reverse(explode(' ', $b['name'])));
                 }
                 return $b['until'] <=> $a['until'];
             });

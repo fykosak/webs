@@ -22,6 +22,9 @@ class SchedulePresenter extends BasePresenter
         }
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function createComponentScheduleList(): ScheduleListComponent
     {
         return new ScheduleListComponent($this->getContext(), $this->getEvent());
