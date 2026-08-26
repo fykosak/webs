@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Models\Downloader\Services;
 
 use DateTime;
-use Nette\Caching\Storage;
 use Nette\DI\Container;
 use App\Models\Downloader\Models\News\NewsModel;
 
@@ -14,17 +13,14 @@ final class NewsService extends AbstractJSONService
     public string $mediaDir;
 
     public function __construct(
-        string $expiration,
-        Storage $storage,
         Container $container
     ) {
         $this->mediaDir = $container->getParameter('mediaDir');
-        parent::__construct($expiration, $storage);
     }
 
     private function loadNews(): array
     {
-        $json = file_get_contents($this->mediaDir . '/news.json');
+        $json = json_decode(file_get_contents($this->mediaDir . '/news.json'), true)['news'];
         return $this->mapJsonToClass($json, true, NewsModel::class);
     }
 
@@ -80,7 +76,7 @@ final class NewsService extends AbstractJSONService
         $activeNews = [];
         $now = new DateTime();
         foreach ($newsList as $newsItem) {
-            while (count($activeNews) <= $number) {
+            if (count($activeNews) <= $number && count($activeNews) <= count($newsList)) {
                 if ($now > $newsItem->releaseDate and !$newsItem->endDate || $now < $newsItem->endDate) {
                     $activeNews[] = $newsItem;
                 }
