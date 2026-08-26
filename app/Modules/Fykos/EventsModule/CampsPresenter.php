@@ -12,7 +12,7 @@ use Nette\InvalidStateException;
 
 class CampsPresenter extends BasePresenter
 {
-    private const CAMPS_IDS = [4, 5];
+    private const array CAMPS_IDS = [4, 5];
     private readonly EventService $eventService;
     private readonly ImageService $imageService;
 

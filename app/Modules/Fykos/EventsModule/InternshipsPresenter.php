@@ -8,7 +8,7 @@ use App\Models\Downloader\Services\EventService;
 
 class InternshipsPresenter extends BasePresenter
 {
-    private const INTERNSHIPS_IDS = [19];
+    private const array INTERNSHIPS_IDS = [19];
 
     private readonly EventService $eventService;
 

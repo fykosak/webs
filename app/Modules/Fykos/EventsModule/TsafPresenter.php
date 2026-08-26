@@ -12,7 +12,7 @@ use Nette\Http\IResponse;
 
 class TsafPresenter extends BasePresenter
 {
-    private const TSAF_IDS = [6, 7];
+    private const array TSAF_IDS = [6, 7];
 
     private readonly EventService $eventService;
 
