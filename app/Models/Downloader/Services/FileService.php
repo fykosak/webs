@@ -14,7 +14,7 @@ use App\Models\Downloader\Requests\Archive\SeriesRequest;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 
-final class FileService extends AbstractJSONService
+final class FileService extends AbstractDownloaderService
 {
     public function __construct(
         string $expiration,
@@ -72,7 +72,7 @@ final class FileService extends AbstractJSONService
 
     public function getArchiveProblem(string $contest, int $year, int $series, int $number): ArchiveProblemModel
     {
-        return $this->getItem(
+        return $this->getRequestAsClass(
             new ProblemRequest($contest, $year, $series, $number),
             [],
             ArchiveProblemModel::class,
@@ -88,7 +88,7 @@ final class FileService extends AbstractJSONService
      */
     public function getArchiveSeriesList(string $contest, int $year): array
     {
-        return $this->getItem(
+        return $this->getRequestAsClass(
             new SeriesRequest($contest, $year),
             [],
             ArchiveSeriesModel::class,

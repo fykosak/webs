@@ -14,13 +14,15 @@
     "php": ">= 8.3",
     "nette/nette": "^v3.2.3",
     "fykosak/fksdb-downloader-core": "dev-master",
-    "fykosak/nette-fks-utils": "v0.2.1.0-RC6",
+    "fykosak/nette-fks-utils": "v0.2.1.0",
     "ext-soap": "*",
+    "ext-curl": "*",
     "ext-dom": "*",
     "ext-gettext": "*",
     "ext-json": "*",
     "68publishers/asset": "^3.3",
-    "netresearch/jsonmapper": "^4.0"
+    "netresearch/jsonmapper": "^4.0",
+    "jumbojett/openid-connect-php": "^1.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^4.0.0",

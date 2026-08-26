@@ -14,7 +14,7 @@ use Nette\Application\BadRequestException;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 
-final class ProblemService extends AbstractJSONService
+final class ProblemService extends AbstractDownloaderService
 {
     public const int FYKOS = 1;
     public const int VYFUK = 4;
@@ -33,7 +33,7 @@ final class ProblemService extends AbstractJSONService
     public function getSeries(
         int $seriesId,
     ): PMSeriesModel {
-        return $this->getItem(
+        return $this->getRequestAsClass(
             new SeriesRequest($seriesId),
             [],
             PMSeriesModel::class,
@@ -46,7 +46,7 @@ final class ProblemService extends AbstractJSONService
      */
     public function getYears(int $contestId): array
     {
-        return $this->getItem(
+        return $this->getRequestAsClass(
             new ContestYearRequest($contestId),
             [],
             ContestYearModel::class,
