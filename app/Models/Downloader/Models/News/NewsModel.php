@@ -10,13 +10,13 @@ use Fykosak\Utils\Localization\LangMap;
 final class NewsModel implements \JsonSerializable
 {
     public int $newsId;
-    /** @var LangMap $title */
+    /** @var \Fykosak\Utils\Localization\LangMap $title */
     public LangMap $title;
-    /** @var LangMap $text */
+    /** @var \Fykosak\Utils\Localization\LangMap $text */
     public LangMap $text;
     public \DateTime $displayDate;
     public ?string $linkPath;
-    /** @var LangMap $linkText */
+    /** @var \Fykosak\Utils\Localization\LangMap $linkText */
     public ?LangMap $linkText;
     public \DateTime $releaseDate;
     public ?\DateTime $endDate;
