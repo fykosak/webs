@@ -40,7 +40,7 @@
 <body>
 
 {block body}
-    {control navigation '/images/logos/dsef2025_logo_white.svg', 'DSEF ' . $newestEvent->begin->format('Y'), false}
+    {control navigation '/images/logos/dsef2026_logo_white.svg', 'DSEF ' . $newestEvent->begin->format('Y'), false}
     <main>
         {block main}
             <div class="panel color-light">
@@ -65,7 +65,7 @@
                     <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case 'cs'}Zaregistrovat se{default}Registration{/switch}</a>
                 {else}
                     {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::Before)}
-                        Registrace se otevře 10. 10. 2025 v 00:00!
+                        Registrace se otevře 13. 10. 2026 v 00:00!
                     {else}
                         Registrace na další ročník ještě není otevřena.
                     {/if}
@@ -124,9 +124,9 @@
         <div class="panel footer">
             <div class="inner-container row">
                 <div class="col-md-6">
-                    <img class="logo" src="{$basePath}/images/logos/dsef2025_logo_white.svg" alt="DSEF" />
+                    <img class="logo" src="{$basePath}/images/logos/dsef2026_logo_white.svg" alt="DSEF" />
                     <p>
-                        DSEF je organizován <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 38. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
+                        DSEF je organizován <a href="https://fykos.cz/">FYKOSem</a> &#8211 skupinou vysokoškolských studentů pořádající 40. rokem vzdělávací akce se zaměřením na fyziku. FYKOS je tvořen převážně studenty
                         <a href="https://www.mff.cuni.cz/">Matematicko-fyzikální fakulty Univerzity Karlovy</a>.
                     </p>
                     <p>

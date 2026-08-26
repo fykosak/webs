@@ -8,24 +8,24 @@ use Fykosak\FKSDBDownloaderCore\Downloader;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
-use Nette\SmartObject;
 
 abstract class AbstractJSONService
 {
-    use SmartObject;
-
-    protected Downloader $downloader;
     protected readonly Cache $cache;
-    protected readonly string $expiration;
 
-    public function __construct(string $expiration, Storage $storage)
-    {
+    public function __construct(
+        protected readonly string $expiration,
+        Storage $storage,
+        public readonly Downloader $downloader,
+    ) {
         $this->cache = new Cache($storage, static::class);
-        $this->expiration = $expiration;
     }
 
     /**
      * @throws \Throwable
+     * @phpstan-template TModel of object
+     * @phpstan-param class-string<TModel> $modelClassName
+     * @phpstan-return ($asArray is true ? TModel[] : TModel)
      */
     protected function getRequestAsClass(
         Request $request,
@@ -33,7 +33,7 @@ abstract class AbstractJSONService
         string $modelClassName,
         bool $asArray = false,
         ?string $explicitExpiration = null
-    ): mixed {
+    ): array|object {
         return $this->cache->load(
             $request->getCacheKey() . '_' . implode('.', $path),
             function (&$dependencies) use ($request, $path, $modelClassName, $asArray, $explicitExpiration) {

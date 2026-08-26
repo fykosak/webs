@@ -102,13 +102,13 @@ class DefaultPresenter extends BasePresenter
     public function loadEventData(): void
     {
 
-        $this->template->yearBeginDate = date('Y-m-d', strtotime('2025-09-01'));
-        $this->template->yearEndDate = date('Y-m-d', strtotime('2026-05-10'));
+        $this->template->yearBeginDate = date('Y-m-d', strtotime('2026-09-01'));
+        $this->template->yearEndDate = date('Y-m-d', strtotime('2027-05-16'));
 
         $this->template->events = [];
         $events = [
             'DSEF' => [
-                'date' => '2025-11-10 09:00:00',
+                'date' => '2026-11-16 09:00:00',
                 'english' => false,
                 'url' => 'https://dsef.cz',
                 'heading' => [
@@ -124,7 +124,7 @@ class DefaultPresenter extends BasePresenter
                 ]
             ],
             'Naboj' => [
-                'date' => '2025-11-07 09:00:00',
+                'date' => '2026-11-13 09:00:00',
                 'english' => false,
                 'url' => 'https://physics.naboj.org',
                 'heading' => [
@@ -139,25 +139,25 @@ class DefaultPresenter extends BasePresenter
                     'cs' => '/images/logos/naboj_logo.svg'
                 ]
             ],
-            'FOL' => [
-                'date' => '2025-11-26 17:00:00',
-                'english' => true,
-                'url' => 'https://online.fyziklani.cz',
-                'heading' => [
-                    'cs' => 'Fyziklání Online',
-                    'en' => 'Physics Brawl Online'
-                ],
-                'desc' => [
-                    'cs' => 'Celosvětová soutěž, které se může účastnit každý',
-                    'en' => 'Worldwide competition open to everyone'
-                ],
-                'logo' => [
-                    'cs' =>  '/images/logos/fyziklani_online_logo.svg',
-                    'en' => '/images/logos/physics_brawl_online_logo.svg'
-                ]
-            ],
+            // 'FOL' => [
+            //     'date' => '2025-11-26 17:00:00',
+            //     'english' => true,
+            //     'url' => 'https://online.fyziklani.cz',
+            //     'heading' => [
+            //         'cs' => 'Fyziklání Online',
+            //         'en' => 'Physics Brawl Online'
+            //     ],
+            //     'desc' => [
+            //         'cs' => 'Celosvětová soutěž, které se může účastnit každý',
+            //         'en' => 'Worldwide competition open to everyone'
+            //     ],
+            //     'logo' => [
+            //         'cs' =>  '/images/logos/fyziklani_online_logo.svg',
+            //         'en' => '/images/logos/physics_brawl_online_logo.svg'
+            //     ]
+            // ],
             'FOF' => [
-                'date' => '2026-02-13 10:30:00',
+                'date' => '2027-02-12 10:30:00',
                 'english' => true,
                 'url' => 'https://fyziklani.cz',
                 'heading' => [
@@ -178,45 +178,45 @@ class DefaultPresenter extends BasePresenter
         // uncomment the loop below when enabling series
         $series = [
             '1' => [
-                'deadline' => '2025-10-05',
+                'deadline' => '2026-10-04',
                 'description' => [
-                    'cs' => 'vodník, dortíky a eliptická čočka',
-                    'en' => 'vodyanoy, cupcakes and an elliptical lens'
+                    'cs' => 'vařič, indiánský běh a banánová energetika',
+                    'en' => 'inefficient cooking, walk-run intervals, and banana energetics'
                 ],
             ],
             '2' => [
-                'deadline' => '2025-11-16',
+                'deadline' => '2026-11-08',
                 'description' => [
-                    'cs' => 'čas, míč a indukovaná interakce',
-                    'en' => 'time, ball and induced interaction'
+                    'cs' => 'kutilství, líný Jarda a obměněná vernerovka',
+                    'en' => 'lazy Jarda, DIY, and a reimagined Jules Verne novel'
                 ],
             ],
             '3' => [
-                'deadline' => '2026-01-11',
+                'deadline' => '2026-12-20',
                 'description' => [
-                    'cs' => 'toaleťák, odpor a opilá komora',
-                    'en' => 'toilet paper, resistance and a drunken chamber'
+                    'cs' => 'krevní stopy, jistič a komprimovaná planeta',
+                    'en' => 'blood traces, circuit breaker, and a compressed planet'
                 ],
             ],
             '4' => [
-                'deadline' => '2026-02-22',
+                'deadline' => '2027-02-21',
                 'description' => [
-                    'cs' => 'stromy, raketa a skok na měsíc',
-                    'en' => 'trees, rocket and a jump to the Moon'
+                    'cs' => 'pomodoro, nebezpečné slunce a náramná krychle',
+                    'en' => 'pomodoro, dangerous sun, and splendid cube'
                 ],
             ],
             '5' => [
-                'deadline' => '2026-03-29',
+                'deadline' => '2027-04-04',
                 'description' => [
-                    'cs' => 'fazole, traverza a magnetka',
-                    'en' => 'beans, beam and a small magnet'
+                    'cs' => 'vosa, tlusté sklo a posilka Indiana Jonese',
+                    'en' => 'wasp, thick glass, and Indiana Jones\'s gym'
                 ],
             ],
             '6' => [
-                'deadline' => '2026-05-10',
+                'deadline' => '2027-05-16',
                 'description' => [
-                    'cs' => 'houpačka, palačinka a sežraná zahrada',
-                    'en' => 'swing, pancake and a devoured garden'
+                    'cs' => 'rybolov, slepí mimozemšťani a otravné mouchy',
+                    'en' => 'fishing, blind aliens, and annoying flies'
                 ],
             ],
         ];

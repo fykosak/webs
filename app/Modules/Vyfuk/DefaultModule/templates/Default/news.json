@@ -1,9 +1,9 @@
 {
   "cs": [
     {
-      "title": "Výsledková listina 15. ročníku",
-      "text": "Na webu právě přistála konečná výsledková listina 15. ročníku! Jak jste dopadli zjistíte už teď v záložce pořadí. Gratulujeme ke krásným výsledkům a děkujeme, že jste měli odvahu poprat se s našimi úlohami. Pokud budete chtít, přes prázdniny můžete řešit dvě prázdninové série, z nichž první má deadline na odevzdání řešení 27. července. A v září se můžete těšit na první sérii již 16. ročníku Výfuku.",
-      "date": "18. června 2026",
+      "title": "Pořadí první prázdninové série",
+      "text": "Čekání je u konce, výsledková listina první prázdninové série už byla zveřejněna. S úlohami jste se poprali skvěle a za to vám náleží velká gratulace. Stále můžete pokračovat v řešení druhé prázdninové série, která má deadline v neděli 31. 8. ve 20:00. A po prázdninách se můžete těšit na 1. sérii 16. ročníku.",
+      "date": "12. srpna 2026",
       "link": ":Default:Results:",
       "link-text": "Pořadí"
     },
@@ -13,13 +13,6 @@
       "date": "3. června 2026",
       "link": ":Default:Problems:",
       "link-text": "Zadání"
-    },
-    {
-      "title": "Prohlédni si, co můžeš stále vyhrát",
-      "text": "Z daru <a href=\"https://www.nadaceneuron.cz\" target=\"_blank\">Nadace Neuron</a> jsme zakoupili spoustu krásných cen, které si můžeš prohlédnout na stránce věnované odměnám. Na řešení 6. série máš pořád více než dva týdny, tak se pusť do řešení a zkus zabojovat o přední příčky! A nezapomeň, že Výfuk oceňuje nejen ty nejlepší – jak konkrétně najdeš na <a href=\"https://vyfuk.org/bingo\">stránce výfučího binga</a>.",
-      "date": "16. května 2026",
-      "link": ":Default:Prizes:",
-      "link-text": "Stránka cen"
     }
   ]
 }

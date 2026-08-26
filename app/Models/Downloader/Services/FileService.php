@@ -22,8 +22,7 @@ final class FileService extends AbstractJSONService
         Storage $storage,
         StaticDownloader $downloader
     ) {
-        parent::__construct($expiration, $storage);
-        $this->downloader = $downloader;
+        parent::__construct($expiration, $storage, $downloader);
     }
 
     private function getMedia(string $contest, int $year, string $path): ?string
