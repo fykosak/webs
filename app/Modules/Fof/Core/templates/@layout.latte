@@ -72,25 +72,21 @@
                 {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::OnGoing)}
                 <a n:href=":Default:Registration:" class="btn btn-outline-light">{switch $language->value}{case
                     'cs'}Registrace{default}Registration{/switch}</a>
+                {elseif $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::Before)}
+                    {switch $language->value}
+                        {case 'cs'} Registraci otevíráme {$newestEvent->registrationBegin|date:'j. n.'}
+                        {default} Registration opens on {$newestEvent->registrationBegin|date:'F j'}.
+                    {/switch}
+                {elseif $newestEvent->isLongAfterTheEvent()}
+                    {switch $language->value}
+                        {case 'cs'}Registrace na další ročník ještě není otevřena.
+                        {default} Registration for the next year is not open yet.
+                    {/switch}
                 {else}
-                {if $newestEvent->getRegistrationPeriod()->is(Fykosak\Utils\DateTime\Phase::Before)}
-                {switch $language->value}
-                {case 'cs'}Registrace se otevře v listopadu!
-                {default} Registration will open in November!
-                {/switch}
-                {else}
-                {if $newestEvent->isLongAfterTheEvent()}
-                {switch $language->value}
-                {case 'cs'}Registrace na další ročník ještě není otevřena.
-                {default} Registration for the next year is not open yet.
-                {/switch}
-                {else}
-                {switch $language->value}
-                {case 'cs'}Registrace je bohužel již na tento ročník uzavřena.
-                {default}Unfortunately, registration is already closed for this year.
-                {/switch}
-                {/if}
-                {/if}
+                    {switch $language->value}
+                        {case 'cs'}Registrace je bohužel již na tento ročník uzavřena.
+                        {default}Unfortunately, registration is already closed for this year.
+                    {/switch}
                 {/if}
             </div>
         </div>
