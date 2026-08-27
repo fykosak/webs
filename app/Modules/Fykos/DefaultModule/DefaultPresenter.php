@@ -6,6 +6,9 @@ namespace App\Modules\Fykos\DefaultModule;
 
 class DefaultPresenter extends BasePresenter
 {
+    /**
+     * @throws \Throwable
+     */
     public function renderDefault(): void
     {
         $this->template->newsList = $this->loadNews();
@@ -46,17 +49,22 @@ class DefaultPresenter extends BasePresenter
         $this->template->headerText = $this->getHeaderText();
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getHeaderText(): array
     {
         $headerTextOptions = [
             [
                 'cs' => [
                     'slogan' => 'Zažijte fyziku s&nbsp;námi!',
-                    'description' => 'Organizujeme pro vás neziskové vzdělávací akce ve fyzice již ' . $this->getCurrentYear()->year . ' let.'
+                    'description' => 'Organizujeme pro vás neziskové vzdělávací akce ve fyzice již ' .
+                        $this->getCurrentYear()->year . ' let.'
                 ],
                 'en' => [
                     'slogan' => 'Experience physics with us!',
-                    'description' => 'FYKOS has been organizing non-profit educational events in physics for ' . $this->getCurrentYear()->year . ' years.'
+                    'description' => 'FYKOS has been organizing non-profit educational events in physics for ' .
+                        $this->getCurrentYear()->year . ' years.'
                 ]
             ]
         ];

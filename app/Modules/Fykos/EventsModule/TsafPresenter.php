@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace App\Modules\Fykos\EventsModule;
 
 use App\Models\Downloader\Services\EventService;
-use Fykosak\FKSDBDownloaderCore\Requests\EventListRequest;
-use Fykosak\FKSDBDownloaderCore\Requests\ParticipantsRequest;
 use Nette\Application\BadRequestException;
 use Nette\Http\IResponse;
 

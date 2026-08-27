@@ -14,7 +14,7 @@
     "php": ">= 8.3",
     "nette/nette": "^v3.2.3",
     "fykosak/fksdb-downloader-core": "dev-master",
-    "fykosak/nette-fks-utils": "v0.2.1.0-RC6",
+    "fykosak/nette-fks-utils": "v0.2.1.0",
     "ext-soap": "*",
     "ext-dom": "*",
     "ext-gettext": "*",
@@ -31,7 +31,7 @@
   },
   "scripts": {
     "clearTestCache": "rm -rf temp/tester/",
-    "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 --exclude=Generic.Files.LineLength --extensions=php,phpt app/ tests/",
+    "testPSR": "php -e vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 --extensions=php,phpt app/ tests/",
     "testPHPStan": "vendor/bin/phpstan analyse",
     "test": [
       "@clearTestCache",

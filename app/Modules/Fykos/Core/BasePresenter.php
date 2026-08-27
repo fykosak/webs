@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\Core;
 
-use Fykosak\Utils\UI\Navigation\NavItem;
-use Fykosak\Utils\UI\PageTitle;
 use App\Components\OrgSneakPeak\OrgSneakPeakComponent;
+use App\Modules\Core\ContestPresenter;
+use Fykosak\Utils\UI\Navigation\NavItem;
+use Fykosak\Utils\UI\Title;
 
-abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
+abstract class BasePresenter extends ContestPresenter
 {
     /**
      * @return NavItem[]
@@ -20,47 +21,49 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
         $items = [];
 
         $items[] = new NavItem(
-            new PageTitle(null, $this->csen('O nás', 'About Us'), $icon), // TODO
+            new Title(null, $this->csen('O nás', 'About Us'), $icon), // TODO
             ':Default:About:',
             [],
             [
-                new NavItem(new PageTitle(null, $this->csen('Co je FYKOS?', 'What Is FYKOS?')), ':Default:About:default'),
-                new NavItem(new PageTitle(null, $this->csen('Organizátoři', 'Organizers')), ':Default:About:organizers'),
-                new NavItem(new PageTitle(null, $this->csen('Historie', 'History')), ':Default:About:history'),
-                new NavItem(new PageTitle(null, $this->csen('Kontakt', 'Contact')), ':Default:About:contact'),
-                new NavItem(new PageTitle(null, $this->csen('Podpořte nás', 'Support Us')), ':Default:SupportUs:'),
-                new NavItem(new PageTitle(null, $this->csen('Merch', 'Merch')), ':Default:Merch:'),
-                new NavItem(new PageTitle(null, $this->csen('Další příležitosti', 'Further Opportunities')), ':Default:FurtherOpportunities:'),
+                new NavItem(new Title(null, $this->csen('Co je FYKOS?', 'What Is FYKOS?')), ':Default:About:default'),
+                new NavItem(new Title(null, $this->csen('Organizátoři', 'Organizers')), ':Default:About:organizers'),
+                new NavItem(new Title(null, $this->csen('Historie', 'History')), ':Default:About:history'),
+                new NavItem(new Title(null, $this->csen('Kontakt', 'Contact')), ':Default:About:contact'),
+                new NavItem(new Title(null, $this->csen('Podpořte nás', 'Support Us')), ':Default:SupportUs:'),
+                new NavItem(new Title(null, $this->csen('Merch', 'Merch')), ':Default:Merch:'),
+                new NavItem(
+                    new Title(null, $this->csen('Další příležitosti', 'Further Opportunities')),
+                    ':Default:FurtherOpportunities:'
+                ),
             ],
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, $this->csen('Akce', 'Events'), $icon), // TODO
+            new Title(null, $this->csen('Akce', 'Events'), $icon), // TODO
             ':Events:Default:',
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, $this->csen('Seminář', 'FYKOS Competition'), $icon),
+            new Title(null, $this->csen('Seminář', 'FYKOS Competition'), $icon),
             ':Events:Fykos:',
             [],
             [
-                new NavItem(new PageTitle(null, $this->csen('Základní informace', 'Basic Information')), ':Events:Fykos:'),
-                new NavItem(new PageTitle(null, $this->csen('Pravidla', 'Rules')), ':Events:Fykos:rules'),
+                new NavItem(new Title(null, $this->csen('Základní informace', 'Basic Information')), ':Events:Fykos:'),
+                new NavItem(new Title(null, $this->csen('Pravidla', 'Rules')), ':Events:Fykos:rules'),
                 new NavItem(
-                    new PageTitle(null, $this->csen('Jak psát řešení', 'How to Write Solutions')),
+                    new Title(null, $this->csen('Jak psát řešení', 'How to Write Solutions')),
                     ':Events:Fykos:texTutorial'
                 ),
                 new NavItem(
-                    new PageTitle(null, $this->csen('Jak na experimenty', 'How to Do Experiments')),
+                    new Title(null, $this->csen('Jak na experimenty', 'How to Do Experiments')),
                     ':Events:Fykos:experiments'
                 ),
             ],
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, $this->csen('Zadání', 'Problems'), $icon),
+            new Title(null, $this->csen('Zadání', 'Problems'), $icon),
             ':Default:Problems:default',
-            // @phpstan-ignore-next-line
             [
                 'year' => null,
                 'series' => null
@@ -71,12 +74,12 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
 
         /*
         $items[] = new NavItem(
-            new PageTitle(null, $this->csen('Archiv', 'Archive'), $icon),
+            new Title(null, $this->csen('Archiv', 'Archive'), $icon),
             ':Default:Archive:default',
             [],
             [
                 new NavItem(
-                    new PageTitle(null, $this->csen('Archiv seriálů', 'Serial Archive')),
+                    new Title(null, $this->csen('Archiv seriálů', 'Serial Archive')),
                     ':Default:Archive:serial'
                 ),
             ],
@@ -84,16 +87,15 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
         */
 
         $items[] = new NavItem(
-            new PageTitle(null, $this->csen('Pořadí', 'Results'), $icon),
+            new Title(null, $this->csen('Pořadí', 'Results'), $icon),
             ':Default:Results:default',
-            // @phpstan-ignore-next-line
             [
                 'year' => null
             ]
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, $this->csen('Přihlásit se', 'Sign In'), $icon),
+            new Title(null, $this->csen('Přihlásit se', 'Sign In'), $icon),
             'https://db.fykos.cz',
         );
         return $items;
@@ -104,6 +106,9 @@ abstract class BasePresenter extends \App\Modules\Core\ContestPresenter
         return 1;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function createComponentOrgSneakPeak(): OrgSneakPeakComponent
     {
         return new OrgSneakPeakComponent($this->getContext());

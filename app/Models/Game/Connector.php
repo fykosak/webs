@@ -8,13 +8,13 @@ use Nette\Application\BadRequestException;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
 
-class Connector
+readonly class Connector
 {
     public function __construct(
-        private readonly ?string $url,
-        private readonly ?string $httpAuthUser,
-        private readonly ?string $httpAuthPassword,
-        private readonly Storage $storage
+        private ?string $url,
+        private ?string $httpAuthUser,
+        private ?string $httpAuthPassword,
+        private Storage $storage
     ) {
     }
 

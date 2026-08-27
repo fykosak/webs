@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace App\Modules\Fof\ArchiveModule;
 
 use App\Models\Downloader\Models\EventModel;
+use Fykosak\Utils\Localization\UnsupportedLanguageException;
 use Fykosak\Utils\UI\Navigation\NavItem;
-use Fykosak\Utils\UI\PageTitle;
+use Fykosak\Utils\UI\Title;
 use Nette\Application\BadRequestException;
 use Nette\Application\UI\Template;
 use Nette\Http\IResponse;
@@ -53,12 +54,13 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
 
     /**
      * @return NavItem[]
+     * @throws UnsupportedLanguageException
      */
     protected function getNavItems(): array
     {
         $navItems = [
             new NavItem(
-                new PageTitle(
+                new Title(
                     null,
                     $this->csen('Archiv', 'Archive'),
                     'visible-sm-inline glyphicon glyphicon-info-sign'
@@ -66,7 +68,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
                 ':Default:Archive:',
             ),
             new NavItem(
-                new PageTitle(
+                new Title(
                     null,
                     $this->csen('Týmy', 'Teams'),
                     'visible-sm-inline glyphicon glyphicon-info-sign'
@@ -74,7 +76,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
                 ':Archive:Teams:default',
             ),
             new NavItem(
-                new PageTitle(
+                new Title(
                     null,
                     $this->csen('Pořadí', 'Results'),
                     'visible-sm-inline glyphicon glyphicon-compressed'
@@ -82,7 +84,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
                 ':Archive:Results:default',
             )
             //new NavItem(
-            //    new PageTitle(null,  _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
+            //    new Title(null,  _('detailed_results.menu'), 'visible-sm-inline glyphicon glyphicon-compressed'),
             //    // TODO
             //    ':Archive:DetailedResults:default',
             //),
@@ -90,7 +92,7 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
 
         if ($this->getPresenterByName('Archive:Schedule')->isVisible()) {
             $navItems[] = new NavItem(
-                new PageTitle(
+                new Title(
                     null,
                     $this->csen('Program', 'Program'),
                     'visible-sm-inline glyphicon glyphicon-compressed'

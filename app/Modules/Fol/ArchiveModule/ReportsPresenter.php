@@ -6,7 +6,7 @@ namespace App\Modules\Fol\ArchiveModule;
 
 use App\Models\Downloader\Models\TeamModel;
 use Fykosak\FKSDBDownloaderCore\Requests\TeamsRequest;
-use Fykosak\Utils\UI\PageTitle;
+use Fykosak\Utils\UI\Title;
 use Nette\Application\BadRequestException;
 
 class ReportsPresenter extends BasePresenter
@@ -23,7 +23,7 @@ class ReportsPresenter extends BasePresenter
             return $item->lang === $this->language->value && $item->event_id === $this->getEvent()->eventId;
         });
         $this->template->year = $this->getEvent()->begin->format('Y');
-        $this->setPageTitle(new PageTitle(null, $this->csen('Ohlasy účastníků', 'Contestants\' reports')));
+        $this->setPageTitle(new Title(null, $this->csen('Ohlasy účastníků', 'Contestants\' reports')));
     }
 
     /**

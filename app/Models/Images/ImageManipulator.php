@@ -10,6 +10,7 @@ use Nette\Utils\Finder;
 use Nette\Utils\Image;
 use Nette\Utils\ImageColor;
 use Nette\Utils\ImageException;
+use Nette\Utils\UnknownImageFileException;
 
 final class ImageManipulator
 {
@@ -17,7 +18,7 @@ final class ImageManipulator
      * List images in a path. By default it lists the original files,
      * optionally list other variants (that actually exist).
      *
-     * @param $path Absolute path to a directory.
+     * @param string $path Absolute path to a directory.
      *
      * @phpstan-return \SplFileInfo[]
      */
@@ -114,6 +115,10 @@ final class ImageManipulator
         $image->save($this->getFileVariantName($originalFile, $variant));
     }
 
+    /**
+     * @throws ImageException
+     * @throws UnknownImageFileException
+     */
     public function processDirectory(string $directoryPath): void
     {
         $files = $this->listImages($directoryPath);

@@ -17,6 +17,9 @@ class InternshipsPresenter extends BasePresenter
         $this->eventService = $eventService;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderDefault(): void
     {
         $events = $this->eventService->getEvents(self::INTERNSHIPS_IDS);
