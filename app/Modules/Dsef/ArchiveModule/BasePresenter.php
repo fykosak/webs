@@ -6,8 +6,6 @@ namespace App\Modules\Dsef\ArchiveModule;
 
 use App\Components\PersonSchedule\AllScheduleListComponent;
 use App\Models\Downloader\Models\EventModel;
-use App\Modules\Dsef\DefaultModule\CurrentPresenter;
-use App\Modules\Dsef\DefaultModule\RegistrationPresenter;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\PageTitle;
 use Nette\Application\BadRequestException;
@@ -49,7 +47,7 @@ abstract class BasePresenter extends \App\Modules\Dsef\Core\BasePresenter
             if (!isset($event)) {
                 throw new BadRequestException(
                     $this->csen('Akce nenalezena', 'Event not found'),
-                    IResponse::S404_NOT_FOUND
+                    IResponse::S404_NotFound
                 );
             }
             $this->event = $event;

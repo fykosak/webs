@@ -21,7 +21,7 @@ class ErasmusPresenter extends BasePresenter
 
         // Check if it is the correct event year, otherwise throw 404
         if ($this->eventYear !== '2022') {
-            throw new BadRequestException('Event not found', IResponse::S404_NOT_FOUND);
+            throw new BadRequestException('Event not found', IResponse::S404_NotFound);
         }
     }
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Nette\Configurator;
+use Nette\Bootstrap\Configurator;
 use Tester\Environment;
 use Tracy\Debugger;
 

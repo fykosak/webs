@@ -27,7 +27,8 @@
     "nette/tester": "^v2.6.0",
     "phpstan/phpstan": "2.1.30",
     "phpstan/phpstan-nette": "^2.0.6",
-    "phpstan/phpstan-strict-rules": "2.0.7"
+    "phpstan/phpstan-strict-rules": "2.0.7",
+    "phpstan/phpstan-deprecation-rules": "^2.0"
   },
   "scripts": {
     "clearTestCache": "rm -rf temp/tester/",

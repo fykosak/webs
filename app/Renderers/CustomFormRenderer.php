@@ -8,9 +8,9 @@ use Latte\Engine;
 use Nette\Forms\Controls\Button;
 use Nette\Forms\Controls\Checkbox;
 use Nette\Forms\Form;
-use Nette\Forms\IFormRenderer;
+use Nette\Forms\FormRenderer;
 
-class CustomFormRenderer implements IFormRenderer
+class CustomFormRenderer implements FormRenderer
 {
     private Engine $latte;
     private string $lang;

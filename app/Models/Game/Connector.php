@@ -39,9 +39,9 @@ class Connector
 
             $data = json_decode(file_get_contents($this->url, false, $context), true);
             if ($data['times']['toEnd'] > 0) {
-                $dependencies[Cache::EXPIRE] = min($data['refreshDelay'] / 1000, $data['times']['toEnd']) . ' seconds';
+                $dependencies[Cache::Expire] = min($data['refreshDelay'] / 1000, $data['times']['toEnd']) . ' seconds';
             } else {
-                $dependencies[Cache::EXPIRE] = ($data['refreshDelay'] / 1000) . ' seconds';
+                $dependencies[Cache::Expire] = ($data['refreshDelay'] / 1000) . ' seconds';
             }
             return $data;
         });

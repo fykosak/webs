@@ -17,7 +17,7 @@ class RouterFactory
     {
         return [
             // todo fix code duplication
-            Route::FILTER_IN => function (array $params) use ($languages, $domainList) {
+            Route::FilterIn => function (array $params) use ($languages, $domainList) {
                 // From where to extract the language
                 if (isset($domainList) && count($domainList)) {
                     $domainLang = $domainList[$params['domain']] ?? null;
@@ -49,7 +49,7 @@ class RouterFactory
     {
         return [
             // TRANSLATE [domain, presenter, action] TO [language, presenter, action]
-            Route::FILTER_IN => function (array $params) use ($routerMapping, $domainList): array {
+            Route::FilterIn => function (array $params) use ($routerMapping, $domainList): array {
 
                 // From where to extract the language
                 if (isset($domainList) && count($domainList)) {
@@ -104,7 +104,7 @@ class RouterFactory
             },
 
             // From params to URL
-            Route::FILTER_OUT => function (array $params) use ($routerMapping, $domainList): array {
+            Route::FilterOut => function (array $params) use ($routerMapping, $domainList): array {
                 // Always translate presenter based on language
 
                 // Translate module
@@ -170,7 +170,7 @@ class RouterFactory
                 [
                     'presenter' => 'Default',
                     'action' => 'default',
-                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                    '' => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
@@ -187,7 +187,7 @@ class RouterFactory
                 [
                     'presenter' => 'Default',
                     'action' => 'default',
-                    null => self::useTranslateFilter($domainList, $routerMapping['archive']),
+                    '' => self::useTranslateFilter($domainList, $routerMapping['archive']),
                 ]
             );
 
@@ -197,7 +197,7 @@ class RouterFactory
                 [
                     'presenter' => 'Erasmus',
                     'lang' => 'en',
-                    null => self::havingDomainLanguage(['cs'], $domainList),
+                    '' => self::havingDomainLanguage(['cs'], $domainList),
                 ],
                 $router::ONE_WAY
             )
@@ -206,7 +206,7 @@ class RouterFactory
                 [
                     'presenter' => 'Default',
                     'action' => 'default',
-                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                    '' => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
@@ -223,7 +223,7 @@ class RouterFactory
                 [
                     'presenter' => 'Default',
                     'action' => 'default',
-                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                    '' => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
@@ -233,7 +233,7 @@ class RouterFactory
                 [
                     'presenter' => 'Default',
                     'action' => 'default',
-                    null => self::useTranslateFilter($domainList, $routerMapping['archive']),
+                    '' => self::useTranslateFilter($domainList, $routerMapping['archive']),
                 ]
             );
 
@@ -251,7 +251,7 @@ class RouterFactory
                 [
                     'presenter' => 'Results',
                     'action' => 'default',
-                    null => self::useTranslateFilter($domainList, $routerMapping['default'])
+                    '' => self::useTranslateFilter($domainList, $routerMapping['default'])
                 ]
             );
 
@@ -262,7 +262,7 @@ class RouterFactory
                 [
                     'presenter' => 'Problems',
                     'action' => 'default',
-                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                    '' => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
@@ -272,7 +272,7 @@ class RouterFactory
                 '//<domain>/<presenter archive|archiv>[/<action>]/<year ([0-9]{1,2})>[/<series ([0-9]{1,2})>]',
                 [
                     'presenter' => 'Archive',
-                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                    '' => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
@@ -284,10 +284,10 @@ class RouterFactory
                     'presenter' => 'Camps',
                     'action' => 'detail',
                     'season' => [
-                        Route::FILTER_IN => function ($season) {
+                        Route::FilterIn => function ($season) {
                             return $season === 'jaro' ? 4 : 5;
                         },
-                        Route::FILTER_OUT => function ($seasonId) {
+                        Route::FilterOut => function ($seasonId) {
                             return intval($seasonId) === 4 ? 'jaro' : 'podzim';
                         }
                     ]
@@ -310,7 +310,7 @@ class RouterFactory
                 [
                     'presenter' => 'Default',
                     'action' => 'default',
-                    null => self::useTranslateFilter($domainList, $routerMapping['events']),
+                    '' => self::useTranslateFilter($domainList, $routerMapping['events']),
                 ]
             );
 
@@ -321,7 +321,7 @@ class RouterFactory
                 [
                     'presenter' => 'Default',
                     'action' => 'default',
-                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                    '' => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
@@ -339,7 +339,7 @@ class RouterFactory
                 [
                     'presenter' => 'Problems',
                     'action' => 'default',
-                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                    '' => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 
@@ -347,14 +347,14 @@ class RouterFactory
             ->addRoute('//<domain>/<presenter poradi>/<year ([0-9]+)>', [
                 'presenter' => 'Results',
                 'action' => 'default',
-                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                '' => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
 
         $router->withModule('Default')
             ->addRoute('//<domain>/<presenter akce>/<action detail>/<eventId ([0-9]+)>', [
                 'presenter' => 'Events',
                 'action' => 'detail',
-                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                '' => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
 
         $router
@@ -364,7 +364,7 @@ class RouterFactory
                 [
                     'presenter' => 'Default',
                     'action' => 'default',
-                    null => self::useTranslateFilter($domainList, $routerMapping['default']),
+                    '' => self::useTranslateFilter($domainList, $routerMapping['default']),
                 ]
             );
 

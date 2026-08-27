@@ -8,7 +8,7 @@ namespace App;
 require __DIR__ . '/../vendor/autoload.php';
 // phpcs:enable
 
-use Nette\Configurator;
+use Nette\Bootstrap\Configurator;
 
 class Bootstrap
 {
