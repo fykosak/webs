@@ -12,6 +12,13 @@
   ],
   "cs": [
     {
+      "title": "Poslední místa na soustředění",
+      "text": "Pro nové řešitele držíme ještě posledních pár míst na podzimním soustředění! Stačí nám do 4. září zaslat vaše řešení úloh z první série.",
+      "link": "https://fykos.cz/zadani",
+      "link-text": "Zadání",
+      "color": "fykos"
+    },
+        {
       "title": "Zadání nového ročníku",
       "text": "Zveřejněli jsme zadání jubilejního 40. ročníku. Zároveň pro vás připravujeme novou podobu pravidel, proto můžete očekávat jejich úpravu.",
       "link": "https://fykos.cz/zadani",
