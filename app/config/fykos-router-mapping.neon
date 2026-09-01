@@ -29,7 +29,7 @@ parameters:
             actions:
                 cs:
                     pravidla: rules
-                    aiKodex: aiCodex
+                    pravidlaAi: aiRules
                     jakPsat: texTutorial
                     experimenty: experiments
                     cena: price
