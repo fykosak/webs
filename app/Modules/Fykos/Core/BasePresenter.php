@@ -50,6 +50,7 @@ abstract class BasePresenter extends ContestPresenter
             [
                 new NavItem(new Title(null, $this->csen('Základní informace', 'Basic Information')), ':Events:Fykos:'),
                 new NavItem(new Title(null, $this->csen('Pravidla', 'Rules')), ':Events:Fykos:rules'),
+                new NavItem(new Title(null, $this->csen('AI Kodex', 'AI Codex')), ':Events:Fykos:aiCodex'),
                 new NavItem(
                     new Title(null, $this->csen('Jak psát řešení', 'How to Write Solutions')),
                     ':Events:Fykos:texTutorial'
