@@ -1,18 +1,25 @@
 {
   "cs": [
     {
+      "title": "Termín Podzimního setkání",
+      "text": "Podzimní setkání řešitelů letos proběhne o víkendu od 6. do 8. listopadu v Praze. Již tradičně budeme ubytovaní na Gymnáziu Nad Alejí, kde na vás čeká program plný zábavy a fyziky. O možnosti jet na setkání nerozhoduje pořadí – pozveme všechny řešitele, kdo se odevzdáním alespoň jedné úlohy zapojí do nově zveřejněné 1. série 16. ročníku Výfuku. Zúčastnit se naposledy mohou i deváťáci, kteří řešili v této kategorii prázdninové série. O termínu registrace budeme informovat později."",
+      "date": "1. září 2026",
+      "link": ":Default:Events:setkani",
+      "link-text": "Stránka setkání"
+    },
+    {
+      "title": "Zadání 1. série",
+      "text": "Prázdniny skončily a s nimi i 15. ročník Výfuku. Ale nemusíte být smutní, protože další, už 16. ročník právě začal. V průběhu roku se můžete těšit na 6 sérií, z nichž první můžete řešit již nyní. Na vaše řešení se budeme těšit do pondělí 12. října.",
+      "date": "1. září 2026",
+      "link": ":Default:Problems:",
+      "link-text": "Zadání"
+    },
+    {
       "title": "Pořadí první prázdninové série",
       "text": "Čekání je u konce, výsledková listina první prázdninové série už byla zveřejněna. S úlohami jste se poprali skvěle a za to vám náleží velká gratulace. Stále můžete pokračovat v řešení druhé prázdninové série, která má deadline v neděli 31. 8. ve 20:00. A po prázdninách se můžete těšit na 1. sérii 16. ročníku.",
       "date": "12. srpna 2026",
       "link": ":Default:Results:",
       "link-text": "Pořadí"
-    },
-    {
-      "title": "Zadání prázdninových sérií",
-      "text": "Všech šest klasických sérií 15. ročníku Výfuku je minulostí. Všechny úlohy jste vyřešili a brzy se dočkáte i závěrečné výsledkové listiny. Ale nemusíte být smutní, protože Výfuk jede dál! I letos jsme si pro vás připravili dvě prázdninové série, plné zajímavých úloh trochu jiného typu, než jste řešili v průběhu roku. Proto neváhejte a vrhněte se do řešení. První prázdninovou sérii můžete odevzdávat do 27. července.",
-      "date": "3. června 2026",
-      "link": ":Default:Problems:",
-      "link-text": "Zadání"
     }
   ]
 }
