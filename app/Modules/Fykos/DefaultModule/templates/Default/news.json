@@ -12,13 +12,20 @@
   ],
   "cs": [
     {
+      "title": "Zveřejnili jsme nová pravidla",
+      "text": "Spolu s novým ročníkem přicházejí i nová pravidla FYKOSu, která lépe specifikují fungování našeho semináře. Hlavní změnou je přidání <a href=\"https://fykos.cz/akce/fykos/pravidla-ai\">Pravidel používání AI</a> s konkrétními příklady použití. Ať už se tedy se zadáním úloh setkáváte poprvé, nebo jste dlouholetými řešiteli, doporučujeme se s novými pravidly důkladně seznámit.",
+      "link": "https://fykos.cz/akce/fykos/pravidla",
+      "link-text": "Pravidla",
+      "color": "fykos"
+    },
+    {
       "title": "Podzimní soustředění",
       "text": "Pokud jste ještě neřešili FYKOS a lákalo by vás zúčastnit se podzimního soustředění, máte šanci nám do 4. září zaslat svá řešení první série! Ti nejlepší z vás se pak můžou těšit na pozvánku na podzimní soustředění.",
       "link": "https://fykos.cz/zadani",
       "link-text": "Zadání",
       "color": "fykos"
     },
-        {
+    {
       "title": "Zadání nového ročníku",
       "text": "Zveřejněli jsme zadání jubilejního 40. ročníku. Zároveň pro vás připravujeme novou podobu pravidel, proto můžete očekávat jejich úpravu.",
       "link": "https://fykos.cz/zadani",
@@ -27,6 +34,13 @@
     }
   ],
   "en": [
+    {
+      "title": "We have published new rules",
+      "text": "Along with the new edition of FYKOS come new rules that better specify how our seminar works. The main change is the addition of the <a href=\"https://fykos.org/events/fykos/ai-rules\">Rules on the Use of AI</a>, which include specific examples of how AI may be used. Whether you are encountering the problems for the first time or have been participating FYKOS for years, we recommend familiarizing yourself thoroughly with the new rules.",
+      "link": "https://fykos.org/events/fykos/rules",
+      "link-text": "Rules",
+      "color": "fykos"
+    },
     {
       "title": "New year tasks",
       "text": "We have published the problems for the milestone 40th year. At the same time, we are preparing a rules revision, so you can expect them to be updated.",
