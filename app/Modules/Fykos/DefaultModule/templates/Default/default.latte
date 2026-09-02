@@ -122,12 +122,14 @@
                     <div class="card-body news-card" style="border-left: 5px solid {$news['color']|noescape}">
                         <div style="display: flex; justify-content: space-between;">
                             <h4 class="card-title">{$news['title']}</h4>
-                            <a href="{$news['link']}" class="btn btn-primary" style="
-                                --bs-btn-bg: {$news['color']|noescape};
-                                --bs-btn-hover-bg: color-mix(in srgb, var(--bs-btn-bg), black 15%);
-                                --bs-btn-border-color: {$news['color']|noescape};
-                                --bs-btn-hover-border-color: color-mix(in srgb, var(--bs-btn-border-color), black 15%);
-                            ">{$news['link-text']}</a>
+                            <div>
+                                <a href="{$news['link']}" class="btn btn-primary" style="
+                                    --bs-btn-bg: {$news['color']|noescape};
+                                    --bs-btn-hover-bg: color-mix(in srgb, var(--bs-btn-bg), black 15%);
+                                    --bs-btn-border-color: {$news['color']|noescape};
+                                    --bs-btn-hover-border-color: color-mix(in srgb, var(--bs-btn-border-color), black 15%);
+                                ">{$news['link-text']}</a>
+                            </div>
                         </div>
                         <p class="card-text">{$news['text']|noescape}</p>
                     </div>
