@@ -44,33 +44,32 @@
     <section class="inner-container">
         <h2>Aktuality</h2>
             <div class="row">
-            {foreach $newsList['cs'] as $orderNumber => $news}
-                {if $orderNumber < 4}
-                    {var $marginClass = "mt-md-4"}
-                    {if $orderNumber < 2}
-                        {php $marginClass = "mb-md-4"}
-                    {/if}
-                    <div class="col-md-6 mt-2 mb-2 {$marginClass}">
-                        <div class="card news-card">
-                            <div class="card-body d-flex align-items-start flex-column">
-                                <h5 class="card-title">{$news['title']}</h5>
-                                <p class="card-text">{$news['text']|noescape}</p>
-                                <div class="d-flex flex-row-reverse w-100 justify-content-between mt-auto news-footer">
-                                    {if array_key_exists('link', $news) && $news['link'] && array_key_exists('link-text', $news) && $news['link-text']}
-                                        {if strpos($news['link'], 'http') === 0}
-                                            <a href="{$news['link']}" class="btn btn-primary order-2">{$news['link-text']}</a>
-                                        {else}
-                                            <a n:href="$news['link']" class="btn btn-primary order-2">{$news['link-text']}</a>
-                                        {/if}
+            {foreach $newsList as $newsItem}
+                {*{var $marginClass = "mt-md-4"}
+                {if $orderNumber < 2}
+                    {php $marginClass = "mb-md-4"}
+                {/if}*}
+                <div class="col-md-6 mt-2 mb-2">{*{$marginClass}*}
+                    <div class="card news-card">
+                        <div class="card-body d-flex align-items-start flex-column">
+                            <h5 class="card-title">{$newsItem->title->cs}</h5>
+                            <p class="card-text">{$newsItem->text->cs|noescape}</p>
+                            <div class="d-flex flex-row-reverse w-100 justify-content-between mt-auto news-footer">
+                                {if $newsItem->linkText && $newsItem->linkPath}
+                                    {if strpos($news['link'], 'http') === 0}
+                                        <a href="{$newsItem->linkText}" class="btn btn-primary order-2">{$newsItem->linkText}</a>
+                                    {else}
+                                        <a n:href="$newsItem->linkPath" class="btn btn-primary order-2">{$newsItem->linkText}</a>
                                     {/if}
-                                    <p class="my-auto order-1 news-date">
-                                        {$news['date']}
-                                    </p>
-                                </div>
+                                {/if}
+                                <p class="my-auto order-1 news-date">
+                                    {php setlocal(LC_ALL, 'cs_CZ')}
+                                    {$newsItem->displayDate|csdate:'j. F Y'}
+                                </p>
                             </div>
                         </div>
                     </div>
-                {/if}
+                </div>
             {/foreach}
         </div>
     </section>

@@ -81,7 +81,9 @@ final class NewsService extends AbstractJSONService
                     $activeNews[] = $newsItem;
                 }
             }
-            break;
+            else {
+                break;
+            }
         }
 
         return $activeNews;

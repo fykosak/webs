@@ -9,6 +9,7 @@ use App\Models\Downloader\Models\ProblemManager\PMSeriesModel;
 use App\Models\Downloader\Services\ProblemService;
 use App\Models\Downloader\Services\EventService;
 use App\Models\Downloader\Services\FileService;
+use App\Models\Downloader\Services\NewsService;
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 use InvalidArgumentException;
 
@@ -17,20 +18,23 @@ class DefaultPresenter extends BasePresenter
     private readonly ProblemService $problemService;
     private readonly FileService $fileService;
     private EventService $eventService;
+    private NewsService $newsService;
 
     public function injectService(
         ProblemService $problemService,
         FileService $fileService,
-        EventService $eventService
+        EventService $eventService,
+        NewsService $newsService
     ): void {
         $this->problemService = $problemService;
         $this->fileService = $fileService;
         $this->eventService = $eventService;
+        $this->newsService = $newsService;
     }
 
     public function renderDefault(): void
     {
-        $this->template->newsList = $this->loadNews();
+        $this->template->newsList = $this->newsService->getActiveNews(4);
 
         //$year = $this->getCurrentYear()->year;
         //$series = $this->problemService->getLatestSeries('vyfuk', $year);
@@ -92,14 +96,6 @@ class DefaultPresenter extends BasePresenter
         } else {
             return false;
         }
-    }
-
-    public function loadNews(): array
-    {
-        $json = file_get_contents(__DIR__ . '/templates/Default/news.json');
-        $newsList = json_decode($json, true);
-
-        return $newsList;
     }
 
     public function getNearestEvent(): ?EventModel
