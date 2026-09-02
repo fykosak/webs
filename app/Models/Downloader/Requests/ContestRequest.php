@@ -6,9 +6,9 @@ namespace App\Models\Downloader\Requests;
 
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 
-final class ContestRequest implements Request
+final readonly class ContestRequest implements Request
 {
-    public function __construct(private readonly int $contestId)
+    public function __construct(private int $contestId)
     {
     }
 

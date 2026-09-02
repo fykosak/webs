@@ -47,6 +47,9 @@ class ArchivePresenter extends BasePresenter
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     private function getYearPartSerialLinks(string $lang): array
     {
         error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
@@ -82,6 +85,9 @@ class ArchivePresenter extends BasePresenter
         }
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderProblems(int $year, int $series): void
     {
         try {
@@ -104,6 +110,9 @@ class ArchivePresenter extends BasePresenter
         $this->template->problems = $problems;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderSeries(): void
     {
         $years = [];
@@ -111,12 +120,15 @@ class ArchivePresenter extends BasePresenter
         for ($i = 24; $i > 0; $i--) {
             try {
                 $years[$i] = $this->fileService->getArchiveSeriesList('fykos', $i);
-            } catch (DownloaderException $e) {
+            } catch (DownloaderException) {
             }
         }
         $this->template->years = $years;
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentProblem(): ProblemComponent
     {
         return new ProblemComponent(

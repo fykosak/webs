@@ -33,6 +33,9 @@ class ArchivePresenter extends BasePresenter
         $this->template->serialTopics = $this->loadTopics();
     }
 
+    /**
+     * @throws Throwable
+     */
     private function checkYearsSerials(): array
     {
         $contestYears = $this->problemService->getYears(ProblemService::VYFUK);

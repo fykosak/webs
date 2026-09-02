@@ -26,15 +26,12 @@ enum ProblemTypes: int
         return match ($this) {
             ProblemTypes::FykosEasy => 'fas fa-smile',
             ProblemTypes::FykosHard => 'fas fa-brain',
-            ProblemTypes::FykosOpen => 'fas fa-lightbulb',
-            ProblemTypes::FykosExperimental => 'fas fa-flask',
-            ProblemTypes::FykosSerial => 'fas fa-book',
+            ProblemTypes::FykosOpen, ProblemTypes::VyfukOdhadovaci => 'fas fa-lightbulb',
+            ProblemTypes::FykosExperimental, ProblemTypes::VyfukExperiment, ProblemTypes::VyfukPrExp => 'fas fa-flask',
+            ProblemTypes::FykosSerial, ProblemTypes::VyfukSerial => 'fas fa-book',
             ProblemTypes::VyfukJednicka => 'fas fa-pencil',
             ProblemTypes::VyfukMatematika => 'fas fa-calculator',
-            ProblemTypes::VyfukExperiment, ProblemTypes::VyfukPrExp => 'fas fa-flask',
-            ProblemTypes::VyfukSerial => 'fas fa-book',
             ProblemTypes::VyfukKviz => 'fas fa-list-ul',
-            ProblemTypes::VyfukOdhadovaci => 'fas fa-lightbulb',
             ProblemTypes::VyfukLehkaFyzika => 'fas fa-magnet',
             ProblemTypes::VyfukTezkaFyzika => 'fas fa-cogs'
         };

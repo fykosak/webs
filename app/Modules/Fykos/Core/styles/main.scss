@@ -7,19 +7,19 @@ $panel-color-dark: #f5f5f5;
 $panel-color-light: white;
 
 $text-on-primary: white;
-$text-dimmed: #CCCCCC;
+$text-dimmed: #cccccc;
 
 $fof-color: #e6060d;
 $fol-color: #00ae6b;
 $dsef-color: #f2b72b;
-$naboj-color: #C22D86;
+$naboj-color: #c22d86;
 
 :root {
-  --task-color-1: #8AC75A;
-  --task-color-2: #37C4E5;
-  --task-color-3: #F47A69;
-  --task-color-4: #F08BAA;
-  --task-color-5: #F5BF69;
+  --task-color-1: #8ac75a;
+  --task-color-2: #37c4e5;
+  --task-color-3: #f47a69;
+  --task-color-4: #f08baa;
+  --task-color-5: #f5bf69;
   --panel-color-dark: #f5f5f5;
   --panel-color-light: white;
 }
@@ -52,7 +52,7 @@ $navbar-dark-color: $text-on-primary;
 $navbar-dark-hover-color: $text-on-primary;
 
 @import "node_modules/bootstrap/scss/bootstrap";
-$flag-icons-path: '/node_modules/flag-icons/flags';
+$flag-icons-path: "/node_modules/flag-icons/flags";
 @import "../../../../../node_modules/flag-icons/sass/flag-icons";
 
 // @import '../../../../Models/OldFykos/css/cssAll';
@@ -64,18 +64,16 @@ $flag-icons-path: '/node_modules/flag-icons/flags';
 @import "./../../../Fof/Core/styles/sponsors";
 @import "./../../../Fof/DefaultModule/styles/timeline";
 
-
 @import "./../../../Fof/DefaultModule/styles/rules";
 // @import "./../../../Fof/DefaultModule/styles/timeline";
-
 
 // @import '../../../../Components/ResultsPanel/styles';
 // @import '../../../../Components/UpperHomePrague/styles';
 // @import '../../../../Components/TeamResults/styles';
-@import '../../../../Components/Navigation/styles';
-@import '../../../../Components/Problem/problem';
-@import '../../../../Components/Problem/fykos';
-@import '../../../../Components/ImagePreviewModal/styles';
+@import "../../../../Components/Navigation/styles";
+@import "../../../../Components/Problem/problem";
+@import "../../../../Components/Problem/fykos";
+@import "../../../../Components/ImagePreviewModal/styles";
 
 @import "../../../../Components/OrgSneakPeak/styles";
 
@@ -87,4 +85,5 @@ $flag-icons-path: '/node_modules/flag-icons/flags';
 @import "./results";
 @import "./supportUs";
 @import "./furtherOpportunities";
+@import "./aiRules";
 // @import "./navigation"; // use the one from FOL and FOF

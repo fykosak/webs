@@ -6,10 +6,10 @@ namespace App\Modules\Vyfuk\DefaultModule;
 
 use App\Models\Downloader\Models\EventModel;
 use App\Models\Downloader\Models\ProblemManager\PMSeriesModel;
-use App\Models\Downloader\Services\ProblemService;
 use App\Models\Downloader\Services\EventService;
 use App\Models\Downloader\Services\FileService;
 use App\Models\Downloader\Services\NewsService;
+use App\Models\Downloader\Services\ProblemService;
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 use InvalidArgumentException;
 
@@ -32,6 +32,9 @@ class DefaultPresenter extends BasePresenter
         $this->newsService = $newsService;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderDefault(): void
     {
         $this->template->newsList = $this->newsService->getActiveNews(4);
@@ -51,6 +54,9 @@ class DefaultPresenter extends BasePresenter
         $this->template->nearestEvent = $this->getNearestEvent();
     }
 
+    /**
+     * @throws \Throwable
+     */
     private function getPreviousSeries(int $year, int $currentSeriesId): ?PMSeriesModel
     {
         $currentContestYear = $this->problemService->getYear(ProblemService::VYFUK, $year);
@@ -76,7 +82,10 @@ class DefaultPresenter extends BasePresenter
     }
 
 
-    public function solutionsReady(PMSeriesModel $series, $lang): bool
+    /**
+     * @throws \Throwable
+     */
+    public function solutionsReady(PMSeriesModel $series, string $lang): bool
     {
         foreach ($series->problems as $problem) {
             if ($this->fileService->getSolution('vyfuk', $series, $problem, $lang) !== null) {
@@ -87,9 +96,14 @@ class DefaultPresenter extends BasePresenter
         return false;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function resultsReady(PMSeriesModel $series): bool
     {
-        $results = $this->downloader->download(new SeriesResultsRequest($this->getContestId(), $series->contestYear['year']));
+        $results = $this->downloader->download(
+            new SeriesResultsRequest($this->getContestId(), $series->contestYear['year'])
+        );
 
         if (isset($results['tasks']['VYFUK_6'][$series->label])) {
             return true;
@@ -98,6 +112,9 @@ class DefaultPresenter extends BasePresenter
         }
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getNearestEvent(): ?EventModel
     {
         $eventTypeIds = [10, 11, 12, 18];

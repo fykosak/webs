@@ -14,18 +14,6 @@
 <div class="panel color-auto">
     <section class="inner-container">
         <div class="container mt-3">
-            {if $series->getYear() === 40 && $series->getLabel() === '1'}
-                <div class="alert alert-warning">
-                    {switch $language->value}
-                        {case 'cs'}
-                            Pravidla korespondenčního semináře aktuálně procházejí revizí.
-                            Před začátkem dalšího ročníku proto může dojít k jejich úpravě.
-                        {default}
-                            The correspondence seminar rules are currently under review. As a result,
-                            they may be revised before the start of the next seminar year.
-                    {/switch}
-                </div>
-            {/if}
             <div class="row">
                 <div class="col-md-8">
                     <div class="subheader">

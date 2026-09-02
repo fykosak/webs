@@ -6,7 +6,7 @@ namespace App\Modules\Fof\DefaultModule;
 
 use App\Modules\Core\Language;
 use Fykosak\Utils\UI\Navigation\NavItem;
-use Fykosak\Utils\UI\PageTitle;
+use Fykosak\Utils\UI\Title;
 
 abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
 {
@@ -19,57 +19,57 @@ abstract class BasePresenter extends \App\Modules\Fof\Core\BasePresenter
 
         if ($this->language === Language::cs) {
             $items[] = new NavItem(
-                new PageTitle(null, 'O soutěži'),
+                new Title(null, 'O soutěži'),
                 ':Default:AboutTheCompetition:default'
             );
             $items[] = new NavItem(
-                new PageTitle(null, 'Historie'),
+                new Title(null, 'Historie'),
                 ':Default:History:default'
             );
         } else {
             $items[] = new NavItem(
-                new PageTitle(null, 'About us'),
+                new Title(null, 'About us'),
                 ':Default:AboutTheCompetition:default',
                 [],
                 [
-                    new NavItem(new PageTitle(null, 'What Is Fyziklani'), ':Default:AboutTheCompetition:default'),
-                    new NavItem(new PageTitle(null, 'History'), ':Default:History:default')
+                    new NavItem(new Title(null, 'What Is Fyziklani'), ':Default:AboutTheCompetition:default'),
+                    new NavItem(new Title(null, 'History'), ':Default:History:default')
                 ]
             );
         }
 
         $items[] = new NavItem(
-            new PageTitle(null, $this->csen('Pravidla', 'Rules')),
+            new Title(null, $this->csen('Pravidla', 'Rules')),
             ':Default:Rules:default',
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, $this->csen('Ubytování', 'Accommodation')),
+            new Title(null, $this->csen('Ubytování', 'Accommodation')),
             ':Default:Accommodation:default'
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, $this->csen('Program', 'Schedule')),
+            new Title(null, $this->csen('Program', 'Schedule')),
             ':Default:Schedule:default',
         );
 
         if ($this->language === Language::en) {
             $items[] = new NavItem(
-                new PageTitle(null, $this->csen('', 'Travel')),
+                new Title(null, $this->csen('', 'Travel')),
                 ':Default:TravelSupport:default',
             );
         }
 
         if ($this->getPresenterByName('Default:Teams')->isVisible()) {
             $items[] = new NavItem(
-                new PageTitle(null, $this->csen('Týmy', 'Teams')),
+                new Title(null, $this->csen('Týmy', 'Teams')),
                 ':Default:Teams:',
             );
         }
 
         if ($this->getPresenterByName('Default:Registration')->isVisible()) {
             $items[] = new NavItem(
-                new PageTitle(null, $this->csen('Registrace', 'Registration')),
+                new Title(null, $this->csen('Registrace', 'Registration')),
                 ':Default:Registration:',
             );
         }

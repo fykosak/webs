@@ -37,7 +37,7 @@ class ResultsPresenter extends BasePresenter
             }
             $results['submits'][$category] = array_values($results['submits'][$category]);
         }
-        foreach ($results["tasks"] as $category => $series) {
+        foreach ($results['tasks'] as $category => $series) {
             foreach ($series as $serieNumber => $tasks) {
                 foreach ($tasks as $taskOrder => $task) {
                     if (!isset($tasksHasResult[$task['taskId']])) {
@@ -47,12 +47,13 @@ class ResultsPresenter extends BasePresenter
                 if (count($results['tasks'][$category][$serieNumber]) === 0) {
                     unset($results['tasks'][$category][$serieNumber]);
                 } else {
-                    $results['tasks'][$category][$serieNumber] = array_values($results['tasks'][$category][$serieNumber]);
+                    $results['tasks'][$category][$serieNumber] =
+                        array_values($results['tasks'][$category][$serieNumber]);
                 }
             }
         }
         $series = [];
-        foreach ($results["tasks"] as $s) {
+        foreach ($results['tasks'] as $s) {
             $series = array_merge($series, array_keys($s));
         }
         $series = array_unique($series);
