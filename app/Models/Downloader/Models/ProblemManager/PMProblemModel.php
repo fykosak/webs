@@ -55,7 +55,7 @@ class PMProblemModel extends ProblemModel
         }
 
         // By default, HTML from PM contains paragraphs, remove them
-        return str_replace(array("<p>","</p>"), "", $this->metadata['html']['name'][$lang->value]);
+        return str_replace(['<p>', '</p>'], '', $this->metadata['html']['name'][$lang->value]);
     }
 
     /**

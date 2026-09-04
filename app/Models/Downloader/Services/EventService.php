@@ -74,6 +74,9 @@ final class EventService extends AbstractDownloaderService
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getEvent(int $eventId, ?string $explicitExpiration = null): EventModel
     {
         return $this->getRequestAsClass(

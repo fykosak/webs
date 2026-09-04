@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Modules\Core;
 
-use App\Models\Downloader\Requests\ContestRequest;
-use App\Models\Downloader\Services\DummyService;
 use App\Models\Downloader\Downloaders\FKSDBDownloader;
 use App\Models\Downloader\Models\ContestModel;
 use App\Models\Downloader\Models\ContestYearModel;
+use App\Models\Downloader\Requests\ContestRequest;
+use App\Models\Downloader\Services\DummyService;
 use Fykosak\FKSDBDownloaderCore\Requests\SeriesResultsRequest;
 use Nette\Caching\Cache;
 use Nette\Caching\Storage;
@@ -34,17 +34,26 @@ abstract class ContestPresenter extends BasePresenter
         $this->cache = new Cache($storage);
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function beforeRender(): void
     {
         parent::beforeRender();
         $this->template->currentYear = $this->getCurrentYear();
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getContest(): ContestModel
     {
         return $this->dummyService->getFlat(new ContestRequest($this->getContestId()), ContestModel::class);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getCurrentYear(): ?ContestYearModel
     {
         $contest = $this->getContest();
@@ -56,15 +65,20 @@ abstract class ContestPresenter extends BasePresenter
         return null;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function getPointsYear(): ?ContestYearModel
     {
-        return $this->cache->load("pointsYear", function () {
+        return $this->cache->load('pointsYear', function () {
             foreach (array_reverse($this->getContest()->years) as $year) {
                 try {
-                    $results = $this->downloader->download(new SeriesResultsRequest($this->getContestId(), $year->year));
-                    foreach ($results["submits"] as $y) {
+                    $results = $this->downloader->download(
+                        new SeriesResultsRequest($this->getContestId(), $year->year)
+                    );
+                    foreach ($results['submits'] as $y) {
                         foreach ($y as $c) {
-                            foreach ($c["submits"] as $s) {
+                            foreach ($c['submits'] as $s) {
                                 if ($s !== null) {
                                     return $year;
                                 }

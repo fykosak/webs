@@ -6,7 +6,7 @@ namespace App\Modules\Fol\ArchiveModule;
 
 use App\Models\Downloader\Models\EventModel;
 use Fykosak\Utils\UI\Navigation\NavItem;
-use Fykosak\Utils\UI\PageTitle;
+use Fykosak\Utils\UI\Title;
 use Nette\Application\BadRequestException;
 use Nette\Application\UI\Template;
 use Nette\Http\IResponse;
@@ -58,7 +58,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
     {
         return [
             new NavItem(
-                new PageTitle(
+                new Title(
                     null,
                     $this->csen('Archiv', 'History'),
                     'visible-sm-inline glyphicon glyphicon-info-sign'
@@ -66,7 +66,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
                 ':Default:Archive:default',
             ),
             new NavItem(
-                new PageTitle(
+                new Title(
                     null,
                     $this->csen('Týmy', 'Teams'),
                     'visible-sm-inline glyphicon glyphicon-info-sign'
@@ -74,7 +74,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
                 ':Archive:Teams:default',
             ),
             new NavItem(
-                new PageTitle(
+                new Title(
                     null,
                     $this->csen('Pořadí', 'Results'),
                     'visible-sm-inline glyphicon glyphicon-compressed'
@@ -82,7 +82,7 @@ abstract class BasePresenter extends \App\Modules\Fol\Core\BasePresenter
                 ':Archive:Results:default',
             ),
             new NavItem(
-                new PageTitle(
+                new Title(
                     null,
                     $this->csen('Ohlasy účastníků', 'Reports'),
                     'visible-sm-inline glyphicon glyphicon-exclamation-sign'

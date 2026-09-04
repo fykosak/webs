@@ -30,6 +30,10 @@
                 {default}Previous years of Fyziklani
             {/switch}
         </div></a>
+        {switch $language->value}
+            {case cs} <a class="btn btn-primary my-2" href="{$basePath}/download/2025/historie_poster_2025.pdf"><div>Poster 20 let Fyziklání</div></a>
+            {default}
+        {/switch}
     {switch $language->value}
     {case cs}
         <p>

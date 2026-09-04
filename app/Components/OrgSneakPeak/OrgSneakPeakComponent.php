@@ -16,6 +16,9 @@ class OrgSneakPeakComponent extends DIComponent
 
     private array $organizers;
 
+    /**
+     * @throws \Throwable
+     */
     public function __construct(Container $container)
     {
         parent::__construct($container);

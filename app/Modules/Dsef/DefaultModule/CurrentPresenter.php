@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Modules\Dsef\DefaultModule;
 
 use App\Models\Downloader\Downloaders\FKSDBDownloader;
-use App\Models\Downloader\Models\EventModel;
 use App\Models\Downloader\Requests\ScheduleRequest;
 use Nette\Application\BadRequestException;
 

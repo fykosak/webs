@@ -29,6 +29,9 @@ class ProblemsPresenter extends BasePresenter
         $this->problemService = $problemService;
     }
 
+    /**
+     * @throws \Throwable
+     */
     private function getSeries(): PMSeriesModel
     {
         $seriesId = $this->year && $this->series
@@ -38,6 +41,9 @@ class ProblemsPresenter extends BasePresenter
         return $this->problemService->getSeries($seriesId);
     }
 
+    /**
+     * @throws \Throwable
+     */
     private function getPreviousSeries(int $year, int $currentSeriesId): ?PMSeriesModel
     {
         $currentContestYear = $this->problemService->getYear(ProblemService::VYFUK, $year);
@@ -86,6 +92,9 @@ class ProblemsPresenter extends BasePresenter
         $this->template->yearsAndSeries = $yearsAndSeries;
     }
 
+    /**
+     * @throws \Throwable
+     */
     protected function createComponentProblem(): ProblemComponent
     {
         return new ProblemComponent($this->getContext(), $this->getSeries());

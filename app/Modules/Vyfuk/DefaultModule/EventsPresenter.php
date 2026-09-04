@@ -23,6 +23,9 @@ class EventsPresenter extends BasePresenter
         $this->imageService = $imageService;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderDetail(int $eventId): void
     {
         $event = $this->eventService->getEvent($eventId);
@@ -31,7 +34,8 @@ class EventsPresenter extends BasePresenter
         }
         $this->template->event = $event;
         $this->template->hasGallery = $this->imageService->hasPhotosEvent($event);
-        $this->template->hasPdfs = $this->getComponent('pdfGallery')->hasFiles("/media/download/event/" . $event->eventId);
+        $this->template->hasPdfs = $this->getComponent('pdfGallery')
+            ->hasFiles('/media/download/event/' . $event->eventId);
 
         $eventOrganizers = $event->end < new DateTime() ? $this->eventService->getEventOrganizers($event->eventId) : [];
         $organizers = [];
@@ -40,7 +44,9 @@ class EventsPresenter extends BasePresenter
         }
         $this->template->organizers = implode(', ', $organizers);
 
-        $eventParticipants = $event->end < new DateTime() ? $this->eventService->getEventParticipants($event->eventId) : [];
+        $eventParticipants = $event->end < new DateTime() ?
+            $this->eventService->getEventParticipants($event->eventId) :
+            [];
         $participants = [];
         foreach ($eventParticipants as $participant) {
             if ($participant->state === 'participated') {
@@ -50,16 +56,25 @@ class EventsPresenter extends BasePresenter
         $this->template->participants = implode(', ', $participants);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderTabor(): void
     {
         $this->template->events = array_reverse($this->eventService->getEvents([10]));
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderSetkani(): void
     {
         $this->template->events = array_reverse($this->eventService->getEvents([11, 12]));
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function renderVikendovka(): void
     {
         $this->template->events = array_reverse($this->eventService->getEvents([18]));

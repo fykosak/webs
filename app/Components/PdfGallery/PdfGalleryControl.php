@@ -47,7 +47,7 @@ class PdfGalleryControl extends DIComponent
                 'name' => $name,
                 ];
             }
-        } catch (InvalidStateException $e) {
+        } catch (InvalidStateException) {
             return [];
         }
 
@@ -76,6 +76,10 @@ class PdfGalleryControl extends DIComponent
         );
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'pdfGalleryList.latte');
     }
+
+    /**
+     * @throws \Throwable
+     */
     public function renderButtons(string $path): void
     {
         $this->template->pdfs = $this->cache->load(
