@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace App\Modules\Vyfuk\DefaultModule;
 
 use Fykosak\Utils\UI\Navigation\NavItem;
-use Fykosak\Utils\UI\PageTitle;
+use Fykosak\Utils\UI\Title;
 use App\Models\Authentication\Authenticator;
 use App\Models\Authentication\UserModel;
 use Nette\Application\ForbiddenRequestException;
 use App\Models\Downloader\Services\EventService;
 use App\Models\Downloader\Services\NewsService;
+use App\Components\Forms\NewsForm;
+use Nette\DI\Container;
 
 use Nette\Utils\Finder;
 
@@ -21,6 +23,14 @@ class AdminPresenter extends BasePresenter
     protected NewsService $newsService;
 
     public ?int $eventId = null;
+
+    private Container $container;
+
+	public function __construct(Container $container)
+	{
+		parent::__construct();
+		$this->container = $container;
+	}
 
     public function injectService(Authenticator $authenticator, EventService $eventService, NewsService $newsService): void
     {
@@ -64,8 +74,12 @@ class AdminPresenter extends BasePresenter
     {
         $this->template->events = array_reverse($this->eventService->getEvents([10, 11, 12, 18]));
 
+        bdump($this->eventId);
+
         $event = $this->eventId ? $this->eventService->getEvent($this->eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
         $this->template->selectedEvent = $event;
+
+        bdump($event);
 
         $this->template->media = $this->getMedia($event->eventId);
     }
@@ -122,6 +136,13 @@ class AdminPresenter extends BasePresenter
         return $files;
     }
 
+     protected function createComponentNewsForm(): NewsForm
+    {
+        return new NewsForm(
+            $this->container
+        );
+    }
+
     public function renderNews(): void
     {
         $this->template->news = $this->newsService->getActiveNews(4);
@@ -135,27 +156,27 @@ class AdminPresenter extends BasePresenter
         $items = [];
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Správa novinek', 'fa-solid fa-newspaper'),
+            new Title(null, 'Správa novinek', 'fa-solid fa-newspaper'),
             ':Default:Admin:news'
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Správa souborů', 'fa-solid fa-file-pen'),
+            new Title(null, 'Správa souborů', 'fa-solid fa-file-pen'),
             ':Default:Admin:files'
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Správa fotek', 'fa-solid fa-images'),
+            new Title(null, 'Správa fotek', 'fa-solid fa-images'),
             ':Default:Admin:media'
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, sprintf('%s (#%d)', $this->getLoggedUser()->name, $this->getLoggedUser()->id), 'fa-solid fa-user-gear'),
+            new Title(null, sprintf('%s (#%d)', $this->getLoggedUser()->name, $this->getLoggedUser()->id), 'fa-solid fa-user-gear'),
             ':Default:Admin:default'
         );
 
         $items[] = new NavItem(
-            new PageTitle(null, 'Odhlásit se', 'fa-solid fa-arrow-right-from-bracket'),
+            new Title(null, 'Odhlásit se', 'fa-solid fa-arrow-right-from-bracket'),
             ':Default:Admin:logout'
         );
 
