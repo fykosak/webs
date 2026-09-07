@@ -14,12 +14,12 @@ final class NewsModel implements \JsonSerializable
     public LangMap $title;
     /** @var \Fykosak\Utils\Localization\LangMap $text */
     public LangMap $text;
-    public \DateTime $displayDate;
+    public ?\DateTimeImmutable $displayDate;
     public ?string $linkPath;
     /** @var \Fykosak\Utils\Localization\LangMap $linkText */
     public ?LangMap $linkText;
-    public \DateTime $releaseDate;
-    public ?\DateTime $endDate;
+    public \DateTimeImmutable $releaseDate;
+    public ?\DateTimeImmutable $endDate;
     public ?NewsColors $color;
 
     public function jsonSerialize(): array

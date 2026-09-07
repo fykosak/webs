@@ -12,4 +12,5 @@ enum NewsColors: string
     case FOL = '#00ae6b';
     case Naboj = '#c22d86';
     case Vyfuk = '#ff4800';
+    case NabojJunior = '#c32f27';
 }
