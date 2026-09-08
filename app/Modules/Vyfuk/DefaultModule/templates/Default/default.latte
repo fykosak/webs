@@ -57,14 +57,14 @@
                             <div class="d-flex flex-row-reverse w-100 justify-content-between mt-auto news-footer">
                                 {if $newsItem->linkText && $newsItem->linkPath}
                                     {if strpos($news['link'], 'http') === 0}
-                                        <a href="{$newsItem->linkText}" class="btn btn-primary order-2">{$newsItem->linkText}</a>
+                                        <a href="{$newsItem->linkText}" class="btn btn-primary order-2">{$newsItem->linkText->cs}</a>
                                     {else}
-                                        <a n:href="$newsItem->linkPath" class="btn btn-primary order-2">{$newsItem->linkText}</a>
+                                        <a n:href="$newsItem->linkPath" class="btn btn-primary order-2">{$newsItem->linkText->cs}</a>
                                     {/if}
                                 {/if}
                                 <p class="my-auto order-1 news-date">
-                                    {php setlocal(LC_ALL, 'cs_CZ')}
-                                    {$newsItem->displayDate|csdate:'j. F Y'}
+                                    {*{$newsItem->displayDate|localDate}*}
+                                    {*TODO set Latte locale*}
                                 </p>
                             </div>
                         </div>
