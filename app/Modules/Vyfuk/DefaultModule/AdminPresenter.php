@@ -22,8 +22,6 @@ class AdminPresenter extends BasePresenter
     protected EventService $eventService;
     protected NewsService $newsService;
 
-    public ?int $eventId = null;
-
     private Container $container;
 
 	public function __construct(Container $container)
@@ -70,16 +68,12 @@ class AdminPresenter extends BasePresenter
 		$this->redirect(':Default:Admin:page');
 	}
 
-    public function renderMedia(): void
+    public function renderMedia(?int $eventId = null): void
     {
         $this->template->events = array_reverse($this->eventService->getEvents([10, 11, 12, 18]));
 
-        bdump($this->eventId);
-
-        $event = $this->eventId ? $this->eventService->getEvent($this->eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
+        $event = $eventId ? $this->eventService->getEvent($eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
         $this->template->selectedEvent = $event;
-
-        bdump($event);
 
         $this->template->media = $this->getMedia($event->eventId);
     }
@@ -103,11 +97,11 @@ class AdminPresenter extends BasePresenter
         return $media;
     }
 
-    public function renderFiles(): void
+    public function renderFiles(?int $eventId = null): void
     {
         $this->template->events = array_reverse($this->eventService->getEvents([10, 11, 12, 18]));
 
-        $event = $this->eventId ? $this->eventService->getEvent($this->eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
+        $event = $eventId ? $this->eventService->getEvent($eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
         $this->template->selectedEvent = $event;
 
         $this->template->files = $this->getFiles($event->eventId);
