@@ -27,11 +27,10 @@ class AdminPresenter extends BasePresenter
 
     private Container $container;
 
-	public function __construct(Container $container)
-	{
-		parent::__construct();
-		$this->container = $container;
-	}
+    public function injectContainer(Container $container): void
+    {
+        $this->container = $container;
+    }
 
     public function injectService(
         Authenticator $authenticator,
