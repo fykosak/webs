@@ -24,6 +24,18 @@ final class NewsService extends AbstractJSONService
         return $this->mapJsonToClass($json, true, NewsModel::class);
     }
 
+    public function getExistingNewsIds(): array
+    {
+        $newsList = $this->loadNews();
+
+        $existingNewsIds = [];
+        foreach ($newsList as $newsItem) {
+            $existingNewsIds[] = $newsItem->newsId;
+        }
+
+        return $existingNewsIds;
+    }
+
     private function saveNews(array $newsList): void
     {
         $json = json_encode($newsList);
@@ -85,6 +97,8 @@ final class NewsService extends AbstractJSONService
                 break;
             }
         }
+
+        bdump($activeNews);
 
         return $activeNews;
     }
