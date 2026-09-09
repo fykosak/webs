@@ -26,11 +26,11 @@ final class NewsModel implements \JsonSerializable
     {
         return [
             'newsId' => $this->newsId,
-            'title' => $this->title->__serialize(),
-            'text' => $this->text->__serialize(),
-            'displayDate' => $this->displayDate->format(\DateTimeInterface::ATOM),
+            'title' => $this->title->toArray(),
+            'text' => $this->text->toArray(),
+            'displayDate' => $this->displayDate?->format(\DateTimeInterface::ATOM),
             'linkPath' => $this->linkPath,
-            'linkText' => $this->linkText?->__serialize(),
+            'linkText' => $this->linkText?->toArray(),
             'releaseDate' => $this->releaseDate->format(\DateTimeInterface::ATOM),
             'endDate' => $this->endDate?->format(\DateTimeInterface::ATOM),
             'color' => $this->color?->value,
