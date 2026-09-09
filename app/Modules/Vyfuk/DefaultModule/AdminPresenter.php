@@ -126,16 +126,27 @@ class AdminPresenter extends BasePresenter
         $event = $eventId ? $this->eventService->getEvent($eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
         $this->template->selectedEvent = $event;
 
-        $this->template->files = $this->getFiles($event->eventId);
+        if ($this->hasFilesEvent($event->eventId)) {
+            $this->template->files = $this->getFiles($event->eventId);
+        }
+    }
+
+    private function hasFilesEvent($eventId) {
+        return count($this->getFiles($eventId)) > 0;
     }
 
     public function getFiles($eventId): array
     {
         $mediaDir = $this->getMediaDir();
+        $eventDir = $mediaDir . '/download/event/' . $eventId;
         $files = [];
 
+        if (!is_dir($eventDir)) {
+            return [];
+        }
+
         try {
-            $iterator = Finder::findFiles('*.pdf')->in($mediaDir . '/download/event/' . $eventId)->getIterator();
+            $iterator = Finder::findFiles('*.pdf')->in($eventDir)->getIterator();
         } catch (\Exception $e) {
             return [];
         }
@@ -148,6 +159,10 @@ class AdminPresenter extends BasePresenter
                 'name' => $name,
             ];
         };
+
+        usort($files, function ($a, $b) {
+            return $a['name'] <=> $b['name'];
+        });
 
         return $files;
     }
