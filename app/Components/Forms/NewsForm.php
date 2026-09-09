@@ -85,6 +85,21 @@ final class NewsForm extends FormComponent
         };
         $form->addSelect('color', 'Barva', $colors)
             ->setPrompt('Vyberte jednu z možností');
+
+        $newsId = 0;
+
+        if (in_array($newsId, $this->newsService->getExistingNewsIds())) {
+
+            $news = $this->newsService->getNewsById($newsId);
+
+            $fields = ['titleCs', 'titleEn', 'textCS', 'textEn', 'linkTextCs', 'linkTextEn', 'linkPath', 'releaseDate', 'displayDate', 'endDate', 'color'];
+
+            $values = [$news->title->cs, $news->title->en, $news->text->cs, $news->text->en, $news->linkText->cs, $news->linkText->en, $news->linkPath, $news->releaseDate, $news->displayDate, $news->endDate, $news->color->value];
+
+            $data = array_combine($fields, $values);
+
+            $form->setDefaults($data);
+        }
     }
 
     protected function appendSubmitButton(Form $form): SubmitButton
