@@ -13,6 +13,8 @@ use App\Models\Downloader\Services\EventService;
 use App\Models\Downloader\Services\NewsService;
 use App\Components\Forms\NewsForm;
 use Nette\DI\Container;
+use App\Models\Images\ImageService;
+use App\Models\Images\EventImageType;
 
 use Nette\Utils\Finder;
 
@@ -21,6 +23,7 @@ class AdminPresenter extends BasePresenter
     protected Authenticator $authenticator;
     protected EventService $eventService;
     protected NewsService $newsService;
+    protected ImageService $imageService;
 
     private Container $container;
 
@@ -30,11 +33,17 @@ class AdminPresenter extends BasePresenter
 		$this->container = $container;
 	}
 
-    public function injectService(Authenticator $authenticator, EventService $eventService, NewsService $newsService): void
+    public function injectService(
+        Authenticator $authenticator,
+        EventService $eventService,
+        NewsService $newsService,
+        ImageService $imageService,
+    ): void
     {
         $this->authenticator = $authenticator;
         $this->eventService = $eventService;
         $this->newsService = $newsService;
+        $this->imageService = $imageService;
     }
 
     public function getMediaDir(): string
@@ -75,7 +84,20 @@ class AdminPresenter extends BasePresenter
         $event = $eventId ? $this->eventService->getEvent($eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
         $this->template->selectedEvent = $event;
 
-        $this->template->media = $this->getMedia($event->eventId);
+        if ($this->imageService->hasPhotosEvent($event)) {
+            $media = $this->imageService->getEventImages($event, EventImageType::Default);
+            $this->template->media = $this->addMediaNames($media);
+        }
+    }
+
+    public function addMediaNames(array $media): array
+    {
+        foreach ($media as $key => $photo) {
+            $photo['name'] = str_replace('_full', '', pathinfo($photo['src'])['filename']);
+
+            $media[$key] = $photo;
+        }
+        return $media;
     }
 
     public function getMedia($eventId): array

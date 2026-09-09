@@ -41,3 +41,30 @@ body {
     width: 100%;
     padding: 0.35rem;
 }
+
+.card {
+    overflow: hidden;
+}
+
+.photo-card .card-img-top {
+    display: block;
+    width: 100%;
+    height: 200px; /* Nastavená pevná výška, aby byly karty stejné */
+    object-fit: cover; /* Ořízne fotku, aby nedeformovala kartu */
+    transition: transform 0.5s ease;
+}
+
+.photo-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.photo-card:hover .photo-overlay {
+    opacity: 1;
+    visibility: visible;
+}

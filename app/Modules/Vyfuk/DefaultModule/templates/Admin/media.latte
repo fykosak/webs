@@ -18,10 +18,43 @@
                 {/foreach}
             </ul>
         </div>
-        <h5>Nahrané fotky:</h5>
-        <div>
-            text
+        <h5>Nahrát nové fotky:</h5>
+        <div class="file-upload-container">
+            <div class="d-flex justify-content-start align-items-center border rounded my-2 border-dark-subtle file-upload">
+                <span class="d-flex">
+                    <button type="button" class="btn btn-outline-primary">
+                        <i class="fa-solid fa-search"></i>
+                    </button>
+                </span>
+                <div class="d-flex mx-3">
+                    Vyberte fotky k nahrání...
+                </div>
+            </div>
         </div>
-    </section>
+        <h5>Nahrané fotky:</h5>
+        <div class="d-flex flex-wrap gap-3">
+        {if !$media}
+            <p>Nejsou nahrané žádné fotky.</p>
+        {/if}
+        {foreach $media as $photo}
+            <div class="card photo-card" style="width: 18rem;">
+                <img class="card-img-top" src="{$photo['thumbSrc']}" alt="Foto">
+                <div class="photo-overlay d-flex flex-column justify-content-center align-items-center">
+                    <h5 class="text-white text-center px-2">{$photo['name']}</h5>
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-outline-primary me-2">
+                            <i class="fa-solid fa-square-pen"></i>
+                            <span> Rename </span>
+                        </button>
+                        <button type="button" class="btn btn-outline-danger">
+                            <i class="fa-solid fa-times"></i>
+                            <span> Delete </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {/foreach}
+</div>
+</section>
 </div>
 {/block}
