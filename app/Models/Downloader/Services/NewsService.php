@@ -36,6 +36,19 @@ final class NewsService extends AbstractJSONService
         return $existingNewsIds;
     }
 
+    public function getNewsById(int $newsId): ?NewsModel
+    {
+        $newsList = $this->loadNews();
+
+        foreach ($newsList as $newsItem) {
+            if ($newsItem->newsId === $newsId) {
+                return $newsItem;
+            }
+        }
+
+        return null;
+    }
+
     private function saveNews(array $newsList): void
     {
         $json = json_encode($newsList);
@@ -97,8 +110,6 @@ final class NewsService extends AbstractJSONService
                 break;
             }
         }
-
-        bdump($activeNews);
 
         return $activeNews;
     }
