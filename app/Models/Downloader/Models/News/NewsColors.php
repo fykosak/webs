@@ -6,11 +6,24 @@ namespace App\Models\Downloader\Models\News;
 
 enum NewsColors: string
 {
-    case Fykos = '#1175da';
-    case DSEF = '#f2b72b';
-    case FOF = '#e6060d';
-    case FOL = '#00ae6b';
-    case Naboj = '#c22d86';
-    case Vyfuk = '#ff4800';
-    case NabojJunior = '#c32f27';
+    case Fykos = 'fykos';
+    case DSEF = 'dsef';
+    case FOF = 'fof';
+    case FOL = 'fol';
+    case Naboj = 'naboj';
+    case Vyfuk = 'vyfuk';
+    case NabojJunior = 'naboj_junior';
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::Fykos => 'Fykos',
+            NewsColors::DSEF => 'DSEF',
+            NewsColors::FOF => 'FOF',
+            NewsColors::FOL => 'FOL',
+            NewsColors::Naboj => 'Náboj',
+            NewsColors::Vyfuk => 'Výfuk',
+            NewsColors::NabojJunior => 'Náboj Junior'
+        };
+    }
 }

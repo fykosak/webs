@@ -81,19 +81,7 @@ final class NewsForm extends FormComponent
 
         $colors = [];
         foreach (NewsColors::cases() as $case) {
-            switch ($case->name) {
-                case 'Vyfuk':
-                    $colors[$case->value] = 'Výfuk';
-                    break;
-                case 'Naboj':
-                    $colors[$case->value] = 'Náboj';
-                    break;
-                case 'NabojJunior':
-                    $colors[$case->value] = 'Náboj Junior';
-                    break;
-                default:
-                    $colors[$case->value] = $case->name;
-            }
+            $colors[$case->value] = $case->label();
         };
         $form->addSelect('color', 'Barva', $colors)
             ->setPrompt('Vyberte jednu z možností');
