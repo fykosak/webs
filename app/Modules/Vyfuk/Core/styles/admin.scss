@@ -1,0 +1,70 @@
+/* Admin layout styles */
+body {
+    background-color: $panel-color-light;
+}
+
+/* Files */
+.file-editor-container {
+    max-width: 50rem;
+    width: fit-content;
+}
+
+.file-editor{
+    width: 100%;
+    padding: 0.35rem;
+}
+
+/* Files and media event selector */
+.event-selector {
+    .dropdown-toggle {
+        min-width: 16rem;
+        max-width: 100%;
+        text-align: left;
+        white-space: wrap;
+    }
+
+    .dropdown-menu {
+        min-width: 16rem;
+        max-width: 100%;
+        max-height: 14rem;
+        overflow: auto;
+        text-align: left;
+    }
+}
+
+.file-upload-container {
+    max-width: 50rem;
+    width: fit-content;
+}
+
+.file-upload {
+    width: 100%;
+    padding: 0.35rem;
+}
+
+.card {
+    overflow: hidden;
+}
+
+.photo-card .card-img-top {
+    display: block;
+    width: 100%;
+    height: 200px; /* Nastavená pevná výška, aby byly karty stejné */
+    object-fit: cover; /* Ořízne fotku, aby nedeformovala kartu */
+    transition: transform 0.5s ease;
+}
+
+.photo-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.photo-card:hover .photo-overlay {
+    opacity: 1;
+    visibility: visible;
+}
