@@ -1,6 +1,6 @@
 {varType App\Modules\Core\Language $language}
 <div class="timeline timeline-wider">
-    <div>
+    {*<div>
         <div class="timeline-group">{switch $language->value}{case cs}Úterý 10. 2.{default}Tuesday, Feb 10{/switch}
         </div>
         <div>
@@ -91,7 +91,7 @@
             <span class="timeline-element-icon"></span>
             <div class="timeline-element-content">
                 <div class="timeline-title">One Day with Physics</div>
-                <time class="timeline-element-date">09:00 - 15:00</time>{*Ta nekonzistence je úmyslná*}
+                <time class="timeline-element-date">09:00 - 15:00</time>Ta nekonzistence je úmyslná
                 <p>
                     Day full of excursions and lectures at CUNI MFF.
                 </p>
@@ -126,13 +126,13 @@
             </div>
             {/switch}
         </div>
-    </div>
+    </div>*}
     <div>
-        <div class="timeline-group">{switch $language->value}{case cs}Pátek 13. 2.{default}Friday, Feb 13{/switch}</div>
+        <div class="timeline-group">{switch $language->value}{case cs}Pátek 12. 2.{default}Friday, Feb 12{/switch}</div>
 
         {include 'competition_schedule.latte'}
 
-        <div>
+        {*<div>
             <span class="timeline-element-icon"></span>
             {switch $language->value}
             {case cs}
@@ -173,9 +173,9 @@
                 </p>
             </div>
             {/switch}
-        </div>
+        </div>*}
     </div>
-    <div>
+    {*<div>
         <div class="timeline-group">{switch $language->value}{case cs}Sobota 14. 2.{default}Saturday, Feb 14{/switch}
         </div>
 
@@ -240,5 +240,5 @@
             </div>
             {/switch}
         </div>
-    </div>
+    </div>*}
 </div>
