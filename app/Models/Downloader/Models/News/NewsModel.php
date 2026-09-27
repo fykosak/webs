@@ -10,27 +10,59 @@ use Fykosak\Utils\Localization\LangMap;
 final class NewsModel implements \JsonSerializable
 {
     public int $newsId;
-    /** @var \Fykosak\Utils\Localization\LangMap $title */
-    public LangMap $title;
-    /** @var \Fykosak\Utils\Localization\LangMap $text */
-    public LangMap $text;
+
+    public string $titleCs;
+    public string $titleEn;
+
+    public string $textCs;
+    public string $textEn;
+
     public ?\DateTimeImmutable $displayDate;
+
     public ?string $linkPath;
-    /** @var \Fykosak\Utils\Localization\LangMap $linkText */
-    public ?LangMap $linkText;
+    public ?string $linkTextCs;
+    public ?string $linkTextEn;
+
     public \DateTimeImmutable $releaseDate;
+
     public ?\DateTimeImmutable $endDate;
+
     public ?NewsColors $color;
+
+
+    public function getTitle(): LangMap
+    {
+        return new LangMap(
+            ['cs' => $this->titleCs, 'en' => $this->titleEn]
+        );
+    }
+
+    public function getText(): LangMap
+    {
+        return new LangMap(
+            ['cs' => $this->textCs, 'en' => $this->textEn]
+        );
+    }
+
+    public function getLinkText(): LangMap
+    {
+        return new LangMap(
+            ['cs' => $this->linkTextCs, 'en' => $this->linkTextEn]
+        );
+    }
 
     public function jsonSerialize(): array
     {
         return [
             'newsId' => $this->newsId,
-            'title' => $this->title->toArray(),
-            'text' => $this->text->toArray(),
+            'titleCs' => $this->titleCs,
+            'titleEn' => $this->titleEn,
+            'textCs' => $this->textCs,
+            'textEn' => $this->textEn,
             'displayDate' => $this->displayDate?->format(\DateTimeInterface::ATOM),
             'linkPath' => $this->linkPath,
-            'linkText' => $this->linkText?->toArray(),
+            'linkTextCs' => $this->linkTextCs,
+            'linkTextEn' => $this->linkTextEn,
             'releaseDate' => $this->releaseDate->format(\DateTimeInterface::ATOM),
             'endDate' => $this->endDate?->format(\DateTimeInterface::ATOM),
             'color' => $this->color?->value,
