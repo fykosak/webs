@@ -178,7 +178,7 @@ class AdminPresenter extends BasePresenter
         $this->template->activeNews = $this->newsService->getActiveNews(4);
         $this->template->newsList = $this->newsService->loadNews();
 
-        $newsItem = $newsId ? $this->newsService->getNewsById($newsId) : null;
+        $newsItem = !is_null($newsId) ? $this->newsService->getNewsById($newsId) : null;
         $this->template->selectedNewsItem = $newsItem;
     }
 
