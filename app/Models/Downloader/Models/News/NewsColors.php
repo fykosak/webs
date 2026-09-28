@@ -12,7 +12,7 @@ enum NewsColors: string
     case FOL = 'fol';
     case Naboj = 'naboj';
     case Vyfuk = 'vyfuk';
-    case NabojJunior = 'naboj_junior';
+    case NabojJunior = 'naboj-junior';
 
     public function label(): string
     {

@@ -94,7 +94,7 @@ final class NewsService extends AbstractJSONService
         $this->saveNews($newsList);
     }
 
-    public function getActiveNews(int $maxCount): array
+    public function getActiveNews(?int $maxCount = null): array
     {
         $newsList = $this->loadNews();
         usort($newsList, fn(NewsModel $a, NewsModel $b): int => $a->releaseDate <=> $b->releaseDate);
@@ -102,7 +102,7 @@ final class NewsService extends AbstractJSONService
         $activeNews = [];
         $now = new DateTime();
         foreach ($newsList as $newsItem) {
-            if (count($activeNews) < $maxCount) {
+            if (count($activeNews) < $maxCount || $maxCount === null) {
                 if ($now > $newsItem->releaseDate and !$newsItem->endDate || $now < $newsItem->endDate) {
                     $activeNews[] = $newsItem;
                 }

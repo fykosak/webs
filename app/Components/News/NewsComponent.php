@@ -19,4 +19,10 @@ class NewsComponent extends DIComponent
         $this->template->newsList = $newsList;
         $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'vyfuk.latte');
     }
+
+    public function renderFykos(array $newsList): void
+    {
+        $this->template->newsList = $newsList;
+        $this->template->render(__DIR__ . DIRECTORY_SEPARATOR . 'fykos.latte', ['lang' => $this->translator->lang]);
+    }
 }

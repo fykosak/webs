@@ -4,14 +4,23 @@ declare(strict_types=1);
 
 namespace App\Modules\Fykos\DefaultModule;
 
+use App\Models\Downloader\Services\NewsService;
+
 class DefaultPresenter extends BasePresenter
 {
+    private NewsService $newsService;
+
+    public function injectNewsService(NewsService $newsService): void
+    {
+        $this->newsService = $newsService;
+    }
+
     /**
      * @throws \Throwable
      */
     public function renderDefault(): void
     {
-        $this->template->newsList = $this->loadNews();
+        $this->template->newsList = $this->newsService->getActiveNews();
 
         $this->loadEventData();
 
@@ -71,35 +80,6 @@ class DefaultPresenter extends BasePresenter
 
         # Choose randomly from the options
         return $headerTextOptions[array_rand($headerTextOptions)];
-    }
-
-    public function loadNews(): array
-    {
-        // load json
-        $json = file_get_contents(__DIR__ . '/templates/Default/news.json');
-        $newsList = json_decode($json, true);
-
-        // implement colors
-        foreach ($newsList[$this->language->value] as &$news) {
-            switch ($news['color']) {
-                case 'fof':
-                    $news['color'] = '#e6060d';
-                    break;
-                case 'fol':
-                    $news['color'] = '#00ae6b';
-                    break;
-                case 'fykos':
-                    $news['color'] = '#1175da';
-                    break;
-                case 'dsef':
-                    $news['color'] = '#f2b72b';
-                    break;
-                case 'naboj':
-                    $news['color'] = '#c22d86';
-            }
-        }
-
-        return $newsList;
     }
 
     private function fmtDate(string $date): string
