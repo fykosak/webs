@@ -114,7 +114,7 @@ final class NewsForm extends FormComponent
         $data = $form->getValues(NewsModel::class);
         $data->newsId = $this->newsId;
 
-        bdump($data);
+        $this->newsService->editNews($data);
 
         $this->flashMessage('Novinka uložena', MessageLevel::Success);
         $this->presenter->redirect('this');

@@ -51,7 +51,8 @@ final class NewsService extends AbstractJSONService
 
     private function saveNews(array $newsList): void
     {
-        $json = json_encode($newsList);
+        $data = ['news' => $newsList];
+        $json = json_encode($data, JSON_PRETTY_PRINT);
         file_put_contents($this->mediaDir . '/news.json', $json);
     }
 
