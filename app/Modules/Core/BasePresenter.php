@@ -7,6 +7,7 @@ namespace App\Modules\Core;
 use App\Components\ImageGallery\ImageGalleryControl;
 use App\Components\Navigation\Navigation;
 use App\Components\PdfGallery\PdfGalleryControl;
+use App\Components\News\NewsComponent;
 use App\Models\Exceptions\UnderConstructionException;
 use App\Models\SettingsService;
 use Fykosak\Utils\Localization\GettextTranslator;
@@ -208,5 +209,10 @@ abstract class BasePresenter extends Presenter
     protected function createComponentPdfGallery(): PdfGalleryControl
     {
         return new PdfGalleryControl($this->getContext());
+    }
+
+    protected function createComponentNews(): NewsComponent
+    {
+        return new NewsComponent($this->getContext());
     }
 }

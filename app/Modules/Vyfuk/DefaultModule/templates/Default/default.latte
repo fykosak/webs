@@ -43,34 +43,8 @@
 <div class="panel color-light">
     <section class="inner-container">
         <h2>Aktuality</h2>
-            <div class="row">
-            {foreach $newsList as $newsItem}
-                {*{var $marginClass = "mt-md-4"}
-                {if $orderNumber < 2}
-                    {php $marginClass = "mb-md-4"}
-                {/if}*}
-                <div class="col-md-6 mt-2 mb-2">{*{$marginClass}*}
-                    <div class="card news-card">
-                        <div class="card-body d-flex align-items-start flex-column">
-                            <h5 class="card-title">{$newsItem->getTitle()->cs}</h5>
-                            <p class="card-text">{$newsItem->getText()->cs|noescape}</p>
-                            <div class="d-flex flex-row-reverse w-100 justify-content-between mt-auto news-footer">
-                                {if $newsItem->getLinkText() && $newsItem->linkPath}
-                                    {if strpos($newsItem->linkPath, 'http') === 0}
-                                        <a href="{$newsItem->linkPath}" class="btn btn-primary order-2">{$newsItem->getLinkText()->cs}</a>
-                                    {else}
-                                        <a n:href="$newsItem->linkPath" class="btn btn-primary order-2">{$newsItem->getLinkText()->cs}</a>
-                                    {/if}
-                                {/if}
-                                <p class="my-auto order-1 news-date">
-                                    {*{$newsItem->displayDate|localDate}*}
-                                    {*TODO set Latte locale*}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {/foreach}
+        <div class="row">
+            {control news:vyfuk $newsList}
         </div>
     </section>
     <section class="inner-container mt-5">

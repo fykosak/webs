@@ -11,9 +11,9 @@
                 {$selectedNewsItem->title->cs} (#{$selectedNewsItem->newsId})
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {foreach $news as $news}
-                    <li><a class="dropdown-item py-2" href="{plink 'this' 'newsId'=>$news->newsId}">
-                        {$news->getTitle()->cs} (#{$news->newsId})
+                {foreach $newsList as $newsItem}
+                    <li><a class="dropdown-item py-2" href="{plink 'this' 'newsId'=>$newsItem->newsId}">
+                        {$newsItem->getTitle()->cs} (#{$newsItem->newsId})
                     </a></li>
                 {/foreach}
             </ul>
@@ -32,7 +32,7 @@
     {/if}
     <h5>Aktivní novinky:</h5>
         <div class="row">
-            {control news:vyfuk $news}
+            {control news:vyfuk $activeNews}
         </div>
     </section>
 </div>
