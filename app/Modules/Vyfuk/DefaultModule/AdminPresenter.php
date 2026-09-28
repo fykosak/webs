@@ -101,25 +101,6 @@ class AdminPresenter extends BasePresenter
         return $media;
     }
 
-    public function getMedia($eventId): array
-    {
-        $mediaDir = $this->getMediaDir();
-        $media = [];
-
-        try {
-                $iterator = Finder::findFiles('*.jpg', '*.jpeg', '*.png', '*.JPG', '*.gif', '*.bmp', '*.webp')->in($mediaDir . '/photos/event/' . $eventId)->getIterator();
-        } catch (\Exception $e) {
-            return [];
-        }
-
-        foreach ($iterator as $file) {
-            $name = pathinfo($file->getPathname())['filename'];
-            $media[] = $name;
-        };
-
-        return $media;
-    }
-
     public function renderFiles(?int $eventId = null): void
     {
         $this->template->events = array_reverse($this->eventService->getEvents([10, 11, 12, 18]));
