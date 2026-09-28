@@ -12,7 +12,6 @@ use Nette\Application\ForbiddenRequestException;
 use App\Models\Downloader\Services\EventService;
 use App\Models\Downloader\Services\NewsService;
 use App\Components\Forms\NewsForm;
-use Nette\DI\Container;
 use App\Models\Images\ImageService;
 use App\Models\Images\EventImageType;
 use Fykosak\Utils\Logging\MessageLevel;
@@ -26,13 +25,6 @@ class AdminPresenter extends BasePresenter
     protected EventService $eventService;
     protected NewsService $newsService;
     protected ImageService $imageService;
-
-    private Container $container;
-
-    public function injectContainer(Container $container): void
-    {
-        $this->container = $container;
-    }
 
     public function injectService(
         Authenticator $authenticator,
@@ -152,7 +144,7 @@ class AdminPresenter extends BasePresenter
     protected function createComponentNewsForm(): NewsForm
     {
         return new NewsForm(
-            $this->container,
+            $this->getContext(),
             (int) $this->getParameter('newsId')
         );
     }
