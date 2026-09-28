@@ -15,6 +15,8 @@ use App\Components\Forms\NewsForm;
 use Nette\DI\Container;
 use App\Models\Images\ImageService;
 use App\Models\Images\EventImageType;
+use Fykosak\Utils\Logging\MessageLevel;
+use Fykosak\Utils\Localization\LangMap;
 
 use Nette\Utils\Finder;
 
@@ -218,4 +220,18 @@ class AdminPresenter extends BasePresenter
         return $items;
     }
 
+    #[\Override]
+    public function flashMessage(
+        \Stringable|string|\stdClass|LangMap $message,
+        string|MessageLevel $type = 'info'
+    ): \stdClass {
+        if ($message instanceof LangMap) {
+            $message = $this->translator->getVariant($message);
+        }
+        elseif ($type instanceof MessageLevel) {
+            $type = $type->value;
+        }
+        /** @phpstan-ignore argument.type */
+        return parent::flashMessage($message, $type);
+    }
 }

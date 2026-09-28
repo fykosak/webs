@@ -4,6 +4,11 @@
 <div class="panel color-auto">
     <section class="inner-container">
     <h1>Správa novinek</h1>
+        <div n:foreach="$flashes as $flash" n:class="alert, alert-dismissible, fade, show, shadow-sm, $flash->type === 'error' || $flash->type === 'danger' ? 'alert-danger' : ($flash->type === 'success' ? 'alert-success' : ($flash->type === 'warning' ? 'alert-warning' : 'alert-info'))" role="alert">
+            <i n:class="bi, me-2, $flash->type === 'error' || $flash->type === 'danger' ? 'bi-exclamation-triangle-fill' : ($flash->type === 'success' ? 'bi-check-circle-fill' : ($flash->type === 'warning' ? 'bi-exclamation-circle-fill' : 'bi-info-circle-fill'))"></i>
+            {$flash->message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         <h5>Vybrat novinku:</h5>
         <div class="dropdown event-selector mb-3">
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"

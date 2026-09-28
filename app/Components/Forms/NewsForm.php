@@ -104,19 +104,41 @@ final class NewsForm extends FormComponent
         }
     }
 
-    protected function appendSubmitButton(Form $form): SubmitButton
+    protected function appendSaveButton(Form $form): SubmitButton
     {
         return $form->addSubmit('save', 'Uložit')->setHtmlAttribute('class', 'btn btn-primary');
     }
 
-    public function handleSuccess(Form $form): void
+    protected function appendDeleteButton(Form $form): SubmitButton
+    {
+        return $form->addSubmit('delete', 'Smazat novinku')->setHtmlAttribute('class', 'btn btn-danger');
+    }
+
+    public function getFormData(Form $form): NewsModel
     {
         $data = $form->getValues(NewsModel::class);
         $data->newsId = $this->newsId;
 
-        $this->newsService->editNews($data);
+        return $data;
+    }
 
-        $this->flashMessage('Novinka uložena', MessageLevel::Success);
+    public function handleSave(Form $form): void
+    {
+        $newsItem = $this->getFormData($form);
+
+        $this->newsService->editNews($newsItem);
+
+        $this->getPresenter()->flashMessage('Novinka uložena', MessageLevel::Success);
+        $this->presenter->redirect('this');
+    }
+
+    public function handleDelete(Form $form): void
+    {
+        $newsItem = $this->getFormData($form);
+
+        $this->newsService->deleteNews($newsItem);
+
+        $this->getPresenter()->flashMessage('Novinka smazána', MessageLevel::Warning);
         $this->presenter->redirect('this');
     }
 }

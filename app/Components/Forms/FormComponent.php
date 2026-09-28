@@ -34,10 +34,22 @@ abstract class FormComponent extends DIComponent
 
         $this->configureForm($control->getForm());
 
-        $this->appendSubmitButton($control->getForm())->onClick[] =
+        $this->appendSaveButton($control->getForm())->onClick[] =
             function (SubmitButton $button): void {
                 try {
-                    $this->handleSuccess($button->getForm());
+                    $this->handleSave($button->getForm());
+                } catch (AbortException $exception) {
+                    throw $exception;
+                } catch (\Throwable $exception) {
+                    Debugger::log($exception, Debugger::EXCEPTION);
+                    Debugger::barDump($exception);
+                    $this->flashMessage($exception->getMessage(), MessageLevel::Error);
+                }
+            };
+        $this->appendDeleteButton($control->getForm())->onClick[] =
+            function (SubmitButton $button): void {
+                try {
+                    $this->handleDelete($button->getForm());
                 } catch (AbortException $exception) {
                     throw $exception;
                 } catch (\Throwable $exception) {
@@ -52,7 +64,11 @@ abstract class FormComponent extends DIComponent
 
     abstract protected function configureForm(Form $form): void;
 
-    abstract protected function appendSubmitButton(Form $form): SubmitButton;
+    abstract protected function appendSaveButton(Form $form): SubmitButton;
 
-    abstract protected function handleSuccess(Form $form): void;
+    abstract protected function appendDeleteButton(Form $form): SubmitButton;
+
+    abstract protected function handleSave(Form $form): void;
+
+    abstract protected function handleDelete(Form $form): void;
 }
