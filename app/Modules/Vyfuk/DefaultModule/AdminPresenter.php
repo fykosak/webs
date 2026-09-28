@@ -166,10 +166,11 @@ class AdminPresenter extends BasePresenter
         return $files;
     }
 
-     protected function createComponentNewsForm(): NewsForm
+    protected function createComponentNewsForm(): NewsForm
     {
         return new NewsForm(
-            $this->container
+            $this->container,
+            (int) $this->getParameter('newsId')
         );
     }
 

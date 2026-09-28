@@ -19,10 +19,14 @@ final class NewsForm extends FormComponent
 {
     private NewsService $newsService;
 
+    private int $newsId;
+
     public function __construct(
-        Container $container
+        Container $container,
+        int $newsId
     ) {
         parent::__construct($container);
+        $this->newsId = $newsId;
     }
 
     public function injectNewsService (NewsService $newsService): void
@@ -86,11 +90,9 @@ final class NewsForm extends FormComponent
         $form->addSelect('color', 'Barva', $colors)
             ->setPrompt('Vyberte jednu z možností');
 
-        $newsId = 0; // temporary variable
+        if (in_array($this->newsId, $this->newsService->getExistingNewsIds())) {
 
-        if (in_array($newsId, $this->newsService->getExistingNewsIds())) {
-
-            $news = $this->newsService->getNewsById($newsId);
+            $news = $this->newsService->getNewsById($this->newsId);
 
             $fields = ['titleCs', 'titleEn', 'textCs', 'textEn', 'linkTextCs', 'linkTextEn', 'linkPath', 'releaseDate', 'displayDate', 'endDate', 'color'];
 
@@ -110,6 +112,7 @@ final class NewsForm extends FormComponent
     public function handleSuccess(Form $form): void
     {
         $data = $form->getValues(NewsModel::class);
+        $data->newsId = $this->newsId;
 
         bdump($data);
 
