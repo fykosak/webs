@@ -18,7 +18,7 @@ final class NewsService extends AbstractJSONService
         $this->mediaDir = $container->getParameter('mediaDir');
     }
 
-    private function loadNews(): array
+    public function loadNews(): array
     {
         $json = json_decode(file_get_contents($this->mediaDir . '/news.json'), true)['news'];
         return $this->mapJsonToClass($json, true, NewsModel::class);

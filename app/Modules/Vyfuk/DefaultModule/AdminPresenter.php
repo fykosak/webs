@@ -173,9 +173,13 @@ class AdminPresenter extends BasePresenter
         );
     }
 
-    public function renderNews(): void
+    public function renderNews(?int $newsId = null): void
     {
-        $this->template->news = $this->newsService->getActiveNews(4);
+        $this->template->activeNews = $this->newsService->getActiveNews(4);
+        $this->template->news = $this->newsService->loadNews();
+
+        $newsItem = $newsId ? $this->newsService->getNewsById($newsId) : null;
+        $this->template->selectedNewsItem = $newsItem;
     }
 
     /**
