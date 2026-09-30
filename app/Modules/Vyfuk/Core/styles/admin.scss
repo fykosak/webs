@@ -14,21 +14,43 @@ body {
     padding: 0.35rem;
 }
 
-/* Files and media event selector */
-.event-selector {
+/* News + files and media event selector */
+.dropdown-selector {
+    display: inline-grid;
+    grid-template-columns: minmax(0, max-content);
+    grid-template-rows: auto 0;
+    width: fit-content;
+    max-width: 100%;
+    min-width: 0;
+    vertical-align: top;
+
     .dropdown-toggle {
-        min-width: 16rem;
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
         max-width: 100%;
         text-align: left;
-        white-space: wrap;
+        white-space: normal;
     }
 
     .dropdown-menu {
-        min-width: 16rem;
+        grid-column: 1;
+        grid-row: 2;
+        position: static !important;
+        inset: auto !important;
+        transform: none !important;
+        width: max-content;
+        min-width: 100%;
         max-width: 100%;
+        height: max-content;
         max-height: 14rem;
+        margin: 0;
         overflow: auto;
         text-align: left;
+
+        .dropdown-item {
+            white-space: normal;
+        }
     }
 }
 
