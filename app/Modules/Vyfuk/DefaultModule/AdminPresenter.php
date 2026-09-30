@@ -143,9 +143,15 @@ class AdminPresenter extends BasePresenter
 
     protected function createComponentNewsForm(): NewsForm
     {
+        $newsId = $this->getParameter('newsId');
+
+        if ($newsId !== null) {
+            $newsId = (int) $newsId;
+        }
+
         return new NewsForm(
             $this->getContext(),
-            (int) $this->getParameter('newsId')
+            $newsId
         );
     }
 
@@ -156,6 +162,16 @@ class AdminPresenter extends BasePresenter
 
         $newsItem = !is_null($newsId) ? $this->newsService->getNewsById($newsId) : null;
         $this->template->selectedNewsItem = $newsItem;
+    }
+
+    public function actionNewsCreate(): void
+    {
+        $this->setView('newsCreate');
+    }
+
+    public function renderNewsCreate(): void
+    {
+        $this->template->activeNews = $this->newsService->getActiveNews(4);
     }
 
     /**

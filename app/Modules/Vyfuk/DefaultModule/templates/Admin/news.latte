@@ -3,43 +3,51 @@
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
-    <h1>Správa novinek</h1>
+        <h1>Správa novinek</h1>
         <div n:foreach="$flashes as $flash" n:class="alert, alert-dismissible, fade, show, shadow-sm, $flash->type === 'error' || $flash->type === 'danger' ? 'alert-danger' : ($flash->type === 'success' ? 'alert-success' : ($flash->type === 'warning' ? 'alert-warning' : 'alert-info'))" role="alert">
             <i n:class="bi, me-2, $flash->type === 'error' || $flash->type === 'danger' ? 'bi-exclamation-triangle-fill' : ($flash->type === 'success' ? 'bi-check-circle-fill' : ($flash->type === 'warning' ? 'bi-exclamation-circle-fill' : 'bi-info-circle-fill'))"></i>
             {$flash->message}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <h5>Vybrat novinku:</h5>
-        <div class="dropdown event-selector mb-3">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                {if $selectedNewsItem}
-                    {$selectedNewsItem->getTitle()->cs} (#{$selectedNewsItem->newsId})
-                {else}
-                    Vyberte novinku
-                {/if}
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {foreach $newsList as $newsItem}
-                    <li><a class="dropdown-item py-2" href="{plink 'this' 'newsId'=>$newsItem->newsId}">
-                        {$newsItem->getTitle()->cs} (#{$newsItem->newsId})
-                    </a></li>
-                {/foreach}
-            </ul>
+        <div class="d-flex mb-3">
+            <div class="dropdown dropdown-selector">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-pencil"></i><span class="skip-3px"></span>
+                    <span class="px-1">
+                    {if $selectedNewsItem}
+                        {$selectedNewsItem->getTitle()->cs} (#{$selectedNewsItem->newsId})
+                    {else}
+                        Vyberte novinku
+                    {/if}
+                    <span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {foreach $newsList as $newsItem}
+                        <li><a class="dropdown-item py-2" href="{plink 'this' 'newsId'=>$newsItem->newsId}">
+                            {$newsItem->getTitle()->cs} (#{$newsItem->newsId})
+                        </a></li>
+                    {/foreach}
+                </ul>
+            </div>
+            <a class="btn btn-primary ms-1" n:href="newsCreate">
+                <i class="fas fa-plus"></i><span class="skip-3px"></span>
+                Vytvořit novinku
+            </a>
         </div>
-    <h5>Upravit novinku:</h5>
-    {if $selectedNewsItem}
-        <div class="col-md-6 mt-4">
-            <div class="card">
-                <div class="card-body d-flex align-items-start flex-column">
-                    {control newsForm}
+        <h5>Upravit novinku:</h5>
+        {if $selectedNewsItem}
+            <div class="col-md-6 mt-4">
+                <div class="card">
+                    <div class="card-body d-flex align-items-start flex-column">
+                        {control newsForm}
+                    </div>
                 </div>
             </div>
-        </div>
-    {else}
-        <p>Nejdříve zvolte jakou novinku chcete upravit.</p>
-    {/if}
-    <h5 class="mt-3">Aktivní novinky:</h5>
+        {else}
+            <p>Nejdříve zvolte jakou novinku chcete upravit.</p>
+        {/if}
+        <h5 class="mt-3">Aktuální novinky:</h5>
         <div class="row">
             {control news:vyfuk $activeNews}
         </div>

@@ -19,11 +19,11 @@ final class NewsForm extends FormComponent
 {
     private NewsService $newsService;
 
-    private int $newsId;
+    private ?int $newsId;
 
     public function __construct(
         Container $container,
-        int $newsId
+        ?int $newsId
     ) {
         parent::__construct($container);
         $this->newsId = $newsId;
@@ -90,7 +90,7 @@ final class NewsForm extends FormComponent
         $form->addSelect('color', 'Barva', $colors)
             ->setPrompt('Vyberte jednu z možností');
 
-        if (in_array($this->newsId, $this->newsService->getExistingNewsIds())) {
+        if (!is_null($this->newsId) && in_array($this->newsId, $this->newsService->getExistingNewsIds())) {
 
             $news = $this->newsService->getNewsById($this->newsId);
 
@@ -109,32 +109,33 @@ final class NewsForm extends FormComponent
         return $form->addSubmit('save', 'Uložit')->setHtmlAttribute('class', 'btn btn-primary');
     }
 
-    protected function appendDeleteButton(Form $form): SubmitButton
+    protected function appendDeleteButton(Form $form): ?SubmitButton
     {
-        return $form->addSubmit('delete', 'Smazat novinku')->setHtmlAttribute('class', 'btn btn-danger');
-    }
-
-    public function getFormData(Form $form): NewsModel
-    {
-        $data = $form->getValues(NewsModel::class);
-        $data->newsId = $this->newsId;
-
-        return $data;
+        return !is_null($this->newsId) ? $form->addSubmit('delete', 'Smazat novinku')->setHtmlAttribute('class', 'btn btn-danger')->setValidationScope([]) : null;
     }
 
     public function handleSave(Form $form): void
     {
-        $newsItem = $this->getFormData($form);
+        $newsItem = $form->getValues(NewsModel::class);
 
-        $this->newsService->editNews($newsItem);
+        if (is_null($this->newsId)) {
+            $newsItem->newsId = max($this->newsService->getExistingNewsIds()) + 1;
+            $this->newsService->createNews($newsItem);
+            $message = 'Novinka vytvořena';
+        } else {
+            $newsItem->newsId = $this->newsId;
+            $this->newsService->editNews($newsItem);
+            $message = 'Novinka upravena';
+        }
 
-        $this->getPresenter()->flashMessage('Novinka uložena', MessageLevel::Success);
-        $this->presenter->redirect('this');
+        $this->getPresenter()->flashMessage($message, MessageLevel::Success);
+        $this->presenter->redirect('news');
     }
 
     public function handleDelete(Form $form): void
     {
-        $newsItem = $this->getFormData($form);
+        $newsItem = $form->getValues(NewsModel::class);
+        $newsItem->newsId = $this->newsId;
 
         $this->newsService->deleteNews($newsItem);
 
