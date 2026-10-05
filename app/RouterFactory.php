@@ -357,6 +357,27 @@ class RouterFactory
                 null => self::useTranslateFilter($domainList, $routerMapping['default']),
             ]);
 
+        $router->withModule('Default')
+            ->addRoute('//<domain>/admin/<action files|media>/<eventId ([0-9]+)>', [
+                'presenter' => 'Admin',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
+        $router->withModule('Default')
+            ->addRoute('//<domain>/admin/<action news>/<newsId ([0-9]+)>', [
+                'presenter' => 'Admin',
+                'action' => 'default',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
+        $router->withModule('Default')
+            ->addRoute('//<domain>/admin/news/create', [
+                'presenter' => 'Admin',
+                'action' => 'newsCreate',
+                null => self::useTranslateFilter($domainList, $routerMapping['default']),
+            ]);
+
         $router
             ->withModule('Default')
             ->addRoute(
