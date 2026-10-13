@@ -1,6 +1,18 @@
 {
   "cs": [
     {
+      "title": "Zadání 2. série",
+      "text": "Máme za sebou konec 1. série, ve které jsme oslavili rekordní počet řešitelů. Opravování vašich prací proto bude také trvat o něco déle, avšak nezoufejte. Čekání si můžete zkrátit řešením 2. série 16. ročníku, jejíž zadání již naleznete na webu. Doufáme, že se do ní zapojíte stejně nadšeně jako do té první. Na vaše odevzdaná řešení se budeme těšit 23. listopadu ve 20:00.",
+      "date": "13. října 2026",
+      "link": ":Default:Problems:",
+      "link-text": "Zadání"
+    },
+    {
+      "title": "Výfuk slaví rekordní počet řešitelů",
+      "text": "Letos se do 1. série 16. ročníku Výfuku zapojil rekordní počet řešitelů! V této sérii odevzdalo 622 účastníků celkem 2229 řešení, čímž byl překročen historicky nejvyšší počet řešitelů z minulého ročníku. Doufáme, že jste si první sérii užili stejně jako my, kteří si užijeme její opravování. Chtěli bychom vám poděkovat za účast a také všem organizátorům a sponzorům, bez kterých by fungování Výfuku nebylo možné. Protože máme takto enormní počet řešení, je možné, že si na opravená řešení budete muset počkat trochu déle.",
+      "date": "13. října 2026"
+    },
+    {
       "title": "Spuštění registrace na Podzimní setkání",
       "text": "Už známe termín spuštění registrace na letošní Podzimní setkání! Registovat se od <strong>15. října 20:00</strong> bude moct každý, kdo v letošní první sérii odevzdá alespoň jednu úlohu – při registrace ovšem nezáleží na úspěšnosti, ale pouze na času přihlášení. Přihlásit se mohou i deváťáci, kteří odevzdali alespoň jednu úlohu v prázninových sériích minulého ročníku. Jako každý rok, i letos bude registrace probíhat v systému <a href='https://db.fykos.cz'>FKSDB</a>, kde odevzdáváte svá řešení.",
       "date": "26. září 2026",
@@ -13,20 +25,6 @@
       "date": "13. září 2026",
       "link": ":Default:Results:",
       "link-text": "Pořadí"
-    },
-    {
-      "title": "Termín Podzimního setkání",
-      "text": "Podzimní setkání řešitelů letos proběhne o víkendu od 6. do 8. listopadu v Praze. Již tradičně budeme ubytovaní na Gymnáziu Nad Alejí, kde na vás čeká program plný zábavy a fyziky. O možnosti jet na setkání nerozhoduje pořadí – pozveme všechny řešitele, kdo se odevzdáním alespoň jedné úlohy zapojí do nově zveřejněné 1. série 16. ročníku Výfuku. Zúčastnit se naposledy mohou i deváťáci, kteří řešili v této kategorii prázdninové série. O termínu registrace budeme informovat později.",
-      "date": "1. září 2026",
-      "link": ":Default:Events:setkani",
-      "link-text": "Stránka setkání"
-    },
-    {
-      "title": "Zadání 1. série",
-      "text": "Prázdniny skončily a s nimi i 15. ročník Výfuku. Ale nemusíte být smutní, protože další, už 16. ročník právě začal. V průběhu roku se můžete těšit na 6 sérií, z nichž první můžete řešit již nyní. Na vaše řešení se budeme těšit do pondělí 12. října.",
-      "date": "1. září 2026",
-      "link": ":Default:Problems:",
-      "link-text": "Zadání"
     }
   ]
 }
