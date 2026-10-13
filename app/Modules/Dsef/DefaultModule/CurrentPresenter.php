@@ -42,7 +42,7 @@ class CurrentPresenter extends BasePresenter
         $data = $this->downloader->download(new ScheduleRequest($this->getNewestEvent()->eventId, ['excursion']));
         $filteredData = [];
         foreach ($data as $datum) {
-            if (in_array($datum['groupId'], [295, 296], true)) {
+            if (in_array($datum['groupId'], [294, 296], true)) {
                 $filteredData[$datum['groupId']] = $datum;
             }
         }

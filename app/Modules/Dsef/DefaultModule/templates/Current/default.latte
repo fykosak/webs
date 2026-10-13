@@ -231,16 +231,16 @@
                 </table>
             </div>
             <div class="my-5">
-                <h2>{$data[295]['name']['cs']}</h2>
+                <h2>{$data[294]['name']['cs']}</h2>
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th>Skupina</th>
-                        <th>{(new \DateTime($data[295]['start']))->format('H:i')}–{(new \DateTime($data[295]['end']))->format('H:i')}</th>
+                        <th>{(new \DateTime($data[294]['start']))->format('H:i')}–{(new \DateTime($data[294]['end']))->format('H:i')}</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {foreach $data[295]['items'] as $item}
+                    {foreach $data[294]['items'] as $item}
                         <tr>
                             <td><strong>{$item['name']['cs']}</strong></td>
                             <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
@@ -335,9 +335,9 @@ tunelová mikroskopie (STM)
                 <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
                 {$item['longDescription']['cs']|noescape}
             {/foreach}
-            <h2>{$data[295]['name']['cs']}</h2>
+            <h2>{$data[294]['name']['cs']}</h2>
             <hr/>
-            {foreach $data[295]['items'] as $item}
+            {foreach $data[294]['items'] as $item}
                 <strong class="subheader mt-3">{$item['name']['cs']}</strong>
                 <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
                 {$item['longDescription']['cs']|noescape}
