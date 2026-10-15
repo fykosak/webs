@@ -289,6 +289,7 @@
                     </thead>
                     <tbody>
                     {foreach $data[296]['items'] as $item}
+                    {continueIf !$item['showOnWeb']}
                         <tr>
                             <td><strong>{$item['name']['cs']}</strong></td>
                             <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
@@ -308,6 +309,7 @@
                     </thead>
                     <tbody>
                     {foreach $data[294]['items'] as $item}
+                    {continueIf !$item['showOnWeb']}
                         <tr>
                             <td><strong>{$item['name']['cs']}</strong></td>
                             <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
@@ -392,6 +394,7 @@
             <hr/>
             <h2 style="margin-bottom: 0.6em">{$data[296]['name']['cs']}</h2>
             {foreach $data[296]['items'] as $item}
+            {continueIf !$item['showOnWeb']}
                 <strong class="subheader mt-3">{$item['name']['cs']}</strong>
                 <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
                 {$item['longDescription']['cs']|noescape}
@@ -399,6 +402,7 @@
             <hr/>
             <h2 style="margin-bottom: 0.6em">{$data[294]['name']['cs']}</h2>
             {foreach $data[294]['items'] as $item}
+            {continueIf !$item['showOnWeb']}
                 <strong class="subheader mt-3">{$item['name']['cs']}</strong>
                 <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
                 {$item['longDescription']['cs']|noescape}
