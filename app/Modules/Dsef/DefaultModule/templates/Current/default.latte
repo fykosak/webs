@@ -5,19 +5,17 @@
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
-            <!-- <div class="subheader">Aktuální stránka akce z {*$event->begin|date: "j. n. Y"*}</div>
-        <h1>DSEF {*$event->begin|date: "Y"*}</h1> -->
             <h1>Základní informace</h1>
 
             <p>Den s experimentální fyzikou se bude konat {$newestEvent->begin|date: 'j. n. Y'} v Troji.
-{*
+                {*
                 Registrace se otevře {$newestEvent->registrationBegin|date: 'j. n. Y'} v {$newestEvent->registrationBegin|date: 'H:i'}
                     a skončí {$newestEvent->registrationEnd|date: 'j. n. Y'}.
                 Rozvržení jednotlivých exkurzí budeme postupně přidávat. *}
-                Pro účastníky z
 
-                daleka
+                Pro účastníky z daleka
                 je jako každý rok připravené dotované ubytování z neděle na pondělí.
+
                 {*Pokud máte nějaký dotaz nebo problém, neváhejte nám napsat na e-mail <a
                         href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.*}
             </p>
@@ -30,47 +28,115 @@
 
             <h4 id="zacatek-dsefu">Začátek DSEFu</h4>
             <ul>
-                <li>Příjezd pro ubytované v hostelu je v neděli od 16:00 až do půlnoci. Pondělní snídaně (pouze pro
+                <li>
+                    Příjezd pro ubytované v hostelu je v neděli od 16:00 až do půlnoci. Pondělní snídaně (pouze pro
                     ubytované) od 7:00.
                 </li>
-                <li>Prezence účastníků proběhne v čase <strong>8:00–8:30 na
-                        Matematicko-fyzikální fakultě ve vestibulu budovy T v Troji na adrese V Holešovičkách 2/747</strong>. Po registraci následuje zahájení DSEFu a ranní přednáška.
+                <li>
+                    Prezence účastníků proběhne od <strong>8:00 do 8:30 na Matematicko-fyzikální fakultě ve <a href="https://www.mff.cuni.cz/cs/vnitrni-zalezitosti/budovy-a-arealy/troja">vestibulu budovy T v Troji</a> na adrese V Holešovičkách 2/747</strong>.
+                    Po prezenci následuje zahájení DSEFu a ranní přednáška.
                 </li>
             </ul>
-            <h4 id="slavnostni-zahajeni">Slavnostní zahájení DSEFu (8:50–9:05)</h4>
-            <h4 id="ranni-prednaska">Ranní přednáška (9:05–10:00)</h4>
-            <p class="ms-3">
-                <b>Experimenty ve fyzice počasí a klimatu: od přístrojových měření k počítačovým modelům</b><br/>
-                doc. Mgr. Michal Belda, Ph.D.<br/>
+
+            {* Timeline *}
+            <div class="timeline timeline-wider">
+                <div>
+                    <div class="timeline-group">Neděle {(clone $newestEvent->begin)->modify('-1 day')|date: 'j. n'}
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <time class="timeline-element-date">16:00 - 23:59</time>
+                            <div class="timeline-title">Příjezd pro ubytované na hostelu</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="timeline-group">Pondělí {$newestEvent->begin|date: 'j. n'}
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <time class="timeline-element-date">8:00 - 8:30</time>
+                            <div class="timeline-title">Prezence</div>
+                            <p>Matematicko-fyzikální fakulta, <a href="https://www.mff.cuni.cz/cs/vnitrni-zalezitosti/budovy-a-arealy/troja">vestibul budovy T v Troji</a> na adrese <strong>V Holešovičkách 2/747</strong>.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <time class="timeline-element-date">8:50 - 9:05</time>
+                            <div class="timeline-title">Slavnostní zahájení DSEFu</div>
+                            <p>Posluchárna T1.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <time class="timeline-element-date">9:05 - 10:00</time>
+                            <div class="timeline-title">Ranní přednáška</div>
+                            <p>doc. Mgr. Michal Belda, Ph.D. | Experimenty ve fyzice počasí a klimatu: od přístrojových měření k počítačovým modelům | posluchárna T1.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <time class="timeline-element-date">10:00 - 12:00</time>
+                            <div class="timeline-title">Dopolední exkurze</div>
+                            <p>Rozpis exkurzí naleznete <a href="dopoledne">níže</a>.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <time class="timeline-element-date">13:00 - 17:00</time>
+                            <div class="timeline-title">Odpolední exkurze</div>
+                            <p>Rozpis exkurzí naleznete <a href="odpoledne">níže</a>.<br/> Po skončení exkurze následuje rozchod na místě jejího konání.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {* End timeline *}
+
+
+            <hr/>
+            <h4 id="ranni-prednaska">Ranní přednáška</h4>
+            <p>
+                <strong>Experimenty ve fyzice počasí a klimatu: od přístrojových měření k počítačovým modelům</strong><br/>
+                <strong style="color:#f2b72b">doc. Mgr. Michal Belda, Ph.D.</strong><br/>
                 Moderní atmosférická fyzika je především teoretickou disciplínou, ve které hrají hlavní roli numerické modely řešené na nejmodernějších superpočítačích. Takové modely jsou základem našich experimentů a přístrojová měření slouží pro jejich validaci i jako vstupy. Přednáška představí základní typy modelových experimentů ve fyzice atmosféry.
-
-
             </p>
-            <h4 id="dopoledni-blok">Dopolední blok exkurzí (10:00-12:00)</h4>
-            <h4 id="odpoledni-blok">Odpolední blok exkurzí (13:00-17:00)</h4>
             <hr/>
             <h4 id="exkurze">Exkurze</h4>
-            <p>
-                Při přihlášení si zvolíte jednu dopolední a odpolední skupinu; níže naleznete informace o tom, jaké
-                exkurze
-                na vás čekají. Dopolední program probíhá na pracovištích MFF UK, odpolední na různých vědeckých
-                institucích v
-                Praze a okolí. Začátek a konec odpoledního bloku exkurzí není pro všechny exkurze stejný, uvedený časový
-                interval je pouze orientační.
-                Podobně jako minulé ročníky, i letos plánujeme celodenní exkurze. Konkrétní exkurze budou teprve
-                zveřejněny. <strong>Odpolední exkurze končí na místě exkurze.</strong><br>
-                Jízdenky na cestu na odpolední program vám případně budou zakoupeny (sami si je nemusíte kupovat). <strong> Jízdenky na cestu zpět si musíte zakoupit sami.</strong><br>
-                Skupinu bude možné v přihlášce změnit do konce registrace,
-                tj. {$newestEvent->registrationEnd|date:'j. n. Y'}.
-            </p>
+            <ul>
+                <li>
+                    Při přihlášení si zvolíte jednu dopolední a odpolední skupinu. Skupinu bude možné v přihlášce změnit do konce registrace
+                    (tj. do {$newestEvent->registrationEnd|date:'j. n. Y'}) nebo do naplnění kapacity. Informace o konkrétních exkurzích naleznete níže na této stránce.
+                </li>
+                <li>
+                    Dopolední program probíhá na pracovištích MFF UK, odpolední na různých vědeckých institucích v Praze a okolí.
+                </li>
+                <li>
+                    Začátek a konec odpoledního bloku exkurzí není pro všechny exkurze stejný, uvedený časový
+                    interval je pouze orientační. <strong>Odpolední exkurze končí na místě exkurze.</strong>
+                </li>
+                <li>
+                    Podobně jako v minulých letech jsou k dispozici i celodenní exkurze. Místo srazu se může u celodenních exkurzí lišit;
+                    účastníci budou v takovém případě předem informováni e-mailem.
+                </li>
+                <li>
+                    Jízdenky na cestu na odpolední program vám zajistíme. <strong>Jízdenky na cestu zpět si naopak musíte zakoupit sami.</strong>
+                </li>
+            </ul>
         </section>
     </div>
 
     <div class="panel color-auto">
         <section class="inner-container" id="prihlasovani">
-            <h1>Přihlašování</h1>
+            <h1>Registrace na akci</h1>
             <p>
-                Přihlašování ještě nezačalo.
+                Registrace ještě nebyla spuštěna.
                 {*
                 Exkurze mají dopolední a odpolední část, v každé z nich jsou účastníci rozdělení do několika skupin,
                 jejichž program se liší. Výjimku tvoří celodenní exkurze. Svou skupinu si
@@ -126,7 +192,7 @@
         <section class="inner-container">
             <h1>Exkurze</h1>
             <div class="mb-5">
-                <h2>Dopolední exkurze</h2>
+                <h2 id="dopoledne">Dopolední exkurze</h2>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -213,7 +279,7 @@
                 </table>
             </div>
             <div class="my-5">
-                <h2>{$data[296]['name']['cs']}</h2>
+                <h2 id="odpoledne">{$data[296]['name']['cs']}</h2>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -232,7 +298,7 @@
                 </table>
             </div>
             <div class="my-5">
-                <h2>{$data[294]['name']['cs']}</h2>
+                <h2 id="celodenni">{$data[294]['name']['cs']}</h2>
                 <table class="table table-striped">
                     <thead>
                     <tr>
