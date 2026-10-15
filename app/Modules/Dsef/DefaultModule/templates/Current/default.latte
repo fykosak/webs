@@ -322,7 +322,7 @@
     <div class="panel color-auto">
         <section class="inner-container">
             <h1>Anotace exkurzí</h1>
-            <h2>Dopolední exkurze </h2>
+            <h2 style="margin-bottom: 0.6em">Dopolední exkurze</h2>
             <strong class="subheader mt-3">ATM</strong>
             <h4 id="ATM">Průlet atmosférou: modely a měření</h4>
             <p>
@@ -390,14 +390,14 @@
                 Jak získat informace o struktuře látek na atomární úrovni, aniž bychom je zničili? Jaderná magnetická rezonance (NMR) využívá atomová jádra jako citlivé lokální sondy svého okolí a umožňuje studovat uspořádání atomů, elektronovou strukturu i dynamické procesy v látkách. V laboratořích NMR na MFF UK se zkoumají systémy od kapalin a roztoků až po pevné a magnetické materiály. Během exkurze si prohlédnete moderní spektrometry a seznámíte se s jednou z nejuniverzálnějších experimentálních metod současné fyziky a chemie.
             </p>
             <hr/>
-            <h2>{$data[296]['name']['cs']}</h2>
+            <h2 style="margin-bottom: 0.6em">{$data[296]['name']['cs']}</h2>
             {foreach $data[296]['items'] as $item}
                 <strong class="subheader mt-3">{$item['name']['cs']}</strong>
                 <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
                 {$item['longDescription']['cs']|noescape}
             {/foreach}
             <hr/>
-            <h2>{$data[294]['name']['cs']}</h2>
+            <h2 style="margin-bottom: 0.6em">{$data[294]['name']['cs']}</h2>
             {foreach $data[294]['items'] as $item}
                 <strong class="subheader mt-3">{$item['name']['cs']}</strong>
                 <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
