@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="219.21201"
+   height="90.708664"
+   viewBox="0 0 219.21201 90.708664"
+   sodipodi:docname="CSG_logo_short_RGB.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="8.1245552"
+     inkscape:cx="109.54446"
+     inkscape:cy="45.294787"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer-MC0">
+    <inkscape:page
+       x="0"
+       y="0"
+       inkscape:label="1"
+       id="page1"
+       width="219.21201"
+       height="90.708664"
+       margin="15.118267 15.118667 15.118267 15.118934"
+       bleed="0" />
+  </sodipodi:namedview>
+  <g
+     id="layer-MC0"
+     inkscape:groupmode="layer"
+     inkscape:label="Vrstva 8">
+    <path
+       id="path1"
+       d="M 0,0 C 0,-8.86 -3.598,-16.878 -9.411,-22.677 H 0.528 C 5.015,-16.248 7.654,-8.434 7.654,0 7.654,8.434 5.015,16.248 0.528,22.677 H -9.411 C -3.598,16.878 0,8.86 0,0"
+       style="fill:#f22037;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       transform="matrix(1.3333333,0,0,-1.3333333,193.8888,45.354267)" />
+    <path
+       id="path2"
+       d="m 0,0 h -21.081 v -7.117 h 13.902 c -1.191,-6.491 -6.491,-11.021 -13.413,-11.021 -8.822,0 -15.118,6.738 -15.118,15.55 0,8.761 6.296,15.436 14.615,15.436 5.022,0 9.993,-2.67 11.872,-6.675 h 8.443 c -1.983,7.487 -10.702,13.854 -20.315,13.854 -12.602,0 -22.236,-9.767 -22.236,-22.615 0,-12.91 9.572,-22.739 22.236,-22.739 12.15,0 21.413,8.761 21.413,21.167 C 0.318,-2.835 0.195,-1.068 0,0 m -69.929,7.621 c 0,3.276 2.958,5.412 7.436,5.412 4.786,0 7.867,-2.896 8,-6.86 h 7.56 c 0,7.425 -5.167,13.854 -15.314,13.854 -8.627,0 -14.923,-5.227 -14.923,-12.468 0,-16.186 24.31,-9.829 24.31,-19.719 0,-3.718 -3.522,-6.234 -8.503,-6.234 -5.29,0 -9.069,3.214 -9.069,7.939 h -7.303 c 0,-8.628 6.923,-14.872 16.372,-14.872 9.068,0 15.806,5.546 15.806,13.167 0,17.069 -24.372,10.578 -24.372,19.781 m -19.039,-18.076 c -1.777,-4.632 -6.511,-7.683 -11.985,-7.683 -8.258,0 -14.554,6.738 -14.554,15.55 0,8.761 6.296,15.436 14.554,15.436 5.186,0 9.664,-2.66 11.657,-6.675 h 8.432 c -2.198,8.144 -10.62,13.854 -20.089,13.854 -12.602,0 -22.174,-9.767 -22.174,-22.615 0,-12.91 9.572,-22.739 22.174,-22.739 9.91,0 18.035,6.008 20.294,14.872 z"
+       style="fill:#20262e;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       transform="matrix(1.3333333,0,0,-1.3333333,179.28867,41.821333)" />
+  </g>
+</svg>
