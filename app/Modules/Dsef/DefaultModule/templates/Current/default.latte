@@ -41,7 +41,7 @@
             {* Timeline *}
             <div class="timeline timeline-wider">
                 <div>
-                    <div class="timeline-group">Neděle {(clone $newestEvent->begin)->modify('-1 day')|date: 'j. n'}
+                    <div class="timeline-group">Neděle {(clone $newestEvent->begin)->modify('-1 day')|date: 'j. n.'}
                     </div>
                     <div>
                         <span class="timeline-element-icon"></span>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div>
-                    <div class="timeline-group">Pondělí {$newestEvent->begin|date: 'j. n'}
+                    <div class="timeline-group">Pondělí {$newestEvent->begin|date: 'j. n.'}
                     </div>
                     <div>
                         <span class="timeline-element-icon"></span>
