@@ -323,7 +323,6 @@
         <section class="inner-container">
             <h1>Anotace exkurzí</h1>
             <h2>Dopolední exkurze </h2>
-            <hr/>
             <strong class="subheader mt-3">ATM</strong>
             <h4 id="ATM">Průlet atmosférou: modely a měření</h4>
             <p>
@@ -362,8 +361,8 @@
             <h4 id="POH">Fyzikální pohled na povrchové chemické reakce.</h4>
             <p>
                 Představíme si experimentální techniky rentgenová fotoelektronová
-spektroskopie (XPS), difrakce pomalých elektronů (LEED) a rastrovací
-tunelová mikroskopie (STM).
+                spektroskopie (XPS), difrakce pomalých elektronů (LEED) a rastrovací
+                tunelová mikroskopie (STM).
             </p>
             <strong class="subheader mt-3">GRF</strong>
             <h4 id="GRF">Grafénová laboratoř</h4>
@@ -390,15 +389,15 @@ tunelová mikroskopie (STM).
             <p>
                 Jak získat informace o struktuře látek na atomární úrovni, aniž bychom je zničili? Jaderná magnetická rezonance (NMR) využívá atomová jádra jako citlivé lokální sondy svého okolí a umožňuje studovat uspořádání atomů, elektronovou strukturu i dynamické procesy v látkách. V laboratořích NMR na MFF UK se zkoumají systémy od kapalin a roztoků až po pevné a magnetické materiály. Během exkurze si prohlédnete moderní spektrometry a seznámíte se s jednou z nejuniverzálnějších experimentálních metod současné fyziky a chemie.
             </p>
-            <h2>{$data[296]['name']['cs']}</h2>
             <hr/>
+            <h2>{$data[296]['name']['cs']}</h2>
             {foreach $data[296]['items'] as $item}
                 <strong class="subheader mt-3">{$item['name']['cs']}</strong>
                 <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
                 {$item['longDescription']['cs']|noescape}
             {/foreach}
-            <h2>{$data[294]['name']['cs']}</h2>
             <hr/>
+            <h2>{$data[294]['name']['cs']}</h2>
             {foreach $data[294]['items'] as $item}
                 <strong class="subheader mt-3">{$item['name']['cs']}</strong>
                 <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
