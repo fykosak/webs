@@ -107,15 +107,18 @@
                 <div class="category">
                     <div class="category-title">{switch $language->value}{case cs}Partneři{default}Partners{/switch}</div>
                     <div class="category-sponsors">
+                        <a href="https://qminers.com/cs/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/qminers-logo.png" alt="Qminers logo" style="max-width: 10rem">
+                        </a>
+                        <a href="https://www.nfneuron.cz/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/neuron.svg" alt="Neuron logo" style="max-width: 10rem">
+                        </a>
+                        <a href="https://aerospace.czechoslovakgroup.com/" style="text-align: center">
+                            <img src="{$basePath}/images/logos/CSG_logo_short_RGB.svg" alt="CSG Aerospace logo" style="max-height: 5rem; max-width: 10rem">
+                        </a>
                         {*<a href="https://www.iaps.info/" style="text-align: center">
                             <img src="{$basePath}/images/logos/iaps_logo.png" alt="IAPS logo" style="max-height: 10rem; max-width: 13rem">
                         </a>*}
-                        <a href="https://qminers.com/cs/" style="text-align: center">
-                            <img src="{$basePath}/images/logos/logo-qminers.png" alt="Qminers logo" style="max-width: 12rem">
-                        </a>
-                        <a href="https://www.nadaceneuron.cz" style="text-align: center">
-                            <img class="logo" src="{$basePath}/images/logos/logo-neuron-zlate-CZ.png" alt="Neuron logo" style="max-width: 12rem">
-                        </a>
                     </div>
                 </div>
             </div>
@@ -143,7 +146,7 @@
                     </p>
                     <div class="other-logos">
                         <a target="_blank" href="https://fykos.cz/"><img class="other-logo" src="{$basePath}/images/logos/fykos_logo_white.png" alt="FYKOS" style="max-height: 2rem; margin: 0 1rem 1rem 0" /></a>
-                        <a target="_blank" href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
+                        {*<a target="_blank" href="{switch $language->value}{case 'cs'}https://online.fyziklani.cz/{default}https://physicsbrawl.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_online_{$lang}.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>*}
                         <a target="_blank" href="{switch $language->value}{case 'cs'}https://fyziklani.cz/{default}https://fyziklani.org/{/switch}"><img class="other-logo" src="{$basePath}/images/logos/fyziklani_white_logo.svg"style="max-height: 2rem; margin: 0 1rem 1rem 0"/></a>
                     </div>
                 </div>

@@ -12,13 +12,6 @@
   ],
   "cs": [
     {
-      "title": "Posunutí deadlinu seriálové úlohy",
-      "text": "Kvůli opožděnému zveřejnění zadání jsme se rozhodli posunout deadline seriálové úlohy na 11. října. Omlouváme se za komplikace.",
-      "link": "https://fykos.cz/zadani",
-      "link-text": "Zadání",
-      "color": "fykos"
-    },
-    {
       "title": "Zveřejnili jsme nová pravidla",
       "text": "Spolu s novým ročníkem přicházejí i nová pravidla FYKOSu, která lépe specifikují fungování našeho semináře. Hlavní změnou je přidání <a href=\"https://fykos.cz/akce/fykos/pravidla-ai\">Pravidel používání AI</a> s konkrétními příklady použití. Ať už se tedy se zadáním úloh setkáváte poprvé, nebo jste dlouholetými řešiteli, doporučujeme se s novými pravidly důkladně seznámit.",
       "link": "https://fykos.cz/akce/fykos/pravidla",
@@ -27,13 +20,6 @@
     }
   ],
   "en": [
-    {
-      "title": "Serial Problem Deadline Extension",
-      "text": "Due to serial problem statement being published late, we have decided to postpone its deadline to October 11. We apologize for the inconvenience.",
-      "link": "https://fykos.cz/zadani",
-      "link-text": "Problems",
-      "color": "fykos"
-    },
     {
       "title": "We have published new rules",
       "text": "Along with the new edition of FYKOS come new rules that better specify how our seminar works. The main change is the addition of the <a href=\"https://fykos.org/events/fykos/ai-rules\">Rules on the Use of AI</a>, which include specific examples of how AI may be used. Whether you are encountering the problems for the first time or have been participating FYKOS for years, we recommend familiarizing yourself thoroughly with the new rules.",

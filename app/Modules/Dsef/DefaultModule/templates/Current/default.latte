@@ -5,19 +5,17 @@
 {block main}
     <div class="panel color-auto">
         <section class="inner-container">
-            <!-- <div class="subheader">Aktuální stránka akce z {*$event->begin|date: "j. n. Y"*}</div>
-        <h1>DSEF {*$event->begin|date: "Y"*}</h1> -->
             <h1>Základní informace</h1>
 
             <p>Den s experimentální fyzikou se bude konat {$newestEvent->begin|date: 'j. n. Y'} v Troji.
-{*
+                {*
                 Registrace se otevře {$newestEvent->registrationBegin|date: 'j. n. Y'} v {$newestEvent->registrationBegin|date: 'H:i'}
                     a skončí {$newestEvent->registrationEnd|date: 'j. n. Y'}.
                 Rozvržení jednotlivých exkurzí budeme postupně přidávat. *}
-                Pro účastníky z
 
-                daleka
+                Pro účastníky z daleka
                 je jako každý rok připravené dotované ubytování z neděle na pondělí.
+
                 {*Pokud máte nějaký dotaz nebo problém, neváhejte nám napsat na e-mail <a
                         href="mailto:dsef@dsef.cz">dsef@dsef.cz</a>.*}
             </p>
@@ -30,47 +28,114 @@
 
             <h4 id="zacatek-dsefu">Začátek DSEFu</h4>
             <ul>
-                <li>Příjezd pro ubytované v hostelu je v neděli od 16:00 až do půlnoci. Pondělní snídaně (pouze pro
+                <li>
+                    Příjezd pro ubytované v hostelu je v neděli od 16:00 až do půlnoci. Pondělní snídaně (pouze pro
                     ubytované) od 7:00.
                 </li>
-                <li>Prezence účastníků proběhne v čase <strong>8:00–8:30 na
-                        Matematicko-fyzikální fakultě ve vestibulu budovy T v Troji na adrese V Holešovičkách 2/747</strong>. Po registraci následuje zahájení DSEFu a ranní přednáška.
+                <li>
+                    Prezence účastníků proběhne od <strong>8:00 do 8:30 na Matematicko-fyzikální fakultě ve <a href="https://www.mff.cuni.cz/cs/vnitrni-zalezitosti/budovy-a-arealy/troja">vestibulu budovy T v Troji</a> na adrese V Holešovičkách 2/747</strong>.
+                    Po prezenci následuje zahájení DSEFu a ranní přednáška.
                 </li>
             </ul>
-            <h4 id="slavnostni-zahajeni">Slavnostní zahájení DSEFu (8:50–9:05)</h4>
-            <h4 id="ranni-prednaska">Ranní přednáška (9:05–10:00)</h4>
-            <p class="ms-3">
-                <b>Experimenty ve fyzice počasí a klimatu: od přístrojových měření k počítačovým modelům</b><br/>
-                doc. Mgr. Michal Belda, Ph.D.<br/>
+
+            {* Timeline *}
+            <div class="timeline timeline-wider">
+                <div>
+                    <div class="timeline-group">Neděle {(clone $newestEvent->begin)->modify('-1 day')|date: 'j. n.'}
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <time class="timeline-element-date">16:00 - 23:59</time>
+                            <div class="timeline-title">Příjezd pro ubytované na hostelu</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="timeline-group">Pondělí {$newestEvent->begin|date: 'j. n.'}
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <time class="timeline-element-date">8:00 - 8:30</time>
+                            <div class="timeline-title">Prezence</div>
+                            <p>Matematicko-fyzikální fakulta, <a href="https://www.mff.cuni.cz/cs/vnitrni-zalezitosti/budovy-a-arealy/troja">vestibul budovy T v Troji</a> na adrese <strong>V Holešovičkách 2/747</strong>.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <time class="timeline-element-date">8:50 - 9:05</time>
+                            <div class="timeline-title">Slavnostní zahájení DSEFu</div>
+                            <p>Posluchárna T1.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <time class="timeline-element-date">9:05 - 10:00</time>
+                            <div class="timeline-title">Ranní přednáška</div>
+                            <p>doc. Mgr. Michal Belda, Ph.D. | Experimenty ve fyzice počasí a klimatu: od přístrojových měření k počítačovým modelům | posluchárna T1.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <time class="timeline-element-date">10:00 - 12:00</time>
+                            <div class="timeline-title">Dopolední exkurze</div>
+                            <p>Rozpis exkurzí naleznete <a href="#dopoledne">níže</a>.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="timeline-element-icon"></span>
+                        <div class="timeline-element-content">
+                            <time class="timeline-element-date">13:00 - 16:00</time>
+                            <div class="timeline-title">Odpolední exkurze</div>
+                            <p>Rozpis exkurzí naleznete <a href="#odpoledne">níže</a>.<br/> Po skončení exkurze následuje rozchod na místě jejího konání.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {* End timeline *}
+
+
+            <hr/>
+            <h4 id="ranni-prednaska">Ranní přednáška</h4>
+            <p>
+                <strong>Experimenty ve fyzice počasí a klimatu: od přístrojových měření k počítačovým modelům</strong><br/>
+                <strong style="color:#f2b72b">doc. Mgr. Michal Belda, Ph.D.</strong><br/>
                 Moderní atmosférická fyzika je především teoretickou disciplínou, ve které hrají hlavní roli numerické modely řešené na nejmodernějších superpočítačích. Takové modely jsou základem našich experimentů a přístrojová měření slouží pro jejich validaci i jako vstupy. Přednáška představí základní typy modelových experimentů ve fyzice atmosféry.
-
-
             </p>
-            <h4 id="dopoledni-blok">Dopolední blok exkurzí (10:00-12:00)</h4>
-            <h4 id="odpoledni-blok">Odpolední blok exkurzí (13:00-17:00)</h4>
             <hr/>
             <h4 id="exkurze">Exkurze</h4>
-            <p>
-                Při přihlášení si zvolíte jednu dopolední a odpolední skupinu; níže naleznete informace o tom, jaké
-                exkurze
-                na vás čekají. Dopolední program probíhá na pracovištích MFF UK, odpolední na různých vědeckých
-                institucích v
-                Praze a okolí. Začátek a konec odpoledního bloku exkurzí není pro všechny exkurze stejný, uvedený časový
-                interval je pouze orientační.
-                Podobně jako minulé ročníky, i letos plánujeme celodenní exkurze. Konkrétní exkurze budou teprve
-                zveřejněny. <strong>Odpolední exkurze končí na místě exkurze.</strong><br>
-                Jízdenky na cestu na odpolední program vám případně budou zakoupeny (sami si je nemusíte kupovat). <strong> Jízdenky na cestu zpět si musíte zakoupit sami.</strong><br>
-                Skupinu bude možné v přihlášce změnit do konce registrace,
-                tj. {$newestEvent->registrationEnd|date:'j. n. Y'}.
-            </p>
+            <ul>
+                <li>
+                    Při přihlášení si zvolíte jednu dopolední a odpolední skupinu. Skupinu bude možné v přihlášce změnit do konce registrace
+                    (tj. do {$newestEvent->registrationEnd|date:'j. n. Y'}) nebo do naplnění kapacity. Informace o konkrétních exkurzích naleznete níže na této stránce.
+                </li>
+                <li>
+                    Dopolední program probíhá na pracovištích MFF UK, odpolední na různých vědeckých institucích v Praze a okolí.
+                </li>
+                <li>
+                    Konec odpoledního bloku exkurzí není pro všechny exkurze stejný, uvedený čas je orientační. Odpolední (resp. celodenní) exkurze a <strong>celá akce končí na pracovištích, jež v rámci odpolední exkurze navštívíte.</strong> Organizátorský doprovod Vás poté navede na MHD, abyste se dostali na důležité dopravní uzly (ÚAN, Hlavní nádraží, …).
+                </li>
+                <li>
+                    Podobně jako v minulých letech jsou k dispozici i celodenní exkurze. Místo srazu se může u celodenních exkurzí lišit;
+                    účastníci budou v takovém případě předem informováni e-mailem.
+                </li>
+                <li>
+                    Jízdenky na cestu na odpolední program vám zajistíme. <strong>Jízdenky na cestu zpět si naopak musíte zakoupit sami.</strong>
+                </li>
+            </ul>
         </section>
     </div>
 
     <div class="panel color-auto">
         <section class="inner-container" id="prihlasovani">
-            <h1>Přihlašování</h1>
+            <h1>Registrace na akci</h1>
             <p>
-                Přihlašování ještě nezačalo.
+               {* Registrace ještě nebyla spuštěna.n}
                 {*
                 Exkurze mají dopolední a odpolední část, v každé z nich jsou účastníci rozdělení do několika skupin,
                 jejichž program se liší. Výjimku tvoří celodenní exkurze. Svou skupinu si
@@ -78,11 +143,11 @@
                 si ji do konce registrace měnit podle Vašich preferencí.
                 *}
             </p>
-            {*<p>
+            <p>
                  <a href="{plink :Default:Registration:Default}" type="button"
                    class="btn btn-primary btn-block">Registrovat se</a>
 
-            </p>*}
+            </p>
         </section>
     </div>
 
@@ -90,33 +155,31 @@
         <section class="inner-container">
             <h1>Ubytování</h1>
 
-            <h5 id="kde-je-ubytovani-a-jake">Kde je ubytování a jaké?</h5>
+            <h5 id="ubytovani-info">Základní informace</h5>
             <div>
                 <ul>
-                    <li>Ubytování bylo v <a href="https://www.plusprague.cz/cs/" class="urlextern"
-                                          title="https://plushostels.com/cs/praha">Hostelu PLUS</a> v Holešovicích.
+                    <li>Účastníci budou ubytováni v <a href="https://www.plusprague.cz/cs/">Hostelu PLUS</a> v Holešovicích.
                     </li>
-                    <li>Ubytováni bylo pohromadě na velkých pokojích (7–8lůžkových).</li>
-                    {*<li>V ceně ubytování  malé ručníky.</li>*}
-
+                    <li>K dispozici jsou společné 7–8lůžkové pokoje.</li>
                 </ul>
             </div>
 
             <h5 id="placeni-za-ubytovani">Placení za ubytování</h5>
             <div>
                 <ul>
-                    <li>Poplatek za ubytování je <strong>300 Kč</strong>, snídaně je možné přikoupit za <strong>100 Kč</strong></li>
-                    {*<li>Ubytování se platí předem <a href="https://db.fykos.cz/shop/">zde</a></li>*}
-                    <li> ubytovaní starší 18 let musí zaplatit na místě dalších 50 Kč za turistickou daň</li>
-                    <li> Ubytování lze přihlásit a odhlásit do 13. 11. snidaně pouze do 8. 11. V případě problému se nám neváhejte mapsat.</li>
+                    <li>Cena ubytování je <strong>300 Kč</strong>, za <strong>100 Kč</strong> je dále možné si přiobjednat snídani.</li>
+                    <li><strong>Osoby starší 18 let budou dále po příjezdu na hotel hradit městský poplatek ve výši 50 Kč.</strong></li>
+                    <li>Ubytování je nutné zaplatit předem, při platbě poskytujte podle pokynů, které vám pošleme e-mailem{* uvedených na <a href="https://db.fykos.cz/shop/order/create-schedule?eventId=210">této stránce</a>*}.</li>
+                    <li>Přihlášky na ubytování je možné podávat do 8. 11. 2026. V případě problému nám neváhejte napsat.</li>
+                    <li>Více informací k platbě a k podmínkám rezervace ubytování naleznete <a href="#podminky">níže na této stránce</a>.</li>
                 </ul>
 
             </div>
-            <h5 id="prijezd-na-ubytovani">Příjezd na ubytování</h5>
+            <h5 id="prijezd-na-ubytovani">Příjezd na ubytování a snídaně</h5>
             <div>
                 <ul>
-                    <li>Přijezd na ubytování je od <strong>16:00</strong>.</li>
-                    {*<li>Recepce na hotelu je otevřená nonstop, během večera můžete dorazit kdykoliv.</li>*}
+                    <li>Přijezd na ubytování je <strong>od 16:00</strong> do 23:59.</li>
+                    <li>Snídaně je pro ubytované k dispozici v pondělí od 7:00.
                 </ul>
             </div>
         </section>
@@ -124,9 +187,9 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
-            <h1>Exkurze</h1>
+            <h1>Skupiny exkurzí</h1>
             <div class="mb-5">
-                <h2>Dopolední exkurze</h2>
+                <h2 id="dopoledne">Dopolední exkurze</h2>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -213,7 +276,7 @@
                 </table>
             </div>
             <div class="my-5">
-                <h2>{$data[296]['name']['cs']}</h2>
+                <h2 id="odpoledne">{$data[296]['name']['cs']}</h2>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -223,6 +286,7 @@
                     </thead>
                     <tbody>
                     {foreach $data[296]['items'] as $item}
+                    {continueIf !$item['showOnWeb']}
                         <tr>
                             <td><strong>{$item['name']['cs']}</strong></td>
                             <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
@@ -232,7 +296,7 @@
                 </table>
             </div>
             <div class="my-5">
-                <h2>{$data[294]['name']['cs']}</h2>
+                <h2 id="celodenni">{$data[294]['name']['cs']}</h2>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -242,6 +306,7 @@
                     </thead>
                     <tbody>
                     {foreach $data[294]['items'] as $item}
+                    {continueIf !$item['showOnWeb']}
                         <tr>
                             <td><strong>{$item['name']['cs']}</strong></td>
                             <td><a href="#{$item['itemId']}">{$item['description']['cs']}</a></td>
@@ -255,29 +320,23 @@
 
     <div class="panel color-auto">
         <section class="inner-container">
-            {*
             <h1>Anotace exkurzí</h1>
-            <div class="alert alert-warning">Anotace u některých exkurzí ještě nejsou doplněné. Jakmile budou k
-                dispozici, objeví se níže na stránce spolu s ostatními.
-            </div>
-            *}
-            <h2>Dopolední exkurze </h2>
-            <hr/>
+            <h2 style="margin-bottom: 0.6em">Dopolední exkurze</h2>
             <strong class="subheader mt-3">ATM</strong>
             <h4 id="ATM">Průlet atmosférou: modely a měření</h4>
             <p>
-                Práce s numerickým předpovědním modelem, ukázky simulací, vstupních a výstupních dat. Prohlídka meteorologické budky a měřících přístrojů
+                Práce s numerickým předpovědním modelem, ukázky simulací, vstupních a výstupních dat. Prohlídka meteorologické budky a měřících přístrojů.
 
             </p>
             <strong class="subheader mt-3">NAN</strong>
             <h4 id="NAN">Nanomateriály</h4>
             <p>
-                anotace bude přidána později
+                Laboratoř, kde pomocí plynového agregačního zdroje připravujeme nanomateriály pro moderní aplikace. Během exkurze vám ukážeme, jak vakuová aparatura umožňuje kontrolovaně vytvářet nanočástice s definovanou velikostí a chemickým složením. Uvidíte reálné vědecké vybavení a seznámíte se s procesy, které se využívají při výzkumu nových materiálů pro katalýzu, senzory, SERS nebo bioaplikace.
             </p>
             <strong class="subheader mt-3">MOS</strong>
             <h4 id="MOS">Mössbaeurova spektroskopie</h4>
             <p>
-               anotace bude přidána později
+               Anotace bude přidána později.
 
             </p>
             <strong class="subheader mt-3">DET</strong>
@@ -287,9 +346,9 @@
 
             </p>
             <strong class="subheader mt-3">PLA</strong>
-            <h4 id="PLA">Plazma ve vesmíru a laboratoři</h4>
+            <h4 id="PLA">Laboratoř elementárních procesů v plazmatu a Ultra-cold Plasma Lab</h4>
             <p>
-                anotace bude přidána později
+                Zabýváme se studiem reakcí iontů s atomy, molekulami a elektrony za extrémních podmínek panujících v mezihvězdném prostoru či ionosférách plynných obrů. Zajímá nás, jak kvantový stav iontů ovlivňuje jejich reaktivitu. Dalším směrem našeho výzkumu je zachytávání a ochlazování levitujících elektronů pro účely kvantového snímání. Vyvíjíme metody přípravy zachycených elektronů ve specifických kvantových stavech s využitím iontů chlazených laserem. Za tímto účelem testujeme různé technologie pro výrobu nových trojrozměrných a planárních zařízení sloužících k zachytávání částic.
 
             </p>
             <strong class="subheader mt-3">STM</strong>
@@ -301,13 +360,15 @@
             <h4 id="POH">Fyzikální pohled na povrchové chemické reakce.</h4>
             <p>
                 Představíme si experimentální techniky rentgenová fotoelektronová
-spektroskopie (XPS), difrakce pomalých elektronů (LEED) a rastrovací
-tunelová mikroskopie (STM)
+                spektroskopie (XPS), difrakce pomalých elektronů (LEED) a rastrovací
+                tunelová mikroskopie (STM).
             </p>
             <strong class="subheader mt-3">GRF</strong>
-            <h4 id="GRF">Grafénová laboratoř</h4>
+            <h4 id="GRF">Do nanosvěta s mikroskopem atomárních sil: jak rostou a jak se zkoumají 2D materiály</h4>
             <p>
-                anotace bude přidána později
+                Jak vyrobit uhlíkový materiál tenký pouhý jeden atom – přibližně 300 000krát tenčí než lidský vlas? Seznámíme se s grafenem a ukážeme si, jak vzniká při zahřívání karbidu křemíku za vysokých teplot. Pomocí mikroskopu atomárních sil (AFM) se vydáme do krajiny nepatrných teras a schodů na povrchu vzorku. Zjistíme také, jak lze ostrým hrotem zkoumat elektrickou vodivost a mechanické vlastnosti materiálů, které jsou pro lidské oko neviditelné.
+
+
             </p>
             <strong class="subheader mt-3">SUP</strong>
             <h4 id="SUP">Supratekutost a supravodivost</h4>
@@ -329,20 +390,75 @@ tunelová mikroskopie (STM)
             <p>
                 Jak získat informace o struktuře látek na atomární úrovni, aniž bychom je zničili? Jaderná magnetická rezonance (NMR) využívá atomová jádra jako citlivé lokální sondy svého okolí a umožňuje studovat uspořádání atomů, elektronovou strukturu i dynamické procesy v látkách. V laboratořích NMR na MFF UK se zkoumají systémy od kapalin a roztoků až po pevné a magnetické materiály. Během exkurze si prohlédnete moderní spektrometry a seznámíte se s jednou z nejuniverzálnějších experimentálních metod současné fyziky a chemie.
             </p>
-            <h2>{$data[296]['name']['cs']}</h2>
             <hr/>
+            <h2 style="margin-bottom: 0.6em">{$data[296]['name']['cs']}</h2>
             {foreach $data[296]['items'] as $item}
+            {continueIf !$item['showOnWeb']}
                 <strong class="subheader mt-3">{$item['name']['cs']}</strong>
                 <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
                 {$item['longDescription']['cs']|noescape}
             {/foreach}
-            <h2>{$data[294]['name']['cs']}</h2>
             <hr/>
+            <h2 style="margin-bottom: 0.6em">{$data[294]['name']['cs']}</h2>
             {foreach $data[294]['items'] as $item}
+            {continueIf !$item['showOnWeb']}
                 <strong class="subheader mt-3">{$item['name']['cs']}</strong>
                 <h4 id="{$item['itemId']}">{$item['description']['cs']}</h4>
                 {$item['longDescription']['cs']|noescape}
             {/foreach}
+        </section>
+    </div>
+
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1 id="podminky">Podmínky rezervace ubytování</h1>
+
+            <h5>Podmínky rezervace</h5>
+            <ul>
+                <li>Rezervace ubytování je možná do neděle <strong>8. listopadu.</strong></li>
+                <li>
+                    Po zvolení ubytování v přihlášce vzniká časová lhůta na uhrazení poplatku.
+                    Tato lhůta se vypočítá automaticky dle následující tabulky a bude uvedena
+                    v detailu vaší přihlášky.
+                </li>
+                <div class="row">
+                    <div class="offset-md-2 col-md-8">
+                        <table class="table table-striped table-hover">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Ubytování přihlášeno dne</th>
+                                    <th>Ubytování je nutné zaplatit do</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dříve než 29. 10. 2026 (včetně)</td>
+                                    <td>14 dní po přihlášení ubytování</td>
+                                </tr>
+                                <tr>
+                                    <td>později než 30. 10. 2026 (včetně)</td>
+                                    <td>12. 11. 2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <li>Ubytování, které nebylo zaplaceno do uplynutí lhůty, bude automaticky zrušeno.</li>
+                <li>Uhrazením poplatku vzniká závazná rezervace ubytování.</li>
+            </ul>
+            <h5>Storno podmínky</h5>
+            <ul>
+                <li>
+                    V případě zrušení již zaplaceného ubytování 8. 11. 2026 a dříve bude
+                    vrácena celá uhrazená částka.
+                </li>
+                <li>
+                    V případě zrušení již zaplaceného ubytování 9. 11. 2026 a později
+                    bude účtován storno poplatek ve výši 100 % uhrazené částky. Ve výjimečných
+                    případech může být tento poplatek prominut s ohledem na způsobenou škodu
+                    v souladu s § 2330 zákona č. 89/2012 Sb.
+                </li>
+            </ul>
         </section>
     </div>
 
