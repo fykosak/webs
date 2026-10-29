@@ -47,7 +47,8 @@
                         {/switch}
                     </i></small></p>
                 {elseif $problem->getType() === $ProblemTypes::FykosExperimental && $language->value === 'cs'}
-                    <p><small><i>Letošním ročníkem se vrací i letní stáže na MFF UK! Budou na ně pozváni nejlepší řešitelé experimentálních úloh. Chcete-li být mezi nimi, neváhejte a začněte měřit!</i></small></p>
+                <p><small><i>Letošním ročníkem se vrací i <a href={plink ":Events:Internships:"}>letní stáže na MFF UK</a>! Budou na ně pozváni nejlepší řešitelé
+                                experimentálních úloh. Chcete-li být mezi nimi, neváhejte a začněte měřit!</i></small></p>
                 {/if}
 
                 {var $textHtml = $problem->getText('task', $language)}
