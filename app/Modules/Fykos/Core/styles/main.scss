@@ -13,6 +13,8 @@ $fof-color: #e6060d;
 $fol-color: #00ae6b;
 $dsef-color: #f2b72b;
 $naboj-color: #c22d86;
+$vyfuk-color: #ff4800;
+$naboj-junior-color: #c32f27;
 
 :root {
   --task-color-1: #8ac75a;
@@ -74,6 +76,7 @@ $flag-icons-path: "/node_modules/flag-icons/flags";
 @import "../../../../Components/Problem/problem";
 @import "../../../../Components/Problem/fykos";
 @import "../../../../Components/ImagePreviewModal/styles";
+@import "../../../../Components/News/fykos.scss";
 
 @import "../../../../Components/OrgSneakPeak/styles";
 
