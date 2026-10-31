@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
-import { createPortal } from 'react-dom';
+import { createPortal, render } from 'react-dom';
 import { netteFetch } from '../../../vendor/fykosak/nette-fks-utils/src/FrontendComponent/fetch/fech';
 import { NetteActions } from '../../../vendor/fykosak/nette-fks-utils/src/FrontendComponent/NetteActions/nette-actions';
 
@@ -122,6 +121,5 @@ const mediaElement = document.querySelector<HTMLElement>('[data-frontend-id="adm
 if (mediaElement) {
     const initialData = JSON.parse(mediaElement.dataset.data ?? '{}') as Media;
     const initialActions = new NetteActions(JSON.parse(mediaElement.dataset.actions ?? '{}'));
-    const root = createRoot(mediaElement);
-    root.render(<AdminMediaGallery initialData={initialData} initialActions={initialActions} />);
+    render(<AdminMediaGallery initialData={initialData} initialActions={initialActions} />, mediaElement);
 }
