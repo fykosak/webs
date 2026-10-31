@@ -97,7 +97,7 @@ final class NewsService extends AbstractJSONService
     public function getActiveNews(?int $maxCount = null): array
     {
         $newsList = $this->loadNews();
-        usort($newsList, fn(NewsModel $a, NewsModel $b): int => $a->releaseDate <=> $b->releaseDate);
+        usort($newsList, fn(NewsModel $a, NewsModel $b): int => $b->releaseDate <=> $a->releaseDate);
 
         $activeNews = [];
         $now = new DateTime();
@@ -113,5 +113,16 @@ final class NewsService extends AbstractJSONService
         }
 
         return $activeNews;
+    }
+
+    public function sortNews(array $newsList, array $activeNews): array
+    {
+        usort($newsList, fn(NewsModel $a, NewsModel $b): int => $b->releaseDate <=> $a->releaseDate);
+
+        $newsList = array_values(array_udiff($newsList, $activeNews, fn(NewsModel $a, NewsModel $b) => $a <=> $b));
+
+        $sortedNews = array_merge($activeNews, $newsList);
+
+        return $sortedNews;
     }
 }
