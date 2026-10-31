@@ -17,7 +17,6 @@ use App\Models\Downloader\Models\EventModel;
 use App\Models\Images\ImageService;
 use Fykosak\Utils\Logging\MessageLevel;
 use Fykosak\Utils\Localization\LangMap;
-
 use Nette\Utils\Finder;
 
 class AdminPresenter extends BasePresenter
@@ -101,11 +100,12 @@ class AdminPresenter extends BasePresenter
         }
     }
 
-    private function hasFilesEvent($eventId) {
+    private function hasFilesEvent(int $eventId): bool
+    {
         return count($this->getFiles($eventId)) > 0;
     }
 
-    public function getFiles($eventId): array
+    public function getFiles(int $eventId): array
     {
         $mediaDir = $this->getMediaDir();
         $eventDir = $mediaDir . '/download/event/' . $eventId;
@@ -153,8 +153,11 @@ class AdminPresenter extends BasePresenter
 
     public function renderNews(?int $newsId = null): void
     {
-        $this->template->activeNews = $this->newsService->getActiveNews(4);
-        $this->template->newsList = $this->newsService->loadNews();
+        $activeNews = $this->newsService->getActiveNews(4);
+        $this->template->activeNews = $activeNews;
+
+        $newsList = $this->newsService->loadNews();
+        $this->template->newsList = $this->newsService->sortNews($newsList, $activeNews);
 
         $newsItem = !is_null($newsId) ? $this->newsService->getNewsById($newsId) : null;
         $this->template->selectedNewsItem = $newsItem;
