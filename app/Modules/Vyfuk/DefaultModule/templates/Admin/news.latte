@@ -5,7 +5,7 @@
     <section class="inner-container">
         <h1>Správa novinek</h1>
         <div n:foreach="$flashes as $flash" n:class="alert, alert-dismissible, fade, show, shadow-sm, $flash->type === 'error' || $flash->type === 'danger' ? 'alert-danger' : ($flash->type === 'success' ? 'alert-success' : ($flash->type === 'warning' ? 'alert-warning' : 'alert-info'))" role="alert">
-            <i n:class="bi, me-2, $flash->type === 'error' || $flash->type === 'danger' ? 'bi-exclamation-triangle-fill' : ($flash->type === 'success' ? 'bi-check-circle-fill' : ($flash->type === 'warning' ? 'bi-exclamation-circle-fill' : 'bi-info-circle-fill'))"></i>
+            <i n:class="me-2, fa, $flash->type === 'error' || $flash->type === 'danger' ? 'fa-triangle-exclamation' : ($flash->type === 'success' ? 'fa-circle-check' : ($flash->type === 'warning' ? 'fa-circle-exclamation' : 'fa-circle-info'))"></i>
             {$flash->message}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>

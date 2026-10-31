@@ -3,7 +3,8 @@
 {block main}
 <div class="panel color-auto">
     <section class="inner-container">
-    <h1>Správa fotek</h1>
+        <h1>Správa fotek</h1>
+        <div id="media-flash-messages"></div>
         <h5>Vybrat akci:</h5>
         <div class="dropdown dropdown-selector mb-3">
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -77,6 +78,7 @@
             </div>
         {/foreach}
 </div>
+{control adminMedia}
 </section>
 </div>
 {/block}

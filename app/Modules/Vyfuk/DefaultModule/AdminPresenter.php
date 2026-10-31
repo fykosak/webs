@@ -6,14 +6,15 @@ namespace App\Modules\Vyfuk\DefaultModule;
 
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\Title;
+use App\Components\AdminMedia\AdminMediaComponent;
 use App\Models\Authentication\Authenticator;
 use App\Models\Authentication\UserModel;
 use Nette\Application\ForbiddenRequestException;
 use App\Models\Downloader\Services\EventService;
 use App\Models\Downloader\Services\NewsService;
 use App\Components\Forms\NewsForm;
+use App\Models\Downloader\Models\EventModel;
 use App\Models\Images\ImageService;
-use App\Models\Images\EventImageType;
 use Fykosak\Utils\Logging\MessageLevel;
 use Fykosak\Utils\Localization\LangMap;
 
@@ -73,24 +74,19 @@ class AdminPresenter extends BasePresenter
     public function renderMedia(?int $eventId = null): void
     {
         $this->template->events = array_reverse($this->eventService->getEvents([10, 11, 12, 18]));
-
-        $event = $eventId ? $this->eventService->getEvent($eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
-        $this->template->selectedEvent = $event;
-
-        if ($this->imageService->hasPhotosEvent($event)) {
-            $media = $this->imageService->getEventImages($event, EventImageType::Default);
-            $this->template->media = $this->addMediaNames($media);
-        }
+        $this->template->selectedEvent = $this->getEvent($eventId);
     }
 
-    public function addMediaNames(array $media): array
+    protected function createComponentAdminMedia(): AdminMediaComponent
     {
-        foreach ($media as $key => $photo) {
-            $photo['name'] = str_replace('_full', '', pathinfo($photo['src'])['filename']);
+        $eventId = $this->getParameter('eventId');
+        $event = $this->getEvent((int)$eventId);
 
-            $media[$key] = $photo;
-        }
-        return $media;
+        return new AdminMediaComponent($this->getContext(), $event);
+    }
+
+    public function getEvent(?int $eventId): EventModel {
+        return $eventId ? $this->eventService->getEvent($eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
     }
 
     public function renderFiles(?int $eventId = null): void
