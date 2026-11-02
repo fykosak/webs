@@ -13,7 +13,7 @@
   "cs": [
     {
       "title": "Posunutí deadlinu seriálové úlohy",
-      "text": "Kvůli opožděnému zveřejnění zadání jsme se rozhodli posunout deadline seriálové úlohy na 11. října. Omlouváme se za komplikace.",
+      "text": "Kvůli opožděnému zveřejnění zadání jsme se rozhodli posunout deadline seriálové úlohy na 15. listopadu. Omlouváme se za komplikace.",
       "link": "https://fykos.cz/zadani",
       "link-text": "Zadání",
       "color": "fykos"
@@ -29,8 +29,8 @@
   "en": [
     {
       "title": "Serial Problem Deadline Extension",
-      "text": "Due to serial problem statement being published late, we have decided to postpone its deadline to October 11. We apologize for the inconvenience.",
-      "link": "https://fykos.cz/zadani",
+      "text": "Due to serial problem statement being published late, we have decided to postpone its deadline to November 15. We apologize for the inconvenience.",
+      "link": "https://fykos.org/problems",
       "link-text": "Problems",
       "color": "fykos"
     },
