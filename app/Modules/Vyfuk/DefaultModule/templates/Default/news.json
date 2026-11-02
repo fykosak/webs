@@ -1,5 +1,12 @@
 {
   "cs": [
+      {
+      "title": "Informace k Letnímu táboru 2027",
+      "text": "Letní tábor Výfuku se letos bude konat od 25. července do 7. srpna 2027 na chatě Bratrouchov, kde si společně užijeme krásy Krkonoš. Místo na táboře mají jisté všichni, kteří se ve výsledkové listině po 3. sérii umístili do 7. místa. V další vlně přihlašování se však dostane řada i na další řešitele. Pokud se chcete dozvědět více informací o našich Letních táborech, podívejte se na stánky táborů.",
+      "date": "2. listopadu 2026",
+      "link": ":Default:Events:tabor",
+      "link-text": "Tábory Výfuku"
+    },
     {
       "title": "Pořadí 1. série",
       "text": "1. série nověho ročníku je za námi už delší dobu, ale konečně se můžete podívat jak se vám dařilo. Gratulujeme ke krásným výsledkům. Také si můžete prohlédnout vzorová řešení a zjistit, kde jste ztratili body a jak své řešení příště vylepšit.",
@@ -18,13 +25,6 @@
       "title": "Výfuk slaví rekordní počet řešitelů",
       "text": "Letos se do 1. série 16. ročníku Výfuku zapojil rekordní počet řešitelů! V této sérii odevzdalo 622 účastníků celkem 2229 řešení, čímž byl překročen historicky nejvyšší počet řešitelů z minulého ročníku. Doufáme, že jste si první sérii užili stejně jako my, kteří si užijeme její opravování. Chtěli bychom vám poděkovat za účast a také všem organizátorům a sponzorům, bez kterých by fungování Výfuku nebylo možné. Protože máme takto enormní počet řešení, je možné, že si na opravená řešení budete muset počkat trochu déle.",
       "date": "13. října 2026"
-    },
-    {
-      "title": "Spuštění registrace na Podzimní setkání",
-      "text": "Už známe termín spuštění registrace na letošní Podzimní setkání! Registovat se od <strong>15. října 20:00</strong> bude moct každý, kdo v letošní první sérii odevzdá alespoň jednu úlohu – při registrace ovšem nezáleží na úspěšnosti, ale pouze na času přihlášení. Přihlásit se mohou i deváťáci, kteří odevzdali alespoň jednu úlohu v prázninových sériích minulého ročníku. Jako každý rok, i letos bude registrace probíhat v systému <a href='https://db.fykos.cz'>FKSDB</a>, kde odevzdáváte svá řešení.",
-      "date": "26. září 2026",
-      "link": ":Default:Events:setkani",
-      "link-text": "Stránka setkání"
     }
   ]
 }
