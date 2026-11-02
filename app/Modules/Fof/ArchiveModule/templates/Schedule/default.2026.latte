@@ -1,0 +1,76 @@
+{varType App\Modules\Core\Language $language}
+{varType array $groups}
+{varType App\Modules\Fof\DefaultModule\SchedulePresenter $presenter}
+{block main}
+    <div class="panel color-auto">
+        <section class="inner-container">
+            <h1>
+                {switch $language->value}
+                    {case 'cs'}Detaily programu
+                    {default}Program details
+                {/switch}
+            </h1>
+            {switch $language->value}
+                {case 'cs'}
+                <h3>Legenda k lokacím</h3>
+                <div class="rules">
+                    <div class="title">PVA EXPO PRAHA</div>
+                    <div class="description">Beranových 667, 199 00 Praha 9</div>
+                </div>
+                <div class="rules">
+                    <div class="title">Hotel Duo</div>
+                    <div class="description">Teplická 492, 190 00 Praha 9</div>
+                </div>
+                <div class="rules">
+                    <div class="title">Areál Troja</div>
+                    <div class="description">V Holešovičkách 2/747, 180 00 Praha 8
+                        <ul style="margin-bottom: 0">
+                            <li><strong>N1</strong> - Pavilon Impakt</li>
+                            <li><strong>T1</strong> - Objekt poslucháren</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rules">
+                    <div class="title">Areál Malá Strana</div>
+                    <div class="description">Malostranské nám. 2/25, 118 00 Praha 1
+                        <ul style="margin-bottom: 0">
+                            <li><strong>S9, refektář</strong> - 1. patro</li>
+                            <li><strong>S3</strong> - 3. patro</li>
+                        </ul>
+                    </div>
+                </div>
+            {default}
+                <h3>Legend for locations</h3>
+                <div class="rules">
+                    <div class="title">PVA EXPO PRAGUE</div>
+                    <div class="description">Beranových 667, 199 00 Prague 9</div>
+                </div>
+                <div class="rules">
+                    <div class="title">Hotel Duo</div>
+                    <div class="description">Teplická 492, 190 00 Prague 9</div>
+                </div>
+                <div class="rules">
+                    <div class="title">Troja Campus</div>
+                    <div class="description">V Holešovičkách 2/747, 180 00 Prague 8
+                        <ul style="margin-bottom: 0">
+                            <li><strong>N1</strong> - Impakt Pavilion</li>
+                            <li><strong>T1</strong> - Lecture Hall Building</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rules">
+                    <div class="title">Malá Strana Campus</div>
+                    <div class="description">Malostranské nám. 2/25, 118 00 Prague 1
+                        <ul style="margin-bottom: 0">
+                            <li><strong>S9, Refectory</strong> - 1st floor</li>
+                            <li><strong>S3</strong> - 3rd floor</li>
+                        </ul>
+                    </div>
+                </div>
+            {/switch}
+        </section>
+    </div>
+
+    {control scheduleList 830}
+
+{/block}
