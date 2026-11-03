@@ -1,4 +1,21 @@
 {
+    "16" : {
+        "1" : {
+            "cs": "Zvuk"
+        },
+        "2" : {
+            "cs": "Kirchhoffovy zákony"
+        },
+        "3" : {
+            "cs": "Raketové motory"
+        },
+        "4" : {
+            "cs": "Klimatické změny"
+        },
+        "5" : {
+            "cs": "Keplerovy zákony"
+        }
+    },
     "15" : {
         "1" : {
             "cs": "Těžišťová soustava"
