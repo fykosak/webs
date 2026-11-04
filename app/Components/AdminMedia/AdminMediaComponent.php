@@ -54,7 +54,49 @@ final class AdminMediaComponent extends AjaxComponent
 
     public function handleRename(): void
     {
-        echo("rename");
+        $oldName = $this->getRequestValue('old-name');
+        $newName = $this->getRequestValue('new-name');
+        $extension = $this->getRequestValue('extension');
+        $path = $this->wwwDir . $this->getRequestValue('path');
+
+        $errors = [];
+        foreach (ImageVariant::cases() as $imageVariant) {
+            $suffix = $imageVariant->suffix() ?? '';
+            $oldBasename = $oldName . $suffix . '.' . $extension;
+            $newBasename = $newName . $suffix . '.' . $extension;
+
+            if (!rename($path . DIRECTORY_SEPARATOR . $oldBasename, $path . DIRECTORY_SEPARATOR . $newBasename)) {
+                $errors[] = ['oldBasename' => $oldBasename, 'newBasename' => $newBasename];
+            }
+        }
+
+        if (count($errors) != 0) {
+            $message = 'Nepodařilo se přejmenovat';
+            switch (count($errors)) {
+                case 1:
+                    $message .= ' soubor ';
+                    break;
+                default:
+                    $message .= ' soubory ';
+            }
+
+            foreach ($errors as $errorList) {
+                $message .= sprintf('%s na %s', $errorList['oldBasename'], $errorList['newBasename']);
+
+                if ($errorList === end($errors)) {
+                    $message .= '.';
+                    break;
+                }
+
+                $message .= ', ';
+            }
+
+            $this->sendResponse($message, IResponse::S500_InternalServerError, MessageLevel::Error);
+            return;
+        }
+
+        $this->imageService->removeEventImagesCache($this->event, EventImageType::Default);
+        $this->sendResponse(sprintf('Soubor %s byl přejmenován na %s.', $oldName . '.' . $extension, $newName . '.' . $extension));
     }
 
     public function handleDelete(): void

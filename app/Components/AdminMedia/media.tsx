@@ -66,8 +66,24 @@ function AdminMediaGallery({ initialData, initialActions }: AdminMediaGalleryPro
         }
     }
 
-    async function renamePhoto(photo: Photo): Promise<void> {
-        console.log('rename');
+    async function renamePhoto(photo: Photo, newName: string): Promise<void> {
+        const body = new FormData();
+        body.set('oldName', photo.name);
+        body.set('newName', newName);
+        body.set('extension', photo.extension);
+        body.set('path', photo.path);
+
+        setFlashMessages([]);
+        try {
+            await sendRequest(actions.getAction('delete'), body);
+        } catch (deleteError) {
+            setFlashMessages([
+                {
+                    text: deleteError instanceof Error ? deleteError.message : `Nepodařilo se smazat soubor ${photo.name}.`,
+                    level: 'danger',
+                }
+            ]);
+        }
     }
 
     const flashMessagesHTML = flashMessages.map(flashMessage =>
@@ -91,28 +107,54 @@ function AdminMediaGallery({ initialData, initialActions }: AdminMediaGalleryPro
 }
 
 function PhotoForm({ onDelete, onRename, ...photo }: PhotoFormProps) {
+    const [isActive, setIsActive] = useState(false);
+
     return <div className="card photo-card" style={{ width: '18rem' }}>
-                <img className="card-img-top" src={photo.thumbSrc} />
+                <img className="card-img-top" src={photo.thumbSrc} alt="Foto"/>
                 <div className="photo-overlay d-flex flex-column justify-content-center align-items-center">
-                    <h5 className="text-white text-center px-2">{photo.name}.{photo.extension}</h5>
-                    <div className="d-flex">
-                        <button
-                            type="button"
-                            className="btn btn-outline-primary me-2"
-                            onClick={() => void onRename(photo)}
-                        >
-                            <i className="fa-solid fa-square-pen"></i>
-                            <span> Přejmenovat </span>
-                        </button>
-                        <button
-                            type="button"
-                            className="btn btn-outline-danger"
-                            onClick={() => void onDelete(photo)}
-                        >
-                            <i className="fa-solid fa-times"></i>
-                            <span> Smazat </span>
-                        </button>
-                    </div>
+                    isActive ?
+                        <div className="d-flex flex-column" style={{ width: 'fit-content' }}>
+                            <form className="align-items-left border rounded border-dark-subtle mb-2" onSubmit={() => void onRename(photo)}>
+                                <input name="fileName" className="text-white px-3 pt-1 mt-1">{photo.name}.{photo.extension}</input>
+                                <div className="d-flex py-3">
+                                    <button
+                                        type="submit"
+                                        className="btn btn-outline-primary me-3"
+                                    >
+                                        <i className="fa-solid fa-floppy-disk"></i>
+                                        <span> Uložit </span>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="btn btn-outline-primary me-2"
+                                        onClick={() => void setIsActive(!isActive)}
+                                    >
+                                        <i className="fa-solid fa-times"></i>
+                                        <span> Zrušit </span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    :
+                        <h5 className="text-white text-center px-2">{photo.name}.{photo.extension}</h5>
+                        <div className="d-flex">
+                            <button
+                                type="button"
+                                className="btn btn-outline-primary me-2"
+                                onClick={() => void setIsActive(!isActive)}
+                            >
+                                <i className="fa-solid fa-square-pen"></i>
+                                <span> Přejmenovat </span>
+                            </button>
+                            <button
+                                type="button"
+                                className="btn btn-outline-danger"
+                                onClick={() => void onDelete(photo)}
+                            >
+                                <i className="fa-solid fa-times"></i>
+                                <span> Smazat </span>
+                            </button>
+                        </div>
                 </div>
             </div>
 }
