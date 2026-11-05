@@ -1,0 +1,30 @@
+{block title}Správa novinek{/block}
+
+{block main}
+<div class="panel color-auto">
+    <section class="inner-container">
+        <h1>Správa novinek</h1>
+        <div n:foreach="$flashes as $flash" n:class="alert, alert-dismissible, fade, show, shadow-sm, $flash->type === 'error' || $flash->type === 'danger' ? 'alert-danger' : ($flash->type === 'success' ? 'alert-success' : ($flash->type === 'warning' ? 'alert-warning' : 'alert-info'))" role="alert">
+            <i n:class="bi, me-2, $flash->type === 'error' || $flash->type === 'danger' ? 'bi-exclamation-triangle-fill' : ($flash->type === 'success' ? 'bi-check-circle-fill' : ($flash->type === 'warning' ? 'bi-exclamation-circle-fill' : 'bi-info-circle-fill'))"></i>
+            {$flash->message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <a class="btn btn-primary mb-3" n:href="news">
+            <i class="fas fa-pencil me-1"></i><span class="skip-3px"></span>
+            Upravit novinku
+        </a>
+        <h5>Vytvořit novinku:</h5>
+        <div class="col-md-6 mt-4">
+            <div class="card">
+                <div class="card-body d-flex align-items-start flex-column">
+                    {control newsForm}
+                </div>
+            </div>
+        </div>
+        <h5 class="mt-3">Aktuální novinky:</h5>
+        <div class="row">
+            {control news:vyfuk $activeNews}
+        </div>
+    </section>
+</div>
+{/block}

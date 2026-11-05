@@ -50,7 +50,9 @@ $flag-icons-path: '/node_modules/flag-icons/flags';
 @import "./events";
 @import "./problems";
 @import "./sponsors";
+@import "./admin";
 
 @import '../../../../Components/Problem/problem';
 @import '../../../../Components/Problem/vyfuk';
 @import '../../../../Components/ImagePreviewModal/styles';
+@import '../../../../Components/News/vyfuk';

@@ -1,0 +1,66 @@
+.news-card {
+  a {
+    margin-bottom: 10px;
+  }
+
+  .card-title {
+    margin-right: .7rem;
+  }
+
+  border-left: 5px solid $primary-color;
+
+  &.color-fof {
+    border-color: $fof-color;
+  }
+
+  &.color-fol {
+    border-color: $fol-color;
+  }
+
+  &.color-dsef {
+    border-color: $dsef-color;
+  }
+
+  &.color-naboj {
+    border-color: $naboj-color;
+  }
+
+  &.color-vyfuk {
+    border-color: $vyfuk-color;
+  }
+
+  &.color-naboj-junior {
+    border-color: $naboj-junior-color;
+  }
+
+  @mixin themed-button($color) {
+    --bs-btn-bg: #{$color};
+    --bs-btn-border-color: #{$color};
+    --bs-btn-hover-bg: color-mix(in srgb, var(--bs-btn-bg), black 15%);
+    --bs-btn-hover-border-color: color-mix(in srgb, var(--bs-btn-border-color), black 15%);
+  }
+
+  .btn-fof {
+    @include themed-button($fof-color);
+  }
+
+  .btn-fol {
+    @include themed-button($fol-color);
+  }
+
+  .btn-dsef {
+    @include themed-button($dsef-color);
+  }
+
+  .btn-naboj {
+    @include themed-button($naboj-color);
+  }
+
+  .btn-vyfuk {
+    @include themed-button($vyfuk-color);
+  }
+
+  .btn-naboj-junior {
+    @include themed-button($naboj-junior-color);
+  }
+}
