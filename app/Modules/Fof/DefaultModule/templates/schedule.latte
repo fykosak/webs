@@ -1,25 +1,25 @@
 {varType App\Modules\Core\Language $language}
 <div class="timeline timeline-wider">
-    {*<div>
-        <div class="timeline-group">{switch $language->value}{case cs}Úterý 10. 2.{default}Tuesday, Feb 10{/switch}
+    <div>
+        <div class="timeline-group">{switch $language->value}{case cs}Středa 10. 2.{default}Wednesday, Feb 10{/switch}
         </div>
         <div>
             <span class="timeline-element-icon"></span>
             {switch $language->value}
             {case cs}
             <div class="timeline-element-content">
-                <time class="timeline-element-date">19:00 - 23:00</time>
+                <time class="timeline-element-date">19:00 - 22:00</time>
                 <div class="timeline-title">Noční prohlídka Prahy</div>
             </div>
             {default}
             <div class="timeline-element-content">
-                <time class="timeline-element-date">19:00 - 23:00</time>
+                <time class="timeline-element-date">19:00 - 22:00</time>
                 <div class="timeline-title">Night Tour of Prague</div>
             </div>
             {/switch}
         </div>
     </div>
-    <div>
+    {*<div>
         <div class="timeline-group">{switch $language->value}{case cs}Středa 11. 2.{default}Wednesday, Feb 11{/switch}
         </div>
         <div>
@@ -69,10 +69,10 @@
             </div>
             {/switch}
         </div>
-    </div>
+    </div>*}
 
     <div>
-        <div class="timeline-group">{switch $language->value}{case cs}Čtvrtek 12. 2.{default}Thursday, Feb 12{/switch}
+        <div class="timeline-group">{switch $language->value}{case cs}Čtvrtek 11. 2.{default}Thursday, Feb 11{/switch}
         </div>
         {switch $language->value}
         {case cs}
@@ -91,7 +91,7 @@
             <span class="timeline-element-icon"></span>
             <div class="timeline-element-content">
                 <div class="timeline-title">One Day with Physics</div>
-                <time class="timeline-element-date">09:00 - 15:00</time>Ta nekonzistence je úmyslná
+                <time class="timeline-element-date">09:00 - 15:00</time>{*Ta nekonzistence je úmyslná*}
                 <p>
                     Day full of excursions and lectures at CUNI MFF.
                 </p>
@@ -104,41 +104,39 @@
             {switch $language->value}
             {case cs}
             <div>
-                <span class="timeline-element-icon"></span>
                 <div class="timeline-element-content">
-                    <div class="timeline-title">Panelová diskuse s vědci</div>
+                    <div class="timeline-title">Kvízový večer</div>
                     <time class="timeline-element-date">19:00 - 21:00</time>
                     <p>
-                        Diskuze s českými vědci o fyzice a jejich práci.
+                        
                     </p>
                 </div>
             </div>
             {default}
             <div>
-                <span class="timeline-element-icon"></span>
                 <div class="timeline-element-content">
-                    <div class="timeline-title">Panel Discussion with Scientists</div>
+                    <div class="timeline-title">Quiz Evening</div>
                     <time class="timeline-element-date">19:00 - 21:00</time>
                     <p>
-                        Discussion with Czech scientists about their work in physics.
+                        
                     </p>
                 </div>
             </div>
             {/switch}
         </div>
-    </div>*}
+    </div>
     <div>
         <div class="timeline-group">{switch $language->value}{case cs}Pátek 12. 2.{default}Friday, Feb 12{/switch}</div>
 
         {include 'competition_schedule.latte'}
 
-        {*<div>
+        <div>
             <span class="timeline-element-icon"></span>
             {switch $language->value}
             {case cs}
             <div class="timeline-element-content">
                 <div class="timeline-title">Rozbor řešení úloh</div>
-                <time class="timeline-element-date">17:00 - 18:30</time>
+                <time class="timeline-element-date">17:30 - 19:00</time>
                 <p>
                     Představení a rozbor autorských řešení úloh z letošního Fyziklání.
                 </p>
@@ -146,7 +144,7 @@
             {default}
             <div class="timeline-element-content">
                 <div class="timeline-title">Problem Analysis</div>
-                <time class="timeline-element-date">17:00 - 18:30</time>
+                <time class="timeline-element-date">17:30 - 19:00</time>
                 <p>
                     Presentation and analysis of the solutions to this year's problems from Fyziklani.
                 </p>
@@ -158,25 +156,25 @@
             {switch $language->value}
             {case cs}
             <div class="timeline-element-content">
-                <div class="timeline-title">Slavnostní raut + oslava 20 let</div>
+                <div class="timeline-title">Párty</div>
                 <time class="timeline-element-date">18:30 - 22:00</time>
                 <p>
-                    Slavnostní večeře s dalšími soutěžícími a organizátory.
+                    Poznejte další soutěžící na večerní párty a oslavte s námi Fyziklání.
                 </p>
             </div>
             {default}
             <div class="timeline-element-content">
-                <div class="timeline-title">Buffet + 20th Anniversary</div>
+                <div class="timeline-title">Party</div>
                 <time class="timeline-element-date">18:30 - 22:00</time>
                 <p>
-                    Ceremonial dinner with other contestants and the organizers.
+                    Meet the other contestants at the evening party and celebrate Fyziklani.
                 </p>
             </div>
             {/switch}
-        </div>*}
+        </div>
     </div>
-    {*<div>
-        <div class="timeline-group">{switch $language->value}{case cs}Sobota 14. 2.{default}Saturday, Feb 14{/switch}
+    <div>
+        <div class="timeline-group">{switch $language->value}{case cs}Sobota 13. 2.{default}Saturday, Feb 13{/switch}
         </div>
 
         <div>
@@ -185,7 +183,7 @@
             {case cs}
             <div class="timeline-element-content">
                 <div class="timeline-title">Přednášky</div>
-                <time class="timeline-element-date">9:30 - 12:00</time>
+                <time class="timeline-element-date">9:30 - 11:50</time>
                 <p>
                     Přednášky od předních českých vědců a hostů.
                 </p>
@@ -193,7 +191,7 @@
             {default}
             <div class="timeline-element-content">
                 <div class="timeline-title">Lectures</div>
-                <time class="timeline-element-date">9:30 - 12:00</time>
+                <time class="timeline-element-date">9:30 - 11:50</time>
                 <p>
                     Lectures from excellent Czech scientists and guest speakers.
                 </p>
@@ -240,5 +238,5 @@
             </div>
             {/switch}
         </div>
-    </div>*}
+    </div>
 </div>
