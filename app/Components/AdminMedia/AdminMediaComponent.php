@@ -59,6 +59,16 @@ final class AdminMediaComponent extends AjaxComponent
         $extension = $this->getRequestValue('extension');
         $path = $this->wwwDir . $this->getRequestValue('path');
 
+        if ($oldName === $newName) {
+            $this->sendResponse('Nový název souboru nemůže být stejný jako starý.', IResponse::S400_BadRequest, MessageLevel::Error);
+            return;
+        }
+
+        if (is_file($path . DIRECTORY_SEPARATOR . $newName . '.' . $extension)) {
+            $this->sendResponse('Soubor s tímto názvem již existuje.', IResponse::S400_BadRequest, MessageLevel::Error);
+            return;
+        }
+
         $errors = [];
         foreach (ImageVariant::cases() as $imageVariant) {
             $suffix = $imageVariant->suffix() ?? '';
