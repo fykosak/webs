@@ -7,7 +7,7 @@
         <section class="inner-container">
             {ifset subtitle}<div class="subheader">{include subtitle}</div>{/ifset}
             {ifset title}<h1>{include title}</h1>{/ifset}
-            <p>
+            {*<p>
                 {switch $language->value}
                     {case 'cs'}
                         Na této stránce naleznete detailní popis doprovodného
@@ -19,7 +19,7 @@
                         be up to date; however, they may slightly change over
                         time.
                 {/switch}
-            </p>
+            </p>*}
             {switch $language->value}
                 {case 'cs'}
                     <h3>Legenda k lokacím</h3>
