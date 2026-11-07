@@ -26,7 +26,7 @@ interface AdminMediaGalleryProps {
 
 interface PhotoFormProps extends Photo {
     onDelete: (photo: Photo) => void;
-    onRename: (photo: Photo) => void;
+    onRename: (photo: Photo, newName: string) => void;
 }
 
 
@@ -68,18 +68,18 @@ function AdminMediaGallery({ initialData, initialActions }: AdminMediaGalleryPro
 
     async function renamePhoto(photo: Photo, newName: string): Promise<void> {
         const body = new FormData();
-        body.set('oldName', photo.name);
-        body.set('newName', newName);
+        body.set('old-name', photo.name);
+        body.set('new-name', newName);
         body.set('extension', photo.extension);
         body.set('path', photo.path);
 
         setFlashMessages([]);
         try {
-            await sendRequest(actions.getAction('delete'), body);
+            await sendRequest(actions.getAction('rename'), body);
         } catch (deleteError) {
             setFlashMessages([
                 {
-                    text: deleteError instanceof Error ? deleteError.message : `Nepodařilo se smazat soubor ${photo.name}.`,
+                    text: deleteError instanceof Error ? deleteError.message : `Nepodařilo se přejmenovat soubor ${photo.name}.`,
                     level: 'danger',
                 }
             ]);
@@ -108,43 +108,65 @@ function AdminMediaGallery({ initialData, initialActions }: AdminMediaGalleryPro
 
 function PhotoForm({ onDelete, onRename, ...photo }: PhotoFormProps) {
     const [isActive, setIsActive] = useState(false);
+    const [newName, setNewName] = useState('');
 
     return <div className="card photo-card" style={{ width: '18rem' }}>
                 <img className="card-img-top" src={photo.thumbSrc} alt="Foto"/>
                 <div className="photo-overlay d-flex flex-column justify-content-center align-items-center">
-                    isActive ?
-                        <div className="d-flex flex-column" style={{ width: 'fit-content' }}>
-                            <form className="align-items-left border rounded border-dark-subtle mb-2" onSubmit={() => void onRename(photo)}>
-                                <input name="fileName" className="text-white px-3 pt-1 mt-1">{photo.name}.{photo.extension}</input>
-                                <div className="d-flex py-3">
-                                    <button
-                                        type="submit"
-                                        className="btn btn-outline-primary me-3"
-                                    >
-                                        <i className="fa-solid fa-floppy-disk"></i>
-                                        <span> Uložit </span>
-                                    </button>
-                                    <button
-                                        type="button"
-                                        className="btn btn-outline-primary me-2"
-                                        onClick={() => void setIsActive(!isActive)}
-                                    >
-                                        <i className="fa-solid fa-times"></i>
-                                        <span> Zrušit </span>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    :
+                    <div className="d-flex flex-column" style={{ width: 'fit-content' }}>
+                    { isActive ? (
+                        <form
+                        className="d-flex flex-column align-items-center mb-2"
+                        data-bs-theme="dark"
+                        onSubmit={
+                            event => {
+                                event.preventDefault();
+                                void onRename(photo, newName);
+                            }
+                        }>
+                            <div className='d-flex align-items-center mb-2'>
+                                <input
+                                    name="fileName"
+                                    value={newName}
+                                    className="align-items-center form-control text-white px-2"
+                                    onChange={event => setNewName(event.currentTarget.value)}
+                                />
+                                <span className="text-white ms-2">{'.'+photo.extension}</span>
+                            </div>
+                            <div className="d-flex py-2">
+                                <button
+                                    type="submit"
+                                    className="btn btn-outline-primary me-3"
+                                >
+                                    <i className="fa-solid fa-floppy-disk"></i>
+                                    <span>Uložit</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-danger me-2"
+                                    onClick={() => void setIsActive(!isActive)}
+                                >
+                                    <i className="fa-solid fa-times"></i>
+                                    <span>Zrušit</span>
+                                </button>
+                            </div>
+                        </form>
+                        ) : (
+                        <>
                         <h5 className="text-white text-center px-2">{photo.name}.{photo.extension}</h5>
                         <div className="d-flex">
                             <button
                                 type="button"
                                 className="btn btn-outline-primary me-2"
-                                onClick={() => void setIsActive(!isActive)}
+                                onClick={
+                                    () => {
+                                        setIsActive(!isActive);
+                                        setNewName(photo.name);
+                                    }
+                                }
                             >
                                 <i className="fa-solid fa-square-pen"></i>
-                                <span> Přejmenovat </span>
+                                <span>Přejmenovat</span>
                             </button>
                             <button
                                 type="button"
@@ -152,11 +174,15 @@ function PhotoForm({ onDelete, onRename, ...photo }: PhotoFormProps) {
                                 onClick={() => void onDelete(photo)}
                             >
                                 <i className="fa-solid fa-times"></i>
-                                <span> Smazat </span>
+                                <span>Smazat</span>
                             </button>
                         </div>
+                        </>
+                        )
+                    }
                 </div>
             </div>
+        </div>
 }
 
 const mediaElement = document.querySelector<HTMLElement>('[data-frontend-id="admin.media"]');
