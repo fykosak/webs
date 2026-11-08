@@ -49,7 +49,30 @@ final class AdminMediaComponent extends AjaxComponent
 
     public function handleUpload(): void
     {
-        echo("upload");
+        $upload = $this->getHttpRequest()->getFiles()['file'] ?? null;
+
+        $name = $upload->getSanitizedName();
+
+        $path = $this->wwwDir . DIRECTORY_SEPARATOR . 'media/photos/event' . DIRECTORY_SEPARATOR . $this->event->eventId;
+        if (!is_dir($path) && !mkdir($path)) {
+            $this->sendResponse('Složka pro soubory neexistuje a nepodařilo se jí vytvořit.', IResponse::S400_BadRequest, MessageLevel::Error);
+            return;
+        }
+
+        $target = $path . DIRECTORY_SEPARATOR . $name;
+        if (is_file($target)) {
+            $this->sendResponse(sprintf('Soubor s názvem %s již existuje.', $name), IResponse::S400_BadRequest, MessageLevel::Error);
+            return;
+        }
+
+        try {
+            $upload->move($target);
+        } catch (\Throwable) {
+            $this->sendResponse(sprintf('Soubor %s se nepodařilo nahrát.', $name), IResponse::S500_InternalServerError, MessageLevel::Error);
+            return;
+        }
+
+        $this->sendResponse(sprintf('Soubor %s byl nahrán.', $name));
     }
 
     public function handleRename(): void
@@ -105,7 +128,6 @@ final class AdminMediaComponent extends AjaxComponent
             return;
         }
 
-        $this->imageService->removeEventImagesCache($this->event, EventImageType::Default);
         $this->sendResponse(sprintf('Soubor %s byl přejmenován na %s.', $oldName . '.' . $extension, $newName . '.' . $extension));
     }
 
@@ -150,7 +172,6 @@ final class AdminMediaComponent extends AjaxComponent
             return;
         }
 
-        $this->imageService->removeEventImagesCache($this->event, EventImageType::Default);
         $this->sendResponse(sprintf('Soubor %s byl smazán.', $name . '.' . $extension));
     }
 
@@ -207,6 +228,7 @@ final class AdminMediaComponent extends AjaxComponent
     }
 
     private function sendResponse(string $text, int $responseCode = IResponse::S200_OK, MessageLevel $messageLevel = MessageLevel::Success): void {
+        $this->imageService->removeEventImagesCache($this->event, EventImageType::Default);
         $this->getLogger()->log(new Message($text, $messageLevel));
         $this->sendAjaxResponse($responseCode);
     }

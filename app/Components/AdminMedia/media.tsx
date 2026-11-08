@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { createPortal, render } from 'react-dom';
 import { netteFetch } from '../../../vendor/fykosak/nette-fks-utils/src/FrontendComponent/fetch/fech';
 import { NetteActions } from '../../../vendor/fykosak/nette-fks-utils/src/FrontendComponent/NetteActions/nette-actions';
@@ -27,6 +27,7 @@ interface AdminMediaGalleryProps {
 interface PhotoFormProps extends Photo {
     onDelete: (photo: Photo) => void;
     onRename: (photo: Photo, newName: string) => void;
+    onUpload: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 
@@ -45,6 +46,32 @@ function AdminMediaGallery({ initialData, initialActions }: AdminMediaGalleryPro
             level: message.level,
         }));
         setFlashMessages(messages);
+    }
+
+    async function uploadPhotos(event: ChangeEvent<HTMLInputElement>): Promise<void> {
+        const uploadedPhotos = Array.from(event.currentTarget.files ?? []);
+
+        setFlashMessages([]);
+
+        let errorMessages = [];
+        for (const photo of uploadedPhotos) {
+            const body = new FormData();
+            body.append('file', photo);
+            try {
+                await sendRequest(actions.getAction('upload'), body);
+            } catch (uploadError) {
+                errorMessages.push(
+                    {
+                        text: uploadError instanceof Error ? uploadError.message : 'Nahrání souboru se nezdařilo.',
+                        level: 'danger',
+                    }
+                )
+            }
+        }
+
+        if (errorMessages.length > 0) {
+            setFlashMessages(errorMessages);
+        }
     }
 
     async function deletePhoto(photo: Photo): Promise<void> {
@@ -76,10 +103,10 @@ function AdminMediaGallery({ initialData, initialActions }: AdminMediaGalleryPro
         setFlashMessages([]);
         try {
             await sendRequest(actions.getAction('rename'), body);
-        } catch (deleteError) {
+        } catch (renameError) {
             setFlashMessages([
                 {
-                    text: deleteError instanceof Error ? deleteError.message : `Nepodařilo se přejmenovat soubor ${photo.name}.`,
+                    text: renameError instanceof Error ? renameError.message : `Nepodařilo se přejmenovat soubor ${photo.name}.`,
                     level: 'danger',
                 }
             ]);
@@ -96,17 +123,47 @@ function AdminMediaGallery({ initialData, initialActions }: AdminMediaGalleryPro
 
     const flashMessagesElement = document.getElementById('media-flash-messages');
 
-    const photos = data.photos.map(photo => <PhotoForm key={photo.name} {...photo} onDelete={deletePhoto} onRename={renamePhoto}/>);
+    const photos = data.photos.map(photo => <PhotoForm key={photo.name} {...photo} onDelete={deletePhoto} onRename={renamePhoto} onUpload={uploadPhotos}/>);
 
     return <>
                 {flashMessagesElement && createPortal(flashMessagesHTML, flashMessagesElement)}
-                <div className="d-flex flex-wrap gap-3">
-                    {photos}
+
+                <h5>Nahrát nové fotky:</h5>
+                <div className="file-upload-container mb-3">
+                    <label className="d-flex justify-content-start align-items-center border rounded my-2 border-dark-subtle file-upload">
+                        <span className="d-flex">
+                            <span className="btn btn-outline-primary">
+                                <i className="fa-solid fa-search" aria-hidden="true"></i>
+                            </span>
+                        </span>
+                        <span className="mx-3">
+                            Vyberte fotky k nahrání...
+                        </span>
+                        <input
+                            className="visually-hidden"
+                            type="file"
+                            accept="image/*"
+                            multiple
+                            disabled={false}
+                            onChange={uploadPhotos}
+                        />
+                    </label>
                 </div>
+
+                <h5>Nahrané fotky:</h5>
+                {photos.length === 0 ?
+                    <div className="d-flex flex-wrap gap-3">
+                        <p>Nejsou nahrané žádné fotky.</p>
+                    </div>
+                    :
+                    <div className="d-flex flex-wrap gap-3">
+                        {photos}
+                    </div>
+                }
             </>
 }
 
-function PhotoForm({ onDelete, onRename, ...photo }: PhotoFormProps) {
+function PhotoForm({ onDelete, onRename, onUpload, ...photo }: PhotoFormProps) {
     const [isActive, setIsActive] = useState(false);
     const [newName, setNewName] = useState('');
 
