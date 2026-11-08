@@ -35,9 +35,8 @@
                 <p>Ubytování hostů možné od 15:00 v den příjezdu. Pokoje je pak nutné vyklidit do 10:00 v den odjezdu.</p>
                 <p>
                     V přihlášce si můžete zvolit, zda chcete být ubytováni na jednolůžkovém, dvoulůžkovém nebo trojlůžkovém pokoji.
-                    Soutěžící a doprovod budou poté do pokojů přiřazeni podle délky pobytu a až poté podle vlastních preferencí (tedy
-                    ubytovaní na více nocí nebudou s těmi na jednu noc). Ve výjimečných případech se může stát, že osoba, která si
-                    zvolí trojlůžkový pokoj, bude bez příplatku ubytována v dvoulůžkovém pokoji.
+                    Při rozdělování do pokojů se vždy snažíme vyjít vstříc preferencím, které nám v přihlášce uvedete. Ne vždy je to
+                    ale možné – jak přesně při rozdělování postupujeme, najdete v sekci <a href="#room-allocation">Rozdělování na pokoje</a>.
                 </p>
             {default}
                 <h1>Hotel Duo</h1>
@@ -48,10 +47,9 @@
                 <p>The breakfast is included in the form of a buffet.</p>
                 <p>Guest check-in is available from 3:00 PM on the day of arrival, and check-out is required by 10:00 AM on the day of departure.</p>
                 <p>
-                    In the registration form, you can choose whether you prefer accommodation in a single, double, or triple room. Participants
-                    and their teachers will be assigned to rooms based on the length of their stay, and only then according to their preferences
-                    (e.g., those staying multiple nights will not be accommodated with those staying for just one night). In exceptional cases, a person who
-                    selects a triple room may be accommodated in a double room at no extra cost.
+                    In the registration form, you can choose whether you prefer accommodation in a single, double, or triple room.
+                    When assigning rooms, we always try to meet the preferences you state in your registration. However, this is not
+                    always possible – you can find out how exactly we assign rooms in the <a href="#room-allocation">Room Allocation</a> section.
                 </p>
             {/switch}
 
@@ -179,6 +177,42 @@
             {/switch}
         </section>
     </div>
+    <div class="panel color-auto" id="how-to-pay">
+        <section class="inner-container">
+            {switch $language->value}
+                {case 'cs'}
+                <h1>Jak zaplatit za ubytování?</h1>
+                <p>Při placení postupujte podle pokynů uvedených na <a href="https://db.fykos.cz/shop/order/create-schedule?eventId=211">této stránce</a>.</p>
+            {default}
+                <h1>How to pay for accommodation?</h1>
+                <p>When making a payment, please follow the instructions provided on <a href="https://db.fykos.cz/shop/order/create-schedule?eventId=211">this page</a>.</p>
+            {/switch}
+        </section>
+    </div>
+        <div class="panel color-auto" id="room-allocation">
+        <section class="inner-container">
+            {switch $language->value}
+                {case 'cs'}
+                <h1>Rozdělování na pokoje</h1>
+                <ul>
+                    <li>Soutěžící a doprovod přiřazujeme do pokojů nejprve podle délky pobytu a až poté podle preferencí uvedených v přihlášce (tedy ubytovaní na více nocí nebudou s těmi na jednu noc).</li>
+                    <li>Pokud mají spolubydlící kompatibilní požadavky (jsou ubytovaní na stejné noci a všichni mají přihlášený správný pokoj, např. tým se rozdělí na trojlůžkový a dvoulůžkový pokoj), vyjdeme jim vstříc vždy.</li>
+                    <li>Smíšené pokoje vytváříme pouze v rámci jedné školy či týmu, nebo na výslovnou žádost.</li>
+                    <li>Výměnu ubytovaných na poslední chvíli (např. z důvodu nemoci) můžeme zaručit pouze se zachováním pohlaví, tj. dívku za dívku a chlapce za chlapce. Jiné změny jsou možné pouze po předchozí domluvě.</li>
+                    <li>Ve výjimečných případech se může stát, že osoba, která si zvolí trojlůžkový (nebo dvojlůžkový) pokoj, bude bez příplatku ubytována v dvoulůžkovém (nebo jednolůžkovém) pokoji.</li>
+                </ul>
+            {default}
+                <h1>Room Allocation</h1>
+                <ul>
+                    <li>Participants and their teachers are assigned to rooms based on the length of their stay, and only then according to the preferences stated in the registration (e.g., those staying multiple nights will not be accommodated with those staying for just one night).</li>
+                    <li>If roommates have compatible requests (they stay for the same nights and all have registered the right room, e.g., a team splits into a triple and a double room), we will always accommodate them.</li>
+                    <li>Mixed-gender rooms are arranged only within the same school or team, or upon explicit request.</li>
+                    <li>A last-minute replacement (e.g., due to illness) can only be guaranteed for a person of the same gender, i.e., a girl for a girl and a boy for a boy. Other changes are possible only upon prior agreement.</li>
+                    <li>In exceptional cases, a person who selects a triple (or a double) room may be accommodated in a double (or a single) room at no extra cost.</li>
+                </ul>
+            {/switch}
+        </section>
+    </div>
     <div class="panel color-auto" id="conditions">
         <section class="inner-container">
             {switch $language->value}
@@ -283,18 +317,6 @@
                     damages incurred, in accordance with the law § 2330 č. 89/2012 Sb.
                 </li>
             </ul>
-            {/switch}
-        </section>
-    </div>
-    <div class="panel color-auto" id="how-to-pay">
-        <section class="inner-container">
-            {switch $language->value}
-                {case 'cs'}
-                <h1>Jak zaplatit za ubytování?</h1>
-                <p>Při placení postupujte podle pokynů uvedených na <a href="https://db.fykos.cz/shop/order/create-schedule?eventId=211">této stránce</a>.</p>
-            {default}
-                <h1>How to pay for accommodation?</h1>
-                <p>When making a payment, please follow the instructions provided on <a href="https://db.fykos.cz/shop/order/create-schedule?eventId=211">this page</a>.</p>
             {/switch}
         </section>
     </div>
