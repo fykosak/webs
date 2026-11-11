@@ -12,7 +12,7 @@ use App\Models\Authentication\UserModel;
 use Nette\Application\ForbiddenRequestException;
 use App\Models\Downloader\Services\EventService;
 use App\Models\Downloader\Services\NewsService;
-use App\Components\Forms\NewsForm;
+use App\Components\Admin\News\NewsManagementForm;
 use App\Models\Downloader\Models\EventModel;
 use App\Models\Images\ImageService;
 use Fykosak\Utils\Logging\MessageLevel;
@@ -137,7 +137,7 @@ class AdminPresenter extends BasePresenter
         return $files;
     }
 
-    protected function createComponentNewsForm(): NewsForm
+    protected function createComponentNewsManagementForm(): NewsManagementForm
     {
         $newsId = $this->getParameter('newsId');
 
@@ -145,7 +145,7 @@ class AdminPresenter extends BasePresenter
             $newsId = (int) $newsId;
         }
 
-        return new NewsForm(
+        return new NewsManagementForm(
             $this->getContext(),
             $newsId
         );

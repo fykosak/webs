@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Components\Forms;
+namespace App\Components\Admin\News;
 
 use App\Components\Forms\FormComponent;
 use Fykosak\Utils\Logging\MessageLevel;
@@ -15,7 +15,7 @@ use App\Models\Downloader\Models\News\NewsColors;
 use App\Models\Downloader\Services\NewsService;
 use App\Models\Downloader\Models\News\NewsModel;
 
-final class NewsForm extends FormComponent
+final class NewsManagementForm extends FormComponent
 {
     private NewsService $newsService;
 
@@ -121,11 +121,11 @@ final class NewsForm extends FormComponent
         if (is_null($this->newsId)) {
             $newsItem->newsId = max($this->newsService->getExistingNewsIds()) + 1;
             $this->newsService->createNews($newsItem);
-            $message = 'Novinka vytvořena';
+            $message = sprintf('Novinka #%d vytvořena.', $newsItem->newsId);
         } else {
             $newsItem->newsId = $this->newsId;
             $this->newsService->editNews($newsItem);
-            $message = 'Novinka upravena';
+            $message = sprintf('Novinka #%d upravena.', $newsItem->newsId);
         }
 
         $this->getPresenter()->flashMessage($message, MessageLevel::Success);
@@ -137,9 +137,12 @@ final class NewsForm extends FormComponent
         $newsItem = $form->getValues(NewsModel::class);
         $newsItem->newsId = $this->newsId;
 
+        // save news item  id for displaying in flash message
+        $newsItemId = $newsItem->newsId;
+
         $this->newsService->deleteNews($newsItem);
 
-        $this->getPresenter()->flashMessage('Novinka smazána', MessageLevel::Warning);
+        $this->getPresenter()->flashMessage(sprintf('Novinka #%d smazána', $newsItemId), MessageLevel::Success);
         $this->presenter->redirect('this');
     }
 }
