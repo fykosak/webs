@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\Components\AdminMedia;
+namespace App\Components\Admin\Media;
 
-use App\Models\Downloader\Models\EventModel;
+use App\Components\Admin\AbstractFileManagementComponent;
 use Nette\DI\Container;
-use Fykosak\Utils\FrontendComponent\Components\AjaxComponent;
+use App\Models\Downloader\Models\EventModel;
 use App\Models\Images\ImageService;
 use App\Models\Images\EventImageType;
 use App\Models\Images\ImageVariant;
-use Fykosak\Utils\Logging\Message;
 use Fykosak\Utils\Logging\MessageLevel;
+use Nette\Http\FileUpload;
 use Nette\Http\IResponse;
 
-final class AdminMediaComponent extends AjaxComponent
+final class MediaManagementComponent extends AbstractFileManagementComponent
 {
     protected ImageService $imageService;
     private readonly string $wwwDir;
@@ -25,14 +25,6 @@ final class AdminMediaComponent extends AjaxComponent
     ) {
         parent::__construct($container, 'admin.media');
         $this->wwwDir = $container->getParameters()['wwwDir'];
-    }
-
-
-    protected function configure(): void
-    {
-        $this->addAction('upload', 'upload!');
-        $this->addAction('rename', 'rename!');
-        $this->addAction('delete', 'delete!');
     }
 
     public function injectImageService(
@@ -50,12 +42,13 @@ final class AdminMediaComponent extends AjaxComponent
     public function handleUpload(): void
     {
         $upload = $this->getHttpRequest()->getFiles()['file'] ?? null;
+        $upload = $upload instanceof FileUpload ? $upload : null;
 
         $name = $upload->getSanitizedName();
 
         $path = $this->wwwDir . DIRECTORY_SEPARATOR . 'media/photos/event' . DIRECTORY_SEPARATOR . $this->event->eventId;
         if (!is_dir($path) && !mkdir($path)) {
-            $this->sendResponse('Složka pro soubory neexistuje a nepodařilo se jí vytvořit.', IResponse::S400_BadRequest, MessageLevel::Error);
+            $this->sendResponse('Složka pro fotky akce neexistuje a nepodařilo se jí vytvořit.', IResponse::S400_BadRequest, MessageLevel::Error);
             return;
         }
 
@@ -221,16 +214,11 @@ final class AdminMediaComponent extends AjaxComponent
         return $media;
     }
 
-    private function getRequestValue(string $key): ?string
+    public function sendResponse(string $text, int $responseCode = IResponse::S200_OK, MessageLevel $messageLevel = MessageLevel::Success): void
     {
-        $value = $this->getHttpRequest()->getPost($key);
-        return is_string($value) ? $value : null;
-    }
-
-    private function sendResponse(string $text, int $responseCode = IResponse::S200_OK, MessageLevel $messageLevel = MessageLevel::Success): void {
+        // invalidate image cache before sending a response, so that the frontend gallery renders correctly
         $this->imageService->removeEventImagesCache($this->event, EventImageType::Default);
-        $this->getLogger()->log(new Message($text, $messageLevel));
-        $this->sendAjaxResponse($responseCode);
-    }
 
+        parent::sendResponse($text, $responseCode, $messageLevel);
+    }
 }

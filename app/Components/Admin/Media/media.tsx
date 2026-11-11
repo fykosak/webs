@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import { createPortal, render } from 'react-dom';
-import { netteFetch } from '../../../vendor/fykosak/nette-fks-utils/src/FrontendComponent/fetch/fech';
-import { NetteActions } from '../../../vendor/fykosak/nette-fks-utils/src/FrontendComponent/NetteActions/nette-actions';
+import { netteFetch } from '../../../../vendor/fykosak/nette-fks-utils/src/FrontendComponent/fetch/fech';
+import { NetteActions } from '../../../../vendor/fykosak/nette-fks-utils/src/FrontendComponent/NetteActions/nette-actions';
 
 interface Photo {
     name: string;
@@ -19,7 +19,7 @@ interface FlashMessage {
     level: string;
 }
 
-interface AdminMediaGalleryProps {
+interface MediaManagementGalleryProps {
     initialData: Media;
     initialActions: NetteActions;
 }
@@ -31,7 +31,7 @@ interface PhotoFormProps extends Photo {
 }
 
 
-function AdminMediaGallery({ initialData, initialActions }: AdminMediaGalleryProps) {
+function MediaManagementGallery({ initialData, initialActions }: MediaManagementGalleryProps) {
     const [data, setData] = useState(initialData);
     const [actions, setActions] = useState(initialActions);
     const [flashMessages, setFlashMessages] = useState<FlashMessage[]>([]);
@@ -246,5 +246,5 @@ const mediaElement = document.querySelector<HTMLElement>('[data-frontend-id="adm
 if (mediaElement) {
     const initialData = JSON.parse(mediaElement.dataset.data ?? '{}') as Media;
     const initialActions = new NetteActions(JSON.parse(mediaElement.dataset.actions ?? '{}'));
-    render(<AdminMediaGallery initialData={initialData} initialActions={initialActions} />, mediaElement);
+    render(<MediaManagementGallery initialData={initialData} initialActions={initialActions} />, mediaElement);
 }

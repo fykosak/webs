@@ -6,7 +6,7 @@ namespace App\Modules\Vyfuk\DefaultModule;
 
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\Title;
-use App\Components\AdminMedia\AdminMediaComponent;
+use App\Components\Admin\Media\MediaManagementComponent;
 use App\Models\Authentication\Authenticator;
 use App\Models\Authentication\UserModel;
 use Nette\Application\ForbiddenRequestException;
@@ -76,12 +76,12 @@ class AdminPresenter extends BasePresenter
         $this->template->selectedEvent = $this->getEvent($eventId);
     }
 
-    protected function createComponentAdminMedia(): AdminMediaComponent
+    protected function createComponentMediaManagement(): MediaManagementComponent
     {
         $eventId = $this->getParameter('eventId');
         $event = $this->getEvent((int)$eventId);
 
-        return new AdminMediaComponent($this->getContext(), $event);
+        return new MediaManagementComponent($this->getContext(), $event);
     }
 
     public function getEvent(?int $eventId): EventModel {
