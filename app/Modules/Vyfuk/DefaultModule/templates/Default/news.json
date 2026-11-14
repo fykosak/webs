@@ -1,6 +1,13 @@
 {
   "cs": [
       {
+      "title": "Informace k Zimní víkendovce 2027",
+      "text": "Již třetí Zimní víkendovka Výfuku se tento ročník uskuteční od 29. do 31. ledna 2027 ve skautském areálu Přelouč nedaleko Pardubic. Účast na akci mají zajištěnou řešitelé, kteří se po 2. sérii umístili na prvních 7 příčkách výsledkové listiny. Další vlna přihlašování však umožní účast i ostatním řešitelům. Více informací naleznete na stránkách víkendovek.",
+      "date": "14. listopadu 2026",
+      "link": ":Default:Events:vikendovka",
+      "link-text": "Víkendovky Výfuku"
+      },
+      {
       "title": "Informace k Letnímu táboru 2027",
       "text": "Letní tábor Výfuku se tentokrát bude konat od 25. července do 7. srpna 2027 na chatě Bratrouchov, kde si společně užijeme krásy Krkonoš. Místo na táboře mají jisté všichni, kteří se ve výsledkové listině po 3. sérii umístili do 7. místa. V další vlně přihlašování se však dostane řada i na další řešitele. Pokud se chcete dozvědět více informací o našich Letních táborech, podívejte se na stánky táborů.",
       "date": "2. listopadu 2026",
@@ -20,11 +27,6 @@
       "date": "13. října 2026",
       "link": ":Default:Problems:",
       "link-text": "Zadání"
-    },
-    {
-      "title": "Výfuk slaví rekordní počet řešitelů",
-      "text": "Letos se do 1. série 16. ročníku Výfuku zapojil rekordní počet řešitelů! V této sérii odevzdalo 622 účastníků celkem 2229 řešení, čímž byl překročen historicky nejvyšší počet řešitelů z minulého ročníku. Doufáme, že jste si první sérii užili stejně jako my, kteří si užijeme její opravování. Chtěli bychom vám poděkovat za účast a také všem organizátorům a sponzorům, bez kterých by fungování Výfuku nebylo možné. Protože máme takto enormní počet řešení, je možné, že si na opravená řešení budete muset počkat trochu déle.",
-      "date": "13. října 2026"
     }
   ]
 }
