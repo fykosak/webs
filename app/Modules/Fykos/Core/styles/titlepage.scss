@@ -1,6 +1,5 @@
 /// Generic
 
-
 .fade-in-section {
   opacity: 0;
   transform: translateY(50px);
@@ -80,7 +79,7 @@
       font-size: .9rem;
       font-weight: 500;
       color: rgba(195, 192, 192, 0.5) !important;
-      
+
       #countdown-secondary {
         font-size: .8rem;
         font-weight: 400;
@@ -107,23 +106,7 @@
 
 }
 
-
-/// News section
-
-.news-card {
-  border-left: 5px solid $primary-color;
-
-  a {
-    margin-bottom: 10px;
-  }
-
-  .card-title {
-    margin-right: .7rem;
-  }
-}
-
 /// Videos section
-
 
 .video-row {
   margin: 0;

@@ -3,3 +3,4 @@ import 'bootstrap';
 import './Components/ImagePreviewModal/image-preview-modal';
 import './Components/ImageGallery/gallery';
 import './Components/ResultsVyfuk/results';
+import './Components/AdminMedia/media';
