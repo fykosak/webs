@@ -19,6 +19,13 @@
       "color": "fykos"
     },
     {
+      "title": "Otevřela se registrace na Fyziklání",
+      "text": "Otevřeli jsme registraci na Fyziklání 2027, které se bude konat 14. 2. v Praze. Můžeš se těšit na týmovou soutěž v počítání zajímavých fyzikálních úloh, ale i na bohatý doprovodný program! Tak neváhej a přihlaš svůj tým!",
+      "link": "https://fyziklani.cz/registrace",
+      "link-text": "Registrace",
+      "color": "fof"
+    },
+    {
       "title": "Zveřejnili jsme nová pravidla",
       "text": "Spolu s novým ročníkem přicházejí i nová pravidla FYKOSu, která lépe specifikují fungování našeho semináře. Hlavní změnou je přidání <a href=\"https://fykos.cz/akce/fykos/pravidla-ai\">Pravidel používání AI</a> s konkrétními příklady použití. Ať už se tedy se zadáním úloh setkáváte poprvé, nebo jste dlouholetými řešiteli, doporučujeme se s novými pravidly důkladně seznámit.",
       "link": "https://fykos.cz/akce/fykos/pravidla",
@@ -33,6 +40,13 @@
       "link": "https://fykos.org/problems/40/2",
       "link-text": "Problems",
       "color": "fykos"
+    },
+    {
+      "title": "Registration for Fyziklání is now open",
+      "text": "We have opened registration for Fyziklání 2027, which will take place on February 13 in Prague. You can look forward to a team-based competition focused on solving interesting physics problems, as well as a rich accompanying program. So don't hesitate and register your team!",
+      "link": "https://fyziklani.org/registration",
+      "link-text": "Registration",
+      "color": "fof"
     },
     {
       "title": "We have published new rules",
