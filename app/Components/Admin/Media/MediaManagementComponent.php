@@ -9,6 +9,7 @@ use Nette\DI\Container;
 use App\Models\Downloader\Models\EventModel;
 use App\Models\Images\ImageService;
 use App\Models\Images\EventImageType;
+use App\Models\Images\ImageManipulator;
 use App\Models\Images\ImageVariant;
 use Fykosak\Utils\Logging\MessageLevel;
 use Nette\Http\FileUpload;
@@ -17,6 +18,7 @@ use Nette\Http\IResponse;
 final class MediaManagementComponent extends AbstractFileManagementComponent
 {
     protected ImageService $imageService;
+    protected ImageManipulator $imageManipulator;
     private readonly string $wwwDir;
 
     public function __construct(
@@ -27,11 +29,13 @@ final class MediaManagementComponent extends AbstractFileManagementComponent
         $this->wwwDir = $container->getParameters()['wwwDir'];
     }
 
-    public function injectImageService(
+    public function inject(
         ImageService $imageService,
+        ImageManipulator $imageManipulator
     ): void
     {
         $this->imageService = $imageService;
+        $this->imageManipulator = $imageManipulator;
     }
 
     protected function getData(): array
@@ -60,6 +64,7 @@ final class MediaManagementComponent extends AbstractFileManagementComponent
 
         try {
             $upload->move($target);
+            $this->imageManipulator->processDirectory($path);
         } catch (\Throwable) {
             $this->sendResponse(sprintf('Soubor %s se nepodařilo nahrát.', $name), IResponse::S500_InternalServerError, MessageLevel::Error);
             return;
