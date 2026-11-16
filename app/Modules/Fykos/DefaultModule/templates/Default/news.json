@@ -12,11 +12,11 @@
   ],
   "cs": [
     {
-      "title": "Posunutí deadlinu seriálové úlohy",
-      "text": "Kvůli opožděnému zveřejnění zadání jsme se rozhodli posunout deadline seriálové úlohy na 15. listopadu. Omlouváme se za komplikace.",
-      "link": "https://fykos.cz/zadani",
-      "link-text": "Zadání",
-      "color": "fykos"
+      "title": "Otevřela se registrace na Fyziklání",
+      "text": "Otevřeli jsme registraci na Fyziklání 2027, které se bude konat 14. 2. v Praze. Můžeš se těšit na týmovou soutěž v počítání zajímavých fyzikálních úloh, ale i na bohatý doprovodný program! Tak neváhej a přihlaš svůj tým!",
+      "link": "https://fyziklani.cz/registrace",
+      "link-text": "Registrace",
+      "color": "fof"
     },
     {
       "title": "Zveřejnili jsme nová pravidla",
@@ -28,11 +28,11 @@
   ],
   "en": [
     {
-      "title": "Serial Problem Deadline Extension",
-      "text": "Due to serial problem statement being published late, we have decided to postpone its deadline to November 15. We apologize for the inconvenience.",
-      "link": "https://fykos.org/problems",
-      "link-text": "Problems",
-      "color": "fykos"
+      "title": "Registration for Fyziklání is now open",
+      "text": "We have opened registration for Fyziklání 2027, which will take place on February 13 in Prague. You can look forward to a team-based competition focused on solving interesting physics problems, as well as a rich accompanying program. So don't hesitate and register your team!",
+      "link": "https://fyziklani.org/registration",
+      "link-text": "Registration",
+      "color": "fof"
     },
     {
       "title": "We have published new rules",
