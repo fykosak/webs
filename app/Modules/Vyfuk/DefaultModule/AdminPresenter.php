@@ -7,6 +7,7 @@ namespace App\Modules\Vyfuk\DefaultModule;
 use Fykosak\Utils\UI\Navigation\NavItem;
 use Fykosak\Utils\UI\Title;
 use App\Components\Admin\Media\MediaManagementComponent;
+use App\Components\Admin\Files\FileManagementComponent;
 use App\Models\Authentication\Authenticator;
 use App\Models\Authentication\UserModel;
 use Nette\Application\ForbiddenRequestException;
@@ -17,7 +18,6 @@ use App\Models\Downloader\Models\EventModel;
 use App\Models\Images\ImageService;
 use Fykosak\Utils\Logging\MessageLevel;
 use Fykosak\Utils\Localization\LangMap;
-use Nette\Utils\Finder;
 
 class AdminPresenter extends BasePresenter
 {
@@ -91,50 +91,15 @@ class AdminPresenter extends BasePresenter
     public function renderFiles(?int $eventId = null): void
     {
         $this->template->events = array_reverse($this->eventService->getEvents([10, 11, 12, 18]));
-
-        $event = $eventId ? $this->eventService->getEvent($eventId) : $this->eventService->getNewest([10, 11, 12, 18]);
-        $this->template->selectedEvent = $event;
-
-        if ($this->hasFilesEvent($event->eventId)) {
-            $this->template->files = $this->getFiles($event->eventId);
-        }
+        $this->template->selectedEvent = $this->getEvent($eventId);
     }
 
-    private function hasFilesEvent(int $eventId): bool
+    protected function createComponentFileManagement(): FileManagementComponent
     {
-        return count($this->getFiles($eventId)) > 0;
-    }
+        $eventId = $this->getParameter('eventId');
+        $event = $this->getEvent((int)$eventId);
 
-    public function getFiles(int $eventId): array
-    {
-        $mediaDir = $this->getMediaDir();
-        $eventDir = $mediaDir . '/download/event/' . $eventId;
-        $files = [];
-
-        if (!is_dir($eventDir)) {
-            return [];
-        }
-
-        try {
-            $iterator = Finder::findFiles('*.pdf')->in($eventDir)->getIterator();
-        } catch (\Exception $e) {
-            return [];
-        }
-
-        foreach ($iterator as $file) {
-            $name = $file->getBasename('.pdf');
-            $path = '/media' . substr($file->getPathname(), strlen($mediaDir));
-            $files[] = [
-                'path' => $path,
-                'name' => $name,
-            ];
-        };
-
-        usort($files, function ($a, $b) {
-            return $a['name'] <=> $b['name'];
-        });
-
-        return $files;
+        return new FileManagementComponent($this->getContext(), $event);
     }
 
     protected function createComponentNewsManagementForm(): NewsManagementForm

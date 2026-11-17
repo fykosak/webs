@@ -48,6 +48,11 @@ final class MediaManagementComponent extends AbstractFileManagementComponent
         $upload = $this->getHttpRequest()->getFiles()['file'] ?? null;
         $upload = $upload instanceof FileUpload ? $upload : null;
 
+        if ($upload === null || !$upload->isOk()) {
+            $this->sendResponse('Soubor se nepodařilo nahrát.', IResponse::S400_BadRequest, MessageLevel::Error);
+            return;
+        }
+
         $name = $upload->getSanitizedName();
 
         $path = $this->wwwDir . DIRECTORY_SEPARATOR . 'media/photos/event' . DIRECTORY_SEPARATOR . $this->event->eventId;
