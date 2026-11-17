@@ -13,8 +13,8 @@
                         {/if}
                     {/if}
                     <p class="my-auto order-1 news-date">
-                        {*{$newsItem->displayDate|localDate}*}
-                        {*TODO set Latte locale*}
+                        {$newsItem->displayDate|date('j. n. Y')}
+                        {*TODO use date formatted acording to lang*}
                     </p>
                 </div>
             </div>
