@@ -12,7 +12,8 @@ docker kontejnerů.
 Aby bylo možné spustit weby, je potřeba mít nainstalovaný docker. Pokud jste na
 Linuxu, využijte [návodu na instalaci](https://docs.docker.com/engine/install/).
 
-Pokud jste na Windows, je asi nejlepším způsobem nainstalovat WSL (Ubuntu nebo
+Pokud jste na Windows, je asi nejlepším způsobem nainstalovat 
+[WSL](https://learn.microsoft.com/en-us/windows/wsl/install) (Ubuntu nebo
 Debian) a využít návodu pro Linux. Alternativně lze nainstalovat [Docker
 desktop](https://docs.docker.com/desktop/setup/install/windows-install/) přímo
 na Windows.
@@ -62,25 +63,6 @@ terminál, ve je docker spuštěn, lze pomocí `docker compose up -d` ve složce
 
 Více informací o tom, jak používat docker a jak v něm spouštět příkazy
 naleznete v [Docker README](docker/README.md).
-
-### Development using podman
-
-As a convenience for `podman` based setups, you can use [just](https://just.systems/)
-command runner for your development environment. For `docker` see below. All
-commands are documented by running `just` in this directory.
-
-If you want to speedrun the setup, here is a tasklist:
-
-1. Install `just` and `podman`
-2. Configure your FKSDB login with `just login` (this may break with `'` in password)
-3. Download deps via `just setup`
-4. When developing, start with `just dev`
-5. End your session using `just stop`
-
-To use `docker` instead of `podman`, instead of `just cmd` write `just runner=docker cmd`.
-This is untested, so contact @rkuklik if you run into issues.
-
-To access the websites (after running `just dev`), following links can be used:
 
 ## Manuální instalace
 
