@@ -167,47 +167,46 @@ function FileForm({ onDelete, onRename, onUpload, ...file }: FileFormProps) {
     return <div className="d-flex justify-content-between align-items-center border rounded my-2 border-dark-subtle file-editor">
                 { isActive ? (
                     <form
-                    className="d-flex flex-column align-items-center mb-2"
-                    data-bs-theme="dark"
+                    className="d-flex align-items-center justify-content-between w-100"
                     onSubmit={
                         event => {
                             event.preventDefault();
                             void onRename(file, newName);
                         }
                     }>
-                        <div className='d-flex align-items-center mb-2'>
+                        <div className='d-flex align-items-center me-5'>
                             <input
                                 name="fileName"
                                 value={newName}
-                                className="align-items-center form-control text-white px-2"
+                                className="align-items-center form-control px-2"
                                 onChange={event => setNewName(event.currentTarget.value)}
                             />
-                            <span className="text-white ms-2">{'.'+file.extension}</span>
+                            <span className="ms-2">{'.'+file.extension}</span>
                         </div>
-                        <div className="d-flex py-2">
+                        <div className="d-flex">
                             <button
                                 type="submit"
-                                className="btn btn-outline-primary me-3"
+                                className="btn btn-outline-primary me-2"
                             >
-                                <i className="fa-solid fa-floppy-disk"></i>
+                                <i className="fa-solid fa-floppy-disk me-1"></i>
                                 <span>Uložit</span>
                             </button>
                             <button
                                 type="button"
-                                className="btn btn-outline-danger me-2"
+                                className="btn btn-outline-danger me-1"
                                 onClick={() => void setIsActive(!isActive)}
                             >
-                                <i className="fa-solid fa-times"></i>
+                                <i className="fa-solid fa-times me-1"></i>
                                 <span>Zrušit</span>
                             </button>
                         </div>
                     </form>
                     ) : (
-                    <div className="d-flex align-items-center">
-                        <div className="ms-2">
+                    <div className="d-flex align-items-center justify-content-between w-100 pe-1">
+                        <div className="ms-1">
                             {`${file.name}.${file.extension}`}
                         </div>
-                        <span className="d-flex ms-5">
+                        <span className="d-flex ms-5 align-items-center">
                             <a href={`${file.path}/${file.name}.${file.extension}`} target="_blank" rel="noopener noreferrer">
                                 <button type="button" className="btn btn-outline-warning">
                                     <i className="fa-solid fa-eye"></i>
