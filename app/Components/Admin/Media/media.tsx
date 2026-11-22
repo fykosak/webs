@@ -167,7 +167,7 @@ function PhotoForm({ onDelete, onRename, onUpload, ...photo }: PhotoFormProps) {
     const [isActive, setIsActive] = useState(false);
     const [newName, setNewName] = useState('');
 
-    return <div className="card photo-card" style={{ width: '18rem' }}>
+    return <div className={`card photo-card ${isActive ? 'editing' : ''}`} style={{ width: '18rem' }}>
                 <img className="card-img-top" src={photo.thumbSrc} alt="Foto"/>
                 <div className="photo-overlay d-flex flex-column justify-content-center align-items-center">
                     <div className="d-flex flex-column" style={{ width: 'fit-content' }}>
