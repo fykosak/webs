@@ -14,6 +14,12 @@ parameters:
     static:
         url: 'https://static.fykos.cz/problems/'
 
+    #keycloak:
+    #    providerUrl: 'https://auth.fykos.cz/realms/fksdb/'
+    #    clientId: ''
+    #    clientSecret: ''
+    #    requiredGroup: ''
+
     # game API endpoint, used for FOL/FOF live results
     #gameApi:
     #    login: ''

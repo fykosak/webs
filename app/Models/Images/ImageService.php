@@ -139,6 +139,12 @@ final readonly class ImageService
         );
     }
 
+    public function removeEventImagesCache(EventModel $event, EventImageType $imageType): void
+    {
+        $imageDirectory = FileSystem::joinPaths($this->getEventImageDirectory($event), $imageType->value);
+        $this->cache->remove([$imageDirectory]);
+    }
+
     /**
      * @throws \Throwable
      */

@@ -1,0 +1,17 @@
+{varType App\Modules\Core\Language $lang}
+
+{foreach $newsList as $newsItem}
+    <div class="card mt-3">
+        <div class="card-body news-card color-{$newsItem->color->value}">
+            <div style="display: flex; justify-content: space-between;">
+                <h4 class="card-title">{$newsItem->getTitle()->$lang}</h4>
+                <div>
+                    <a href="{$newsItem->linkPath}" class="btn btn-primary btn-{$newsItem->color->value}">
+                        {$newsItem->getLinkText()->$lang}
+                    </a>
+                </div>
+            </div>
+            <p class="card-text">{$newsItem->getText()->$lang}</p>
+        </div>
+    </div>
+{/foreach}

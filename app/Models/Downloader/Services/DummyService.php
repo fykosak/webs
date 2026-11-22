@@ -8,7 +8,7 @@ use App\Models\Downloader\Downloaders\FKSDBDownloader;
 use Fykosak\FKSDBDownloaderCore\Requests\Request;
 use Nette\Caching\Storage;
 
-final class DummyService extends AbstractJSONService
+final class DummyService extends AbstractDownloaderService
 {
     public function __construct(string $expiration, Storage $storage, FKSDBDownloader $downloader)
     {
@@ -23,7 +23,7 @@ final class DummyService extends AbstractJSONService
      */
     public function get(Request $request, string $model, ?string $explicitExpiration = null): array
     {
-        return $this->getItem($request, [], $model, true, $explicitExpiration);
+        return $this->getRequestAsClass($request, [], $model, true, $explicitExpiration);
     }
 
     /**
@@ -34,6 +34,6 @@ final class DummyService extends AbstractJSONService
      */
     public function getFlat(Request $request, string $model, ?string $explicitExpiration = null): object
     {
-        return $this->getItem($request, [], $model, false, $explicitExpiration);
+        return $this->getRequestAsClass($request, [], $model, false, $explicitExpiration);
     }
 }
