@@ -39,7 +39,7 @@ V root složce se nachází script `setup.sh`. Ten po spuštění vykoná někol
 
 Postup:
 
-1. Spusťte setup script v **hlavní složce** pomocí `./setup.sh` (vulnerabilities ignorujte)
+1. Spusťte setup script v **hlavní složce** pomocí `./setup.sh`
 2. Vyplňte hodnoty požadované scriptem
 3. Běžte do podložky `docker` (`cd docker`)
 4. Spusťte docker kontejnery pomocí `docker compose up`
