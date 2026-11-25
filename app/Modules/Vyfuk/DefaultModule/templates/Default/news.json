@@ -1,6 +1,13 @@
 {
   "cs": [
       {
+        "title": "Zadání 3. série",
+        "text": "2. série je za námi. Čekání na výsledkovou listinu si můžete zkrátit řešením už 3. letošní série, která právě přistála na webu. Na její odevzdání máte čas do 4. ledna.",
+        "date": "25. listopadu 2026",
+        "link": ":Default:Problems:",
+        "link-text": "Zadání"
+      },
+      {
       "title": "Informace k Zimní víkendovce 2027",
       "text": "Již třetí Zimní víkendovka Výfuku se tento ročník uskuteční od 29. do 31. ledna 2027 ve skautském areálu Přelouč nedaleko Pardubic. Účast na akci mají zajištěnou řešitelé, kteří se po 2. sérii umístili na prvních 7 příčkách výsledkové listiny. Další vlna přihlašování však umožní účast i ostatním řešitelům. Více informací naleznete na stránkách víkendovek.",
       "date": "14. listopadu 2026",
@@ -20,13 +27,6 @@
       "date": "27. října 2026",
       "link": ":Default:Results:",
       "link-text": "Pořadí"
-    },
-    {
-      "title": "Zadání 2. série",
-      "text": "Máme za sebou konec 1. série, ve které jsme oslavili rekordní počet řešitelů. Opravování vašich prací proto bude také trvat o něco déle, avšak nezoufejte. Čekání si můžete zkrátit řešením 2. série 16. ročníku, jejíž zadání již naleznete na webu. Doufáme, že se do ní zapojíte stejně nadšeně jako do té první. Na vaše odevzdaná řešení se budeme těšit 23. listopadu ve 20:00.",
-      "date": "13. října 2026",
-      "link": ":Default:Problems:",
-      "link-text": "Zadání"
     }
   ]
 }
